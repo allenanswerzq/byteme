@@ -2,12 +2,27 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
 class Solution {
 public:
 	vector<int> twoSum(vector<int>& a, int tar) {
+		sort(a.begin(), a.end());
+		vector<int> ret;
+		int left = 0, right = a.size() - 1;
+		while (left < right) {
+			if (a[left] + a[right] == tar) {
+				ret.push_back(left);
+				ret.push_back(right);
+				return ret;
+			} else if (a[left] + a[right] < tar) left++;
+			else right--;
+		}
+		return ret;
+	}
+	vector<int> twoSum2(vector<int>& a, int tar) {
 		int n = a.size();
 		vector<int> ret;
 		map<int, int> m;
