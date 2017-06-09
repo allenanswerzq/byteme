@@ -1,6 +1,7 @@
 #include <algorithm>   // reverse sort
 #include <iostream>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
@@ -32,7 +33,7 @@ public:
 				long long result = 0; // need to be initialized
 				for (i=0; i<buf.size(); i++)
 					result = result*10 + buf[i];
-				if (result <= (1ll<<31ll - 1))
+				if (result <= INT_MAX)
 					return result;		
 				else
 					return -1;
