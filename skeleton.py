@@ -52,7 +52,8 @@ def generate_file(file_type, file_name):
         if file_type == "py":
             f.write(py)
             print("Written to", file_name)
-            os.system("gvim " + file_name)
+            # os.system("gvim " + file_name)
+            os.system("mvim " + file_name)
 
 
 if __name__ == "__main__":

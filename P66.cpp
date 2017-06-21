@@ -17,6 +17,21 @@ void printVector(vector<int>& v) {
         cout << x << " ";
     cout <<"] " << endl;
 }
+// more short and clear  code
+vector<int> plusOne(vector<int>& A) {
+	int i = A.size()-1;
+	int c = 0;
+    while (i>=0) {
+        if (i == A.size()-1) c += A[i] + 1;
+        else c += A[i];
+        A[i--] = c%10;
+        c /= 10;
+    }
+    if (c) 
+        A.insert(A.begin(), 1);
+    return A;
+}
+
 vector<int> plusOne(vector<int>& A) {
 	int n = A.size();
 	int i = n-1;
