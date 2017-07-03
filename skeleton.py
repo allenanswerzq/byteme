@@ -19,6 +19,7 @@ cpp = """\
 #include <map>
 #include <unordered_map>
 #include <set>
+#include <string>   // std:string std:stoi
 
 using namespace std;
 
