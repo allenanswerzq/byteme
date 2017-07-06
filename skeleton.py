@@ -20,6 +20,7 @@ cpp = """\
 #include <unordered_map>
 #include <set>
 #include <string>   // std:string std:stoi
+#include <queue>
 
 using namespace std;
 
