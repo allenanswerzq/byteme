@@ -21,6 +21,7 @@ cpp = """\
 #include <set>
 #include <string>   // std:string std:stoi
 #include <queue>
+#include <deque>
 
 using namespace std;
 
