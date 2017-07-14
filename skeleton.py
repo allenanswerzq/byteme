@@ -13,6 +13,7 @@ cpp = """\
 #include <cmath>
 #include <climits>
 #include <cstdlib>
+#include <ctype.h> // <cctype> isalpha isdigit
 #include <algorithm>
 #include <iostream>
 #include <vector>
