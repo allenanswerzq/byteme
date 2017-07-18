@@ -19,6 +19,7 @@ cpp = """\
 #include <vector>
 #include <map>
 #include <unordered_map>
+#include <unordered_set>
 #include <set>
 #include <string>   // std:string std:stoi
 #include <queue>
@@ -49,15 +50,15 @@ def generate_file(file_type, file_name):
         print("File already exists")
         return
     with open(file_name, 'w') as f:
+        cmd = "mvim " if sys.platform == "darwin" else "gvim "
         if file_type == "cpp":
             f.write(cpp)
             print("Written to", file_name)
-            os.system("gvim " + file_name)
+            os.system(cmd + file_name)
         if file_type == "py":
             f.write(py)
             print("Written to", file_name)
-            # os.system("gvim " + file_name)
-            os.system("mvim " + file_name)
+            os.system(cmd + file_name)
 
 
 if __name__ == "__main__":
