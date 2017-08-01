@@ -42,8 +42,6 @@ int main(int argc, char** argv) {
 py = """\
 #!/usr/bin/env python
 
-if __name__ == "__main__":
-
 """
 def generate_file(file_type, file_name):
     if os.path.isfile(file_name):
