@@ -46,6 +46,8 @@ py = """\
 def generate_file(file_type, file_name):
     if os.path.isfile(file_name):
         print("File already exists")
+        cmd = "mvim " if sys.platform == "darwin" else "gvim "
+        os.system(cmd + file_name)
         return
     with open(file_name, 'w') as f:
         cmd = "mvim " if sys.platform == "darwin" else "gvim "
