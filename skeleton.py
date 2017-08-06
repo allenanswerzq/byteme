@@ -22,6 +22,7 @@ cpp = """\
 #include <unordered_set>
 #include <set>
 #include <string>   // std:string std:stoi
+#include <sstream>  // std:istringstream
 #include <queue>
 #include <deque>
 
