@@ -10,6 +10,7 @@ Usage: skeleton type name
 
 cpp = """\
 #include <cstdio>  
+#include <stdio.h> // for using printf
 #include <cmath>
 #include <climits>
 #include <cstdlib>
@@ -25,14 +26,15 @@ cpp = """\
 #include <sstream>  // std:istringstream
 #include <queue>
 #include <deque>
+#include <iterator>
 
 using namespace std;
 
 void printVector(vector<int>& v) {
-    cout << "[ ";
+    printf("[ ");
     for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
+        printf("%d ", x); 
+    printf("]\\n");
 }
 
 int main(int argc, char** argv) {
