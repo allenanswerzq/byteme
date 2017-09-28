@@ -22,8 +22,10 @@ cpp = """\
 #include <unordered_set>
 #include <set>
 #include <string>   // std:string std:stoi
+#include <tuple>
 #include <queue>
 #include <deque>
+#include <stack>
 
 using namespace std;
 
