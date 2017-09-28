@@ -8,12 +8,10 @@
 #include <vector>
 #include <map>
 #include <unordered_map>
-<<<<<<< HEAD
 #include <unordered_set>
-=======
->>>>>>> eff689dfb01b33f975176908dc444c7f0098de7e
 #include <set>
 #include <string>   // std:string std:stoi
+#include <sstream>  // std:istringstream
 #include <queue>
 #include <deque>
 
@@ -26,21 +24,24 @@ void printVector(vector<int>& v) {
     cout <<"] " << endl;
 }
 
-// Perfect
-int findLongestChain(vector<vector<int>>& pairs) {
-    int n = pairs.size();
-    sort(pairs.begin(), pairs.end());
-    vector<int> dp(n, 0);
-    dp[0] = 1;
-    for (int i=1; i<n; ++i) {
-        for (int j=0; j<i; ++j) {
-            if (pairs[i][0] > pairs[j][1])
-                dp[i] = max(dp[i], dp[j]+1);
-            else 
-                dp[i] = max(dp[i], dp[j]);
+int findMin(vector<int>& nums) {
+    int n = nums.size();
+    int lo=0, hi=n-1;
+    int res = INT_MAX;
+    while (lo < hi) {
+        while(hi>=0 && nums[hi-1] == nums[hi]) --hi;
+        while(lo<n-1 && nums[lo+1] == nums[lo]) ++lo;
+        int mid = lo + (hi-lo)/2;
+        if (nums[mid] <= nums[hi]){
+            res = min(res, nums[mid]);
+            hi = mid-1;
+        } else {
+            res = min(res, nums[lo]);
+            lo = mid+1;
         }
     }    
-    return dp[n-1];
+    res = min(res, nums[lo]);
+    return res;
 }
 
 int main(int argc, char** argv) {

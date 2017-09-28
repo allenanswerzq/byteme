@@ -10,6 +10,7 @@ Usage: skeleton type name
 
 cpp = """\
 #include <cstdio>  
+#include <stdio.h> // for using printf
 #include <cmath>
 #include <climits>
 #include <cstdlib>
@@ -23,17 +24,19 @@ cpp = """\
 #include <set>
 #include <string>   // std:string std:stoi
 #include <tuple>
-#include <queue>
 #include <deque>
 #include <stack>
+#include <sstream>  // std:istringstream
+#include <queue>
+#include <iterator>
 
 using namespace std;
 
 void printVector(vector<int>& v) {
-    cout << "[ ";
+    printf("[ ");
     for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
+        printf("%d ", x); 
+    printf("]\\n");
 }
 
 int main(int argc, char** argv) {
@@ -43,7 +46,6 @@ int main(int argc, char** argv) {
 
 py = """\
 #!/usr/bin/env python
-
 
 """
 def generate_file(file_type, file_name):

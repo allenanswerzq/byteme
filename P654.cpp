@@ -8,12 +8,10 @@
 #include <vector>
 #include <map>
 #include <unordered_map>
-<<<<<<< HEAD
 #include <unordered_set>
-=======
->>>>>>> eff689dfb01b33f975176908dc444c7f0098de7e
 #include <set>
 #include <string>   // std:string std:stoi
+#include <sstream>  // std:istringstream
 #include <queue>
 #include <deque>
 
@@ -26,21 +24,24 @@ void printVector(vector<int>& v) {
     cout <<"] " << endl;
 }
 
-// Perfect
-int findLongestChain(vector<vector<int>>& pairs) {
-    int n = pairs.size();
-    sort(pairs.begin(), pairs.end());
-    vector<int> dp(n, 0);
-    dp[0] = 1;
-    for (int i=1; i<n; ++i) {
-        for (int j=0; j<i; ++j) {
-            if (pairs[i][0] > pairs[j][1])
-                dp[i] = max(dp[i], dp[j]+1);
-            else 
-                dp[i] = max(dp[i], dp[j]);
+TreeNode* build(vector<int>&num, int lo, int hi) {
+    int x = INT_MIN;
+    int k = 0;
+    for (int i=lo; i<=hi; ++i) 
+        if (num[i] > x) {
+            x = num[i];
+            k = i;
         }
-    }    
-    return dp[n-1];
+    TreeNode *root = new TreeNode(x);
+    if (k > lo)
+        root->left = build(num, lo, k-1);
+    if (k < hi)
+        root->right = build(num, k+1, hi); 
+    return root;
+}
+
+TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+    return build(nums, 0, nums.size()-1);        
 }
 
 int main(int argc, char** argv) {

@@ -8,10 +8,7 @@
 #include <vector>
 #include <map>
 #include <unordered_map>
-<<<<<<< HEAD
 #include <unordered_set>
-=======
->>>>>>> eff689dfb01b33f975176908dc444c7f0098de7e
 #include <set>
 #include <string>   // std:string std:stoi
 #include <queue>
@@ -26,23 +23,18 @@ void printVector(vector<int>& v) {
     cout <<"] " << endl;
 }
 
-// Perfect
-int findLongestChain(vector<vector<int>>& pairs) {
-    int n = pairs.size();
-    sort(pairs.begin(), pairs.end());
-    vector<int> dp(n, 0);
-    dp[0] = 1;
-    for (int i=1; i<n; ++i) {
-        for (int j=0; j<i; ++j) {
-            if (pairs[i][0] > pairs[j][1])
-                dp[i] = max(dp[i], dp[j]+1);
-            else 
-                dp[i] = max(dp[i], dp[j]);
-        }
-    }    
-    return dp[n-1];
-}
-
 int main(int argc, char** argv) {
+    vector<vector<string>> res;
+    res.push_back(vector<string> ({"aaaa"});
+    res.push_back(vector<string> ({"front"});
+    for (auto x: res) {
+        x.insert(x.begin(), "xxx");
+    } 
+
+    for (auto r: res) {
+        for (auto c: r) 
+            cout << c << " ";
+         cout <<endl;
+    }
     return 0;
 }

@@ -8,10 +8,7 @@
 #include <vector>
 #include <map>
 #include <unordered_map>
-<<<<<<< HEAD
 #include <unordered_set>
-=======
->>>>>>> eff689dfb01b33f975176908dc444c7f0098de7e
 #include <set>
 #include <string>   // std:string std:stoi
 #include <queue>
@@ -26,21 +23,25 @@ void printVector(vector<int>& v) {
     cout <<"] " << endl;
 }
 
+bool isPal(string s) {
+    if (s == "") return true;
+    int lo=0, hi=s.size()-1;
+    while (lo < hi) 
+        if (s[lo++] != s[hi--])
+            return false;
+    return true;
+}
 // Perfect
-int findLongestChain(vector<vector<int>>& pairs) {
-    int n = pairs.size();
-    sort(pairs.begin(), pairs.end());
-    vector<int> dp(n, 0);
-    dp[0] = 1;
-    for (int i=1; i<n; ++i) {
-        for (int j=0; j<i; ++j) {
-            if (pairs[i][0] > pairs[j][1])
-                dp[i] = max(dp[i], dp[j]+1);
-            else 
-                dp[i] = max(dp[i], dp[j]);
-        }
-    }    
-    return dp[n-1];
+int countSubstrings(string s) {
+    if (s == "") return 0;
+    int cnt = 0;
+    for (int j=0; j<s.size(); ++j) {
+        for (int i=1; i<=s.size()-j; ++i)
+           if (isPal(s.substr(j, i))) {
+               cnt++;
+           }
+    }
+    return cnt;
 }
 
 int main(int argc, char** argv) {
