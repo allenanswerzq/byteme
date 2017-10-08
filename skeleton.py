@@ -5,11 +5,11 @@ import os
 import sys
 
 usage = """\
-Usage: skeleton type name 
+Usage: skeleton type name
 """
 
 cpp = """\
-#include <cstdio>  
+#include <cstdio>
 #include <stdio.h> // for using printf
 #include <cmath>
 #include <climits>
@@ -35,8 +35,15 @@ using namespace std;
 void printVector(vector<int>& v) {
     printf("[ ");
     for (auto x:v)
-        printf("%d ", x); 
+        printf("%d ", x);
     printf("]\\n");
+}
+
+void printMatrix(vector<vector<int>>& v) {
+    printf("{\n");
+    for (auto x:v)
+    	printVector(x);
+    printf("}\n");
 }
 
 int main(int argc, char** argv) {
