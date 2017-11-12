@@ -11,20 +11,20 @@ void nextPermutation(vector<int>& A) {
    	for (int i=n-2; i>=0; --i) {
 		if (A[i] < A[i+1]) {
 			int minIdx = i+1;
-			for (int j=i+2; j<n; ++j) 
+			for (int j=i+2; j<n; ++j)
 				if (A[j] > A[i] && A[j] < A[minIdx])
 					minIdx = j;
 			swap(A[i], A[minIdx]);
 			sort(A.begin()+i+1, A.end());
 			return;
 		}
-	}	
-	sort(A.begin(), A.end());	
+	}
+	sort(A.begin(), A.end());
 }
 
 void printVector(vector<int> v) {
 	cout << "[";
-	for (int x : v) 
+	for (int x : v)
 		cout << x << " ";
 	cout << "]" << endl;
 }

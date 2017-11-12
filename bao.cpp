@@ -1,4 +1,4 @@
-#include <cstdio>  
+#include <cstdio>
 #include <cmath>
 #include <climits>
 #include <cstdlib>
@@ -31,18 +31,18 @@ void eat(vector<int>& val, vector<int>& dt, int k) {
 			if (val[i] > eat) {
 				eat = val[i];
 				idx = i;
-			} 
+			}
 		}
 	}
-	val[idx] = -120;	
+	val[idx] = -120;
 }
 
 int check(vector<int>& val, vector<int>& dt) {
-	int cnt = 0;	
+	int cnt = 0;
 	for (int i=0; i<val.size(); ++i) {
 		if (val[i] != -120) {
 			val[i] -= dt[i];
-			if(val[i] > 0) cnt++; 
+			if(val[i] > 0) cnt++;
 		}
 	}
 	return cnt;
@@ -52,7 +52,7 @@ int ff(vector<int>&val, vector<int>& dt, int m) {
 	eat(val, dt, m);
 	int t = check(val, dt);
 	if (t < m ) return t;
-	eat(val, dt, m);		
+	eat(val, dt, m);
 	return check(val, dt);
 
 }
@@ -62,12 +62,12 @@ int main(int argc, char** argv) {
 
 	scanf("%d %d", &n, &m);
 
-	vector<int> dt(n, 0);	
+	vector<int> dt(n, 0);
 	vector<int> val(n, 0);
 
 	for (int i=0; i<n; ++i) {
 		scanf("%d %d", &val[i], &dt[i]);
-	}	
+	}
 
 	for (int i=0; i<INT_MAX; ++i) {
 		int t;
@@ -76,11 +76,11 @@ int main(int argc, char** argv) {
 				if (val[i] == -120) printf("-1\n");
 				else if(val[i]<0 && val[i]!=-120) printf("0\n");
 				else printf("%d\n", val[i]);
-			}	
-			break;	
+			}
+			break;
 		}
 	}
-	
+
 	for () {
 	}
   return 0;

@@ -39,10 +39,10 @@ void printMatrix(vector<vector<int>>& v) {
 int path = 0;
 void dfs(vector<vector<int>>& grid, int x, int y, vector<vector<int>>& visit) {
     //printf("_________Enter_________\n");
-    int m = grid.size(), n = grid[0].size();
+  int m = grid.size(), n = grid[0].size();
 	vector<vector<int>> dirs = {{-1,0}, {1,0}, {0,-1}, {0,1}};
 	visit[x][y] = 1;
-    //printMatrix(visit);
+    //printMatrix(visit)
     //printf("(%d %d) --> ", x,y);
 	path++;
 	for (int i=0; i<4; ++i) {
@@ -64,7 +64,7 @@ void dfs(vector<vector<int>>& grid, int x, int y, vector<vector<int>>& visit) {
 int maxAreaOfIsland(vector<vector<int>>& grid) {
 	int res = 0;
 	int m = grid.size(), n = grid[0].size();
-    vector<vector<int>> visit(m, vector<int>(n,0));
+  vector<vector<int>> visit(m, vector<int>(n,0));
 	for (int i=0; i<m; ++i)
 		for (int j=0; j<n; ++j) {
 			if (grid[i][j] == 1) {

@@ -1,4 +1,4 @@
-#include <cstdio>  
+#include <cstdio>
 #include <cmath>
 #include <climits>
 #include <cstdlib>
@@ -28,7 +28,7 @@ void printVector(vector<int>& v) {
 // Max heap
 int findKthLargest(vector<int>& nums, int k) {
 	priority_queue<int> pq(nums.begin(), nums.end());
-	while (--k > 0) pq.pop();		
+	while (--k > 0) pq.pop();
 	return pq.top();
 }
 
@@ -48,7 +48,7 @@ int partition(vector<int>& nums, int l, int r) {
 }
 
 int findKthLargest(vector<int>& nums, int k) {
-	
+
 }
 
 int main(int argc, char** argv) {
