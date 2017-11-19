@@ -52,39 +52,32 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// dont fully understand need review
-vector<int> majorityElement(vector<int>& nums) {
-  int n = nums.size();
-  if (n <= 0) return {};
-  int c1=0, c2=0, candidate1=0, candidate2=1;
-  for (auto x: nums) {
-    if (x == candidate1)
-      c1++;
-    else if (x == candidate2)
-      c2++;
-    else if (c1 == 0) {
-      candidate1 = x;
-      c1 = 1;
-    } else if (c2 == 0) {
-      candidate2 = x;
-      c2 = 1;
-    } else {
-      c1--;
-      c2--;
-    }
-  }
-
-  int n1=0, n2=0;
-  for (auto x: nums) {
-     if (x == candidate1) n1++;
-     if (x == candidate2) n2++;
-  }
-  vector<int> res;
-  if (n1 > n/3) res.push_back(candidate1);
-  if (n2 > n/3) res.push_back(candidate2);
-  return res;
-}
-
 int main(int argc, char** argv) {
   return 0;
 }
+
+class MyCalendarTwo {
+public:
+    map<pair<int, int>> mp; // we must need ordered map to sort start time
+    MyCalendarTwo() {
+        
+    }
+
+    bool book(int start, int end) {
+      m[{end, -1}]++; // end time counter plus 1
+      m[{start,1}]++; // start time counter plus 1
+      // mp is sorted according to start time of events
+      int cnt = 0;
+      for (auto it : mp){
+        cnt += it.second * it.first.second; // current total book counter 
+        if (cnt >= 3) { // triple book occurs
+          // remove this one from mp
+          m[{end, -1}]--; 
+          m[{start,1}]--; 
+          return false; // this event can not be booked
+        }
+      }
+      return true;
+    }
+    
+};

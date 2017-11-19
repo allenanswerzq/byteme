@@ -52,37 +52,36 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// dont fully understand need review
-vector<int> majorityElement(vector<int>& nums) {
+//  sum[i] total sum from nums[0] to nums[i-1]
+int pivotIndex(vector<int>& nums) {
   int n = nums.size();
-  if (n <= 0) return {};
-  int c1=0, c2=0, candidate1=0, candidate2=1;
-  for (auto x: nums) {
-    if (x == candidate1)
-      c1++;
-    else if (x == candidate2)
-      c2++;
-    else if (c1 == 0) {
-      candidate1 = x;
-      c1 = 1;
-    } else if (c2 == 0) {
-      candidate2 = x;
-      c2 = 1;
-    } else {
-      c1--;
-      c2--;
-    }
-  }
+  vector<int> sum(n_1, 0); 
 
-  int n1=0, n2=0;
-  for (auto x: nums) {
-     if (x == candidate1) n1++;
-     if (x == candidate2) n2++;
-  }
-  vector<int> res;
-  if (n1 > n/3) res.push_back(candidate1);
-  if (n2 > n/3) res.push_back(candidate2);
-  return res;
+  for (int i=0; i<n; ++i)
+    sum[i+1] = sum[i] + nums[i];
+
+  for (int i=0; i<n; ++i) {
+    if (sum[i] == sum[n] - sum[i+1]) 
+      return i;
+  } 
+  return -1;
+}
+
+int pivotIndex(vector<int>& nums) {
+  int n = nums.size();
+  vector<int> a(n+1, 0), b(n+1, 0);
+  for (int i=0; i<n; ++i) 
+    a[i+1] = a[i] + nums[i];  // left side sum of current index i  
+
+  for (int i=n-2; i>=0; --i)
+    b[i] = b[i+1] + nums[i+1]; // right side sum of current index i
+
+  for (int i=0; i<=n; ++i) 
+    if (a[i] == b[i]) // if left sum equals right sum for current index i
+      return i;
+
+  return -1;
+
 }
 
 int main(int argc, char** argv) {

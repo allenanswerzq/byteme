@@ -52,39 +52,22 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// dont fully understand need review
-vector<int> majorityElement(vector<int>& nums) {
-  int n = nums.size();
-  if (n <= 0) return {};
-  int c1=0, c2=0, candidate1=0, candidate2=1;
-  for (auto x: nums) {
-    if (x == candidate1)
-      c1++;
-    else if (x == candidate2)
-      c2++;
-    else if (c1 == 0) {
-      candidate1 = x;
-      c1 = 1;
-    } else if (c2 == 0) {
-      candidate2 = x;
-      c2 = 1;
-    } else {
-      c1--;
-      c2--;
-    }
-  }
-
-  int n1=0, n2=0;
-  for (auto x: nums) {
-     if (x == candidate1) n1++;
-     if (x == candidate2) n2++;
-  }
-  vector<int> res;
-  if (n1 > n/3) res.push_back(candidate1);
-  if (n2 > n/3) res.push_back(candidate2);
-  return res;
-}
-
 int main(int argc, char** argv) {
   return 0;
+}
+
+// Strobogrammatic Number II return all the Strobogrammatic Numbers with length n
+vector<string> findStrobogrammatic(int n) {
+  vector<string> ret;
+  vector<string> template = {"00", "11", "88", "96", "69"};
+  if (n & 1) ret = {"0", "1", "8"};
+  while (n > 1) {
+    n -= 2;  // each time add two characters on both sides of ret string
+    vector<string> tmp;
+    for (auto s : ret)
+      for (int i=0; i<tmplate.size(); ++i)
+        tmp.push_back(template[i][0] + s + tmplate[i][1]); 
+    ret = tmp;
+  }
+  return ret;
 }

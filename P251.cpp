@@ -52,39 +52,41 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// dont fully understand need review
-vector<int> majorityElement(vector<int>& nums) {
-  int n = nums.size();
-  if (n <= 0) return {};
-  int c1=0, c2=0, candidate1=0, candidate2=1;
-  for (auto x: nums) {
-    if (x == candidate1)
-      c1++;
-    else if (x == candidate2)
-      c2++;
-    else if (c1 == 0) {
-      candidate1 = x;
-      c1 = 1;
-    } else if (c2 == 0) {
-      candidate2 = x;
-      c2 = 1;
-    } else {
-      c1--;
-      c2--;
-    }
-  }
-
-  int n1=0, n2=0;
-  for (auto x: nums) {
-     if (x == candidate1) n1++;
-     if (x == candidate2) n2++;
-  }
-  vector<int> res;
-  if (n1 > n/3) res.push_back(candidate1);
-  if (n2 > n/3) res.push_back(candidate2);
-  return res;
-}
-
 int main(int argc, char** argv) {
   return 0;
 }
+
+class Vector2D {
+    vector<vector<int>>::iterator row_it, row_end;
+    vector<int>::iterator col_it;
+public:
+    Vector2D(vector<vector<int>>& vec2d) {
+        row_it = vec2d.begin();
+        row_end = vec2d.end();
+        while(row_it!=row_end && row_it->empty()) row_it++;
+        if(row_it!=row_end) col_it = row_it->begin();
+    }
+
+    int next() {
+        int v = *col_it;
+        col_it++;
+        if(col_it==row_it->end()){
+            row_it++;
+            while(row_it!=row_end && row_it->empty()) row_it++; // skip empty rows
+            if(row_it!=row_end) col_it = row_it->begin();
+        }
+        return v;
+    }
+
+    bool hasNext() {
+       if(row_it==row_end) return false;
+       return true;
+    }
+};
+
+/**
+ * Your Vector2D object will be instantiated and called as such:
+ * Vector2D i(vec2d);
+ * while (i.hasNext()) cout << i.next();
+ *
+ /

@@ -52,39 +52,32 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// dont fully understand need review
-vector<int> majorityElement(vector<int>& nums) {
-  int n = nums.size();
-  if (n <= 0) return {};
-  int c1=0, c2=0, candidate1=0, candidate2=1;
-  for (auto x: nums) {
-    if (x == candidate1)
-      c1++;
-    else if (x == candidate2)
-      c2++;
-    else if (c1 == 0) {
-      candidate1 = x;
-      c1 = 1;
-    } else if (c2 == 0) {
-      candidate2 = x;
-      c2 = 1;
-    } else {
-      c1--;
-      c2--;
-    }
-  }
-
-  int n1=0, n2=0;
-  for (auto x: nums) {
-     if (x == candidate1) n1++;
-     if (x == candidate2) n2++;
-  }
-  vector<int> res;
-  if (n1 > n/3) res.push_back(candidate1);
-  if (n2 > n/3) res.push_back(candidate2);
-  return res;
-}
-
 int main(int argc, char** argv) {
   return 0;
+}
+
+// Use extra space
+vector<int> productExceptSelf(vector<int>& nums) {
+  int n = nums.size();
+  vector<int> left(n, 1), right(n, 1);          
+  for (int i=1; i<n; ++i) 
+    left[i] = left[i-1] * nums[i-1];  // left side product of current i
+  for (int i=n-2; i>=0; --i)
+    right[i] = right[i+1] * nums[i+1]; // right side product of current i
+  for (int i=0; i<n; ++i)
+    left[i] *= right[i];
+  return left;
+}
+
+// Dont use extra space
+vector<int> productExceptSelf(vector<int>& nums) {
+  int n = nums.size();
+  vector<int> product(n, 1);          
+  for (int i=1; i<n; ++i) 
+    product[i] = product[i-1] * nums[i-1];
+  for (int i=n-1, r=1; i>=0; i--) {
+    product[i] *= r; 
+    r *= nums[i];
+  }
+  return product;
 }

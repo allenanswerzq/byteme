@@ -52,37 +52,34 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// dont fully understand need review
-vector<int> majorityElement(vector<int>& nums) {
-  int n = nums.size();
-  if (n <= 0) return {};
-  int c1=0, c2=0, candidate1=0, candidate2=1;
-  for (auto x: nums) {
-    if (x == candidate1)
-      c1++;
-    else if (x == candidate2)
-      c2++;
-    else if (c1 == 0) {
-      candidate1 = x;
-      c1 = 1;
-    } else if (c2 == 0) {
-      candidate2 = x;
-      c2 = 1;
-    } else {
-      c1--;
-      c2--;
-    }
-  }
+// global variables 
+int num;
+int res;
+void inOrder(TreeNode*root) {
+  if (!root) return;
+  inOrder(root->left);
+  num--;
+  if (num == 0) res = root->val;
+  inOrder(root->right);
+}
 
-  int n1=0, n2=0;
-  for (auto x: nums) {
-     if (x == candidate1) n1++;
-     if (x == candidate2) n2++;
-  }
-  vector<int> res;
-  if (n1 > n/3) res.push_back(candidate1);
-  if (n2 > n/3) res.push_back(candidate2);
+int kthSmallest(TreeNode* root, int k) {
+  num = k;
+  inOrder(root);        
   return res;
+}
+
+// 
+int inOrder(TreeNode* root, int& k) { // note & symbol
+  if (!root) return -1;
+  int x = inOrder(root->left, k);
+  if (k == 0) return x;           // find kth in left subtree
+  if (--k == 0) return root->val; // find kth in root node
+  return inOrder(root->right, k);
+}
+
+int kthSmallest(TreeNode* root, int k) {
+  return inOrder(root, k);
 }
 
 int main(int argc, char** argv) {

@@ -52,39 +52,29 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// dont fully understand need review
-vector<int> majorityElement(vector<int>& nums) {
-  int n = nums.size();
-  if (n <= 0) return {};
-  int c1=0, c2=0, candidate1=0, candidate2=1;
-  for (auto x: nums) {
-    if (x == candidate1)
-      c1++;
-    else if (x == candidate2)
-      c2++;
-    else if (c1 == 0) {
-      candidate1 = x;
-      c1 = 1;
-    } else if (c2 == 0) {
-      candidate2 = x;
-      c2 = 1;
-    } else {
-      c1--;
-      c2--;
-    }
-  }
-
-  int n1=0, n2=0;
-  for (auto x: nums) {
-     if (x == candidate1) n1++;
-     if (x == candidate2) n2++;
-  }
-  vector<int> res;
-  if (n1 > n/3) res.push_back(candidate1);
-  if (n2 > n/3) res.push_back(candidate2);
-  return res;
-}
-
 int main(int argc, char** argv) {
   return 0;
+}
+
+// Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
+// 
+// For example,
+// Assume that words = ["practice", "makes", "perfect", "coding", "makes"].
+// 
+// Given word1 = “coding”, word2 = “practice”, return 3.
+// Given word1 = "makes", word2 = "coding", return 1.
+// 
+
+int shortestDistance(vector<string> words, string word1, string word2) {
+  int m = -1, n = -1; 
+  int ret = INT_MAX;
+  for (int i=0; i<words.size(); ++i) {
+    if (words[i] == word1)
+      m = i;
+    if (words[i] == word2)
+      n = i;
+    if (m!=-1 && n!=-1)
+      ret = min(ret, abs(m-n));
+  }
+  return ret;
 }

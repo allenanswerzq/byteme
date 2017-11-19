@@ -52,37 +52,36 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// dont fully understand need review
-vector<int> majorityElement(vector<int>& nums) {
-  int n = nums.size();
-  if (n <= 0) return {};
-  int c1=0, c2=0, candidate1=0, candidate2=1;
-  for (auto x: nums) {
-    if (x == candidate1)
-      c1++;
-    else if (x == candidate2)
-      c2++;
-    else if (c1 == 0) {
-      candidate1 = x;
-      c1 = 1;
-    } else if (c2 == 0) {
-      candidate2 = x;
-      c2 = 1;
-    } else {
-      c1--;
-      c2--;
-    }
-  }
+ListNode* reverse(ListNode* head) {
+  if (!head) return NULL;
+  ListNode*pre=NULL, *nxt=NULL;
+  while (head) {
+    nxt = head->next;
+    head->next = pre;
+    pre = head;
+    head = nxt;
+  }  
+  return pre; 
+}
 
-  int n1=0, n2=0;
-  for (auto x: nums) {
-     if (x == candidate1) n1++;
-     if (x == candidate2) n2++;
+bool isPalindrome(ListNode* head) {
+  if (!head || !head->next) return true;
+  ListNode* slow=head;
+  ListNode* fast=head;
+  ListNode* h = head;
+  while (fast->next && fast->next->next) {
+    slow = slow->next;
+    fast = fast->next->next;
   }
-  vector<int> res;
-  if (n1 > n/3) res.push_back(candidate1);
-  if (n2 > n/3) res.push_back(candidate2);
-  return res;
+  slow->next = reverse(slow->next);
+  slow = slow->next;
+  while (slow) {
+    if (h->val != slow->val)
+      return false;
+    h = h->next;
+    slow = slow->next;
+  }
+  return true;
 }
 
 int main(int argc, char** argv) {

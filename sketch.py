@@ -76,7 +76,7 @@ def generate_file(file_type, file_name):
 
     if os.path.isfile(file_name):
         print("File already exists")
-        cmd = "subl " if sys.platform == "darwin" else "gvim "
+        cmd = "subl " if sys.platform == "darwin" else "subl "
         os.system(cmd + file_name)
         return
     with open(file_name, 'w') as f:

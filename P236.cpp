@@ -52,39 +52,28 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// dont fully understand need review
-vector<int> majorityElement(vector<int>& nums) {
-  int n = nums.size();
-  if (n <= 0) return {};
-  int c1=0, c2=0, candidate1=0, candidate2=1;
-  for (auto x: nums) {
-    if (x == candidate1)
-      c1++;
-    else if (x == candidate2)
-      c2++;
-    else if (c1 == 0) {
-      candidate1 = x;
-      c1 = 1;
-    } else if (c2 == 0) {
-      candidate2 = x;
-      c2 = 1;
-    } else {
-      c1--;
-      c2--;
-    }
-  }
-
-  int n1=0, n2=0;
-  for (auto x: nums) {
-     if (x == candidate1) n1++;
-     if (x == candidate2) n2++;
-  }
-  vector<int> res;
-  if (n1 > n/3) res.push_back(candidate1);
-  if (n2 > n/3) res.push_back(candidate2);
-  return res;
-}
-
 int main(int argc, char** argv) {
   return 0;
 }
+
+TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+  if (!root || root==p || root==q) return root;
+  TreeNode *left = lowestCommonAncestor(root->left, p, q);
+  TreeNode *right = lowestCommonAncestor(root->right, p, q);
+  if (left && !right) return left;
+  if (!left && right) return right;
+  if (left && right) return root;
+  return NULL; // never reach here
+}
+
+// python version
+def lowestCommonAncestor(self, root, p, q):
+  if root in (None, p, q): return root
+  left, right = (self.lowestCommonAncestor(kid, p, q) 
+                  for kid in (root.left, root.right)) 
+  return root if left and right else left or right
+
+def lowestCommonAncestor(self, root, p, q):
+  subs = [self.lowestCommonAncestor(kid, p, q)
+          for kid in (root.left, root.right)]
+  return root if all(subs) else max(subs)

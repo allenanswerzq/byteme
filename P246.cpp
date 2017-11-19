@@ -52,39 +52,21 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// dont fully understand need review
-vector<int> majorityElement(vector<int>& nums) {
-  int n = nums.size();
-  if (n <= 0) return {};
-  int c1=0, c2=0, candidate1=0, candidate2=1;
-  for (auto x: nums) {
-    if (x == candidate1)
-      c1++;
-    else if (x == candidate2)
-      c2++;
-    else if (c1 == 0) {
-      candidate1 = x;
-      c1 = 1;
-    } else if (c2 == 0) {
-      candidate2 = x;
-      c2 = 1;
-    } else {
-      c1--;
-      c2--;
-    }
-  }
-
-  int n1=0, n2=0;
-  for (auto x: nums) {
-     if (x == candidate1) n1++;
-     if (x == candidate2) n2++;
-  }
-  vector<int> res;
-  if (n1 > n/3) res.push_back(candidate1);
-  if (n2 > n/3) res.push_back(candidate2);
-  return res;
-}
-
 int main(int argc, char** argv) {
   return 0;
+}
+
+bool isStrobogrammatic(string num) {
+  unordered_map<char, char> mp{
+    {'0': '0'},
+    {'1': '1'},
+    {'6': '9'}, 
+    {'9': '6'}, 
+    {'8': '8'} 
+  };
+  for (int i=0,r=num.size()-1; i<num.size(),r>=0; ++i,r--) {
+    if (mp.find[num[i]] == mp.end()) return false;
+    if (mp.find[num[i]] != num[r]) return false;  // if the number is different after rotated 180
+  }
+  return true;
 }

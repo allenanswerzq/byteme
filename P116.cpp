@@ -32,7 +32,7 @@ void connect(TreeLinkNode *root) {
         for (int i=0; i<n; ++i) {
             TreeLinkNode* h = q.front(); q.pop();
             if (i>=0 && i<n-1 && n>1) 
-                h->next =  q.front();
+                h->next = q.front();
             
             if (h->left)
                 q.push(h->left);
