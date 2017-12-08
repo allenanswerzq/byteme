@@ -56,7 +56,26 @@ int main(int argc, char** argv) {
   return 0;
 }
 
-int countPalindromicSubsequences(string S) {
-  map<string, int> mp;        
-  for 
+vector<string> binaryTreePaths(TreeNode* root) {
+  if (!root) return {};
+  if (!root->left && !root->right) return {to_string(root->val)};
+  vector<string> ret;  
+  vector<string> left = binaryTreePaths(root->left);
+  vector<string> right = binaryTreePaths(root->right);
+  for (auto s : left) {
+    s = to_string(root->val) + "->" + s;
+    ret.push_back(s);
+  } 
+  for (auto s : right) {
+    s = to_string(root->val) + "->" + s;
+    ret.push_back(s);
+  } 
+  return ret;
 }
+
+def binaryTreePaths(self, root):
+    if not root:
+        return []
+    return [str(root.val) + '->' + path
+            for kid in (root.left, root.right) if kid
+            for path in self.binaryTreePaths(kid)] or [str(root.val)]

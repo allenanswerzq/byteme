@@ -56,7 +56,26 @@ int main(int argc, char** argv) {
   return 0;
 }
 
-int countPalindromicSubsequences(string S) {
-  map<string, int> mp;        
-  for 
+//Given a list of houses and the cost of painting each house, 
+//the houses can be painted in three colors RED, GREEN and BLUE, 
+//two neighboring houses can’t be painted in the same color, 
+//calculate the total minimum cost for painting all houses.
+
+
+// Input contains N rows and each row have three costs with respct to three colors 
+int minCost(vector<vector<int>>& costs) {
+  int n = costs.size();
+  for (int i=1; i<n; ++i) {
+    costs[i][0] += min(costs[i-1][1], costs[i-1][2]);
+    costs[i][1] += min(costs[i-1][0], costs[i-1][2]);
+    costs[i][2] += min(costs[i-1][0], costs[i-1][1]);
+  }
+  return n==0 ? 0: min(min(costs[n-1][0], costs[n-1][1]), costs[n-1][2]) 
 }
+
+// Also a very good python approach
+def minCost(self, costs):
+    prev = [0] * 3
+    for now in costs:
+        prev = [now[i] + min(prev[:i] + prev[i+1:]) for i in range(3)]
+    return min(prev)

@@ -80,8 +80,8 @@ void dfs(string low, string high, vector<char>& buf, int lo, int hi, int& count,
 
     if (buf.size()>1 && buf[0]=='0') // first character of a valid number should not be 0
       continue; 
-    if (lo==hi && p.first!=p.second) // length is odd
-      continue;
+
+          continue;
     // recusively construct other characters
     dfs(low, high, buf, lo+1, hi-1, count, path, pairs);
   }

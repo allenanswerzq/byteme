@@ -56,7 +56,28 @@ int main(int argc, char** argv) {
   return 0;
 }
 
-int countPalindromicSubsequences(string S) {
-  map<string, int> mp;        
-  for 
+// Previous event's end time shouldn't greater than next event's start time
+bool canAttendMeetings(vector<Interval>& intervals) {
+  sort(intervals.begin(), intervals.end(), [](const Interval &a, const Interval &b) {
+   return a.start < b.start; 
+  });
+  int n = intervals.size();
+  for (int i=0; i<n-1; ++i)
+    if (intervals[i].end > intervals[i+1].start)
+      return false;
+  return true;
+}
+
+bool canAttendMeetings(vector<Interval>& intervals) {
+  map<pair<int,int>> mp;
+  for (auto t : intervals) {
+    mp[{t.start, 1}]++;
+    mp[{t.end, -1}]++;
+  }
+  for (auto it : mp) {
+    s += it.second * it.first.second;
+    if (s >= 2) // One person can only attend one meeting at fixed time
+      return false;
+  }
+  return true;
 }
