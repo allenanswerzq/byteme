@@ -52,6 +52,7 @@ bool isPowerOfTwo(int x) {
 }
 
 int countOne (int n){
+  int count =0;
   while( n ){
     n = n&(n-1);
     count++;
@@ -76,11 +77,11 @@ def generate_file(file_type, file_name):
 
     if os.path.isfile(file_name):
         print("File already exists")
-        cmd = "subl " if sys.platform == "darwin" else "subl "
+        cmd = "code " if sys.platform == "darwin" else "code "
         os.system(cmd + file_name)
         return
     with open(file_name, 'w') as f:
-        cmd = "subl "
+        cmd = "code "
         if file_type == "cpp":
             f.write(cpp)
             print("Written to", file_name)

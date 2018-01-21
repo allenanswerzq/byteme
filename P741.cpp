@@ -36,8 +36,9 @@ void printMatrix(vector<vector<int>>& v) {
 }
 
 bool isPowerOfTwo(int x) {
-  return (x && !(x & (x-1)));
-  }
+  //return (x && !(x & (x-1)));
+  return x* !(x&(x-1)) > 0;
+}
 
 int countOne (int n){
   while( n ){
@@ -49,16 +50,6 @@ int countOne (int n){
 
 char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
-}
-
-int overloap(int x1, int w1, int x2, int w2) {
-  
-}
-
-int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
-	int left = max(A, E), right = max(min(C, G), left);        
-	int bottom = max(B, F), top = max(min(D, H), bottom);
-	return (C-A)*(D-B) + (G-E)*(H-F) - (right-left)*(top-bottom);
 }
 
 int main(int argc, char** argv) {

@@ -94,7 +94,7 @@ def validTree(self, n, edges):
 
 	def union(xy):
 		x, y = map(find, xy)		
-		if x == y: 					 # if two vertices have a some parent means cycle occurs 
+		if x == y: 					 # if two vertices have a same parent means cycle occurs 
 			return false
 		parent[x] = y	
 
