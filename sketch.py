@@ -63,7 +63,7 @@ def generate_file(file_type, file_name):
         os.system(cmd + file_name)
         return
     with open(file_name, 'w') as f:
-        cmd = "code "
+        cmd = "subl "
         if file_type == "cpp":
             f.write(cpp)
             print("Written to", file_name)
