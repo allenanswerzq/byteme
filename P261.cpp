@@ -67,7 +67,7 @@ bool Graph::isCyclic() {
 }
 
 int main() {
-	Graph g1(5);
+  Graph g1(5);
   g1.addEdge(1, 0);
   g1.addEdge(0, 2);
   g1.addEdge(2, 0);
