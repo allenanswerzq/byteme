@@ -98,7 +98,7 @@ public:
           } 
         }
         if (area > 0)
-          res.pb(area-1);
+          res.pb(area - 1);
       }
     }
     sort(all(res));
