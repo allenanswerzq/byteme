@@ -79,7 +79,7 @@ public:
     vector<vi> dirs = {{0,1}, {0, -1}, {1, 0}, {-1, 0}};
     fori(i, 0, 400) {
       fori(j, 0, 600) {
-        // If <i,j> is not visited compute the area that can be reached
+        // If <i,j> is ntt visited compute the area that can be reached
         int area = 0;
         if (! visit[i][j]) {
           deque<pii> Q;

@@ -39,42 +39,27 @@ using namespace std;
 #define se second
 #define mp make_pair
 #define pb push_back
+#define pf pop_front
+#define ppb pop_back
+#define pvi(x) fora(r, x) cout << r << ' '; cout << '\n'
 #define cerr(x) cerr << #x " is " << (x) << endl
-#define mst(x, n, m, v) fori(i, 0, n) fori(j, 0, m) x[i][j] = v
-const double EPS = 1e-9;
-int cmp(double x, double y = 0, double tol = EPS) {
+#define prt(x, n) fori(i, 0, n) cout << x[i] << " "; cout << "\n"
+#define prt2(x, n, m) fori(i, 0, n) {fori(j, 0, m) cout << x[i][j] << " "; \
+        cout << "\n"; } cout << "\n"
+#define mst(x, n, v) fori(i, 0, n) x[i] = v
+#define mst2(x, n, m, v) fori(i, 0, n) fori(j, 0, m) x[i][j] = v
+#define mst3(x, n, m, c, v) \
+        fori(i, 0, n) \
+          fori(j, 0, m) \
+            fori(k, 0, c) \
+              x[i][j][k] = v
+const double eps = 1e-9;
+int cmp(double x, double y = 0, double tol = eps) {
   return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
 }
 
-int mem[10][10];
-
+// TODO(): 
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
-  // for (float i=0.0; i<=2.0; i+=0.01) {
-  //   printf("%f\n", i);
-  // }
-  // mst(mem, 10, 10, 2);
-  memset(mem, -2, sizeof mem);
-  fori(i, 0, 10)
-    fori(j, 0, 10)
-      cout << mem[i][j] << ' ';
-
-  // printf("=>\n");
-  // printf("%f\n", (3.14 + 1e20) - 1e20);
-  // printf("%f\n", 3.14 + (1e20 - 1e20));
-  // printf("%f\n", (3.14 + 1e10) - 1e10);
-  // printf("%f\n", 3.14 + (1e10 - 1e10));
-
-  // // Effects of c promotion rules
-  // printf("=>\n");
-  // printf("%d\n", -1 < 0u);
-  // printf("%d\n", -1 < 0);
-
-  // printf("=>\n");
-  // printf("%d\n", 2147483647 > -2147483647-1);
-  // printf("%d\n", 2147483647u > -2147483647-1);
-  // printf("%x %x\n", 2147483647, -2147483647-1);
-  // printf("%d\n", (int)2147483648u);
-
   return 0;
 }

@@ -41,6 +41,7 @@ bool isPowerOfTwo(int x) {
 }
 
 int countOne (int n){
+  int count = 0;
   while( n ){
     n = n&(n-1);
     count++;
@@ -48,10 +49,12 @@ int countOne (int n){
   return count;
 }
 
+
 char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
 int main(int argc, char** argv) {
+  cout << countOne(33) << "\n";
   return 0;
 }
