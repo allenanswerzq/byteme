@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <iostream>
-#include <algorithm> // sort
-#include <vector>
-#include <array>
+#include<bits/stdc++.h>
 
 using namespace std;
 

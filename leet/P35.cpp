@@ -1,11 +1,4 @@
-#include <cstdio>  
-#include <iostream>
-#include <cstdlib>
-#include <algorithm>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -15,6 +8,13 @@ printVector(vector<int>& v) {
             cout << x << " ";
     cout <<"] " << endl;
 }
+
+class Solution {
+public:
+  int searchInsert(vector<int>& nums, int target) {
+    return (lower_bound(all(nums), target) - nums.begin());
+  }
+};
 
 int searchInsert(vector<int>& A, int target) {
 	int lo = 0, hi = A.size()-1;

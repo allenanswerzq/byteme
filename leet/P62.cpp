@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -17,6 +8,7 @@ void printVector(vector<int>& v) {
         cout << x << " ";
     cout <<"] " << endl;
 }
+
 // perfect it accepted
 int uniquePathsWithObstacles(vector<vector<int>>& A) {
 	int m = A.size(), n = A[0].size();
@@ -31,6 +23,7 @@ int uniquePathsWithObstacles(vector<vector<int>>& A) {
 		}	
 	return dp[m-1][n-1];
 }
+
 // optimized for extra space
 // NOTE: vector variable can directly assign
 // like a = b or

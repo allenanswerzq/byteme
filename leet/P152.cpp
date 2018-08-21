@@ -1,19 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <sstream>  // std:istringstream
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -47,7 +32,7 @@ int maxProduct(vector<int>& nums) {
 // need review
 int maxProduct(vector<int>& nums) {
     int res = nums[0];
-    for (int i=1, x=r, y=r; i<n; ++i) {
+    for (int i=1, x=res, y=res; i<n; ++i) {
         if (nums[i] < 0)
             swap(x, y);
         x = max(x, nums[i]*x);

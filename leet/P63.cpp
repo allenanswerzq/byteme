@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -17,6 +8,7 @@ void printVector(vector<int>& v) {
         cout << x << " ";
     cout <<"] " << endl;
 }
+
 // it accepted!!!
 int uniquePathsWithObstacles(vector<vector<int>>& A) {
 	int m = A.size(), n = A[0].size();
@@ -24,16 +16,12 @@ int uniquePathsWithObstacles(vector<vector<int>>& A) {
 	// below init part code can be improve
 	dp[0][0] = A[0][0]==0 ? 1:0;
 	for (int i=1; i<n; ++i) 
-		if (dp[0][i-1]==0 || A[0][i]==1)
-			dp[0][i] = 0;
-		else
-			dp[0][i] = 1;
+		if (dp[0][i-1]==0 || A[0][i]==1) dp[0][i] = 0;
+		else dp[0][i] = 1;
 		
 	for (int i=1; i<m; ++i) 
-		if (dp[i-1][0]==0 || A[i][0]==1)
-			dp[i][0] = 0;
-		else
-			dp[i][0] = 1;
+		if (dp[i-1][0]==0 || A[i][0]==1) dp[i][0] = 0;
+		else dp[i][0] = 1;
 	//
 	for (int i=1; i<m; ++i)
 		for (int j=1; j<n; ++j) {

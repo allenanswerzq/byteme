@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
+#include<bits/stdc++.h>
 
 int sum(vector<int>& A, int start, int end) {
 	int sum = 0;
@@ -30,6 +28,7 @@ int maxSubArray(vector<int>& A) {
 	}
 	return res;
 }
+
 // dp approach
 // dp(i) means maximum subarray ends with A[i]
 // dp(i) = A[i] + dp(i-1) if dp(i-1) > 0

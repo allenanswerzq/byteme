@@ -1,18 +1,11 @@
-#include <cstdio>  
-#include <iostream>
-#include <cstdlib>
-#include <algorithm> //lower_bound upper_bound equal_range
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
-# Three approachs to solve this problem
-# Approach #1 binary_search
-# Approach #2 find left and right bound
-		   #2 also use standard library
-# Approach #3 divide and conquer
+// # Three approachs to solve this problem
+// # Approach #1 binary_search
+// # Approach #2 find left and right bound
+// 		   #2 also use standard library
+// # Approach #3 divide and conquer
 
 vector<int> searchRange1(vector<int>& A, int target) {
 	int n = A.size();
@@ -31,13 +24,13 @@ vector<int> searchRange1(vector<int>& A, int target) {
 		}else if (A[mid] > target) {
 			right = mid - 1;
 		}else{
-		   	left = mid + 1;
+		  left = mid + 1;
 		}
 	}
 	return vector<int>({-1, -1});
 }
 
-printVector(vector<int>& v) {
+void printVector(vector<int>& v) {
 	cout << "[";
 	for (int x:v)
 		cout << x << " ";
@@ -68,6 +61,6 @@ int main(int argc, char** argv) {
 	int x = 0;
 	if (argc > 1)
 		x = atoi(argv[1]);
-	cout << search(v, x);
+	cout << search1(v, x);
     return 0;
 }

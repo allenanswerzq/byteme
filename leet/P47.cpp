@@ -1,33 +1,26 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
 void printVector(vector<int>& v) {
     cout << "[ ";
     for (int x:v)
-            cout << x << " ";
+      cout << x << " ";
     cout <<"] " << endl;
 }
 
 void bt(vector<int>& A, vector<int>& ans, vector<vector<int>>& res, vector<bool>& visit) {
 	int n = A.size();
 	if (ans.size() == n) {
-		printVector(ans);
+		// printVector(ans);
 		res.push_back(ans);
 		return;
 	}	
+
 	for(int i=0; i<n; ++i) {
 		if (visit[i]) continue;
 		if (i>0 && A[i]==A[i-1] && visit[i-1]) continue;
+		// cout << i << " " << A[i] << endl;
 		visit[i] = true;
 		ans.push_back(A[i]);
 		bt(A, ans, res, visit); 
@@ -48,7 +41,9 @@ vector<vector<int>> permute(vector<int>& A) {
 int main(int argc, char** argv) {
 	int n[] = {1, 1, 2};
 	vector<int> v(n, n+3);
-	permute(v);
-    return 0;
+	vector<vector<int>> res = permute(v);
+	for (auto &a: res)
+		printVector(a);
+  return 0;
 }
 

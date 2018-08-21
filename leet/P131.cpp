@@ -1,27 +1,6 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
-
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
-}
 
 bool isPalindrome(string s) {
     if (s == "") return true;
@@ -51,6 +30,7 @@ void bt(vector<vector<string>>& res, vector<string> ans, string s) {
         }
     }
 }
+
 // Backtracking approach
 // Accepted
 vector<vector<string>> partition(string s) {
@@ -71,7 +51,7 @@ vector<vector<string>> partition(string s) {
         if (isPalindrome(front)) {
             rest = partition(s.substr(i));
             if (rest.size() == 0) {
-                res.push_back(vector<string> ({front}));
+                res.push_back({front});
             } else {
                 for (auto x: rest) {
                     x.insert(x.begin(), front);

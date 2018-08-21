@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -25,15 +16,13 @@ int minDistance(string w1, string w2) {
     // initialize 
     // 0 means pos in w1
     // i means pos in w2
-    for (int i=0; i<=n; i++)
-        dp[0][i] = i;     
-    for (int i=0; i<=m; i++)
-       dp[i][0] = i;        
+    for (int i=0; i<=n; i++) dp[0][i] = i;     
+    for (int i=0; i<=m; i++) dp[i][0] = i;        
     for (int i=1; i<=m; ++i) 
         for (int j=1; j<=n; ++j) {
             int t = min(dp[i-1][j] + 1,     // delection 
                         dp[i][j-1] + 1);    // insertion
-            dp[i][j] = min(t, w1[i-1]==w2[j-1] ? dp[i-1][j-1]:dp[i-1][j-1]+1);
+            dp[i][j] = min(t, w1[i-1]==w2[j-1] ? dp[i-1][j-1] : dp[i-1][j-1] + 1);
         }
     return dp[m][n];
 }

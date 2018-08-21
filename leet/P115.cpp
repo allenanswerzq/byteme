@@ -1,16 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -51,6 +39,7 @@ int numDistinct(string s, string t) {
         }
     return dp[n][m];
 }
+
 // optimized for space
 int numDistinct(string s, string t) {
 }

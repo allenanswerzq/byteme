@@ -1,7 +1,6 @@
+#include<bits/stdc++.h>
 // Sum of Middle Elements of two sorted arrays
 // URL: http://practice.geeksforgeeks.org/problems/sum-of-middle-elements-of-two-sorted-arrays/0
-#include <iostream>
-#include <vector>
 
 using namespace std;
 

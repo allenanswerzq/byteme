@@ -1,33 +1,27 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <sstream>  // std:istringstream
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
+
 
 using namespace std;
 
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
-}
+class Solution {
+public:
+  vector<int> twoSum(vector<int>& aa, int bb) {
+    int n = sz(aa);
+    vector<int> res;
+    if (n == 0) return res;
+    int lo = 0, hi = n - 1;
+    while (lo < hi) {
+      if (aa[lo] + aa[hi] == bb) {
+        res.push_back(lo + 1);
+        res.push_back(hi + 1);
+        return res;
+      } else if (aa[lo] + aa[hi] > bb) {
+        --hi;
+      } else {
+        ++lo;
+      }
+    } 
+    return res;
+  }
+};
 
-string fractionToDecimal(int numerator, int denominator) {
-   
-}
-
-int main(int argc, char** argv) {
-    return 0;
-}

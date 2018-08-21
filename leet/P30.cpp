@@ -1,53 +1,73 @@
-#include <stdio.h>
-#include <iostream>
-#include <stdlib.h>
-#include <vector>
-#include <map>
+#include<bits/stdc++.h>
 
 using namespace std;
 
-bool isExist(vector<string>& words, vector<int>& m, string tmp) {
-	for (int i=0; i<words.size(); ++i) {
-		if (tmp == words[i] && m[i] == 0) {
-			m[i] = 1;
-			return true;
-		}
+// TODO
+class Solution {
+public:
+vector<int> findSubstring(string S, vector<string> &L) {
+
+    vector<int> result;
+    if ( S.size()<=0 || L.size() <=0 ){
+        return result;
+    }
+    
+    int n = S.size(), m = L.size(), l = L[0].size();
+
+    //put all of words into a map    
+    map<string, int> expected;
+    for(int i=0; i<m; i++){
+        if (expected.find(L[i])!=expected.end()){
+            expected[L[i]]++;
+        }else{
+            expected[L[i]]=1;
+        }
+    }
+    
+	  map<string, int> actual;
+	  int count = 0; //total count
+	  int winLeft = 0;
+	  for (int j=0; j<=n-l; j+=l){
+	      string word = S.substr(j, l);
+	      //if not found, then restart from j+1;
+	      if (expected.find(word) == expected.end() ) {
+	          actual.clear();
+	          count=0;
+	          winLeft = j + l;
+	          continue;
+	      }
+	      count++;
+	      //count the number of "word"
+	      if (actual.find(word) == actual.end() ) {
+	          actual[word] = 1;
+	      }else{
+	          actual[word]++;
+	      }
+	      // If there is more appearance of "word" than expected
+	      if (actual[word] > expected[word]){
+	          string tmp;
+	          do {
+	              tmp = S.substr( winLeft, l );
+	              count--;
+	              actual[tmp]--;
+	              winLeft += l; 
+	          } while(tmp!=word);
+	      }
+
+	      // if total count equals L's size, find one result
+	      if ( count == m ){
+	          result.push_back(winLeft);
+	          string tmp = S.substr( winLeft, l );
+	          actual[tmp]--;
+	          winLeft += l;
+	          count--;
+	      }
+	  } 
+
+	  return result;
 	}
-	return false;
-}
-// Time limit exceeded
-// ugly code `
-vector<int> findSubstring(string s, vector<string>& words) {
-	int l = s.size(), n = words[0].size();
-	vector<int> ret;
-	map<string, int> m;	
-	for (int i=0; i<words.size(); ++i) 
-		if (m.find(words[i]) == m.end())
-			m[words[i]] = 1;
-		else
-			m[words[i]]++;
+};
 
-	for (int i=0; i<=l-n; i++) {
-		int winLeft = i;
-		string tmp = s.substr(i, n);
-		int k = 0;
-		while (isExist(words, m, tmp)) {
-			k++;
-			i += n;
-			tmp = s.substr(i, n);
-		}
-		if (k == words.size()) ret.push_back(winLeft);
-		i = winLeft;
-	}	
-	return ret;
-}
-
-void printVector(vector<int> v) {
-	cout << "[";
-	for (int x :v ) 
-		cout << x << " ";
-	cout << "]" << endl;
-}
 
 int main() {
 	vector<string> words({"foo", "bar"});

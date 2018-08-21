@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -28,7 +19,7 @@ string multiply(string a, string b) {
   	reverse(a.begin(), a.end());
   	reverse(b.begin(), b.end());
 	//cout << a << " " << b << endl;
-  	for (int i=0; i<q; ++i) {   // for all digits in b
+	for (int i=0; i<q; ++i) {   // for all digits in b
 		int carry = 0;
 		for (int j=0; j<p; ++j) {   //for all digits in a
 			product[i + j] += carry + (a[j]-'0') * (b[i]-'0');

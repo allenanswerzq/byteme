@@ -1,14 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <string>   // std:string std:stoi
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -26,7 +16,7 @@ int numTrees(int n) {
     dp[1] = 1;
     for (x=2; x<=n; ++x) {      // for each x
         for (y=1; y<=x; ++y) {  // select each y that less equal x as root
-            dp[x] += dp[y-1]*dp[x-y];
+            dp[x] += dp[y-1] * dp[x-y];
         }
     }
     return dp[n];

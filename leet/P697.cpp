@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 
 int findShortestSubArray(vector<int>& nums) {
       map<int, vector<int>> mp;

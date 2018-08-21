@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -31,7 +22,7 @@ int climbStairs(int n) {
     return c;    
 }
 
-int climbStairs(int n) {
+int climbstairs(int n) {
     vector<int> dp(n, 0);
     dp[0]=1; dp[1]=2;
     for (int i=2; i<n; ++i)

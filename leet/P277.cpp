@@ -1,23 +1,4 @@
-#include <cstdio>
-#include <stdio.h> // for using printf
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <tuple>
-#include <deque>
-#include <stack>
-#include <sstream>  // std:istringstream
-#include <queue>
-#include <iterator>
+#include<bits/stdc++.h>
 
 using namespace std;
 // Suppose you are at a party with n people (labeled from 0 to n – 1) and among them, there may exist one celebrity. The definition of a celebrity is that all the other n – 1 people know him/her but he/she does not know any of them.

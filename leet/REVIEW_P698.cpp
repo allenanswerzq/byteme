@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 // ref: http://www.geeksforgeeks.org/partition-set-k-subsets-equal-sum/
 // ref: https://www.hackerearth.com/practice/notes/bit-manipulation/
 
@@ -79,7 +80,7 @@ bool canPartitionKSubsets(vector<int>& nums, int k) {
 
 // bit manipulation approach
 /* Assume there are four elements in array
-   for every subsets use 1 and 0 to decide which elements included in sujbsets
+   for every subsets use 1 and 0 to decide which elements included in subsets
    i.e. [5 4 7 8] k=2
    from 1111 to 0000 there are 2^4 = 16 different choices
    subset 1: [5, 7]  bits representation: 1010
@@ -89,22 +90,21 @@ bool canPartitionKSubsets(vector<int>& nums, int k) {
 
 vector<int> a;
 int dfs(int bit, int sum) {
-  if (bit==0) return 1; // no elements can be taken
-  for (int i=(1<<a.size())-1;i>=0;i--) {
-    i&=bit;             // get all available elements
+  if (bit == 0) return 1; // no elements can be taken
+  for (int i=(1<<a.size())-1; i>=0; i--) {
+    i &= bit;             // get all available elements
 
-    int tot=0;
-    for (int j=0;j<a.size();j++)
-      if (((1<<j) & i))
-        tot+=a[j];
+    int tot = 0;
+    for (int j=0; j<a.size(); j++)
+      if (i & (1<<j))
+        tot += a[j];
 
-    if (tot==sum) {
-      tmp=dfs(bit^i,sum);
-      if (tmp)
-        return true;
+    if (tot == sum) {
+      int tmp = dfs(bit ^ i, sum);
+      if (tmp) return 1;
     }
   }
-  return false;
+  return 0;
 }
 
 class Solution {

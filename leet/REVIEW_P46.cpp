@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -26,7 +17,8 @@ void bt(vector<int>& A, vector<int>& ans, vector<vector<int>>& res) {
 		return;
 	}	
 	for(int i=0; i<n; ++i) {
-		if (find(ans.begin(), ans.end(), A[i]) != ans.end()) continue;
+		if (find(ans.begin(), ans.end(), A[i]) != ans.end()) 
+			continue;
 		ans.push_back(A[i]);
 		bt(A, ans, res); 
 		ans.pop_back();
@@ -59,11 +51,10 @@ void permuteRecursive(vector<int> &num, int begin, vector<vector<int> > &result)
 }
 
 vector<vector<int> > permute1(vector<int> &num) {
-	    vector<vector<int> > result;
-	    
-	    permuteRecursive(num, 0, result);
-	    return result;
-    }
+  vector<vector<int> > result;
+  permuteRecursive(num, 0, result);
+  return result;
+}
     
 
 int main(int argc, char** argv) {

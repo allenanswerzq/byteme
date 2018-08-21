@@ -1,16 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
 

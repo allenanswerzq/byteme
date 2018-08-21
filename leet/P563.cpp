@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 /*
 563. Binary Tree Tilt My SubmissionsBack To Contest
 Given a binary tree, return the tilt of the whole tree.
@@ -19,7 +20,6 @@ Tilt of node 1 : |2-3| = 1
 Tilt of binary tree : 0 + 0 + 1 = 1
 
 */
-#include <stdio.h>
 using namespace std;
 
 typedef struct TreeNode {

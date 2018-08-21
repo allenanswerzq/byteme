@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -20,22 +11,6 @@ void printVector(vector<int>& v) {
 
 // NOTE: difference between pointer vs reference
 // http://www.embedded.com/electronics-blogs/programming-pointers/4023307/References-vs-Pointers
-void bt1(vector<int>& A, int target, vector<int> ans, set<vector<int>>& ret) {
-    if (target <= 0) {
-        if (target == 0){
-            sort(ans.begin(), ans.end());
-            ret.insert(ans);
-        }else return;
-    }else {
-        for (auto x: A) {
-           ans.push_back(x);
-           bt1(A, target-x, ans, ret);     
-           ans.pop_back();
-        }
-   }
-}
-
-// more effective approach without use set
 void bt(vector<int>& A, int target, vector<int>& ans, vector<vector<int>>& ret, int start) {
     if (target == 0) {
 		ret.push_back(ans);
@@ -48,6 +23,7 @@ void bt(vector<int>& A, int target, vector<int>& ans, vector<vector<int>>& ret, 
    }
 }
 vector<vector<int>> combinationSum(vector<int>& A, int target) {
+    sort(A.being(), A.end());
     vector<vector<int>> ret;
     vector<int> ans;
     bt(A, target, ans, ret, 0);    
@@ -56,23 +32,24 @@ vector<vector<int>> combinationSum(vector<int>& A, int target) {
 
 int main(int argc, char** argv) {
     //NOTE: How set works
-    //set<vector<int>> s;
     int n[] = {1, 2};
     vector<int> v(n, n+2);
 
-    /*s.insert(v);
+    set<vector<int>> s;
     s.insert(v);
+    s.insert(v);
+    s.insert({3, 4})
     for (auto vv: s) {
         printVector(vv);
     }
-    */
-    int target = 4;
-    if (argc > 1)
-        target = atoi(argv[1]);
-    vector<vector<int>> ret = combinationSum(v, target); 
-    cout << "[" << endl;
-    for (auto v: ret)
-        printVector(v);
-    cout << "]" << endl;
+
+    // int target = 4;
+    // if (argc > 1)
+    //     target = atoi(argv[1]);
+    // vector<vector<int>> ret = combinationSum(v, target); 
+    // cout << "[" << endl;
+    // for (auto v: ret)
+    //     printVector(v);
+    // cout << "]" << endl;
     return 0;
 }

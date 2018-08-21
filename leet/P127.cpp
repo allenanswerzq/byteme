@@ -1,28 +1,8 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
 
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
-}
-
+// TODO
 void addNeighbors(string w, queue<string>& que, unordered_set<string>& wordSet) {
     for (knt i=0; i<w.size(); ++i) 
         for (int k=0; k<26; ++k) {
@@ -53,6 +33,7 @@ void addNeighbors(string w, queue<string>& que, unordered_set<string>& wordSet) 
     for (auto x: del)
         wordSet.erase(x);
 }
+
 // BFS
 int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
     queue<string> que; 
@@ -62,8 +43,7 @@ int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
     while (!que.empty()) {
         int n = que.size();
         for (int i=0; i<n; ++i) {
-            string word = que.front();
-            que.pop();
+            string word = que.front(); que.pop();
             if (word == endWord) return res;
             addNeighbors(word, que, wordSet); 
         }

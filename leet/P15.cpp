@@ -1,40 +1,32 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <unordered_map>
+#include<bits/stdc++.h>
 
 using namespace std;
+
+
 vector<vector<int>> threeSum(vector<int>& nums) {
-	vector<int> tuple(3,0);
-	vector<vector<int>> vec_ret;
-
-	sort(nums.begin(), nums.end());
-	unordered_map<int, int> mp;
-
-	// record the last position nums[i] appears
-	for (int i = 0; i < nums.size(); ++i) {
-		mp[nums[i]] = i;
-	}
-
-	int i = 0, j = 1;
-	while(i < nums.size()) {
-		if (nums[i] > 0) break;
-		while(j < nums.size()) {
-			int sum = nums[i] + nums[j];
-			if (mp.find(-sum) != mp.end() && mp[-sum] > j) {
-				tuple[0] = nums[i];
-				tuple[1] = nums[j];
-				tuple[2] = -nums[i] - nums[j];
-				vec_ret.push_back(tuple);
+	vector<vector<int>> res;
+	if (sz(nums) < 3) return res;
+	sort(all(nums));
+	// a + b + c = 0
+	// b + c = -a;
+	for (int i=0; i < nums.size()-2; ++i) {
+		if (i==0 || (i>0 && nums[i-1] != nums[i])) {
+			int lo = i + 1, hi = sz(nums) - 1;	
+			int goal = -nums[i];
+			while (lo < hi) {
+				if (nums[lo] + nums[hi] == goal) {
+					res.push_back({nums[i], nums[lo], nums[hi]});
+					while (lo < hi && nums[lo] == nums[lo+1]) ++lo;
+					while (lo < hi && nums[hi] == nums[hi-1]) --hi;
+					++lo;
+					--hi;
+				}	
+				else if (nums[lo] + nums[hi] < goal) ++lo;
+				else --hi;
 			}
-			j = mp[nums[j]] + 1; // skip duplicate
 		}
-		i = mp[nums[i]] + 1; // skip duplicated
-		j = i + 1;
 	}
-	return vec_ret;
+	return res;
 }
 
 // burte force

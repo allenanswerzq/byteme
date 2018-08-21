@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -25,15 +16,15 @@ void rotate(vector<vector<int>>& A) {
 	for (int k=0; k<n/2; ++k) {
 		// NOTE: n-1-k not n-k
 		for (int i=k; i<n-1-k; ++i) {
-			int x = k; 			// before rotate x
-			int y = i;	
+			// before rotate x
+			int x = k, y = i;	
 			int a = A[x][y]; 	
 			int cnt = 4;
-			while (cnt > 0) {
-				--cnt;
-				int nx = y; 		// rotate x to a new x  
-				int ny = n-1 - x;
-				int b = A[nx][ny]; 	// save current val for next use
+			while (cnt-- > 0) {
+				// rotate x to a new x
+				int nx = y, ny = n - 1 - x;
+				// save current val for next use
+				int b = A[nx][ny]; 	
 				A[nx][ny] = a; 		 
 				x = nx;
 				y = ny;

@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -22,7 +13,7 @@ void printVector(vector<int>& v) {
 // Accepted
 // NOt that good but ok i think
 vector<vector<string>> groupAnagrams(vector<string>& strs) {
-	map<string, vector<string>> m;
+	unordered_map<string, vector<string>> m;
 	for (auto x:strs) {
 	    string y = x;
 	    sort(y.begin(), y.end());

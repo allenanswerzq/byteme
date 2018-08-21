@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include<bits/stdc++.h>
 
 using namespace std;
 // Method 1: merge sort
@@ -30,6 +29,7 @@ double findMedianSortedArrays(vector<int>& a, vector<int>& b) {
 	int n = b.size();
 	return find(a, b, 0, m-1, 0, n-1);		
 }
+
 // count
 // time complexity O(n+m)
 double findMedianSortedArrays2(vector<int>& a, vector<int>& b) {
@@ -53,6 +53,7 @@ double findMedianSortedArrays2(vector<int>& a, vector<int>& b) {
 	if (total % 2 == 0) return ans / 2.0;
 	else return ans;
 }
+
 // Merge sort
 // time complexity O(m+n)
 double findMedianSortedArrays1(vector<int>& a, vector<int>& b) {

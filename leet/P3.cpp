@@ -1,7 +1,4 @@
-#include <iostream>
-#include <stdio.h>
-#include <map>
-#include <vector>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -24,7 +21,7 @@ int lengthOfLongestSubstring(string s) {
 		if (m.find(s[i]) != m.end()) {
 			j = max(j, m[s[i]]+1);
 		}
-	   	m[s[i]] = i;
+	  m[s[i]] = i;
 		ret = max(ret, i - j + 1);	
 	}
 	return ret;

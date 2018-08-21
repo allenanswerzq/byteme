@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
-#include <map>
+#include<bits/stdc++.h>
 
 using namespace std;
 string convert1(string s, int n) {
@@ -11,9 +8,9 @@ string convert1(string s, int n) {
 	int row = 0;
 	int step = 1;
 	for (int i=0; i<s.size(); ++i) {
+		r[row] += s[i];
 		if (row == n-1) step = -1;
 		if (row == 0) step = 1;
-		r[row] += s[i];
 		row += step;
 	}	
 

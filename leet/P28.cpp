@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -17,7 +15,8 @@ int strStr2(string whole, string part) {
 	int k = 0;
 	for (int i=0; i<m-n+1; ++i) {
 		if (whole[i] != part[k]) continue;
-		int last = i; // store last equal pos
+		// store last equal pos
+		int last = i; 
 		//cout << last << endl;
 		while (k<part.size() && i<whole.size()) {
 			if (whole[i] == part[k]) {

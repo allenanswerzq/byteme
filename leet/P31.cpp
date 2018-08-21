@@ -1,14 +1,11 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include<bits/stdc++.h>
 
 using namespace std;
 
 void nextPermutation(vector<int>& A) {
 	int n = A.size();
 	int minIdx;
-   	for (int i=n-2; i>=0; --i) {
+  for (int i=n-2; i>=0; --i) {
 		if (A[i] < A[i+1]) {
 			int minIdx = i+1;
 			for (int j=i+2; j<n; ++j)

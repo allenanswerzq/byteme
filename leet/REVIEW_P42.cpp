@@ -1,14 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <stack>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -46,8 +36,7 @@ int trap2(vector<int>& height)
         while (k && height[current] > height[st[k-1]]) {
             int top = st[k-1]; // index
            	k--; 
-            if (!k)
-                break;
+            if (!k) break;
             int distance = current - st[k-1] - 1;
 			cout << k << " " << current << " " << st[k-1] << " " << top << endl;
             int bounded_height = min(height[current], height[st[k-1]]) - height[top];

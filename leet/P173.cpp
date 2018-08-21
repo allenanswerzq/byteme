@@ -1,29 +1,5 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <sstream>  // std:istringstream
-#include <queue>
-#include <deque>
-#include <stack>
-
+#include<bits/stdc++.h>
 using namespace std;
-
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
-}
 
 // Accepted
 // But not O(h) memory
@@ -59,11 +35,14 @@ public:
 class BSTIterator {
 private:
     stack<TreeNode*> stk;
-    pushAllLeft(TreeNode* root) {
-        for (; root!=NULL; stk.push(root), root=root->left);
+    void pushAllLeft(TreeNode* root) {
+        while (root) {
+            stk.push(root);
+            root = root->left;
+        }
     }
+    
 public:
-
     BSTIterator(TreeNode *root) {
         pushAllLeft(root);
     }

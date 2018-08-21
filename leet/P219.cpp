@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 
 bool containsNearbyDuplicate(vector<int>& nums, int k) {
   map<int, int> mp;

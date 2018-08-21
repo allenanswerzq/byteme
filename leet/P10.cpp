@@ -1,21 +1,130 @@
-#include <iostream>
-#include <stdio.h>
-
+#include<bits/stdc++.h>
 using namespace std;
 
-bool isMatch(string s, string regx) {
-	if (s == regx) return true;
-	 
+
+
+const double eps = 1e-9;
+int dcmp(double x, double y = 0, double tol = eps) {
+  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
 }
 
-int main() 
-{
-	cout << isMatch("aa","a") << endl;
-	cout << isMatch("aa","aa") << endl;
-	cout << isMatch("aaa","aa") << endl;
-	cout << isMatch("aa", "a*") << endl;
-	cout << isMatch("aa", ".*") << endl;
-	cout << isMatch("ab", ".*") << endl;
-	cout << isMatch("aab", "c*a*b") << endl;
-	return 0;
+int isMatchRecu(string s, string p) {
+	int n, m;
+	n = sz(s), m = sz(p);
+	// Pattern is null, return true only when text is also null.
+	if (m == 0) return n == 0;	
+	// Whether or not the first character is matched.
+	int first = n && (s[0] == p[0] || p[0] == '.');
+	if (m >= 2 && p[1] == '*') {
+    // '*' stands for zero preceding elements.  
+		int x = isMatchRecu(s, p.substr(2));
+    // '*' stands for multiple preceding elements.
+    int y = first && isMatchRecu(s.substr(1), p); 
+		return (x || y);
+	} else {
+		return first && isMatchRecu(s.substr(1), p.substr(1));
+	}
+	return -1;
+}
+
+int isMatchRecuTwo(string s, string p) {
+	int n, m;
+	n = sz(s), m = sz(p);
+	if (m == 0) return n == 0;
+	if (n == 0) {
+		fora (c, p)
+			if (c != '*')
+				return 0;
+		return 1;
+	}
+	if (p[0] == '*') {
+    // "*" as the empty char.
+		int x = isMatchRecuTwo(s, p.substr(1)); 	
+    // "*" as the any sequence.
+		int y = isMatchRecuTwo(s.substr(1), p);
+		return (x || y);
+	} else if ((s[0] == p[0] || p[0] == '.')) {
+		return isMatchRecuTwo(s.substr(1), p.substr(1));	
+	}	else {
+		return false;
+	}	
+}
+
+// TODO
+bool isMatchDP(string s, string p) {
+	int n, m;
+	n = sz(s), m = sz(p);
+	int dp[n+1][m+1];
+	mst(dp, 0);
+	fori (i, n, -1) {
+		fori (j, m, -1) {
+			}
+		}
+	}
+	return dp[n][m];
+}
+
+bool isMatchTwoDP(string s, string p) {
+	int n, m;
+	n = sz(s), m = sz(p);
+	// dp[i][j] denotes whether the first ith text matches 
+	// the jth pattern text or not.
+	int dp[n+1][m+1];
+	mst(dp, 0);
+	fori (i, 0, n+1) {
+		fori (j, 0, m+1) {
+		}
+	}
+	return dp[n][m];
+}
+
+class Solution {
+public:
+	bool isMatch(string s, string p) {
+		// "*" matches zero or more of the preceding element.
+		// return isMatchRecu(s, p);	
+		return isMatchDP(s, p);
+	}
+
+	bool isMatchTwo(string s, string p) {
+		// "*" matches any sequence of characters (including the empty sequence).
+		// return isMatchRecuTwo(s, p);	
+		return isMatchTwoDP(s, p);
+	}
+};
+
+int test(string s, string p) {
+	Solution go;
+	int x = go.isMatch(s, p);
+	return x;
+}
+
+int test_two(string s, string p) {
+	Solution go;
+	int x = go.isMatchTwo(s, p);
+	return x;
+}
+
+int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cout.precision(10);
+  cout << fixed; 
+  // Note: invalid input.
+  // judge(test("", "*"), 1);
+  judge(test("", ".*"), 1);
+  judge(test("aa", "a"), 0);
+  judge(test("aa", "a*"), 1);
+  judge(test("ab", ".*"), 1);
+  judge(test("aab", "c*a*b"), 1);
+  judge(test("aab", "c******a*b"), 1);
+  judge(test("mississippi", "mis*is*p*."), 0);
+  // Test_two
+  judge(test_two("", ".*"), 0);
+  judge(test_two("aa", "a"), 0);
+  judge(test_two("aa", "a*"), 1);
+  judge(test_two("ab", ".*"), 1);
+  judge(test_two("aab", "c*a*b"), 0);
+  judge(test_two("aab", "c*****a*b"), 0);
+  judge(test_two("mississippi", "mis*is*p*."), 1);
+  return 0;
 }

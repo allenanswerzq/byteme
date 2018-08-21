@@ -1,10 +1,6 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
-#include <map>
+#include<bits/stdc++.h>
 
 using namespace std;
-#define INT_MAX 2147483647
 // binary search
 // divide and conquer
 // horizontal scan

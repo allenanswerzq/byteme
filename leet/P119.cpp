@@ -1,16 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -27,8 +15,8 @@ vector<int> getRow(int n) {
     vector<int> res(n+1, 1);
     vector<int> ans(n+1, 1);
     for (int i=2; i<n; ++i) {
-        for (int k=0; k<i-1; ++k)
-            ans[k+1] = res[k]+res[k+1]; 
+        for (int k=0; k < i-1; ++k)
+            ans[k+1] = res[k] + res[k+1]; 
         ans[0] = 1;
         ans[i] = 1;
         res = ans;

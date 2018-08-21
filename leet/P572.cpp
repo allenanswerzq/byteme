@@ -1,7 +1,4 @@
-#include <iostream>
-#include <stdio.h>
-#include <map>
-#include <vector>
+#include<bits/stdc++.h>
 
 using namespace std;
 

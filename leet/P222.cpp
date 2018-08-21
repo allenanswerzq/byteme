@@ -1,23 +1,4 @@
-#include <cstdio>
-#include <stdio.h> // for using printf
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <tuple>
-#include <deque>
-#include <stack>
-#include <sstream>  // std:istringstream
-#include <queue>
-#include <iterator>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -63,6 +44,7 @@ int countNodes(TreeNode* root) {
 				 														((1<<h-2) -1 +1) + countNodes(root->left);		// left subtree height greater one than right subtree 
 				 														// left subtree nodes + root node + right tree nodes
 }
+
 // iterative approach
 int countNodes(TreeNode* root) {
 	if(root == NULL) return 0;

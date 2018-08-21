@@ -1,8 +1,4 @@
-#include <iostream>
-#include <stdio.h>
-#include <map>
-#include <vector>
-#include <set> // NOTE
+#include<bits/stdc++.h>
 using namespace std;
 
 int distributeCandies(vector<int>& candies) {

@@ -1,20 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <sstream>  // std:istringstream
-#include <queue>
-#include <deque>
-#include <iterator>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -25,6 +9,7 @@ void printVector(vector<int>& v) {
     printf("]\n");
 }
 
+// TODO
 TreeNode* trimBST(TreeNode* root, int L, int R) {
   if (!root) return nullptr;
   if (root->val < L) return trimBST(root->right, L, R);

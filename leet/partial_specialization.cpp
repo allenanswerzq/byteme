@@ -1,6 +1,6 @@
+#include<bits/stdc++.h>
 // partial_specialization_of_class_templates2.cpp  
 // compile with: /EHsc  
-#include <iostream>  
 using namespace std;  
 
 // Original template collection class.  

@@ -1,20 +1,11 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
 void printVector(vector<int>& v) {
     cout << "[ ";
     for (auto x:v)
-        cout << x << " ";
+      cout << x << " ";
     cout <<"] " << endl;
 }
 
@@ -29,7 +20,7 @@ vector<Interval> merge(vector<Interval>& A) {
 	vector<Interval> res;
 	int n = A.size();
 	if (n <= 0) return res;
-	sort(A.begin(), A.end(), [] (const Interval& a, const Interval& b) {
+	sort(A.begin(), A.end(), [](const Interval& a, const Interval& b) {
 			return a.start < b.start;});
 	Interval prev = A[0];
 	for (int i=1; i<n; ++i) {

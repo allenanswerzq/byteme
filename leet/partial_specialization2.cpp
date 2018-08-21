@@ -1,6 +1,6 @@
+#include<bits/stdc++.h>
 // partial_specialization_of_class_templates3.cpp  
 // compile with: /EHsc  
-#include <iostream>  
 using namespace std;  
 
 template <class Key, class Value> class Dictionary {  

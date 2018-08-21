@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 
 int countBinarySubstrings(string s) {
   int cnt = 0;

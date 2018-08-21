@@ -1,19 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <sstream>
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -25,12 +10,12 @@ void printVector(vector<int>& v) {
 }
 
 void reverseWords(string &s) {
-    istringstream in(s);
+    istringstream iss(s);
     bool mark = true;
     string word;
     s = "";
-    while (in >> word) {
-        s = word + (mark ? "":" ") + s;
+    while (iss >> word) {
+        s = word + (mark ? "" : " ") + s;
         mark = false;
     }    
 }

@@ -1,6 +1,6 @@
+#include<bits/stdc++.h>
 // template_friend3.cpp  
 // compile with: /EHsc  
-#include <iostream>  
 using namespace std;  
 
 template <class T>  

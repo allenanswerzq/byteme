@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 
 bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
   set<int> window;

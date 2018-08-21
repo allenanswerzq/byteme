@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h> // for atoi
-#include <iostream>
-#include <vector>
+#include<bits/stdc++.h>
 
 using namespace std;
 

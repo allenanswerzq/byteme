@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -17,6 +15,7 @@ using namespace std;
 //			ans.pop_back();
 //		}
 //}
+
 void bt(string d, int idx, vector<vector<char>> &table) {
 	if (idx == d.size()) {
 		//cout << "CURR IDX: " << idx << endl; 
@@ -59,6 +58,7 @@ void printVector(vector<string>& ss){
     }
     cout << " }" << endl;
 }
+
 int main() {
 	
 	vector<string> res;

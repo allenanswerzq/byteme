@@ -1,21 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-<<<<<<< HEAD
-#include <unordered_set>
-=======
->>>>>>> eff689dfb01b33f975176908dc444c7f0098de7e
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -37,7 +20,7 @@ int findLongestChain(vector<vector<int>>& pairs) {
             if (pairs[i][0] > pairs[j][1])
                 dp[i] = max(dp[i], dp[j]+1);
             else 
-                dp[i] = max(dp[i], dp[j]);
+                dp[i] = max(dp[i], 1);
         }
     }    
     return dp[n-1];

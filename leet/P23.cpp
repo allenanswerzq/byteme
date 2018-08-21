@@ -1,6 +1,4 @@
-#include <iostream>
-#include <stdio.h>
-#include <vector>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -39,6 +37,7 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 	}
 	return head->next;
 }
+
 // Time Limit Exceeded
 ListNode* mergeKLists1(vector<ListNode*>& lists) {
 	if (lists.size() <= 0) return NULL;

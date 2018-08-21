@@ -1,41 +1,44 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
-
+#include<bits/stdc++.h>
 using namespace std;
 
-int removeDuplicates(vector<int>& nums) {
-	if (nums.size() <= 0) return 0;
-	int k = 0;
-/*	for (int i=0; i<nums.size();) {
-		while (i>0 && i<nums.size() && nums[i] == nums[i-1]) ++i; 
-		if (i<nums.size())
-			nums[k++] = nums[i++];
-	}
-	*/
-	/*for (int i=0; i<nums.size(); ++i) {
-		if (i>0 && nums[i] == nums[i-1]) continue;
-		nums[k++] = nums[i];
-	}*/
-	for (int i=0; i<nums.size()-1; ++i) {
-		if (nums[i] != nums[i+1])
-			nums[++k] = nums[i+1];
-	}
-	return k+1;	
+
+
+
+template <typename T>
+void _f(const char* name, T&& arg) {
+  cout << name << ": " << arg << endl;
 }
 
-void printVector(vector<int> nums, int k) {
-	cout << "[";
-	for(int i=0; i<k; ++i) {
-		cout << nums[i] << " ";
-	}
-	cout << "]" << endl;
+template <typename T, typename... Args> 
+void _f(const char* names, T&& arg, Args&&... args) {
+  const char* split = strchr(names + 1, ','); 
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...); 
+} 
+
+const double eps = 1e-9;
+int dcmp(double x, double y = 0, double tol = eps) {
+  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
 }
 
-int main(){
-	vector<int> v({1, 1, 1, 1, 2, 2, 3, 3 });
-	int n = removeDuplicates(v);
-	cout << n << endl;
-	printVector(v, n);
-	return 0;
+
+int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cin.tie(0);
+  cout.precision(5);
+  cout << fixed; 
+
+  freopen("d-IIIIIIIIIN.txt", "rt", stdin);
+  clock_t begin = clock();
+
+
+  int t; cin >> t;
+  fori (i, 1, t + 1) {
+  
+  }  
+
+  clock_t end = clock();
+  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
+  cerr << "Elapsed: " << elapsed;
+  return 0;
 }

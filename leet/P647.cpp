@@ -1,18 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -42,6 +28,27 @@ int countSubstrings(string s) {
            }
     }
     return cnt;
+}
+
+const int mod = 1e9 + 7;
+const int N = 1004;
+// dp[i][j] denotes the longest palindrome in the 
+// range of [i...j].
+int dp[N][N];
+
+int countSubstrings(string& inp) {
+  int n = sz(inp);
+  int res = 0;
+  mst(dp, 0);
+  fori (r, 1, n + 1) {
+    fori (i, 0, n - r + 1) {
+      int j = i + r - 1; 
+      dp[i][j] = (inp[i] == inp[j]  && (j - i < 3 || dp[i+1][j-1]));
+      if (dp[i][j])
+        ++res;
+    } 
+  }
+  return res;
 }
 
 int main(int argc, char** argv) {

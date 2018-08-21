@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+var=1
+trap '{ echo $var && test $var -eq 10 && exit 1; var=$(expr $var + 1); }' INT
+
+while 1; clear && tmux clear-history; do make test; \
+echo "Press Enter to continue";  read newline; \
+clear && tmux clear-history; done;

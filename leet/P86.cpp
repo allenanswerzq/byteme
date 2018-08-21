@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -19,7 +10,6 @@ void printVector(vector<int>& v) {
 }
 
 // Accepted
-// compltxity O(n)
 ListNode* partition(ListNode* head, int x) {
     if (!head) return NULL;
     ListNode *h = head;
@@ -27,7 +17,7 @@ ListNode* partition(ListNode* head, int x) {
     lt = p = new ListNode(0);
     ListNode *gt, *q;
     gt = q = new ListNode(0);
-    whilt (h) {
+    while (h) {
         ListNode *t = h->next;
         if (h->val < x) {
             p->next = h;
@@ -38,7 +28,7 @@ ListNode* partition(ListNode* head, int x) {
             q = q->next;
             q->next = NULL;
         }
-    h = t;
+        h = t;
     }
     p->next = gt->next;
     return lt->next;

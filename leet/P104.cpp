@@ -1,15 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -22,8 +11,8 @@ void printVector(vector<int>& v) {
 
 // Accepted
 int maxDepth(TreeNode* root) {
-        return root==NULL ? 0:max(maxDepth(root->left), 
-                maxDepth(root->right)) + 1;
+  return root==NULL ? 0 : max(maxDepth(root->left), 
+                              maxDepth(root->right)) + 1;
 }
 
 int main(int argc, char** argv) {

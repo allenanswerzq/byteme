@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <algorithm>
-#include <iostream>
-#include <vector>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -29,14 +26,14 @@ vector<vector<int>> fourSum(vector<int>& nums, int target) {
 					t.push_back(c);
 					ret.push_back(t);
 					while (start<n-1 && nums[start] == nums[start+1]) ++start;
+					while (end>0 && nums[end] == nums[end-1]) --end;
 					++start;
-					while (end>0 && nums[end] == nums[end-1]) --end;
 					--end;
-				} else if (a+b+c >sum){
-					while (end>0 && nums[end] == nums[end-1]) --end;
+				} else if (a+b+c > sum){
+					// while (end>0 && nums[end] == nums[end-1]) --end;
 					--end;
 				} else {
-					while (start<n-1 && nums[start] == nums[start+1]) ++start;
+					// while (start<n-1 && nums[start] == nums[start+1]) ++start;
 					++start;
 				}
 			}

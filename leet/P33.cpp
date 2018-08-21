@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -38,8 +29,9 @@ int search(vector<int>& A, int target) {
 
 // IDEA: one half of A must be sorted
 int search(vector<int>& A, int target) {
-    int lo=0, hi=A.size();
-    while ( lo<=hi ) {
+    if (A.size() == 0) return -1;
+    int lo=0, hi=A.size() - 1;
+    while ( lo < hi ) {
         if (A[lo]<=A[hi] && (target<A[lo] || target>A[hi])) 
             return -1;
 
@@ -47,26 +39,17 @@ int search(vector<int>& A, int target) {
         if (A[mid] == target)
             return mid;
         // left part sorted
-        if(A[hi]<A[mid] && A[lo]<=target && target<A[mid]) {
-            hi = mid-1;
-            continue;
+        if(A[mid] > A[hi]) {
+            if (A[lo]<=target && target<A[mid]) hi = mid-1;
+            else lo = mid + 1;
+        } else if (A[mid] < A[hi]) {
+            // right part sorted
+            if(A[mid]<target && target<=A[hi]) lo = mid + 1;
+            else hi = mid - 1;
         }
-        // right part sorted
-        if(A[mid]<A[hi] && A[mid]<target && target<=A[hi]) {
-            lo = mid+1;
-            continue;
-        }
-        // left part not sorted
-        if (A[hi] > A[mid]) {
-            hi = mid-1;
-            continue;
-        }
-        if (A[mid] > A[hi]) {
-            lo = mid+1;
-            continue;
-        }
+
     }  
-    return -1;
+    return A[lo] == target ? lo : -1;
 }
 
 int main(int argc, char** argv) {

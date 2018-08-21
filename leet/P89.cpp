@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -41,6 +32,24 @@ vector<int> grayCode(int n) {
     return res;
 }
 
+class Solution {
+public:
+    vector<int> grayCode(int n) {
+        vector<int> result;
+        if (n == 0) {
+            result.push_back(0);
+            return result;
+        }
+        result = grayCode(n - 1);
+        int flag = 1 << (n - 1);
+        int prev_size = result.size();
+        for (int i = (prev_size - 1); i >= 0; --i) {
+            result.push_back(flag | result.at(i));
+        }
+        return result;
+    }
+};
+
 /*
  * This function converts an unsigned binary
  * number to reflected binary Gray code.
@@ -55,7 +64,8 @@ unsigned int binaryToGray(unsigned int num)
 // #Constructing_an_n-bit_Gray_code
 vector<int> grayCode(int n) {
     vector<int> res;
-    for (int i=0; i< 1<<n; ++i) res.push_back(i ^ (i>>1));
+    for (int i=0; i< 1<<n; ++i) 
+        res.push_back(i ^ (i>>1));
     return res;
 }
 

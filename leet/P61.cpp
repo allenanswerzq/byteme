@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -17,6 +8,7 @@ void printVector(vector<int>& v) {
         cout << x << " ";
     cout <<"] " << endl;
 }
+
 // carefully read the statement for problems
 ListNode* rotateRight(ListNode* head, int k) {
 	if(!head) return NULL;
@@ -27,13 +19,13 @@ ListNode* rotateRight(ListNode* head, int k) {
 	    n++;
 	}
 	k = k % n;
+
 	ListNode *p, *q;
 	p = head;
 	q = head;
-	while (k-- > 0 && q) 
-		q = q->next;
-
+	while (k-- > 0 && q) q = q->next;
 	if (!q && k==0) return head;
+	
 	while(q->next) {
 		p = p->next;
 		q = q->next;

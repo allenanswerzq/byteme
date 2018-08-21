@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -30,7 +21,7 @@ vector<Interval> merge(vector<Interval>& A) {
 	return res;	
 }
 
-// obviously. not prefect approach
+// obviously. not a prefect approach
 // but it accepted
 vector<Interval> insert(vector<Interval>& A, Interval a) {
 	A.push_back(a);

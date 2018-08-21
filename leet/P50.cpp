@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -19,9 +10,9 @@ void printVector(vector<int>& v) {
 }
 
 // when n overflow occurs
-// it' not work 
+// its not work 
 // but same idea in Python
-// it ok
+// its ok
 double myPow1(double x, int n) {
 	if (!n) 
 		return 1;
@@ -41,12 +32,28 @@ double myPow(double x, int n) {
 	double res = 1;
 	while (n) {
 		if (n % 2) 
-			res = res*x;
+			res = res * x;
 		x = x*x;
 		n = n >> 1;
 	}
 	return res;
 }
+
+class Solution {
+public:
+  double myPow(double x, int n) {
+    if (n == 0) { return 1.0f; }
+
+    if (n == INT_MIN) {
+        return myPow(x, INT_MIN + 1) / x;
+    } else if (n < 0) {
+        n = -n;
+        x = 1 / x;
+    }
+
+    return myPow(x * x, n / 2) * (n % 2 ? x : 1.0);
+  }
+};
 
 int main(int argc, char** argv) {
     return 0;

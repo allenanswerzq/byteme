@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include<bits/stdc++.h>
 
 bool hasPathSum(TreeNode* root, int sum) {
     if (!root) return false;

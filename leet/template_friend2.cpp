@@ -1,7 +1,6 @@
+#include<bits/stdc++.h>
 // template_friend2.cpp  
 // compile with: /EHsc  
-#include <iostream>  
-#include <cstring>
 using namespace std;  
 
 template <class T> class Array  

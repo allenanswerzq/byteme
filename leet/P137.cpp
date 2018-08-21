@@ -1,18 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -51,7 +37,7 @@ int singleNumber(vector<int>& nums) {
     return res;
 }
 
-// more harder get approach 
+// more harder bit approach 
 //      two, one
 //       (0,   0)
 // (0, 0) --> (0, 1) --> (1, 0) --> (0, 0)

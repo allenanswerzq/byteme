@@ -1,20 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha iaasadaigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <tuple>
-#include <queue>
-#include <deque>
-#include <stack>
+#include<bits/stdc++.h>
 
 using namespace std;
 

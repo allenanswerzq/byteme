@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <climits>
-#include <iostream>
+#include<bits/stdc++.h>
 
 using namespace std;
 

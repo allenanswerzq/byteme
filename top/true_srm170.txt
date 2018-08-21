@@ -1,6 +1,0 @@
-abc
- aab ccde
-    
-abcdefghibjkblmnopqrstcuvwxyzABCbDEFG
-  a    b       c
-aa

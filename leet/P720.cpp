@@ -1,23 +1,4 @@
-#include <cstdio>
-#include <stdio.h> // for using printf
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <tuple>
-#include <deque>
-#include <stack>
-#include <sstream>  // std:istringstream
-#include <queue>
-#include <iterator>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -51,7 +32,7 @@ char toupper( char a ) {
   return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
 }
 
-// NOTE cmp must be static inside a class
+// NOTE: cmp must be static inside a class
 static bool cmp(string& s1, string& s2) {
   if (s1.size() == s2.size()) return s1 < s2; // if size equals, return lexicographically smaller
   return s1.size() > s2.size();               // otherwise return longer

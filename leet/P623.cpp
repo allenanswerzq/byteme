@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -62,14 +53,14 @@ TreeNode* addOneRow(TreeNode* root, int v, int d) {
         h->left = root;
         return h;
     }
-    if(!root) return NULL;
+    if(!root) return null;
     if(d == 2){
         TreeNode *a = new TreeNode(v);
         TreeNode *b = new TreeNode(v);
         a->left = root->left;
-        a->right = root->right;
+        b->right = root->right;
         root->left = a;
-        root->right = a;
+        root->right = b;
         return root;
     }
 

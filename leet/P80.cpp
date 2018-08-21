@@ -1,13 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -33,6 +24,7 @@ int removeDuplicates(vector<int>& A) {
     }
     return k;
 }
+
 // another approach
 // so much pain!!!
 int removeDuplicates(vector<int>& A) {

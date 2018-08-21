@@ -1,14 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <string>   // std:string std:stoi
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -18,6 +8,7 @@ void printVector(vector<int>& v) {
         cout << x << " ";
     cout <<"] " << endl;
 }
+
 // very good approach but not by me
 TreeNode *n1, *n2, *prev;
 void inOrder(TreeNode* root) {

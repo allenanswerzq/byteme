@@ -1,40 +1,17 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
-#include <deque>
-
+#include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
+
+
+const double eps = 1e-9;
+int dcmp(double x, double y = 0, double tol = eps) {
+  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
 }
 
 int main(int argc, char** argv) {
-    vector<vector<string>> res;
-    res.push_back(vector<string> ({"aaaa"});
-    res.push_back(vector<string> ({"front"});
-    for (auto x: res) {
-        x.insert(x.begin(), "xxx");
-    } 
-
-    for (auto r: res) {
-        for (auto c: r) 
-            cout << c << " ";
-         cout <<endl;
-    }
-    return 0;
+  std::ios_base::sync_with_stdio(false);
+  cout.precision(10);
+  cout << fixed; 
+  cout << tolower('A') << "\n";
+  return 0;
 }

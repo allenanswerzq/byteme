@@ -1,7 +1,4 @@
-#include <iostream>
-#include <queue>
-#include <vector>
-#include <utility>
+#include<bits/stdc++.h>
  
 using my_pair_t = std::pair<size_t,bool>;
  

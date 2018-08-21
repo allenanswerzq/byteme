@@ -1,18 +1,4 @@
-#include <cstdio>  
-#include <cmath>
-#include <climits>
-#include <cstdlib>
-#include <ctype.h> // <cctype> isalpha isdigit
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <unordered_set>
-#include <set>
-#include <string>   // std:string std:stoi
-#include <queue>
-#include <deque>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -33,25 +19,11 @@ void printVector(vector<int>& v) {
  */
 class Solution {
 public:
-
-    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
-        if (!node) return NULL;
-        UndirectedGraphNode *root = new UndirectedGraphNode(node->label);
-        for (auto n : node->neighbors) {
-            // why this not correct???
-            // 5/12 test cases passed
-            if (n != node)
-                root->neighbors.push_back(cloneGraph(n));
-            else root->neighbors.push_back(root);
-        }
-        return root; 
-    }
-
     // dfs
     unordered_map<UndirectedGraphNode*, UndirectedGraphNode*> mp;
     UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
         if (!node) return NULL;
-        if (mp.find(node) == m.end()) {
+        if (mp.find(node) == mp.end()) {
             mp[node] = new UndirectedGraphNode(node->label);
             for (auto n : node->neighbors) {
                 mp[node]->neighbors.push_back(cloneGraph(n));

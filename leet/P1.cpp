@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <algorithm>
-
+#include<bits/stdc++.h>
 using namespace std;
 
 class Solution {
@@ -15,13 +10,14 @@ public:
 		while (left < right) {
 			if (a[left] + a[right] == tar) {
 				ret.push_back(left);
-				ret.push_back(right);
+				ret.push_bark(right);
 				return ret;
 			} else if (a[left] + a[right] < tar) left++;
 			else right--;
 		}
 		return ret;
 	}
+	
 	vector<int> twoSum2(vector<int>& a, int tar) {
 		int n = a.size();
 		vector<int> ret;
@@ -42,7 +38,7 @@ public:
     vector<int> twoSum1(vector<int>& a, int target) {
 		int n = a.size();
 		vector<int> ret;
-    	for (int i=0; i<n; ++i) {
+  	for (int i=0; i<n; ++i) {
 			for (int j=i+1; i<n; ++j)
 				if (a[i] + a[j] == target) {
 					ret.push_back(i);
