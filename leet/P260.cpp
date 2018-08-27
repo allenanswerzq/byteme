@@ -1,41 +1,5 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-      printf("%d ", x);
-  printf("]\n");
-}
-
-void printMatrix(vector<vector<int>>& v) {
-  printf("{\n");
-  for (auto x:v)
-    printVector(x);
-  printf("}\n");
-}
-
-bool isPowerOfTwo(int x) {
-  //return (x && !(x & (x-1)));
-  return x* !(x&(x-1)) > 0;
-}
-
-int countOne (int n){
-  while( n ){
-    n = n&(n-1);
-    count++;
-  }
-  return count;
-}
-
-char toupper( char a ) {
-  return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
-}
-
-int main(int argc, char** argv) {
-  return 0;
-}
 
 // bit manipulation
 // Assume the finally result are a,b
@@ -48,7 +12,7 @@ vector<int> singleNumber(vector<int>& nums) {
   // We can use this to split a and b into two different groups
   // We dont care other numbers located in which group because the quantity of those number are even
   // After xor operation, that will be equal to zero
-  diff &= ~(diff-1); 
+  diff = diff & ~(diff-1); 
   // Differences between x and x-1 in binary form is that there will have a rightmost one bit divide this number into two parts  
   // Left part is the same, and the right part is oppsite. for example right and ~right
   // So if we not(~) diff-1, the bits of left part will be changed to the opposite side of diff
@@ -59,4 +23,8 @@ vector<int> singleNumber(vector<int>& nums) {
     else b ^= n;
   } 
   return {a, b};
+}
+
+int main(int argc, char** argv) {
+  return 0;
 }

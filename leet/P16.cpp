@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 int threeSumClosest(vector<int>& nums, int target) {
@@ -11,11 +10,9 @@ int threeSumClosest(vector<int>& nums, int target) {
 	for (int i=0; i<n-2; ++i) {
 		if (i>1 && nums[i] == nums[i-1]) continue;
 		int a = nums[i];
-		int low = i+1;
-		int high = n-1;
+		int low = i+1, high = n-1;
 		while (low < high) {
-			int b = nums[low];
-			int c = nums[high];
+			int b = nums[low], c = nums[high];
 			int sum = a + b +c; 
 			if (sum - target == 0) {
 				return target;
@@ -26,7 +23,8 @@ int threeSumClosest(vector<int>& nums, int target) {
 				}	
 				
 				if (sum > target) {
-					// cause array already sorted. i need to decrease sum to more closer to target
+					// Because array already sorted, 
+					// just need to decrease sum to more closer to target
 					while (high>0 && nums[high] == nums[high-1]) high--;
 					high--;	
 				} else {

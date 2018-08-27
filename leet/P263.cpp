@@ -1,45 +1,32 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-      printf("%d ", x);
-  printf("]\n");
-}
-
-void printMatrix(vector<vector<int>>& v) {
-  printf("{\n");
-  for (auto x:v)
-    printVector(x);
-  printf("}\n");
-}
-
-bool isPowerOfTwo(int x) {
-  //return (x && !(x & (x-1)));
-  return x* !(x&(x-1)) > 0;
-}
-
-int countOne (int n){
-  while( n ){
-    n = n&(n-1);
-    count++;
+class Solution {
+public:
+  bool isUgly(int num) {
+    if (num == 0) return false;
+    if (num == 1) return true;
+    vector<int> primes = {2,3,5};
+    for (int i=0; i<3; ++i) {
+      if (num % primes[i] == 0)
+        if(isUgly(num / primes[i])) 
+          return true;
+    }
+    return false;
   }
-  return count;
-}
+};
 
-char toupper( char a ) {
-  return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
-}
+class Solution {
+public:
+  bool isUgly(int num) {
+    if (num <= 0) return 0;
+    while (num % 2 == 0) num /= 2;
+    while (num % 3 == 0) num /= 3;
+    while (num % 5 == 0) num /= 5;
+    return num == 1;
+  }
+};
 
 int main(int argc, char** argv) {
   return 0;
-}
-
-bool isUgly(int n) {
-  for (int i=2; i<6; ++i)
-    while (n % i == 0)
-      n /= i;
-  return n == 1;
 }

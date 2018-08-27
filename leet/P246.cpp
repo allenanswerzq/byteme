@@ -1,43 +1,15 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-      printf("%d ", x);
-  printf("]\n");
-}
+// A strobogrammatic number is a number that looks the same 
+// when rotated 180 degrees (looked at upside down).
+// Write a function to determine if a number is strobogrammatic. 
+// The number is represented as a string.
+// For example, the numbers "69", "88", and "818" are all strobogrammatic.
 
-void printMatrix(vector<vector<int>>& v) {
-  printf("{\n");
-  for (auto x:v)
-    printVector(x);
-  printf("}\n");
-}
+#define sz(x) (int)(x).size()
 
-bool isPowerOfTwo(int x) {
-  //return (x && !(x & (x-1)));
-  return x* !(x&(x-1)) > 0;
-}
-
-int countOne (int n){
-  while( n ){
-    n = n&(n-1);
-    count++;
-  }
-  return count;
-}
-
-char toupper( char a ) {
-  return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
-}
-
-int main(int argc, char** argv) {
-  return 0;
-}
-
-bool isStrobogrammatic(string num) {
+bool isStrobogrammatic(string aa) {
   unordered_map<char, char> mp{
     {'0': '0'},
     {'1': '1'},
@@ -45,9 +17,13 @@ bool isStrobogrammatic(string num) {
     {'9': '6'}, 
     {'8': '8'} 
   };
-  for (int i=0,r=num.size()-1; i<num.size(),r>=0; ++i,r--) {
-    if (mp.find[num[i]] == mp.end()) return false;
-    if (mp.find[num[i]] != num[r]) return false;  // if the number is different after rotated 180
+  for (int i=0, r=sz(aa)-1; i < aa.size(), r >= 0; ++i, --r) {
+    if (!mp.count(aa[i])) return 0;
+    if (mp[aa[i]] != aa[r]) return 0;
   }
   return true;
+}
+
+int main(int argc, char** argv) {
+  return 0;
 }

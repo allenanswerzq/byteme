@@ -1,7 +1,5 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
 
 vector<vector<int>> threeSum(vector<int>& nums) {
 	vector<vector<int>> res;
@@ -58,6 +56,7 @@ void printMatrix(vector<vector<int>> v) {
 		cout << " }" << endl;
 	}
 }
+
 int main() {
 	vector<int> v({-1, 0, 1, 2, -1, -4});
 	printMatrix(threeSum(v));

@@ -1,22 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define pb push_back
+#define eb emplace_back
+#define vi vector<int>
+#define pii pair<int, int>
+#define vpii vector<pii>
+#define sz(x) (int)(x).size()
+#define fora(x, y) for(auto &x : y)
+#define fori(i, a, b) for(int i=(a); i<(b); ++i)
 
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
+// TODO
 class Edge {
 public:
   int x;
   int h;
   bool start;
-  Edge (int x, int h, bool start) :
-    x(x), 
-    h(h), 
-    start(start) {}
+  Edge (int x, int h, bool start)
+    : x(x), h(h), start(start) {}
 };
 
 bool cmp(Edge a, Edge b) {
@@ -40,7 +41,7 @@ public:
   vector<pair<int, int>> getSkyline(vvi& aa) {
     vpii res; 
     vector<Edge> edges;
-    // Note: use multiset as a max heap.
+    // Note: use multiset as a min heap.
     multiset<int> pq; 
     int n;
     n = sz(aa);

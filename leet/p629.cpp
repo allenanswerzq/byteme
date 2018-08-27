@@ -1,12 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 const int mod = 1e9 + 7;
 const int aa = 1002;
 // dp[i][j] denotes the number of arrays that formed by 1....i and have 

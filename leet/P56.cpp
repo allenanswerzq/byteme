@@ -1,40 +1,35 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-      cout << x << " ";
-    cout <<"] " << endl;
-}
-
 struct Interval {
-    int start;
-    int end;
-    Interval() : start(0), end(0) {}
-    Interval(int s, int e) : start(s), end(e) {}
+  int start;
+  int end;
+  Interval() : start(0), end(0) {}
+  Interval(int s, int e) : start(s), end(e) {}
 };
 
-vector<Interval> merge(vector<Interval>& A) {
+bool cmp(const Interval& a, const Interval& b) {
+  return a.start < b.start;
+}
+
+vector<Interval> merge(vector<Interval>& aa) {
 	vector<Interval> res;
-	int n = A.size();
+	int n = aa.size();
 	if (n <= 0) return res;
-	sort(A.begin(), A.end(), [](const Interval& a, const Interval& b) {
-			return a.start < b.start;});
-	Interval prev = A[0];
-	for (int i=1; i<n; ++i) {
-		if (prev.start<=A[i].start && A[i].start<=prev.end) {
-			prev.end = prev.end > A[i].end ? prev.end : A[i].end;
+	sort(aa.begin(), aa.end(), cmp);
+	Interval pre = aa[0];
+	for (int i=1; i < n; ++i) {
+		if (pre.start <= aa[i].start && aa[i].start <= pre.end) {
+			pre.end = pre.end > aa[i].end ? pre.end : aa[i].end;
 		} else {
-			res.push_back(prev);
-			prev = A[i];
+			res.push_back(pre);
+			pre = aa[i];
 		}
 	}
-	res.push_back(prev);
+	res.push_back(pre);
 	return res;	
 }
 
 int main(int argc, char** argv) {
-    return 0;
+  return 0;
 }

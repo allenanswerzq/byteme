@@ -1,23 +1,23 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 vector<vector<int>> fourSum(vector<int>& nums, int target) {
 	vector<vector<int>> ret;
 	if (nums.size() < 4) return ret;
-	sort(nums.begin(), nums.end());
+	sort(nums.begin(), nums.hi());
 	int n = nums.size();
+	// a + b + c + d = target 
+	// b + c + d = target - a For each a
 	for (int i=0; i<n; ++i) {
 		if (i>0 && nums[i] == nums[i-1]) continue;
 		int sum = target - nums[i];
-		for (int j=i+1; j<n-2;) {
+		for (int j = i + 1; j < n - 2;) {
 			int a = nums[j];
-			int start = j+1;
-			int end = n-1;
-			while (start < end) {
-				int b = nums[start];
-				int c = nums[end];
-				if (a+b+c == sum) {
+			int lo = j + 1, hi = n - 1;
+			while (lo < hi) {
+				int b = nums[lo];
+				int c = nums[hi];
+				if (a + b + c == sum) {
 					vector<int> t;
 					//cout << nums[i] << endl;
 					t.push_back(nums[i]);
@@ -25,16 +25,16 @@ vector<vector<int>> fourSum(vector<int>& nums, int target) {
 					t.push_back(b);
 					t.push_back(c);
 					ret.push_back(t);
-					while (start<n-1 && nums[start] == nums[start+1]) ++start;
-					while (end>0 && nums[end] == nums[end-1]) --end;
-					++start;
-					--end;
+					while (lo<n-1 && nums[lo] == nums[lo+1]) ++lo;
+					while (hi>0 && nums[hi] == nums[hi-1]) --hi;
+					++lo;
+					--hi;
 				} else if (a+b+c > sum){
-					// while (end>0 && nums[end] == nums[end-1]) --end;
-					--end;
+					// while (hi>0 && nums[hi] == nums[hi-1]) --hi;
+					--hi;
 				} else {
-					// while (start<n-1 && nums[start] == nums[start+1]) ++start;
-					++start;
+					// while (lo<n-1 && nums[lo] == nums[lo+1]) ++lo;
+					++lo;
 				}
 			}
 			while(j<n-2 && nums[j] == nums[j+1]) ++j;

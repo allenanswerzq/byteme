@@ -1,23 +1,20 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-    printf("[ ");
-    for (auto x:v)
-        printf("%d ", x); 
-    printf("]\n");
-}
+#define mst(x, a) memset(x, a, sizeof(x))
 
 bool isIsomorphic(string s, string t) {
-  map<char, char> a;
-  map<char, char> b;
+  int aa[256];
+  int bb[256];
+  mst(aa, 0);
+  mst(bb, 0);
   for (int i=0; i<s.size(); ++i) {
-    if (a.find(s[i])==a.end() && b.find(t[i])==b.end()) {
-      a[s[i]] = t[i];
-      b[t[i]] = s[i];
+    if ( !aa.count(s[i]) && !bb.count(t[i]) ) {
+      aa[s[i]] = t[i];
+      bb[t[i]] = s[i];
     } else {
-      if (a[s[i]] != t[i]) return false; 
+      if (aa[s[i]] != t[i] || bb[t[i]] != s[i]) 
+        return false; 
     }
   }
   return true;

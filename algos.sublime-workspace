@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"Va",
+				"validTree"
+			],
+			[
+				"vali",
+				"validTree"
+			],
+			[
+				"three",
+				"threeSumSmaller"
+			],
+			[
+				"ver",
+				"verifyPreorder"
+			],
+			[
+				"get",
+				"getFactors"
+			],
+			[
+				"fa",
+				"fastLongestPalindromes"
+			],
+			[
+				"coutn",
+				"countNodes"
+			],
+			[
+				"cou",
+				"countNodes"
+			],
+			[
+				"find",
+				"findKthLargest"
+			],
+			[
+				"MAX",
+				"MAXSIEVE"
+			],
+			[
+				"u",
+				"unordered_map\t(P137.cpp)"
+			],
+			[
+				"min",
+				"minSubArrayLen"
+			],
+			[
+				"num",
+				"numCourses"
+			],
+			[
+				"ca",
+				"capacity"
+			],
+			[
 				"tra",
 				"traverse"
 			],
@@ -18,10 +74,6 @@
 			[
 				"unor",
 				"unordered_map\t(P127.cpp)"
-			],
-			[
-				"find",
-				"findLadders"
 			],
 			[
 				"wor",
@@ -100,14 +152,6 @@
 				"numberOfArithmeticSlicesBT"
 			],
 			[
-				"num",
-				"numberOfArithmeticSlices"
-			],
-			[
-				"cou",
-				"countSmaller"
-			],
-			[
 				"max",
 				"maxCoins"
 			],
@@ -118,10 +162,6 @@
 			[
 				"com",
 				"combinationSum4"
-			],
-			[
-				"get",
-				"getMoneyAmount"
 			],
 			[
 				"getmon",
@@ -327,247 +367,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "test/Makefile",
-			"settings":
-			{
-				"buffer_size": 539,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/true-c.txt",
-			"settings":
-			{
-				"buffer_size": 6,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/in-c.txt",
-			"settings":
-			{
-				"buffer_size": 42,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/c.cpp",
-			"settings":
-			{
-				"buffer_size": 2179,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/true-b.txt",
-			"settings":
-			{
-				"buffer_size": 45,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/in-b.txt",
-			"settings":
-			{
-				"buffer_size": 79,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/b.cpp",
-			"settings":
-			{
-				"buffer_size": 2109,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/p146.cpp",
-			"settings":
-			{
-				"buffer_size": 4373,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/P151.cpp",
-			"settings":
-			{
-				"buffer_size": 845,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/p53-2.cpp",
-			"settings":
-			{
-				"buffer_size": 1653,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/p152-2.cpp",
-			"settings":
-			{
-				"buffer_size": 1229,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/P152.cpp",
-			"settings":
-			{
-				"buffer_size": 1310,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/P153.cpp",
-			"settings":
-			{
-				"buffer_size": 956,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/Makefile",
-			"settings":
-			{
-				"buffer_size": 579,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "",
-			"file": "leet/true-p153-2.txt",
-			"file_size": 0,
-			"file_write_time": 131790463270000000,
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "",
-			"file": "leet/in-p153-2.txt",
-			"file_size": 0,
-			"file_write_time": 131790463270000000,
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/p153-2.cpp",
-			"settings":
-			{
-				"buffer_size": 1895,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/p236-2.cpp",
-			"settings":
-			{
-				"buffer_size": 2840,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "util/Makefile",
-			"settings":
-			{
-				"buffer_size": 555,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "util/true-lca.txt",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "util/in-lca.txt",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "util/lca.cpp",
-			"settings":
-			{
-				"buffer_size": 1956,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/P236.cpp",
-			"settings":
-			{
-				"buffer_size": 1321,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/P235.cpp",
-			"settings":
-			{
-				"buffer_size": 1606,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/true-a.txt",
-			"settings":
-			{
-				"buffer_size": 7,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/in-a.txt",
-			"settings":
-			{
-				"buffer_size": 24,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/a.cpp",
-			"settings":
-			{
-				"buffer_size": 2125,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -692,142 +491,138 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/jche/Code/algos",
-		"/Users/jche/Code/algos/gcj",
-		"/Users/jche/Code/algos/gcj/2017",
-		"/Users/jche/Code/algos/gcj/2017/roundf",
-		"/Users/jche/Code/algos/gcj/2017/roundf/a"
+		"/Users/jche/Code/algos"
 	],
 	"file_history":
 	[
-		"/Users/jche/Code/algos/leet/true-p153-3.txt",
-		"/Users/jche/Code/algos/leet/in-p153-3.txt",
-		"/Users/jche/Code/algos/leet/p153-3.cpp",
-		"/Users/jche/Code/llvm/libcxx-6.0.0.src/include/vector",
-		"/Users/jche/Code/algos/test/a.cpp",
-		"/Users/jche/Code/algos/sketch.py",
-		"/Users/jche/Code/algos/leet/P261.cpp",
-		"/Users/jche/Code/algos/leet/p150.cpp",
-		"/Users/jche/Code/algos/leet/p149.cpp",
-		"/Users/jche/Code/algos/leet/P147.cpp",
-		"/Users/jche/Code/algos/leet/P127.cpp",
-		"/Users/jche/Code/algos/leet/Makefile",
-		"/Users/jche/Code/algos/leet/true-p126.txt",
-		"/Users/jche/Code/algos/leet/in-p126.txt",
-		"/Users/jche/Code/algos/leet/p126.cpp",
-		"/Users/jche/Code/algos/leet/P128.cpp",
-		"/Users/jche/Code/algos/leet/P129.cpp",
-		"/Users/jche/Code/algos/leet/P130.py",
-		"/Users/jche/Code/algos/leet/p130.cpp",
-		"/Users/jche/Code/algos/leet/P131.cpp",
-		"/Users/jche/Code/algos/leet/p132-2.cpp",
-		"/Users/jche/Code/algos/leet/P133.cpp",
-		"/Users/jche/Code/algos/leet/P134.cpp",
-		"/Users/jche/Code/algos/leet/p173-2.cpp",
-		"/Users/jche/Code/algos/leet/P137.cpp",
-		"/Users/jche/Code/algos/leet/P138.cpp",
-		"/Users/jche/Code/algos/leet/p139-2.cpp",
-		"/Users/jche/Code/algos/leet/p140-2.cpp",
-		"/Users/jche/Code/algos/leet/p114-2.cpp",
-		"/Users/jche/Code/algos/leet/P141.cpp",
-		"/Users/jche/Code/algos/leet/P142.cpp",
-		"/Users/jche/Code/algos/leet/P143.cpp",
-		"/Users/jche/Code/algos/leet/p146.cpp",
-		"/Users/jche/Code/algos/misc/P194.sh",
-		"/Users/jche/Code/algos/leet/p98-2.cpp",
-		"/Users/jche/Code/algos/leet/P101.cpp",
-		"/Users/jche/Code/algos/leet/p111-2.cpp",
-		"/Users/jche/Code/algos/leet/p110-2.cpp",
-		"/Users/jche/Code/algos/leet/p100-2.cpp",
-		"/Users/jche/Code/algos/leet/P109.cpp",
-		"/Users/jche/Code/algos/leet/p108-2.cpp",
-		"/Users/jche/Code/algos/leet/P107.cpp",
-		"/Users/jche/Code/algos/leet/p105-2.cpp",
-		"/Users/jche/Code/algos/leet/P104.cpp",
-		"/Users/jche/Code/algos/leet/p101-2.cpp",
-		"/Users/jche/Code/algos/leet/p99-2.cpp",
+		"/Users/jche/Code/algos/codebook/yarin.cpp",
+		"/Users/jche/Code/algos/codebook/manacher.cpp",
+		"/Users/jche/Code/algos/leet/P113.cpp",
+		"/Users/jche/Code/algos/leet/P260.cpp",
+		"/Users/jche/Code/algos/leet/P226.cpp",
+		"/Users/jche/Code/algos/leet/P236.cpp",
+		"/Users/jche/Code/algos/leet/P237.cpp",
+		"/Users/jche/Code/algos/leet/P238.cpp",
+		"/Users/jche/Code/algos/leet/P239.cpp",
+		"/Users/jche/Code/algos/leet/P240.cpp",
+		"/Users/jche/Code/algos/leet/P74.cpp",
+		"/Users/jche/Code/algos/leet/P242.cpp",
+		"/Users/jche/Code/algos/leet/P245.cpp",
+		"/Users/jche/Code/algos/leet/P246.cpp",
+		"/Users/jche/Code/algos/leet/P247.cpp",
+		"/Users/jche/Code/algos/leet/P244.cpp",
+		"/Users/jche/Code/algos/leet/P248.cpp",
+		"/Users/jche/Code/algos/leet/P249.cpp",
+		"/Users/jche/Code/algos/leet/P250.cpp",
+		"/Users/jche/Code/algos/leet/P251.cpp",
+		"/Users/jche/Code/algos/leet/P252.cpp",
+		"/Users/jche/Code/algos/leet/P253.cpp",
+		"/Users/jche/Code/algos/leet/P254.cpp",
+		"/Users/jche/Code/algos/leet/P255.cpp",
 		"/Users/jche/Code/algos/leet/P98.cpp",
-		"/Users/jche/Code/algos/leet/p97.cpp",
-		"/Users/jche/Code/algos/leet/p95-2.cpp",
-		"/Users/jche/Code/algos/leet/p96-2.cpp",
-		"/Users/jche/Code/algos/leet/p94-2.cpp",
-		"/Users/jche/Code/algos/leet/P93.cpp",
-		"/Users/jche/Code/algos/leet/P92.cpp",
-		"/Users/jche/Code/algos/leet/p91-2.cpp",
-		"/Users/jche/Code/algos/leet/p53-2.cpp",
-		"/Users/jche/Code/algos/leet/p124-2.cpp",
+		"/Users/jche/Code/algos/leet/P256.cpp",
+		"/Users/jche/Code/algos/leet/P257.cpp",
+		"/Users/jche/Code/algos/leet/P258.cpp",
+		"/Users/jche/Code/algos/leet/P259.cpp",
+		"/Users/jche/Code/algos/leet/P263.cpp",
+		"/Users/jche/Code/algos/leet/P264.cpp",
+		"/Users/jche/Code/algos/leet/P265.cpp",
+		"/Users/jche/Code/algos/leet/P266.cpp",
+		"/Users/jche/Code/algos/leet/P267.cpp",
+		"/Users/jche/Code/algos/leet/P268.cpp",
+		"/Users/jche/Code/algos/leet/p629.cpp",
+		"/Users/jche/Code/algos/leet/Makefile",
+		"/Users/jche/Code/algos/leet/true-P269.txt",
+		"/Users/jche/Code/algos/leet/in-P269.txt",
+		"/Users/jche/Code/algos/leet/P269.cpp",
+		"/Users/jche/Code/algos/leet/P261.cpp",
+		"/Users/jche/Code/algos/leet/true-P261.txt",
+		"/Users/jche/Code/algos/leet/in-P261.txt",
+		"/Users/jche/Code/algos/sketch.py",
+		"/Users/jche/Code/algos/leet/P241.cpp",
+		"/Users/jche/Code/algos/leet/true-test.txt",
+		"/Users/jche/Code/algos/leet/in-test.txt",
+		"/Users/jche/Code/algos/leet/test.cpp",
+		"/Users/jche/Code/algos/gcj/2018/practice/a/a.cpp",
+		"/Users/jche/Code/algos/test/a.cpp",
+		"/Users/jche/Code/algos/leet/aa.txt",
+		"/Users/jche/Code/algos/codebook/segtree.cpp",
+		"/Users/jche/Code/algos/leet/P227.cpp",
+		"/Users/jche/Code/algos/leet/P56.cpp",
+		"/Users/jche/Code/algos/leet/P235.cpp",
+		"/Users/jche/Code/algos/leet/P233.cpp",
+		"/Users/jche/Code/algos/leet/P234.cpp",
+		"/Users/jche/Code/algos/leet/P5.cpp",
+		"/Users/jche/Code/algos/leet/p35-2.cpp",
+		"/Users/jche/Code/algos/leet/P228.cpp",
+		"/Users/jche/Code/algos/leet/P230.cpp",
+		"/Users/jche/Code/algos/leet/true-p231.txt",
+		"/Users/jche/Code/algos/leet/in-p231.txt",
+		"/Users/jche/Code/algos/leet/p231.cpp",
+		"/Users/jche/Code/algos/leet/P232.cpp",
+		"/Users/jche/Code/algos/leet/P213.cpp",
+		"/Users/jche/Code/algos/leet/P137.cpp",
+		"/Users/jche/Code/algos/leet/P223.cpp",
+		"/Users/jche/Code/algos/leet/P224.cpp",
+		"/Users/jche/Code/algos/leet/P225.cpp",
+		"/Users/jche/Code/algos/leet/p221-2.cpp",
+		"/Users/jche/Code/algos/leet/P222.cpp",
+		"/Users/jche/Code/algos/leet/P221.cpp",
+		"/Users/jche/Code/algos/leet/P220.cpp",
+		"/Users/jche/Code/algos/leet/P219.cpp",
+		"/Users/jche/Code/algos/leet/p218.cpp",
+		"/Users/jche/Code/algos/leet/P217.cpp",
+		"/Users/jche/Code/algos/leet/P216.cpp",
+		"/Users/jche/Code/algos/leet/P215.cpp",
+		"/Users/jche/Code/algos/leet/p198-2.cpp",
+		"/Users/jche/Code/algos/leet/P73.cpp",
+		"/Users/jche/Code/algos/leet/p213-2.cpp",
+		"/Users/jche/Code/algos/leet/P212.cpp",
+		"/Users/jche/Code/algos/leet/P79.cpp",
+		"/Users/jche/Code/algos/leet/p211.cpp",
+		"/Users/jche/Code/algos/leet/P18.cpp",
+		"/Users/jche/Code/algos/leet/P16.cpp",
+		"/Users/jche/Code/algos/cake/P16.cpp",
+		"/Users/jche/Code/algos/leet/P15.cpp",
+		"/Users/jche/Code/algos/leet/P210.cpp",
+		"/Users/jche/Code/algos/leet/P209.cpp",
+		"/Users/jche/Code/algos/leet/P208.cpp",
+		"/Users/jche/Code/algos/leet/P207.cpp",
+		"/Users/jche/Code/algos/leet/P206.cpp",
+		"/Users/jche/Code/algos/leet/P205.cpp",
+		"/Users/jche/Code/algos/leet/P204.cpp",
+		"/Users/jche/Code/algos/leet/P203.cpp",
+		"/Users/jche/Code/algos/leet/P202.cpp",
+		"/Users/jche/Code/algos/leet/P201.cpp",
+		"/Users/jche/Code/algos/leet/P200.cpp",
+		"/Users/jche/Code/algos/leet/P199.cpp",
+		"/Users/jche/Code/algos/leet/P214.cpp",
+		"/Users/jche/Code/algos/codebook/KMP.cpp",
+		"/Users/jche/Code/algos/leet/P198.cpp",
+		"/Users/jche/Code/algos/leet/P191.cpp",
+		"/Users/jche/Code/algos/leet/P190.cpp",
+		"/Users/jche/Code/algos/leet/P189.cpp",
+		"/Users/jche/Code/algos/gcj/2018/rounda/c/2018-rounda-c.cpp",
+		"/Users/jche/Code/algos/gcj/2017/roundb/2017-b-a.cpp",
+		"/Users/jche/Code/algos/top/srm191.cpp",
+		"/Users/jche/Code/algos/top/srm208.cpp",
+		"/Users/jche/Code/algos/top/srm170.cpp",
+		"/Users/jche/Code/algos/leet/p188.cpp",
+		"/Users/jche/Code/algos/codebook/2sat.cpp",
+		"/Users/jche/Code/algos/leet/p123-2.cpp",
 		"/Users/jche/Code/algos/test/Makefile",
 		"/Users/jche/Code/algos/test/true-a.txt",
 		"/Users/jche/Code/algos/test/in-a.txt",
-		"/Users/jche/Code/algos/leet/p113-2.cpp",
-		"/Users/jche/Code/algos/leet/p115-2.cpp",
-		"/Users/jche/Code/algos/leet/P116.cpp",
-		"/Users/jche/Code/algos/leet/p117-2.cpp",
-		"/Users/jche/Code/algos/leet/P118.cpp",
-		"/Users/jche/Code/algos/leet/P119.cpp",
-		"/Users/jche/Code/algos/leet/p120-2.cpp",
+		"/Users/jche/Code/algos/leet/P754.cpp",
 		"/Users/jche/Code/algos/leet/p121-2.cpp",
-		"/Users/jche/Code/algos/leet/p112-2.cpp",
-		"/Users/jche/Code/algos/leet/p122-2.cpp",
-		"/Users/jche/Code/algos/leet/p123-2.cpp",
-		"/Users/jche/Code/algos/leet/P124.cpp",
-		"/Users/jche/Code/algos/leet/P100.cpp",
-		"/Users/jche/Code/algos/leet/P91.cpp",
-		"/Users/jche/Code/algos/test/b.cpp",
-		"/Users/jche/Code/algos/test/in-b.txt",
-		"/Users/jche/Code/algos/test/true-b.txt",
-		"/Users/jche/Code/algos/test/true-c.txt",
-		"/Users/jche/Code/algos/test/in-c.txt",
-		"/Users/jche/Code/algos/test/c.cpp",
-		"/Users/jche/Code/algos/leet/P33.cpp",
-		"/Users/jche/Code/algos/test/d.cpp",
-		"/Users/jche/Code/algos/test/in-d.txt",
-		"/Users/jche/Code/algos/test/true-d.txt",
-		"/Users/jche/Code/algos/leet/P73.cpp",
-		"/Users/jche/Code/algos/leet/P74.cpp",
-		"/Users/jche/Code/algos/leet/P75.cpp",
-		"/Users/jche/Code/algos/leet/p76.cpp",
-		"/Users/jche/Code/algos/leet/P77.cpp",
-		"/Users/jche/Code/algos/leet/P78.cpp",
-		"/Users/jche/Code/algos/leet/P79.cpp",
-		"/Users/jche/Code/algos/leet/P80.cpp",
-		"/Users/jche/Code/algos/leet/REVIRE_P81.cpp",
-		"/Users/jche/Code/algos/leet/P83.cpp",
-		"/Users/jche/Code/algos/leet/P82.cpp",
-		"/Users/jche/Code/algos/leet/p84-2.cpp",
-		"/Users/jche/Code/algos/leet/p85.cpp",
-		"/Users/jche/Code/algos/leet/P86.cpp",
-		"/Users/jche/Code/algos/leet/p87.cpp",
-		"/Users/jche/Code/algos/leet/P89.cpp",
-		"/Users/jche/Code/algos/leet/p10.cpp",
-		"/Users/jche/Code/algos/leet/P84.cpp",
-		"/Users/jche/Code/algos/leet/REVIRE_P76.cpp",
-		"/Users/jche/Code/algos/gcj/2018/practice/b/Makefile",
-		"/Users/jche/Code/algos/leet/P71.cpp",
-		"/Users/jche/Code/algos/leet/P72.cpp",
-		"/Users/jche/Code/algos/cake/P34.cpp",
-		"/Users/jche/Code/algos/gcj/2017/roundd/b/2017-d-b.cpp",
-		"/Users/jche/Code/algos/leet/REVIEW_P54.cpp",
-		"/Users/jche/Code/algos/leet/P53.cpp",
-		"/Users/jche/Code/algos/leet/REVIEW_P51.cpp",
-		"/Users/jche/Code/algos/leet/P50.cpp",
-		"/Users/jche/Code/algos/leet/P49.cpp",
-		"/Users/jche/Code/algos/leet/P48.cpp",
-		"/Users/jche/Code/algos/leet/P47.cpp",
-		"/Users/jche/Code/algos/leet/REVIEW_P46.cpp",
-		"/Users/jche/Code/algos/leet/P28.cpp",
-		"/Users/jche/Code/algos/leet/P29.cpp",
-		"/Users/jche/Code/algos/leet/P30.cpp",
-		"/Users/jche/Code/algos/leet/P31.cpp",
-		"/Users/jche/Code/algos/leet/p32.cpp",
-		"/Users/jche/Code/algos/leet/P5.cpp",
-		"/Users/jche/Code/algos/leet/REVIEW_P34.cpp",
-		"/Users/jche/Code/algos/leet/P35.cpp",
-		"/Users/jche/Code/algos/leet/P36.cpp",
-		"/Users/jche/Code/algos/leet/P37.cpp",
-		"/Users/jche/Code/algos/leet/P38.cpp",
-		"/Users/jche/Code/algos/leet/P39.cpp",
-		"/Users/jche/Code/algos/leet/P40.cpp"
+		"/Users/jche/Code/algos/leet/in-p188.txt",
+		"/Users/jche/Code/algos/leet/true-p188.txt",
+		"/Users/jche/Code/algos/codebook/2sat.cppbak",
+		"/Users/jche/Code/algos/leet/P69.cpp",
+		"/Users/jche/Code/algos/leet/P172.cpp",
+		"/Users/jche/Code/algos/leet/P168.cpp",
+		"/Users/jche/Code/algos/leet/P167.cpp",
+		"/Users/jche/Code/algos/leet/P166.cpp"
 	],
 	"find":
 	{
@@ -835,7 +630,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 190.0,
+		"height": 550.0,
 		"where_history":
 		[
 		]
@@ -845,6 +640,75 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"INT_MAX",
+			"roots",
+			"Args",
+			"_f",
+			"k",
+			"j",
+			"num",
+			"maxKey",
+			"minKey",
+			"higher_bound",
+			"lower_bound",
+			"preorder",
+			"helper",
+			"intervals",
+			"v",
+			"count",
+			"pairs",
+			"num",
+			"input",
+			"A",
+			"buf",
+			"nums",
+			"in",
+			"stk",
+			"stack",
+			"result",
+			"TEST",
+			"pre_sum",
+			"NULL",
+			"TEST",
+			"nums",
+			"window",
+			"nums",
+			"prev",
+			"A",
+			"r",
+			"l",
+			"right",
+			"left",
+			"nums",
+			"p",
+			"nums",
+			"TEST",
+			"next_y",
+			"next_x",
+			"end",
+			"start",
+			"INT_MAX",
+			"sums",
+			"next",
+			"mark",
+			"prerequisites",
+			"b",
+			"a",
+			"l",
+			"g",
+			"3",
+			"source",
+			"0",
+			"s2",
+			"s1",
+			"_",
+			"old",
+			"val",
+			"begin",
+			"size",
+			"pf",
+			"a",
+			"minimum",
 			"in",
 			"mp",
 			"tail",
@@ -903,46 +767,7 @@
 			"C",
 			"int",
 			"res",
-			"g_end",
-			"for",
-			"g_start",
-			"for",
-			"g_city",
-			"        }",
-			"aa",
-			"sides",
-			"  \n",
-			"solve_large",
-			"solve_small",
-			"blue",
-			"red",
-			"b",
-			"red",
-			"blue",
-			"path",
-			"i",
-			"n",
-			"tmp",
-			"rank",
-			"\n  ",
-			"a",
-			"comb",
-			"height",
-			"aa",
-			"cc",
-			"aa",
-			"mst",
-			"== ",
-			"new_nums",
-			"visit",
-			"sendTwo",
-			"min_time",
-			"time",
-			"offset",
-			"      int o = offset[i], w = walk[i], d = drive[i];",
-			"offset",
-			"      int o = offset[i], w = walk[i], d = drive[i];",
-			"offset"
+			"g_end"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -960,4133 +785,8 @@
 	"groups":
 	[
 		{
-			"selected": 21,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "test/Makefile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 539,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"syntax": "Packages/Makefile/Makefile.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "test/true-c.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5,
-								5
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 20,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "test/in-c.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 42,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								41,
-								41
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 10
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "test/c.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2179,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1766,
-								1766
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1904,
-										1905
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1900,
-										1901
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2019,
-										2020
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1389,
-										1390
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 18
-							},
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1179.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "test/true-b.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 45,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								45,
-								45
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 23,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "test/in-b.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 79,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 22,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "test/b.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2109,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1770,
-								1770
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1947,
-										1948
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1688,
-										1689
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2107,
-										2108
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1477,
-										1478
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 738.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "leet/p146.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4373,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1668,
-								1668
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2341,
-										2342
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										2033,
-										2034
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1707,
-										1708
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1653,
-										1654
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"highlight_line": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 13
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 1400.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "leet/P151.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 845,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								638,
-								638
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										708,
-										709
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										638,
-										639
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 24
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 59.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "leet/p53-2.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1653,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1273,
-								1273
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1277,
-										1278
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										997,
-										998
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1277,
-										1278
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										997,
-										998
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 14
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 378.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "leet/p152-2.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1229,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								977,
-								977
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										979,
-										980
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										959,
-										960
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 319.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "leet/P152.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1310,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1146,
-								1146
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1257,
-										1258
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1030,
-										1031
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1145,
-										1146
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1140,
-										1141
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 22
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 439.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "leet/P153.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 956,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								804,
-								804
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										903,
-										904
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										559,
-										560
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										875,
-										876
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										802,
-										803
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 118.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "leet/Makefile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 579,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Makefile/Makefile.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "leet/true-p153-2.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "leet/in-p153-2.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "leet/p153-2.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1895,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1164,
-								1164
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1325,
-										1326
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/square_bracket.png",
-										"region.bluish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1321,
-										1322
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1164,
-										1165
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1161,
-										1162
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 22
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 697.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "leet/p236-2.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2840,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2840,
-								2840
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2248,
-										2249
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1956,
-										1957
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 1413.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "util/Makefile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 555,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"syntax": "Packages/Makefile/Makefile.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "util/true-lca.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "util/in-lca.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "util/lca.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1956,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								63,
-								63
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 2
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 20.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "leet/P236.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1321,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1280,
-								1280
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 93.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 23,
-					"file": "leet/P235.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1606,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1382,
-								1382
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1553,
-										1554
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1380,
-										1381
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 414.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 24,
-					"file": "test/true-a.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7,
-								7
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"highlight_line": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 25,
-					"type": "text"
-				},
-				{
-					"buffer": 25,
-					"file": "test/in-a.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 24,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								23,
-								23
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 18
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 26,
-					"type": "text"
-				},
-				{
-					"buffer": 26,
-					"file": "test/a.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2125,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2123,
-								2123
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1935,
-										1936
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1863,
-										1864
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2123,
-										2124
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1677,
-										1678
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 998.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 24,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -5151,6 +851,166 @@
 		"selected_items":
 		[
 			[
+				"p269",
+				"leet/p629.cpp"
+			],
+			[
+				"p268",
+				"leet/P268.cpp"
+			],
+			[
+				"p267",
+				"leet/P267.cpp"
+			],
+			[
+				"p266",
+				"leet/P266.cpp"
+			],
+			[
+				"p265",
+				"leet/P265.cpp"
+			],
+			[
+				"p264",
+				"leet/P264.cpp"
+			],
+			[
+				"p263",
+				"leet/P263.cpp"
+			],
+			[
+				"p261",
+				"leet/P261.cpp"
+			],
+			[
+				"sk",
+				"sketch.py"
+			],
+			[
+				"p260",
+				"leet/P260.cpp"
+			],
+			[
+				"a.cpp",
+				"gcj/2018/practice/a/a.cpp"
+			],
+			[
+				"a.",
+				"test/a.cpp"
+			],
+			[
+				"p259",
+				"leet/P259.cpp"
+			],
+			[
+				"p258",
+				"leet/P258.cpp"
+			],
+			[
+				"p113",
+				"leet/P113.cpp"
+			],
+			[
+				"p257",
+				"leet/P257.cpp"
+			],
+			[
+				"p256",
+				"leet/P256.cpp"
+			],
+			[
+				"p98",
+				"leet/P98.cpp"
+			],
+			[
+				"aa.",
+				"leet/aa.txt"
+			],
+			[
+				"p255",
+				"leet/P255.cpp"
+			],
+			[
+				"p254",
+				"leet/P254.cpp"
+			],
+			[
+				"p253",
+				"leet/P253.cpp"
+			],
+			[
+				"p252",
+				"leet/P252.cpp"
+			],
+			[
+				"p251",
+				"leet/P251.cpp"
+			],
+			[
+				"p250",
+				"leet/P250.cpp"
+			],
+			[
+				"p249",
+				"leet/P249.cpp"
+			],
+			[
+				"p248",
+				"leet/P248.cpp"
+			],
+			[
+				"p247",
+				"leet/P247.cpp"
+			],
+			[
+				"p246",
+				"leet/P246.cpp"
+			],
+			[
+				"p245",
+				"leet/P245.cpp"
+			],
+			[
+				"p244",
+				"leet/P244.cpp"
+			],
+			[
+				"p227",
+				"leet/P227.cpp"
+			],
+			[
+				"p242",
+				"leet/P242.cpp"
+			],
+			[
+				"p241",
+				"leet/P241.cpp"
+			],
+			[
+				"p56",
+				"leet/P56.cpp"
+			],
+			[
+				"p74",
+				"leet/P74.cpp"
+			],
+			[
+				"p240",
+				"leet/P240.cpp"
+			],
+			[
+				"p239",
+				"leet/P239.cpp"
+			],
+			[
+				"p238",
+				"leet/P238.cpp"
+			],
+			[
+				"p237",
+				"leet/P237.cpp"
+			],
+			[
 				"p236",
 				"leet/P236.cpp"
 			],
@@ -5159,508 +1019,348 @@
 				"leet/P235.cpp"
 			],
 			[
-				"p236-2",
-				"leet/p236-2.cpp"
+				"seg",
+				"codebook/segtree.cpp"
 			],
 			[
-				"p153",
-				"leet/P153.cpp"
+				"p5-2",
+				"leet/p35-2.cpp"
 			],
 			[
-				"p153.c",
-				"leet/P153.cpp"
+				"ya",
+				"codebook/yarin.cpp"
 			],
 			[
-				"p152",
-				"leet/P152.cpp"
+				"mana",
+				"codebook/manacher.cpp"
 			],
 			[
-				"p152-2",
-				"leet/p152-2.cpp"
+				"p5.c",
+				"leet/P5.cpp"
 			],
 			[
-				"p53-2",
-				"leet/p53-2.cpp"
+				"p234",
+				"leet/P234.cpp"
 			],
 			[
-				"p151",
-				"leet/P151.cpp"
+				"p233",
+				"leet/P233.cpp"
 			],
 			[
-				"p146",
-				"leet/p146.cpp"
+				"p232",
+				"leet/P232.cpp"
 			],
 			[
-				"b.cpp",
-				"test/b.cpp"
+				"p213",
+				"leet/P213.cpp"
 			],
 			[
-				"a.cpp",
-				"test/a.cpp"
+				"p231",
+				"leet/P213.cpp"
 			],
 			[
-				"149",
-				"leet/p149.cpp"
+				"p230",
+				"leet/P230.cpp"
 			],
 			[
-				"p149",
-				"misc/P194.sh"
+				"p228",
+				"leet/P228.cpp"
 			],
 			[
-				"p147",
-				"leet/P147.cpp"
+				"p226",
+				"leet/P226.cpp"
 			],
 			[
-				"sk",
-				"sketch.py"
+				"p225",
+				"leet/P225.cpp"
 			],
 			[
-				"p143.",
-				"leet/P143.cpp"
+				"p224",
+				"leet/P224.cpp"
 			],
 			[
-				"p143",
-				"leet/P143.cpp"
+				"p223.",
+				"leet/P223.cpp"
 			],
 			[
-				"p142.c",
-				"leet/P142.cpp"
+				"p222",
+				"leet/P222.cpp"
 			],
 			[
-				"p141",
-				"leet/P141.cpp"
+				"p221-",
+				"leet/p221-2.cpp"
 			],
 			[
-				"p141-2",
-				"leet/p114-2.cpp"
+				"p221",
+				"leet/P221.cpp"
 			],
 			[
-				"p140-",
-				"leet/p140-2.cpp"
+				"p220",
+				"leet/P220.cpp"
 			],
 			[
-				"p139-2",
-				"leet/p139-2.cpp"
+				"p291",
+				"leet/P219.cpp"
 			],
 			[
-				"p138",
-				"leet/P138.cpp"
+				"p218",
+				"leet/p218.cpp"
 			],
 			[
-				"p137",
-				"leet/P137.cpp"
+				"p217",
+				"leet/P217.cpp"
 			],
 			[
-				"p134",
-				"leet/P134.cpp"
+				"p216",
+				"leet/P216.cpp"
 			],
 			[
-				"p133",
-				"leet/P133.cpp"
+				"p215",
+				"leet/P215.cpp"
 			],
 			[
-				"p132-",
-				"leet/p132-2.cpp"
+				"yarin",
+				"codebook/yarin.cpp"
 			],
 			[
-				"p131",
-				"leet/P131.cpp"
+				"kmp",
+				"codebook/KMP.cpp"
 			],
 			[
-				"p130.cp",
-				"leet/p130.cpp"
+				"km",
+				"codebook/KMP.cpp"
 			],
 			[
-				"p130",
-				"leet/P130.py"
+				"p214",
+				"leet/P214.cpp"
 			],
 			[
-				"p129",
-				"leet/P129.cpp"
-			],
-			[
-				"p261",
-				"leet/P261.cpp"
-			],
-			[
-				"p128",
-				"leet/P128.cpp"
-			],
-			[
-				"p127.",
-				"leet/P127.cpp"
-			],
-			[
-				"p124",
-				"leet/P124.cpp"
-			],
-			[
-				"p124-2",
-				"leet/p124-2.cpp"
-			],
-			[
-				"p123",
-				"leet/p123-2.cpp"
-			],
-			[
-				"p122",
-				"leet/p122-2.cpp"
-			],
-			[
-				"p112-2",
-				"leet/p112-2.cpp"
-			],
-			[
-				"p53-",
-				"leet/p53-2.cpp"
-			],
-			[
-				"p121",
-				"leet/p121-2.cpp"
-			],
-			[
-				"p120-2",
-				"leet/p120-2.cpp"
-			],
-			[
-				"p119",
-				"leet/P119.cpp"
-			],
-			[
-				"p118",
-				"leet/P118.cpp"
-			],
-			[
-				"p117",
-				"leet/p117-2.cpp"
-			],
-			[
-				"p116",
-				"leet/P116.cpp"
-			],
-			[
-				"p115-2",
-				"leet/p115-2.cpp"
-			],
-			[
-				"p114",
-				"leet/p114-2.cpp"
-			],
-			[
-				"p113-2",
-				"leet/p113-2.cpp"
-			],
-			[
-				"a.",
-				"test/a.cpp"
-			],
-			[
-				"p111.c",
-				"leet/p111-2.cpp"
-			],
-			[
-				"p110",
-				"leet/p110-2.cpp"
-			],
-			[
-				"p100",
-				"leet/p100-2.cpp"
-			],
-			[
-				"p109",
-				"leet/P109.cpp"
-			],
-			[
-				"p108",
-				"leet/p108-2.cpp"
-			],
-			[
-				"p107",
-				"leet/P107.cpp"
-			],
-			[
-				"p105-",
-				"leet/p105-2.cpp"
-			],
-			[
-				"p104",
-				"leet/P104.cpp"
-			],
-			[
-				"p101",
-				"leet/P101.cpp"
-			],
-			[
-				"p101-2",
-				"leet/p101-2.cpp"
-			],
-			[
-				"p99-2",
-				"leet/p99-2.cpp"
-			],
-			[
-				"p98",
-				"leet/P98.cpp"
-			],
-			[
-				"p98-2",
-				"leet/p98-2.cpp"
-			],
-			[
-				"p98.",
-				"leet/P98.cpp"
-			],
-			[
-				"p97",
-				"leet/p97.cpp"
-			],
-			[
-				"p95-",
-				"leet/p95-2.cpp"
-			],
-			[
-				"p96-2",
-				"leet/p96-2.cpp"
-			],
-			[
-				"p94-2",
-				"leet/p94-2.cpp"
-			],
-			[
-				"p93.",
-				"leet/P93.cpp"
-			],
-			[
-				"p92.cp",
-				"leet/P92.cpp"
-			],
-			[
-				"p91-2",
-				"leet/p91-2.cpp"
-			],
-			[
-				"p91",
-				"leet/P91.cpp"
-			],
-			[
-				"a",
-				"test/a.cpp"
-			],
-			[
-				"p89",
-				"leet/P89.cpp"
-			],
-			[
-				"p87.",
-				"leet/p87.cpp"
-			],
-			[
-				"p86",
-				"leet/P86.cpp"
-			],
-			[
-				"p85",
-				"leet/p85.cpp"
-			],
-			[
-				"",
-				"leet/p84-2.cpp"
-			],
-			[
-				"a.c",
-				"test/a.cpp"
-			],
-			[
-				"p",
-				"leet/p10.cpp"
-			],
-			[
-				"p10",
-				"leet/p10.cpp"
-			],
-			[
-				"p84",
-				"leet/P84.cpp"
-			],
-			[
-				"p82.c",
-				"leet/P82.cpp"
-			],
-			[
-				"p83.c",
-				"leet/P83.cpp"
-			],
-			[
-				"p33",
-				"leet/P33.cpp"
-			],
-			[
-				"p81.",
-				"leet/REVIRE_P81.cpp"
-			],
-			[
-				"p80.",
-				"leet/P80.cpp"
-			],
-			[
-				"p79.",
-				"leet/P79.cpp"
-			],
-			[
-				"p78",
-				"leet/P78.cpp"
-			],
-			[
-				"p77.c",
-				"leet/P77.cpp"
-			],
-			[
-				"p76.c",
-				"leet/p76.cpp"
-			],
-			[
-				"p76.",
-				"leet/REVIRE_P76.cpp"
-			],
-			[
-				"p75",
-				"leet/P75.cpp"
-			],
-			[
-				"p74.",
-				"leet/P74.cpp"
+				"p198-2",
+				"leet/p198-2.cpp"
 			],
 			[
 				"p73",
 				"leet/P73.cpp"
 			],
 			[
-				"p72.c",
-				"leet/P72.cpp"
+				"p213-2",
+				"leet/p213-2.cpp"
 			],
 			[
-				"p72-",
-				"leet/p117-2.cpp"
+				"p212",
+				"leet/P212.cpp"
 			],
 			[
-				"p34",
-				"cake/P34.cpp"
+				"p79",
+				"leet/P79.cpp"
 			],
 			[
-				"p71.c",
-				"leet/P71.cpp"
+				"p211",
+				"leet/p211.cpp"
 			],
 			[
-				"b",
-				"test/b.cpp"
+				"p18.",
+				"leet/P18.cpp"
 			],
 			[
-				"b.cp",
-				"gcj/2017/roundd/b/2017-d-b.cpp"
+				"p16.cpp",
+				"leet/P16.cpp"
 			],
 			[
-				"ma",
-				"gcj/2018/practice/b/Makefile"
+				"p15",
+				"leet/P15.cpp"
 			],
 			[
-				"p70-2",
-				"leet/p70-2.cpp"
+				"p210",
+				"leet/P210.cpp"
 			],
 			[
-				"69.",
+				"p209",
+				"leet/P209.cpp"
+			],
+			[
+				"p208",
+				"leet/P208.cpp"
+			],
+			[
+				"p207",
+				"leet/P207.cpp"
+			],
+			[
+				"p206",
+				"leet/P206.cpp"
+			],
+			[
+				"p205",
+				"leet/P205.cpp"
+			],
+			[
+				"p024",
+				"leet/P204.cpp"
+			],
+			[
+				"p203",
+				"leet/P203.cpp"
+			],
+			[
+				"p202",
+				"leet/P202.cpp"
+			],
+			[
+				"p137",
+				"leet/P137.cpp"
+			],
+			[
+				"p201",
+				"leet/P201.cpp"
+			],
+			[
+				"p200",
+				"leet/P200.cpp"
+			],
+			[
+				"p199",
+				"leet/P199.cpp"
+			],
+			[
+				"2sat",
+				"codebook/2sat.cpp"
+			],
+			[
+				"2018",
+				"gcj/2018/rounda/c/2018-rounda-c.cpp"
+			],
+			[
+				"2017",
+				"gcj/2017/roundb/2017-b-a.cpp"
+			],
+			[
+				"srm",
+				"top/srm208.cpp"
+			],
+			[
+				"p198",
+				"leet/P198.cpp"
+			],
+			[
+				"p198-",
+				"leet/p198-2.cpp"
+			],
+			[
+				"p191",
+				"leet/P191.cpp"
+			],
+			[
+				"p190.",
+				"leet/P190.cpp"
+			],
+			[
+				"p189",
+				"leet/P189.cpp"
+			],
+			[
+				"p123",
+				"leet/p123-2.cpp"
+			],
+			[
+				"p121",
+				"leet/p121-2.cpp"
+			],
+			[
+				"p754",
+				"leet/P754.cpp"
+			],
+			[
+				"p179",
+				"top/srm197-1-1.cpp"
+			],
+			[
+				"p174",
+				"leet/p174.cpp"
+			],
+			[
+				"p173",
+				"leet/P173.cpp"
+			],
+			[
+				"p173-2",
+				"leet/p173-2.cpp"
+			],
+			[
+				"p229",
+				"leet/P229.cpp"
+			],
+			[
+				"p172",
+				"leet/P172.cpp"
+			],
+			[
+				"p168",
+				"leet/P168.cpp"
+			],
+			[
+				"p167",
+				"leet/P167.cpp"
+			],
+			[
+				"p166",
+				"leet/P166.cpp"
+			],
+			[
+				"p69-2",
+				"leet/p96-2.cpp"
+			],
+			[
+				"p69",
 				"leet/P69.cpp"
 			],
 			[
-				"p67.c",
-				"leet/P67.cpp"
+				"p165",
+				"leet/P165.cpp"
 			],
 			[
-				"p66c",
-				"leet/P66.cpp"
+				"p165.",
+				"leet/P165.cpp"
 			],
 			[
-				"p64",
-				"leet/P64.cpp"
+				"p146",
+				"leet/p146.cpp"
 			],
 			[
-				"p63.c",
-				"leet/P63.cpp"
+				"p163",
+				"leet/p163.cpp"
 			],
 			[
-				"p62.c",
-				"leet/P62.cpp"
+				"p164",
+				"leet/p164.cpp"
 			],
 			[
-				"p61.c",
-				"leet/P61.cpp"
+				"p161",
+				"leet/p161.cpp"
 			],
 			[
-				"p59.",
-				"leet/P59.cpp"
+				"p162",
+				"leet/P162.cpp"
 			],
 			[
-				"p58.p",
-				"leet/P58.py"
+				"p72",
+				"leet/P72.cpp"
 			],
 			[
-				"p58.c",
-				"leet/p85.cpp"
+				"p72-2",
+				"leet/p572-2.cpp"
 			],
 			[
-				"p57",
-				"leet/P57.cpp"
+				"p72.",
+				"leet/P72.cpp"
 			],
 			[
-				"p56",
-				"leet/P56.cpp"
+				"p160",
+				"leet/P160.cpp"
 			],
 			[
-				"p45.",
-				"leet/P45.cpp"
-			],
-			[
-				"p53",
-				"leet/P53.cpp"
-			],
-			[
-				"p54.cp",
-				"leet/REVIEW_P54.cpp"
-			],
-			[
-				"p51.c",
-				"leet/REVIEW_P51.cpp"
-			],
-			[
-				"p50.c",
-				"leet/P50.cpp"
-			],
-			[
-				"p49.cp",
-				"leet/P49.cpp"
-			],
-			[
-				"p48.c",
-				"leet/P48.cpp"
-			],
-			[
-				"p47.cp",
-				"leet/P47.cpp"
-			],
-			[
-				"p46.cp",
-				"leet/REVIEW_P46.cpp"
-			],
-			[
-				"p45.c",
-				"leet/P45.cpp"
-			],
-			[
-				"p10.c",
-				"leet/p10.cpp"
-			],
-			[
-				"p44.cp",
-				"leet/p44.cpp"
+				"p33",
+				"leet/P33.cpp"
 			]
 		],
 		"width": 0.0
@@ -5668,7 +1368,7 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "fl",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -5741,7 +1441,7 @@
 		"_vintageous_last_buffer_search": "istr",
 		"_vintageous_last_buffer_search_command": "vi_slash",
 		"_vintageous_last_char_search_command": "vi_f",
-		"_vintageous_last_character_search": "f",
+		"_vintageous_last_character_search": "k",
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{

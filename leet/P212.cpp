@@ -1,21 +1,12 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
-}
-
-[
-  ['o','a','a','n'],
-  ['e','t','a','e'],
-  ['i','h','k','r'],
-  ['i','f','l','v']
-]
-
+// [
+//   ['o','a','a','n'],
+//   ['e','t','a','e'],
+//   ['i','h','k','r'],
+//   ['i','f','l','v']
+// ]
 
 // Use map TLE
 void bt(vector<vector<char>>& board, map<string,int>& mp, map<string,int>& res,int x, int y, string path, 
@@ -25,7 +16,7 @@ void bt(vector<vector<char>>& board, map<string,int>& mp, map<string,int>& res,i
 		if (res.find(path) == res.end())
 			res[path] = 1;
 		// return;   Note: no return here. case aba abaa if aba is the word we are looking for. if returned maybe 
-		// 									we cant find abaa in latter trval.
+		// 									we cant find abaa in later travel.
 	}
 	vector<vector<int>> dirs = {{0,1},{0,-1},{1, 0}, {-1, 0}};
 	visit[x][y] = 1;
@@ -65,6 +56,7 @@ vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
 	return ret;
 }
 
+
 class trieNode {
 public:
   // if child[i] not null means its child node contains char 'a'+i
@@ -82,8 +74,8 @@ public:
 // Use Trie Accepted 
 class Trie {
 private:
-  trieNode *root;   // root node of the trie
-
+  // root node of the trie
+  trieNode *root;   
   trieNode *find(string key) {
     trieNode *node = root;
     for (int i=0; i<key.size() && node; ++i)
@@ -121,24 +113,26 @@ public:
     }
 };
 
-void bt(vector<vector<char>>& board, Trie root, map<string,int>& res,int x, int y, string path, 
-	vector<vector<int>>& visit, int max_width)  {
+#define sz(x) (int)(x).size()
+#define vvc vector<vector<char>> 
+#define vvi vector<vector<int>>
+
+void bt(vvc& board, Trie root, map<string, int>& res,int x, int y, string path, vvi& visit, int max_width)  {
 	if (path.size() > max_width) return;
 	if (!root.startsWith(path)) return;
+
 	if(root.search(path)) {
-		if (res.find(path) == res.end())
-			res[path] = 1;
-		// return;   Note: no return here. case aba abaa if aba is the word we are looking for. if returned maybe 
-		// 									we cant find abaa in latter travel.
+		res[path] = 1;
 	}
+
 	vector<vector<int>> dirs = {{0,1},{0,-1},{1, 0}, {-1, 0}};
 	visit[x][y] = 1;
 	for (int i=0; i<4; ++i) {
-		int next_x = x + dirs[i][0];
-		int next_y = y + dirs[i][1];
-		if (next_x>=0 && next_x<board.size() && next_y>=0 && next_y<board[0].size() && visit[next_x][next_y]==0) {
-			path += board[next_x][next_y];
-			bt(board, mp, res, next_x, next_y, path, visit, max_width);
+		int nx = x + dirs[i][0];
+		int ny = y + dirs[i][1];
+		if (0<=nx && nx<board.size() && 0<=ny && ny<board[0].size() && visit[nx][ny]==0) {
+			path += board[nx][ny];
+			bt(board, mp, res, nx, ny, path, visit, max_width);
 			path.pop_back();
 		}
 	}	

@@ -1,29 +1,23 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-    printf("[ ");
-    for (auto x:v)
-        printf("%d ", x); 
-    printf("]\n");
-}
-
-// accepted
-// note primes count less then n
-int countPrimes(int n) {
-  vector<bool> isPrime(n+1, true);        
-  int cnt = 0;
-  isPrime[1] = false;
-  for (int i=1; i<n; ++i) 
-    if (isPrime[i] == true) {
-      ++cnt;
-      for(int j=2; i*j < n; ++j)
-        isPrime[i*j] = false;
+// sieve
+class Solution {
+ public:
+  int countPrimes(int n) {
+    bool primes[n + 1];
+    memset(primes, true, sizeof(primes));
+    for (int i = 2; i * i < n; ++i) {
+      if (primes[i]) {
+        for (int j = i * i; j < n; j += i)
+          primes[j] = false;
+      }
     }
-  return cnt;
-}
 
-int main(int argc, char** argv) {
-    return 0;
-}
+    int cnt = 0;
+    for (int i = 2; i < n; ++i)
+      if (primes[i])
+        ++cnt;
+    return cnt;
+  }
+};

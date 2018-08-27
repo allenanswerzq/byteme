@@ -1,41 +1,5 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-      printf("%d ", x);
-  printf("]\n");
-}
-
-void printMatrix(vector<vector<int>>& v) {
-  printf("{\n");
-  for (auto x:v)
-    printVector(x);
-  printf("}\n");
-}
-
-bool isPowerOfTwo(int x) {
-  //return (x && !(x & (x-1)));
-  return x* !(x&(x-1)) > 0;
-}
-
-int countOne (int n){
-  while( n ){
-    n = n&(n-1);
-    count++;
-  }
-  return count;
-}
-
-char toupper( char a ) {
-  return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
-}
-
-int main(int argc, char** argv) {
-  return 0;
-}
 
 // Numbers can be regarded as product of its factors. For example,
 // 8 = 2 x 2 x 2;
@@ -44,17 +8,53 @@ int main(int argc, char** argv) {
 // Note:
 // You may assume that n is always positive.
 // Factors should be greater than 1 and less than n.
+// Note: 
+// Each combination's factors must be sorted ascending, 
+// for example: The factors of 2 and 6 is [2, 6], not [6, 2].
+// You may assume that n is always positive.
+// Factors should be greater than 1 and less than n.
+
+// Examples: 
+// input: 1
+// output: 
+// []
+
+// input: 37
+// output: 
+// []
+
+// input: 12
+// output:
+// [
+//   [2, 6],
+//   [2, 2, 3],
+//   [3, 4]
+// ]
+
+// input: 32
+// output:
+// [
+//   [2, 16],
+//   [2, 2, 8],
+//   [2, 2, 2, 4],
+//   [2, 2, 2, 2, 2],
+//   [2, 4, 4],
+//   [4, 8]
+// ]
+
+#define vvi vector<vector<int>>
+#define pvi(v) for(auto& e: v) cout << e << " "; cout << endl
 
 void dfs(vector<vector<int>> &ret, vector<int> &path, int n) {
   int i = path.empty() ? 2 : path.back();
-  for (; i<=n/i; ++i) {
+  for (; i * i <= n; ++i) {
     if (n % i == 0) {
       path.push_back(i);
-      path.push_back(n/i);
+      path.push_back(n / i);
       ret.push_back(path); 
 
       path.pop_back();
-      dfs(ret, path, n/i);
+      dfs(ret, path, n / i);
       path.pop_back();
     }
   }  
@@ -65,4 +65,12 @@ vector<vector<int>> getFactors(int n) {
   vector<int> path;
   dfs(ret, path, n);
   return ret;
+}
+
+int main(int argc, char** argv) {
+  vvi res = getFactors(32);  
+  for (auto &r : res) {
+    pvi(r);
+  }
+  return 0;
 }

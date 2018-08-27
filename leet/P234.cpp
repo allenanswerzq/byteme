@@ -1,41 +1,9 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-      printf("%d ", x);
-  printf("]\n");
-}
-
-void printMatrix(vector<vector<int>>& v) {
-  printf("{\n");
-  for (auto x:v)
-    printVector(x);
-  printf("}\n");
-}
-
-bool isPowerOfTwo(int x) {
-  //return (x && !(x & (x-1)));
-  return x* !(x&(x-1)) > 0;
-}
-
-int countOne (int n){
-  while( n ){
-    n = n&(n-1);
-    count++;
-  }
-  return count;
-}
-
-char toupper( char a ) {
-  return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
-}
-
 ListNode* reverse(ListNode* head) {
-  if (!head) return NULL;
-  ListNode*pre=NULL, *nxt=NULL;
+  if (!head) return nullptr;
+  ListNode*pre=nullptr, *nxt=nullptr;
   while (head) {
     nxt = head->next;
     head->next = pre;

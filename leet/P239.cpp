@@ -1,41 +1,33 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-      printf("%d ", x);
-  printf("]\n");
-}
+class Solution {
+public:
+  vector<int> maxSlidingWindow(vector<int>& aa, int k) {
+    deque<int> dq;
+    vector<int> ret;
+    for (auto i = 0; i < aa.size(); ++i) {
+      // Window [i-k+1, i]  
+      // dq only save the maximum value for current window
+      while (!dq.empty() && aa[i] > aa[dq.back()])
+        dq.pop_back(); 
 
-void printMatrix(vector<vector<int>>& v) {
-  printf("{\n");
-  for (auto x:v)
-    printVector(x);
-  printf("}\n");
-}
+      // Put current window maximum value into dq
+      dq.push_back(i); 
 
-bool isPowerOfTwo(int x) {
-  //return (x && !(x & (x-1)));
-  return x* !(x&(x-1)) > 0;
-}
-
-int countOne (int n){
-  int count = 0;
-  while( n ){
-    n = n&(n-1);
-    count++;
+      // Already reaches window size
+      // Push current window maximum into ret 
+      if (i >= k-1) 
+        ret.push_back(aa[dq.front()]); 
+      
+      // Pop the first element of window so we can move on to next iteration 
+      if (dq.front() == i - k + 1) 
+        dq.pop_front();  
+    }
+    return ret;
   }
-  return count;
-}
-
-
-char toupper( char a ) {
-  return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
-}
+};
 
 int main(int argc, char** argv) {
-  cout << countOne(33) << "\n";
   return 0;
 }

@@ -1,74 +1,43 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-      printf("%d ", x);
-  printf("]\n");
-}
+// Given a string, we can "shift" each of its letter to its successive letter, 
+// for example: "abc" -> "bcd". We can keep "shifting" which forms the sequence:
+// "abc" -> "bcd" -> ... -> "xyz"
+// Given a list of strings which contains only lowercase alphabets, 
+// group all strings that belong to the same shifting sequence.
+// For example, given: ["abc", "bcd", "acef", "xyz", "az", "ba", "a", "z"], 
+// Return:
 
-void printMatrix(vector<vector<int>>& v) {
-  printf("{\n");
-  for (auto x:v)
-    printVector(x);
-  printf("}\n");
-}
+// [
+//   ["abc","bcd","xyz"],
+//   ["az","ba"],
+//   ["acef"],
+//   ["a","z"]
+// ]
+// Note: For the return value, 
+// each inner list's elements must follow the lexicographic order.
 
-bool isPowerOfTwo(int x) {
-  //return (x && !(x & (x-1)));
-  return x* !(x&(x-1)) > 0;
-}
+class Solution {
+public:
+  vector<vector<string>> groupStrings(vector<string>& strings) {
+    vector<vector<string>> res;
+    unordered_map<string, multiset<string>> m;
 
-int countOne (int n){
-  while( n ){
-    n = n&(n-1);
-    count++;
+    for (auto a : strings) {
+      string t = "";
+      for (char c : a) {
+        t += to_string((c + 26 - a[0]) % 26) + ",";
+      }
+      m[t].insert(a);
+    }
+
+    for (auto it = m.begin(); it != m.end(); ++it) {
+      res.push_back(vector<string>(it->second.begin(), it->second.end()));
+    }
+    return res;
   }
-  return count;
-}
-
-char toupper( char a ) {
-  return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
-}
+};
 
 int main(int argc, char** argv) {
   return 0;
-}
-
-// Given an array of strings (all lowercase letters), the task is to group them in such a way that all strings in a group are shifted versions of each other. Two string S and T are called shifted if,
-// S.length = T.length 
-// and
-// S[i] = T[i] + K for 
-// 1 <= i <= S.length  for a constant integer K
-// For example strings {acd, dfg, wyz, yab, mop} are shifted versions of each other.
-// Input  : str[] = {"acd", "dfg", "wyz", "yab", "mop",
-//                  "bdfh", "a", "x", "moqs"};
-// Output : a x
-//          acd dfg wyz yab mop
-//          bdfh moqs
-// All shifted strings are grouped together.
-string shift(string s) {
-  string t = ""; 
-  for (int i=1; i<s.size(); ++i) {
-    int diff = s[i] - s[i-1]; // difference between two consecutive characters 
-    if (diff < 0) diff += 26; 
-    t += 'a' + diff;
-  }
-  return t;
-}
-
-vector<vector<string>> groupStrings(vector<string>& strings) {
-  unordered_map<string, vector<string>> mp; 
-  vector<vector<string>> group;
-  for (auto s : mp) {
-    mp[shift[s]] = s;
-  } 
-  for (auto it : mp) {
-    vector<vector<string>> m = it.second; 
-    sort(m.begin(), m.end());
-    group.push_back(m);
-  }
-  return group;
-}

@@ -1,10 +1,5 @@
 #include<bits/stdc++.h>
-
-
-const double EPS = 1e-9;
-int cmp(double x, double y = 0, double tol = EPS) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
+using namespace std;
 
 class CakeType {
 public:
@@ -22,7 +17,7 @@ public:
 // Space O(k)
 int maxDuffelBagValue(vector<CakeType> cakes, int capacity) {
   long long dp[capacity+1];
-  MST(dp, 0);
+  mst(dp, 0);
   for (int i=1; i<=capacity; ++i) {
     for (auto cake : cakes) {
       if (cake.weight == 0 && cake.value != 0) {

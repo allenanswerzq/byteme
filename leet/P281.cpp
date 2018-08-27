@@ -1,15 +1,14 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 // Given two 1d vectors, implement an iterator to return their elements alternately.
 // For example, given two 1d vectors:
 // v1 = [1, 2]
 // v2 = [3, 4, 5, 6]
-// By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1, 3, 2, 4, 5, 6].
+// By calling next repeatedly until hasNext returns false, 
+// the order of elements returned by next should be: [1, 3, 2, 4, 5, 6].
 // Follow up: What if you are given k 1d vectors? How well can your code be extended to such cases?
 // 
-
 
 class ZigzagIterator {
 public:
@@ -30,13 +29,14 @@ public:
         t = *b[0];
         b[0]++;
       }
-      flag = ~flag;
+      flag = 1 - flag;
       return t;
     }
 
     bool hasNext() {
-      return a[0]<=a[1] || b[0]<=b[1];
+      return (a[0] <= a[1] || b[0] <= b[1]);
     }
+
 private:
   int flag;
   vector<int>::iterator a[2], b[2];

@@ -1,19 +1,11 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
-void printVector(vector<int>& v) {
-    printf("[ ");
-    for (auto x:v)
-        printf("%d ", x); 
-    printf("]\n");
-}
 
 vector<vector<char>> g;
 int dfs(int x, int y) {
-  if (x<0 || x==g.size() || y<0 || y==g[0].size() || g[x][y]=='0')
+  if (! (0<=x && x <g.size() && 0<=y && y<g[0].size()) 
+      || g[x][y] == '0')
     return 0;
-
   // turn whole island into water
   g[x][y] = '0'; 
   dfs(x+1, y);

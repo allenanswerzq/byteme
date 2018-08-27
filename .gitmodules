@@ -1,3 +1,9 @@
 [submodule "codebook"]
 	path = codebook
 	url = https://github.com/landcold7/codebook.git
+[submodule "cosmos"]
+	path = cosmos
+	url = https://github.com/landcold7/cosmos.git
+[submodule "C-Plus-Plus"]
+	path = C-Plus-Plus
+	url = https://github.com/landcold7/C-Plus-Plus.git

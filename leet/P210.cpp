@@ -1,16 +1,8 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-    printf("[ ");
-    for (auto x:v)
-        printf("%d ", x); 
-    printf("]\n");
-}
-
 // Accepted
-// but the process has a lot pain. :(
+// But the process has a lot pain. :(
 vector<vector<int>> next;
 vector<int> mark;
 vector<int> res;
@@ -26,8 +18,8 @@ void makeGraph(int n, vector<pair<int, int>>& pre) {
 }
 
 bool dfs(int i, vector<int>& res) {
-  if (mark[i] == 2) return false; // already visited
-  if (mark[i] == 1) return true;  // exists cycle
+  if (mark[i] == 2) return false;
+  if (mark[i] == 1) return true;
 
   mark[i] = 1;
   for (auto nxt : next[i]) 
@@ -42,7 +34,8 @@ vector<int> findOrder(int numCourses, vector<pair<int, int>>& pre) {
   makeGraph(numCourses, pre); 
   
   for (int i=0; i<numCourses; ++i)
-    if (dfs(i, res) == true) return {}; // if there is a cycle return empty vector
+    // if there is a cycle return empty vector
+    if (dfs(i, res) == true) return {}; 
   
   reverse(res.begin(), res.end());
   return res;

@@ -1,43 +1,8 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-      printf("%d ", x);
-  printf("]\n");
-}
-
-void printMatrix(vector<vector<int>>& v) {
-  printf("{\n");
-  for (auto x:v)
-    printVector(x);
-  printf("}\n");
-}
-
-bool isPowerOfTwo(int x) {
-  //return (x && !(x & (x-1)));
-  return x* !(x&(x-1)) > 0;
-}
-
-int countOne (int n){
-  while( n ){
-    n = n&(n-1);
-    count++;
-  }
-  return count;
-}
-
-char toupper( char a ) {
-  return ((a >= 'a' && a <= 'z') ? a-('a'-'A') : a );
-}
-
-int main(int argc, char** argv) {
-  return 0;
-}
-
-// Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
+// Given a list of words and two words word1 and word2, 
+// return the shortest distance between these two words in the list.
 // 
 // For example,
 // Assume that words = ["practice", "makes", "perfect", "coding", "makes"].
@@ -48,13 +13,11 @@ int main(int argc, char** argv) {
 
 int shortestDistance(vector<string> words, string word1, string word2) {
   int m = -1, n = -1; 
-  int ret = INT_MAX;
-  for (int i=0; i<words.size(); ++i) {
-    if (words[i] == word1)
-      m = i;
-    if (words[i] == word2)
-      n = i;
-    if (m!=-1 && n!=-1)
+  int ret = (1<<31) - 1;
+  for (int i=0; i < words.size(); ++i) {
+    if (words[i] == word1) m = i;
+    if (words[i] == word2) n = i;
+    if (m != -1 && n != -1)
       ret = min(ret, abs(m-n));
   }
   return ret;

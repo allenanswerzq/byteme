@@ -14,20 +14,6 @@ def build_cpp(fn):
 #include<bits/stdc++.h>
 using namespace std;
 
-#define fi first
-#define se second
-#define ll long long
-#define pb push_back
-#define ppb pop_back
-#define pf push_front
-#define ppf pop_front
-#define vi vector<int>
-#define vvi vector<vi>
-#define vs vector<string>
-#define vvs vector<vs>
-#define pii pair<int, int>
-#define vpii vector<pair<int,int>>
-
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
@@ -36,6 +22,7 @@ using namespace std;
 #define ford(i, a, b) for (int i=(a); i>(b); --i)
 #define pvi(x) fora(a, x) cout << a << " "; cout << endl
 #define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
@@ -63,7 +50,6 @@ int main(int argc, char** argv) {
   clock_t begin = clock();
 #endif 
 
-
   int t; cin >> t;
   fori (i, 1, t + 1) {
   
@@ -74,6 +60,7 @@ int main(int argc, char** argv) {
   double elapsed = double(end - begin) / CLOCKS_PER_SEC;
   cerr << "Elapsed: " << elapsed;
 #endif
+
   return 0;
 }
 """

@@ -1,30 +1,29 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-// A scientist has index h if h of his/her N papers have at least h citations each
-int hIndex(vector<int>& a) {
-    int n = a.size(); // N papers
-    int ret = 0;
-    sort(a.begin(), a.end());
-    for (int i=0; i<n; ++i) {
-        int x = min(n-i, a[i]);
-        ret = max(x, ret);
-    }
-    return ret;
-}
+// Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.
 
-int hIndex(vector<int>& a) {
-    int n = a.size();
-    vector<int> mp(n+1, 0);
-    for (int i=0; i<n; ++i) 
-        if (a[i] > n) mp[n]++;
-        else mp[a[i]]++;
+// According to the definition of h-index on Wikipedia: "A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each."
 
-    int h = 0;
-    for (int i=n; i>=0; ++i) {
-        h += mp[i];  // h means total number of papers which all of them at least have i citations
-        if (h >= i) return i;
+// Example:
+
+// Input: citations = [3,0,6,1,5]
+// Output: 3 
+// Explanation: [3,0,6,1,5] means the researcher has 5 papers in total and each of them had 
+//              received 3, 0, 6, 1, 5 citations respectively. 
+//              Since the researcher has 3 papers with at least 3 citations each and the remaining 
+//              two with no more than 3 citations each, her h-index is 3.
+// Note: If there are several possible values for h, the maximum one is taken as the h-index.
+
+// TODO
+class Solution {
+public:
+  int hIndex(vector<int>& aa) {
+    sort(aa.begin(), aa.end(), greater<int>());
+    for (int i = 0; i < aa.size(); ++i) {
+      if (i >= aa[i]) return i;
     }
-    return 0;
-}
+    return aa.size();
+  }
+};
+

@@ -1,10 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-
-
 template <typename T>
 void _f(const char* name, T&& arg) {
   cout << name << ": " << arg << endl;
@@ -16,12 +12,6 @@ void _f(const char* names, T&& arg, Args&&... args) {
   cout.write(names, split - names) << ": " << arg << " |";
   _f(split, args...); 
 } 
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 
 vpii bus;
 vi goal;
@@ -70,9 +60,10 @@ int main(int argc, char** argv) {
       int a; cin >> a;
       goal.pb(a); 
     }
+
     // Main part.
     vi res = go(); 
-    cout << "Case #" << i+1 << ": ";
+    cout << "Case #" << i + 1 << ": ";
     fora(r, res)
       cout << r << " ";
     cout << endl;

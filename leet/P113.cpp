@@ -13,8 +13,8 @@ void bt(vector<vector<int>>& res, vector<int>& ans, TreeNode* root, int sum) {
 	ans.push_back(root->val);
 	if (!root->left && !root->right && root->val == sum)
 		res.push_back(ans);
-	dfs(res, ans, root->left, sum-root->val);
-	dfs(res, ans, root->right, sum-root->val);
+	dfs(res, ans, root->left, sum - root->val);
+	dfs(res, ans, root->right, sum - root->val);
 	ans.pop_back();
 }
 

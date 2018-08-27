@@ -1,13 +1,5 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
-}
 
 int robber(vector<int>& nums, int lo, int hi) {
 	int pre=0, cur=0;
@@ -26,5 +18,5 @@ int rob(vector<int>& nums) {
 }
 
 int main(int argc, char** argv) {
-    return 0;
+  return 0;
 }

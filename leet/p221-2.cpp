@@ -1,12 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
+#define sz(x) (int)(x).size()
+#define mst(x, a) memset(x, a, sizeof(x))
+#define fori(i, a, b) for(int i=(a); i<(b); ++i)
 
 class Solution {
 public:
@@ -32,12 +29,6 @@ public:
       }
     }
 
-    // fori(i, 0, n) {
-    //   fori(j, 0, m)
-    //     cout << dp[i][j] << " ";
-    //   cout << "\n";
-    // }
-
     fori(i, 0, n) 
       fori(j, 0, m)
         res = max(res, dp[i][j] * dp[i][j]);
@@ -45,7 +36,7 @@ public:
   }
 };
 
-void TEST(vvi aa) {
+void test(vvi aa) {
   Solution go;
   cout << go.maximalSquare(aa) << "\n"; 
 }
@@ -58,6 +49,6 @@ int main(int argc, char** argv) {
             {1,0,1,1,1}, 
             {1,1,1,1,1},
             {1,0,0,1,0}};
-  TEST(aa); 
+  test(aa); 
   return 0;
 }

@@ -1,13 +1,5 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
-void printVector(vector<int>& v) {
-    printf("[ ");
-    for (auto x:v)
-        printf("%d ", x); 
-    printf("]\n");
-}
 
 // Accepted
 ListNode* removeElements(ListNode* head, int val) {
@@ -20,7 +12,11 @@ ListNode* removeElements(ListNode* head, int val) {
       p = p->next;
       q = q->next;
       p->next = nullptr;
-    } else q=q->next;
+    } else {
+      ListNode *t = q;
+      q=q->next;
+      delete t;
+    }
   }
   return dummy->next;
 }
