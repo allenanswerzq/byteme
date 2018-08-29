@@ -72,7 +72,7 @@ void wallsAndGates(vector<vector<int>>& rooms) {
 }
 
 
-//Normal bfs
+// Normal bfs
 void bsf(vector<vector<int>>& rooms, int i, int j) {
 	int m=rooms.size(), n=rooms[0].size();
 	queue<int> q;
@@ -91,6 +91,7 @@ void bsf(vector<vector<int>>& rooms, int i, int j) {
 		}
 	}
 }
+
 void wallsAndGates(vector<vector<int>>& rooms) {
 	int m=rooms.size(), n=rooms[0].size();
 	if (m == 0) return;

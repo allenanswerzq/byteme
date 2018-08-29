@@ -1,61 +1,61 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-string convert1(string s, int n) {
-	if (n<=1 || n>=s.size()) return s;
-	
-	vector<string> r(n);
-	int row = 0;
-	int step = 1;
-	for (int i=0; i<s.size(); ++i) {
-		r[row] += s[i];
-		if (row == n-1) step = -1;
-		if (row == 0) step = 1;
-		row += step;
-	}	
 
-	string result;
-	for (auto c: r)
-		result += c;
-	return result;
+#define ll long long
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+template <typename T>
+void _f(const char* name, T&& arg) {
+  cout << name << ": " << arg << endl;
 }
 
-string convert(string s, int n) {
-	if (n<=1 || n>=s.size()) return s;
-	map<int, string> m;
-	int i = 0, k = 0;
-	int step = 1;
-	// bool flag = true;
-	while (k < s.length()) {
-		//m[i].push_back(s[k++]);
-		m[i] += s[k++];
-		if (i == n-1) step = -1;
-		if (i == 0) step = 1;
-		i += step;
-		/*
-		if (flag) {
-			++i;
-			if (i == n) { i = n-2; flag = false; }
-		} else {
-			--i;
-			if (i == -1) {i = 1; flag = true;}
-		}*/
-	}
+template <typename T, typename... Args> 
+void _f(const char* names, T&& arg, Args&&... args) {
+  const char* split = strchr(names + 1, ','); 
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...); 
+} 
 
-	string ret;
-	for (int i=0; i<n; ++i) {
-		/*vector<char> v = m[i];
-		for (auto c : v)
-			ret += c;
-			*/
-		ret += m[i];
+class Solution {
+public:
+	string convert(string ss, int n) {
+		if (n <= 1 || n >= ss.size()) return ss;
+		
+		vector<string> r(n);
+		int row = 0;
+		int step = 1;
+		for (int i = 0; i < ss.size(); ++i) {
+			r[row] += ss[i];
+			if (row == n-1) step = -1;
+			if (row == 0) step = 1;
+			row += step;
+		}	
+
+		string res;
+		for (auto c: r)
+			res += c;
+		return res;
 	}
-	return ret;
+};
+
+void test(string inp, int aa) {
+	Solution go;
+	string res = go.convert(inp, aa);
+	output(1, res);
 }
 
 int main() {
-	cout << convert("PAYPALISHIRING", 3) << endl;
-	cout << convert("PAYPALISHIRING", 4) << endl;
-	cout << convert("AB", 1) << endl;
+	test("PAYPALISHIRING", 3);
+	test("PAYPALISHIRING", 4);
+	test("AB", 1);
 	return 0;
 }

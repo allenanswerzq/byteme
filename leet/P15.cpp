@@ -1,66 +1,71 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> threeSum(vector<int>& nums) {
-	vector<vector<int>> res;
-	if (sz(nums) < 3) return res;
-	sort(all(nums));
-	// a + b + c = 0
-	// b + c = -a;
-	for (int i=0; i < nums.size()-2; ++i) {
-		if (i==0 || (i>0 && nums[i-1] != nums[i])) {
-			int lo = i + 1, hi = sz(nums) - 1;	
-			int goal = -nums[i];
+#define ll long long
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+template <typename T>
+void _f(const char* name, T&& arg) {
+  cout << name << ": " << arg << endl;
+}
+
+template <typename T, typename... Args> 
+void _f(const char* names, T&& arg, Args&&... args) {
+  const char* split = strchr(names + 1, ','); 
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...); 
+} 
+
+#define vi vector<int>
+#define vvi vector<vi>
+
+class Solution {
+public:
+	vvi threeSum(vector<int>& aa) {
+		vvi res;
+		int n = sz(aa);
+		if (n < 3) return res;
+		sort(all(aa));
+		// a + b + c = 0
+		// -a = b + c
+		for (int i = 0; i < n - 2; ++i) {
+			if (i > 1 && aa[i - 1] == aa[i]) continue;
+			int lo = i + 1, hi = sz(aa) - 1;	
+			int goal = -aa[i];
 			while (lo < hi) {
-				if (nums[lo] + nums[hi] == goal) {
-					res.push_back({nums[i], nums[lo], nums[hi]});
-					while (lo < hi && nums[lo] == nums[lo+1]) ++lo;
-					while (lo < hi && nums[hi] == nums[hi-1]) --hi;
-					++lo;
-					--hi;
+				if (aa[lo] + aa[hi] == goal) {
+					res.push_back({aa[i], aa[lo], aa[hi]});
+					while (lo < hi && aa[lo] == aa[lo + 1]) ++lo;
+					while (lo < hi && aa[hi] == aa[hi - 1]) --hi;
+					++lo; --hi;
 				}	
-				else if (nums[lo] + nums[hi] < goal) ++lo;
+				else if (aa[lo] + aa[hi] < goal) ++lo;
 				else --hi;
 			}
 		}
+		return res;
 	}
-	return res;
-}
+};
 
-// burte force
-vector<vector<int>> threeSum1(vector<int>& nums) {
-	vector<vector<int>> ret;
-	int n = nums.size();
-	for (int i=0; i<n; ++i) {
-		for (int j=i+1; j<n; ++j) {
-			for (int k=j+1; k<n; ++k) {
-				if (nums[i] + nums[j] + nums[k] == 0) {
-					vector<int> t;
-					t.push_back(nums[i]);
-					t.push_back(nums[j]);
-					t.push_back(nums[k]);
-					ret.push_back(t);
-				}
-			}
-		}
-	}
-	return ret;
-}
-
-void printMatrix(vector<vector<int>> v) {
-	for (int i=0; i<v.size(); ++i) {
-		cout << "{ ";
-		for (int j=0; j<v[0].size(); ++j) {
-			cout << v[i][j] << " " ;
-		}
-		cout << " }" << endl;
+void test(vector<int> inp) {
+	Solution go;
+	vvi res = go.threeSum(inp);	
+	fora (r, res) {
+		pvi(r);
 	}
 }
 
 int main() {
-	vector<int> v({-1, 0, 1, 2, -1, -4});
-	printMatrix(threeSum(v));
-	vector<int> vv({0, 0, 0, 0, 0});
-	printMatrix(threeSum(vv));
+	test({-1, 0, 1, 2, -1, -4});
+	test({0, 0, 0, 0, 0});
 	return 0;
 }

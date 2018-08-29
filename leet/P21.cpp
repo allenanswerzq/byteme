@@ -24,46 +24,42 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-// #define LOCAL_FILE
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
 
 class Solution {
 public:
-  int maxCoins(vector<int>& aa) {
-    if (sz(aa) <= 0) return 0;
-    aa.insert(aa.begin(), 1);
-    aa.insert(aa.end(), 1);
-    int n = sz(aa);
-
-    // dp[i][j] denotes max coins we can get from array [i...j].
-    // dp[i][j] = max(dp[i][k] + dp[k+1][j] + aa[i-1][k][j+1])
-    int dp[n][n]; mst(dp, 0);
-
-    fori (j, 1, n-1) {
-      ford (i, j, 0) {
-        fori (k, i, j+1) {
-          int tmp = dp[i][k-1] + dp[k+1][j] + (aa[i-1] * aa[k] * aa[j+1]);
-          dp[i][j] = max(dp[i][j], tmp);
+  ListNode* mergeTwoLists(ListNode* p1, ListNode* p2) {
+    ListNode* dummy = new ListNode(-1);
+    ListNode* p = dummy;
+    while (p1 || p2) {
+      if (p1 && p2) {
+        if (p1->val <= p2->val) {
+          p->next = p1; 
+          p1 = p1->next;
+        } else {
+          p->next = p2;
+          p2 = p2->next;
         }
-      } 
+      } else if (p1) {
+        p->next = p1;
+        p1 = p1->next;
+      } else {
+        p->next = p2;
+        p2 = p2->next;
+      }
+      p = p->next;
     }
-
-    // fori(i, 0, n) {
-    //   par(dp[i], n);
-    // }
-
-    return dp[1][n];
+    return dummy->next;
   }
 };
 
-void test(vi aa) {
-  Solution go;
-  cout << go.maxCoins(aa) << "\n";
-}
-
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test({3, 1, 5, 8});
   return 0;
 }

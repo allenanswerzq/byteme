@@ -1,3 +1,4 @@
+#!/bin/bash
 all: compile run
 
 compile:
@@ -5,7 +6,7 @@ compile:
 	@echo
 	@echo default directory: $(shell pwd)
 	@echo
-	g++ -o elf p299.cpp --std=c++11
+	g++ -o elf P21.cpp --std=c++11
 
 run: 
 	@chmod +x ./elf
@@ -13,20 +14,20 @@ run:
 
 test: compile
 	@chmod +x ./elf
-	./elf < in-p299.txt
+	./elf < in-P21.txt
 	@echo "\n---------------------"
-	./elf < in-p299.txt > p299-OOOOOOUT.txt 
-	colordiff -y p299-OOOOOOUT.txt true-p299.txt -W 100
+	./elf < in-P21.txt > P21-OOOOOOUT.txt 
+	colordiff -y P21-OOOOOOUT.txt true-P21.txt -W 100
 
 small:
 	@echo "Making data.."
 	@-mv ~/Downloads/*-small-*.in ./
-	@cp ./*-small-*.in p299-IIIIIIIIIN.txt
+	@cp ./*-small-*.in P21-IIIIIIIIIN.txt
    
 large:
 	@echo "Making data.."
 	@-mv ~/Downloads/*-large-*.in ./
-	@cp ./*-large-*.in p299-IIIIIIIIIN.txt
+	@cp ./*-large-*.in P21-IIIIIIIIIN.txt
 
 clean:
 	rm ./elf

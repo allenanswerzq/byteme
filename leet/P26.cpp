@@ -1,9 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define ll long long
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
 
-
-
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {
   cout << name << ": " << arg << endl;
@@ -16,29 +25,20 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
+class Solution {
+public:
+  int removeDuplicates(vector<int>& aa) {
+    int n = sz(aa);
+    if (n == 0) return 0;
+    int k = 0;
+    fori (i, 1, sz(aa)) {
+      if (aa[i] != aa[k])
+        aa[++k] = aa[i];
+    } 
+    return k + 1;
+  }
+};
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-  freopen("d-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-
-
-  int t; cin >> t;
-  fori (i, 1, t + 1) {
-  
-  }  
-
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
   return 0;
 }

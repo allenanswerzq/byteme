@@ -1,14 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 // TODO
+// Binary index tree approach.
 class Solution {
 public:
   vector<int> countSmaller(vector<int>& aa) {
@@ -53,6 +47,61 @@ public:
   vi bit;
   int n;
 };
+
+class Solution2 {
+public:
+  vi countSmaller(vi& inp) {
+    int n = sz(inp);
+    vi tmp, res(n);
+    // Using binary search to insert all element into tmp from backwards.
+    fori (i, n - 1, -1) {
+      auto it = lower_bound(all(tmp), inp[i]); 
+      int ix = distance(it, tmp.begin());
+      res[i] = ix;
+      tmp.insert(it, inp[i]);
+    } 
+    return res;
+  }
+};
+
+class Node{
+public:
+  int key;
+  Node* left;
+  Node* right;
+  // The number of elements that less than `key`.
+  int size;
+  Node(int key, int size) 
+    : key(key), size(size) {}
+};
+
+int insert(Node* &root, int key) {
+  if (!root) {
+    root = new Node(key, 0);
+    return 0;
+  }
+
+  if (key < root->val) {
+    root->size++; 
+    return insert(root->left, key);
+  } else {
+    int aa = insert(root->right, key); 
+    return aa + root->size + root->key < key ? 1 : 0;
+  }
+}
+
+class Solution3 {
+public:
+  vi countSmaller(vi& inp) {
+    int n = sz(inp);
+    vi res(n);
+    Node *root = nullptr;
+    fori (i, n - 1, -1) {
+      res[i] = insert(root, inp[i]);
+    }
+    return res;
+  }
+}
 
 void test(vi aa) {
   Solution go;

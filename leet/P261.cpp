@@ -1,26 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define fi first
-#define se second
-#define ll long long
-
-#define pb push_back
-#define ppb pop_back
-#define pf push_front
-#define ppf pop_front
-
-#define vi vector<int>
-#define vvi vector<vi>
-#define vs vector<string>
-#define vvs vector<vs>
-#define pii pair<int, int>
-#define vpii vector<pair<int,int>>
-
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
-
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i=(a); i<(b); ++i)
 #define ford(i, a, b) for (int i=(a); i>(b); --i)
@@ -92,7 +75,7 @@ bool dfs(int root, int pre) {
 //   }
 // };
 
-int find (vi& root, int ix) {
+int find(vi& root, int ix) {
   while (root[ix] != -1) 
     ix = root[ix];
   return ix;

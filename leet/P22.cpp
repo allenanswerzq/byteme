@@ -1,64 +1,55 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-bool isValid(string s) {
-	char stack[s.size()];
-	int k = 0;
-	for (int i=0; i<s.size(); ++i) {
-		if (s[i] == '(') stack[k++] = s[i];
-		else if(s[i] == ')') {
-			if (k < 1) return false;
-			char c = stack[k-1];
-			if (c == '(' && s[i] == ')')
-				--k;
-			else return false;
+#define ll long long
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+template <typename T>
+void _f(const char* name, T&& arg) {
+  cout << name << ": " << arg << endl;
+}
+
+template <typename T, typename... Args> 
+void _f(const char* names, T&& arg, Args&&... args) {
+  const char* split = strchr(names + 1, ','); 
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...); 
+} 
+
+#define vs vector<string>
+
+class Solution {
+public:
+	vector<string> generateParenthesis(int n) {
+		if (n == 0) return {""};
+		vs res;
+		fori (i, 0, n) {
+			fora (left, generateParenthesis(i))
+				fora (right, generateParenthesis(n - 1 - i))
+					res.push_back("(" + left + ")" + right);
 		}
+		return res;
 	}
-	if (k == 0) return true;
-	cout << k << endl;
-	return false;
-}
+};
 
-void bt(int n, int lsum, int rsum, string ans, vector<string>& ret) {
-	if (lsum == n && rsum == n) {
-		cout << ans << endl;
-		if (isValid(ans)) 
-			ret.push_back(ans);
-		return;
-	} else if (lsum>n || rsum>n) {
-		return ;
-	}else {
-		ans.push_back('(');
-		bt(n, lsum+1, rsum, ans, ret);
-		ans.pop_back();
-		ans.push_back(')');
-		bt(n, lsum, rsum+1, ans, ret);
-		ans.pop_back();
-	}
-}
-
-vector<string> generateParenthesis(int n) {
-	vector<string> ret;
-	bt(n, 1, 0, "(", ret);	
-	return ret;
-}
-
-void printVector(vector<string> v) {
-	cout << "[" << endl;
-	for (auto s: v) {
-		cout << s << "," << endl;
-	}
-	cout << "]" << endl;
+void test(int x) {
+	Solution go;
+	vs res = go.generateParenthesis(x);
+	pvi(res);
 }
 
 int main(int argc, char **argv) {
-	cout << isValid("()(())") << endl;
-	int n = 3;
-	if (argc > 1) {
-		n = atoi(argv[1]);
-	}
-	printVector(generateParenthesis(n) );
+	test(3);
+	test(4);
 	return 0;
 }
 

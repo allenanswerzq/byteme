@@ -1,103 +1,133 @@
 #include<bits/stdc++.h>
-
 using namespace std;
+
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+template <typename T>
+void _f(const char* name, T&& arg) {
+  cout << name << ": " << arg << endl;
+}
+
+template <typename T, typename... Args> 
+void _f(const char* names, T&& arg, Args&&... args) {
+  const char* split = strchr(names + 1, ','); 
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...); 
+} 
+
+const double eps = 1e-9;
+int dcmp(double x, double y = 0, double tol = eps) {
+  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
+}
+
 // Method 1: merge sort
 // Method 2: median compare
 // Method 3: count 
 // Divide & conquer
-// Below my code is not correct 
-double find(vector<int>& a, vector<int>& b, int aStart, int aEnd, int bStart, int bEnd) {
-	int na = aEnd - aStart + 1;
-	int nb = bEnd - bStart + 1;
-	if (na < 2 || nb < 2) {
-		if (na == 1 && nb == 1) return (a[aStart] + b[bStart]) / 2.0;
-		else if (na == 0 && nb == 1) return b[bStart];	
-		else return a[aStart];
-	}
 
-	int aMid = na % 2 ? a[na/2] : (a[na/2] + a[na/2-1]) / 2;
-	int bMid = nb % 2 ? b[nb/2] : (b[nb/2] + b[nb/2-1]) / 2;
-	int aIdx = na % 2 ? na/2 - 1 : na/2;
-	int bIdx = nb % 2 ? nb/2 - 1 : nb/2;
-	if (aMid == bMid) return aMid;
-	if (aMid > bMid) return find(a, b, aStart, aIdx, bIdx, bEnd);     
-	else return find(a, b, aIdx, aEnd, bStart, bIdx);
-}
+#define vi vector<int>
 
-double findMedianSortedArrays(vector<int>& a, vector<int>& b) {
-	int m = a.size();
-	int n = b.size();
-	return find(a, b, 0, m-1, 0, n-1);		
-}
-
-// count
-// time complexity O(n+m)
-double findMedianSortedArrays2(vector<int>& a, vector<int>& b) {
-	int na = a.size();
-	int nb = b.size();	
-	int total = na + nb;
-	int i = 0, j = 0, k = 0;
-	int ans = 0;
-	int tmp = 0;
-
-	while (i < na || j < nb) {
-		if ( i < na && j < nb) { 
-			if (a[i] <= b[j]) tmp = a[i++];
-			else tmp = b[j++];
-		} else if (i < na) tmp=a[i++];
-		else tmp = b[j++];
-		if (k == total / 2) ans += tmp;
-		if (total % 2 == 0 && k == total/2 -1 ) ans += tmp;
-		k++;
-	}
-	if (total % 2 == 0) return ans / 2.0;
-	else return ans;
-}
-
-// Merge sort
-// time complexity O(m+n)
-double findMedianSortedArrays1(vector<int>& a, vector<int>& b) {
-	int na = a.size();
-	int nb = b.size();	
-	vector<int> v(na+nb);
-	int i = 0, j = 0, k = 0;
-	while (i < na && j < nb) {
-		if (a[i] <= b[j]) {
-			v[k++] = a[i++];
-		} else {
-			v[k++] = b[j++];
+class Solution {
+public:
+	// Below my code is not correct 
+	double find(vector<int>& aa, vector<int>& bb, int al, int ah, int bl, int bh) {
+		int na = ah - al + 1;
+		int nb = bh - bl + 1;
+		if (na < 2 && nb < 2) {
+			if (na == 1 && nb == 1) return (aa[al] + bb[bl]) / 2.0;
+			else if (na == 0 && nb == 1) return bb[bl];	
+			else if (na == 1 && nb == 0) return aa[al];
 		}
-	}
-	while (i < na) {
-		v[k++] = a[i++];
-	}
-	while (j < nb) {
-		v[k++] = b[j++];
+
+		double am = na % 2 ? aa[na / 2] : (aa[na / 2] + aa[na / 2 - 1]) / 2.0;
+		double bm = nb % 2 ? bb[nb / 2] : (bb[nb / 2] + bb[nb / 2 - 1]) / 2.0;
+		int ax = na % 2 ? na / 2: na / 2 - 1;
+		int bx = nb % 2 ? nb / 2: nb / 2 - 1;
+		pvi(aa);
+		pvi(bb);
+		trace(am, bm, ax, bx, na, nb);
+		if (dcmp(am, bm) == 0) return am;
+		else if (dcmp(am, bm) == 1) return find(aa, bb, al, ax, bx, bh);     
+		else return find(aa, bb, ax, ah, bl, bx);
 	}
 
-	int total = na + nb;
-	if (total % 2 == 0){
-		cout << total << v[total/2] << v[total/2-1] << endl;
-		return ( v[total/2] + v[total/2-1] ) / 2.0;
+	double findMedianSortedArrays(vector<int>& aa, vector<int>& bb) {
+		int m = aa.size();
+		int n = bb.size();
+		return find(aa, bb, 0, m-1, 0, n-1);		
 	}
-	else
-		return (v[total/2]);
+
+	// Count
+	// time complexity O(n + m)
+	double findMedianSortedArrays2(vector<int>& aa, vector<int>& bb) {
+		int na = aa.size();
+		int nb = bb.size();	
+		int total = na + nb;
+		int i = 0, j = 0, k = 0;
+		int sum = 0;
+		int tmp = 0;
+
+		while (i < na || j < nb) {
+			if (i < na && j < nb) { 
+				if (aa[i] <= bb[j]) tmp = aa[i++]; 
+				else tmp = bb[j++];
+			} else if (i < na) {
+				tmp = aa[i++];
+			} else {
+				tmp = bb[j++];
+			}
+			if (k == total / 2) sum += tmp;
+			if (k == total / 2 - 1 && total % 2 == 0) sum += tmp;
+			k++;
+		}
+
+		if (total % 2 == 0) return sum / 2.0;
+		else return (sum * 1.0);
+	}
+
+	// Merge sort
+	// time complexity O(m + n)
+	double findMedianSortedArrays1(vector<int>& aa, vector<int>& bb) {
+		int na = aa.size();
+		int nb = bb.size();	
+		vector<int> vv(na + nb, 0);
+		int i = 0, j = 0, k = 0;
+
+		while (i < na || j < nb) {
+			if (i < na && j < nb) {
+				if (aa[i] <= bb[j]) vv[k++] = aa[i++];
+				else vv[k++] = bb[j++];
+			} else if (i < na) {
+				vv[k++] = aa[i++];
+			} else {
+				vv[k++] = bb[j++];
+			}
+		}
+
+		// trace(k, na + nb);
+		return k % 2 ? vv[k / 2] : (vv[k / 2] + vv[k / 2 - 1]) / 2.0;
+	}
+};
+
+void test(vi aa, vi bb) {
+	Solution go;
+	double res = go.findMedianSortedArrays1(aa, bb);
+	output(1, res);
 }
 
-int main()
-{
-	int a[] = {1, 3};
-	int b[] = {2};
-	vector<int> nums1(a, a+2);
-	vector<int> nums2(b, b+1);
+int main() {
 
-	cout << "Median: " << findMedianSortedArrays(nums1, nums2) << endl;
-	int c[] = {1, 2};
-	int d[] = {3, 4};
-	vector<int> nums3(c, c+2);
-	vector<int> nums4(d, d+2);
-	cout << "Median: " << findMedianSortedArrays(nums3, nums4) << endl;
-
+	test({1, 3}, {2});
+	test({1, 2}, {3, 4});
 
 	return 0;
 }

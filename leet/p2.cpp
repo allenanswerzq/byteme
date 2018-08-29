@@ -24,46 +24,47 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-// #define LOCAL_FILE
-
 class Solution {
 public:
-  int maxCoins(vector<int>& aa) {
-    if (sz(aa) <= 0) return 0;
-    aa.insert(aa.begin(), 1);
-    aa.insert(aa.end(), 1);
-    int n = sz(aa);
+  ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+    int x, y, sum, carry = 0;
+    struct ListNode *dummy = new ListNode(-1);
+    struct ListNode *p = dummy;
+    
+    while (l1 || l2) {
+      x = getValue(l1);
+      y = getValue(l2);
+      sum = x + y + carry;
 
-    // dp[i][j] denotes max coins we can get from array [i...j].
-    // dp[i][j] = max(dp[i][k] + dp[k+1][j] + aa[i-1][k][j+1])
-    int dp[n][n]; mst(dp, 0);
-
-    fori (j, 1, n-1) {
-      ford (i, j, 0) {
-        fori (k, i, j+1) {
-          int tmp = dp[i][k-1] + dp[k+1][j] + (aa[i-1] * aa[k] * aa[j+1]);
-          dp[i][j] = max(dp[i][j], tmp);
-        }
-      } 
+      ListNode *node = new ListNode(sum % 10);
+      p->next = node;
+      p = p->next;
+      carry = sum / 10;
     }
 
-    // fori(i, 0, n) {
-    //   par(dp[i], n);
-    // }
+    if (carry > 0) {
+      ListNode *node = new ListNode(carry);
+      p->next = node;
+      p = p->next;
+    }
 
-    return dp[1][n];
+    return dummy->next;
+  }
+  
+  int getValue(ListNode* &p) {
+    int ret = 0;
+    if (p) {
+      ret = p->val;
+      p = p->next;
+    }
+    return ret;
   }
 };
 
-void test(vi aa) {
-  Solution go;
-  cout << go.maxCoins(aa) << "\n";
-}
-
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
+  cin.tie(0);
+  cout.precision(5);
   cout << fixed; 
-  test({3, 1, 5, 8});
   return 0;
 }

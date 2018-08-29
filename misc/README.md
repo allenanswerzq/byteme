@@ -1,2 +1,0 @@
-# algos
-Some algorithm exercieses

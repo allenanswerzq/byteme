@@ -28,7 +28,7 @@ void dfs(vector<char>& buf, int lo, int hi) {
 
   // Core idea is that construct all possible string according to range length
   // and see if it in the range of low and high
-  for (auto p: pairs) {
+  for (auto p : pairs) {
     // Target string we want to get: lo ..... hi
     // Fill two sides characters so this string will be a strobogrammatic number string 
     buf[lo] = p.first;

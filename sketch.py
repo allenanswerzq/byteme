@@ -189,6 +189,7 @@ def generate_makefile(fn):
   name = fn[0:-4]
 
   makefile = """\
+#!/bin/bash
 all: compile run
 
 compile:

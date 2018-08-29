@@ -1,68 +1,76 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-//void bt(const vector<vector<char>>& table, vector<string>& res, string& ans, int idx, const string& d) {
-//	if(idx==d.size()) {
-//		res.push_back(ans);
-//		cout << ans << endl;;
-//	}
-//	else
-//		for(int i=0;i<table[d[idx]-'0'].size();i++) {
-//			ans.push_back(table[d[idx]-'0'][i]);
-//			cout << "curr idx: " << idx << endl;
-//			bt(table, res, ans, idx+1, d);
-//			ans.pop_back();
-//		}
-//}
+#define ll long long
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
 
-void bt(string d, int idx, vector<vector<char>> &table) {
-	if (idx == d.size()) {
-		//cout << "CURR IDX: " << idx << endl; 
-		return;
-	}
-	else {
-		for(int i=0;i<table[d[idx]-'0'].size();i++) {
-			//cout << "curr idx: " << idx << endl;
-			cout << table[d[idx]-'0'][i] << endl;
-			bt(d, idx+1, table);
-			//bt(d, ++idx, table);  NOTE: ++idx is not correct
+
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+template <typename T>
+void _f(const char* name, T&& arg) {
+  cout << name << ": " << arg << endl;
+}
+
+template <typename T, typename... Args> 
+void _f(const char* names, T&& arg, Args&&... args) {
+  const char* split = strchr(names + 1, ','); 
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...); 
+} 
+
+#define vc vector<char>
+#define vs vector<string>
+#define vvc vector<vector<char>>
+
+class Solution {
+public:
+	vector<string> res;
+	void bt(string aa, int idx, vvc &table, string path) {
+		if (idx == aa.size()) {
+			res.push_back(path);
+			return;
+		} else {
+			vc tmp = table[aa[idx] - '0'];
+			for (int i = 0; i < tmp.size(); i++) {
+				path += tmp[i];
+				bt(aa, idx + 1, table, path);
+				path.pop_back();
+			}
 		}
 	}
-}
 
-vector<string> letterCombinations(string d) 
-{
-	vector<string> res;
-	if(d.size()==0) return res;
-	string ans;
-	vector<vector<char>> table(2,vector<char>());
-	table.push_back(vector<char>{'a','b','c'}); // idx 2
-	table.push_back(vector<char>{'d','e','f'}); // 3
-	table.push_back(vector<char>{'g','h','i'});
-	table.push_back(vector<char>{'j','k','l'}); // 5
-	table.push_back(vector<char>{'m','n','o'});
-	table.push_back(vector<char>{'p','q','r','s'}); // 7
-	table.push_back(vector<char>{'t','u','v'});
-	table.push_back(vector<char>{'w','x','y','z'}); // 9
-	
-	bt(d, 0, table);
-	return res;
-}
+	vector<string> letterCombinations(string aa) {
+		if(aa.size() == 0) return res;
+		vvc table = {{'0', '0', '0'},
+								 {'0', '0', '0'},
+								 {'a', 'b', 'c'},
+								 {'d', 'e', 'f'},
+								 {'g', 'h', 'i'},
+								 {'j', 'k', 'l'},
+								 {'m', 'n', 'o'},
+								 {'p', 'q', 'r','s'},
+								 {'t', 'u', 'v'},
+								 {'w', 'x', 'y','z'}};
+		bt(aa, 0, table, "");
+		return res;
+	}
+};
 
-void printVector(vector<string>& ss){
-    cout << "{ ";
-    for(int i=0; i<ss.size(); i++){
-        if (i>0) cout << ", "; 
-        cout << ss[i];
-    }
-    cout << " }" << endl;
+void test(string aa) {
+	Solution go;
+	vs res = go.letterCombinations(aa);
+	pvi(res);
 }
 
 int main() {
-	
-	vector<string> res;
-	res = letterCombinations("23");
-	printVector(res);
+	test("23");
 	return 0;
 }

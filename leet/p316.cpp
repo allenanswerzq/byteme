@@ -28,42 +28,40 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-  int maxCoins(vector<int>& aa) {
-    if (sz(aa) <= 0) return 0;
-    aa.insert(aa.begin(), 1);
-    aa.insert(aa.end(), 1);
-    int n = sz(aa);
-
-    // dp[i][j] denotes max coins we can get from array [i...j].
-    // dp[i][j] = max(dp[i][k] + dp[k+1][j] + aa[i-1][k][j+1])
-    int dp[n][n]; mst(dp, 0);
-
-    fori (j, 1, n-1) {
-      ford (i, j, 0) {
-        fori (k, i, j+1) {
-          int tmp = dp[i][k-1] + dp[k+1][j] + (aa[i-1] * aa[k] * aa[j+1]);
-          dp[i][j] = max(dp[i][j], tmp);
-        }
-      } 
+  string removeDuplicateLetters(string inp) {
+    int dp[256]; mst(dp, 0);
+    int visit[256]; mst(visit, 0);
+    string res = "0";
+    fora (ch, inp) dp[ch]++;  
+    fora (ch, inp) {
+      --dp[ch]; 
+      if (visit[ch]) continue;
+      while (ch < res.back() && dp[res.back()]) {
+        visit[res.back()] = 0;
+        res.pop_back(); 
+      }
+      res += ch;
+      visit[ch] = 1;
     }
-
-    // fori(i, 0, n) {
-    //   par(dp[i], n);
-    // }
-
-    return dp[1][n];
+    return res.substr(1);
   }
 };
 
-void test(vi aa) {
+void test(string inp, string right) {
   Solution go;
-  cout << go.maxCoins(aa) << "\n";
+  string res = go.removeDuplicateLetters(inp);
+  trace(res, right);
+  assert(res == right);
 }
 
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
+  cin.tie(0);
+  cout.precision(5);
   cout << fixed; 
-  test({3, 1, 5, 8});
+
+  test("bcabc", "abd");
+  test("cbacdcbc", "acdb");
+
   return 0;
 }
