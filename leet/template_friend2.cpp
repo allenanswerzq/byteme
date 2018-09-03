@@ -11,30 +11,30 @@ template <class T> class Array
 public:  
   Array(int sz): size(sz)  
   {  
-    array = new T[size];  
-    memset(array, 0, size * sizeof(T));  
+  array = new T[size];  
+  memset(array, 0, size * sizeof(T));  
   }  
   Array(const Array& a)  
   {  
-    size = a.size;  
-    array = new T[size];  
-    memcpy_s(array, a.array, sizeof(T));  
+  size = a.size;  
+  array = new T[size];  
+  memcpy_s(array, a.array, sizeof(T));  
   }  
   T& operator[](int i)  
   {  
-    return *(array + i);  
+  return *(array + i);  
   }  
   int Length()  
   {   
-    return size;  
+  return size;  
   }  
   void print()  
   {  
-    for (int i = 0; i < size; i++)  
-    {  
-      cout << *(array + i) << " ";  
-    }  
-    cout << endl;  
+  for (int i = 0; i < size; i++)  
+  {  
+    cout << *(array + i) << " ";  
+  }  
+  cout << endl;  
   }  
   // If you replace the friend declaration with the int-specific  
   // version, only the int specialization will be a friend.  

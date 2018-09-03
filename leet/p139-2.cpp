@@ -16,8 +16,8 @@ bool wordBreakRecu(string s, int ix) {
   if (ix >= n) return 1;
   fora (d, dict) {
   if (s.substr(ix, sz(d)) == d)
-    if (wordBreakRecu(s, ix + sz(d)))
-    return 1;
+  if (wordBreakRecu(s, ix + sz(d)))
+  return 1;
   } 
   return 0;
 }
@@ -33,12 +33,12 @@ bool wordBreakBfs(str s, vs dict) {
   if (visit[start]) continue;
   visit[start] = 1;
   fori (j, start, n) {
-    str w = s.substr(start, j - start + 1); 
-    if (dict.find(w) != dict.end()) {
-    q.push(j + 1);
-    if (j + 1 == n)
-      return 1;
-    }
+  str w = s.substr(start, j - start + 1); 
+  if (dict.find(w) != dict.end()) {
+  q.push(j + 1);
+  if (j + 1 == n)
+    return 1;
+  }
   }
   }
   return 0;
@@ -47,7 +47,7 @@ bool wordBreakBfs(str s, vs dict) {
 bool check(string inp) {
   fora (d, dict) {
   if (d == inp)
-    return 1;
+  return 1;
   }
   return 0;
 }
@@ -61,16 +61,16 @@ bool wordBreakDP(string s) {
   mst(dp, 0);
   fori (i, 1, n + 1) {
   if (dp[i] == 0) {
-    if (check(s.substr(0, i))) dp[i] = 1;
+  if (check(s.substr(0, i))) dp[i] = 1;
   }
 
   if (dp[i] == 1) {
-    // s[0...i] can be broke, now we need to check the
-    // rest part of the string.
-    fori (j, i+1, n+1) {
-    if (check(s.substr(i, j-i)))
-      dp[j] = 1;  
-    }
+  // s[0...i] can be broke, now we need to check the
+  // rest part of the string.
+  fori (j, i+1, n+1) {
+  if (check(s.substr(i, j-i)))
+    dp[j] = 1;  
+  }
   }
   if (dp[n]) return 1;
   }

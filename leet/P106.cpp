@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -15,15 +15,15 @@ TreeNode* build(vector<int>& A, vector<int>& B, int sA, int eA, int sB, int eB) 
   TreeNode* root = new TreeNode(A[eA]);
   int x = -1;
   for (int i=sB; i<=eB; ++i)
-    if (B[i] == root->val) {
-      x = i;
-      break;
-    }
+  if (B[i] == root->val) {
+    x = i;
+    break;
+  }
   if (x > sB)     // make sure the left side still has elements
-    root->left = build(A, B, sA, x-sB-1+sA, sB, x-1);
+  root->left = build(A, B, sA, x-sB-1+sA, sB, x-1);
   else root->left = NULL;
   if (x < eB)     // make sure the right side still has elements
-    root->right = build(A, B, x-sB+sA, eA-1, x+1, eB); 
+  root->right = build(A, B, x-sB+sA, eA-1, x+1, eB); 
   else root->right = NULL;
   return root;
 }

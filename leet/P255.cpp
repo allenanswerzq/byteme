@@ -17,8 +17,8 @@ bool verifyPreorder(vector<int>& preorder) {
   if (p < root) return false;
   // If p in right substree, find the root node of p 
   while (!stk.empty() && p > stk.top()) {
-    root = stk.top();
-    stk.pop();
+  root = stk.top();
+  stk.pop();
   }
   stk.push(p);
   }
@@ -36,14 +36,14 @@ bool go(vector<int>& aa, int lo, int hi, int mi, int mx) {
   // Find the index of first value greater than current root
   while (lo<=hi && aa[i] < root) {  
   if (aa[i]<mi || aa[i]>mx)
-    return false;
+  return false;
   i++;
   }
 
   // All nodes value in the left subtree should less than current root
   // All nodes value in the right subtree should greater than root value
   return go(aa, lo + 1, i - 1, mi, root) && 
-     go(aa, i, hi, root, mx);  
+   go(aa, i, hi, root, mx);  
 }
 
 bool verifyPreorder(vector<int>& aa) {

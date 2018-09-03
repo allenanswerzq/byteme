@@ -48,7 +48,7 @@ public:
   n1 = n2 = pre = null;
   inOrder(root);
   if (n1 && n2)
-    swap(n1->val, n2->val);
+  swap(n1->val, n2->val);
   }
 };
 

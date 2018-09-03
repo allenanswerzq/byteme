@@ -36,14 +36,14 @@ public:
   TreeNode *node = root;
   deque<TreeNode*> stk;
   while (sz(stk) || node != null) {
-    if (node) {
-    stk.pb(node);
-    node = node->left;
-    } else {
-    TreeNode *p = stk.back(); stk.ppb();
-    res.pb(p->val);
-    node = p->right;
-    }
+  if (node) {
+  stk.pb(node);
+  node = node->left;
+  } else {
+  TreeNode *p = stk.back(); stk.ppb();
+  res.pb(p->val);
+  node = p->right;
+  }
   }
   return res;
   }

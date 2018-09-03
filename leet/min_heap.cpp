@@ -17,8 +17,8 @@ int main()
   std::cout << std::boolalpha;
   while(!queue.empty()) 
   {
-    const auto& p = queue.top();
-    std::cout << p.first << " " << p.second << "\n";
-    queue.pop();
+  const auto& p = queue.top();
+  std::cout << p.first << " " << p.second << "\n";
+  queue.pop();
   }
 }

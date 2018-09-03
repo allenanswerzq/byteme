@@ -18,8 +18,8 @@ vector<string> findStrobogrammatic(int n) {
   n -= 2;  
   vector<string> tmp;
   for (auto s : ret)
-    for (int i=0; i < tmplate.size(); ++i)
-    tmp.push_back(template[i][0] + s + tmplate[i][1]); 
+  for (int i=0; i < tmplate.size(); ++i)
+  tmp.push_back(template[i][0] + s + tmplate[i][1]); 
   ret = tmp;
   }
   return ret;

@@ -23,8 +23,8 @@ bool go(int aa, int bb, int state) {
   if (state & (1 << i)) continue; 
   // If the opponent lose.
   if (!go(aa, bb - (i + 1), state | (1 << i))) {
-    mp[state] = 1;
-    return mp[state];
+  mp[state] = 1;
+  return mp[state];
   }
   } 
   // Already tried all possible choices.

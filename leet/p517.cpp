@@ -18,8 +18,8 @@ public:
   avg = sum / n;
   res = 0;
   fora (a, aa) {
-    cnt += a - avg;
-    res = max(res, max(abs(cnt), a - avg));
+  cnt += a - avg;
+  res = max(res, max(abs(cnt), a - avg));
   }
   return res;
   }

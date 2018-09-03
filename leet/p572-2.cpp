@@ -36,7 +36,7 @@ bool same(TreeNode *s, TreeNode *t) {
   if (!t) return s == null;
   if (s->val != t->val) return 0;
   if (same(s->left, t->left) && 
-    same(s->right, t->right))
+  same(s->right, t->right))
   return 1;
   return 0;
 }
@@ -46,9 +46,9 @@ public:
   bool isSubtree(TreeNode* s, TreeNode* t) {
   if (!s) return t == null;
   if (s->val == t->val)
-    if (same(s, t)) return 1;
+  if (same(s, t)) return 1;
   return isSubtree(s->left, t) || 
-       isSubtree(s->right, t);
+     isSubtree(s->right, t);
   }
 };
 

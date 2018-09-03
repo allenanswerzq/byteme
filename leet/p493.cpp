@@ -30,12 +30,12 @@ Node* insert(Node *root, ll inp) {
   return new Node(inp, 1);
   } else {
   if (inp == root->val)
-    ++root->ge;
+  ++root->ge;
   else if (inp > root->val) {
-    root->right = insert(root->right, inp);
-    ++root->ge;
+  root->right = insert(root->right, inp);
+  ++root->ge;
   } else
-    root->left = insert(root->left, inp);
+  root->left = insert(root->left, inp);
   }
   return root;
 }
@@ -119,11 +119,11 @@ void merge(vi& aa, int lo, int mid, int hi){
   int k = lo;
 
   while (p1 <= mid || p2 <= hi){
-    if(p1 > mid || (p2 <= hi && bb[p1] >= bb[p2]) ) {
-      aa[k++] = bb[p2++];
-    } else {
-      aa[k++] = bb[p1++];
-    }
+  if(p1 > mid || (p2 <= hi && bb[p1] >= bb[p2]) ) {
+    aa[k++] = bb[p2++];
+  } else {
+    aa[k++] = bb[p1++];
+  }
   }
 
 }

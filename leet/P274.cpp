@@ -21,7 +21,7 @@ public:
   int hIndex(vector<int>& aa) {
   sort(aa.begin(), aa.end(), greater<int>());
   for (int i = 0; i < aa.size(); ++i) {
-    if (i >= aa[i]) return i;
+  if (i >= aa[i]) return i;
   }
   return aa.size();
   }

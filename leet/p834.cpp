@@ -39,24 +39,24 @@ void dfs2(int u, int parent, int n, vi &res) {
 class Solution {
 public:
   vector<int> sumOfDistancesInTree(int n, vector<vector<int>>& edges) {
-    // Reset.
-    mst(num_nodes, 0);
-    mst(dist, 0);
-    fori(i, 0, N)
-    graph[i].clear();
+  // Reset.
+  mst(num_nodes, 0);
+  mst(dist, 0);
+  fori(i, 0, N)
+  graph[i].clear();
 
-    fora(e, edges) {
-    int src = e[0];
-    int dst = e[1];
-    graph[src].pb(dst);
-    graph[dst].pb(src);
-    }
+  fora(e, edges) {
+  int src = e[0];
+  int dst = e[1];
+  graph[src].pb(dst);
+  graph[dst].pb(src);
+  }
 
-    dfs(0, -1);
-    vi res(n, 0);
-    res[0] = dist[0];
-    dfs2(0, -1, n, res);
-    return res;
+  dfs(0, -1);
+  vi res(n, 0);
+  res[0] = dist[0];
+  dfs2(0, -1, n, res);
+  return res;
   }
 };
 

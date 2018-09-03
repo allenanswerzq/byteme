@@ -87,11 +87,11 @@ public:
   bool validTree(int n, vpii& edges) {
   vi root(n, -1);
   fora (e, edges) {
-    int x = find(root, e.fi);
-    int y = find(root, e.se);
-    if (x == y) return 0; 
-    // Union two node together.
-    root[x] = y;
+  int x = find(root, e.fi);
+  int y = find(root, e.se);
+  if (x == y) return 0; 
+  // Union two node together.
+  root[x] = y;
   }
   return sz(edges) == n - 1;
   }

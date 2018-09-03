@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -15,8 +15,8 @@ void reverseWords(string &s) {
   string word;
   s = "";
   while (iss >> word) {
-    s = word + (mark ? "" : " ") + s;
-    mark = false;
+  s = word + (mark ? "" : " ") + s;
+  mark = false;
   }    
 }
 

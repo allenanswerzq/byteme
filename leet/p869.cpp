@@ -35,20 +35,20 @@ public:
   bool reorderedPowerOf2(int aa) {
   vi bb;
   while (aa) {
-    bb.pb(aa % 10); 
-    aa /= 10;
+  bb.pb(aa % 10); 
+  aa /= 10;
   }  
   sort(all(bb));
   do {
-    // pvi(bb);
-    int x = 0;
-    if (bb[0] == 0) continue; 
-    fori (i, 0, sz(bb)) {
-    x *= 10; 
-    x += bb[i];
-    }
-    // trace(x);
-    if (check(x)) return 1;
+  // pvi(bb);
+  int x = 0;
+  if (bb[0] == 0) continue; 
+  fori (i, 0, sz(bb)) {
+  x *= 10; 
+  x += bb[i];
+  }
+  // trace(x);
+  if (check(x)) return 1;
   } while (next_permutation(all(bb)));
   return 0;
   }

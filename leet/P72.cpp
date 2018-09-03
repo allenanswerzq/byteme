@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 // Accepted
@@ -19,11 +19,11 @@ int minDistance(string w1, string w2) {
   for (int i=0; i<=n; i++) dp[0][i] = i;     
   for (int i=0; i<=m; i++) dp[i][0] = i;        
   for (int i=1; i<=m; ++i) 
-    for (int j=1; j<=n; ++j) {
-      int t = min(dp[i-1][j] + 1,     // delection 
-            dp[i][j-1] + 1);    // insertion
-      dp[i][j] = min(t, w1[i-1]==w2[j-1] ? dp[i-1][j-1] : dp[i-1][j-1] + 1);
-    }
+  for (int j=1; j<=n; ++j) {
+    int t = min(dp[i-1][j] + 1,     // delection 
+      dp[i][j-1] + 1);    // insertion
+    dp[i][j] = min(t, w1[i-1]==w2[j-1] ? dp[i-1][j-1] : dp[i-1][j-1] + 1);
+  }
   return dp[m][n];
 }
 
@@ -34,15 +34,15 @@ int minDistance(string w1, string w2) {
   vector<int> cur(m+1, 0);
 
   for (int i=0; i<=m; i++)
-     pre[i] = i;        
+   pre[i] = i;        
 
   for (int j=1; j<=n; ++j)  {
-    cur[0] = j;
-    for (int i=1; i<=m; ++i) {
-      cur[i] = min(min(cur[i-1]+1, pre[i]+1), 
-            w1[i-1]==w2[j-1] ? pre[i-1]:pre[i-1]+1);
-    }
-    pre = cur;
+  cur[0] = j;
+  for (int i=1; i<=m; ++i) {
+    cur[i] = min(min(cur[i-1]+1, pre[i]+1), 
+      w1[i-1]==w2[j-1] ? pre[i-1]:pre[i-1]+1);
+  }
+  pre = cur;
   }
   // NOTE: pre not cur
   return pre[m];

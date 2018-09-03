@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 // TODO
@@ -28,8 +28,8 @@ vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
   vector<TreeNode*> ret;
   dfs(root);
   for (auto it: res) {
-    if (it.second.size() > 1) 
-      ret.push_back(it.second[0]);
+  if (it.second.size() > 1) 
+    ret.push_back(it.second[0]);
   }
   return ret;
 }

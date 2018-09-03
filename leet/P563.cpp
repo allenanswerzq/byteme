@@ -32,15 +32,15 @@ typedef struct TreeNode {
 class Solution {
 public:
   int postorder(TreeNode *root, int& tilt) {
-    if (!root) return 0;
+  if (!root) return 0;
 		int left_sum = postorder(root->left, tilt);
 		int right_sum = postorder(root->right, tilt);
 		tilt += abs(left_sum - right_sum);
 		return left_sum + right_sum + root->val;
-    
+  
   }
   int findTilt(TreeNode* root) {
-    int tilt = 0;
+  int tilt = 0;
 		postorder(root, tilt);
 		return tilt;
   }

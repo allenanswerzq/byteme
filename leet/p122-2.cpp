@@ -14,10 +14,10 @@ public:
   int n = sz(aa);
   int res = 0;
   for(int i=0; i<n; ) {
-    int k = i;
-    while (k+1<n && aa[k]<=aa[k+1]) ++k;
-    res += aa[k] - aa[i];
-    i = k+1;
+  int k = i;
+  while (k+1<n && aa[k]<=aa[k+1]) ++k;
+  res += aa[k] - aa[i];
+  i = k+1;
   }  
   return res;
   }
@@ -26,8 +26,8 @@ public:
   int n = sz(aa);
   int res = 0;
   fori (i, 0, n - 1) {
-    if (aa[i+1] > aa[i])
-    res += aa[i+1] - aa[i];
+  if (aa[i+1] > aa[i])
+  res += aa[i+1] - aa[i];
   }
   return res;
   }

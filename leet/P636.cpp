@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -15,17 +15,17 @@ vector<int> exclusiveTime(int n, vector<string>& logs) {
   int id;
   char str[10];
   for (auto log : logs) {
-    // Note: use sscanf or stringstream to parse input 
-    sscanf(log.c_str(), "%d:%[a-z]:%d", &id, str, &ctime);
-    if (str[0] == 's') { // if start
-      if(k>0) res[stk[k-1]] += ctime - ltime;
-      stk[k++] = id; 
-    } else {
-      // Note: ++citme 
-      res[stk[k-1]] += ++ctime - ltime;
-      k--;
-    }
-    ltime = ctime;
+  // Note: use sscanf or stringstream to parse input 
+  sscanf(log.c_str(), "%d:%[a-z]:%d", &id, str, &ctime);
+  if (str[0] == 's') { // if start
+    if(k>0) res[stk[k-1]] += ctime - ltime;
+    stk[k++] = id; 
+  } else {
+    // Note: ++citme 
+    res[stk[k-1]] += ++ctime - ltime;
+    k--;
+  }
+  ltime = ctime;
   }
   return res;
 }

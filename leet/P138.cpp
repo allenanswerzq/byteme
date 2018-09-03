@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -22,15 +22,15 @@ RandomListNode *copyRandomList(RandomListNode *head) {
   q = copy;
 
   while (p) {
-    q->next = new RandomListNode(p->label); 
-    q = q->next;
-    rdm[p] = p->random;
-    mp[p] = q;
-    p = p->next;
+  q->next = new RandomListNode(p->label); 
+  q = q->next;
+  rdm[p] = p->random;
+  mp[p] = q;
+  p = p->next;
   }
 
   for (auto it=rdm.begin(); it!=rdm.end(); ++it) 
-    mp[it->first]->random = mp[it->second];
+  mp[it->first]->random = mp[it->second];
 
   return copy->next;
 }

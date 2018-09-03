@@ -25,13 +25,13 @@ bool recu(string s1, string s2) {
 
   fori(i, 0, 26)
   if (cnt[i] != 0) 
-    return false;
+  return false;
 
   int n = a;
   fori(i, 1, n) {
 
   if (recu(s1.substr(0, i), s2.substr(0, i)) && 
-    recu(s1.substr(i), s2.substr(i)))
+  recu(s1.substr(i), s2.substr(i)))
   return true;
 
   if(recu(s1.substr(0, i), s2.substr(n-i)) &&

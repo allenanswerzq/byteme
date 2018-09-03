@@ -12,24 +12,24 @@ template <class T> class Bag {
 public:  
    Bag() : elem(0), size(0), max_size(1) {}  
    void add(T t) {  
-    T* tmp;  
-    if (size + 1 >= max_size) {  
-     max_size *= 2;  
-     tmp = new T [max_size];  
-     for (int i = 0; i < size; i++)  
-      tmp[i] = elem[i];  
-     tmp[size++] = t;  
-     delete[] elem;  
-     elem = tmp;  
-    }  
-    else  
-     elem[size++] = t;  
+  T* tmp;  
+  if (size + 1 >= max_size) {  
+   max_size *= 2;  
+   tmp = new T [max_size];  
+   for (int i = 0; i < size; i++)  
+    tmp[i] = elem[i];  
+   tmp[size++] = t;  
+   delete[] elem;  
+   elem = tmp;  
+  }  
+  else  
+   elem[size++] = t;  
    }  
 
    void print() {  
-    for (int i = 0; i < size; i++)  
-     cout << elem[i] << " ";  
-    cout << endl;  
+  for (int i = 0; i < size; i++)  
+   cout << elem[i] << " ";  
+  cout << endl;  
    }  
 };  
 
@@ -44,29 +44,29 @@ template <class T> class Bag<T*> {
 public:  
    Bag() : elem(0), size(0), max_size(1) {}  
    void add(T* t) {  
-    T* tmp;  
-    if (t == NULL) {   // Check for NULL  
-     cout << "Null pointer!" << endl;  
-     return;  
-    }  
+  T* tmp;  
+  if (t == NULL) {   // Check for NULL  
+   cout << "Null pointer!" << endl;  
+   return;  
+  }  
 
-    if (size + 1 >= max_size) {  
-     max_size *= 2;  
-     tmp = new T [max_size];  
-     for (int i = 0; i < size; i++)  
-      tmp[i] = elem[i];  
-     tmp[size++] = *t;  // Dereference  
-     delete[] elem;  
-     elem = tmp;  
-    }  
-    else  
-     elem[size++] = *t; // Dereference  
+  if (size + 1 >= max_size) {  
+   max_size *= 2;  
+   tmp = new T [max_size];  
+   for (int i = 0; i < size; i++)  
+    tmp[i] = elem[i];  
+   tmp[size++] = *t;  // Dereference  
+   delete[] elem;  
+   elem = tmp;  
+  }  
+  else  
+   elem[size++] = *t; // Dereference  
    }  
 
    void print() {  
-    for (int i = 0; i < size; i++)  
-     cout << elem[i] << " ";  
-    cout << endl;  
+  for (int i = 0; i < size; i++)  
+   cout << elem[i] << " ";  
+  cout << endl;  
    }  
 };  
 

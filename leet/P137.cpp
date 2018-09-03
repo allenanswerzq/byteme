@@ -9,7 +9,7 @@ int singleNumber(vector<int>& nums) {
   
   for (auto it=mp.begin(); it!=mp.end(); ++it)
   if (it->second != 3)
-    return it->first;
+  return it->first;
   return -1;
 }
 
@@ -20,10 +20,10 @@ int singleNumber(vector<int>& nums) {
   for (int i=0; i<32; ++i) {
   int sum = 0;
   for (auto x: nums) {
-    sum += (x >> i) & 1;
+  sum += (x >> i) & 1;
   }
   if (sum % 3 == 1) 
-    res |= 1 << i;
+  res |= 1 << i;
   }
   return res;
 }

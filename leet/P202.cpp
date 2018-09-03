@@ -7,7 +7,7 @@ bool isHappy(int n) {
   while(sum!=1 && mp.find(n)==mp.end()) {
   string a = to_string(n);
   for (int i=0; i<a.size(); ++i)
-    sum += (a[i]-'0') * (a[i]-'0');
+  sum += (a[i]-'0') * (a[i]-'0');
   mp[n] = sum;
   n = sum;
   }

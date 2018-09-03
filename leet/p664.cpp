@@ -20,15 +20,15 @@ public:
   int n = sz(s);
   if (n <= 1) return n;
   fori (i, 1, n + 1) {
-    fori (lo, 0, n - i + 1) {
-    int hi = lo + i - 1;
-    dp[lo][hi] = i;
-    fori(k, lo, hi) {
-      int tmp = dp[lo][k] + dp[k+1][hi];
-      if (s[lo] == s[k+1] || s[k] == s[hi]) --tmp;
-      dp[lo][hi] = min(dp[lo][hi], tmp);
-    }
-    } 
+  fori (lo, 0, n - i + 1) {
+  int hi = lo + i - 1;
+  dp[lo][hi] = i;
+  fori(k, lo, hi) {
+    int tmp = dp[lo][k] + dp[k+1][hi];
+    if (s[lo] == s[k+1] || s[k] == s[hi]) --tmp;
+    dp[lo][hi] = min(dp[lo][hi], tmp);
+  }
+  } 
   } 
   return dp[0][n-1];
   }

@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -15,9 +15,9 @@ int minDepth(TreeNode* root) {
   if (!root->left && !root->right) return 1;
   int res = INT_MAX;
   if (root->left)
-    res = min(res, minDepth(root->left));
+  res = min(res, minDepth(root->left));
   if (root->right)
-    res = min(res, minDepth(root->right));
+  res = min(res, minDepth(root->right));
   return 1 + res;
 }
 

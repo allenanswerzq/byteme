@@ -7,7 +7,7 @@ public:
   stack<int> out;
   /** Initialize your data structure here. */
   MyQueue() {
-    
+  
   }
   
   /** Push element x to the back of queue. */
@@ -28,10 +28,10 @@ public:
   // only push into `out` when `out` is empty 
   // otherwise it will break the order of queue
   if (out.empty()) { 
-    while(!in.empty()) {
-    out.push(in.top());
-    in.pop();
-    }    
+  while(!in.empty()) {
+  out.push(in.top());
+  in.pop();
+  }    
   } 
   return out.top();
   }

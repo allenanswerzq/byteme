@@ -19,7 +19,7 @@ int findCelebrity(int n) {
   // All other n-1 peple know celebrity, so if knows return true that one might be the one
   for(int i = 1; i < n; i++){
   if(knows(candidate, i))  
-    candidate = i;
+  candidate = i;
   }
 
   for(int i = 0; i < n; i++){

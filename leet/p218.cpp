@@ -48,27 +48,27 @@ public:
   if (n <= 0) return res;
 
   fora (a, aa) {
-    edges.pb(Edge(a[0], a[2], 1)); // (left, height)
-    edges.pb(Edge(a[1], a[2], 0)); // (right, height)
+  edges.pb(Edge(a[0], a[2], 1)); // (left, height)
+  edges.pb(Edge(a[1], a[2], 0)); // (right, height)
   }
 
   // Sorting.
   sort(all(edges), cmp);
 
   fora (edge, edges) {
-    if (edge.start) {
-    // If i am standing the starting point, and i am the largest one.
-    if (pq.empty() || edge.h > *pq.rbegin())
-      res.eb(edge.x, edge.h);
-    pq.insert(edge.h); 
-    } else {
-    pq.erase(pq.find(edge.h)); 
-    if (pq.empty())
-      res.eb(edge.x, 0);
-    // There is a drop.
-    else if (edge.h > *pq.rbegin())
-      res.eb(edge.x, *pq.rbegin());
-    }
+  if (edge.start) {
+  // If i am standing the starting point, and i am the largest one.
+  if (pq.empty() || edge.h > *pq.rbegin())
+    res.eb(edge.x, edge.h);
+  pq.insert(edge.h); 
+  } else {
+  pq.erase(pq.find(edge.h)); 
+  if (pq.empty())
+    res.eb(edge.x, 0);
+  // There is a drop.
+  else if (edge.h > *pq.rbegin())
+    res.eb(edge.x, *pq.rbegin());
+  }
   }
   return res;
   }

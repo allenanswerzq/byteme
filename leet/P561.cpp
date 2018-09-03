@@ -28,7 +28,7 @@ public:
 	}
 	//
   int arrayPairSum1(vector<int>& a) {
-     sort(a.begin(), a.end()); 
+   sort(a.begin(), a.end()); 
 	   int ret = 0;
 	   for (int i=0; i<a.size(); i+=2) 
 		   ret += a[i];

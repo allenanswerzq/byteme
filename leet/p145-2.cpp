@@ -37,20 +37,20 @@ public:
   TreeNode *node = root;
   TreeNode *pre = null;
   while (sz(stk) || node) {
-    if (node) {
-    stk.pb(node);
-    node = node->left;
-    } else {
-    auto cur = stk.bk();
-    if (cur->right && pre != cur->right)
-      node = cur->right;
-    else {
-      auto cur = stk.bk(); stk.ppb();
-      res.pb(cur->val);
-      pre = cur;
-      node = null;
-    }
-    }
+  if (node) {
+  stk.pb(node);
+  node = node->left;
+  } else {
+  auto cur = stk.bk();
+  if (cur->right && pre != cur->right)
+    node = cur->right;
+  else {
+    auto cur = stk.bk(); stk.ppb();
+    res.pb(cur->val);
+    pre = cur;
+    node = null;
+  }
+  }
   } 
   return res;
   }

@@ -21,23 +21,23 @@ int openLock(vector<string>& deadends, string target) {
   cnt++;
   int size = q.size();
   for (int k=0; k<size; ++k) {
-    string parent = q.front(); q.pop();
-    if (dead.count(parent)) continue;
-    for (int i=0; i<4; ++i) {  // for each wheel
-    for (int j=-1; j<=1; j+=2) { // for each direction
-      string child  = parent;
-      child[i] += j;
-      if (child[i] > '9') child[i] -= 10;
-      if (child[i] < '0') child[i] += 10;
-      if (mp.count(child)) continue;  // if this child already visited
-      if (child == target) { 
-        ok = true;
-        return cnt;
-      }
-      q.push(child);
-      mp[child] = mp[parent] + 1;
+  string parent = q.front(); q.pop();
+  if (dead.count(parent)) continue;
+  for (int i=0; i<4; ++i) {  // for each wheel
+  for (int j=-1; j<=1; j+=2) { // for each direction
+    string child  = parent;
+    child[i] += j;
+    if (child[i] > '9') child[i] -= 10;
+    if (child[i] < '0') child[i] += 10;
+    if (mp.count(child)) continue;  // if this child already visited
+    if (child == target) { 
+    ok = true;
+    return cnt;
     }
-    }  
+    q.push(child);
+    mp[child] = mp[parent] + 1;
+  }
+  }  
   }
   }
   return ok==false ? -1:cnt;
@@ -56,15 +56,15 @@ int openLock(vector<string>& deadends, string target) {
   string parent = q.front(); q.pop();
   if (dead.count(parent)) continue;
   for (int i=0; i<4; ++i) {  // for each wheel
-    for (int j=-1; j<=1; j+=2) { // for each direction
-    string child = parent;
-    child[i] += j;
-    if (child[i] > '9') child[i] -= 10;
-    if (child[i] < '0') child[i] += 10;
-    if (mp.count(child)) continue;
-    mp[child] = mp[parent] + 1;   // distance from child to source
-    q.push(child);
-    }
+  for (int j=-1; j<=1; j+=2) { // for each direction
+  string child = parent;
+  child[i] += j;
+  if (child[i] > '9') child[i] -= 10;
+  if (child[i] < '0') child[i] += 10;
+  if (mp.count(child)) continue;
+  mp[child] = mp[parent] + 1;   // distance from child to source
+  q.push(child);
+  }
   }  
   }
   return mp.count(target) ? mp[target] : -1;

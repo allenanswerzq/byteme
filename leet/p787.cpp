@@ -16,8 +16,8 @@ public:
   int stops;
   Node(int city, int price, int stops)
   : city(city),
-    price(price),
-    stops(stops) {}
+  price(price),
+  stops(stops) {}
 };
 
 int findCheapestPricePQ(int n, vvi& aa, int src, int dst, int k) {
@@ -36,9 +36,9 @@ int findCheapestPricePQ(int n, vvi& aa, int src, int dst, int k) {
   city = top.city; stops = top.stops, price = top.price;
   if (city == dst) return price;
   if (stops) {
-    vpii nxt = g[city];
-    fora (n, nxt)
-    pq.push(Node(n.fi, price + n.se, stops - 1));
+  vpii nxt = g[city];
+  fora (n, nxt)
+  pq.push(Node(n.fi, price + n.se, stops - 1));
   }
   }
   return -1;

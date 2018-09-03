@@ -32,8 +32,8 @@ public:
   if (n == 0) return 0;
   int k = 0;
   fori (i, 1, sz(aa)) {
-    if (aa[i] != aa[k])
-    aa[++k] = aa[i];
+  if (aa[i] != aa[k])
+  aa[++k] = aa[i];
   } 
   return k + 1;
   }

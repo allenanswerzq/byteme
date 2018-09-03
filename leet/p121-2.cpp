@@ -17,12 +17,12 @@ public:
   int res = 0;
   int sum = 0;
   fori(i, 0, n-1) {
-    int diff = prices[i+1] - prices[i];
-    if (sum >= 0) 
-    sum += diff;
-    else 
-    sum = diff;
-    res = max(res, sum);
+  int diff = prices[i+1] - prices[i];
+  if (sum >= 0) 
+  sum += diff;
+  else 
+  sum = diff;
+  res = max(res, sum);
   }
   return res;
   }
@@ -32,8 +32,8 @@ public:
   int mi = (1<<31) - 1;
   int res = 0;
   fori (i, 0, n) {
-    mi = min(mi, prices[i]);
-    res = max(res, prices[i] - mi);
+  mi = min(mi, prices[i]);
+  res = max(res, prices[i] - mi);
   } 
   return res;
   }

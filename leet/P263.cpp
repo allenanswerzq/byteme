@@ -8,9 +8,9 @@ public:
   if (num == 1) return true;
   vector<int> primes = {2,3,5};
   for (int i=0; i<3; ++i) {
-    if (num % primes[i] == 0)
-    if(isUgly(num / primes[i])) 
-      return true;
+  if (num % primes[i] == 0)
+  if(isUgly(num / primes[i])) 
+    return true;
   }
   return false;
   }

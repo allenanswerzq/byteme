@@ -20,13 +20,13 @@ public:
   mst(dp, 0);
   mx = 0;
   fori (i, 0, m + 1)
-    fori (j, 0, n + 1) {
-    if (i == 0 || j == 0)
-      dp[i][j] = 0;
-    else if (aa[i-1] == bb[j-1])
-      dp[i][j] = 1 + dp[i-1][j-1];
-      mx = max(dp[i][j], mx); 
-    }
+  fori (j, 0, n + 1) {
+  if (i == 0 || j == 0)
+    dp[i][j] = 0;
+  else if (aa[i-1] == bb[j-1])
+    dp[i][j] = 1 + dp[i-1][j-1];
+    mx = max(dp[i][j], mx); 
+  }
   return mx;
   }
 };

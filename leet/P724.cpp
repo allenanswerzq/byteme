@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-    printf("%d ", x);
+  printf("%d ", x);
   printf("]\n");
 }
 
@@ -43,7 +43,7 @@ int pivotIndex(vector<int>& nums) {
 
   for (int i=0; i<n; ++i) {
   if (sum[i] == sum[n] - sum[i+1]) 
-    return i;
+  return i;
   } 
   return -1;
 }
@@ -59,7 +59,7 @@ int pivotIndex(vector<int>& nums) {
 
   for (int i=0; i<=n; ++i) 
   if (a[i] == b[i]) // if left sum equals right sum for current index i
-    return i;
+  return i;
 
   return -1;
 

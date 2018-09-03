@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -15,12 +15,12 @@ ListNode *detectCycle(ListNode *head) {
   unordered_map<ListNode*, bool> mp;
   ListNode *p = head;
   while (p) {
-    if (mp.find(p) != mp.end()) 
-      return p;
-    else { 
-       mp[p] = true; 
-       p = p->next;
-    }
+  if (mp.find(p) != mp.end()) 
+    return p;
+  else { 
+     mp[p] = true; 
+     p = p->next;
+  }
   }    
   return NULL;
 }
@@ -32,16 +32,16 @@ ListNode *detectCycle(ListNode *head) {
   ListNode *fast, *slow;
   fast = slow = head;
   while (fast && fast->next) {
+  slow = slow->next;
+  fast = fast->next->next;
+  if (slow == fast) {
+    slow = head;
+    while (slow != fast) {
     slow = slow->next;
-    fast = fast->next->next;
-    if (slow == fast) {
-      slow = head;
-      while (slow != fast) {
-        slow = slow->next;
-        fast = fast->next;
-      }
-      return slow;
+    fast = fast->next;
     }
+    return slow;
+  }
   } 
   return NULL;
 }

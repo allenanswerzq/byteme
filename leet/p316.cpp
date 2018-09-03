@@ -34,14 +34,14 @@ public:
   string res = "0";
   fora (ch, inp) dp[ch]++;  
   fora (ch, inp) {
-    --dp[ch]; 
-    if (visit[ch]) continue;
-    while (ch < res.back() && dp[res.back()]) {
-    visit[res.back()] = 0;
-    res.pop_back(); 
-    }
-    res += ch;
-    visit[ch] = 1;
+  --dp[ch]; 
+  if (visit[ch]) continue;
+  while (ch < res.back() && dp[res.back()]) {
+  visit[res.back()] = 0;
+  res.pop_back(); 
+  }
+  res += ch;
+  visit[ch] = 1;
   }
   return res.substr(1);
   }

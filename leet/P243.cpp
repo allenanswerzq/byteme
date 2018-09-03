@@ -18,7 +18,7 @@ int shortestDistance(vector<string> words, string word1, string word2) {
   if (words[i] == word1) m = i;
   if (words[i] == word2) n = i;
   if (m != -1 && n != -1)
-    ret = min(ret, abs(m-n));
+  ret = min(ret, abs(m-n));
   }
   return ret;
 }

@@ -39,17 +39,17 @@ public:
   int level = 0;
   q.pb(root);
   while (sz(q)) {
-    int n = sz(q);
-    vi tmp;
-    ++level;
-    fori (i, 0, n) {
-    auto cur = q.fr(); q.ppf(); 
-    if (level % 2) tmp.pb(cur->val);
-    else tmp.insert(tmp.begin(), cur->val);
-    if (cur->left) q.pb(cur->left);
-    if (cur->right) q.pb(cur->right);
-    }
-    res.pb(tmp);
+  int n = sz(q);
+  vi tmp;
+  ++level;
+  fori (i, 0, n) {
+  auto cur = q.fr(); q.ppf(); 
+  if (level % 2) tmp.pb(cur->val);
+  else tmp.insert(tmp.begin(), cur->val);
+  if (cur->left) q.pb(cur->left);
+  if (cur->right) q.pb(cur->right);
+  }
+  res.pb(tmp);
   }
   return res;
   }

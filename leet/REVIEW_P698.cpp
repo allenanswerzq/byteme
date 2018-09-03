@@ -3,34 +3,34 @@
 // ref: https://www.hackerearth.com/practice/notes/bit-manipulation/
 
 bool dfs(vector<int>& nums, vector<vector<int>>& path, vector<int>& subSetSum, 
-         vector<int>& taken, int sum, int idx, int k, int lastIdx) {
+     vector<int>& taken, int sum, int idx, int k, int lastIdx) {
   if (subSetSum[idx] == sum) {
   if (idx == k-1)
-    return true;
+  return true;
   return dfs(nums, path, subSetSum, taken, sum, idx+1, k, nums.size()-1);
   }
 
   // lastIdx from where elements should be taken
   // Use this to avoid repeat already tested elements
   for (int i=lastIdx; i>=0; --i) {
-    if (taken[i]) continue;
-    int tmp = subSetSum[idx] + nums[i];
-    if (tmp <= sum) {
-      taken[i] = 1;
-      subSetSum[idx] += nums[i];
-      path[idx].push_back(nums[i]);
-      bool next = dfs(nums, path, subSetSum, taken, sum, idx, k, i-1);
+  if (taken[i]) continue;
+  int tmp = subSetSum[idx] + nums[i];
+  if (tmp <= sum) {
+    taken[i] = 1;
+    subSetSum[idx] += nums[i];
+    path[idx].push_back(nums[i]);
+    bool next = dfs(nums, path, subSetSum, taken, sum, idx, k, i-1);
 
-      // After taken nums[i] we can partition then just return
-      if (next)
-        return true;
+    // After taken nums[i] we can partition then just return
+    if (next)
+    return true;
 
-      // if cannt, remove already taken nums[i] and find a new one
-      taken[i] = 0;
-      subSetSum[idx] -= nums[i];
-      path[idx].pop_back();
+    // if cannt, remove already taken nums[i] and find a new one
+    taken[i] = 0;
+    subSetSum[idx] -= nums[i];
+    path[idx].pop_back();
 
-    }
+  }
   }
 
   return false;
@@ -79,17 +79,17 @@ vector<int> a;
 int dfs(int bit, int sum) {
   if (bit == 0) return 1; // no elements can be taken
   for (int i=(1<<a.size())-1; i>=0; i--) {
-    i &= bit;
+  i &= bit;
 
-    int tot = 0;
-    for (int j=0; j<a.size(); j++)
-      if (i & (1<<j))
-      tot += a[j];
+  int tot = 0;
+  for (int j=0; j<a.size(); j++)
+    if (i & (1<<j))
+    tot += a[j];
 
-    if (tot == sum) {
-      int tmp = dfs(bit ^ i, sum);
-      if (tmp) return 1;
-    }
+  if (tot == sum) {
+    int tmp = dfs(bit ^ i, sum);
+    if (tmp) return 1;
+  }
   }
   return 0;
 }
@@ -97,13 +97,13 @@ int dfs(int bit, int sum) {
 class Solution {
 public:
   bool canPartitionKSubsets(vector<int>& nums, int k) {
-    int i,sum;
-    sum=0;
-    for (i=0;i<nums.size();i++)
-      sum+=nums[i];
-    if (sum%k!=0) return false;
-    sum/=k;
-    a=nums;
-    return dfs((1<<a.size())-1,sum);
+  int i,sum;
+  sum=0;
+  for (i=0;i<nums.size();i++)
+    sum+=nums[i];
+  if (sum%k!=0) return false;
+  sum/=k;
+  a=nums;
+  return dfs((1<<a.size())-1,sum);
   }
 };

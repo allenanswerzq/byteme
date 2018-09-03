@@ -34,13 +34,13 @@ public:
   int n = sz(aa);
   vi mask(n, 0);
   fori (i, 0, n) {
-    fora (c, aa[i])
-    mask[i] |= 1 << (c - 'a');
+  fora (c, aa[i])
+  mask[i] |= 1 << (c - 'a');
 
-    fori (j, 0, i) 
-    // If no common letters.
-    if (!(mask[i] & mask[j]))
-      res = max(res, sz(aa[i]) * sz(aa[j]));
+  fori (j, 0, i) 
+  // If no common letters.
+  if (!(mask[i] & mask[j]))
+    res = max(res, sz(aa[i]) * sz(aa[j]));
   }   
   return res;
   }

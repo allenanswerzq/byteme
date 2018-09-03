@@ -7,10 +7,10 @@ public:
   int water = 0;
   int i = 0, j = aa.size() - 1;
   while (i < j) {
-    int h = min(aa[i], aa[j]);
-    water = max(water, (j - i) * h);
-    while (aa[i] <= h && i < j) i++;
-    while (aa[j] <= h && i < j) j--;
+  int h = min(aa[i], aa[j]);
+  water = max(water, (j - i) * h);
+  while (aa[i] <= h && i < j) i++;
+  while (aa[j] <= h && i < j) j--;
   }
   return water;
 	}
@@ -18,8 +18,8 @@ public:
 	int maxArea(vector<int>& aa) {
 	  int res = 0, i = 0, j = aa.size() - 1;
 	  while (i < j) {
-    res = max(res, min(aa[i], aa[j]) * (j - i));
-    aa[i] < aa[j] ? ++i : --j;
+  res = max(res, min(aa[i], aa[j]) * (j - i));
+  aa[i] < aa[j] ? ++i : --j;
 	  }
 	  return res;
   }

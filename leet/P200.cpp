@@ -19,7 +19,7 @@ int numIslands(vector<vector<char>>& grid) {
   gg = grid;
   for (int i=0; i < gg.size(); ++i) 
   for (int j=0; j < gg[0].size(); ++j)
-    cnt += dfs(i, j);
+  cnt += dfs(i, j);
   return cnt;
 }
 

@@ -8,18 +8,18 @@ vector<int> majorityElement(vector<int>& nums) {
   int c1=0, c2=0, candidate1=(1<<28), candidate2=(1<<28);
   for (auto x: nums) {
   if (x == candidate1)
-    c1++;
+  c1++;
   else if (x == candidate2)
-    c2++;
+  c2++;
   else if (c1 == 0) {
-    candidate1 = x;
-    c1 = 1;
+  candidate1 = x;
+  c1 = 1;
   } else if (c2 == 0) {
-    candidate2 = x;
-    c2 = 1;
+  candidate2 = x;
+  c2 = 1;
   } else {
-    c1--;
-    c2--;
+  c1--;
+  c2--;
   }
   }
 

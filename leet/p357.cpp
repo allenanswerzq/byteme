@@ -28,7 +28,7 @@ public:
   int dp[n + 1];
   dp[1] = 10;
   fori (i, 2, n+1) {
-    dp[i] = dp[i-1] + count(i);
+  dp[i] = dp[i-1] + count(i);
   }
   return dp[n];
   }
