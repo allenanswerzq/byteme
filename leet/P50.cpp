@@ -29,10 +29,10 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   double myPow(double x, int n) {
-  ll t = n;
+    ll t = n;
     if (t < 0) {
       x = 1 / x;
-    t = labs(t);
+      t = labs(t);
     }
     double res = 1.0;
     while (t) {
@@ -44,13 +44,13 @@ public:
   }
 
   double myPow1(double x, int n) {
-  ll t = n;
-  if (t == 0) { return 1.0f; }
-  if (t < 0) {
-    x = 1 / x;
-    t = labs(t);
-  }
-  return myPow(x * x, t / 2) * (t % 2 ? x : 1.0);
+    ll t = n;
+    if (t == 0) { return 1.0f; }
+    if (t < 0) {
+      x = 1 / x;
+      t = labs(t);
+    }
+    return myPow(x * x, t / 2) * (t % 2 ? x : 1.0);
   }
 };
 

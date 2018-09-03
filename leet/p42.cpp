@@ -31,62 +31,62 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Soltion {
 public: 
   int trap1(vector<int>& aa) {
-  int ret = 0;
-  int n = aa.size();
-  for (int i = 1; i < n - 1; i++) {
-    int left_max = 0, right_max = 0;
+    int ret = 0;
+    int n = aa.size();
+    for (int i = 1; i < n - 1; i++) {
+      int left_max = 0, right_max = 0;
 
-    // Search the left side for max bar size
-    for (int j = i; j >= 0; j--) { 
-      left_max = max(left_max, aa[j]);
-    }
+      // Search the left side for max bar size
+      for (int j = i; j >= 0; j--) { 
+        left_max = max(left_max, aa[j]);
+      }
 
-    // Search the right side for max bar size
-    for (int j = i; j < n; j++) { 
-      right_max = max(right_max, aa[j]);
+      // Search the right side for max bar size
+      for (int j = i; j < n; j++) { 
+        right_max = max(right_max, aa[j]);
+      }
+      ret += min(left_max, right_max) - aa[i];
     }
-    ret += min(left_max, right_max) - aa[i];
-  }
-  return ret;
+    return ret;
   }
 
   int trap2(vi& aa) {
-  int n = sz(aa);
-  int left[n], right[n]; 
-  mst(left, 0); mst(right, 0);
+    int n = sz(aa);
+    int left[n], right[n]; 
+    mst(left, 0); mst(right, 0);
 
-  // Pre-compute the left side's maximum value.
-  left[0] = aa[0];
-  fori (i, 1, n)
-    left[i] = max(left[i - 1], aa[i]);
+    // Pre-compute the left side's maximum value.
+    left[0] = aa[0];
+    fori (i, 1, n)
+      left[i] = max(left[i - 1], aa[i]);
 
-  right[n - 1] = aa[n - 1];
-  ford (i, n - 2, -1)
-    right[i] = max(right[i + 1], aa[i]);
+    right[n - 1] = aa[n - 1];
+    ford (i, n - 2, -1)
+      right[i] = max(right[i + 1], aa[i]);
 
-  int ret = 0;
-  fori (i, 0, n)
-    ret += min(left[i], right[i]) - aa[i];
+    int ret = 0;
+    fori (i, 0, n)
+      ret += min(left[i], right[i]) - aa[i];
 
-  return ret;
+    return ret;
   }
 
   int trap3(vector<int>& aa) {
-  int ret = 0, i = 0;
-  int n = sz(aa);
-  deque<int> dq;
-  while (i < n) {
-    if (!sz(dq) || aa[i] <= aa[dq.back()])
-    dq.push_back(i++);
-    else {
-    int top = dq.back(); dq.pop_back();
-    if (!sz(dq)) continue; 
-    int dist = i - dq.back() - 1; 
-    int height = min(aa[dq.back()], aa[i]) - aa[top];
-    ret += dist * height;
+    int ret = 0, i = 0;
+    int n = sz(aa);
+    deque<int> dq;
+    while (i < n) {
+      if (!sz(dq) || aa[i] <= aa[dq.back()])
+      dq.push_back(i++);
+      else {
+      int top = dq.back(); dq.pop_back();
+      if (!sz(dq)) continue; 
+      int dist = i - dq.back() - 1; 
+      int height = min(aa[dq.back()], aa[i]) - aa[top];
+      ret += dist * height;
+      }
     }
-  }
-  return ret;
+    return ret;
   }
 };
 

@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 unordered_map<string, int> func(string& aa) {
   unordered_map<string, int> mp;
   istringstream iss(aa);

@@ -25,46 +25,45 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-#define vs vector<string>
-#define vvs vector<vector<string>>
-
 class Solution {
 public:
-  vvs groupAnagrams1(vector<string>& aa) {
-    unordered_map<string, vs> mp;
-    string tmp;
-    for (auto& a : aa) {
-      string tmp = a;
-      sort(all(tmp));
-      mp[tmp].push_back(a);
-    } 
-
-    vvs ret;
-    for (auto& it : mp) {
-      ret.push_back(it.second);
+  bool isNumber(string s) {
+    bool num = false, numAfterE = true, dot = false, exp = false, sign = false;
+    int n = s.size();
+    for (int i = 0; i < n; ++i) {
+      if (s[i] == ' ') {
+        if (i < n - 1 && s[i + 1] != ' ' && (num || dot || exp || sign)) 
+          return false;
+      } else if (s[i] == '+' || s[i] == '-') {
+        if (i > 0 && s[i - 1] != 'e' && s[i - 1] != ' ') return false;
+        sign = true;
+      } else if (s[i] >= '0' && s[i] <= '9') {
+        num = true;
+        numAfterE = true;
+      } else if (s[i] == '.') {
+        if (dot || exp) return false;
+        dot = true;
+      } else if (s[i] == 'e') {
+        if (exp || !num) return false;
+        exp = true;
+        numAfterE = false;
+      } else return false;
     }
-    return ret;
-  }
-
-  vvs groupAnagrams(vs& aa) {
-    vvs ret;
-    unordered_map<string, int> mp;
-    int cnt = 0;
-    string tmp;
-    fora (a, aa) {
-      tmp = a;
-      sort(all(tmp));
-      if (mp.count(tmp)) {
-        ret[mp[tmp]].push_back(a);
-      } else {
-        mp[tmp] = cnt++;
-        ret.push_back({a});
-      }
-    }
-    return ret;
+    return num && numAfterE;
   }
 };
 
+void test(string aa) {
+  Solution go;
+  int r = go.isNumber(aa);
+  output(1, r);
+}
+
 int main(int argc, char** argv) {
+  test("  343   ");
+  test("0");
+  test(" ");
+  test(".1");
+  test("e2");
   return 0;
 }

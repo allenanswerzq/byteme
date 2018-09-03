@@ -1,18 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 vector<vector<char>> bb;
 
 bool check(int ux, int uy, int bx, int by) {
-  fori(i, ux, bx+1) {
-  fori(j, uy, by+1)
+  fori (i, ux, bx+1) {
+  fori (j, uy, by+1)
     if (bb[i][j] != '1')
     return 0;    
   }

@@ -28,14 +28,14 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   int removeDuplicates(vector<int>& aa) {
-  int n = sz(aa);
-  if (n == 0) return 0;
-  int k = 0;
-  fori (i, 1, sz(aa)) {
-    if (aa[i] != aa[k])
-    aa[++k] = aa[i];
-  } 
-  return k + 1;
+    int n = sz(aa);
+    if (n == 0) return 0;
+    int k = 0;
+    fori (i, 1, sz(aa)) {
+      if (aa[i] != aa[k])
+        aa[++k] = aa[i];
+    } 
+    return k + 1;
   }
 };
 

@@ -121,6 +121,8 @@ int test_two(string s, string p) {
   return x;
 }
 
+#define judge(a, b) assert((a) == (b))
+
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
   cout.precision(10);
