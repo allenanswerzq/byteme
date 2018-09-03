@@ -10,8 +10,8 @@ int dcmp(double x, double y = 0, double tol = eps) {
 vi check(vi& a, vi& b) {
   vi res;
   fori(i, 0, sz(b)) {
-    if (a[i] > b[i]) return {};
-    res.pb(b[i] - a[i]);
+  if (a[i] > b[i]) return {};
+  res.pb(b[i] - a[i]);
   }
   return res;
 }
@@ -19,18 +19,18 @@ vi check(vi& a, vi& b) {
 class Solution {
 public:
   int shoppingOffers(vector<int>& aa, vector<vector<int>>& bb, 
-                     vector<int>& cc) {
-    // The price if we dont use any special offer.
-    int res = inner_product(all(aa), cc.begin(), 0);
-    fora (b, bb) {
-      // The rest of items we need to buy after we choose this offer.
-      vi r = check(b, cc);
-      if (sz(r)) {
-        // If we choose this offer, the price we can get.
-        res = min(res, b.bk() + shoppingOffers(aa, bb, r)); 
-      } 
-    }
-    return res;
+           vector<int>& cc) {
+  // The price if we dont use any special offer.
+  int res = inner_product(all(aa), cc.begin(), 0);
+  fora (b, bb) {
+    // The rest of items we need to buy after we choose this offer.
+    vi r = check(b, cc);
+    if (sz(r)) {
+    // If we choose this offer, the price we can get.
+    res = min(res, b.bk() + shoppingOffers(aa, bb, r)); 
+    } 
+  }
+  return res;
   }
 };
 

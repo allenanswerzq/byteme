@@ -49,51 +49,51 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   int shortestDistance(vvi& gg) {
-    int res = (1<<30);
-    int m = sz(gg), n = sz(gg[0]); 
-    int buildings_cnt = 0;
-    // The sum distances from a point `(x, y)` to all buildings.
-    int dist[m][n]; mst(dist, 0);
-    // The number of buildings can reach from a position `(x,y)`.
-    int count[m][n]; mst(count, 0); 
-    vvi dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
-    fori (i, 0, m) {
-      fori (j, 0, n) {
-        if (gg[i][j] == 1) {
-          ++buildings_cnt; 
-          deque<pair<int, int>> dq;
-          dq.push_back({i, j});
-          int visit[m][n]; mst(visit, 0);
-          int level = 1;
-          while (sz(dq)) {
-            int nn = sz(dq);
-            fori (k, 0, nn) {
-              int x = dq.front().first;
-              int y = dq.front().second; dq.pop_front();
-              fora (d, dirs) {
-                int nx = x + d[0];
-                int ny = y + d[1];
-                if (0<=nx && nx<m && 0<=ny && ny<n && 
-                    gg[nx][ny] == 0 && !visit[nx][ny]) {
-                  // trace(x, y, nx, ny);
-                  dist[nx][ny] += level;
-                  ++count[nx][ny];
-                  visit[nx][ny] = 1;
-                  dq.push_back({nx, ny}); 
-                }
-              }
-            }
-            ++level;
-          }
+  int res = (1<<30);
+  int m = sz(gg), n = sz(gg[0]); 
+  int buildings_cnt = 0;
+  // The sum distances from a point `(x, y)` to all buildings.
+  int dist[m][n]; mst(dist, 0);
+  // The number of buildings can reach from a position `(x,y)`.
+  int count[m][n]; mst(count, 0); 
+  vvi dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+  fori (i, 0, m) {
+    fori (j, 0, n) {
+    if (gg[i][j] == 1) {
+      ++buildings_cnt; 
+      deque<pair<int, int>> dq;
+      dq.push_back({i, j});
+      int visit[m][n]; mst(visit, 0);
+      int level = 1;
+      while (sz(dq)) {
+      int nn = sz(dq);
+      fori (k, 0, nn) {
+        int x = dq.front().first;
+        int y = dq.front().second; dq.pop_front();
+        fora (d, dirs) {
+        int nx = x + d[0];
+        int ny = y + d[1];
+        if (0<=nx && nx<m && 0<=ny && ny<n && 
+          gg[nx][ny] == 0 && !visit[nx][ny]) {
+          // trace(x, y, nx, ny);
+          dist[nx][ny] += level;
+          ++count[nx][ny];
+          visit[nx][ny] = 1;
+          dq.push_back({nx, ny}); 
+        }
         }
       }
+      ++level;
+      }
     }
-    // trace(buildings_cnt);
-    fori (i, 0, m) 
-      fori (j, 0, n) 
-        if (gg[i][j] == 0 && count[i][j] == buildings_cnt)
-          res = min(res, dist[i][j]); 
-    return res;
+    }
+  }
+  // trace(buildings_cnt);
+  fori (i, 0, m) 
+    fori (j, 0, n) 
+    if (gg[i][j] == 0 && count[i][j] == buildings_cnt)
+      res = min(res, dist[i][j]); 
+  return res;
   }
 };
 
@@ -111,8 +111,8 @@ int main(int argc, char** argv) {
   cout << fixed; 
 
   vvi aa = {{1, 0, 2, 0, 1},
-            {0, 0, 0, 0, 0},
-            {0, 0, 1, 0, 0}};
+      {0, 0, 0, 0, 0},
+      {0, 0, 1, 0, 0}};
 
   test(aa, 7);
 

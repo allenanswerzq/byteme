@@ -39,32 +39,32 @@ bool dp[N][N];
 class Solution {
 public:
   bool isInterleave(string s1, string s2, string s3) {
-    int a, b, c;
-    a = sz(s1), b = sz(s2), c = sz(s3);
-    mst(dp, 0);
-    if (a + b != c) 
-      return false;
-    fori(i, 0, a+1)
-      fori(j, 0, b+1) {
-        if (i == 0 && j == 0)
-          dp[i][j] = true;
+  int a, b, c;
+  a = sz(s1), b = sz(s2), c = sz(s3);
+  mst(dp, 0);
+  if (a + b != c) 
+    return false;
+  fori(i, 0, a+1)
+    fori(j, 0, b+1) {
+    if (i == 0 && j == 0)
+      dp[i][j] = true;
 
-        else if (i==0 && s2[j-1] == s3[j-1])
-          dp[i][j] = dp[i][j-1];
+    else if (i==0 && s2[j-1] == s3[j-1])
+      dp[i][j] = dp[i][j-1];
 
-        else if (j==0 && s1[i-1] == s3[i-1])
-          dp[i][j] = dp[i-1][j];
+    else if (j==0 && s1[i-1] == s3[i-1])
+      dp[i][j] = dp[i-1][j];
 
-        else if (s1[i-1]==s3[i+j-1] && s2[j-1]!=s3[i+j-1])
-          dp[i][j] = dp[i-1][j];
+    else if (s1[i-1]==s3[i+j-1] && s2[j-1]!=s3[i+j-1])
+      dp[i][j] = dp[i-1][j];
 
-        else if (s1[i-1]!=s3[i+j-1] && s2[j-1] == s3[i+j-1])
-          dp[i][j] = dp[i][j-1];
+    else if (s1[i-1]!=s3[i+j-1] && s2[j-1] == s3[i+j-1])
+      dp[i][j] = dp[i][j-1];
 
-        else if ((s1[i-1] == s3[i+j-1]) && (s2[j-1] == s3[i+j-1]))
-          dp[i][j] = (dp[i][j-1] || dp[i-1][j]);
-      }
-      return dp[a][b];
+    else if ((s1[i-1] == s3[i+j-1]) && (s2[j-1] == s3[i+j-1]))
+      dp[i][j] = (dp[i][j-1] || dp[i-1][j]);
+    }
+    return dp[a][b];
   }
 };
 

@@ -33,10 +33,10 @@ int go(TreeNode *root) {
 class Solution {
 public:
   int findTilt(TreeNode* root) {
-    if (!root) return 0;
-    res = 0;
-    go(root);
-    return res;
+  if (!root) return 0;
+  res = 0;
+  go(root);
+  return res;
   }
 };
 

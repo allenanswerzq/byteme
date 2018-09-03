@@ -3,9 +3,9 @@
 using namespace std;
 
 void printVector(vector<int>& v) {
-    for (auto x:v)
-        printf("%d ", x); 
-    printf("\n");
+  for (auto x:v)
+    printf("%d ", x); 
+  printf("\n");
 }
 
 // Accepted 
@@ -45,5 +45,5 @@ int main(int argc, char** argv) {
 		for (auto v : s) {
 			printVector(v);	
 		}
-    return 0;
+  return 0;
 }

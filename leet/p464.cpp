@@ -19,13 +19,13 @@ bool go(int aa, int bb, int state) {
   if (mp.count(state)) return mp[state] == 1;
 
   fori (i, 0, aa) {
-    // If already visited `i+1`.
-    if (state & (1 << i)) continue; 
-    // If the opponent lose.
-    if (!go(aa, bb - (i + 1), state | (1 << i))) {
-      mp[state] = 1;
-      return mp[state];
-    }
+  // If already visited `i+1`.
+  if (state & (1 << i)) continue; 
+  // If the opponent lose.
+  if (!go(aa, bb - (i + 1), state | (1 << i))) {
+    mp[state] = 1;
+    return mp[state];
+  }
   } 
   // Already tried all possible choices.
   // The first player can not win. 
@@ -36,15 +36,15 @@ bool go(int aa, int bb, int state) {
 class Solution {
 public:
   bool canIWin(int aa, int bb) {
-    // If maxChoose is greater than desiredTotal,
-    // The first guy can always win by play optimally.
-    if (aa > bb) return 1; 
-    // If the sum of all chooseable values is less than
-    // desiredTotal number, then no one will win.
-    int sum = aa * (aa + 1) / 2;
-    if (sum < bb) return 0;
-    mp.clear();
-    return go(aa, bb, 0);
+  // If maxChoose is greater than desiredTotal,
+  // The first guy can always win by play optimally.
+  if (aa > bb) return 1; 
+  // If the sum of all chooseable values is less than
+  // desiredTotal number, then no one will win.
+  int sum = aa * (aa + 1) / 2;
+  if (sum < bb) return 0;
+  mp.clear();
+  return go(aa, bb, 0);
   }
 };
 

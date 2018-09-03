@@ -13,21 +13,21 @@ bool check(string s) {
   int lo, hi;
   lo = 0, hi = n-1;
   while(lo < hi) 
-    if (s[lo++] != s[hi--])
-      return false;
+  if (s[lo++] != s[hi--])
+    return false;
   return true;
 }
 
 int recu(string s, int lo, int hi) {
   if (lo >= hi) return 0;
   if (check(s.substr(lo, hi-lo+1)))
-    return 0;
+  return 0;
   else {
-    int mi = 0x3f3f3f3f;
-    fori(k, lo, hi) {
-      mi = min(mi, recu(s, lo, k) + 1 + recu(s, k+1, hi)); 
-    }
-    return mi;
+  int mi = 0x3f3f3f3f;
+  fori(k, lo, hi) {
+    mi = min(mi, recu(s, lo, k) + 1 + recu(s, k+1, hi)); 
+  }
+  return mi;
   }
   return -1;
 }
@@ -35,21 +35,21 @@ int recu(string s, int lo, int hi) {
 class Solution {
 public:
   int minCutRecu(string s) {
-    return recu(s, 0, sz(s)-1);
+  return recu(s, 0, sz(s)-1);
   }
   
   // TODO
   int minCutDP(string s) {
-    return 0;
+  return 0;
   }
 
   int minCut(string s) {
-    srand(time(0));
-    int x = rand();
-    // if (x % 2)
-    return minCutRecu(s); 
-    // else
-      // return minCutDP(s);
+  srand(time(0));
+  int x = rand();
+  // if (x % 2)
+  return minCutRecu(s); 
+  // else
+    // return minCutDP(s);
   }
 };
 

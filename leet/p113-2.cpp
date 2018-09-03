@@ -35,9 +35,9 @@ vvi res;
 void dfs(TreeNode* root, int goal, vi path) {
   if (!root) return;
   if (!root->left && !root->right && root->val == goal) {
-    path.pb(root->val);
-    res.pb(path);
-    return;
+  path.pb(root->val);
+  res.pb(path);
+  return;
   }
 
   path.pb(root->val);
@@ -49,8 +49,8 @@ void dfs(TreeNode* root, int goal, vi path) {
 class Solution {
 public:
   vector<vector<int>> pathSum(TreeNode* root, int goal) {
-    res.clear();
-    dfs(root, goal, {}); 
-    return res;
+  res.clear();
+  dfs(root, goal, {}); 
+  return res;
   }
 };

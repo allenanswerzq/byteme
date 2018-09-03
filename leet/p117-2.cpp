@@ -32,20 +32,20 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   void connect(TreeLinkNode *root) {
-    if (!root) return;
-    deque<TreeLinkNode*> q;
-    q.pb(root);
-    while (sz(q)) {
-      int n = sz(q);
-      fori (i, 0, n) {
-        auto cur = q.fr(); q.ppf();
-        if (i == n-1) cur->next = null;
-        else cur->next = q.fr();
-        if (cur->left) q.pb(cur->left);
-        if (cur->right) q.pb(cur->right);
-      } 
-    }    
-    return;
+  if (!root) return;
+  deque<TreeLinkNode*> q;
+  q.pb(root);
+  while (sz(q)) {
+    int n = sz(q);
+    fori (i, 0, n) {
+    auto cur = q.fr(); q.ppf();
+    if (i == n-1) cur->next = null;
+    else cur->next = q.fr();
+    if (cur->left) q.pb(cur->left);
+    if (cur->right) q.pb(cur->right);
+    } 
+  }    
+  return;
   }
 };
 

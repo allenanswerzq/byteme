@@ -33,25 +33,25 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
-    vvi res;
-    if(!root) return res;
-    deque<TreeNode*> q;
-    int level = 0;
-    q.pb(root);
-    while (sz(q)) {
-      int n = sz(q);
-      vi tmp;
-      ++level;
-      fori (i, 0, n) {
-        auto cur = q.fr(); q.ppf(); 
-        if (level % 2) tmp.pb(cur->val);
-        else tmp.insert(tmp.begin(), cur->val);
-        if (cur->left) q.pb(cur->left);
-        if (cur->right) q.pb(cur->right);
-      }
-      res.pb(tmp);
+  vvi res;
+  if(!root) return res;
+  deque<TreeNode*> q;
+  int level = 0;
+  q.pb(root);
+  while (sz(q)) {
+    int n = sz(q);
+    vi tmp;
+    ++level;
+    fori (i, 0, n) {
+    auto cur = q.fr(); q.ppf(); 
+    if (level % 2) tmp.pb(cur->val);
+    else tmp.insert(tmp.begin(), cur->val);
+    if (cur->left) q.pb(cur->left);
+    if (cur->right) q.pb(cur->right);
     }
-    return res;
+    res.pb(tmp);
+  }
+  return res;
   }
 };
 

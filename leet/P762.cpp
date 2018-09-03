@@ -20,13 +20,13 @@ public:
 			return true;
 		}	
 
-    int countPrimeSetBits(int L, int R) {
+  int countPrimeSetBits(int L, int R) {
 			int ret=0;
 			for (int i=L; i<R; ++i) {
 				if (isPrime(i))	
 					ret++;
 			}        
 			return ret;
-    }
+  }
 };
 

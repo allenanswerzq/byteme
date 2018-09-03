@@ -11,17 +11,17 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   int findMinMoves(vector<int>& aa) {
-    int sum, res, n, avg, cnt;
-    n = sz(aa);
-    sum = accumulate(all(aa), 0); 
-    if (sum % n != 0) return -1;
-    avg = sum / n;
-    res = 0;
-    fora (a, aa) {
-      cnt += a - avg;
-      res = max(res, max(abs(cnt), a - avg));
-    }
-    return res;
+  int sum, res, n, avg, cnt;
+  n = sz(aa);
+  sum = accumulate(all(aa), 0); 
+  if (sum % n != 0) return -1;
+  avg = sum / n;
+  res = 0;
+  fora (a, aa) {
+    cnt += a - avg;
+    res = max(res, max(abs(cnt), a - avg));
+  }
+  return res;
   }
 };
 

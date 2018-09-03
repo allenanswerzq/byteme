@@ -12,8 +12,8 @@ bool canPermutePalindrome(string s) {
 
   int cnt = 0;
   for (auto m : mp) {
-    if (m.second % 2) cnt++;
-    if (cnt > 1) return false;
+  if (m.second % 2) cnt++;
+  if (cnt > 1) return false;
   }
   return true;
 }

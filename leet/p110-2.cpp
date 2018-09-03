@@ -39,12 +39,12 @@ int height(TreeNode *root) {
 class Solution {
 public:
   bool isBalanced(TreeNode* root) {
-    if (!root) return 1;
-    int a = height(root->left);
-    int b = height(root->right);
-    return isBalanced(root->left) && 
-           isBalanced(root->right) &&
-           abs (a - b) <= 1;
+  if (!root) return 1;
+  int a = height(root->left);
+  int b = height(root->right);
+  return isBalanced(root->left) && 
+       isBalanced(root->right) &&
+       abs (a - b) <= 1;
   }
 };
 

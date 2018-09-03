@@ -35,8 +35,8 @@ void inOrder(TreeNode* root) {
   inOrder(root->left);
   // Visit current node.
   if (pre) {
-    if (!n1 && pre->val > root->val) n1 = pre;
-    if (n1 && pre->val > root->val) n2 = root;
+  if (!n1 && pre->val > root->val) n1 = pre;
+  if (n1 && pre->val > root->val) n2 = root;
   }
   pre = root;
   inOrder(root->right);
@@ -45,10 +45,10 @@ void inOrder(TreeNode* root) {
 class Solution {
 public:
   void recoverTree(TreeNode* root) {
-    n1 = n2 = pre = null;
-    inOrder(root);
-    if (n1 && n2)
-      swap(n1->val, n2->val);
+  n1 = n2 = pre = null;
+  inOrder(root);
+  if (n1 && n2)
+    swap(n1->val, n2->val);
   }
 };
 

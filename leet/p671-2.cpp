@@ -33,9 +33,9 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   int findSecondMinimumValue(TreeNode* root) {
-    if (!root) return -1;
-    int a = findSecondMinimumValue(root->left);
-    int b = findSecondMinimumValue(root->right);
+  if (!root) return -1;
+  int a = findSecondMinimumValue(root->left);
+  int b = findSecondMinimumValue(root->right);
   }
 };
 

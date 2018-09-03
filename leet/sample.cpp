@@ -3,10 +3,10 @@
 using namespace std;
 
 void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
+  cout << "[ ";
+  for (auto x:v)
+    cout << x << " ";
+  cout <<"] " << endl;
 }
 
 void add(vector<int>& data, int lo, int hi) {

@@ -9,7 +9,7 @@ int cmp(double x, double y = 0, double tol = EPS) {
 
 class Solution {
 public:
-    int orderOfLargestPlusSign(int N, vector<vector<int>>& mines) {
+  int orderOfLargestPlusSign(int N, vector<vector<int>>& mines) {
  			vector<vector<int>> matrix(N, vector<int>(N, 1));       
  			for (auto m: mines)
  				matrix[m[0]][m[1]] = 0;
@@ -36,5 +36,5 @@ public:
  					}
  				}
  			return ret;
-    }
+  }
 };

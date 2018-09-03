@@ -5,14 +5,14 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-      printf("%d ", x);
+    printf("%d ", x);
   printf("]\n");
 }
 
 void printMatrix(vector<vector<int>>& v) {
   printf("{\n");
   for (auto x:v)
-    printVector(x);
+  printVector(x);
   printf("}\n");
 }
 
@@ -22,8 +22,8 @@ bool isPowerOfTwo(int x) {
 
 int countOne (int n){
   while( n ){
-    n = n&(n-1);
-    count++;
+  n = n&(n-1);
+  count++;
   }
   return count;
 }
@@ -43,16 +43,16 @@ string longestWord(vector<string>& words) {
   for (auto w:words) st.insert(w);
   sort(words.begin(), words.end(), cmp);
   for (auto wd : words) {
-    int sz = wd.size();
-    string cur = "";
-    int flag = 1;
-    for (int i=0; i<sz; ++i) {
-      cur.push_back(wd[i]);
-      if (st.count(cur) == 0) {
-        flag = 0; break;
-      }
+  int sz = wd.size();
+  string cur = "";
+  int flag = 1;
+  for (int i=0; i<sz; ++i) {
+    cur.push_back(wd[i]);
+    if (st.count(cur) == 0) {
+    flag = 0; break;
     }
-    if (flag) return wd;
+  }
+  if (flag) return wd;
   }
   return "";
 }

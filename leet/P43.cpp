@@ -1,47 +1,45 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (int x:v)
-            cout << x << " ";
-    cout <<"] " << endl;
-}
-
-// Not that good, but accepted
-// reference: https://en.wikipedia.org/wiki/Multiplication_algorithm
-string multiply(string a, string b) {
-	int p = a.size();
-	int q = b.size();
-  	int product[p+q] = {0};     
-	string result = "";
-  	reverse(a.begin(), a.end());
-  	reverse(b.begin(), b.end());
-	//cout << a << " " << b << endl;
-	for (int i=0; i<q; ++i) {   // for all digits in b
-		int carry = 0;
-		for (int j=0; j<p; ++j) {   //for all digits in a
-			product[i + j] += carry + (a[j]-'0') * (b[i]-'0');
-			//cout << a[j] << " " << b[i] << " "<< product[i+j] << endl;
-			carry = product[i + j] / 10;
-			product[i + j] = product[i + j] % 10;
-		}
-		product[i + p] += carry;      // last digit comes from final carry
+class Solution {
+public:
+  // Not that good, but accepted
+  // reference: https://en.wikipedia.org/wiki/Multiplication_algorithm
+  string multiply(string aa, string bb) {
+  int p = aa.size();
+  int q = bb.size();
+  	int product[p + q] = {0};     
+  string ret = "";
+  reverse(aa.begin(), aa.end());
+  reverse(bb.begin(), bb.end());
+  for (int i = 0; i < q; ++i) {
+  	int carry = 0;
+  	for (int j = 0; j < p; ++j) {
+  		product[i + j] += carry + (aa[j]-'0') * (bb[i]-'0');
+  		carry = product[i + j] / 10;
+  		product[i + j] = product[i + j] % 10;
+  	}
+  	product[i + p] += carry;
   }
 
-  // remove the leading zero
-  int i = p+q-1;
-  while (i>=0 && !product[i]) --i;
-  if (i==0) return "0";
+  int i = p + q - 1;
+  while (i >= 0 && !product[i]) --i;
+  if (i == 0) return "0";
   while(i >= 0) {
-	  result += product[i]+'0';
-	  --i;
+    ret += product[i]+'0';
+    --i;
   }
-  return result;
+  return ret;
+  }
+};
+
+void test(string aa, string bb) {
+  Solution go;
+  string ret = go.multiply(aa, bb);
+  trace(ret);
 }
 
 int main(int argc, char** argv) {
-	cout << multiply("1234", "1111") << endl;
-    return 0;
+	test("1234", "1111");
+  return 0;
 }

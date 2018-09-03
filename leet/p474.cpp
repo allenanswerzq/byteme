@@ -14,21 +14,21 @@ int dp[N][N];
 class Solution {
 public:
   int findMaxForm(vector<string>& strs, int m, int n) {
-    int a, b;
-    mst(dp, 0);
-    fora (s, strs) {
-      a = b = 0;
-      fora (c, s) 
-        if (c == '0') ++a;
-        else if (c == '1') ++b;
+  int a, b;
+  mst(dp, 0);
+  fora (s, strs) {
+    a = b = 0;
+    fora (c, s) 
+    if (c == '0') ++a;
+    else if (c == '1') ++b;
 
-      ford (i, m, -1)
-        ford (j, n, -1) {
-          if (i >= a && j >= b)
-            dp[i][j] = max(dp[i][j], dp[i-a][j-b] + 1);
-        }
+    ford (i, m, -1)
+    ford (j, n, -1) {
+      if (i >= a && j >= b)
+      dp[i][j] = max(dp[i][j], dp[i-a][j-b] + 1);
     }
-    return dp[m][n];
+  }
+  return dp[m][n];
   }
 };
 

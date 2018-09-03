@@ -45,9 +45,9 @@ pii dfs(TreeNode* root) {
 class Solution {
 public:
   int rob(TreeNode* root) {
-    if (!root) return 0;
-    pii res = dfs(root); 
-    return max(res.fi, res.se);
+  if (!root) return 0;
+  pii res = dfs(root); 
+  return max(res.fi, res.se);
   }
 };
 

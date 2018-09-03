@@ -5,7 +5,7 @@ using namespace std;
 class Solution {
 public:
 	// count sorting
-    int arrayPairSum(vector<int>& a) {
+  int arrayPairSum(vector<int>& a) {
 		int ret = 0;
 		bool flag = true;
 		array<int, 20001> count{0};
@@ -27,13 +27,13 @@ public:
 		return ret;
 	}
 	//
-    int arrayPairSum1(vector<int>& a) {
-       sort(a.begin(), a.end()); 
+  int arrayPairSum1(vector<int>& a) {
+     sort(a.begin(), a.end()); 
 	   int ret = 0;
 	   for (int i=0; i<a.size(); i+=2) 
 		   ret += a[i];
 	   return ret;
-    }
+  }
 };
 
 int main()

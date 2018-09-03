@@ -3,10 +3,10 @@
 using namespace std;
 
 void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (int x:v)
-            cout << x << " ";
-    cout <<"] " << endl;
+  cout << "[ ";
+  for (int x:v)
+      cout << x << " ";
+  cout <<"] " << endl;
 }
 
 int gcd(int a, int b) {
@@ -23,46 +23,46 @@ int lcm(int a, int b) {
 // really awesome approach
 // use istringstream so we dont need to parse nums
 string fractionAddition(string expression) {
-    istringstream in(expression);
-    int A = 0, B = 1, a, b;
-    char _;
-    while (in >> a >> _ >> b) {
-        A = A * b + a * B;
-        B *= b;
-        int g = abs(__gcd(A, B));
-        A /= g;
-        B /= g;
-    }
-    return to_string(A) + '/' + to_string(B);
+  istringstream in(expression);
+  int A = 0, B = 1, a, b;
+  char _;
+  while (in >> a >> _ >> b) {
+    A = A * b + a * B;
+    B *= b;
+    int g = abs(__gcd(A, B));
+    A /= g;
+    B /= g;
+  }
+  return to_string(A) + '/' + to_string(B);
 }
 
 // Wrong Approach 
 // case parse nums not correctly
 string fractionAddition(string s) {
-    int A = 0, B = 1;
-    s += 'x';
+  int A = 0, B = 1;
+  s += 'x';
 	while(s.size() > 0) {
-          int idx = s.find('/');
-          string t = s.substr(0, idx);
-          int a = atoi(t.c_str());
-          int kk = idx+1;
-          int cnt = 0;
-          while (s[kk]!='+' && s[kk]!='-' && s[kk]!='x'){
-                  cnt++;
-                  kk++;
-          }
-          string tt = s.substr(idx+1, cnt);
-          int b = atoi(tt.c_str());
-          A = A*b + B*a;
-          B = B*b;
-          int g = abs(__gcd(A, B));
-          A /= g;
-          B /= g; 
+      int idx = s.find('/');
+      string t = s.substr(0, idx);
+      int a = atoi(t.c_str());
+      int kk = idx+1;
+      int cnt = 0;
+      while (s[kk]!='+' && s[kk]!='-' && s[kk]!='x'){
+          cnt++;
+          kk++;
+      }
+      string tt = s.substr(idx+1, cnt);
+      int b = atoi(tt.c_str());
+      A = A*b + B*a;
+      B = B*b;
+      int g = abs(__gcd(A, B));
+      A /= g;
+      B /= g; 
 
-          if (s[kk] == 'x') break;
-          s = s.substr(kk+1);
+      if (s[kk] == 'x') break;
+      s = s.substr(kk+1);
 	}
-    return to_string(A) + "/" + to_string(B);
+  return to_string(A) + "/" + to_string(B);
 }
 
 // naive method
@@ -138,5 +138,5 @@ int main(int argc, char** argv) {
 	cout << endl;
 	cout << fractionAddition("1/3-1/2+1/2") << endl;
 	cout << endl;
-    return 0;
+  return 0;
 }

@@ -11,19 +11,19 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   bool canCross(vector<int>& aa) { 
-    int n;
-    n = sz(aa);
-    unordered_map<int, unordered_set<int>> mp;
-    mp.insert({0, {0}}); 
-    fora (p, aa) {
-      fora (k, mp[p]) {
-        if (k - 1)
-          mp[p + k - 1].insert(k - 1);
-        mp[p + k].insert(k);
-        mp[p + k + 1].insert(k + 1);
-      }
+  int n;
+  n = sz(aa);
+  unordered_map<int, unordered_set<int>> mp;
+  mp.insert({0, {0}}); 
+  fora (p, aa) {
+    fora (k, mp[p]) {
+    if (k - 1)
+      mp[p + k - 1].insert(k - 1);
+    mp[p + k].insert(k);
+    mp[p + k + 1].insert(k + 1);
     }
-    return sz(mp[aa.back()]);
+  }
+  return sz(mp[aa.back()]);
   }
 };
 

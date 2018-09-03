@@ -11,24 +11,24 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   int coinChange(vector<int>& coins, int aa) {
-    int n = aa;
-    int dp[n+1];
-    mst(dp, -1);
-    dp[0] = 0;
+  int n = aa;
+  int dp[n+1];
+  mst(dp, -1);
+  dp[0] = 0;
 
-    fori(i, 1, n+1) {
-      int mi = 0x3f3f3f3f;
-      fora(c, coins)
-        if (i - c >= 0 && dp[i - c] != -1)
-          mi = min(mi, dp[i-c] + 1);
-      dp[i] = mi == 0x3f3f3f3f ? -1 : mi;
-    } 
+  fori(i, 1, n+1) {
+    int mi = 0x3f3f3f3f;
+    fora(c, coins)
+    if (i - c >= 0 && dp[i - c] != -1)
+      mi = min(mi, dp[i-c] + 1);
+    dp[i] = mi == 0x3f3f3f3f ? -1 : mi;
+  } 
 
-    // fori(i, 0, n+1)
-    //   cout << dp[i] << " ";
-    // cout << "\n";
+  // fori(i, 0, n+1)
+  //   cout << dp[i] << " ";
+  // cout << "\n";
 
-    return dp[n];
+  return dp[n];
   }
 };
 

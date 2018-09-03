@@ -29,8 +29,8 @@ int dfs(TreeNode* root, int depth) {
   int a = dfs(root->left, depth + 1);
   int b = dfs(root->right, depth + 1);
   if (a == b && a >= mx) {
-    mx = a;
-    res = root;
+  mx = a;
+  res = root;
   }
   return max(a, b);
 }
@@ -38,11 +38,11 @@ int dfs(TreeNode* root, int depth) {
 class Solution {
 public:
   TreeNode* subtreeWithAllDeepest(TreeNode* root) {
-    if (!root) return nullptr;
-    res = nullptr;
-    mx = -1;
-    dfs(root, 0);
-    return res;        
+  if (!root) return nullptr;
+  res = nullptr;
+  mx = -1;
+  dfs(root, 0);
+  return res;        
   }
 };
 

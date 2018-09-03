@@ -63,8 +63,8 @@ void dfs(TreeNode* root, int sum, vi &path) {
   path.pb(root->val);
   int tmp = 0;
   ford (i, sz(path) - 1, -1) {
-    tmp += path[i];
-    if (tmp == sum) ++res;
+  tmp += path[i];
+  if (tmp == sum) ++res;
   }
   dfs(root->left, sum, path);
   dfs(root->right, sum, path);
@@ -76,11 +76,11 @@ void dfs(TreeNode* root, int sum, vi &path) {
 class Solution {
 public:
   int pathSum(TreeNode* root, int goal) {
-    if (!root) return 0;
-    res = 0;
-    vi path;
-    dfs(root, goal, path);
-    return res;
+  if (!root) return 0;
+  res = 0;
+  vi path;
+  dfs(root, goal, path);
+  return res;
   } 
 };
 

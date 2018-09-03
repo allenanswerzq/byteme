@@ -18,14 +18,14 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   int majorityElement(vector<int>& aa) {
-    int n = sz(aa);
-    int res = 0;
-    int cnt = 0;
-    fori (i, 0, n) {
-      if (cnt == 0) res = aa[i];
-      cnt += (aa[i] == res) ? 1 : -1;
-    }
-    return res;
+  int n = sz(aa);
+  int res = 0;
+  int cnt = 0;
+  fori (i, 0, n) {
+    if (cnt == 0) res = aa[i];
+    cnt += (aa[i] == res) ? 1 : -1;
+  }
+  return res;
   }
 };
 

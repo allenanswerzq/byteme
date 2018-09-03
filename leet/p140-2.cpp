@@ -13,35 +13,35 @@ unordered_map<string, vector<string>> mp;
 
 bool check(string s) {
   fora (d, dict)
-    if (d == s)
-      return 1;
+  if (d == s)
+    return 1;
   return 0; 
 }
 
 void recu(string s, string path, vs& res) {
   int n = sz(s);
   if (n == 0) {
-    path = path.substr(0, sz(path)-1);
-    res.pb(path);
-    return ;
+  path = path.substr(0, sz(path)-1);
+  res.pb(path);
+  return ;
   }
   
   fori (i, 1, n+1) {
-    string pre = s.substr(n - i, i);
-    // cout << "pre: " << pre << "\n";
-    if (check(pre)) {
-      recu(s.substr(0, n - i), pre + " " + path, res);
-    }
+  string pre = s.substr(n - i, i);
+  // cout << "pre: " << pre << "\n";
+  if (check(pre)) {
+    recu(s.substr(0, n - i), pre + " " + path, res);
+  }
   }
 }
 
 class Solution {
 public:
   vector<string> wordBreak(string s, vector<string>& aa) {
-    dict = aa;
-    vs res;
-    recu(s, "", res); 
-    return res;
+  dict = aa;
+  vs res;
+  recu(s, "", res); 
+  return res;
   }
 };
 
@@ -50,7 +50,7 @@ void test(string s, vs aa) {
   Solution go;
   vs res = go.wordBreak(s, aa);    
   fora (s, res)
-    cout << s << "\n";
+  cout << s << "\n";
 }
 
 int main(int argc, char** argv) {

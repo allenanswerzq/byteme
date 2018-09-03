@@ -14,9 +14,9 @@ vector<int> rightSideView(TreeNode* root) {
     if (front->left) que.push_back(front->left);
     if (front->right) que.push_back(front->right);
     if (front == last) {
-        res.push_back(last->val);   
-        # NOte: how did i know the last node of each level?
-        last = que.back();
+      res.push_back(last->val);   
+      # NOte: how did i know the last node of each level?
+      last = que.back();
     }
   }
   return res;

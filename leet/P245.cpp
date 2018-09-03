@@ -14,18 +14,18 @@ int shortestDistance(vector<string> words, string word1, string word2) {
   int ret = (1 << 31) - 1;
   
   for (int i=0; i<words.size(); ++i) {
-    if (word1 == word2) {
-      if (words[i] == word1) {
-        if (m > n) n = i;
-        else m = i;
-      }
-    } else { 
-      if (words[i] == word1) m = i;
-      if (words[i] == word2) n = i;
+  if (word1 == word2) {
+    if (words[i] == word1) {
+    if (m > n) n = i;
+    else m = i;
     }
+  } else { 
+    if (words[i] == word1) m = i;
+    if (words[i] == word2) n = i;
+  }
 
-    if (m>=0 && n>=0)
-      ret = min(ret, abs(m-n));
+  if (m>=0 && n>=0)
+    ret = min(ret, abs(m-n));
   }
   return ret;
 }

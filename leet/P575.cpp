@@ -2,7 +2,7 @@
 using namespace std;
 
 int distributeCandies(vector<int>& candies) {
-    map<int, int> m;
+  map<int, int> m;
 	int n = candies.size() / 2;
 	int ret;
  	for (auto c : candies) 

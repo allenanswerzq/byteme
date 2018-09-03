@@ -14,8 +14,8 @@ int dp[size][size];
 class Solution {
 public:
   int cherryPickup(vector<vector<int>>& aa) {
-    int n = sz(aa); 
-    mst(dp, -1);
+  int n = sz(aa); 
+  mst(dp, -1);
   }
 };
 

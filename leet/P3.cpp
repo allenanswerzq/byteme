@@ -9,7 +9,7 @@ public:
 		int ret = 0, lo = -1;
 		for (int i = 0; i < ss.size(); ++i) {
 			if (dp[ss[i]] > lo)
-				lo = dp[ss[i]]
+				lo = dp[ss[i]];
 			dp[ss[i]] = i;
 			ret = max(ret, i - lo);
 		}
@@ -59,6 +59,7 @@ public:
 				st.erase(ss[lo++]);
 			}
 		}
+		return res;
 	}
 };
 
@@ -69,12 +70,10 @@ void test(string inp, int right) {
 }
 
 int main(int argc, char **argv) {
-
 	test("abcabcbb", 3);
 	test("bbbb", 1);
 	test("pwwkew", 3);
 	test("dvdf", 3);
 	test("abba", 2);
-
 	return 0;
 }

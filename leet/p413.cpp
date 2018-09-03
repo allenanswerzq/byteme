@@ -11,21 +11,21 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   int numberOfArithmeticSlices(vector<int>& aa) {
-    int n, res;
-    int dp[n + 1]; 
-    n = sz(aa);
-    if (n < 3) return 0;
-    mst(dp, 0); 
-    if (aa[2] - aa[1] == aa[1] - aa[0]) 
-      dp[2] = 1;
-    res = dp[2];
-    fori (i, 3, n) {
-      if (aa[i] - aa[i-1] == aa[i-1] - aa[i-2]) 
-        dp[i] = dp[i-1] + 1;
-      res += dp[i];
-    }
-    par(dp, n);
-    return res;
+  int n, res;
+  int dp[n + 1]; 
+  n = sz(aa);
+  if (n < 3) return 0;
+  mst(dp, 0); 
+  if (aa[2] - aa[1] == aa[1] - aa[0]) 
+    dp[2] = 1;
+  res = dp[2];
+  fori (i, 3, n) {
+    if (aa[i] - aa[i-1] == aa[i-1] - aa[i-2]) 
+    dp[i] = dp[i-1] + 1;
+    res += dp[i];
+  }
+  par(dp, n);
+  return res;
   }
 };
 

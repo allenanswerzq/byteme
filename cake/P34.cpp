@@ -2,18 +2,13 @@
 using namespace std;
 
 
-const double EPS = 1e-9;
-int cmp(double x, double y = 0, double tol = EPS) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 unordered_map<string, int> func(string& aa) {
   unordered_map<string, int> mp;
   istringstream iss(aa);
   string word;
   while (iss >> word) {
     vector<string> vv;
-    // Case:  After-we,
+    // Case:  After we,
     auto it = word.find('-');
     if (it == string::npos)
       vv.pb(word);

@@ -42,12 +42,12 @@ int dfs(TreeNode* root, int inp) {
 class Solution {
 public:
   int longestUnivaluePath(TreeNode* root) {
-    if (!root) return 0;
-    int a = longestUnivaluePath(root->left);
-    int b = longestUnivaluePath(root->right);
-    int c = dfs(root->left, root->val);
-    int d = dfs(root->right, root->val);
-    return max(max(a, b), c + d);
+  if (!root) return 0;
+  int a = longestUnivaluePath(root->left);
+  int b = longestUnivaluePath(root->right);
+  int c = dfs(root->left, root->val);
+  int d = dfs(root->right, root->val);
+  return max(max(a, b), c + d);
   }
 };
 

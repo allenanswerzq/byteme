@@ -5,14 +5,14 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-      printf("%d ", x);
+    printf("%d ", x);
   printf("]\n");
 }
 
 void printMatrix(vector<vector<int>>& v) {
   printf("{\n");
   for (auto x:v)
-    printVector(x);
+  printVector(x);
   printf("}\n");
 }
 
@@ -23,8 +23,8 @@ bool isPowerOfTwo(int x) {
 
 int countOne (int n){
   while( n ){
-    n = n&(n-1);
-    count++;
+  n = n&(n-1);
+  count++;
   }
   return count;
 }
@@ -40,9 +40,9 @@ int main(int argc, char** argv) {
 bool helper(int x) {
   int y = x;
   while (x) {
-    int t = x%10;
-    if(y % t) return false;
-    x /= 10;
+  int t = x%10;
+  if(y % t) return false;
+  x /= 10;
   } 
   return x==0 ? false: true;
 }
@@ -50,7 +50,7 @@ bool helper(int x) {
 vector<int> selfDividingNumbers(int left, int right) {
   vector<int> ret;
   for (int i=left; i<=right; ++i)
-    if (helper(i))
-    ret.push_back(i); 
+  if (helper(i))
+  ret.push_back(i); 
   return ret;
 }

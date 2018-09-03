@@ -22,37 +22,37 @@ int dcmp(double x, double y = 0, double tol = eps) {
 }
 
 struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+  int val;
+  TreeNode *left;
+  TreeNode *right;
+  TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
  
 class Solution {
 public:
   vector<int> postorderTraversal(TreeNode* root) {
-    vi res;
-    if (!root) return res; 
-    deque<TreeNode*> stk;
-    TreeNode *node = root;
-    TreeNode *pre = null;
-    while (sz(stk) || node) {
-      if (node) {
-        stk.pb(node);
-        node = node->left;
-      } else {
-        auto cur = stk.bk();
-        if (cur->right && pre != cur->right)
-          node = cur->right;
-        else {
-          auto cur = stk.bk(); stk.ppb();
-          res.pb(cur->val);
-          pre = cur;
-          node = null;
-        }
-      }
-    } 
-    return res;
+  vi res;
+  if (!root) return res; 
+  deque<TreeNode*> stk;
+  TreeNode *node = root;
+  TreeNode *pre = null;
+  while (sz(stk) || node) {
+    if (node) {
+    stk.pb(node);
+    node = node->left;
+    } else {
+    auto cur = stk.bk();
+    if (cur->right && pre != cur->right)
+      node = cur->right;
+    else {
+      auto cur = stk.bk(); stk.ppb();
+      res.pb(cur->val);
+      pre = cur;
+      node = null;
+    }
+    }
+  } 
+  return res;
   }
 };
 

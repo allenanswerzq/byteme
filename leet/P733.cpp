@@ -5,14 +5,14 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-      printf("%d ", x);
+    printf("%d ", x);
   printf("]\n");
 }
 
 void printMatrix(vector<vector<int>>& v) {
   printf("{\n");
   for (auto x:v)
-    printVector(x);
+  printVector(x);
   printf("}\n");
 }
 
@@ -23,8 +23,8 @@ bool isPowerOfTwo(int x) {
 
 int countOne (int n){
   while( n ){
-    n = n&(n-1);
-    count++;
+  n = n&(n-1);
+  count++;
   }
   return count;
 }
@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
 int color;
 void dfs(vector<vector<int>>& image, int sr, int sc, int newColor) {
   if (sr<0 || sr>=image.size() || sc<0 || sc>=image[0].size() || 
-    image[sr][sc] != color) return;
+  image[sr][sc] != color) return;
   image[sr][sc] = newColor;
   dfs(image, sr-1, sc, newColor);
   dfs(image, sr+1, sc, newColor);

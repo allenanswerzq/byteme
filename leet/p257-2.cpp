@@ -36,18 +36,18 @@ vs res;
 void dfs(TreeNode* root, string path) {
   if (!root) return;
   if (!root->left && !root->right) {
-    path += to_string(root->val);
-    res.pb(path);
-    return ;
+  path += to_string(root->val);
+  res.pb(path);
+  return ;
   }
 }
 
 class Solution {
 public:
   vector<string> binaryTreePaths(TreeNode* root) {
-    res.clear();
-    dfs(root, "");      
-    return res;
+  res.clear();
+  dfs(root, "");      
+  return res;
   }
 };
 

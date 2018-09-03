@@ -13,8 +13,8 @@ int recu(int n) {
   int res = n;
   int to = (int)sqrt(n) + 1;
   fori(i, 1, to) {
-    int tmp = i * i;
-    res = min(res, 1 + recu(n - tmp));  
+  int tmp = i * i;
+  res = min(res, 1 + recu(n - tmp));  
   }
   return res;
 }
@@ -22,23 +22,23 @@ int recu(int n) {
 class Solution {
 public:
   int numSquareDP(int n) {
-    int dp[n+1];
-    mst(dp, 0);
-    dp[1] = 1;
-    fori(i, 2, n+1) {
-      int res = i;
-      fori(j, 1, i) {
-        if (j * j > i) break;
-          res = min(res, dp[i - j * j] + 1);
-      }
-      dp[i] = res;
+  int dp[n+1];
+  mst(dp, 0);
+  dp[1] = 1;
+  fori(i, 2, n+1) {
+    int res = i;
+    fori(j, 1, i) {
+    if (j * j > i) break;
+      res = min(res, dp[i - j * j] + 1);
     }
-    return dp[n];
+    dp[i] = res;
+  }
+  return dp[n];
   }
 
   int numSquares(int n) {
-    // return recu(n); 
-    return numSquareDP(n);
+  // return recu(n); 
+  return numSquareDP(n);
   }
 };
 

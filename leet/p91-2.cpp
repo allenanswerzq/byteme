@@ -16,7 +16,7 @@ int recu(string s) {
   int res = 0;
   int x = stoi(s.substr(0, 2));
   if (1 <= x && x <= 26)
-    res += recu(s.substr(2));
+  res += recu(s.substr(2));
   res += recu(s.substr(1));
   return res;
 }
@@ -24,33 +24,33 @@ int recu(string s) {
 class Solution {
 public:
   int numDecodingsRecu(string s) {
-    return recu(s);
+  return recu(s);
   }
 
   int numDecodingsDP(string s) {
-    int n = sz(s);
-    if (s[0] == '0') return 0;
-    if (n == 1) return 1;
-    int dp[n+1]; mst(dp, 0);
-    dp[0] = 1;
-    dp[1] = 1;
-    fori (i, 2, n+1) {
-      int j = i - 1;
-      if (s[j] != '0')
-        dp[i] += dp[i-1]; 
-      
-      if (s[j-1] != '0') {
-        int x = stoi(s.substr(j-1, 2));
-        if (1 <= x && x <= 26)
-          dp[i] += dp[i-2];
-      }
+  int n = sz(s);
+  if (s[0] == '0') return 0;
+  if (n == 1) return 1;
+  int dp[n+1]; mst(dp, 0);
+  dp[0] = 1;
+  dp[1] = 1;
+  fori (i, 2, n+1) {
+    int j = i - 1;
+    if (s[j] != '0')
+    dp[i] += dp[i-1]; 
+    
+    if (s[j-1] != '0') {
+    int x = stoi(s.substr(j-1, 2));
+    if (1 <= x && x <= 26)
+      dp[i] += dp[i-2];
     }
-    return dp[n];
+  }
+  return dp[n];
   }
 
   int numDecodings(string s) {
-    // return numDecodingsRecu(s);
-    return numDecodingsDP(s);
+  // return numDecodingsRecu(s);
+  return numDecodingsDP(s);
   }
 
 };

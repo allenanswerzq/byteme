@@ -12,25 +12,25 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class RangeModule {
 public:
   RangeModule() {
-    lo = inf;
-    hi = -inf; 
+  lo = inf;
+  hi = -inf; 
   }
   
   void addRange(int left, int right) {
-    lo = min(left, lo);     
-    hi = max(right, hi);
+  lo = min(left, lo);     
+  hi = max(right, hi);
   }
   
   bool queryRange(int left, int right) {
-    if (left >= lo && right < hi)
-      return 1;
-    else 
-      return 0;    
+  if (left >= lo && right < hi)
+    return 1;
+  else 
+    return 0;    
   }
   
   void removeRange(int left, int right) {
-    lo = max(lo, left);
-    hi = min(hi, right); 
+  lo = max(lo, left);
+  hi = min(hi, right); 
   }
 
   int lo;

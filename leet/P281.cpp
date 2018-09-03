@@ -12,30 +12,30 @@ using namespace std;
 
 class ZigzagIterator {
 public:
-    ZigzagIterator(vector<int>& v1, vector<int>& v2) {
-      a[0] = v1.begin(); a[1] = v1.end()-1;
-      b[0] = v2.begin(); b[1] = v2.end()-1;
-      flag = 0;
-    }
+  ZigzagIterator(vector<int>& v1, vector<int>& v2) {
+    a[0] = v1.begin(); a[1] = v1.end()-1;
+    b[0] = v2.begin(); b[1] = v2.end()-1;
+    flag = 0;
+  }
 
-    int next() {
-      if (a[0] > a[1]) flag = 1;
-      if (b[0] > b[1]) flag = 0;
-      int t;
-      if (flag == 0) {
-        t = *a[0];
-        a[0]++;
-      } else {
-        t = *b[0];
-        b[0]++;
-      }
-      flag = 1 - flag;
-      return t;
+  int next() {
+    if (a[0] > a[1]) flag = 1;
+    if (b[0] > b[1]) flag = 0;
+    int t;
+    if (flag == 0) {
+    t = *a[0];
+    a[0]++;
+    } else {
+    t = *b[0];
+    b[0]++;
     }
+    flag = 1 - flag;
+    return t;
+  }
 
-    bool hasNext() {
-      return (a[0] <= a[1] || b[0] <= b[1]);
-    }
+  bool hasNext() {
+    return (a[0] <= a[1] || b[0] <= b[1]);
+  }
 
 private:
   int flag;
@@ -47,5 +47,5 @@ int main() {
   vector<int> v2 = {3, 4, 5, 6};
   ZigzagIterator z(v1, v2);
   while (z.hasNext())
-    cout << z.next() << endl;
+  cout << z.next() << endl;
 }

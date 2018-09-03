@@ -19,16 +19,16 @@ int threeSumSmaller(vector<int>& nums, int target) {
   int ret = 0;
   sort(nums.begin(), nums.end());
   for (int i=0; i < n - 2; ++i){
-    int lo = i + 1;
-    int hi = n - 1; 
-    while (lo < hi) {
-      if (nums[i] + nums[lo] + nums[hi] < target) {
-        ret += hi - lo;
-        ++lo;
-      } else {
-        --hi;
-      }
+  int lo = i + 1;
+  int hi = n - 1; 
+  while (lo < hi) {
+    if (nums[i] + nums[lo] + nums[hi] < target) {
+    ret += hi - lo;
+    ++lo;
+    } else {
+    --hi;
     }
+  }
   }
   return ret;
 }

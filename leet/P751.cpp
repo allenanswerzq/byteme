@@ -16,8 +16,8 @@ string to_ip(int64 x, int step) {
   a[0] = x;
   int len = 33;
   while (step) {
-      step /= 2;
-      --len;
+    step /= 2;
+    --len;
   }
   stringstream ss;
   ss << a[0] << "." << a[1] << "." << a[2] << "." << a[3] << "/" << len;
@@ -35,12 +35,12 @@ vector<string> ipToCIDR(string ip, int range) {
   x |= a[2]; x <<= 8;
   x |= a[3];
   while (range) {
-    // possible steps values are 1, 2, 4, 8, ...
-    int steps = x & -x; //x & (-x) will return rightmost 1. 011(1)-->steps-->1000 10(1)0-->steps-->1(1)00
-    while (steps > range) steps /= 2;
-    ret.push_back(to_ip(x, steps));
-    x += steps;
-    range -= steps;
+  // possible steps values are 1, 2, 4, 8, ...
+  int steps = x & -x; //x & (-x) will return rightmost 1. 011(1)-->steps-->1000 10(1)0-->steps-->1(1)00
+  while (steps > range) steps /= 2;
+  ret.push_back(to_ip(x, steps));
+  x += steps;
+  range -= steps;
   }
   return ret;
 }

@@ -48,21 +48,21 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   bool wordPattern(string aa, string str) {
-    unordered_map<char, int> mp1;
-    unordered_map<string, int> mp2;
-    istringstream iss(str);
-    int i = 0;
-    for (string b; iss >> b; ++i) {
-      if (mp1.count(aa[i]) || mp2.count(b)) {
-        // trace(aa[i], b);
-        if (mp1[aa[i]] != mp2[b]) 
-          return 0;
-      } else {
-        // trace(i, aa[i], b);
-        mp1[aa[i]] = mp2[b] = i + 1;
-      }
-    }      
-    return i == sz(aa);
+  unordered_map<char, int> mp1;
+  unordered_map<string, int> mp2;
+  istringstream iss(str);
+  int i = 0;
+  for (string b; iss >> b; ++i) {
+    if (mp1.count(aa[i]) || mp2.count(b)) {
+    // trace(aa[i], b);
+    if (mp1[aa[i]] != mp2[b]) 
+      return 0;
+    } else {
+    // trace(i, aa[i], b);
+    mp1[aa[i]] = mp2[b] = i + 1;
+    }
+  }      
+  return i == sz(aa);
   }
 };
 

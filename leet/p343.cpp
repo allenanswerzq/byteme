@@ -11,24 +11,24 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   int integerBreak(int n) {
-    int dp[n+1];
-    mst(dp, 0);
-    dp[1] = 1;
-    dp[2] = 1;
-    fori(i, 3, n+1) {
-      int mx = 0;
-      fori(j, 1, i) {
-        mx = max(mx, dp[i - j] * j);
-        mx = max(mx, (i-j) * j);
-      }
-      dp[i] = mx;
-    }       
+  int dp[n+1];
+  mst(dp, 0);
+  dp[1] = 1;
+  dp[2] = 1;
+  fori(i, 3, n+1) {
+    int mx = 0;
+    fori(j, 1, i) {
+    mx = max(mx, dp[i - j] * j);
+    mx = max(mx, (i-j) * j);
+    }
+    dp[i] = mx;
+  }       
 
-    // fori(i, 0, n+1)
-    //   cout << dp[i] << " ";
-    // cout << "\n";
+  // fori(i, 0, n+1)
+  //   cout << dp[i] << " ";
+  // cout << "\n";
 
-    return dp[n];
+  return dp[n];
   }
 };
 

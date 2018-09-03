@@ -53,8 +53,8 @@ int go(vi& aa) {
   sort(all(aa)); 
   int lo = 0, hi = sz(aa) - 1;
   while (lo < hi) {
-    res += aa[hi] - aa[lo];
-    --hi; ++lo;
+  res += aa[hi] - aa[lo];
+  --hi; ++lo;
   }
   return res;
 }
@@ -62,16 +62,16 @@ int go(vi& aa) {
 class Solution {
 public:
   int minTotalDistance(vvi& gg) {
-    vi rows, cols;
-    fori (i, 0, sz(gg)) {
-      fori (j, 0, sz(gg[0])) {
-        if (gg[i][j] == 1) {
-          rows.push_back(i);
-          cols.push_back(j);
-        }
-      } 
+  vi rows, cols;
+  fori (i, 0, sz(gg)) {
+    fori (j, 0, sz(gg[0])) {
+    if (gg[i][j] == 1) {
+      rows.push_back(i);
+      cols.push_back(j);
     }
-    return go(rows) + go(cols);
+    } 
+  }
+  return go(rows) + go(cols);
   }
 };
 

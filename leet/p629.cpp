@@ -10,22 +10,22 @@ ll dp[aa][aa];
 class Solution {
 public:
   int kInversePairs(int n, int k) {
-    // The biggest for k should be n*(n-1)/2 when n numbers are reverse placed.
-    if (k > n*(n-1)/2 || k<0) return 0; 
-    // Ascending order or descending order.
-    if (k==0 && k == n*(n-1)/2) return 1;
-    mst(dp, 0);
-    dp[2][0] = 1;
-    dp[2][1] = 1;
-    fori (i, 3, n+1) {
-      dp[i][0] = 1;
-      int hi = min(k, n * (n-1) / 2) + 1;
-      fori (j, 1, hi) {
-        dp[i][j] = (dp[i][j-1] + dp[i-1][j]) % mod;
-        if (j >= i) dp[i][j] = (dp[i][j] - dp[i-1][j-i] + mod) % mod;
-      }
-    } 
-    return dp[n][k];
+  // The biggest for k should be n*(n-1)/2 when n numbers are reverse placed.
+  if (k > n*(n-1)/2 || k<0) return 0; 
+  // Ascending order or descending order.
+  if (k==0 && k == n*(n-1)/2) return 1;
+  mst(dp, 0);
+  dp[2][0] = 1;
+  dp[2][1] = 1;
+  fori (i, 3, n+1) {
+    dp[i][0] = 1;
+    int hi = min(k, n * (n-1) / 2) + 1;
+    fori (j, 1, hi) {
+    dp[i][j] = (dp[i][j-1] + dp[i-1][j]) % mod;
+    if (j >= i) dp[i][j] = (dp[i][j] - dp[i-1][j-i] + mod) % mod;
+    }
+  } 
+  return dp[n][k];
   }
 };
 

@@ -20,11 +20,11 @@ bool dfs(TreeNode *root) {
   bool right = dfs(root->right);
   // If left or right subtree is not a uni-value tree.
   if (left == 0 || right == 0) 
-    return 0;
+  return 0;
   if (root->left && root->val != root->left->val)
-    return 0;
+  return 0;
   if (root->right && root->val != root->right->val)
-    return 0;
+  return 0;
   ++res;
   return 1; 
 }

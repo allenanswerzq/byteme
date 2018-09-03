@@ -11,9 +11,9 @@ int findKthLargest(vector<int>& aa, int k) {
 	priority_queue<int, vector<int>, greater<int>> pq;
   int n = sz(aa);
   fori (i, 0, n) {
-    pq.push(aa[i]);
-    if (sz(pq) >= k)
-      pq.pop();
+  pq.push(aa[i]);
+  if (sz(pq) >= k)
+    pq.pop();
   }
   return pq.top();
 }
@@ -35,13 +35,13 @@ int partition(vector<int>& aa, int left, int right) {
   int pivot = aa[left];
   int lo = left + 1, hi = right;
   while (lo < hi) {
-    cout << lo << " " << hi << endl;
-    pvi(aa);
-    if (aa[lo] <= pivot && aa[hi] > pivot) {
-      swap(aa[lo++], aa[hi--]);
-    }
-    if (aa[lo] >= pivot) ++lo;
-    if (aa[hi] <= pivot) --hi;
+  cout << lo << " " << hi << endl;
+  pvi(aa);
+  if (aa[lo] <= pivot && aa[hi] > pivot) {
+    swap(aa[lo++], aa[hi--]);
+  }
+  if (aa[lo] >= pivot) ++lo;
+  if (aa[hi] <= pivot) --hi;
   } 
   swap(aa[left], aa[hi]);
   return hi;
@@ -51,10 +51,10 @@ int findKthLargest(vector<int>& aa, int k) {
   int n = sz(aa);
   int lo = 0, hi = n - 1;
   while (1) {
-    int pos = partition(aa, lo, hi);
-    if (pos == k - 1) return aa[pos];
-    else if (pos > k - 1) hi = pos - 1;
-    else lo = pos + 1; 
+  int pos = partition(aa, lo, hi);
+  if (pos == k - 1) return aa[pos];
+  else if (pos > k - 1) hi = pos - 1;
+  else lo = pos + 1; 
   }
   return 0;
 }

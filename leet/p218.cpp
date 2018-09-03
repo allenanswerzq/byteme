@@ -17,21 +17,21 @@ public:
   int h;
   bool start;
   Edge (int x, int h, bool start)
-    : x(x), h(h), start(start) {}
+  : x(x), h(h), start(start) {}
 };
 
 bool cmp(Edge a, Edge b) {
   // Put the small x first.
   if (a.x != b.x) 
-    return a.x < b.x;
+  return a.x < b.x;
   // If two edges are all starting edges.
   // Put the taller height first.
   if (a.start && b.start)
-    return a.h > b.h;
+  return a.h > b.h;
   // If two edges are all ending edges.
   // Put the small height first.
   if (!a.start && !b.start)
-    return a.h < b.h;
+  return a.h < b.h;
   // Otherwise put the starting egde first.
   return a.start ? 1 : 0;
 }
@@ -39,38 +39,38 @@ bool cmp(Edge a, Edge b) {
 class Solution {
 public:
   vector<pair<int, int>> getSkyline(vvi& aa) {
-    vpii res; 
-    vector<Edge> edges;
-    // Note: use multiset as a min heap.
-    multiset<int> pq; 
-    int n;
-    n = sz(aa);
-    if (n <= 0) return res;
+  vpii res; 
+  vector<Edge> edges;
+  // Note: use multiset as a min heap.
+  multiset<int> pq; 
+  int n;
+  n = sz(aa);
+  if (n <= 0) return res;
 
-    fora (a, aa) {
-      edges.pb(Edge(a[0], a[2], 1)); // (left, height)
-      edges.pb(Edge(a[1], a[2], 0)); // (right, height)
+  fora (a, aa) {
+    edges.pb(Edge(a[0], a[2], 1)); // (left, height)
+    edges.pb(Edge(a[1], a[2], 0)); // (right, height)
+  }
+
+  // Sorting.
+  sort(all(edges), cmp);
+
+  fora (edge, edges) {
+    if (edge.start) {
+    // If i am standing the starting point, and i am the largest one.
+    if (pq.empty() || edge.h > *pq.rbegin())
+      res.eb(edge.x, edge.h);
+    pq.insert(edge.h); 
+    } else {
+    pq.erase(pq.find(edge.h)); 
+    if (pq.empty())
+      res.eb(edge.x, 0);
+    // There is a drop.
+    else if (edge.h > *pq.rbegin())
+      res.eb(edge.x, *pq.rbegin());
     }
-
-    // Sorting.
-    sort(all(edges), cmp);
-
-    fora (edge, edges) {
-      if (edge.start) {
-        // If i am standing the starting point, and i am the largest one.
-        if (pq.empty() || edge.h > *pq.rbegin())
-          res.eb(edge.x, edge.h);
-        pq.insert(edge.h); 
-      } else {
-        pq.erase(pq.find(edge.h)); 
-        if (pq.empty())
-          res.eb(edge.x, 0);
-        // There is a drop.
-        else if (edge.h > *pq.rbegin())
-          res.eb(edge.x, *pq.rbegin());
-      }
-    }
-    return res;
+  }
+  return res;
   }
 };
 
@@ -78,7 +78,7 @@ void test(vvi aa) {
   Solution go;
   vpii res = go.getSkyline(aa);
   fora (r, res) {
-    cout << r.fi << " " << r.se << "\n";
+  cout << r.fi << " " << r.se << "\n";
   }
 }
 

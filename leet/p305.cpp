@@ -72,7 +72,7 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 int find(vi& roots, int ix) {
   while (roots[ix] != ix) {
-    ix = roots[ix]; 
+  ix = roots[ix]; 
   } 
   return ix;
 }
@@ -89,29 +89,29 @@ public:
   int cnt = 0;
   vvi dirs = {{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
   fora (a, aa) {
-    int x = a.first, y = a.second;
-    int id = n * x + y;
-    // trace(id, x, y);
-    roots[id] = id;
-    // pvi(roots);
-    ++cnt;
-    fori (i, 0, 4) {
-      int nx = x + dirs[i][0];
-      int ny = y + dirs[i][1];
-      int cur_id = nx * n + ny; 
-      // trace(nx, ny, cur_id);
-      if (!(0<=nx && nx<m && 0<=ny && ny<n) || roots[cur_id] == -1)
-        continue;
-      int p = find(roots, id);
-      int q = find(roots, cur_id); 
-      // trace(nx, ny, p, q);
-      if (p != q) {
-        roots[q] = p;
-        --cnt;
-      }
+  int x = a.first, y = a.second;
+  int id = n * x + y;
+  // trace(id, x, y);
+  roots[id] = id;
+  // pvi(roots);
+  ++cnt;
+  fori (i, 0, 4) {
+    int nx = x + dirs[i][0];
+    int ny = y + dirs[i][1];
+    int cur_id = nx * n + ny; 
+    // trace(nx, ny, cur_id);
+    if (!(0<=nx && nx<m && 0<=ny && ny<n) || roots[cur_id] == -1)
+    continue;
+    int p = find(roots, id);
+    int q = find(roots, cur_id); 
+    // trace(nx, ny, p, q);
+    if (p != q) {
+    roots[q] = p;
+    --cnt;
     }
-    // pvi(roots);
-    res.push_back(cnt);
+  }
+  // pvi(roots);
+  res.push_back(cnt);
   }
   return res;
  } 

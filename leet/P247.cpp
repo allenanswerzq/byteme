@@ -14,13 +14,13 @@ vector<string> findStrobogrammatic(int n) {
   vector<string> template = {"00", "11", "88", "96", "69"};
   ret = n & 1 ? {"0", "1", "8"} : {""}; 
   while (n > 1) {
-    // Each time add two characters on both sides of ret string
-    n -= 2;  
-    vector<string> tmp;
-    for (auto s : ret)
-      for (int i=0; i < tmplate.size(); ++i)
-        tmp.push_back(template[i][0] + s + tmplate[i][1]); 
-    ret = tmp;
+  // Each time add two characters on both sides of ret string
+  n -= 2;  
+  vector<string> tmp;
+  for (auto s : ret)
+    for (int i=0; i < tmplate.size(); ++i)
+    tmp.push_back(template[i][0] + s + tmplate[i][1]); 
+  ret = tmp;
   }
   return ret;
 }

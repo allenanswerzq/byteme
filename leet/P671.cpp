@@ -3,10 +3,10 @@
 using namespace std;
 
 void printVector(vector<int>& v) {
-    printf("[ ");
-    for (auto x:v)
-        printf("%d ", x); 
-    printf("]\n");
+  printf("[ ");
+  for (auto x:v)
+    printf("%d ", x); 
+  printf("]\n");
 }
 
 
@@ -27,5 +27,5 @@ int findSecondMinimumValue(TreeNode* root) {
 }
 
 int main(int argc, char** argv) {
-    return 0;
+  return 0;
 }

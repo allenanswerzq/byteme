@@ -36,9 +36,9 @@ public:
   TreeNode *left;
   TreeNode *right;
   TreeNode(int x) {
-    val = x;
-    left = null;
-    right = null;
+  val = x;
+  left = null;
+  right = null;
   }
 };
 
@@ -49,17 +49,17 @@ TreeNode* go(vi& aa, vi& bb, int a, int b, int c, int d) {
   TreeNode *root = new TreeNode(aa[a]);  
   int ix = -1;
   fori (i, c, d + 1) {
-    if (bb[i] == aa[a]) {
-      ix = i;
-      break;
-    }
+  if (bb[i] == aa[a]) {
+    ix = i;
+    break;
+  }
   }
   if (ix > c) {
-    root->left = go(aa, bb, a+1, a+ix-c, c, ix-1);
+  root->left = go(aa, bb, a+1, a+ix-c, c, ix-1);
   } else root->left = null; 
 
   if (ix < d) {
-    root->right = go(aa, bb, a+ix-c+1, b, ix+1, d);
+  root->right = go(aa, bb, a+ix-c+1, b, ix+1, d);
   } else root->right = null;
 
   return root;
@@ -68,10 +68,10 @@ TreeNode* go(vi& aa, vi& bb, int a, int b, int c, int d) {
 class Solution {
 public:
   TreeNode* buildTree(vector<int>& aa, vector<int>& bb) {
-    int m, n;
-    m = sz(aa), n = sz(bb);
-    if (!m || !n || m != n) return null;
-    return go(aa, bb, 0, m-1, 0, n-1);
+  int m, n;
+  m = sz(aa), n = sz(bb);
+  if (!m || !n || m != n) return null;
+  return go(aa, bb, 0, m-1, 0, n-1);
   }
 };
 

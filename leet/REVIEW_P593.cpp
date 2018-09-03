@@ -3,10 +3,10 @@
 using namespace std;
 
 printVector(vector<int>& v) {
-    cout << "[ ";
-    for (int x:v)
-            cout << x << " ";
-    cout <<"] " << endl;
+  cout << "[ ";
+  for (int x:v)
+      cout << x << " ";
+  cout <<"] " << endl;
 }
 // why this not work???
 bool validSquare(vector<int>& p1, vector<int>& p2, vector<int>& p3, vector<int>& p4) {
@@ -26,5 +26,5 @@ int main(int argc, char** argv) {
 	vector<int> c({1,0});
 	vector<int> d({0,1});
 	cout << validSquare(a, b, c, d) << endl;
-    return 0;
+  return 0;
 }

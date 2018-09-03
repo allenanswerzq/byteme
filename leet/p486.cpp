@@ -29,9 +29,9 @@ int recu2(vi& aa, int lo, int hi) {
 class Solution {
 public:
   bool PredictTheWinner(vector<int>& aa) {
-    // return recu(aa, 0, sz(aa)-1, 1) >= 0; 
-    mst(dp, -1);
-    return recu2(aa, 0, sz(aa)-1) >= 0;
+  // return recu(aa, 0, sz(aa)-1, 1) >= 0; 
+  mst(dp, -1);
+  return recu2(aa, 0, sz(aa)-1) >= 0;
   }
 };
 

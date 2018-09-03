@@ -11,8 +11,8 @@ int dcmp(double x, double y = 0, double tol = eps) {
 // TODO
 class Solution {
 public:
-    int mirrorReflection(int p, int q) {
-    }
+  int mirrorReflection(int p, int q) {
+  }
 };
 
 int main(int argc, char** argv) {

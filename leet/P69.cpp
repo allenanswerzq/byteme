@@ -1,90 +1,69 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
+#define ll long long
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+template <typename T>
+void _f(const char* name, T&& arg) {
+  cout << name << ": " << arg << endl;
 }
 
-// Integer square root
-// https://en.wikipedia.org/wiki/Integer_square_root#Using_only_integer_division
-// newton's iterative approach
-int mySqrt1(int n) {
-    // must be long long casue below operator x*x
-    long long  x = n;
-    while(x*x > n) {
-        x = (x +n/x) / 2;
-    }
-    return x; 
+template <typename T, typename... Args> 
+void _f(const char* names, T&& arg, Args&&... args) {
+  const char* split = strchr(names + 1, ','); 
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...); 
+} 
+
+class Solution {
+public:
+  // Integer square root
+  // https://en.wikipedia.org/wiki/Integer_square_root#Using_only_integer_division
+  // newton's iterative approach
+  int mySqrt1(int n) {
+  // Must be long long becasue below operation x * x
+  ll x = n;
+  while (x * x > n) {
+    x = (x + n / x) / 2;
+  }
+  return x; 
+  }
+
+  // Binary search approach
+  int mySqrt(int n) {
+  if (n <= 1) return n;
+  int lo = 1, hi = n;
+  while (lo < hi) {
+    int mid = lo + (hi - lo) / 2;
+    if (mid > n / mid) hi = mid;
+    else lo = mid + 1;
+  }
+  return lo - 1;
+  }
+};
+
+void test(int x) {
+  Solution go;
+  int ret = go.mySqrt(x);
+  trace(x, ret);
 }
-
-// Accpepted
-// also note that when submit solution need to comment cout  or it will TLE
-int mySqrt3(int n) {
-    if (!n) return 0;
-    long x = n;
-    long y;
-    while(1) {
-        // NOTE: both division are integer division
-        // means the result is quotient
-        // thus making the use of float unnecessary
-        y = (x +n/x) / 2;
-        if (abs(y-x)<1  || y-x==1) break;
-        // cout << y << " " << x << endl;
-        x = y;
-    }
-    if (y-x == 1) return x;
-    return y; 
-}
-
-int mySqrt5(int n) {
-    if (!n) return 0;
-    double x = n;
-    double y;
-    while(1) {
-        // this time both division are float division
-        // you can see the difference
-        y = (x + n/x) / 2;
-        if (abs(y-x)<1) break;
-        cout << y << " " << x << endl;
-        x = y;
-    }
-    return y; 
-}
-
-// binary search approach
-int mySqrt(int n) {
-    int lo=1, hi=n;
-    while (lo < hi) {
-        int mid = lo + (hi - lo) / 2;
-        if (mid > n / mid)
-            hi = mid;
-        else
-            lo = mid + 1;
-        // cout << lo << " " << hi << endl;
-    }
-    return n == 1 ? 1 : lo - 1;
-}
-
-
-// int mySqrt(int n) {
-//     if(n == 0) return 0;
-//     // NOTE: use fabs for n overflow abs not working
-//     int lo=1, hi=fabs(n+1)/2;
-//     //cout << lo << " " << hi << endl;
-//     while (hi-lo > 1) {
-//         int mid = lo + (hi-lo)/2;
-//         mid > x/mid ? hi=mid : lo=mid;
-//     }
-//     return mid;
-// }
 
 int main(int argc, char** argv) {
-    cout << mySqrt(8) << endl;
-    cout << mySqrt(INT_MAX) << endl;
-    cout << mySqrt(1579205274) << endl;
-    return 0;
+  test(0);
+  test(1);
+  test(2);
+  test(8);
+  test(INT_MAX);
+  test(1579205274);
+  return 0;
 }

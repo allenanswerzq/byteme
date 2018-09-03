@@ -5,20 +5,29 @@ using namespace std;
 class Solution {
 public:
   int longestValidParentheses(string ss) {
-    int n = ss.size();
-    int ret = 0;
-    vector<int> dp(n + 1, 0);
-    for (int i = 1; i <= n; i++) {
-      int j = i - 2 - dp[i - 1];
-      if (ss[i - 1] == '(' || j < 0 || ss[j] == ')') dp[i] = 0;
-      else {
-        dp[i] = dp[i - 1] + 2 + dp[j];
-        ret = max(ret, dp[i]);
-      }
-   }
-   return ret;
+  int res = 0;
+  int lo = 0;
+  deque<int> dq;
+  for (int i = 0; i < ss.size(); ++i) {
+    if (ss[i] == '(') dq.push_back(i);
+    else {
+    if (dq.empty()) lo = i + 1;
+    else {
+      dq.pop_back();
+      res = dq.empty() ? max(res, i - lo + 1) 
+               : max(res, i - dq.back());
+    }
+    }
+  }
+   return res;
   }
 };
+
+void test(string aa) {
+  Solution go;
+  int r = go.longestValidParentheses(aa);
+  cout << r << endl;
+}
 
 int main() {
 	test("(()");

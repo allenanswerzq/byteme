@@ -12,24 +12,24 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   int carFleet(int target, vector<int>& aa, vector<int>& bb) {
-    vector<pii> a;
-    int n = sz(aa);
-    if (n == 1) return 1;
+  vector<pii> a;
+  int n = sz(aa);
+  if (n == 1) return 1;
 
-    fori(i, 0, n)  {
-      a.eb(aa[i], bb[i]); 
-    } 
-    sort(all(a));
+  fori(i, 0, n)  {
+    a.eb(aa[i], bb[i]); 
+  } 
+  sort(all(a));
 
-    // fori(i, 0, n) {
-    //   cout << "{ " << a[i].fi << " " << a[i].se << " } ";
-    // } 
-    // cout << "\n";
+  // fori(i, 0, n) {
+  //   cout << "{ " << a[i].fi << " " << a[i].se << " } ";
+  // } 
+  // cout << "\n";
 
-    int res = 0;
-    ford(i, n-1, -1) {
-    }
-    return res;
+  int res = 0;
+  ford(i, n-1, -1) {
+  }
+  return res;
   }
 };
 

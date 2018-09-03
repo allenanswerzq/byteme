@@ -34,26 +34,26 @@ private:
 
 public:
   Vector2D(vector<vector<int>>& vec2d) {
-    row_it = vec2d.begin();
-    row_end = vec2d.end();
-    while (row_it != row_end && row_it->empty()) ++row_it;
-    if (row_it != row_end) col_it = row_it->begin();
+  row_it = vec2d.begin();
+  row_end = vec2d.end();
+  while (row_it != row_end && row_it->empty()) ++row_it;
+  if (row_it != row_end) col_it = row_it->begin();
   }
 
   int next() {
-      int val = *col_it;
-      col_it++;
-      if(col_it == row_it->end()){
-        row_it++;
-        // Skip empty rows.
-        while(row_it != row_end && row_it->empty()) ++row_it;
-        if(row_it != row_end) col_it = row_it->begin();
-      }
-      return val;
+    int val = *col_it;
+    col_it++;
+    if(col_it == row_it->end()){
+    row_it++;
+    // Skip empty rows.
+    while(row_it != row_end && row_it->empty()) ++row_it;
+    if(row_it != row_end) col_it = row_it->begin();
+    }
+    return val;
   }
 
   bool hasNext() {
-    return row_it == row_end;
+  return row_it == row_end;
   }
 };
 

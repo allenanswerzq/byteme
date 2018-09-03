@@ -19,8 +19,8 @@ vector<int> singleNumber(vector<int>& nums) {
   // And if we and(&) them, the result will be zero. on the other side, the right part will become the same as diff
   // And after and(&) operator, we will get the rightmost bit
   for (auto n : nums) {
-    if (n & diff) a ^= n;
-    else b ^= n;
+  if (n & diff) a ^= n;
+  else b ^= n;
   } 
   return {a, b};
 }

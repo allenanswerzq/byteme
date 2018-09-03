@@ -12,7 +12,7 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   int rectangleArea(vector<vector<int>>& aa) {
-     
+   
   }
 };
 

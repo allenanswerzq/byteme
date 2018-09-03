@@ -42,8 +42,8 @@ bool dfs(int root, int pre) {
   if (visit[root]) return 0;
   visit[root] = 1;
   fora(e, gg[root]) {
-    if (e == pre) continue;
-    if (!dfs(e, root)) return 0;
+  if (e == pre) continue;
+  if (!dfs(e, root)) return 0;
   }
   return 1;
 }
@@ -77,7 +77,7 @@ bool dfs(int root, int pre) {
 
 int find(vi& root, int ix) {
   while (root[ix] != -1) 
-    ix = root[ix];
+  ix = root[ix];
   return ix;
 }
 
@@ -85,15 +85,15 @@ class Solution {
 public:
   // Union find approach.
   bool validTree(int n, vpii& edges) {
-    vi root(n, -1);
-    fora (e, edges) {
-      int x = find(root, e.fi);
-      int y = find(root, e.se);
-      if (x == y) return 0; 
-      // Union two node together.
-      root[x] = y;
-    }
-    return sz(edges) == n - 1;
+  vi root(n, -1);
+  fora (e, edges) {
+    int x = find(root, e.fi);
+    int y = find(root, e.se);
+    if (x == y) return 0; 
+    // Union two node together.
+    root[x] = y;
+  }
+  return sz(edges) == n - 1;
   }
 };
 

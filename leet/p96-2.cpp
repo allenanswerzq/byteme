@@ -12,16 +12,16 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   int numTrees(int n) {
-    int dp[n + 1];
-    mst(dp, 0);
-    dp[0] = 1;
-    dp[1] = 1;
-    fori (i, 2, n + 1) {
-      fori (j, 0, i) {
-        dp[i] += dp[j] * dp[i - j - 1];
-      }
+  int dp[n + 1];
+  mst(dp, 0);
+  dp[0] = 1;
+  dp[1] = 1;
+  fori (i, 2, n + 1) {
+    fori (j, 0, i) {
+    dp[i] += dp[j] * dp[i - j - 1];
     }
-    return dp[n];
+  }
+  return dp[n];
   }
 };
 

@@ -4,17 +4,17 @@ using namespace std;
 class Solution {
 public:
   int rob(vector<int>& aa) {
-    int n = sz(aa);
-    if (n <= 0) return 0;
-    if (n == 1) return aa[0];
-    int dp[n];
-    mst(dp, 0);
-    dp[0] = aa[0];
-    dp[1] = max(aa[0], aa[1]);
-    fori(i, 2, n) {
-      dp[i] = max(dp[i-2] + aa[i], dp[i-1]);
-    }
-    return dp[n-1];
+  int n = sz(aa);
+  if (n <= 0) return 0;
+  if (n == 1) return aa[0];
+  int dp[n];
+  mst(dp, 0);
+  dp[0] = aa[0];
+  dp[1] = max(aa[0], aa[1]);
+  fori(i, 2, n) {
+    dp[i] = max(dp[i-2] + aa[i], dp[i-1]);
+  }
+  return dp[n-1];
   }
 };
 

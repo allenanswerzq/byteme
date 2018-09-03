@@ -17,47 +17,47 @@ void dfs(int u, int parent) {
   num_nodes[u] = 1;
   dist[u] = 0;
   fora(v, graph[u]) {
-    if (v == parent) continue;
-    dfs(v, u);
-    num_nodes[u] += num_nodes[v];
-    dist[u] += num_nodes[v] + dist[v];
+  if (v == parent) continue;
+  dfs(v, u);
+  num_nodes[u] += num_nodes[v];
+  dist[u] += num_nodes[v] + dist[v];
   }
 }
 
 void dfs2(int u, int parent, int n, vi &res) {
   fora(v, graph[u]) {
-    if (v == parent) continue; 
-    // When root node changed from u to v, The distance of `num_nodes[v]` nodes
-    // will be decreased by 1, and the distance of `n - num_nodes[v]` nodes will
-    // be increased by 1.
-    res[v] = res[u] - num_nodes[v] + (n - num_nodes[v]);
-    dfs2(v, u, n, res);
+  if (v == parent) continue; 
+  // When root node changed from u to v, The distance of `num_nodes[v]` nodes
+  // will be decreased by 1, and the distance of `n - num_nodes[v]` nodes will
+  // be increased by 1.
+  res[v] = res[u] - num_nodes[v] + (n - num_nodes[v]);
+  dfs2(v, u, n, res);
   }
 }
 
 // TODO
 class Solution {
 public:
-    vector<int> sumOfDistancesInTree(int n, vector<vector<int>>& edges) {
-      // Reset.
-      mst(num_nodes, 0);
-      mst(dist, 0);
-      fori(i, 0, N)
-        graph[i].clear();
+  vector<int> sumOfDistancesInTree(int n, vector<vector<int>>& edges) {
+    // Reset.
+    mst(num_nodes, 0);
+    mst(dist, 0);
+    fori(i, 0, N)
+    graph[i].clear();
 
-      fora(e, edges) {
-        int src = e[0];
-        int dst = e[1];
-        graph[src].pb(dst);
-        graph[dst].pb(src);
-      }
-
-      dfs(0, -1);
-      vi res(n, 0);
-      res[0] = dist[0];
-      dfs2(0, -1, n, res);
-      return res;
+    fora(e, edges) {
+    int src = e[0];
+    int dst = e[1];
+    graph[src].pb(dst);
+    graph[dst].pb(src);
     }
+
+    dfs(0, -1);
+    vi res(n, 0);
+    res[0] = dist[0];
+    dfs2(0, -1, n, res);
+    return res;
+  }
 };
 
 int main(int argc, char** argv) {

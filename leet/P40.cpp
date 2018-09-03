@@ -1,44 +1,42 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (int x:v)
-            cout << x << " ";
-    cout <<"] " << endl;
-}
+#define vi vector<int>
+#define vvi vector<vi>
 
-void bt(vector<int>& A, int target, vector<int>& ans, vector<vector<int>>& ret, int start) {
-    if (target == 0) {
-		ret.push_back(ans);
-    }else {
-        for (int i=start; i<A.size() && target>=A[i]; ++i) {
-		   if (i>start && A[i] == A[i-1]) continue;
-           ans.push_back(A[i]);
-           bt(A, target-A[i], ans, ret, i+1);     
-           ans.pop_back();
-        }
-   }
-}
-vector<vector<int>> combinationSum(vector<int>& A, int target) {
-    vector<vector<int>> ret;
-    vector<int> ans;
-	sort(A.begin(), A.end());
-    bt(A, target, ans, ret, 0);    
-    return ret;
+class Solution {
+public:
+  void bt(vi& aa, int target, vi& path, vvi& ret, int start) {
+  if (target == 0) {
+  	ret.push_back(path);
+  } else {
+    for (int i = start; i < aa.size() && target >= aa[i]; ++i) {
+    if (i > start && aa[i] == aa[i - 1]) continue;
+    path.push_back(aa[i]);
+    bt(aa, target - aa[i], path, ret, i+1);     
+    path.pop_back();
+    }
+  }
+  }
+
+  vvi combinationSum(vector<int>& aa, int target) {
+  vvi ret;
+  vi path;
+  	sort(aa.begin(), aa.end());
+  bt(aa, target, path, ret, 0);    
+  return ret;
+  }
+};
+
+void test(vi aa) {
+  Solution go;
+  vvi ret = go.combinationSum(aa);
+  for (auto& r : ret) {
+  pvi(ret);
+  }
 }
 
 int main(int argc, char** argv) {
-    int n[] = {10, 1, 2, 7, 6, 1, 5};
-    vector<int> v(n, n+7);
-    int target = 8;
-    if (argc > 1)
-        target = atoi(argv[1]);
-    vector<vector<int>> ret = combinationSum(v, target); 
-    cout << "[" << endl;
-    for (auto v: ret)
-        printVector(v);
-    cout << "]" << endl;
-    return 0;
+  test({10, 1, 2, 7, 6, 1, 5}, 8);
+  return 0;
 }

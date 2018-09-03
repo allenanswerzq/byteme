@@ -20,19 +20,19 @@ bool check(string s, set<str>& st) {
   int dp[n + 1];
   mst(dp, 0);
   fori (i, 1, n + 1) {
-    if (dp[i] == 0) {
-      str tmp = s.substr(0, i);
-      if (st.count(tmp)) dp[i] = 1;
+  if (dp[i] == 0) {
+    str tmp = s.substr(0, i);
+    if (st.count(tmp)) dp[i] = 1;
+  }
+  if (dp[i] == 1) {
+    // s[0...i] can be broke, now we need to check the
+    // rest part of the string.
+    fori (j, i + 1, n + 1) {
+    if (st.count(s.substr(i, j - i)))
+      dp[j] = 1;  
     }
-    if (dp[i] == 1) {
-      // s[0...i] can be broke, now we need to check the
-      // rest part of the string.
-      fori (j, i + 1, n + 1) {
-        if (st.count(s.substr(i, j - i)))
-          dp[j] = 1;  
-      }
-    }
-    if (dp[n]) return 1;
+  }
+  if (dp[n]) return 1;
   }
   return 0;
 }
@@ -41,13 +41,13 @@ vector<string> findAllConcatenatedWordsInADictDP(vector<string>& words) {
   vs res;
   set<str> st;
   sort(all(words), [&](str a, str b){
-    return sz(a) < sz(b);
+  return sz(a) < sz(b);
   });
   fori (i, 0, sz(words)) {
-    str cur = words[i];
-    if (check(cur, st)) 
-      res.pb(cur);
-    st.insert(cur); 
+  str cur = words[i];
+  if (check(cur, st)) 
+    res.pb(cur);
+  st.insert(cur); 
   }
   return res;
 }
@@ -59,22 +59,22 @@ public:
   bool leaf;
   TrieNode* child[26];
   TrieNode() {
-    leaf = 0;
-    fori (i, 0, 26)
-      child[i] = null;
+  leaf = 0;
+  fori (i, 0, 26)
+    child[i] = null;
   }
 };
 
 void dfs(TrieNode* root) {
   TrieNode* cur = root;
   fori (i, 0, 26) {
-    if (cur->child[i]) {
-      char t = i + 'a';
-      cout << t;
-      if (cur->child[i]->leaf)
-        cout << "|";
-      dfs(cur->child[i]);
-    }
+  if (cur->child[i]) {
+    char t = i + 'a';
+    cout << t;
+    if (cur->child[i]->leaf)
+    cout << "|";
+    dfs(cur->child[i]);
+  }
   }
 }
 
@@ -83,15 +83,15 @@ bool check(TrieNode* root, string w, int ix, int count) {
   int n = sz(w);
   cout << w << " " << ix << " " << count << "\n";
   fori (i, ix, n) {
-    char c = w[i];
-    if (cur->child[c-'a'] == null) return 0;
-    if (cur->child[c-'a']->leaf) {
-      if (ix == n - 1) return count >= 1;
-      if (check(root, w, i + 1, count + 1)) {
-        return 1;
-      }
+  char c = w[i];
+  if (cur->child[c-'a'] == null) return 0;
+  if (cur->child[c-'a']->leaf) {
+    if (ix == n - 1) return count >= 1;
+    if (check(root, w, i + 1, count + 1)) {
+    return 1;
     }
-    cur = cur->child[c - 'a'];
+  }
+  cur = cur->child[c - 'a'];
   }
   return 0;
 }
@@ -99,9 +99,9 @@ bool check(TrieNode* root, string w, int ix, int count) {
 void insert(TrieNode* root, str inp) {
   TrieNode *cur = root;
   fora (c, inp) {
-    if (cur->child[c-'a'] == null) 
-      cur->child[c-'a'] = new TrieNode();
-    cur = cur->child[c-'a'];
+  if (cur->child[c-'a'] == null) 
+    cur->child[c-'a'] = new TrieNode();
+  cur = cur->child[c-'a'];
   } 
   cur->leaf = 1;
 }
@@ -112,16 +112,16 @@ vs findAllConcatenatedWordsInADictTrie(vs& words) {
   if (n <= 0) return res;
   TrieNode *root = new TrieNode();
   fora (w, words) {
-    if (sz(w))
-      insert(root, w);
+  if (sz(w))
+    insert(root, w);
   }
 
   dfs(root);
   cout << endl;
 
   fora (w, words) {
-    if (sz(w) && check(root, w, 0, 0))
-      res.pb(w);
+  if (sz(w) && check(root, w, 0, 0))
+    res.pb(w);
   }
   return res;
 }
@@ -129,8 +129,8 @@ vs findAllConcatenatedWordsInADictTrie(vs& words) {
 class Solution {
 public:
   vs findAllConcatenatedWordsInADict(vs& words) {
-    // return findAllConcatenatedWordsInADictDP(words); 
-    return findAllConcatenatedWordsInADictTrie(words);
+  // return findAllConcatenatedWordsInADictDP(words); 
+  return findAllConcatenatedWordsInADictTrie(words);
   }
 };
 
@@ -138,7 +138,7 @@ void test(vs aa) {
   Solution go;
   vs res = go.findAllConcatenatedWordsInADict(aa);
   fora (r, res)
-    cerr(r);
+  cerr(r);
 }
 
 int main(int argc, char** argv) {

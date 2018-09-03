@@ -13,11 +13,11 @@ int upper(set<int> st, int inp) {
   int hi = sz(st) - 1;
   auto it = st.begin();
   while (lo < hi) {
-    int mid = lo + (hi - lo) / 2;
-    if (*next(it, mid) >= inp) 
-      hi = mid;
-    else 
-      lo = mid + 1;
+  int mid = lo + (hi - lo) / 2;
+  if (*next(it, mid) >= inp) 
+    hi = mid;
+  else 
+    lo = mid + 1;
   }
   int res = *next(it, lo); 
   return res >= inp ? res : -0x3f3f3f3f;
@@ -33,12 +33,12 @@ int maxSubArrayNotGreaterThanK(vi& aa, int k) {
   res = -0x3f3f3f3f;
   sum = 0;
   fori (i, 0, n) {
-    sum += aa[i];
-    int tmp = upper(st, sum - k);
-    if (tmp != -0x3f3f3f3f) 
-      res = max(res, sum - tmp);
-    // cout << sum << " " << tmp << " " << res << "\n";
-    st.insert(sum);
+  sum += aa[i];
+  int tmp = upper(st, sum - k);
+  if (tmp != -0x3f3f3f3f) 
+    res = max(res, sum - tmp);
+  // cout << sum << " " << tmp << " " << res << "\n";
+  st.insert(sum);
   }
   return res;
 }
@@ -49,14 +49,14 @@ int maxSubArray(vector<int> aa, int& lo, int& hi) {
   int res = aa[0];
   lo = hi = 0;
   fori (i, 1, n) {
-    if (t + aa[i] > aa[i]) {
-      t = t + aa[i];
-      hi = i;
-    } else {
-      t = aa[i]; 
-      lo = i;
-    }
-    res = max(res, t); 
+  if (t + aa[i] > aa[i]) {
+    t = t + aa[i];
+    hi = i;
+  } else {
+    t = aa[i]; 
+    lo = i;
+  }
+  res = max(res, t); 
   } 
   return res;
 }
@@ -69,18 +69,18 @@ int maxSubMatrix(vvi& aa) {
   vi dp(n, 0);
   res = 0; 
   fori (lt, 0, n) {
-    fill(all(dp), 0);
-    fori (rt, lt, n) {
-      fori (k, 0, m)
-        dp[k] += aa[k][rt]; 
-      int tp, bt, tmp;
-      tmp = maxSubArray(dp, tp, bt);
-      if (res < tmp) {
-        res = tmp;
-        ux = lt; uy = tp;
-        bx = rt; by = bt;
-      }
+  fill(all(dp), 0);
+  fori (rt, lt, n) {
+    fori (k, 0, m)
+    dp[k] += aa[k][rt]; 
+    int tp, bt, tmp;
+    tmp = maxSubArray(dp, tp, bt);
+    if (res < tmp) {
+    res = tmp;
+    ux = lt; uy = tp;
+    bx = rt; by = bt;
     }
+  }
   }
   return res;
 }
@@ -88,22 +88,22 @@ int maxSubMatrix(vvi& aa) {
 class Solution {
 public:
   int maxSumSubmatrix(vector<vector<int>>& aa, int kk) {
-    int m, n, res;
-    m = sz(aa);
-    if (m == 0) return 0;
-    n = sz(aa[0]);
-    vi dp(m, 0);
-    res = -0x3f3f3f3f; 
-    fori (lt, 0, n) {
-      fill(all(dp), 0);
-      fori (rt, lt, n) {
-        fori (j, 0, m)
-          dp[j] += aa[j][rt]; 
-        int tmp = maxSubArrayNotGreaterThanK(dp, kk);
-        res = max(res, tmp);
-      }
+  int m, n, res;
+  m = sz(aa);
+  if (m == 0) return 0;
+  n = sz(aa[0]);
+  vi dp(m, 0);
+  res = -0x3f3f3f3f; 
+  fori (lt, 0, n) {
+    fill(all(dp), 0);
+    fori (rt, lt, n) {
+    fori (j, 0, m)
+      dp[j] += aa[j][rt]; 
+    int tmp = maxSubArrayNotGreaterThanK(dp, kk);
+    res = max(res, tmp);
     }
-    return res;
+  }
+  return res;
   }
 
 };
@@ -144,10 +144,10 @@ int main(int argc, char** argv) {
 
   // Test find the maximum submatrix.
   vvi aa = {
-    {1, 2, -1, -4, -20}, 
-    {-8, -3, 4, 2, 1}, 
-    {3, 8, 10, 1, 3}, 
-    {-4, -1, 1, 7, -6}};
+  {1, 2, -1, -4, -20}, 
+  {-8, -3, 4, 2, 1}, 
+  {3, 8, 10, 1, 3}, 
+  {-4, -1, 1, 7, -6}};
   test_two(aa);
 
   // Test find the maximum sum that less or equal to k in an array.

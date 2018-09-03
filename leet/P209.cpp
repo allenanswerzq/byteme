@@ -25,14 +25,14 @@ int minSubArrayLen(int s, vector<int>& nums) {
   int n = nums.size();
   vector<int> pre_sum(n+1, 0);
   for (int i=1; i<=n; ++i)
-    pre_sum[i] = pre_sum[i-1] + nums[i-1];
+  pre_sum[i] = pre_sum[i-1] + nums[i-1];
 
   int res = (1<<31) - 1;
   fori (i, 1, n + 1) {
-    if (pre_sum[i] >= s) {
-      int p = upper_bound(all(pre_sum), pre_sum[i] - s) - pre_sum.begin();
-      if (p >= 0) res = min(res, i - (p - 1));  
-    } 
+  if (pre_sum[i] >= s) {
+    int p = upper_bound(all(pre_sum), pre_sum[i] - s) - pre_sum.begin();
+    if (p >= 0) res = min(res, i - (p - 1));  
+  } 
   }
   return res == (1<<31)-1 ? 0 : res;
 }

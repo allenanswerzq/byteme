@@ -5,14 +5,14 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-      printf("%d ", x);
+    printf("%d ", x);
   printf("]\n");
 }
 
 void printMatrix(vector<vector<int>>& v) {
   printf("{\n");
   for (auto x:v)
-    printVector(x);
+  printVector(x);
   printf("}\n");
 }
 
@@ -23,8 +23,8 @@ bool isPowerOfTwo(int x) {
 
 int countOne (int n){
   while( n ){
-    n = n&(n-1);
-    count++;
+  n = n&(n-1);
+  count++;
   }
   return count;
 }

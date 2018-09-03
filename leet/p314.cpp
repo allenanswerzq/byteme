@@ -60,26 +60,26 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   vvi verticalOrder(TreeNode* root) {
-    if (!root) return {};
-    vvi res;
-    map<int, vi> mp;
-    deque<pair<int, TreeNode*>> dq;
-    dq.push_back({0, root});
-    
-    while (sz(dq)) {
-      auto tmp = dq.front(); dq.pop_front();
-      int val = tmp.first;
-      TreeNode* cur = tmp.second;
-      mp[val].push_back(cur->val); 
-      if (cur->left) dq.push_back({val - 1, cur->left});
-      if (cur->right) dq.push_back({val + 1, cur->right});
-    } 
+  if (!root) return {};
+  vvi res;
+  map<int, vi> mp;
+  deque<pair<int, TreeNode*>> dq;
+  dq.push_back({0, root});
+  
+  while (sz(dq)) {
+    auto tmp = dq.front(); dq.pop_front();
+    int val = tmp.first;
+    TreeNode* cur = tmp.second;
+    mp[val].push_back(cur->val); 
+    if (cur->left) dq.push_back({val - 1, cur->left});
+    if (cur->right) dq.push_back({val + 1, cur->right});
+  } 
 
-    fora (it, mp) {
-      res.push_back(it->second); 
-    }
+  fora (it, mp) {
+    res.push_back(it->second); 
+  }
 
-    return res;
+  return res;
   }
 };
 

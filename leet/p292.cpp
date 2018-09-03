@@ -30,7 +30,7 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   bool canWinNim(int n) {
-    return n % 4;    
+  return n % 4;    
   }
 };
 

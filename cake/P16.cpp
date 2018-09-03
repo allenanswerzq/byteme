@@ -18,7 +18,7 @@ public:
 int maxDuffelBagValue(vector<CakeType> cakes, int capacity) {
   long long dp[capacity+1];
   mst(dp, 0);
-  for (int i=1; i<=capacity; ++i) {
+  for (int i = 1; i <= capacity; ++i) {
     for (auto cake : cakes) {
       if (cake.weight == 0 && cake.value != 0) {
         printf("max value is inifinity");

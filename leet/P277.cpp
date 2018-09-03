@@ -18,13 +18,13 @@ int findCelebrity(int n) {
 
   // All other n-1 peple know celebrity, so if knows return true that one might be the one
   for(int i = 1; i < n; i++){
-    if(knows(candidate, i))  
-      candidate = i;
+  if(knows(candidate, i))  
+    candidate = i;
   }
 
   for(int i = 0; i < n; i++){
-    // If candidate knows someone or there exist someone who dont know celebrity, there will not have a celebrity. 
-    if(i != candidate && (knows(candidate, i) || !knows(i, candidate))) return -1;
+  // If candidate knows someone or there exist someone who dont know celebrity, there will not have a celebrity. 
+  if(i != candidate && (knows(candidate, i) || !knows(i, candidate))) return -1;
   }
 
   return candidate;

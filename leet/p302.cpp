@@ -46,20 +46,20 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   int minArea(vvc& image, int x, int y) {
-    int left, right, up, down;
-    left = right = y;
-    up = down = x;
-    fori (i, 0, sz(image)) {
-      fori (j, 0, sz(image[0])) {
-        if (image[i][j] == '1') {
-          left = min(left, j);
-          right = max(right, j);
-          up = min(up, i);
-          down = max(down, i);
-        } 
-      }
+  int left, right, up, down;
+  left = right = y;
+  up = down = x;
+  fori (i, 0, sz(image)) {
+    fori (j, 0, sz(image[0])) {
+    if (image[i][j] == '1') {
+      left = min(left, j);
+      right = max(right, j);
+      up = min(up, i);
+      down = max(down, i);
+    } 
     }
-    return (right - left + 1) * (down - up + 1);
+  }
+  return (right - left + 1) * (down - up + 1);
   }
 };
 

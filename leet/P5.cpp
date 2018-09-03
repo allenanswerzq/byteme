@@ -32,52 +32,52 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   string longestPalindrome(string ss) {
-    int n = sz(ss);
-    string res = "";
-    if (n == 0) return res;
-    int dp[n][n]; mst(dp, 0);
-    ford (i, n - 1, -1) {
-      fori (j, i, n) {
-        dp[i][j] = ss[i] == ss[j] && (j - i + 1 <= 3 || dp[i + 1][j - 1]);
-        if (dp[i][j] && (res == "" || j - i + 1 > sz(res))) {
-          res = ss.substr(i, j - i + 1);
-        }
-      } 
+  int n = sz(ss);
+  string res = "";
+  if (n == 0) return res;
+  int dp[n][n]; mst(dp, 0);
+  ford (i, n - 1, -1) {
+    fori (j, i, n) {
+    dp[i][j] = ss[i] == ss[j] && (j - i + 1 <= 3 || dp[i + 1][j - 1]);
+    if (dp[i][j] && (res == "" || j - i + 1 > sz(res))) {
+      res = ss.substr(i, j - i + 1);
     }
-    return res;
+    } 
+  }
+  return res;
   }
 
   string longestPalindrome1(string ss) {
-    int n = sz(ss);
-    if (n < 2) return ss;
-    string res = "";
-    int lo = 0, maxLen = 0;
-    fori (i, 0, n - 1) {
-      int la = expandAroundCenter(ss, i, i);
-      int lb = expandAroundCenter(ss, i, i + 1);
+  int n = sz(ss);
+  if (n < 2) return ss;
+  string res = "";
+  int lo = 0, maxLen = 0;
+  fori (i, 0, n - 1) {
+    int la = expandAroundCenter(ss, i, i);
+    int lb = expandAroundCenter(ss, i, i + 1);
 
-      if (la > maxLen) {
-        maxLen = la;
-        lo = i - la / 2;
-      }
-
-      if (lb > maxLen)  {
-        maxLen = lb;
-        lo = i - lb / 2 + 1;
-      }
-
-      // trace(i, la, lb, lo, maxLen);
+    if (la > maxLen) {
+    maxLen = la;
+    lo = i - la / 2;
     }
-    return ss.substr(lo, maxLen);
+
+    if (lb > maxLen)  {
+    maxLen = lb;
+    lo = i - lb / 2 + 1;
+    }
+
+    // trace(i, la, lb, lo, maxLen);
+  }
+  return ss.substr(lo, maxLen);
   }
 
   int expandAroundCenter(string& ss, int left, int right) {
-    int lo = left, hi = right;
-    while (lo >= 0 && hi < ss.size() && ss[lo] == ss[hi]) {
-        lo--;
-        hi++;
-    }
-    return hi - lo - 1;
+  int lo = left, hi = right;
+  while (lo >= 0 && hi < ss.size() && ss[lo] == ss[hi]) {
+    lo--;
+    hi++;
+  }
+  return hi - lo - 1;
   }
 };
 

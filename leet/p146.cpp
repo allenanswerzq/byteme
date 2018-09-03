@@ -23,17 +23,17 @@ class LRUCache {
   size_t size;
   
   struct Node {
-    Node * next = nullptr;
-    Node * prev = nullptr;
-    
-    key_t key;
-    value_t value;
-    
-    Node() {}
-    
-    Node(pair<key_t, value_t> p) : key(p.first), value(p.second) {} 
-    
-    Node(key_t key, value_t value) : key(key), value(value) {}
+  Node * next = nullptr;
+  Node * prev = nullptr;
+  
+  key_t key;
+  value_t value;
+  
+  Node() {}
+  
+  Node(pair<key_t, value_t> p) : key(p.first), value(p.second) {} 
+  
+  Node(key_t key, value_t value) : key(key), value(value) {}
   };
   
   Node * data;
@@ -45,112 +45,112 @@ class LRUCache {
   Node head;
 
   Node * getFront(Node * node) {
-    node->prev->next = node->next;
-    node->next->prev = node->prev;
-    
-    keyMap.erase(node->key);
-    return node;
+  node->prev->next = node->next;
+  node->next->prev = node->prev;
+  
+  keyMap.erase(node->key);
+  return node;
   }
   
   Node * makeNode(key_t key, value_t value) {
-    allocateNodes.construct(&data[size], Node(key, value));
-    return &data[size++];
+  allocateNodes.construct(&data[size], Node(key, value));
+  return &data[size++];
   }
   
   void pushBack(Node * node) {
-    tail.prev->next = node;
-    node->prev = tail.prev;
-    tail.prev = node;
-    node->next = &tail; 
+  tail.prev->next = node;
+  node->prev = tail.prev;
+  tail.prev = node;
+  node->next = &tail; 
   }
   
   value_t getKey(key_t key) {
-    auto keyIt = keyMap.find(key);
-    if (keyIt == keyMap.end())
-        return -1;
-    auto node = keyIt->second;
-    node->prev->next = node->next;
-    node->next->prev = node->prev;
-    
-    pushBack(node);
-    
-    return node->value;
+  auto keyIt = keyMap.find(key);
+  if (keyIt == keyMap.end())
+    return -1;
+  auto node = keyIt->second;
+  node->prev->next = node->next;
+  node->next->prev = node->prev;
+  
+  pushBack(node);
+  
+  return node->value;
   }
   
   void putValue(key_t key, value_t value) {
-    auto keyIt = keyMap.find(key);
-    Node * node = nullptr;
-    if (keyIt != keyMap.end()) {
-        node = keyIt->second;
-        node->value = value;
-        node->prev->next = node->next;
-        node->next->prev = node->prev;
+  auto keyIt = keyMap.find(key);
+  Node * node = nullptr;
+  if (keyIt != keyMap.end()) {
+    node = keyIt->second;
+    node->value = value;
+    node->prev->next = node->next;
+    node->next->prev = node->prev;
+  } else {
+    if (size == capacity) {
+      node = getFront(head.next);
+      node->key = key;
+      node->value = value;
     } else {
-        if (size == capacity) {
-            node = getFront(head.next);
-            node->key = key;
-            node->value = value;
-        } else {
-            node = makeNode(key, value);
-        }
+      node = makeNode(key, value);
     }
-    pushBack(node);
-    
-    keyMap.insert({key, node});
+  }
+  pushBack(node);
+  
+  keyMap.insert({key, node});
   }
 
 public:
   LRUCache(size_t capacity) : capacity(capacity), size(0) {
-    data = allocateNodes.allocate(capacity);
-    tail.prev = &head;
-    head.next = &tail;
-    
-    keyMap.reserve(capacity);
+  data = allocateNodes.allocate(capacity);
+  tail.prev = &head;
+  head.next = &tail;
+  
+  keyMap.reserve(capacity);
   }
   
   ~LRUCache() {
-    allocateNodes.deallocate(data, capacity);
+  allocateNodes.deallocate(data, capacity);
   }
   
   value_t get(key_t key) {
-    return getKey(key);
+  return getKey(key);
   }
   
   void put(key_t key, value_t value) {
-    return putValue(key, value);
+  return putValue(key, value);
   }
 };
 
 class LRUCache{
 public:
-    LRUCache(int capacity) : cap_(capacity) {}
-    
+  LRUCache(int capacity) : cap_(capacity) {}
+  
   int get(int key) {
-     int ans = -1; 
-     auto it = dic.find(key);
-     if (it != dic.end()) {
-       ans = it->second->second;
-       data_.erase(it->second);
-       data_.push_front(make_pair(key, ans));
-       dic[key] = data_.begin();
-     }
-     return ans;
+   int ans = -1; 
+   auto it = dic.find(key);
+   if (it != dic.end()) {
+     ans = it->second->second;
+     data_.erase(it->second);
+     data_.push_front(make_pair(key, ans));
+     dic[key] = data_.begin();
+   }
+   return ans;
   }
-    
+  
   void put(int key, int value) {
-    auto it = dic.find(key);
-    if (it != dic.end()) {
-      data_.erase(it->second);
-    }
-    data_.push_front(make_pair(key, value));
-    dic[key] = data_.begin();
-    if (dic.size() > cap_) {
-      int rKey = data_.rbegin()->first;
-      data_.pop_back();
-      dic.erase(rKey);
-    }
+  auto it = dic.find(key);
+  if (it != dic.end()) {
+    data_.erase(it->second);
   }
-    
+  data_.push_front(make_pair(key, value));
+  dic[key] = data_.begin();
+  if (dic.size() > cap_) {
+    int rKey = data_.rbegin()->first;
+    data_.pop_back();
+    dic.erase(rKey);
+  }
+  }
+  
 private:
   int cap_;
   list< pair<int, int> > data_;

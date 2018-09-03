@@ -24,7 +24,7 @@ int dcmp(double x, double y = 0, double tol = eps) {
 bool check(ull kk, vi& aa, int hh) {
   int res = 0;
   fora (a, aa) {
-    res += (a + kk - 1) / kk;
+  res += (a + kk - 1) / kk;
   }
   return (res <= hh);
 }
@@ -32,17 +32,17 @@ bool check(ull kk, vi& aa, int hh) {
 class Solution {
 public:
   int minEatingSpeed(vector<int>& aa, int hh) {
-    ull lo = 1, hi = *max_element(all(aa)); 
-    // trace(lo, hi);
-    while (lo < hi) {
-      ull mid = lo + (hi - lo) / 2;
-      // trace(lo, hi, mid);
-      if (check(mid, aa, hh)) 
-        hi = mid;
-      else
-        lo = mid + 1;
-    }
-    return lo;
+  ull lo = 1, hi = *max_element(all(aa)); 
+  // trace(lo, hi);
+  while (lo < hi) {
+    ull mid = lo + (hi - lo) / 2;
+    // trace(lo, hi, mid);
+    if (check(mid, aa, hh)) 
+    hi = mid;
+    else
+    lo = mid + 1;
+  }
+  return lo;
   }
 };
 

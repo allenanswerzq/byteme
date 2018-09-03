@@ -3,10 +3,10 @@
 using namespace std;
 
 void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
+  cout << "[ ";
+  for (auto x:v)
+    cout << x << " ";
+  cout <<"] " << endl;
 }
 
 int triangleNumber(vector<int>& A) {
@@ -49,5 +49,5 @@ int main(int argc, char** argv) {
 	printVector(v);
 	cout << "LOWER: " << n << endl;
 	cout << firstGe1(v, n) << endl;
-    return 0;
+  return 0;
 }

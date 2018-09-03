@@ -36,7 +36,7 @@ bool dfs(TreeNode *root) {
   if (!root) return 1;
   if (!dfs(root->left)) return 0;
   if (pre && pre->val >= root->val) 
-    return 0;
+  return 0;
   pre = root;
   if (!dfs(root->right)) return 0;
   return 1;
@@ -45,9 +45,9 @@ bool dfs(TreeNode *root) {
 class Solution {
 public:
   bool isValidBST(TreeNode* root) {
-    if (!root) return 1; 
-    pre = null;
-    return dfs(root);
+  if (!root) return 1; 
+  pre = null;
+  return dfs(root);
   }
 };
 

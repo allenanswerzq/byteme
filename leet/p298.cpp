@@ -62,9 +62,9 @@ void dfs(TreeNode* root, int cur, int path, int& res) {
 class Solution {
 public:
   int longestConsecutive(TreeNode* root) {
-    if (!root) return 0;
-    int res = 0;
-    dfs(root, -1, 0, res); 
+  if (!root) return 0;
+  int res = 0;
+  dfs(root, -1, 0, res); 
   }
 };
 

@@ -104,14 +104,14 @@ void wallsAndGates(vector<vector<int>>& rooms) {
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-    printf("%8d\t", x);
+  printf("%8d\t", x);
   printf("]\n");
 }
 
 void printMatrix(vector<vector<int>>& v) {
   printf("{\n");
   for (auto x:v)
-    printVector(x);
+  printVector(x);
   printf("}\n");
 }
 

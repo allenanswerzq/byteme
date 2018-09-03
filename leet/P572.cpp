@@ -3,10 +3,10 @@
 using namespace std;
 
 typedef struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+  int val;
+  TreeNode *left;
+  TreeNode *right;
+  TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 }TreeNode;
 
 bool isSameTree(TreeNode*n, TreeNode* m) {

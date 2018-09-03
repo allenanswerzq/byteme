@@ -13,10 +13,10 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Node {
 public:
   Node(ll inp, ll ge) :
-    val(inp), 
-    ge(ge),
-    left(null),
-    right(null) { }
+  val(inp), 
+  ge(ge),
+  left(null),
+  right(null) { }
 
   ll val;
   // The number of nodes that are greater than me in the subtree.
@@ -27,15 +27,15 @@ public:
 
 Node* insert(Node *root, ll inp) {
   if (!root) {
-    return new Node(inp, 1);
+  return new Node(inp, 1);
   } else {
-    if (inp == root->val)
-      ++root->ge;
-    else if (inp > root->val) {
-      root->right = insert(root->right, inp);
-      ++root->ge;
-    } else
-      root->left = insert(root->left, inp);
+  if (inp == root->val)
+    ++root->ge;
+  else if (inp > root->val) {
+    root->right = insert(root->right, inp);
+    ++root->ge;
+  } else
+    root->left = insert(root->left, inp);
   }
   return root;
 }
@@ -43,13 +43,13 @@ Node* insert(Node *root, ll inp) {
 int search(Node *root, ll inp) {
   if (!root) return 0;
   if (inp == root->val)
-    return root->ge;
+  return root->ge;
   else if (inp < root->val) 
-    return root->ge + search(root->left, inp);
+  return root->ge + search(root->left, inp);
   else if (inp > root->val) 
-    return search(root->right, inp);
+  return search(root->right, inp);
   else 
-    return search(root->left, inp);
+  return search(root->left, inp);
 }
 
 int reversePairsBST(vi aa) {
@@ -58,9 +58,9 @@ int reversePairsBST(vi aa) {
   res = 0;
   n = sz(aa);
   fori (i, 0, n) {
-    ll inp = 2ll * aa[i] + 1;
-    res += search(bst, inp);
-    bst = insert(bst, aa[i]);
+  ll inp = 2ll * aa[i] + 1;
+  res += search(bst, inp);
+  bst = insert(bst, aa[i]);
   }
   return res;
 }
@@ -71,8 +71,8 @@ int bit[N];
 void update(int idx, int inp) {
   idx += 1;
   while (idx > 0) {
-    bit[idx] += inp;
-    idx -= idx & -idx;
+  bit[idx] += inp;
+  idx -= idx & -idx;
   } 
 }
 
@@ -81,8 +81,8 @@ int query(int idx, int n) {
   res = 0;
   idx += 1;
   while (idx < n) {
-    res += bit[idx];
-    idx += idx & -idx;
+  res += bit[idx];
+  idx += idx & -idx;
   }
   return res;
 }
@@ -97,14 +97,14 @@ int reversePairsBIT(vi aa) {
   pvi(bb);
   res = 0;
   fori (i, 0, n) {
-    ll inp = 2ll * aa[i] + 1;
-    int ix = lower_bound(all(bb), inp) - bb.begin();
-    cout << "a: " << i << " " << aa[i] << " " << inp << " " << ix << "\n";
-    res += query(ix, n);
-    ix = lower_bound(all(bb), aa[i]) - bb.begin();
-    cout << "b: " << i << " " << aa[i] << " " << inp << " " << ix << "\n";
-    update(ix, 1);
-    par(bit, n+1);
+  ll inp = 2ll * aa[i] + 1;
+  int ix = lower_bound(all(bb), inp) - bb.begin();
+  cout << "a: " << i << " " << aa[i] << " " << inp << " " << ix << "\n";
+  res += query(ix, n);
+  ix = lower_bound(all(bb), aa[i]) - bb.begin();
+  cout << "b: " << i << " " << aa[i] << " " << inp << " " << ix << "\n";
+  update(ix, 1);
+  par(bit, n+1);
   }
   return res;
 }
@@ -112,18 +112,18 @@ int reversePairsBIT(vi aa) {
 void merge(vi& aa, int lo, int mid, int hi){
   vi bb(sz(aa), 0);
   fori (i, lo, hi+1)
-    bb[i] = aa[i];
+  bb[i] = aa[i];
 
   int p1 = lo;
   int p2 = mid + 1;
   int k = lo;
 
   while (p1 <= mid || p2 <= hi){
-      if(p1 > mid || (p2 <= hi && bb[p1] >= bb[p2]) ) {
-          aa[k++] = bb[p2++];
-      } else {
-          aa[k++] = bb[p1++];
-      }
+    if(p1 > mid || (p2 <= hi && bb[p1] >= bb[p2]) ) {
+      aa[k++] = bb[p2++];
+    } else {
+      aa[k++] = bb[p1++];
+    }
   }
 
 }
@@ -137,8 +137,8 @@ int reversePairsMergeSort(vi aa, int lo, int hi) {
   res += reversePairsMergeSort(aa, mid + 1, hi);
   int j = mid + 1;
   fori (i, lo, mid+1) {
-    while (j <= hi && aa[i] > 2ll * aa[j]) ++j;
-    res += j - (mid + 1);
+  while (j <= hi && aa[i] > 2ll * aa[j]) ++j;
+  res += j - (mid + 1);
   }
   merge(aa, lo, mid, hi);
   return res;
@@ -148,9 +148,9 @@ int reversePairsMergeSort(vi aa, int lo, int hi) {
 class Solution {
 public:
   int reversePairs(vector<int>& aa) {
-    // return reversePairsBST(aa);
-    // return reversePairsBIT(aa);
-    return reversePairsMergeSort(aa, 0, sz(aa) - 1);
+  // return reversePairsBST(aa);
+  // return reversePairsBIT(aa);
+  return reversePairsMergeSort(aa, 0, sz(aa) - 1);
   }
 };
 

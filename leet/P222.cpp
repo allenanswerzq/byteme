@@ -9,9 +9,9 @@ int countNodes(TreeNode* root) {
 	int h = height(root);
   if (h <= 0) return 0;
   if (height(root->right) == h - 1) {
-    return (1<<h-1) - 1 + 1 + countNodes(root->right); 
+  return (1<<h-1) - 1 + 1 + countNodes(root->right); 
   } else {
-    return countNodes(root->left) + 1 + (1<<h-2) - 1; 
+  return countNodes(root->left) + 1 + (1<<h-2) - 1; 
   }
   // Never reach here.
   return -1; 
@@ -30,7 +30,7 @@ int countNodes(TreeNode* root) {
 
   // left subtrees and right subtrees are all complete binary tree
 	if (left == nullptr)
-    return ((1<<h) - 1);
+  return ((1<<h) - 1);
 	return 1 + countNodes(root->left) + countNodes(root->right);
 }
 

@@ -10,12 +10,12 @@ vs binaryTreePaths(TreeNode* root) {
   vs left = binaryTreePaths(root->left);
   vs right = binaryTreePaths(root->right);
   for (auto s : left) {
-    s = to_string(root->val) + "->" + s;
-    ret.push_back(s);
+  s = to_string(root->val) + "->" + s;
+  ret.push_back(s);
   } 
   for (auto s : right) {
-    s = to_string(root->val) + "->" + s;
-    ret.push_back(s);
+  s = to_string(root->val) + "->" + s;
+  ret.push_back(s);
   } 
   return ret;
 }

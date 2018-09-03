@@ -13,7 +13,7 @@ int calculate(string s) {
 			--i;
 			res += sign * num;
 		} 
-    else if (s[i] == '+') sign = 1;
+  else if (s[i] == '+') sign = 1;
 		else if (s[i] == '-') sign = -1; 
 		else if (s[i]=='(') {
 			stk.push(res);

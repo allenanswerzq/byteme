@@ -43,8 +43,8 @@ void travel(TreeNode *root) {
 class Solution {
 public:
   TreeNode* convertBST(TreeNode* root) {
-    travel(root);
-    return root;
+  travel(root);
+  return root;
   }
 };
 

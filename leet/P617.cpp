@@ -3,10 +3,10 @@
 using namespace std;
 
 void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
+  cout << "[ ";
+  for (auto x:v)
+    cout << x << " ";
+  cout <<"] " << endl;
 }
 // Perfect!!!
 // It accepted
@@ -20,5 +20,5 @@ TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
 }
 
 int main(int argc, char** argv) {
-    return 0;
+  return 0;
 }

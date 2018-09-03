@@ -1,31 +1,37 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-string countAndSay(int n) {
-	string s = "1";
-	while (--n > 0){
-		string ans = "";
-		for (int i=0; i<s.size(); ++i) {
-			int k = 1;
-			while (i<s.size()-1 && s[i] == s[i+1]) {
-				k++;
-				i++;
-			} 
-			ans += (char)(k+'0');
-			ans += s[i];
+class Solution {
+public:
+	string countAndSay(int kk) {
+		string ss = "1";
+		while (--kk > 0){
+			string res = "";
+			for (int i = 0; i < ss.size(); ++i) {
+				int k = 1;
+				while (i < ss.size() - 1 && ss[i] == ss[i + 1]) {
+					k++; i++;
+				} 
+				res += (char)(k + '0');
+				res += ss[i];
+			}
+			ss = res;
 		}
-		s = ans;
-		cout << "S: " << s << endl;
+		return ss;
 	}
-	return s;
+};
+
+void test(int kk) {
+	Solution go;
+	string ret = go.countAndSay(kk);
+	cout << ret << endl;
 }
 
 int main(int argc, char** argv) {
-	int n = 5;
-	if( argc > 1) 
-		n = atoi(argv[1]);
-	cout << "RET: " << countAndSay(n) << endl;
+	test(3);
+	test(4);
+	test(5);
+	test(6);
 	return 0;
 }
 

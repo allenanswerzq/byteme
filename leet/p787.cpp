@@ -15,31 +15,31 @@ public:
   int price;
   int stops;
   Node(int city, int price, int stops)
-    : city(city),
-      price(price),
-      stops(stops) {}
+  : city(city),
+    price(price),
+    stops(stops) {}
 };
 
 int findCheapestPricePQ(int n, vvi& aa, int src, int dst, int k) {
   unordered_map<int, vpii> g;
   fora (a, aa) {
-    int s, d, p;
-    s = a[0]; d = a[1]; p = a[2];
-    g[s].pb({d, p});
+  int s, d, p;
+  s = a[0]; d = a[1]; p = a[2];
+  g[s].pb({d, p});
   } 
   auto cmp = [](Node a, Node b) { return a.price > b.price; };
   priority_queue<Node, vector<Node>, decltype(cmp)> pq(cmp);
   pq.push(Node(src, 0, k + 1));
   while (sz(pq)) {
-    auto top = pq.top(); pq.pop();
-    int price, city, stops;
-    city = top.city; stops = top.stops, price = top.price;
-    if (city == dst) return price;
-    if (stops) {
-      vpii nxt = g[city];
-      fora (n, nxt)
-        pq.push(Node(n.fi, price + n.se, stops - 1));
-    }
+  auto top = pq.top(); pq.pop();
+  int price, city, stops;
+  city = top.city; stops = top.stops, price = top.price;
+  if (city == dst) return price;
+  if (stops) {
+    vpii nxt = g[city];
+    fora (n, nxt)
+    pq.push(Node(n.fi, price + n.se, stops - 1));
+  }
   }
   return -1;
 }
@@ -50,8 +50,8 @@ int findCheapestPriceBFS(int n, vvi& aa, int src, int dst, int k) {
 class Solution {
 public:
   int findCheapestPrice(int n, vvi& aa, int s, int d, int k) {
-    // return findCheapestPricePQ(n, aa, s, d, k); 
-    return findCheapestPriceBFS(n, aa, s, d, k);
+  // return findCheapestPricePQ(n, aa, s, d, k); 
+  return findCheapestPriceBFS(n, aa, s, d, k);
   }
 };
 

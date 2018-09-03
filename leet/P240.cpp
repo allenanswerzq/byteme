@@ -7,9 +7,9 @@ bool searchMatrix(vector<vector<int>>& matrix, int target) {
   // Starting from top-right corner
   int r = 0, c = n-1;
   while (r<m && c>=0) {
-    if (matrix[r][c] == target) return true;
-    if (matrix[r][c] < target) r++;
-    else c--;
+  if (matrix[r][c] == target) return true;
+  if (matrix[r][c] < target) r++;
+  else c--;
   }   
   return false;
 }

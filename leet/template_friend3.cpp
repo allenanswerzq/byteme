@@ -20,9 +20,9 @@ class Factory
 public:  
    U* GetNewObject(int seed)  
    {  
-      U* pu = new U;  
-      pu->InitData(seed);  
-      return pu;  
+    U* pu = new U;  
+    pu->InitData(seed);  
+    return pu;  
    }  
 };  
 

@@ -11,50 +11,50 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   bool isNStraightHand(vector<int>& aa, int W) {
-    multiset<int> st;
-    fora(a, aa)
-      st.insert(a);
+  multiset<int> st;
+  fora(a, aa)
+    st.insert(a);
 
-    // fora(a, st)
-    //   cout << a << " ";
-    // cout << endl;
+  // fora(a, st)
+  //   cout << a << " ";
+  // cout << endl;
 
-    while (!st.empty()) {
-      int cur = *st.begin();
-      fori(i, cur, cur + W)  {
-        if (st.count(i) == 0) 
-          return false;
-        st.erase(st.find(i));
-      }
-    } 
-    return true;
+  while (!st.empty()) {
+    int cur = *st.begin();
+    fori(i, cur, cur + W)  {
+    if (st.count(i) == 0) 
+      return false;
+    st.erase(st.find(i));
+    }
+  } 
+  return true;
   }
 };
 
 class Solution {
 public:
   bool isNStraightHand(vector<int>& aa, int W) {
-    map<int, int> mp; 
-    fora(a, aa)
-      ++mp[a];
-    if (sz(aa) % W) return false;
-    while(!mp.empty()) {
-      auto it = mp.begin();
-      int cur = it->fi;
-      // cout << "cur: " << cur << endl;
-      fori(i, 0, W)
-        int tmp = cur + i;
-        if (!mp.count(tmp)) {
-          // cout << tmp << endl;
-          return false;
-        }
-        else {
-          --mp[tmp];
-          if (mp[tmp] == 0)
-            mp.erase(tmp);
-        }
+  map<int, int> mp; 
+  fora(a, aa)
+    ++mp[a];
+  if (sz(aa) % W) return false;
+  while(!mp.empty()) {
+    auto it = mp.begin();
+    int cur = it->fi;
+    // cout << "cur: " << cur << endl;
+    fori(i, 0, W)
+    int tmp = cur + i;
+    if (!mp.count(tmp)) {
+      // cout << tmp << endl;
+      return false;
     }
-    return true;
+    else {
+      --mp[tmp];
+      if (mp[tmp] == 0)
+      mp.erase(tmp);
+    }
+  }
+  return true;
   }
 };
 

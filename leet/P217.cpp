@@ -4,8 +4,8 @@ using namespace std;
 bool containsDuplicate(vector<int>& nums) {
   map<int, int> mp;
   for (auto x: nums)
-    if (mp.count(x)) mp[x] = 1;
-    else return true;
+  if (mp.count(x)) mp[x] = 1;
+  else return true;
   return false;
 }
 

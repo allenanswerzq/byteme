@@ -1,57 +1,33 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
-}
+class Solution {
+public:
+  // IDEA: one half of A must be sorted
+  int search(vector<int>& aa, int target) {
+  int n = aa.size();
+  if (n == 0) return -1;
+  int lo = 0, hi = n - 1;
+  while ( lo < hi ) {
 
-// not accepted
-int search(vector<int>& A, int target) {
-    int lo=0, hi=A.size()-1;
-    while (lo <= hi) {
-        int mid = lo+(hi-lo)/2;
-        if (A[mid] == target) return mid;
-        // A[0...mid] sorted
-        if (A[0]<=target && target<A[mid])
-            hi = mid - 1;
-        // A[mid...hi] sorted
-        if (target<A[mid] && A[mid]<A[0])
-            hi = mid - 1;
-        if (A[mid]<A[0] && A[0]<target)
-            lo = mid + 1;
+    int mid = lo + (hi - lo) / 2;
+    if (aa[mid] == target)
+    return mid;
+
+    // Left part sorted
+    if (aa[mid] > aa[hi]) {
+    if (aa[lo] <= target && target < aa[mid]) hi = mid - 1;
+    else lo = mid + 1;
+    } else if (aa[mid] < aa[hi]) {
+    // Right part sorted
+    if(aa[mid] < target && target <= aa[hi]) lo = mid + 1;
+    else hi = mid - 1;
     }
-    return -1;
-}
-
-// IDEA: one half of A must be sorted
-int search(vector<int>& A, int target) {
-    if (A.size() == 0) return -1;
-    int lo=0, hi=A.size() - 1;
-    while ( lo < hi ) {
-        if (A[lo]<=A[hi] && (target<A[lo] || target>A[hi])) 
-            return -1;
-
-        int mid = lo+(hi-lo)/2;
-        if (A[mid] == target)
-            return mid;
-        // left part sorted
-        if(A[mid] > A[hi]) {
-            if (A[lo]<=target && target<A[mid]) hi = mid-1;
-            else lo = mid + 1;
-        } else if (A[mid] < A[hi]) {
-            // right part sorted
-            if(A[mid]<target && target<=A[hi]) lo = mid + 1;
-            else hi = mid - 1;
-        }
-
-    }  
-    return A[lo] == target ? lo : -1;
-}
+  }  
+  return aa[lo] == target ? lo : -1;
+  }
+};
 
 int main(int argc, char** argv) {
-    return 0;
+  return 0;
 }

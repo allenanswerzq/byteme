@@ -24,24 +24,24 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   int lenLongestFibSubseq(vector<int>& aa) {
-    int n = sz(aa);
-    uset<int> st;
-    fora (a, aa) st.insert(a);
-    int res = 0;
-    fori (i, 0, n) {
-      fori (j, i+1, n) {
-        int tmp = 2;
-        int one = aa[i], two = aa[j];
-        while (st.count(one + two)) {
-          ++tmp;
-          int three = one + two;
-          one = two; 
-          two = three;
-        }
-        if (tmp > 2) res = max(res, tmp);
-      }
+  int n = sz(aa);
+  uset<int> st;
+  fora (a, aa) st.insert(a);
+  int res = 0;
+  fori (i, 0, n) {
+    fori (j, i+1, n) {
+    int tmp = 2;
+    int one = aa[i], two = aa[j];
+    while (st.count(one + two)) {
+      ++tmp;
+      int three = one + two;
+      one = two; 
+      two = three;
     }
-    return res;
+    if (tmp > 2) res = max(res, tmp);
+    }
+  }
+  return res;
   }
 };
 

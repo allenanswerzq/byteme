@@ -4,13 +4,13 @@ using namespace std;
 // backtrack
 void dfs(vector<int>& path, vector<vector<int>>& res, int k, int n, int start) {
   if (path.size()==k && n==0) {
-    res.push_back(path);
+  res.push_back(path);
   }
 
   for(int i=start; i <= 9; ++i) {
-    path.push_back(i);
-    dfs(visit, path, res, k, n-i, i+1);
-    path.pop_back();
+  path.push_back(i);
+  dfs(visit, path, res, k, n-i, i+1);
+  path.pop_back();
   }
 
 }

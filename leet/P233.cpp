@@ -131,23 +131,23 @@ using namespace std;
 class Solution {
 public:
   int countDigitOne(int n) {
-    if (n <= 0) return 0;
-    int total = 0, layer = 1, pop = 0, curr = n;
+  if (n <= 0) return 0;
+  int total = 0, layer = 1, pop = 0, curr = n;
+  
+  while(curr > 0) {
+    pop = curr % 10;
+    curr /= 10;
     
-    while(curr > 0) {
-      pop = curr % 10;
-      curr /= 10;
-      
-      if (pop == 0)
-        total += (curr * layer);
-      else if (pop == 1)
-        total += (curr * layer + (n % layer + 1));
-      else
-        total += ((curr + 1) * layer); 
+    if (pop == 0)
+    total += (curr * layer);
+    else if (pop == 1)
+    total += (curr * layer + (n % layer + 1));
+    else
+    total += ((curr + 1) * layer); 
 
-      layer *= 10;
-    }
-    return total;
+    layer *= 10;
+  }
+  return total;
   }
 };
 

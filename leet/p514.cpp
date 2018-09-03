@@ -16,7 +16,7 @@ int dfs(string ring, string key, int ix) {
 
   if (ix == sz(key)) return 0;
   if (mp.count(ring + key + to_string(ix))) 
-    return mp[ring + key + to_string(ix)];
+  return mp[ring + key + to_string(ix)];
 
   n = sz(ring);
   c = key[ix];
@@ -50,8 +50,8 @@ int findRotateStepsDP(string ring, string key) {
 class Solution {
 public:
   int findRotateSteps(string ring, string key) {
-    // return dfs(ring, key, 0);    
-    return findRotateStepsDP(ring, key);
+  // return dfs(ring, key, 0);    
+  return findRotateStepsDP(ring, key);
   }
 
 };

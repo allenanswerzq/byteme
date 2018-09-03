@@ -27,37 +27,37 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-    int x, y, sum, carry = 0;
-    struct ListNode *dummy = new ListNode(-1);
-    struct ListNode *p = dummy;
-    
-    while (l1 || l2) {
-      x = getValue(l1);
-      y = getValue(l2);
-      sum = x + y + carry;
+  int x, y, sum, carry = 0;
+  struct ListNode *dummy = new ListNode(-1);
+  struct ListNode *p = dummy;
+  
+  while (l1 || l2) {
+    x = getValue(l1);
+    y = getValue(l2);
+    sum = x + y + carry;
 
-      ListNode *node = new ListNode(sum % 10);
-      p->next = node;
-      p = p->next;
-      carry = sum / 10;
-    }
+    ListNode *node = new ListNode(sum % 10);
+    p->next = node;
+    p = p->next;
+    carry = sum / 10;
+  }
 
-    if (carry > 0) {
-      ListNode *node = new ListNode(carry);
-      p->next = node;
-      p = p->next;
-    }
+  if (carry > 0) {
+    ListNode *node = new ListNode(carry);
+    p->next = node;
+    p = p->next;
+  }
 
-    return dummy->next;
+  return dummy->next;
   }
   
   int getValue(ListNode* &p) {
-    int ret = 0;
-    if (p) {
-      ret = p->val;
-      p = p->next;
-    }
-    return ret;
+  int ret = 0;
+  if (p) {
+    ret = p->val;
+    p = p->next;
+  }
+  return ret;
   }
 };
 

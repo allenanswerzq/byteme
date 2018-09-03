@@ -64,9 +64,9 @@ public:
   // if current is a leaf node, following the path from root to leaf we can get whole word
   bool isLeaf;  
   trieNode() {
-    isLeaf = false;
-    for (int i=0; i<26; ++i)
-      child[i] = nullptr;
+  isLeaf = false;
+  for (int i=0; i<26; ++i)
+    child[i] = nullptr;
   } 
 };
 
@@ -77,40 +77,40 @@ private:
   // root node of the trie
   trieNode *root;   
   trieNode *find(string key) {
-    trieNode *node = root;
-    for (int i=0; i<key.size() && node; ++i)
-      node = node->child[key[i] - 'a'];
-    return node;
+  trieNode *node = root;
+  for (int i=0; i<key.size() && node; ++i)
+    node = node->child[key[i] - 'a'];
+  return node;
   }
 
 public:
-    /** Initialize your data structure here. */
-    Trie() {
-      root = new trieNode();
+  /** Initialize your data structure here. */
+  Trie() {
+    root = new trieNode();
+  }
+  
+  /** Inserts a word into the trie. */
+  void insert(string s) {
+    trieNode *node = root;
+    for (int i=0; i<s.size(); ++i) {
+    if (node->child[s[i] - 'a'] == nullptr)
+      node->child[s[i] - 'a'] = new trieNode();
+    node = node->child[s[i] - 'a'];
     }
-    
-    /** Inserts a word into the trie. */
-    void insert(string s) {
-      trieNode *node = root;
-      for (int i=0; i<s.size(); ++i) {
-        if (node->child[s[i] - 'a'] == nullptr)
-          node->child[s[i] - 'a'] = new trieNode();
-        node = node->child[s[i] - 'a'];
-      }
-      node->isLeaf = true;
-    }
-    
-    /** Returns if the word is in the trie. */
-    bool search(string word) {
-      trieNode *p = find(word);
-      return p && p->isLeaf;
-    }
-    
-    /** Returns if there is any word in the trie that starts with the given prefix. */
-    bool startsWith(string prefix) {
-       trieNode *p = find(prefix); 
-       return p != nullptr;
-    }
+    node->isLeaf = true;
+  }
+  
+  /** Returns if the word is in the trie. */
+  bool search(string word) {
+    trieNode *p = find(word);
+    return p && p->isLeaf;
+  }
+  
+  /** Returns if there is any word in the trie that starts with the given prefix. */
+  bool startsWith(string prefix) {
+     trieNode *p = find(prefix); 
+     return p != nullptr;
+  }
 };
 
 #define sz(x) (int)(x).size()
@@ -163,5 +163,5 @@ vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
 	return ret;
 }
 int main(int argc, char** argv) {
-    return 0;
+  return 0;
 }

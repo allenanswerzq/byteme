@@ -13,12 +13,12 @@ int numWays(int n, int k) {
   int same = k;
 
   for(int i=2; i<n; i++) {
-    int temp = diff;
-    // If last two posts have different colors
-    diff = (diff + same) * (k - 1);  
-    // then for each color picked in the last second post, there will be k-1 choices for the last one
-    // And total choices for the last one is (all the ways for the last second one) * k-1
-    same = temp;
+  int temp = diff;
+  // If last two posts have different colors
+  diff = (diff + same) * (k - 1);  
+  // then for each color picked in the last second post, there will be k-1 choices for the last one
+  // And total choices for the last one is (all the ways for the last second one) * k-1
+  same = temp;
   }
 
   return diff + same;

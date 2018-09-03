@@ -42,8 +42,8 @@ vector<int> closestKValues(TreeNode* root, double target, int k) {
   vector<int> ret;
   dfs(root, pq, target, k);
   while (!pq.empty()) {
-    ret.push_back(pq.top().second);
-    pq.pop();
+  ret.push_back(pq.top().second);
+  pq.pop();
   }
   return ret;
 }
@@ -53,8 +53,8 @@ void inorder(TreeNode* root, double target, int kk, vi& res) {
   inorder(root->left, target, kk, res);
   if (sz(res) < kk) res.pb(root->val);
   else if (abs(root->val - target) < abs(res[0] - target)) {
-    res.erase(res.begin());
-    res.pb(root->val);
+  res.erase(res.begin());
+  res.pb(root->val);
   } else return;
   inorder(root->right target, kk, res);
 }
@@ -62,9 +62,9 @@ void inorder(TreeNode* root, double target, int kk, vi& res) {
 class Solution {
 public:
   vi closestKValues(TreeNode* root, double target, int kk) {
-    vi res;
-    inorder(root, target, kk, res);
-    return res;
+  vi res;
+  inorder(root, target, kk, res);
+  return res;
   }
 };
 

@@ -30,38 +30,38 @@ void dfs(vector<vector<char>>& board, int x, int y, char aa, char bb) {
 class Solution {
 public:
   void solve(vector<vector<char>>& board) {
-    // Step1: replace all 'O' with '#'
-    char aa = '#', bb = 'O';
-    int rr = sz(board); 
-    if (rr <= 0) return;
-    int cc = sz(board[0]);
-    fori (i, 0, rr)
-      fori (j, 0, cc)
-        if (board[i][j] == bb) 
-          board[i][j] = aa; 
+  // Step1: replace all 'O' with '#'
+  char aa = '#', bb = 'O';
+  int rr = sz(board); 
+  if (rr <= 0) return;
+  int cc = sz(board[0]);
+  fori (i, 0, rr)
+    fori (j, 0, cc)
+    if (board[i][j] == bb) 
+      board[i][j] = aa; 
 
-    // Left side edge
-    fori (i, 0, rr)
-      if (board[i][0] == aa)
-        dfs(board, i, 0, aa, bb);
-    // Right side edge
-    fori (i, 0, rr)
-      if (board[i][cc-1] == aa)
-        dfs(board, i, cc-1, aa, bb);
-    // Top side edge
-    fori (i, 0, cc)
-      if (board[0][i] == aa)
-        dfs(board, 0, i, aa, bb);
-    // Bottom side edge
-    fori (i, 0, cc) 
-      if (board[rr-1][i] == aa)
-        dfs(board, rr-1, i, aa, bb);
+  // Left side edge
+  fori (i, 0, rr)
+    if (board[i][0] == aa)
+    dfs(board, i, 0, aa, bb);
+  // Right side edge
+  fori (i, 0, rr)
+    if (board[i][cc-1] == aa)
+    dfs(board, i, cc-1, aa, bb);
+  // Top side edge
+  fori (i, 0, cc)
+    if (board[0][i] == aa)
+    dfs(board, 0, i, aa, bb);
+  // Bottom side edge
+  fori (i, 0, cc) 
+    if (board[rr-1][i] == aa)
+    dfs(board, rr-1, i, aa, bb);
 
-    // Step3: replace all '#' with 'X'
-    fori (i,  0, rr)
-      fori (j, 0, cc) 
-        if (board[i][j] == aa)
-          board[i][j] = 'X';
+  // Step3: replace all '#' with 'X'
+  fori (i,  0, rr)
+    fori (j, 0, cc) 
+    if (board[i][j] == aa)
+      board[i][j] = 'X';
 
   }
 };

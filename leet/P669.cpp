@@ -3,10 +3,10 @@
 using namespace std;
 
 void printVector(vector<int>& v) {
-    printf("[ ");
-    for (auto x:v)
-        printf("%d ", x); 
-    printf("]\n");
+  printf("[ ");
+  for (auto x:v)
+    printf("%d ", x); 
+  printf("]\n");
 }
 
 // TODO
@@ -21,5 +21,5 @@ TreeNode* trimBST(TreeNode* root, int L, int R) {
 }
 
 int main(int argc, char** argv) {
-    return 0;
+  return 0;
 }

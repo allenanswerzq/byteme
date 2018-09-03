@@ -33,18 +33,18 @@ int dcmp(double x, double y = 0, double tol = eps) {
 
 int height(TreeNode* root) {
   return root == null ? 0 : max(height(root->left),
-                                height(root->right)) + 1;
+                height(root->right)) + 1;
 }
 
 class Solution {
 public:
   int diameterOfBinaryTree(TreeNode* root) {
-    if (!root) return 0;
-    int a = diameterOfBinaryTree(root->left);
-    int b = diameterOfBinaryTree(root->right);      
-    int c = height(root->left);
-    int d = height(root->right);
-    return max(max(a, b), c + d);
+  if (!root) return 0;
+  int a = diameterOfBinaryTree(root->left);
+  int b = diameterOfBinaryTree(root->right);      
+  int c = height(root->left);
+  int d = height(root->right);
+  return max(max(a, b), c + d);
   }
 };
 

@@ -50,17 +50,17 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class ValidWordAbbr {
 public:
   ValidWordAbbr(vector<string>& dicts) {
-    fora (a, dicts) {
-      string t = a[0] + to_string(sz(a) - 2) + a.back();
-      mp[t].insert(a);
-    } 
+  fora (a, dicts) {
+    string t = a[0] + to_string(sz(a) - 2) + a.back();
+    mp[t].insert(a);
+  } 
   }
 
   bool isUnique(string aa) {
-    string t = aa[0] + to_string(sz(aa) - 2) + aa.back();
-    if (mp[t].count(aa) && sz(mp[t]) == 1) 
-      return 1;
-    return 0;
+  string t = aa[0] + to_string(sz(aa) - 2) + aa.back();
+  if (mp[t].count(aa) && sz(mp[t]) == 1) 
+    return 1;
+  return 0;
   }
 
 private:

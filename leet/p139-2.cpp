@@ -15,9 +15,9 @@ bool wordBreakRecu(string s, int ix) {
   if (n == 0) return 0;
   if (ix >= n) return 1;
   fora (d, dict) {
-    if (s.substr(ix, sz(d)) == d)
-      if (wordBreakRecu(s, ix + sz(d)))
-        return 1;
+  if (s.substr(ix, sz(d)) == d)
+    if (wordBreakRecu(s, ix + sz(d)))
+    return 1;
   } 
   return 0;
 }
@@ -29,25 +29,25 @@ bool wordBreakBfs(str s, vs dict) {
   mst(visit, 0);
   q.push(0);
   while (sz(q)) {
-    int start = q.fr(); q.pop();
-    if (visit[start]) continue;
-    visit[start] = 1;
-    fori (j, start, n) {
-      str w = s.substr(start, j - start + 1); 
-      if (dict.find(w) != dict.end()) {
-        q.push(j + 1);
-        if (j + 1 == n)
-          return 1;
-      }
+  int start = q.fr(); q.pop();
+  if (visit[start]) continue;
+  visit[start] = 1;
+  fori (j, start, n) {
+    str w = s.substr(start, j - start + 1); 
+    if (dict.find(w) != dict.end()) {
+    q.push(j + 1);
+    if (j + 1 == n)
+      return 1;
     }
+  }
   }
   return 0;
 }
 
 bool check(string inp) {
   fora (d, dict) {
-    if (d == inp)
-      return 1;
+  if (d == inp)
+    return 1;
   }
   return 0;
 }
@@ -60,19 +60,19 @@ bool wordBreakDP(string s) {
   int dp[n + 1];
   mst(dp, 0);
   fori (i, 1, n + 1) {
-    if (dp[i] == 0) {
-      if (check(s.substr(0, i))) dp[i] = 1;
-    }
+  if (dp[i] == 0) {
+    if (check(s.substr(0, i))) dp[i] = 1;
+  }
 
-    if (dp[i] == 1) {
-      // s[0...i] can be broke, now we need to check the
-      // rest part of the string.
-      fori (j, i+1, n+1) {
-        if (check(s.substr(i, j-i)))
-          dp[j] = 1;  
-      }
+  if (dp[i] == 1) {
+    // s[0...i] can be broke, now we need to check the
+    // rest part of the string.
+    fori (j, i+1, n+1) {
+    if (check(s.substr(i, j-i)))
+      dp[j] = 1;  
     }
-    if (dp[n]) return 1;
+  }
+  if (dp[n]) return 1;
   }
   return 0;
 }
@@ -80,9 +80,9 @@ bool wordBreakDP(string s) {
 class Solution {
 public:
   bool wordBreak(string s, vector<string>& aa) {
-    dict = aa;
-    // return wordBreakRecu(s, 0);
-    return wordBreakDP(s);
+  dict = aa;
+  // return wordBreakRecu(s, 0);
+  return wordBreakDP(s);
   }
 };
 

@@ -6,7 +6,7 @@ class Solution {
 public:
 	// It's worked
 	// But i don't really know why.	
-    int maxVacationDays3(vector<vector<int>>& flights, vector<vector<int>>& days) {
+  int maxVacationDays3(vector<vector<int>>& flights, vector<vector<int>>& days) {
 		int N = flights.size();
 		int K = days[0].size();
 		int dp[N];
@@ -38,7 +38,7 @@ public:
 	// dp[i][j] = max( dp[i-1][k] + days[j][i] ) k = 0...N-1 if we have flights from city k to j  
 	// !!!NOTE: NOT TRUE by me
 	// need review sometime
-    int maxVacationDays(vector<vector<int>>& flights, vector<vector<int>>& days) {
+  int maxVacationDays(vector<vector<int>>& flights, vector<vector<int>>& days) {
 		int N = flights.size();
 		int K = days[0].size();
 		int dp[K][N] = {{INT_MIN}}; // k means week n means city
@@ -62,14 +62,14 @@ public:
 	// DFS. The idea is just try each possible city for every week and keep tracking the max vacation days. 
 	// Time complexity O(N^K)
 	int maxDays = 0, N = 0, K = 0;
-    int maxVacationDays1(vector<vector<int>>& flights, vector<vector<int>>& days) {
+  int maxVacationDays1(vector<vector<int>>& flights, vector<vector<int>>& days) {
 		N = flights.size();
 		K = days[0].size();
 		cout << "City: " << N << endl;
 		cout << "Weeks: " << K << endl;
 		dfs(flights, days, 0, 0, 0);
 		return maxDays;		
-    }
+  }
 private:
 	void dfs(vector<vector<int>>& flights, vector<vector<int>>& days, int curr, int week, int sum) {
 		if ( week == K) {
@@ -87,14 +87,14 @@ private:
 
 void printMatrix(vector<vector<int> > &matrix)
 {
-    for(int i=0; i<matrix.size(); i++){
-        printf("{");
-        for(int j=0; j< matrix[i].size(); j++) {
-            printf("%3d ", matrix[i][j]) ;
-        }
-        printf("}\n");
+  for(int i=0; i<matrix.size(); i++){
+    printf("{");
+    for(int j=0; j< matrix[i].size(); j++) {
+      printf("%3d ", matrix[i][j]) ;
     }
-    cout << endl;
+    printf("}\n");
+  }
+  cout << endl;
 }
 
 int main(int argc, char** argv) {

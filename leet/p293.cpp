@@ -47,15 +47,15 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   vs generatePossibleNextMoves(string aa) {
-    vs res;
-    fori (i, 0, sz(aa) - 1) {
-      if (aa[i] == '+' && aa[i + 1] == '+')
-        res.push_back(
-            aa.substr(0, i) + 
-            "--" + 
-            aa.substr(i + 2));
-    } 
-    return res;
+  vs res;
+  fori (i, 0, sz(aa) - 1) {
+    if (aa[i] == '+' && aa[i + 1] == '+')
+    res.push_back(
+      aa.substr(0, i) + 
+      "--" + 
+      aa.substr(i + 2));
+  } 
+  return res;
   }
 };
 

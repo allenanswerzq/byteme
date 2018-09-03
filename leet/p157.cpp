@@ -20,17 +20,17 @@ int read4(char *buf);
 class Solution {
 public:
   int read(char *buf, int n) {
-    bool eof = 0;
-    int total = 0;
-    char tmp[4];
-    while (!eof && total < n) {
-      int cnt = read4(tmp);
-      eof = cnt < 4;
-      cnt = min(cnt, n - total);  
-      fori (i, 0, cnt)
-        buf[total++] = tmp[i];
-    }
-    return total;
+  bool eof = 0;
+  int total = 0;
+  char tmp[4];
+  while (!eof && total < n) {
+    int cnt = read4(tmp);
+    eof = cnt < 4;
+    cnt = min(cnt, n - total);  
+    fori (i, 0, cnt)
+    buf[total++] = tmp[i];
+  }
+  return total;
   }
 };
 

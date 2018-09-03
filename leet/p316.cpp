@@ -29,21 +29,21 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   string removeDuplicateLetters(string inp) {
-    int dp[256]; mst(dp, 0);
-    int visit[256]; mst(visit, 0);
-    string res = "0";
-    fora (ch, inp) dp[ch]++;  
-    fora (ch, inp) {
-      --dp[ch]; 
-      if (visit[ch]) continue;
-      while (ch < res.back() && dp[res.back()]) {
-        visit[res.back()] = 0;
-        res.pop_back(); 
-      }
-      res += ch;
-      visit[ch] = 1;
+  int dp[256]; mst(dp, 0);
+  int visit[256]; mst(visit, 0);
+  string res = "0";
+  fora (ch, inp) dp[ch]++;  
+  fora (ch, inp) {
+    --dp[ch]; 
+    if (visit[ch]) continue;
+    while (ch < res.back() && dp[res.back()]) {
+    visit[res.back()] = 0;
+    res.pop_back(); 
     }
-    return res.substr(1);
+    res += ch;
+    visit[ch] = 1;
+  }
+  return res.substr(1);
   }
 };
 

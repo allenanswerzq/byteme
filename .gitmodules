@@ -1,3 +1,12 @@
 [submodule "codebook"]
 	path = codebook
 	url = https://github.com/landcold7/codebook.git
+[submodule "third_party/cosmos"]
+	path = third_party/cosmos
+	url = https://github.com/landcold7/cosmos.git
+[submodule "third_party/C-Plus-Plus"]
+	path = third_party/C-Plus-Plus
+	url = https://github.com/landcold7/C-Plus-Plus.git
+[submodule "third_party/graph_algorithms"]
+	path = third_party/graph_algorithms
+	url = git@github.com:landcold7/graph_algorithms.git

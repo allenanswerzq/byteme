@@ -44,9 +44,9 @@ TreeNode* build(vi& aa, int lo, int hi) {
 class Solution {
 public:
   TreeNode* sortedArrayToBST(vector<int>& aa) {
-    int n = sz(aa);
-    if (n == 0) return null;
-    return build(aa, 0, sz(aa) - 1); 
+  int n = sz(aa);
+  if (n == 0) return null;
+  return build(aa, 0, sz(aa) - 1); 
   }
 };
 

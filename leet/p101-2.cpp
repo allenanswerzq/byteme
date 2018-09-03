@@ -35,7 +35,7 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   bool isSymmetric(TreeNode* root) {
-    if (!root) return 1;
+  if (!root) return 1;
   }
 };
 

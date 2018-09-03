@@ -3,31 +3,31 @@
 using namespace std;
 
 void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
+  cout << "[ ";
+  for (auto x:v)
+    cout << x << " ";
+  cout <<"] " << endl;
 }
 
 // Accepted
 int minDepth(TreeNode* root) {
-    if (!root) return 0;
-    if (!root->left && !root->right) return 1;
-    int res = INT_MAX;
-    if (root->left)
-        res = min(res, minDepth(root->left));
-    if (root->right)
-        res = min(res, minDepth(root->right));
-    return 1 + res;
+  if (!root) return 0;
+  if (!root->left && !root->right) return 1;
+  int res = INT_MAX;
+  if (root->left)
+    res = min(res, minDepth(root->left));
+  if (root->right)
+    res = min(res, minDepth(root->right));
+  return 1 + res;
 }
 
 int minDepth(TreeNode* root) {
-    if (!root) return 0;
-    int L = minDepth(root->left);
-    int R = minDepth(root->right);
-    return 1 + (min(L, R) ? min(L, R) : max(L, R));
+  if (!root) return 0;
+  int L = minDepth(root->left);
+  int R = minDepth(root->right);
+  return 1 + (min(L, R) ? min(L, R) : max(L, R));
 }
 
 int main(int argc, char** argv) {
-    return 0;
+  return 0;
 }

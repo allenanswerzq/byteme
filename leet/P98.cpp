@@ -8,7 +8,7 @@ bool isBST(TreeNode* root, ll mi, ll mx) {
   if (!root) return true;
   if (root->val < mi || root->val > mx) return false;
   return isBST(root->left, mi, root->val - 1) && 
-         isBST(root->right, root->val + 1, mx); 
+     isBST(root->right, root->val + 1, mx); 
 }
 
 bool isValidBST(TreeNode* root) {

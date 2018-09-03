@@ -11,39 +11,39 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class NumArray {
 public:
   NumArray(vector<int> aa) {
-    n = sz(aa);
-    bb = aa;
-    bit.resize(n + 1);
+  n = sz(aa);
+  bb = aa;
+  bit.resize(n + 1);
 
-    fori (i, 0, n)
-      add(i, aa[i]);
+  fori (i, 0, n)
+    add(i, aa[i]);
   }
   
   int query(int ix) {
-    int res = 0;
-    ix += 1;
-    while (ix > 0) {
-      res += bit[ix];
-      ix -= ix & (-ix);
-    }
-    return res;
+  int res = 0;
+  ix += 1;
+  while (ix > 0) {
+    res += bit[ix];
+    ix -= ix & (-ix);
+  }
+  return res;
   }
 
   void add(int ix, int inp) {
-    ix += 1;
-    while (ix <= n) {
-      bit[ix] += inp;
-      ix += ix & (-ix);
-    }
+  ix += 1;
+  while (ix <= n) {
+    bit[ix] += inp;
+    ix += ix & (-ix);
+  }
   }
   
   void update(int ix, int inp) { 
-    add(ix, inp - bb[ix]);
-    bb[ix] = inp;
+  add(ix, inp - bb[ix]);
+  bb[ix] = inp;
   } 
 
   int sumRange(int i, int j) {
-    return query(j) - query(i-1); 
+  return query(j) - query(i-1); 
   }
 
   // Size of the input data.

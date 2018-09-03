@@ -26,20 +26,20 @@ vi dynamic(vi& pre, int m, int k) {
 class Solution {
 public:
   vector<int> maxSumOfThreeSubarrays(vector<int>& aa, int k) {
-    int n, m;
-    vi res;
-    n = sz(aa);
-    m = n - k + 1;
-    vi pre(m, 0);
+  int n, m;
+  vi res;
+  n = sz(aa);
+  m = n - k + 1;
+  vi pre(m, 0);
 
-    fori (i, 0, k) pre[0] += aa[i];
-    fori (i, 1, m) {
-      pre[i] += pre[i - 1] + aa[i + k - 1] - aa[i - 1];
-    } 
+  fori (i, 0, k) pre[0] += aa[i];
+  fori (i, 1, m) {
+    pre[i] += pre[i - 1] + aa[i + k - 1] - aa[i - 1];
+  } 
 
-    // int mx = dfs(pre, 3, m, k, 0, res);
-    dynamic(pre, 3, k);
-    return res;
+  // int mx = dfs(pre, 3, m, k, 0, res);
+  dynamic(pre, 3, k);
+  return res;
   }
 };
 

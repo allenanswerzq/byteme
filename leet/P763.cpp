@@ -9,7 +9,7 @@ int cmp(double x, double y = 0, double tol = EPS) {
 
 class Solution {
 public:
-    vector<int> partitionLabels(string S) {
+  vector<int> partitionLabels(string S) {
  			map<char, int> mp;      
  			int n = SZ(S);
  			// find maximum index for each characters
@@ -26,5 +26,5 @@ public:
  				i = k+1;
  			}
  			return ret;
-    }
+  }
 };

@@ -13,14 +13,14 @@ unordered_map<int, unordered_map<int, double>> mp;
 
 double go(int aa, int bb) {
   if (aa == 0 && bb)
-    return 1;
+  return 1;
   else if (aa == 0 && bb == 0)
-    return 0.5;
+  return 0.5;
   else if (aa && bb == 0)
-    return 0;
+  return 0;
 
   if (mp[aa][bb])
-    return mp[aa][bb];
+  return mp[aa][bb];
 
   double res = 0;
   res += 0.25 * go(aa - min(aa, 100), bb);
@@ -36,8 +36,8 @@ double go(int aa, int bb) {
 class Solution {
 public:
   double soupServings(int n) {
-    if (n > 50000) return 1;
-    return go(n, n);
+  if (n > 50000) return 1;
+  return go(n, n);
   }
 };
 

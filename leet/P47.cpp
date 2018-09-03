@@ -1,49 +1,48 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (int x:v)
-      cout << x << " ";
-    cout <<"] " << endl;
-}
+#define vi vector<int>
+#define vvi vector<vi>
 
-void bt(vector<int>& A, vector<int>& ans, vector<vector<int>>& res, vector<bool>& visit) {
-	int n = A.size();
-	if (ans.size() == n) {
-		// printVector(ans);
-		res.push_back(ans);
-		return;
-	}	
+class Solution {
+public:
+	void bt(vi& aa, vi& path, vvi& res, vector<bool>& visit) {
+		int n = aa.size();
+		if (path.size() == n) {
+			res.push_back(path);
+			return;
+		}	
 
-	for(int i=0; i<n; ++i) {
-		if (visit[i]) continue;
-		if (i>0 && A[i]==A[i-1] && visit[i-1]) continue;
-		// cout << i << " " << A[i] << endl;
-		visit[i] = true;
-		ans.push_back(A[i]);
-		bt(A, ans, res, visit); 
-		ans.pop_back();
-		visit[i] = false;
+		for (int i = 0; i < n; ++i) {
+			if (visit[i]) continue;
+			if (i > 0 && aa[i] == aa[i-1] && visit[i-1]) continue;
+			visit[i] = 1;
+			path.push_back(aa[i]);
+			bt(aa, path, res, visit); 
+			path.pop_back();
+			visit[i] = 0;
+		}
 	}
-}
 
-vector<vector<int>> permute(vector<int>& A) {
-	vector<vector<int>> res;
-	vector<int> ans;
-	vector<bool> visit(A.size(), 0);
-	sort(A.begin(), A.end());
-	bt(A, ans, res, visit);
-	return res;
-}
+	vector<vector<int>> permute(vector<int>& aa) {
+		vector<vector<int>> res;
+		vector<int> path;
+		vector<bool> visit(aa.size(), 0);
+		sort(aa.begin(), aa.end());
+		bt(aa, path, res, visit);
+		return res;
+	}
+};
+
+void test(vi aa) {
+	Solution go;
+	vvi ret = go.permute(aa);	
+	fora (r, ret) {
+		pvi(r);
+	}
+}    
 
 int main(int argc, char** argv) {
-	int n[] = {1, 1, 2};
-	vector<int> v(n, n+3);
-	vector<vector<int>> res = permute(v);
-	for (auto &a: res)
-		printVector(a);
+	test({1, 1, 2});
   return 0;
 }
-

@@ -50,17 +50,17 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   string getHint(string secret, string guess) {
-    int dp[256] = {0}, aa = 0, bb = 0;
-    fori (i, 0, sz(secret)) {
-      if (secret[i] == guess[i]) ++aa;
-      else {
-        if (dp[secret[i]] < 0) ++bb;
-        if (dp[guess[i]] > 0) ++bb;
-        dp[secret[i]]++;
-        dp[guess[i]]--;
-      } 
+  int dp[256] = {0}, aa = 0, bb = 0;
+  fori (i, 0, sz(secret)) {
+    if (secret[i] == guess[i]) ++aa;
+    else {
+    if (dp[secret[i]] < 0) ++bb;
+    if (dp[guess[i]] > 0) ++bb;
+    dp[secret[i]]++;
+    dp[guess[i]]--;
     } 
-    return to_string(aa) + "A" + to_string(bb) + "B";
+  } 
+  return to_string(aa) + "A" + to_string(bb) + "B";
   } 
 };
 

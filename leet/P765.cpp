@@ -9,7 +9,7 @@ int cmp(double x, double y = 0, double tol = EPS) {
 
 class Solution {
 public:
-    int minSwapsCouples(vector<int>& row) {
+  int minSwapsCouples(vector<int>& row) {
  			int n = SZ(row);
  			vector<int> index(n, 0);	       
  			FOR(i, 0, n)
@@ -33,5 +33,5 @@ public:
  				}
  			} 
  			return ret;
-    }
+  }
 };

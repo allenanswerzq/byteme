@@ -3,17 +3,17 @@
 using namespace std;
 
 void printVector(vector<int>& v) {
-    printf("[ ");
-    for (auto x:v)
-        printf("%d ", x);
-    printf("]\n");
+  printf("[ ");
+  for (auto x:v)
+    printf("%d ", x);
+  printf("]\n");
 }
 
 void printMatrix(vector<vector<int>>& v) {
-    printf("{\n");
-    for (auto x:v)
-    	printVector(x);
-    printf("}\n");
+  printf("{\n");
+  for (auto x:v)
+  	printVector(x);
+  printf("}\n");
 }
 
 int main(int argc, char** argv) {
@@ -25,20 +25,20 @@ int main(int argc, char** argv) {
   enum color {x=0,y=3,b};
   printf("%d \n", b);
 
-    do { \
-      int i=0; \
-      for (i=0; i<2; ++i) \
-        ret += arr[i]; \
-    } while(0)
+  do { \
+    int i=0; \
+    for (i=0; i<2; ++i) \
+    ret += arr[i]; \
+  } while(0)
 
-    int a[2][2] = {1, 1};
-    int i, ret=0;
-    for (int i=0; i<2; ++i)
-      ADD(a[i]);
+  int a[2][2] = {1, 1};
+  int i, ret=0;
+  for (int i=0; i<2; ++i)
+    ADD(a[i]);
 
-    printf("%d\n", ret);
+  printf("%d\n", ret);
 
-    struct {int a, b;}
+  struct {int a, b;}
 
-    return 0;
+  return 0;
 }

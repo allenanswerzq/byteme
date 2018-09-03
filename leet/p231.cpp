@@ -4,7 +4,7 @@ using namespace std;
 class Solution {
 public:
   bool isPowerOfTwo(int x) {
-    return x * !(x & (x-1)) > 0;
+  return x * !(x & (x-1)) > 0;
   }
 };
 

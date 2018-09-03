@@ -8,14 +8,14 @@ using namespace std;
 int minMeetingRooms(vector<Interval>& intervals) {
   map<pair<int,int>> mp;
   for (auto t : intervals) {
-    mp[{t.start, 1}]++;
-    mp[{t.end, -1}]++;
+  mp[{t.start, 1}]++;
+  mp[{t.end, -1}]++;
   }
   int rooms = 0;
   for (auto it : mp) {
-    // How many meetings are running at this time point
-    s += it.second * it.first.second;     
-    rooms = max(rooms, s);
+  // How many meetings are running at this time point
+  s += it.second * it.first.second;     
+  rooms = max(rooms, s);
   }
   return rooms;
 }
@@ -32,11 +32,11 @@ int minMeetingRooms(vector<Interval>& intervals) {
   priority_queue<int, std::vector<int>, std::greater<int>> pq;  
   pq.push(intervals[0].end); 
   for (int i=1; i<(int)intervals.size(); ++i) {
-    // We dont need a new room
-    if (intervals[i].start >= pq.top())     
-      pq.pop();
-    pq.push(intervals[i].end);
-    rooms = max(rooms, (int)pq.size());
+  // We dont need a new room
+  if (intervals[i].start >= pq.top())     
+    pq.pop();
+  pq.push(intervals[i].end);
+  rooms = max(rooms, (int)pq.size());
   }
   return rooms;
 }

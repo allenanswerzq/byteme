@@ -32,19 +32,19 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   void flatten(TreeNode* root) {
-    if (!root) return;
-    // trace(root, root->val);
-    flatten(root->left);     
-    flatten(root->right);
-    TreeNode *p = root->left;
-    TreeNode *q = root->right;
-    root->left = null;
-    root->right = null;
-    root->right = p;
-    p = root;
-    while (p && p->right) p = p->right;
-    p->right = q;
-    return ;
+  if (!root) return;
+  // trace(root, root->val);
+  flatten(root->left);     
+  flatten(root->right);
+  TreeNode *p = root->left;
+  TreeNode *q = root->right;
+  root->left = null;
+  root->right = null;
+  root->right = p;
+  p = root;
+  while (p && p->right) p = p->right;
+  p->right = q;
+  return ;
   }
 };
 

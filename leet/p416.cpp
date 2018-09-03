@@ -14,9 +14,9 @@ bool canPartitionRecu(vi& bb, int goal, int n) {
   // if (n == 0 && goal) return 0;
   if (n == 1) return goal == bb[n-1];
   if (bb[n-1] > goal)
-    return canPartitionRecu(goal, n-1);
+  return canPartitionRecu(goal, n-1);
   return canPartitionRecu(goal, n - 1) || 
-         canPartitionRecu(goal - bb[n-1], n - 1);
+     canPartitionRecu(goal - bb[n-1], n - 1);
 }
 
 const int M = 10000;
@@ -29,21 +29,21 @@ bool canPartitionDP(vi& bb, int goal) {
   n = sz(bb);
   mst(dp, 0);
   fori (i, 0, goal+1) {
-    // Length of the array which might contain the subset 
-    // that its sum can equal to goal i.
-    fori (j, 0, n+1) { 
-      if (i == 0 && j == 0)
-        dp[0][0] = 1;
-      else if (i == 0) 
-        dp[0][j] = 1;
-      else if (j == 0)
-        dp[i][0] = 0;
-      else {
-        dp[i][j] = dp[i][j-1]; // Not include the last element.
-        if (i >= bb[j - 1])
-          dp[i][j] = dp[i][j] || dp[i - bb[j - 1]][j - 1];
-      }
-    } 
+  // Length of the array which might contain the subset 
+  // that its sum can equal to goal i.
+  fori (j, 0, n+1) { 
+    if (i == 0 && j == 0)
+    dp[0][0] = 1;
+    else if (i == 0) 
+    dp[0][j] = 1;
+    else if (j == 0)
+    dp[i][0] = 0;
+    else {
+    dp[i][j] = dp[i][j-1]; // Not include the last element.
+    if (i >= bb[j - 1])
+      dp[i][j] = dp[i][j] || dp[i - bb[j - 1]][j - 1];
+    }
+  } 
   }
 
   return dp[goal][n];;
@@ -52,14 +52,14 @@ bool canPartitionDP(vi& bb, int goal) {
 class Solution {
 public:
   bool canPartition(vector<int>& aa) {
-    bb = aa;
-    int n, sum;
-    n = sz(aa);
-    if (n <= 1) return 0; 
-    sum = accumulate(all(aa), 0);
-    if (sum % 2) return 0;
-    // return canPartitionRecu(sum / 2, n);
-    return canPartitionDP(aa, sum / 2);
+  bb = aa;
+  int n, sum;
+  n = sz(aa);
+  if (n <= 1) return 0; 
+  sum = accumulate(all(aa), 0);
+  if (sum % 2) return 0;
+  // return canPartitionRecu(sum / 2, n);
+  return canPartitionDP(aa, sum / 2);
   }
 };
 

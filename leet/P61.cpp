@@ -3,10 +3,10 @@
 using namespace std;
 
 void printVector(vector<int>& v) {
-    cout << "[ ";
-    for (auto x:v)
-        cout << x << " ";
-    cout <<"] " << endl;
+  cout << "[ ";
+  for (auto x:v)
+    cout << x << " ";
+  cout <<"] " << endl;
 }
 
 // carefully read the statement for problems
@@ -37,5 +37,5 @@ ListNode* rotateRight(ListNode* head, int k) {
 }
 
 int main(int argc, char** argv) {
-    return 0;
+  return 0;
 }

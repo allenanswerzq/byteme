@@ -20,12 +20,12 @@ vs missingRange(vi& aa, int lo, int hi) {
   aa.insert(aa.begin(), lo - 1);
   aa.insert(aa.end(), hi + 1);
   fori (i, 0, sz(aa) - 1) {
-    int ss = aa[i], tt = aa[i+1]; 
-    if (tt - ss + 1 == 3) {
-      res.pb(to_string(ss + 1));
-    } else if (tt - ss + 1 > 3) {
-      res.pb(to_string(ss + 1) + "->" + to_string(tt - 1));
-    }
+  int ss = aa[i], tt = aa[i+1]; 
+  if (tt - ss + 1 == 3) {
+    res.pb(to_string(ss + 1));
+  } else if (tt - ss + 1 > 3) {
+    res.pb(to_string(ss + 1) + "->" + to_string(tt - 1));
+  }
   }
   return res;
 }

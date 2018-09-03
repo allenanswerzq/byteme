@@ -36,23 +36,23 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   int height(TreeNode* root) {
-    if (!root) return 0;
-    return max(height(root->left), 
-               height(root->right)) + 1;
+  if (!root) return 0;
+  return max(height(root->left), 
+         height(root->right)) + 1;
   }
 
   int countNodes(TreeNode* root) {
-    if (!root) return 0;
-    int res = 0;
-    deque<TreeNode*> q;
-    q.pb(root);
-    while (sz(q)) {
-      ++res;
-      auto cur = q.fr(); q.ppf();
-      if (cur->left) q.pb(cur->left);
-      if (cur->right) q.pb(cur->right);
-    }    
-    return res;
+  if (!root) return 0;
+  int res = 0;
+  deque<TreeNode*> q;
+  q.pb(root);
+  while (sz(q)) {
+    ++res;
+    auto cur = q.fr(); q.ppf();
+    if (cur->left) q.pb(cur->left);
+    if (cur->right) q.pb(cur->right);
+  }    
+  return res;
   }
 };
 

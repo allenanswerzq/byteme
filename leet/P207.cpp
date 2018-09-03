@@ -13,7 +13,7 @@ using namespace std;
 //       graph[a[1]].push_back(a[0]);
 //       ++in[a[0]];
 //     }
-    
+  
 //     queue<int> q;
 //     for (int i = 0; i < numCourses; ++i) {
 //       if (in[i] == 0) q.push(i);
@@ -69,7 +69,7 @@ void makeGraph(int n, vector<pair<int, int>>& pre) {
   gg.resize(n);
   visit.resize(n);
   for (auto pair: pre) {
-    gg[pair.second].push_back(pair.first);
+  gg[pair.second].push_back(pair.first);
   }
 }
 
@@ -79,7 +79,7 @@ bool dfs(int i) {
   if (visit[i] == 1) return 1;
   visit[i] = 1;
   for (auto nxt : gg[i]) {
-    if (dfs(nxt)) return 1;
+  if (dfs(nxt)) return 1;
   }
   visit[i] = 0;
 
@@ -90,15 +90,15 @@ bool canFinish(int numCourses, vector<pair<int, int>>& pre) {
   makeGraph(numCourses, pre); 
 
   for (int i=0; i<numCourses; ++i) {
-    if (dfs(i)) return 0;
+  if (dfs(i)) return 0;
   }
 
   return 1;
 }
 
 int main(int argc, char** argv) {
-    vpii aa = {{0, 1}, {0, 2}, {1, 2}};
-    bool r = canFinish(3, aa);
-    cout << r << endl;
-    return 0;
+  vpii aa = {{0, 1}, {0, 2}, {1, 2}};
+  bool r = canFinish(3, aa);
+  cout << r << endl;
+  return 0;
 }

@@ -30,24 +30,24 @@ class MedianFinder {
 public:
   /** initialize your data structure here. */
   MedianFinder() {
-        
+    
   }
   
   void addNum(int num) {
-    samll.push(num);       
-    // Push the current maximum value into the large heap.
-    large.push(-small.top());
-    small.pop();
-    if (small.size() < large.size()) {
-      small.push(-large.top());
-      large.pop();
-    }
+  samll.push(num);       
+  // Push the current maximum value into the large heap.
+  large.push(-small.top());
+  small.pop();
+  if (small.size() < large.size()) {
+    small.push(-large.top());
+    large.pop();
+  }
   }
   
   double findMedian() {
-    return samll.size() > large.size()
-           ? small.top()
-           : (small.top() - large.top()) / 2.0; 
+  return samll.size() > large.size()
+       ? small.top()
+       : (small.top() - large.top()) / 2.0; 
   }
 
 private:

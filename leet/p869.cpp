@@ -25,7 +25,7 @@ int dcmp(double x, double y = 0, double tol = eps) {
 bool check(int aa) {
   int res = 1;
   while (res < aa) {
-    res *= 2;
+  res *= 2;
   }
   return res == aa;
 }
@@ -33,24 +33,24 @@ bool check(int aa) {
 class Solution {
 public:
   bool reorderedPowerOf2(int aa) {
-    vi bb;
-    while (aa) {
-      bb.pb(aa % 10); 
-      aa /= 10;
-    }  
-    sort(all(bb));
-    do {
-      // pvi(bb);
-      int x = 0;
-      if (bb[0] == 0) continue; 
-      fori (i, 0, sz(bb)) {
-        x *= 10; 
-        x += bb[i];
-      }
-      // trace(x);
-      if (check(x)) return 1;
-    } while (next_permutation(all(bb)));
-    return 0;
+  vi bb;
+  while (aa) {
+    bb.pb(aa % 10); 
+    aa /= 10;
+  }  
+  sort(all(bb));
+  do {
+    // pvi(bb);
+    int x = 0;
+    if (bb[0] == 0) continue; 
+    fori (i, 0, sz(bb)) {
+    x *= 10; 
+    x += bb[i];
+    }
+    // trace(x);
+    if (check(x)) return 1;
+  } while (next_permutation(all(bb)));
+  return 0;
   }
 };
 

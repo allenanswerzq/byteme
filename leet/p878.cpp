@@ -25,13 +25,13 @@ const int mod = 1e9 + 7;
 class Solution {
 public:
   int nthMagicalNumber(int N, int A, int B) {
-    ll res = 1;
-    ll cur = 1;
-    int a = min(A, B);
-    int b = max(A, B);
-    fori (i, 1, N) {
-    } 
-    
+  ll res = 1;
+  ll cur = 1;
+  int a = min(A, B);
+  int b = max(A, B);
+  fori (i, 1, N) {
+  } 
+  
   }
 };
 

@@ -4,22 +4,22 @@ using namespace std;
 class Solution {
 public:
   int lengthOfLIS(vector<int>& aa) {
-    int n = sz(aa);
-    if (n <= 1) return n;
-    int dp[n];
-    mst(dp, 0);
-    dp[0] = 1;    
-    fori (i, 1, n) {
-      fori (j, 0, i) {
-        if (aa[i] > aa[j])
-          dp[i] = max(dp[i], dp[j] + 1); 
-      }
+  int n = sz(aa);
+  if (n <= 1) return n;
+  int dp[n];
+  mst(dp, 0);
+  dp[0] = 1;    
+  fori (i, 1, n) {
+    fori (j, 0, i) {
+    if (aa[i] > aa[j])
+      dp[i] = max(dp[i], dp[j] + 1); 
     }
+  }
 
-    int res = 0;
-    fori (i, 0, n)
-      res = max(res, dp[i]);
-    return res;
+  int res = 0;
+  fori (i, 0, n)
+    res = max(res, dp[i]);
+  return res;
   }
 };
 

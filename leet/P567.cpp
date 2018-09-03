@@ -28,7 +28,7 @@ public:
 		}
 		return false;
 	}
-    bool checkInclusion2(string s1, string s2) {
+  bool checkInclusion2(string s1, string s2) {
 		int m = s1.length(), n = s2.length();
 		if (m > n) return false;
 		vector<int> cnt(26);
@@ -46,14 +46,14 @@ public:
 		return false;
 	}
 
-    bool checkInclusion1(string s1, string s2) {
+  bool checkInclusion1(string s1, string s2) {
 		do {
 			size_t found = s2.find(s1);
 			if (found != string::npos) 
 				return true;	
 		} while (next_permutation(s1.begin(), s1.end()) ); 
 		return false;
-    }
+  }
 };
 
 int main() {

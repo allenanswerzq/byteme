@@ -2,25 +2,12 @@
 // ref: http://www.geeksforgeeks.org/partition-set-k-subsets-equal-sum/
 // ref: https://www.hackerearth.com/practice/notes/bit-manipulation/
 
-void printVector(vector<int>& v) {
-    printf("[ ");
-    for (auto x:v)
-        printf("%d ", x);
-    printf("]\n");
-}
-
-void printMatrix(vector<vector<int>>& v) {
-	printf("{\n");
-	for (auto x:v)
-		printVector(x);
-	printf("}\n");
-}
-
-bool dfs(vector<int>& nums, vector<vector<int>>& path, vector<int>& subSetSum, vector<int>& taken, int sum, int idx, int k, int lastIdx) {
+bool dfs(vector<int>& nums, vector<vector<int>>& path, vector<int>& subSetSum, 
+         vector<int>& taken, int sum, int idx, int k, int lastIdx) {
   if (subSetSum[idx] == sum) {
-    if (idx == k-1)
-      return true;
-    return dfs(nums, path, subSetSum, taken, sum, idx+1, k, nums.size()-1);
+  if (idx == k-1)
+    return true;
+  return dfs(nums, path, subSetSum, taken, sum, idx+1, k, nums.size()-1);
   }
 
   // lastIdx from where elements should be taken
@@ -29,19 +16,19 @@ bool dfs(vector<int>& nums, vector<vector<int>>& path, vector<int>& subSetSum, v
     if (taken[i]) continue;
     int tmp = subSetSum[idx] + nums[i];
     if (tmp <= sum) {
-        taken[i] = 1;
-        subSetSum[idx] += nums[i];
-        path[idx].push_back(nums[i]);
-        bool next = dfs(nums, path, subSetSum, taken, sum, idx, k, i-1);
+      taken[i] = 1;
+      subSetSum[idx] += nums[i];
+      path[idx].push_back(nums[i]);
+      bool next = dfs(nums, path, subSetSum, taken, sum, idx, k, i-1);
 
-        // After taken nums[i] we can partition then just return
-        if (next)
-          return true;
+      // After taken nums[i] we can partition then just return
+      if (next)
+        return true;
 
-        // if cannt, remove already taken nums[i] and find a new one
-        taken[i] = 0;
-        subSetSum[idx] -= nums[i];
-        path[idx].pop_back();
+      // if cannt, remove already taken nums[i] and find a new one
+      taken[i] = 0;
+      subSetSum[idx] -= nums[i];
+      path[idx].pop_back();
 
     }
   }
@@ -57,7 +44,7 @@ bool canPartitionKSubsets(vector<int>& nums, int k) {
 
   int sum = 0;
   for (auto n: nums)
-    sum += n;
+  sum += n;
   // if sum cant divide by k then we cant partition k subsets that have euqal sum
   if (sum % k != 0)
    return false;
@@ -92,12 +79,12 @@ vector<int> a;
 int dfs(int bit, int sum) {
   if (bit == 0) return 1; // no elements can be taken
   for (int i=(1<<a.size())-1; i>=0; i--) {
-    i &= bit;             // get all available elements
+    i &= bit;
 
     int tot = 0;
     for (int j=0; j<a.size(); j++)
       if (i & (1<<j))
-        tot += a[j];
+      tot += a[j];
 
     if (tot == sum) {
       int tmp = dfs(bit ^ i, sum);
@@ -109,14 +96,14 @@ int dfs(int bit, int sum) {
 
 class Solution {
 public:
-    bool canPartitionKSubsets(vector<int>& nums, int k) {
-      int i,sum;
-      sum=0;
-      for (i=0;i<nums.size();i++)
-        sum+=nums[i];
-      if (sum%k!=0) return false;
-      sum/=k;
-      a=nums;
-      return dfs((1<<a.size())-1,sum);
-    }
+  bool canPartitionKSubsets(vector<int>& nums, int k) {
+    int i,sum;
+    sum=0;
+    for (i=0;i<nums.size();i++)
+      sum+=nums[i];
+    if (sum%k!=0) return false;
+    sum/=k;
+    a=nums;
+    return dfs((1<<a.size())-1,sum);
+  }
 };

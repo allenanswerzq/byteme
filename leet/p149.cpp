@@ -29,32 +29,32 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   int maxPoints(vector<Point>& points) {
-    int n = sz(points);
-    int res = 0;
-    unordered_map<ll, int> mp;
-    int cur, overlap, vertical;
-    fori (i, 0, n) {
-      cur = overlap = vertical = 0;
-      fori (j, i + 1, n) {
-        ll dy = points[j].y - points[i].y;
-        ll dx = points[j].x - points[i].x;
-        if (dx == 0 && dy == 0)
-          ++overlap;
-        else if (dx ==0)
-          ++vertical;
-        else {
-          int g = __gcd(dx, dy);
-          dx /= g;
-          dy /= g;
-          mp[(dy << 32) | dx]++;
-          cur = max(cur, mp[(dy << 32) | dx]);
-        }
-        cur = max(cur, vertical);
-      }
-      mp.clear();
-      res = max(res, cur + overlap + 1); 
-    }       
-    return res;
+  int n = sz(points);
+  int res = 0;
+  unordered_map<ll, int> mp;
+  int cur, overlap, vertical;
+  fori (i, 0, n) {
+    cur = overlap = vertical = 0;
+    fori (j, i + 1, n) {
+    ll dy = points[j].y - points[i].y;
+    ll dx = points[j].x - points[i].x;
+    if (dx == 0 && dy == 0)
+      ++overlap;
+    else if (dx ==0)
+      ++vertical;
+    else {
+      int g = __gcd(dx, dy);
+      dx /= g;
+      dy /= g;
+      mp[(dy << 32) | dx]++;
+      cur = max(cur, mp[(dy << 32) | dx]);
+    }
+    cur = max(cur, vertical);
+    }
+    mp.clear();
+    res = max(res, cur + overlap + 1); 
+  }       
+  return res;
   }
 };
 

@@ -31,28 +31,28 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   bool isAdditiveNumber(string inp) {
-    int n = sz(inp);
-    fori (i, 1, n) {
-      fori (j, i + 1, n) {
-        string aa = inp.substr(0, i);
-        string bb = inp.substr(i, j - i); 
-        if ((sz(aa)>1 && aa[0]=='0') || (sz(bb)>1 && bb[0]=='0')) 
-          continue;
-        ll d1 = stoll(aa);
-        ll d2 = stoll(bb);     
-        // trace(aa, bb, d1, d2);
-        ll d3 = d1 + d2;
-        string cc = aa + bb + to_string(d3);
-        while (sz(cc) < sz(inp)) {
-          d1 = d2;
-          d2 = d3; 
-          d3 = d1 + d2;
-          cc = cc + to_string(d3);
-        }
-        if (cc == inp) return 1;
-      }
-    } 
-    return false;
+  int n = sz(inp);
+  fori (i, 1, n) {
+    fori (j, i + 1, n) {
+    string aa = inp.substr(0, i);
+    string bb = inp.substr(i, j - i); 
+    if ((sz(aa)>1 && aa[0]=='0') || (sz(bb)>1 && bb[0]=='0')) 
+      continue;
+    ll d1 = stoll(aa);
+    ll d2 = stoll(bb);     
+    // trace(aa, bb, d1, d2);
+    ll d3 = d1 + d2;
+    string cc = aa + bb + to_string(d3);
+    while (sz(cc) < sz(inp)) {
+      d1 = d2;
+      d2 = d3; 
+      d3 = d1 + d2;
+      cc = cc + to_string(d3);
+    }
+    if (cc == inp) return 1;
+    }
+  } 
+  return false;
   } 
 };
 
