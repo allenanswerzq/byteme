@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-  cout << x << " ";
+    cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -15,9 +15,9 @@ void printVector(vector<int>& v) {
 void bt(vector<vector<int>>& res, vector<int>& ans, vector<int>& A, int x) {
   res.push_back(ans);
   for (int i=x; i<A.size(); ++i) {
-  ans.push_back(A[i]);
-  bt(res, ans, A, i+1);
-  ans.pop_back();
+    ans.push_back(A[i]);
+    bt(res, ans, A, i+1);
+    ans.pop_back();
   }
 }
 

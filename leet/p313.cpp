@@ -36,14 +36,14 @@ public:
   vi dp(kk, (1<<30)); 
   dp[0] = 1;
   fori (i, 1, kk) {
-  fori (j, 0, n) 
-  dp[i] = min(dp[i], dp[idx[j]] * primes[j]); 
+    fori (j, 0, n) 
+    dp[i] = min(dp[i], dp[idx[j]] * primes[j]); 
 
-  fori (j, 0, n) {
-  if (dp[i] == dp[idx[j]] * primes[j]) 
-    ++idx[j];
-  }  
-   
+    fori (j, 0, n) {
+    if (dp[i] == dp[idx[j]] * primes[j]) 
+      ++idx[j];
+    }  
+     
   }
   return dp[kk-1];
   }

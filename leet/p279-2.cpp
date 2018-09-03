@@ -26,12 +26,12 @@ public:
   mst(dp, 0);
   dp[1] = 1;
   fori(i, 2, n+1) {
-  int res = i;
-  fori(j, 1, i) {
-  if (j * j > i) break;
-    res = min(res, dp[i - j * j] + 1);
-  }
-  dp[i] = res;
+    int res = i;
+    fori(j, 1, i) {
+    if (j * j > i) break;
+      res = min(res, dp[i - j * j] + 1);
+    }
+    dp[i] = res;
   }
   return dp[n];
   }

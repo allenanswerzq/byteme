@@ -10,11 +10,11 @@ bool isIsomorphic(string s, string t) {
   mst(bb, 0);
   for (int i=0; i<s.size(); ++i) {
   if ( !aa.count(s[i]) && !bb.count(t[i]) ) {
-  aa[s[i]] = t[i];
-  bb[t[i]] = s[i];
+    aa[s[i]] = t[i];
+    bb[t[i]] = s[i];
   } else {
-  if (aa[s[i]] != t[i] || bb[t[i]] != s[i]) 
-  return false; 
+    if (aa[s[i]] != t[i] || bb[t[i]] != s[i]) 
+    return false; 
   }
   }
   return true;

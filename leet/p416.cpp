@@ -16,7 +16,7 @@ bool canPartitionRecu(vi& bb, int goal, int n) {
   if (bb[n-1] > goal)
   return canPartitionRecu(goal, n-1);
   return canPartitionRecu(goal, n - 1) || 
-   canPartitionRecu(goal - bb[n-1], n - 1);
+     canPartitionRecu(goal - bb[n-1], n - 1);
 }
 
 const int M = 10000;
@@ -32,17 +32,17 @@ bool canPartitionDP(vi& bb, int goal) {
   // Length of the array which might contain the subset 
   // that its sum can equal to goal i.
   fori (j, 0, n+1) { 
-  if (i == 0 && j == 0)
-  dp[0][0] = 1;
-  else if (i == 0) 
-  dp[0][j] = 1;
-  else if (j == 0)
-  dp[i][0] = 0;
-  else {
-  dp[i][j] = dp[i][j-1]; // Not include the last element.
-  if (i >= bb[j - 1])
-    dp[i][j] = dp[i][j] || dp[i - bb[j - 1]][j - 1];
-  }
+    if (i == 0 && j == 0)
+    dp[0][0] = 1;
+    else if (i == 0) 
+    dp[0][j] = 1;
+    else if (j == 0)
+    dp[i][0] = 0;
+    else {
+    dp[i][j] = dp[i][j-1]; // Not include the last element.
+    if (i >= bb[j - 1])
+      dp[i][j] = dp[i][j] || dp[i - bb[j - 1]][j - 1];
+    }
   } 
   }
 

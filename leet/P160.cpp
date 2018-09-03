@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-  cout << x << " ";
+    cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -20,22 +20,22 @@ ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
   if (la==0 || lb==0) return NULL;
   ListNode *p=headA, *q=headB;
   if (la > lb) {
-  int x = la-lb;
-  while (x) {
-    p = p->next;
-    --x;
-  }
+    int x = la-lb;
+    while (x) {
+      p = p->next;
+      --x;
+    }
   } else {
-  int x = lb - la;
-  while (x) {
-    q = q->next;
-    --x;
-  }
+    int x = lb - la;
+    while (x) {
+      q = q->next;
+      --x;
+    }
   } 
   while (p && q) {
-  if (p == q) return p;
-  p = p->next;
-  q = q->next;
+    if (p == q) return p;
+    p = p->next;
+    q = q->next;
   }
   return NULL;
 }
@@ -49,13 +49,13 @@ ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
   ListNode *q = la > lb ? headB:headA; 
   int x = abs(la-lb);
   while (x) {
-  p = p->next;
-  --x;
+    p = p->next;
+    --x;
   }
   while (p && q) {
-  if (p == q) return p;
-  p = p->next;
-  q = q->next;
+    if (p == q) return p;
+    p = p->next;
+    q = q->next;
   }
   return NULL;
 }

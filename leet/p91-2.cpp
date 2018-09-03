@@ -35,15 +35,15 @@ public:
   dp[0] = 1;
   dp[1] = 1;
   fori (i, 2, n+1) {
-  int j = i - 1;
-  if (s[j] != '0')
-  dp[i] += dp[i-1]; 
-  
-  if (s[j-1] != '0') {
-  int x = stoi(s.substr(j-1, 2));
-  if (1 <= x && x <= 26)
-    dp[i] += dp[i-2];
-  }
+    int j = i - 1;
+    if (s[j] != '0')
+    dp[i] += dp[i-1]; 
+    
+    if (s[j-1] != '0') {
+    int x = stoi(s.substr(j-1, 2));
+    if (1 <= x && x <= 26)
+      dp[i] += dp[i-2];
+    }
   }
   return dp[n];
   }

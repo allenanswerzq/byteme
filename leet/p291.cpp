@@ -45,16 +45,16 @@ bool go(string aa, int xx, string bb, int yy) {
   fori (i, yy, sz(bb)) {
   string tmp = bb.str(yy, i - yy + 1); 
   if (mp.count(ch) && mp[ch] == tmp) {
-  if (go(aa, xx + 1, bb, i + 1))
-  return 1;
+    if (go(aa, xx + 1, bb, i + 1))
+    return 1;
   } else if (!mp.count(ch)) {
-  if (st.count(tmp)) continue;
-  mp[ch] = tmp;
-  st.insert(tmp);
-  if (go(aa, xx + 1, bb, i + 1))
-  return 1;
-  mp.erase(ch);
-  st.erase(tmp);
+    if (st.count(tmp)) continue;
+    mp[ch] = tmp;
+    st.insert(tmp);
+    if (go(aa, xx + 1, bb, i + 1))
+    return 1;
+    mp.erase(ch);
+    st.erase(tmp);
   }
   } 
   return 0;

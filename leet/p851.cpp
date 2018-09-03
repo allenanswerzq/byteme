@@ -25,8 +25,8 @@ int dfs(int x) {
   int t = dfs(g[i]);
   cache[g[i]] = t;
   if (quiet[t] < least) {
-  least = quiet[t];
-  least_idx = t;
+    least = quiet[t];
+    least_idx = t;
   }
   }
   return least_idx;
@@ -35,30 +35,30 @@ int dfs(int x) {
 class Solution {
 public:
   vector<int> loudAndRich(vector<vector<int>>& richer, 
-        vector<int>& q) {
+              vector<int>& q) {
   quiet = q;
   int n = sz(q);
   mp.clear();
   mst(cache, 0);
 
   fora(v, richer) {
-  int lo = v[1];
-  int hi = v[0];
-  mp[lo].pb(hi);
+    int lo = v[1];
+    int hi = v[0];
+    mp[lo].pb(hi);
   }
 
   fora(it, mp) {
-  vi g = it.se;
-  cout << it.fi << ": ";
-  pvi(g);
+    vi g = it.se;
+    cout << it.fi << ": ";
+    pvi(g);
   }
 
   vi res;   
   fori(i, 0, sz(q)) {
-  int r;
-  if (cache[i] > 0) r = cache[i];
-  else r = dfs(i);
-  res.pb(r);
+    int r;
+    if (cache[i] > 0) r = cache[i];
+    else r = dfs(i);
+    res.pb(r);
   }
   return res;
   }

@@ -18,11 +18,11 @@ public:
   int a, b, c;
   a = b = c = 1; 
   fori(i, 2, n+1) {
-  int cur = dp[i-1];
-  while (dp[a] * 2 <= cur) ++a;
-  while (dp[b] * 3 <= cur) ++b;
-  while (dp[c] * 5 <= cur) ++c;
-  dp[i] = min(dp[a] * 2, min(dp[b] * 3, dp[c] * 5));
+    int cur = dp[i-1];
+    while (dp[a] * 2 <= cur) ++a;
+    while (dp[b] * 3 <= cur) ++b;
+    while (dp[c] * 5 <= cur) ++c;
+    dp[i] = min(dp[a] * 2, min(dp[b] * 3, dp[c] * 5));
   }    
   return dp[n];
   }

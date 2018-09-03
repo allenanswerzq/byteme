@@ -11,8 +11,8 @@ public:
   dp[0] = aa[0];
   int res = aa[0];
   fori (i, 1, n) {
-  dp[i] = max(aa[i], dp[i-1] + aa[i]); 
-  res = max(res, dp[i]);
+    dp[i] = max(aa[i], dp[i-1] + aa[i]); 
+    res = max(res, dp[i]);
   } 
   return res;
   }
@@ -25,8 +25,8 @@ public:
   int tmp = 0;
   int res = 0;
   fori (i, 0, n) {
-  tmp = max(aa[i], tmp + aa[i]); 
-  res = max(res, tmp);
+    tmp = max(aa[i], tmp + aa[i]); 
+    res = max(res, tmp);
   } 
   return res;
   }

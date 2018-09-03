@@ -36,32 +36,32 @@ public:
   if (rr <= 0) return;
   int cc = sz(board[0]);
   fori (i, 0, rr)
-  fori (j, 0, cc)
-  if (board[i][j] == bb) 
-    board[i][j] = aa; 
+    fori (j, 0, cc)
+    if (board[i][j] == bb) 
+      board[i][j] = aa; 
 
   // Left side edge
   fori (i, 0, rr)
-  if (board[i][0] == aa)
-  dfs(board, i, 0, aa, bb);
+    if (board[i][0] == aa)
+    dfs(board, i, 0, aa, bb);
   // Right side edge
   fori (i, 0, rr)
-  if (board[i][cc-1] == aa)
-  dfs(board, i, cc-1, aa, bb);
+    if (board[i][cc-1] == aa)
+    dfs(board, i, cc-1, aa, bb);
   // Top side edge
   fori (i, 0, cc)
-  if (board[0][i] == aa)
-  dfs(board, 0, i, aa, bb);
+    if (board[0][i] == aa)
+    dfs(board, 0, i, aa, bb);
   // Bottom side edge
   fori (i, 0, cc) 
-  if (board[rr-1][i] == aa)
-  dfs(board, rr-1, i, aa, bb);
+    if (board[rr-1][i] == aa)
+    dfs(board, rr-1, i, aa, bb);
 
   // Step3: replace all '#' with 'X'
   fori (i,  0, rr)
-  fori (j, 0, cc) 
-  if (board[i][j] == aa)
-    board[i][j] = 'X';
+    fori (j, 0, cc) 
+    if (board[i][j] == aa)
+      board[i][j] = 'X';
 
   }
 };

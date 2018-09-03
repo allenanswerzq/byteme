@@ -26,7 +26,7 @@ bool isPalindrome(ListNode* head) {
   slow = slow->next;
   while (slow) {
   if (h->val != slow->val)
-  return false;
+    return false;
   h = h->next;
   slow = slow->next;
   }

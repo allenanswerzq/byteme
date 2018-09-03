@@ -35,12 +35,12 @@ public:
   ull lo = 1, hi = *max_element(all(aa)); 
   // trace(lo, hi);
   while (lo < hi) {
-  ull mid = lo + (hi - lo) / 2;
-  // trace(lo, hi, mid);
-  if (check(mid, aa, hh)) 
-  hi = mid;
-  else
-  lo = mid + 1;
+    ull mid = lo + (hi - lo) / 2;
+    // trace(lo, hi, mid);
+    if (check(mid, aa, hh)) 
+    hi = mid;
+    else
+    lo = mid + 1;
   }
   return lo;
   }

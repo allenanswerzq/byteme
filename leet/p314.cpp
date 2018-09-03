@@ -67,16 +67,16 @@ public:
   dq.push_back({0, root});
   
   while (sz(dq)) {
-  auto tmp = dq.front(); dq.pop_front();
-  int val = tmp.first;
-  TreeNode* cur = tmp.second;
-  mp[val].push_back(cur->val); 
-  if (cur->left) dq.push_back({val - 1, cur->left});
-  if (cur->right) dq.push_back({val + 1, cur->right});
+    auto tmp = dq.front(); dq.pop_front();
+    int val = tmp.first;
+    TreeNode* cur = tmp.second;
+    mp[val].push_back(cur->val); 
+    if (cur->left) dq.push_back({val - 1, cur->left});
+    if (cur->right) dq.push_back({val + 1, cur->right});
   } 
 
   fora (it, mp) {
-  res.push_back(it->second); 
+    res.push_back(it->second); 
   }
 
   return res;

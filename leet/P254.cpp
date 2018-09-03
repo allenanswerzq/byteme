@@ -49,13 +49,13 @@ void dfs(vector<vector<int>> &ret, vector<int> &path, int n) {
   int i = path.empty() ? 2 : path.back();
   for (; i * i <= n; ++i) {
   if (n % i == 0) {
-  path.push_back(i);
-  path.push_back(n / i);
-  ret.push_back(path); 
+    path.push_back(i);
+    path.push_back(n / i);
+    ret.push_back(path); 
 
-  path.pop_back();
-  dfs(ret, path, n / i);
-  path.pop_back();
+    path.pop_back();
+    dfs(ret, path, n / i);
+    path.pop_back();
   }
   }  
 }

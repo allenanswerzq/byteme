@@ -39,7 +39,7 @@ int go(vi& aa, int goal) {
   dp[0] = 1;
   fora (a, aa) {
   ford (i, goal, a - 1) {
-  dp[i] += dp[i - a]; 
+    dp[i] += dp[i - a]; 
   }
   }
   return dp[goal];

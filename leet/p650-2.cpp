@@ -14,13 +14,13 @@ public:
   int dp[n + 1];
   mst(dp, 0);
   fori (i, 2, n+1) {
-  dp[i] = i;
-  ford (j, i-1, 1) {
-  if (i % j == 0) 
-    // dp[j] + copy all + past i / j - 1 times
-    dp[i] = dp[j] + i / j;
-    break;
-  }
+    dp[i] = i;
+    ford (j, i-1, 1) {
+    if (i % j == 0) 
+      // dp[j] + copy all + past i / j - 1 times
+      dp[i] = dp[j] + i / j;
+      break;
+    }
   } 
   return dp[n];
   }

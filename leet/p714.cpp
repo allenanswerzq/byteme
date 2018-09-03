@@ -20,8 +20,8 @@ public:
   mst(sell, 0);
   buy[0] = -aa[0];   
   fori(i, 1, n) {
-  buy[i] = max(buy[i-1], sell[i-1] - aa[i]);  
-  sell[i] = max(sell[i-1], buy[i-1] + aa[i] - k);
+    buy[i] = max(buy[i-1], sell[i-1] - aa[i]);  
+    sell[i] = max(sell[i-1], buy[i-1] + aa[i] - k);
   }
   return max(buy[n-1], sell[n-1]);
   }

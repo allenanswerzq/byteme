@@ -17,9 +17,9 @@ public:
   dp[0] = 1;
   dp[1] = 1;
   fori (i, 2, n + 1) {
-  fori (j, 0, i) {
-  dp[i] += dp[j] * dp[i - j - 1];
-  }
+    fori (j, 0, i) {
+    dp[i] += dp[j] * dp[i - j - 1];
+    }
   }
   return dp[n];
   }

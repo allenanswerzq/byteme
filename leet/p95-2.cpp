@@ -53,12 +53,12 @@ vector<TreeNode*> create(int lo, int hi) {
   vector<TreeNode*> lefts = create(lo, i-1);
   vector<TreeNode*> rights = create(i+1, hi);
   fora (left, lefts) {
-  fora (right, rights) {
-  TreeNode *root = new TreeNode(i);
-  root->left = left;
-  root->right = right;
-  res.pb(root);
-  }
+    fora (right, rights) {
+    TreeNode *root = new TreeNode(i);
+    root->left = left;
+    root->right = right;
+    res.pb(root);
+    }
   }
   }
   return res;

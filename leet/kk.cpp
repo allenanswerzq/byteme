@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-  printf("%d ", x); 
+    printf("%d ", x); 
   printf("]\n");
 }
 
@@ -25,15 +25,15 @@ int func(int n) {
   if (n <= 2) return cnt[n];
   for (int i=3; i<=n; ++i) {
   for (int j=1; j<i; ++j) {
-  if (gcd(i, j)==1 && j==1) {cnt[i] += 5; }
-  else if( gcd(i, j)==1 && j!=1) {cnt[i] += 2; }
-  else if (gcd(i, j) > 1) {
-    int x = i / j;
-    for (int b=1; b<=n; b++)
-    for (int d=1; x*d<=n; d++) {
-    if (b == x*d) cnt[i]++;
+    if (gcd(i, j)==1 && j==1) {cnt[i] += 5; }
+    else if( gcd(i, j)==1 && j!=1) {cnt[i] += 2; }
+    else if (gcd(i, j) > 1) {
+      int x = i / j;
+      for (int b=1; b<=n; b++)
+      for (int d=1; x*d<=n; d++) {
+        if (b == x*d) cnt[i]++;
+      }
     }
-  }
   }  
   }
 

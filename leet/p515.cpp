@@ -39,15 +39,15 @@ public:
   deque<TreeNode*> q;
   q.pb(root);
   while (sz(q)) {
-  int n = sz(q);
-  int mx = nnf;
-  fori (i, 0, n) {
-  auto cur = q.fr(); q.ppf();
-  mx = max(mx, cur->val);
-  if (cur->left) q.pb(cur->left);
-  if (cur->right) q.pb(cur->right);
-  }
-  res.pb(mx);
+    int n = sz(q);
+    int mx = nnf;
+    fori (i, 0, n) {
+    auto cur = q.fr(); q.ppf();
+    mx = max(mx, cur->val);
+    if (cur->left) q.pb(cur->left);
+    if (cur->right) q.pb(cur->right);
+    }
+    res.pb(mx);
   }
   return res;
   }

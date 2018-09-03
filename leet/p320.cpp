@@ -40,21 +40,21 @@ public:
   vs res;
   int n = sz(word);
   fori (i, 0, (1 << n)) {
-  string tmp = "";
-  int cnt = 0;
-  fori (j, 0, n) {
-  if (((i >> j) & 1) == 1) ++cnt;
-  else {
-    if (cnt) {
-    tmp += to_string(cnt);
-    cnt = 0;
+    string tmp = "";
+    int cnt = 0;
+    fori (j, 0, n) {
+    if (((i >> j) & 1) == 1) ++cnt;
+    else {
+      if (cnt) {
+      tmp += to_string(cnt);
+      cnt = 0;
+      } 
+      tmp += word[j]; 
+    }
     } 
-    tmp += word[j]; 
-  }
-  } 
-  if (cnt > 0) tmp += to_string(cnt);
-  // trace(i, tmp);
-  res.push_back(tmp);
+    if (cnt > 0) tmp += to_string(cnt);
+    // trace(i, tmp);
+    res.push_back(tmp);
   } 
   return res;
   }

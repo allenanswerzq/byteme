@@ -38,8 +38,8 @@ public:
   path.pb(root);
   if (root == p) return 1;
   if (dfs(root->left, path, p) ||
-  dfs(root->right, path, p))
-  return 1;
+    dfs(root->right, path, p))
+    return 1;
   path.ppb(); 
   return 0;
   }
@@ -51,8 +51,8 @@ public:
   bool bb = dfs(root, path2, q);
   if (!aa || !bb) return nullptr;
   fori (i, 0, sz(path1)) {
-  if (path1[i] != path2[i])
-  return path1[i - 1]; 
+    if (path1[i] != path2[i])
+    return path1[i - 1]; 
   } 
   return nullptr;
   }

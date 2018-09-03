@@ -34,18 +34,18 @@ public:
   int ret = 0;
   int n = aa.size();
   for (int i = 1; i < n - 1; i++) {
-  int left_max = 0, right_max = 0;
+    int left_max = 0, right_max = 0;
 
-  // Search the left side for max bar size
-  for (int j = i; j >= 0; j--) { 
-    left_max = max(left_max, aa[j]);
-  }
+    // Search the left side for max bar size
+    for (int j = i; j >= 0; j--) { 
+      left_max = max(left_max, aa[j]);
+    }
 
-  // Search the right side for max bar size
-  for (int j = i; j < n; j++) { 
-    right_max = max(right_max, aa[j]);
-  }
-  ret += min(left_max, right_max) - aa[i];
+    // Search the right side for max bar size
+    for (int j = i; j < n; j++) { 
+      right_max = max(right_max, aa[j]);
+    }
+    ret += min(left_max, right_max) - aa[i];
   }
   return ret;
   }
@@ -58,15 +58,15 @@ public:
   // Pre-compute the left side's maximum value.
   left[0] = aa[0];
   fori (i, 1, n)
-  left[i] = max(left[i - 1], aa[i]);
+    left[i] = max(left[i - 1], aa[i]);
 
   right[n - 1] = aa[n - 1];
   ford (i, n - 2, -1)
-  right[i] = max(right[i + 1], aa[i]);
+    right[i] = max(right[i + 1], aa[i]);
 
   int ret = 0;
   fori (i, 0, n)
-  ret += min(left[i], right[i]) - aa[i];
+    ret += min(left[i], right[i]) - aa[i];
 
   return ret;
   }
@@ -76,15 +76,15 @@ public:
   int n = sz(aa);
   deque<int> dq;
   while (i < n) {
-  if (!sz(dq) || aa[i] <= aa[dq.back()])
-  dq.push_back(i++);
-  else {
-  int top = dq.back(); dq.pop_back();
-  if (!sz(dq)) continue; 
-  int dist = i - dq.back() - 1; 
-  int height = min(aa[dq.back()], aa[i]) - aa[top];
-  ret += dist * height;
-  }
+    if (!sz(dq) || aa[i] <= aa[dq.back()])
+    dq.push_back(i++);
+    else {
+    int top = dq.back(); dq.pop_back();
+    if (!sz(dq)) continue; 
+    int dist = i - dq.back() - 1; 
+    int height = min(aa[dq.back()], aa[i]) - aa[top];
+    ret += dist * height;
+    }
   }
   return ret;
   }

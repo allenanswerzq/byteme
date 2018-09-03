@@ -12,7 +12,7 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class Solution {
 public:
   void findSecretWord(vector<string>& wordlist, Master& master) {
-     
+       
   }
 };
 

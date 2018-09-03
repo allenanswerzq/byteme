@@ -16,13 +16,13 @@ public:
   string lo = "", mid = "";
   fora (c, s) mp[c]++;
   fora (it, mp) {
-  if (it.se % 2) mid += it.fi;
-  lo += string(it.se / 2, it.fi);
-  if (sz(mid) > 1) return {};
+    if (it.se % 2) mid += it.fi;
+    lo += string(it.se / 2, it.fi);
+    if (sz(mid) > 1) return {};
   }
   sort(all(t));
   do {
-  res.pb(lo + mid + string(rall(lo)));
+    res.pb(lo + mid + string(rall(lo)));
   } while (next_permutation(all(lo)));
   return res;
   }

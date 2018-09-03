@@ -14,10 +14,10 @@ string strip(string inp) {
   int k = 0;
   fori(i, 0, n) {
   if (inp[i] == '#') {
-  if (k > 0)
-  --k;
+    if (k > 0)
+    --k;
   } else {
-  stk[k++] = inp[i];
+    stk[k++] = inp[i];
   }
   } 
 

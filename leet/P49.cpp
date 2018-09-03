@@ -34,14 +34,14 @@ public:
   unordered_map<string, vs> mp;
   string tmp;
   for (auto& a : aa) {
-  string tmp = a;
-  sort(all(tmp));
-  mp[tmp].push_back(a);
+    string tmp = a;
+    sort(all(tmp));
+    mp[tmp].push_back(a);
   } 
 
   vvs ret;
   for (auto& it : mp) {
-  ret.push_back(it.second);
+    ret.push_back(it.second);
   }
   return ret;
   }
@@ -52,14 +52,14 @@ public:
   int cnt = 0;
   string tmp;
   fora (a, aa) {
-  tmp = a;
-  sort(all(tmp));
-  if (mp.count(tmp)) {
-  ret[mp[tmp]].push_back(a);
-  } else {
-  mp[tmp] = cnt++;
-  ret.push_back({a});
-  }
+    tmp = a;
+    sort(all(tmp));
+    if (mp.count(tmp)) {
+    ret[mp[tmp]].push_back(a);
+    } else {
+    mp[tmp] = cnt++;
+    ret.push_back({a});
+    }
   }
   return ret;
   }

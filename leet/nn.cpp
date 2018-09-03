@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-  printf("%d ", x);
+    printf("%d ", x);
   printf("]\n");
 }
 
@@ -26,15 +26,15 @@ int main(int argc, char** argv) {
   printf("%d \n", b);
 
   do { \
-  int i=0; \
-  for (i=0; i<2; ++i) \
-  ret += arr[i]; \
+    int i=0; \
+    for (i=0; i<2; ++i) \
+    ret += arr[i]; \
   } while(0)
 
   int a[2][2] = {1, 1};
   int i, ret=0;
   for (int i=0; i<2; ++i)
-  ADD(a[i]);
+    ADD(a[i]);
 
   printf("%d\n", ret);
 

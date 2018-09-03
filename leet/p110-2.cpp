@@ -43,8 +43,8 @@ public:
   int a = height(root->left);
   int b = height(root->right);
   return isBalanced(root->left) && 
-     isBalanced(root->right) &&
-     abs (a - b) <= 1;
+       isBalanced(root->right) &&
+       abs (a - b) <= 1;
   }
 };
 

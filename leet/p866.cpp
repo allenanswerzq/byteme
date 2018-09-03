@@ -27,7 +27,7 @@ bool prime(int aa) {
   // fori (i, 2, sqrt(aa + 1))
   for (int i=2; i*i <= aa; ++i)
   if (aa % i == 0)
-  return 0;
+    return 0;
   return 1; 
 }
 
@@ -47,9 +47,9 @@ public:
   uint up = (1 << 31);
   // trace(aa, up);
   fori (i, aa, up) {
-  // trace(aa, i, prime(i));
-  if (prime(i) && palind(i))
-  return i;  
+    // trace(aa, i, prime(i));
+    if (prime(i) && palind(i))
+    return i;  
   }
   return 0;
   }

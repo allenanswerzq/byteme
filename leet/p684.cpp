@@ -31,10 +31,10 @@ private:
   int rank;
   Node* parent;
   Node(int inp)
-  : val(inp) {
-  parent = this;
-  rank = 0;
-  }
+    : val(inp) {
+    parent = this;
+    rank = 0;
+    }
   };
 
 public:
@@ -51,24 +51,24 @@ public:
   void link(Node* x, Node* y) {
   // trace("link", x->val, y->val);
   if (x->rank > y->rank)
-  y->parent = x;
+    y->parent = x;
   else
-  x->parent = y; 
+    x->parent = y; 
   if (x->rank == y->rank)
-  ++x->rank;
+    ++x->rank;
   }
 
   Node* find_set(int inp) {
   if (inp >= dset_size) {
-  trace("Exceed the range of the DisjointSet.");
-  return null;
+    trace("Exceed the range of the DisjointSet.");
+    return null;
   }
   return _find_set(dsets[inp]);
   }
 
   Node* _find_set(Node* x) {
   if (x != x->parent) {
-  x->parent = _find_set(x->parent);
+    x->parent = _find_set(x->parent);
   }
   return x->parent;
   }
@@ -77,11 +77,11 @@ public:
   int res = 0;
   unordered_set<Node*> st;
   fora(node, dsets) {
-  Node *par = _find_set(node);
-  if (!st.count(par)) {
-  ++res;
-  st.insert(par);
-  }
+    Node *par = _find_set(node);
+    if (!st.count(par)) {
+    ++res;
+    st.insert(par);
+    }
   }
   return res;
   }
@@ -97,13 +97,13 @@ public:
   DisjointSet djs;
   int n = sz(edges);
   fori (i, 0, n)
-  djs.make_set(i);
+    djs.make_set(i);
 
   fora (e, edges) {
-  if (djs.find_set(e[0] - 1) != djs.find_set(e[1] - 1))
-  djs.joint(e[0] - 1, e[1] - 1);
-  else 
-  return e;
+    if (djs.find_set(e[0] - 1) != djs.find_set(e[1] - 1))
+    djs.joint(e[0] - 1, e[1] - 1);
+    else 
+    return e;
   } 
   return {};
   }

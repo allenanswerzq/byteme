@@ -31,25 +31,25 @@ public:
   int robotSim(vector<int>& aa, vector<vector<int>>& bb) {
   uset<pii> obs;
   fora (b, bb) {
-  obs.insert({b[0], b[1]});
+    obs.insert({b[0], b[1]});
   }
   int dir, x, y;
   x = y = dir = 0;
   int res = 0;
   fora (it, aa) {
-  if (it == -2) {
-  dir = (dir + 3) % 4; 
-  } else if (it == -1) {
-  dir = (dir + 1) % 4;
-  } else {
-  fori (k, 0, it) {
-    int nx = x + dirs[dir][0];
-    int ny = y + dirs[dir][1];
-    if (obs.cout({nx, ny})) break;
-    x = nx; y = ny;
-  }
-  }
-  res = max(res, eucliden(x, y));
+    if (it == -2) {
+    dir = (dir + 3) % 4; 
+    } else if (it == -1) {
+    dir = (dir + 1) % 4;
+    } else {
+    fori (k, 0, it) {
+      int nx = x + dirs[dir][0];
+      int ny = y + dirs[dir][1];
+      if (obs.cout({nx, ny})) break;
+      x = nx; y = ny;
+    }
+    }
+    res = max(res, eucliden(x, y));
   }
   return res;
   }

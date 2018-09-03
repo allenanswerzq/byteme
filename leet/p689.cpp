@@ -34,7 +34,7 @@ public:
 
   fori (i, 0, k) pre[0] += aa[i];
   fori (i, 1, m) {
-  pre[i] += pre[i - 1] + aa[i + k - 1] - aa[i - 1];
+    pre[i] += pre[i - 1] + aa[i + k - 1] - aa[i - 1];
   } 
 
   // int mx = dfs(pre, 3, m, k, 0, res);

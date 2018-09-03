@@ -20,29 +20,29 @@ public:
   int evalRPN(vector<string>& tokens) {
   deque<int> dq;
   fora (str, tokens) {
-  if (sz(dq) && str == "+") {
-  int a = dq.back(); dq.ppb();
-  int b = dq.back(); dq.ppb();
-  trace(a, b);
-  dq.pb(b + a);
-  } else if (sz(dq) && str == "-") {
-  int a = dq.back(); dq.ppb();
-  int b = dq.back(); dq.ppb();
-  trace(a, b);
-  dq.pb(b - a);
-  } else if (sz(dq) && str == "*") {
-  int a = dq.back(); dq.ppb();
-  int b = dq.back(); dq.ppb();
-  trace(a, b);
-  dq.pb(b * a);
-  } else if (sz(dq) && str == "/") {
-  int a = dq.back(); dq.ppb();
-  int b = dq.back(); dq.ppb();
-  trace(a, b);
-  dq.pb(b / a);
-  } else {
-  dq.pb(stoi(str));
-  }
+    if (sz(dq) && str == "+") {
+    int a = dq.back(); dq.ppb();
+    int b = dq.back(); dq.ppb();
+    trace(a, b);
+    dq.pb(b + a);
+    } else if (sz(dq) && str == "-") {
+    int a = dq.back(); dq.ppb();
+    int b = dq.back(); dq.ppb();
+    trace(a, b);
+    dq.pb(b - a);
+    } else if (sz(dq) && str == "*") {
+    int a = dq.back(); dq.ppb();
+    int b = dq.back(); dq.ppb();
+    trace(a, b);
+    dq.pb(b * a);
+    } else if (sz(dq) && str == "/") {
+    int a = dq.back(); dq.ppb();
+    int b = dq.back(); dq.ppb();
+    trace(a, b);
+    dq.pb(b / a);
+    } else {
+    dq.pb(stoi(str));
+    }
   }      
   return dq.back();
   }

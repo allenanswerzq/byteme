@@ -15,10 +15,10 @@ public:
   mst(dp, 0);
   dp[0] = 1;
   fori (i, 1, goal+1) {
-  fora(c, aa) {
-  if (i >= c)
-    dp[i] += dp[i - c];
-  }
+    fora(c, aa) {
+    if (i >= c)
+      dp[i] += dp[i - c];
+    }
   } 
   par(dp, goal+1);
   return dp[goal];

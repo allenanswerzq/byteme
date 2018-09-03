@@ -22,7 +22,7 @@ void dfs(vector<char>& buf, int lo, int hi) {
   // Now it's time to check validity
   string number(buf.begin(), buf.end());
   if (stoi(number) < stoi(low) || stoi(number) > stoi(high))
-  return;
+    return;
   count++; 
   }
 
@@ -36,7 +36,7 @@ void dfs(vector<char>& buf, int lo, int hi) {
   
   // First character of a valid number should not be 0
   if (buf.size()>1 && buf[0]=='0') 
-  continue; 
+    continue; 
 
   // Recusively construct other characters
   dfs(buf, lo+1, hi-1, count);

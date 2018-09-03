@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-  cout << x << " ";
+    cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -21,22 +21,22 @@ ListNode* reverseBetween(ListNode* head, int m, int n) {
   ListNode* p = dummy;
   ListNode* x, *next, *prev=NULL;
   while(p) {
-  if(k == m-1) x = p;
-  else if(k == m) {
-    ListNode *y = p;
-    while (k<=n && p) {
-    next = p->next;
-    p->next = prev;
-    prev = p;
-    p = next;
-    k++;
+    if(k == m-1) x = p;
+    else if(k == m) {
+      ListNode *y = p;
+      while (k<=n && p) {
+        next = p->next;
+        p->next = prev;
+        prev = p;
+        p = next;
+        k++;
+      }
+      y->next = next;
+      x->next = prev;
+      return dummy->next;
     }
-    y->next = next;
-    x->next = prev;
-    return dummy->next;
-  }
-  p = p->next;
-  k++;
+    p = p->next;
+    k++;
   }
   return dummy->next;
 }  

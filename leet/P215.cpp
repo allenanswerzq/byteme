@@ -13,7 +13,7 @@ int findKthLargest(vector<int>& aa, int k) {
   fori (i, 0, n) {
   pq.push(aa[i]);
   if (sz(pq) >= k)
-  pq.pop();
+    pq.pop();
   }
   return pq.top();
 }
@@ -38,7 +38,7 @@ int partition(vector<int>& aa, int left, int right) {
   cout << lo << " " << hi << endl;
   pvi(aa);
   if (aa[lo] <= pivot && aa[hi] > pivot) {
-  swap(aa[lo++], aa[hi--]);
+    swap(aa[lo++], aa[hi--]);
   }
   if (aa[lo] >= pivot) ++lo;
   if (aa[hi] <= pivot) --hi;

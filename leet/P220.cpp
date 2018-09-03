@@ -13,7 +13,7 @@ bool containsNearbyAlmostDuplicate(vector<int>& aa, int k, int t) {
   if (i > k) st.erase(aa[i - k - 1]);
   auto pos = st.lower_bound((ll)aa[i] - t);     
   if (pos != st.end() && *pos <= (ll)(aa[i]) + t)
-  return true;
+    return true;
   st.insert(aa[i]);
   }
   return false;

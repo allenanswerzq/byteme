@@ -15,8 +15,8 @@ public:
   Node* parent;
   Node(int inp)
   : val(inp) {
-  parent = this;
-  rank = 0;
+    parent = this;
+    rank = 0;
   }
 };
 
@@ -35,16 +35,16 @@ public:
   void link(Node* x, Node* y) {
   // cout << x->val << " " << y->val << endl;
   if (x->rank > y->rank)
-  y->parent = x;
+    y->parent = x;
   else
-  x->parent = y; 
+    x->parent = y; 
   if (x->rank == y->rank)
-  ++x->rank;
+    ++x->rank;
   }
 
   Node* findSet(Node* x) {
   if (x != x->parent) {
-  x->parent = findSet(x->parent);
+    x->parent = findSet(x->parent);
   }
   return x->parent;
   }
@@ -53,11 +53,11 @@ public:
   int res = 0;
   unordered_set<Node*> st;
   fora(node, sets) {
-  Node *par = findSet(node);
-  if (!st.count(par)) {
-  ++res;
-  st.insert(par);
-  }
+    Node *par = findSet(node);
+    if (!st.count(par)) {
+    ++res;
+    st.insert(par);
+    }
   }
   return res;
   }
@@ -72,9 +72,9 @@ bool isSimilar(string a, string b) {
   int res = 0;
   fori(i, 0, n) 
   if (a[i] != b[i]) {
-  ++cnt;
-  res += (a[i] - b[i]);
-  if (cnt > 2) return false;
+    ++cnt;
+    res += (a[i] - b[i]);
+    if (cnt > 2) return false;
   }
   return (cnt==0) || (cnt == 2 && res == 0);
 }
@@ -85,14 +85,14 @@ public:
   int n = sz(A);
   DisjointSet ds;
   fori(i, 0, n)
-  ds.makeSet(i); 
+    ds.makeSet(i); 
 
   fori(i, 0, n) 
-  fori(j, i+1, n) {
-  if (isSimilar(A[i], A[j])) {
-    ds.joint(i, j); 
-  }
-  }
+    fori(j, i+1, n) {
+    if (isSimilar(A[i], A[j])) {
+      ds.joint(i, j); 
+    }
+    }
   return ds.size();
   }
 };

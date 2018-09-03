@@ -17,10 +17,10 @@ public:
   int old = 0;
   // (a + nk) % k = a % k
   fora (a, aa) {
-  int sum = old + a; 
-  if (st.count(sum % k)) return 1;
-  st.insert(sum % k);
-  old = sum;
+    int sum = old + a; 
+    if (st.count(sum % k)) return 1;
+    st.insert(sum % k);
+    old = sum;
   }
   return 0;
   }

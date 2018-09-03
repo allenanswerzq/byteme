@@ -19,16 +19,16 @@ public:
   fori (i, 0, size) dp0[i] = 0;
   fori (i, 0, size) dp1[i] = 1;
   fori (i, 1, n) {
-  dp0[i] = dp1[i] = n; 
-  if (aa[i-1] < aa[i] && bb[i-1] < bb[i]) {
-  dp0[i] = dp0[i-1];
-  dp1[i] = dp1[i-1] + 1; 
-  }
-  
-  if (aa[i-1] < bb[i] && bb[i-1] < aa[i]) {
-  dp0[i] = min(dp0[i], dp1[i-1]);
-  dp1[i] = min(dp1[i], dp0[i-1] + 1); 
-  }
+    dp0[i] = dp1[i] = n; 
+    if (aa[i-1] < aa[i] && bb[i-1] < bb[i]) {
+    dp0[i] = dp0[i-1];
+    dp1[i] = dp1[i-1] + 1; 
+    }
+    
+    if (aa[i-1] < bb[i] && bb[i-1] < aa[i]) {
+    dp0[i] = min(dp0[i], dp1[i-1]);
+    dp1[i] = min(dp1[i], dp0[i-1] + 1); 
+    }
   }   
   // par(dp0, n);
   // par(dp1, n);

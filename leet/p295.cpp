@@ -30,7 +30,7 @@ class MedianFinder {
 public:
   /** initialize your data structure here. */
   MedianFinder() {
-  
+    
   }
   
   void addNum(int num) {
@@ -39,15 +39,15 @@ public:
   large.push(-small.top());
   small.pop();
   if (small.size() < large.size()) {
-  small.push(-large.top());
-  large.pop();
+    small.push(-large.top());
+    large.pop();
   }
   }
   
   double findMedian() {
   return samll.size() > large.size()
-     ? small.top()
-     : (small.top() - large.top()) / 2.0; 
+       ? small.top()
+       : (small.top() - large.top()) / 2.0; 
   }
 
 private:

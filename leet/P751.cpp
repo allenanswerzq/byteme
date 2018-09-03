@@ -16,8 +16,8 @@ string to_ip(int64 x, int step) {
   a[0] = x;
   int len = 33;
   while (step) {
-  step /= 2;
-  --len;
+    step /= 2;
+    --len;
   }
   stringstream ss;
   ss << a[0] << "." << a[1] << "." << a[2] << "." << a[3] << "/" << len;

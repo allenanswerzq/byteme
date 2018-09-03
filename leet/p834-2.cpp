@@ -31,9 +31,9 @@ void dfs(int start, int& sum, int path) {
   visit[start] = 1;
   fora (node, g[start]) {
   if (!visit[node]) {
-  sum += path;
-  // trace(start, node, path, sum);
-  dfs(node, sum, path + 1); 
+    sum += path;
+    // trace(start, node, path, sum);
+    dfs(node, sum, path + 1); 
   }
   }
 }
@@ -44,16 +44,16 @@ public:
   vi res;
   g.clear();
   fora (e, edges) {
-  g[e[0]].pb(e[1]);
-  g[e[1]].pb(e[0]);
+    g[e[0]].pb(e[1]);
+    g[e[1]].pb(e[0]);
   }
   fori (i, 0, n) {
-  int sum = 0;
-  dfs(i, sum, 1);
-  res.pb(sum);
-  // trace(sum);
-  visit.clear();
-  visit.resize(size);
+    int sum = 0;
+    dfs(i, sum, 1);
+    res.pb(sum);
+    // trace(sum);
+    visit.clear();
+    visit.resize(size);
   }
   return res;
   }

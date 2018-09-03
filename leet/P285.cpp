@@ -19,12 +19,12 @@ public:
   TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
   TreeNode *res = nullptr;
   while (root) {
-  if (p->val >= root->val) {
-  root = root->right;
-  } else {
-  res = root;
-  root = root->left;    
-  }
+    if (p->val >= root->val) {
+    root = root->right;
+    } else {
+    res = root;
+    root = root->left;    
+    }
   }
   return res;
   }

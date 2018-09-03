@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-  cout << x << " ";
+    cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -16,8 +16,8 @@ void dfs(TreeNode* root, int x) {
   x = 10*x + root->val;
   // if current node is leaf node
   if (!root->left && !root->right) {
-  res += x;
-  return ;
+    res += x;
+    return ;
   }
 
   dfs(root->left, x);

@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-  cout << x << " ";
+    cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -17,21 +17,21 @@ ListNode* deleteDuplicates(ListNode* head) {
   ListNode *p = dummy;
   ListNode *q = head;
   while (q && q->next) {
-  if (q->val != q->next->val) {
-    ListNode *t = q->next;
-    p->next = q;
-    p = p->next;
-    p->next = NULL;
-    q = t;
-  }else {
-    while(q && q->next && q->val == q->next->val) {
-    q = q->next;
+    if (q->val != q->next->val) {
+      ListNode *t = q->next;
+      p->next = q;
+      p = p->next;
+      p->next = NULL;
+      q = t;
+    }else {
+      while(q && q->next && q->val == q->next->val) {
+        q = q->next;
+      }
+      q = q->next;
     }
-    q = q->next;
-  }
   }
   if (q) {
-  p->next = q;
+    p->next = q;
   }
   return dummy->next;
 }

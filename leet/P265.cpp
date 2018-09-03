@@ -19,12 +19,12 @@ int minCostII(vector<vector<int>>& costs) {
   for (int i=1; i<=n; ++i) {  
   // For each color
   for (int j=0; j<m; ++j) { 
-  int pre = (1<<31) - 1;
-  for (int k=0; k<m; ++k)
-  if (k != j) pre = min(pre, dp[i-1][k]);
+    int pre = (1<<31) - 1;
+    for (int k=0; k<m; ++k)
+    if (k != j) pre = min(pre, dp[i-1][k]);
 
-  dp[i][j] = costs[i-1][j] + pre;
-  ret = min(ret, dp[i][j]);
+    dp[i][j] = costs[i-1][j] + pre;
+    ret = min(ret, dp[i][j]);
   }
   }
   return ret;
@@ -43,14 +43,14 @@ int minCostII(vector<vector<int>>& costs) {
   m1 = m2 = (1<<31) - 1;
   // Pick each color
   for (int j = 0; j < k; j++) { 
-  // If last time we got min costs on color j for painting house i-1, 
-  // now when we pick color j, we can only use second min costs of last time
-  // because two adjcent house have different colors
-  int pre = dp[j] == t1 ? t2 : t1;  
-  dp[j] = pre + costs[i][j];
+    // If last time we got min costs on color j for painting house i-1, 
+    // now when we pick color j, we can only use second min costs of last time
+    // because two adjcent house have different colors
+    int pre = dp[j] == t1 ? t2 : t1;  
+    dp[j] = pre + costs[i][j];
 
-  if (dp[j] > m1) m2 = min(m2, dp[j]);
-  else m2 = m1, m1 = dp[j];
+    if (dp[j] > m1) m2 = min(m2, dp[j]);
+    else m2 = m1, m1 = dp[j];
   }
   }
   return m1;

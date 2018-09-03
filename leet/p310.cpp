@@ -37,33 +37,33 @@ public:
   deque<int> dq;
   vector<unordered_set<int>> gg(n);
   fora (e, edges) {
-  gg[e.first].insert(e.second); 
-  gg[e.second].insert(e.first);
+    gg[e.first].insert(e.second); 
+    gg[e.second].insert(e.first);
   } 
 
   // Push all leaves into queue. 
   fori (i, 0, n) {
-  if (gg[i].size() == 1)
-  dq.push_back(i);
+    if (gg[i].size() == 1)
+    dq.push_back(i);
   }
 
   while (n > 2) {
-  int k = sz(dq);
-  n -= k;
-  fori (i, 0, k) {
-  int t = dq.front(); dq.pop_front();
-  // trace(n, t);
-  fora (e, gg[t]) {
-    gg[e].erase(t); 
-    if (gg[e].size() == 1)
-    dq.push_back(e);
-  } 
-  } 
+    int k = sz(dq);
+    n -= k;
+    fori (i, 0, k) {
+    int t = dq.front(); dq.pop_front();
+    // trace(n, t);
+    fora (e, gg[t]) {
+      gg[e].erase(t); 
+      if (gg[e].size() == 1)
+      dq.push_back(e);
+    } 
+    } 
   }
 
   while (sz(dq)) {
-  res.push_back(dq.front());
-  dq.pop_front();
+    res.push_back(dq.front());
+    dq.pop_front();
   }
 
   return res;

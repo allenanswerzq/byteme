@@ -30,14 +30,14 @@ public:
   int getMoneyAmountDP(int n) {
   mst(dp, 0);
   fori (j, 2, n+1) {
-  ford (i, j-1, 0) {
-  int res = inf;
-  fori (k, i, j+1) {
-    int tmp = k + max(dp[i][k-1], dp[k+1][j]);
-    res = min(res, tmp);
-  }
-  dp[i][j] = res;
-  }
+    ford (i, j-1, 0) {
+    int res = inf;
+    fori (k, i, j+1) {
+      int tmp = k + max(dp[i][k-1], dp[k+1][j]);
+      res = min(res, tmp);
+    }
+    dp[i][j] = res;
+    }
   }      
   return dp[1][n];
   }

@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-  cout << x << " ";
+    cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -16,7 +16,7 @@ int height(TreeNode* root) {
 }
 
 void build(vector<vector<string>>& res, TreeNode* root, int h, int row,
-  int lo) {
+    int lo) {
   if (!root) return ;
   int len = (1 << h-1) - 1;
   int col = lo + len;

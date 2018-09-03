@@ -38,17 +38,17 @@ public:
   deque<TreeNode*> q; 
   q.pb(root);
   while (sz(q)) {
-  ++res;
-  int n = sz(q);
-  fori (i, 0, n) {
-  auto cur = q.fr(); q.ppf();
-  if (!cur->left && !cur->right)
-    return res; 
-  if (cur->left)
-    q.pb(cur->left);
-  if (cur->right)
-    q.pb(cur->right);
-  }
+    ++res;
+    int n = sz(q);
+    fori (i, 0, n) {
+    auto cur = q.fr(); q.ppf();
+    if (!cur->left && !cur->right)
+      return res; 
+    if (cur->left)
+      q.pb(cur->left);
+    if (cur->right)
+      q.pb(cur->right);
+    }
   }
   return res;
   }

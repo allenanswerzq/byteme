@@ -9,15 +9,15 @@ public:
   int lo = 0;
   deque<int> dq;
   for (int i = 0; i < ss.size(); ++i) {
-  if (ss[i] == '(') dq.push_back(i);
-  else {
-  if (dq.empty()) lo = i + 1;
-  else {
-    dq.pop_back();
-    res = dq.empty() ? max(res, i - lo + 1) 
-         : max(res, i - dq.back());
-  }
-  }
+    if (ss[i] == '(') dq.push_back(i);
+    else {
+    if (dq.empty()) lo = i + 1;
+    else {
+      dq.pop_back();
+      res = dq.empty() ? max(res, i - lo + 1) 
+               : max(res, i - dq.back());
+    }
+    }
   }
    return res;
   }

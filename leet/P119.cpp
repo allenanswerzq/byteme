@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-  cout << x << " ";
+    cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -15,11 +15,11 @@ vector<int> getRow(int n) {
   vector<int> res(n+1, 1);
   vector<int> ans(n+1, 1);
   for (int i=2; i<n; ++i) {
-  for (int k=0; k < i-1; ++k)
-    ans[k+1] = res[k] + res[k+1]; 
-  ans[0] = 1;
-  ans[i] = 1;
-  res = ans;
+    for (int k=0; k < i-1; ++k)
+      ans[k+1] = res[k] + res[k+1]; 
+    ans[0] = 1;
+    ans[i] = 1;
+    res = ans;
   }
   return res;
 }
@@ -29,8 +29,8 @@ vector<int> getRow(int n) {
 vector<int> getRow(int n) {
   vector<int> A(n+1, 1);
   for (int i=1; i<=n; ++i) {
-  for (int k=i-1; k>=1; --k)
-    A[k] += A[k-1];
+    for (int k=i-1; k>=1; --k)
+      A[k] += A[k-1];
   }
   return A;
 }

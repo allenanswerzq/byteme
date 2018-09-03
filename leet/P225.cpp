@@ -12,8 +12,8 @@ public:
   void push(int x) {
   q.push(x);
   for (int i=1; i<q.size(); ++i) {
-  q.push(q.front());
-  q.pop();
+    q.push(q.front());
+    q.pop();
   }
   }
   

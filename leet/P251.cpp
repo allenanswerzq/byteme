@@ -41,15 +41,15 @@ public:
   }
 
   int next() {
-  int val = *col_it;
-  col_it++;
-  if(col_it == row_it->end()){
-  row_it++;
-  // Skip empty rows.
-  while(row_it != row_end && row_it->empty()) ++row_it;
-  if(row_it != row_end) col_it = row_it->begin();
-  }
-  return val;
+    int val = *col_it;
+    col_it++;
+    if(col_it == row_it->end()){
+    row_it++;
+    // Skip empty rows.
+    while(row_it != row_end && row_it->empty()) ++row_it;
+    if(row_it != row_end) col_it = row_it->begin();
+    }
+    return val;
   }
 
   bool hasNext() {

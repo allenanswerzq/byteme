@@ -21,13 +21,13 @@ public:
   r = -1;
   mid = 0;
   while (r != 0) {
-  mid = lo + (hi - lo) / 2;
-  r = guess(mid); 
-  // cout << mid << " " << r << "\n";
-  if (r == -1) {
-  hi = mid - 1; 
-  } else if (r == 1)
-  lo = mid + 1;
+    mid = lo + (hi - lo) / 2;
+    r = guess(mid); 
+    // cout << mid << " " << r << "\n";
+    if (r == -1) {
+    hi = mid - 1; 
+    } else if (r == 1)
+    lo = mid + 1;
   }
   return mid;
   }

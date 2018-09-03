@@ -33,7 +33,7 @@ int dcmp(double x, double y = 0, double tol = eps) {
 
 int height(TreeNode* root) {
   return root == null ? 0 : max(height(root->left),
-        height(root->right)) + 1;
+                height(root->right)) + 1;
 }
 
 class Solution {

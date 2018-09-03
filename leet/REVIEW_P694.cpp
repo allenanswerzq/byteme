@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-  printf("%d ", x);
+    printf("%d ", x);
   printf("]\n");
 }
 
@@ -29,7 +29,7 @@ bool dfs(int startx, int starty, int x, int y, vector<vector<int>>& grid, vector
   //printMatrix(visit);
 
   for (int i=0; i<4; ++i) {
-  dfs(startx, starty, x+dirs[i][0], y+dirs[i][1], grid, visit, island);
+    dfs(startx, starty, x+dirs[i][0], y+dirs[i][1], grid, visit, island);
   }
   return true;
 }
@@ -43,9 +43,9 @@ int numDistinctIslands(vector<vector<int>>& grid) {
 
   for (int i=0; i<m; ++i) {
   for (int j=0; j<n; ++j) {
-  vector<vector<int>> island;
-  if(dfs(i, j, i, j, grid, visit, island))
-  islands.insert(island);
+    vector<vector<int>> island;
+    if(dfs(i, j, i, j, grid, visit, island))
+    islands.insert(island);
   }
   }
   return islands.size();

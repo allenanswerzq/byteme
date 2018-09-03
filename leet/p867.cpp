@@ -27,8 +27,8 @@ public:
   int m = sz(aa), n = sz(aa[0]);
   vvi res (n, vi(m, 0));
   fori (i, 0, n) {
-  fori (j, 0, m) 
-  res[i][j] = aa[j][i];
+    fori (j, 0, m) 
+    res[i][j] = aa[j][i];
   } 
   return res;
   }

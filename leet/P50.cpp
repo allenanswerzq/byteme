@@ -32,7 +32,7 @@ public:
   ll t = n;
   	if (t < 0) {
   		x = 1 / x;
-  t = labs(t);
+    t = labs(t);
   	}
   	double res = 1.0;
   	while (t) {
@@ -47,8 +47,8 @@ public:
   ll t = n;
   if (t == 0) { return 1.0f; }
   if (t < 0) {
-  x = 1 / x;
-  t = labs(t);
+    x = 1 / x;
+    t = labs(t);
   }
   return myPow(x * x, t / 2) * (t % 2 ? x : 1.0);
   }

@@ -28,17 +28,17 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class BSTIterator {
 public:
   BSTIterator(TreeNode *root) {
-  
+    
   }
 
   /** @return whether we have a next smallest number */
   bool hasNext() {
-  
+    
   }
 
   /** @return the next smallest number */
   int next() {
-  
+    
   }
 };
 

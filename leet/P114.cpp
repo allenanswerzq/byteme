@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-  cout << x << " ";
+    cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -19,11 +19,11 @@ void flatten(TreeNode* root) {
   flatten(right);
   TreeNode* p = root->left;
   while (p && p->right)
-  p = p->right;
+    p = p->right;
   if (p) {
-  p->right = right;
-  root->right = left;
-  root->left = NULL;
+    p->right = right;
+    root->right = left;
+    root->left = NULL;
   } 
   return ;
 }

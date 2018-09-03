@@ -26,8 +26,8 @@ public:
   while (i >= 0 && !product[i]) --i;
   if (i == 0) return "0";
   while(i >= 0) {
-  ret += product[i]+'0';
-  --i;
+    ret += product[i]+'0';
+    --i;
   }
   return ret;
   }

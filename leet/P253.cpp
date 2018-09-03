@@ -34,7 +34,7 @@ int minMeetingRooms(vector<Interval>& intervals) {
   for (int i=1; i<(int)intervals.size(); ++i) {
   // We dont need a new room
   if (intervals[i].start >= pq.top())     
-  pq.pop();
+    pq.pop();
   pq.push(intervals[i].end);
   rooms = max(rooms, (int)pq.size());
   }

@@ -22,16 +22,16 @@ public:
   mst(pre, -1);
   best = 0;
   fori (i, 1, n) {
-  fori (j, 0, i) {
-  if (aa[i] % aa[j] == 0) {
-    if (dp[i] < dp[j] + 1) {
-    dp[i] = dp[j] + 1;
-    pre[i] = j;
+    fori (j, 0, i) {
+    if (aa[i] % aa[j] == 0) {
+      if (dp[i] < dp[j] + 1) {
+      dp[i] = dp[j] + 1;
+      pre[i] = j;
+      }
+    } 
     }
-  } 
-  }
-  if (dp[best] < dp[i]) 
-  best = i;
+    if (dp[best] < dp[i]) 
+    best = i;
   }
 
   // par(aa, n);
@@ -39,8 +39,8 @@ public:
 
   vi res;
   while (best != -1) {
-  res.insert(res.begin(), aa[best]);
-  best = pre[best];
+    res.insert(res.begin(), aa[best]);
+    best = pre[best];
   }
   return res;
   }

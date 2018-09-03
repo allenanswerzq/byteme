@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-  cout << x << " ";
+    cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -25,11 +25,11 @@ vector<int> preorderTraversal(TreeNode* root) {
 
   stk.push(root);
   while (!stk.empty()) {
-  TreeNode *top = stk.top();
-  res.push_back(top->val);
-  stk.pop();
-  if (top->right) stk.push(top->right);
-  if (top->left) stk.push(top->left);
+    TreeNode *top = stk.top();
+    res.push_back(top->val);
+    stk.pop();
+    if (top->right) stk.push(top->right);
+    if (top->left) stk.push(top->left);
   }
   return res;
 }

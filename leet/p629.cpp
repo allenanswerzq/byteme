@@ -18,12 +18,12 @@ public:
   dp[2][0] = 1;
   dp[2][1] = 1;
   fori (i, 3, n+1) {
-  dp[i][0] = 1;
-  int hi = min(k, n * (n-1) / 2) + 1;
-  fori (j, 1, hi) {
-  dp[i][j] = (dp[i][j-1] + dp[i-1][j]) % mod;
-  if (j >= i) dp[i][j] = (dp[i][j] - dp[i-1][j-i] + mod) % mod;
-  }
+    dp[i][0] = 1;
+    int hi = min(k, n * (n-1) / 2) + 1;
+    fori (j, 1, hi) {
+    dp[i][j] = (dp[i][j-1] + dp[i-1][j]) % mod;
+    if (j >= i) dp[i][j] = (dp[i][j] - dp[i-1][j-i] + mod) % mod;
+    }
   } 
   return dp[n][k];
   }

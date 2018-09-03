@@ -14,7 +14,7 @@ unordered_map<string, vector<string>> mp;
 bool check(string s) {
   fora (d, dict)
   if (d == s)
-  return 1;
+    return 1;
   return 0; 
 }
 
@@ -30,7 +30,7 @@ void recu(string s, string path, vs& res) {
   string pre = s.substr(n - i, i);
   // cout << "pre: " << pre << "\n";
   if (check(pre)) {
-  recu(s.substr(0, n - i), pre + " " + path, res);
+    recu(s.substr(0, n - i), pre + " " + path, res);
   }
   }
 }

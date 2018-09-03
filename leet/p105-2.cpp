@@ -50,8 +50,8 @@ TreeNode* go(vi& aa, vi& bb, int a, int b, int c, int d) {
   int ix = -1;
   fori (i, c, d + 1) {
   if (bb[i] == aa[a]) {
-  ix = i;
-  break;
+    ix = i;
+    break;
   }
   }
   if (ix > c) {

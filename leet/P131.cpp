@@ -6,10 +6,10 @@ bool isPalindrome(string s) {
   int lo=0, hi=s.size()-1;
   while (lo < hi) {
   if (s[lo] == s[hi]) {
-  ++lo;
-  --hi;
+    ++lo;
+    --hi;
   } else {
-  return false;
+    return false;
   }
   }
   return true;
@@ -24,9 +24,9 @@ void bt(vector<vector<string>>& res, vector<string> ans, string s) {
   for (int i=1; i<=s.size(); ++i) {
   string front = s.substr(0, i);
   if (isPalindrome(front)) {
-  ans.push_back(front);
-  bt(res, ans, s.substr(i));
-  ans.pop_back();
+    ans.push_back(front);
+    bt(res, ans, s.substr(i));
+    ans.pop_back();
   }
   }
 }
@@ -49,15 +49,15 @@ vector<vector<string>> partition(string s) {
   for (int i=1; i<=s.size(); ++i) {
   string front = s.substr(0, i);
   if (isPalindrome(front)) {
-  rest = partition(s.substr(i));
-  if (rest.size() == 0) {
-  res.push_back({front});
-  } else {
-  for (auto x: rest) {
-    x.insert(x.begin(), front);
-    res.push_back(x);
-  }
-  }
+    rest = partition(s.substr(i));
+    if (rest.size() == 0) {
+    res.push_back({front});
+    } else {
+    for (auto x: rest) {
+      x.insert(x.begin(), front);
+      res.push_back(x);
+    }
+    }
   }
   }
   return res;

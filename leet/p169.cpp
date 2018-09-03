@@ -22,8 +22,8 @@ public:
   int res = 0;
   int cnt = 0;
   fori (i, 0, n) {
-  if (cnt == 0) res = aa[i];
-  cnt += (aa[i] == res) ? 1 : -1;
+    if (cnt == 0) res = aa[i];
+    cnt += (aa[i] == res) ? 1 : -1;
   }
   return res;
   }

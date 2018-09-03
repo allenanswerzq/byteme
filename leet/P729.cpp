@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-  printf("%d ", x);
+    printf("%d ", x);
   printf("]\n");
 }
 
@@ -45,12 +45,12 @@ public:
   }
   
   bool book(int start, int end) {
-  for (auto p : books) {
-  if (max(p.first, start) < min(p.second, end))
-    return false;
-  }        
-  books.push_back({start, end});
-  return true;
+    for (auto p : books) {
+    if (max(p.first, start) < min(p.second, end))
+      return false;
+    }        
+    books.push_back({start, end});
+    return true;
   }
 };
 

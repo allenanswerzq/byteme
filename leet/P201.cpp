@@ -5,7 +5,7 @@ using namespace std;
 int rangeBitwiseAnd(int m, int n) {
   int res = -1;
   for (int i=m; i<=n; ++i)
-  res &= i;
+    res &= i;
   return res;
 }
 
@@ -15,9 +15,9 @@ public:
   int rangeBitwiseAnd(int m, int n) {
   int i = 0;
   while (m != n) {
-  m >>= 1;
-  n >>= 1;
-  ++i;
+    m >>= 1;
+    n >>= 1;
+    ++i;
   }
   return (m << i);
   }

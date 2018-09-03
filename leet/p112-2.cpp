@@ -37,7 +37,7 @@ bool dfs(TreeNode* root, int goal) {
   return 1;  
 
   if (dfs(root->left, goal - root->val) ||
-  dfs(root->right, goal - root->val))
+    dfs(root->right, goal - root->val))
   return 1;
   return 0;
 }

@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-  printf("%d ", x);
+    printf("%d ", x);
   printf("]\n");
 }
 
@@ -44,8 +44,8 @@ vector<ListNode*> splitListToParts(ListNode* root, int k) {
   int l = len(root);
   for (int i=0; i<k; ++i) {
   if (root == NULL) {
-  res.push_back(NULL);
-  continue;
+    res.push_back(NULL);
+    continue;
   }
 
   int n = l/k + (i < l%k);  // very brilliant make true no two parts have a size differing by more than 1 
@@ -69,14 +69,14 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
   for (auto i=0; i<nums.size(); ++i) {
   // window [i-k+1, i]  
   while (!buf.empty() && nums[i]>nums[buf.back()])
-  buf.pop_back(); // buf only save the maximum value for current window
+    buf.pop_back(); // buf only save the maximum value for current window
   buf.push_back(i); // put current window maximum value into buf
 
   if (i >= k-1) // alreay reached window size
-  ret.push_back(nums[buf.front()]); // push current window maximum into ret 
+    ret.push_back(nums[buf.front()]); // push current window maximum into ret 
 
   if (buf.front() == i-k+1) // pop the first element of window so we can move on to next iteration 
-  buf.pop_front();  
+    buf.pop_front();  
   }
   return ret;
 }

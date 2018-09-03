@@ -31,12 +31,12 @@ void dfs(string aa, int goal, ll last, ll sum, string path, vs& res) {
   string nxt = aa.substr(i);
   ll bb = stoll(cur);
   if (sz(path) > 0) {
-  dfs(nxt, goal, bb, sum + bb, path + '+' + cur, res);
-  dfs(nxt, goal, -bb, sum - bb, path + '-' + cur, res);
-  dfs(nxt, goal, last * bb, (sum - last) + last * bb, 
-    path + '*' + cur, res);
+    dfs(nxt, goal, bb, sum + bb, path + '+' + cur, res);
+    dfs(nxt, goal, -bb, sum - bb, path + '-' + cur, res);
+    dfs(nxt, goal, last * bb, (sum - last) + last * bb, 
+      path + '*' + cur, res);
   } else {
-  dfs(nxt, goal, bb, bb, cur, res);
+    dfs(nxt, goal, bb, bb, cur, res);
   } 
   }
 }

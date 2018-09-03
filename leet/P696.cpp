@@ -8,7 +8,7 @@ int countBinarySubstrings(string s) {
   char c = s[i];
   a = 0;
   while(i<s.size() && s[i] == c) {
-  a++; i++;
+    a++; i++;
   }
   cnt += min(a, b);
   if (i == s.size()) return cnt;
@@ -16,7 +16,7 @@ int countBinarySubstrings(string s) {
   c = s[i];
   b = 0;
   while(i<s.size() && s[i] == c) {
-  b++; i++;
+    b++; i++;
   }
   }
   return cnt;
@@ -29,12 +29,12 @@ int countBinarySubstrings(string s) {
 
   for (int i=0; i<s.size(); ++i) {
   if (s[i] == c) {
-  cur++;
+    cur++;
   } else {
-  cnt += min(last, cur);
-  last = cur;
-  cur = 1;
-  c = s[i];
+    cnt += min(last, cur);
+    last = cur;
+    cur = 1;
+    c = s[i];
   }
   }
   cnt += min(last, cur);
