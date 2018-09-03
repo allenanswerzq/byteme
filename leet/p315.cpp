@@ -16,12 +16,12 @@ public:
 
   sort(all(bb));
   fori (i, 0, n) 
-    mp[bb[i]] = i; 
+  mp[bb[i]] = i; 
 
   ford (i, n-1, -1) {
-    res[i] = query(mp[aa[i]] - 1);
-    update(mp[aa[i]], 1);
-    pvi(bit);
+  res[i] = query(mp[aa[i]] - 1);
+  update(mp[aa[i]], 1);
+  pvi(bit);
   }
   return res;
   }
@@ -29,8 +29,8 @@ public:
   void update(int ix, int inp) {
   ix += 1;
   while (ix <= n) {
-    bit[ix] += inp;
-    ix += ix & (-ix);
+  bit[ix] += inp;
+  ix += ix & (-ix);
   } 
   }
 
@@ -38,8 +38,8 @@ public:
   int res = 0;
   ix += 1;
   while (ix > 0) {
-    res += bit[ix];
-    ix -= ix & (-ix);
+  res += bit[ix];
+  ix -= ix & (-ix);
   }
   return res;
   }
@@ -55,10 +55,10 @@ public:
   vi tmp, res(n);
   // Using binary search to insert all element into tmp from backwards.
   fori (i, n - 1, -1) {
-    auto it = lower_bound(all(tmp), inp[i]); 
-    int ix = distance(it, tmp.begin());
-    res[i] = ix;
-    tmp.insert(it, inp[i]);
+  auto it = lower_bound(all(tmp), inp[i]); 
+  int ix = distance(it, tmp.begin());
+  res[i] = ix;
+  tmp.insert(it, inp[i]);
   } 
   return res;
   }
@@ -97,7 +97,7 @@ public:
   vi res(n);
   Node *root = nullptr;
   fori (i, n - 1, -1) {
-    res[i] = insert(root, inp[i]);
+  res[i] = insert(root, inp[i]);
   }
   return res;
   }

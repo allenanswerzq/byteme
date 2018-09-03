@@ -50,14 +50,14 @@ public:
   left = right = y;
   up = down = x;
   fori (i, 0, sz(image)) {
-    fori (j, 0, sz(image[0])) {
-    if (image[i][j] == '1') {
-      left = min(left, j);
-      right = max(right, j);
-      up = min(up, i);
-      down = max(down, i);
-    } 
-    }
+  fori (j, 0, sz(image[0])) {
+  if (image[i][j] == '1') {
+    left = min(left, j);
+    right = max(right, j);
+    up = min(up, i);
+    down = max(down, i);
+  } 
+  }
   }
   return (right - left + 1) * (down - up + 1);
   }

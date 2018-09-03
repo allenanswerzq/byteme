@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-    printf("%d ", x); 
+  printf("%d ", x); 
   printf("]\n");
 }
 
@@ -27,9 +27,9 @@ int findLengthOfLCIS(vector<int>& nums) {
   int ma = 0;
   for (int i=0; i<nums.size(); ++i) {
   if (i==0 || nums[i]>nums[i-1])
-    len++;
+  len++;
   else
-    len = 1;
+  len = 1;
   ma = max(len, ma);
   }
   return ma;

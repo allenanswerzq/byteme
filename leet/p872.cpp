@@ -50,8 +50,8 @@ public:
   pvi(b);
   if (sz(a) != sz(b)) return 0;
   fori (i, 0, sz(a)) 
-    if (a[i] != b[i]) 
-    return 0;
+  if (a[i] != b[i]) 
+  return 0;
   return 1;
   }
 };

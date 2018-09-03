@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -17,15 +17,15 @@ ListNode* sortList(ListNode* head) {
   ListNode *last = sortList(head->next); 
   if (!last) return head;
   if (head->val < last->val) {
-    head->next = last;
-    return head;
+  head->next = last;
+  return head;
   } else {
-    ListNode *pre = last;
-    while (pre->next && pre->next->val < head->val)
-      pre = pre->next;
-    head->next = pre->next;
-    pre->next = head;
-    return last;
+  ListNode *pre = last;
+  while (pre->next && pre->next->val < head->val)
+    pre = pre->next;
+  head->next = pre->next;
+  pre->next = head;
+  return last;
   }
   // should not be reach here
   return NULL;
@@ -36,15 +36,15 @@ ListNode* merge(ListNode *x, ListNode *y) {
   ListNode *dummy = new ListNode(0);
   ListNode *p = dummy;
   while (x || y) {
-    ListNode *t = new ListNode(INT_MAX);
-    if (x && x->val < t->val)
-      t = x;
-    if (y && y->val < t->val)
-      t = y;
-    if (t == x) x = x->next;
-    else        y = y->next;
-    p->next = t;
-    p = p->next;
+  ListNode *t = new ListNode(INT_MAX);
+  if (x && x->val < t->val)
+    t = x;
+  if (y && y->val < t->val)
+    t = y;
+  if (t == x) x = x->next;
+  else        y = y->next;
+  p->next = t;
+  p = p->next;
   }
   return dummy->next;
 }
@@ -58,8 +58,8 @@ ListNode* sortList(ListNode* head) {
   ListNode *fast, *slow;
   fast = slow = head;
   while (fast->next && fast->next->next) {
-    slow = slow->next;
-    fast = fast->next->next;
+  slow = slow->next;
+  fast = fast->next->next;
   }
   ListNode *last = slow->next;
   slow->next = NULL;

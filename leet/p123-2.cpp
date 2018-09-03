@@ -14,7 +14,7 @@ int helper(vi& aa, int lo, int hi) {
   int res = 0;
   fori(i, lo, hi+1) {
   if (aa[i] < mi) 
-    mi = aa[i];
+  mi = aa[i];
   res = max(res, aa[i] - mi);
   }
   return res;
@@ -28,11 +28,11 @@ public:
   int n = sz(aa);
   int res = 0;
   fori(i, 0, n) {
-    // Complete one transaction in the range [0...i]
-    int x = helper(aa, 0, i);
-    // Complete another transaction in the range [i+1...n-1]
-    int y = helper(aa, i+1, n-1);
-    res = max(res, x + y);
+  // Complete one transaction in the range [0...i]
+  int x = helper(aa, 0, i);
+  // Complete another transaction in the range [i+1...n-1]
+  int y = helper(aa, i+1, n-1);
+  res = max(res, x + y);
   } 
   return res;
   }
@@ -47,16 +47,16 @@ public:
   int mx = aa[n-1];
   // buy at ith day, sell at the `mx` day.
   ford(i, n-2, -1) {
-    if (aa[i] > mx)
-    mx = aa[i];
-    dp[i] = max(dp[i+1], mx - aa[i]);
+  if (aa[i] > mx)
+  mx = aa[i];
+  dp[i] = max(dp[i+1], mx - aa[i]);
   } 
 
   int mi = aa[0];
   fori(i, 1, n) {
-    if (aa[i] < mi)
-    mi = aa[i];
-    dp[i] = max(dp[i-1], dp[i] + aa[i] - mi);
+  if (aa[i] < mi)
+  mi = aa[i];
+  dp[i] = max(dp[i-1], dp[i] + aa[i] - mi);
   } 
 
   return dp[n-1];
@@ -74,19 +74,19 @@ public:
 
   int dp[3][n + 1];
   fori(i, 0, 3) {
-    fori(j, 0, n+1) {
-    if (i == 0)
-      dp[i][j] = 0;
-    else if (j == 0)
-      dp[i][j] = 0;
-    else {
-      int mx = 0;
-      fori(k, 0, j) {
-      mx = max(mx, dp[i-1][k] + aa[j] - aa[k]);
-      }
-      dp[i][j] = max(dp[i][j-1], mx);
+  fori(j, 0, n+1) {
+  if (i == 0)
+    dp[i][j] = 0;
+  else if (j == 0)
+    dp[i][j] = 0;
+  else {
+    int mx = 0;
+    fori(k, 0, j) {
+    mx = max(mx, dp[i-1][k] + aa[j] - aa[k]);
     }
-    }
+    dp[i][j] = max(dp[i][j-1], mx);
+  }
+  }
   }
   return dp[2][n-1];
   }
@@ -96,11 +96,11 @@ public:
   int x = rand();
   // x = 1;
   if (x % 3 == 0) 
-    return maxProfitOne(aa);
+  return maxProfitOne(aa);
   else if (x % 3 == 1)
-    return maxProfitTwo(aa);
+  return maxProfitTwo(aa);
   else 
-    return maxProfitThree(aa);
+  return maxProfitThree(aa);
   }
 
 };

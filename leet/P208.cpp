@@ -12,7 +12,7 @@ public:
   trieNode() {
   isLeaf = false;
   for (int i=0; i<26; ++i)
-    child[i] = nullptr;
+  child[i] = nullptr;
   } 
 };
 
@@ -24,7 +24,7 @@ private:
   trieNode *find(string key) {
   trieNode *node = root;
   for (int i=0; i<key.size() && node; ++i)
-    node = node->child[key[i] - 'a'];
+  node = node->child[key[i] - 'a'];
   return node;
   }
 
@@ -38,9 +38,9 @@ public:
   void insert(string s) {
   trieNode *node = root;
   for (int i=0; i<s.size(); ++i) {
-    if (node->child[s[i] - 'a'] == nullptr)
-    node->child[s[i] - 'a'] = new trieNode();
-    node = node->child[s[i] - 'a'];
+  if (node->child[s[i] - 'a'] == nullptr)
+  node->child[s[i] - 'a'] = new trieNode();
+  node = node->child[s[i] - 'a'];
   }
   node->isLeaf = true;
   }

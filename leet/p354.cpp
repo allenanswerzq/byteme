@@ -23,18 +23,18 @@ public:
   res = 1;
 
   fori (i, 1, n) {
-    pii cur = aa[i];
-    int ok = 0;
-    fori (j, 0, i) {
-    pii pre = aa[j];
-    if (cur.fi > pre.fi && cur.se > pre.se) {
-      dp[i] = max(dp[j] + 1, dp[i]);
-      ok = 1;
-    }
-    }
-    if (ok == 0)
-    dp[i] = 1;
-    res = max(res, dp[i]);
+  pii cur = aa[i];
+  int ok = 0;
+  fori (j, 0, i) {
+  pii pre = aa[j];
+  if (cur.fi > pre.fi && cur.se > pre.se) {
+    dp[i] = max(dp[j] + 1, dp[i]);
+    ok = 1;
+  }
+  }
+  if (ok == 0)
+  dp[i] = 1;
+  res = max(res, dp[i]);
   }
 
   // fori(i, 0, n)

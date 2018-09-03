@@ -18,7 +18,7 @@ public:
   WordDistance(vector<string> words) {
   int n = words.size();
   for (int i = 0; i < n; i++)
-    wordMap[words[i]].push_back(i);
+  wordMap[words[i]].push_back(i);
   }
 
   int shortest(string word1, string word2) {
@@ -28,9 +28,9 @@ public:
   int i = 0, j = 0, dist = INT_MAX;
   // Note: how to get minimum difference between two sorted list
   while (i < m && j < n) {    
-    dist = min(dist, abs(indices1[i] - indices2[j]));
-    if (indices1[i] < indices2[j]) i++;
-    else j++;
+  dist = min(dist, abs(indices1[i] - indices2[j]));
+  if (indices1[i] < indices2[j]) i++;
+  else j++;
   }
   return dist;
   }

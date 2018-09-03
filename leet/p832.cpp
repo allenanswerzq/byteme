@@ -13,11 +13,11 @@ public:
   vector<vector<int>> flipAndInvertImage(vector<vector<int>>& A) {
   vvi res;
   fora(v, A) {
-    vi tmp;
-    for (auto it=v.rbegin(); it < v.rend(); ++it) {
-    tmp.pb(*it ^ 1)
-    }
-    res.pb(tmp);
+  vi tmp;
+  for (auto it=v.rbegin(); it < v.rend(); ++it) {
+  tmp.pb(*it ^ 1)
+  }
+  res.pb(tmp);
   }    
   return res;
   }

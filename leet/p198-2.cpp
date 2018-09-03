@@ -12,7 +12,7 @@ public:
   dp[0] = aa[0];
   dp[1] = max(aa[0], aa[1]);
   fori(i, 2, n) {
-    dp[i] = max(dp[i-2] + aa[i], dp[i-1]);
+  dp[i] = max(dp[i-2] + aa[i], dp[i-1]);
   }
   return dp[n-1];
   }

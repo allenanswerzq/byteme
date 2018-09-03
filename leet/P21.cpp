@@ -39,22 +39,22 @@ public:
   ListNode* dummy = new ListNode(-1);
   ListNode* p = dummy;
   while (p1 || p2) {
-    if (p1 && p2) {
-    if (p1->val <= p2->val) {
-      p->next = p1; 
-      p1 = p1->next;
-    } else {
-      p->next = p2;
-      p2 = p2->next;
-    }
-    } else if (p1) {
-    p->next = p1;
+  if (p1 && p2) {
+  if (p1->val <= p2->val) {
+    p->next = p1; 
     p1 = p1->next;
-    } else {
+  } else {
     p->next = p2;
     p2 = p2->next;
-    }
-    p = p->next;
+  }
+  } else if (p1) {
+  p->next = p1;
+  p1 = p1->next;
+  } else {
+  p->next = p2;
+  p2 = p2->next;
+  }
+  p = p->next;
   }
   return dummy->next;
   }

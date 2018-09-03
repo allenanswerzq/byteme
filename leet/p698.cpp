@@ -15,12 +15,12 @@ int dfs(int bit, int sum) {
 
   int tot = 0;
   for (int j=0; j<a.size(); j++)
-    if (i & (1<<j))
-    tot += a[j];
+  if (i & (1<<j))
+  tot += a[j];
 
   if (tot == sum) {
-    int tmp = dfs(bit ^ i, sum);
-    if (tmp) return 1;
+  int tmp = dfs(bit ^ i, sum);
+  if (tmp) return 1;
   }
   }
   return 0;
@@ -29,14 +29,14 @@ int dfs(int bit, int sum) {
 class Solution {
 public:
   bool canPartitionKSubsets(vector<int>& nums, int k) {
-    int i,sum;
-    sum = 0;
-    for (i=0; i<nums.size(); i++)
-    sum += nums[i];
-    if (sum % k != 0) return false;
-    sum /= k;
-    a = nums;
-    return dfs((1<<a.size()) - 1, sum);
+  int i,sum;
+  sum = 0;
+  for (i=0; i<nums.size(); i++)
+  sum += nums[i];
+  if (sum % k != 0) return false;
+  sum /= k;
+  a = nums;
+  return dfs((1<<a.size()) - 1, sum);
   }
 };
 

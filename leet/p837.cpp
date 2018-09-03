@@ -35,25 +35,25 @@ public:
   dp[0] = 1.0;
   
   fori(i, 1, n + 1) {
-    if (i < k) {
-    double sum = 0;
-    for (int j=i-1; j >= i-w && j>=0; j--)
-      sum += dp[j];
-    dp[i] = sum / w;
-    } else {
-    // Game already ended. 
-    double sum = 0;
-    for(int j=k-1; j >= i-w && j>=0; j--) 
-      sum += dp[j];
-    dp[i] = sum / w;
-    }
+  if (i < k) {
+  double sum = 0;
+  for (int j=i-1; j >= i-w && j>=0; j--)
+    sum += dp[j];
+  dp[i] = sum / w;
+  } else {
+  // Game already ended. 
+  double sum = 0;
+  for(int j=k-1; j >= i-w && j>=0; j--) 
+    sum += dp[j];
+  dp[i] = sum / w;
+  }
   }
 
   // par(dp, n + 1);
 
   double res = 0;
   fori (i, k, n + 1) {
-    res += dp[i];
+  res += dp[i];
   }
 
   return res;
@@ -68,10 +68,10 @@ public:
   sum = 1.0;
   dp[0] = 1.0;
   fori (i, 1, n) {
-    dp[i] = sum / w;
-    if (i < k) sum += dp[i];
-    else res += dp[i];
-    if (i >= w) sum -= dp[i - w];
+  dp[i] = sum / w;
+  if (i < k) sum += dp[i];
+  else res += dp[i];
+  if (i >= w) sum -= dp[i - w];
   }
   return res;
   }

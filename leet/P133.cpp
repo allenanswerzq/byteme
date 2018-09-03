@@ -17,10 +17,10 @@ public:
   UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
   if (!node) return nullptr;
   if (!mp.count(node)) {
-    mp[node] = new UndirectedGraphNode(node->label);
-    for (auto n : node->neighbors) {
-    mp[node]->neighbors.push_back(cloneGraph(n));
-    }
+  mp[node] = new UndirectedGraphNode(node->label);
+  for (auto n : node->neighbors) {
+  mp[node]->neighbors.push_back(cloneGraph(n));
+  }
   }
   return mp[node]; 
   }

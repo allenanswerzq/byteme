@@ -88,11 +88,11 @@ private:
 void printMatrix(vector<vector<int> > &matrix)
 {
   for(int i=0; i<matrix.size(); i++){
-    printf("{");
-    for(int j=0; j< matrix[i].size(); j++) {
-      printf("%3d ", matrix[i][j]) ;
-    }
-    printf("}\n");
+  printf("{");
+  for(int j=0; j< matrix[i].size(); j++) {
+    printf("%3d ", matrix[i][j]) ;
+  }
+  printf("}\n");
   }
   cout << endl;
 }

@@ -27,12 +27,12 @@ int keyboardDP(int n) {
 
   fori (i, 1, n+1) {
   if (i <= 6) {
-    dp[i] = i; 
+  dp[i] = i; 
   } else {
-    dp[i] = 0;
-    ford (j, i - 3, 0) {
-    dp[i] = max(dp[i], dp[j] * (i - j - 1));
-    }
+  dp[i] = 0;
+  ford (j, i - 3, 0) {
+  dp[i] = max(dp[i], dp[j] * (i - j - 1));
+  }
   }
   }
   return dp[n];

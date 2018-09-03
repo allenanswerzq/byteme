@@ -19,11 +19,11 @@ string maskEmailSimple(string s) {
   stringstream ss;
   fori(i, 0, sz(s)) 
   if (s[i] == '@') {
-    ss << tolower(s[0]);
-    ss << "*****";
-    ss << tolower(s[i-1]);
-    fori(j, i, sz(s)) ss << s[j];
-    break;
+  ss << tolower(s[0]);
+  ss << "*****";
+  ss << tolower(s[i-1]);
+  fori(j, i, sz(s)) ss << s[j];
+  break;
   }
   return ss.str();
 }
@@ -51,8 +51,8 @@ string strip(string s) {
   string res = "";
   fora(c, s)
   if (c != '(' && c != ')' && c != '{' && c != '}' && 
-    c != '-' && c != ' ')
-    res += c;
+  c != '-' && c != ' ')
+  res += c;
   return res;
 }
 
@@ -68,13 +68,13 @@ string maskPhone(string aa) {
   } else {
   int idx = 0;
   if (s[0] == '+') {
-    sign = "+";
-    ++idx;
+  sign = "+";
+  ++idx;
   } else if (s[0] >= '0' && s[0] <= '9') {
-    sign = "+";
+  sign = "+";
   } else if (s[0] == '-') {
-    sign = "-";
-    ++idx;
+  sign = "-";
+  ++idx;
   }
   code = s.substr(idx, n-10-idx);
   num = s.substr(n-10, 10);
@@ -95,9 +95,9 @@ class Solution {
 public:
   string maskPII(string S) {
   if (S.find("@") != string::npos) 
-    return maskEmail(S);
+  return maskEmail(S);
   else 
-    return maskPhone(S);      
+  return maskPhone(S);      
   }
 };
 

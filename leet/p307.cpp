@@ -16,15 +16,15 @@ public:
   bit.resize(n + 1);
 
   fori (i, 0, n)
-    add(i, aa[i]);
+  add(i, aa[i]);
   }
   
   int query(int ix) {
   int res = 0;
   ix += 1;
   while (ix > 0) {
-    res += bit[ix];
-    ix -= ix & (-ix);
+  res += bit[ix];
+  ix -= ix & (-ix);
   }
   return res;
   }
@@ -32,8 +32,8 @@ public:
   void add(int ix, int inp) {
   ix += 1;
   while (ix <= n) {
-    bit[ix] += inp;
-    ix += ix & (-ix);
+  bit[ix] += inp;
+  ix += ix & (-ix);
   }
   }
   

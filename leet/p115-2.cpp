@@ -35,23 +35,23 @@ public:
   mst(dp, 0);
 
   fori(i, 0, a+1) {
-    fori(j, 0, b+1) {
+  fori(j, 0, b+1) {
 
-    if (i == 0 && j == 0)
-      dp[i][j] = 1;
+  if (i == 0 && j == 0)
+    dp[i][j] = 1;
 
-    else if (i == 0)
-      dp[i][j] = 0;
+  else if (i == 0)
+    dp[i][j] = 0;
 
-    else if (j == 0) 
-      dp[i][j] = 1;
+  else if (j == 0) 
+    dp[i][j] = 1;
 
-    else if (s[i-1] == t[j-1])
-      dp[i][j] = dp[i-1][j] + dp[i-1][j-1];
+  else if (s[i-1] == t[j-1])
+    dp[i][j] = dp[i-1][j] + dp[i-1][j-1];
 
-    else if (s[i-1] != t[j-1])
-      dp[i][j] = dp[i-1][j];
-    }
+  else if (s[i-1] != t[j-1])
+    dp[i][j] = dp[i-1][j];
+  }
   }
 
   // fori(i, 0, a+1) {
@@ -67,7 +67,7 @@ public:
   srand(time(0));
   int x = rand(); 
   if (x % 2) 
-    return numDistinctRecu(s, t);
+  return numDistinctRecu(s, t);
   else
   return numDistinctDP(s, t);
   }

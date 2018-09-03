@@ -11,16 +11,16 @@ int dcmp(double x, double y = 0, double tol = eps) {
 class ExamRoom {
 public:
   ExamRoom(int N) {
-    n = N; 
-    num = 0;
+  n = N; 
+  num = 0;
   }
   
   int seat() {
 
   if (num == 0) {
-    st.insert(0);
-    ++num;
-    return 0;
+  st.insert(0);
+  ++num;
+  return 0;
   } 
 
   // pvi(st);
@@ -30,19 +30,19 @@ public:
   int last = -1;
 
   fora(t, st) {
-    if (last > -1) {
-    int diff = t - last;
-    if (diff / 2 > max) {
-      max = diff / 2;
-      seat = last + max;
-    }
-    }
-    last = t;
+  if (last > -1) {
+  int diff = t - last;
+  if (diff / 2 > max) {
+    max = diff / 2;
+    seat = last + max;
+  }
+  }
+  last = t;
   }
 
   if (n - 1 - *st.rbegin() > max) {
-    seat = n - 1;
-    max = n - 1 - *st.rbegin();
+  seat = n - 1;
+  max = n - 1 - *st.rbegin();
   }
 
   st.insert(seat);

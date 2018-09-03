@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -14,9 +14,9 @@ int maximumProduct(vector<int>& A) {
   int res=INT_MIN;
   int n = A.size();
   for (int i=0; i<n; ++i)
-    for (int j=i+1; j<n; ++j)
-      for (int k=j+1; k<n; ++k)
-        res = max(res, A[i]*A[j]*A[k]);
+  for (int j=i+1; j<n; ++j)
+    for (int k=j+1; k<n; ++k)
+    res = max(res, A[i]*A[j]*A[k]);
   return res;
 }
 // best sloution

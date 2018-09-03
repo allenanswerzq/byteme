@@ -18,12 +18,12 @@ bool recu(str s, str t) {
 
   if (s[m-1] == t[n-1]) 
   return recu(s.substr(0, m-1), t.substr(0, n-1)) || 
-       recu(s, t.substr(0, n-1));
+     recu(s, t.substr(0, n-1));
   else {
   if (n == 1)
-    return 0;
+  return 0;
   else 
-    return recu(s, t.substr(0, n-1));
+  return recu(s, t.substr(0, n-1));
   }
 }
 
@@ -35,19 +35,19 @@ bool isSubsequenceDP(str s, str t) {
   mst(dp, 0);
   fori (i, 0, m+1)
   fori (j, 0, n+1) {
-    if (i == 0 && j == 0)
-    dp[i][j] = 1;
-    else if (i == 0) 
-    dp[i][j] = 1;
-    else if (j == 0)
-    dp[i][j] = 0;
-    else {
-    if (s[i - 1] == t[j - 1]) {
-      dp[i][j] = dp[i-1][j-1] || dp[i][j-1]; 
-    } else {
-      dp[i][j] = dp[i][j-1];
-    }
-    }
+  if (i == 0 && j == 0)
+  dp[i][j] = 1;
+  else if (i == 0) 
+  dp[i][j] = 1;
+  else if (j == 0)
+  dp[i][j] = 0;
+  else {
+  if (s[i - 1] == t[j - 1]) {
+    dp[i][j] = dp[i-1][j-1] || dp[i][j-1]; 
+  } else {
+    dp[i][j] = dp[i][j-1];
+  }
+  }
   }
   return dp[m][n];
 }

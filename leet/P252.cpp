@@ -16,7 +16,7 @@ bool canAttendMeetings(vector<Interval>& aa) {
   int n = aa.size();
   for (int i=0; i<n-1; ++i)
   if (aa[i].end > aa[i+1].start)
-    return false;
+  return false;
   return true;
 }
 
@@ -31,7 +31,7 @@ bool canAttendMeetings(vector<Interval>& intervals) {
   s += it.second * it.first.second;
   // One person can only attend one meeting at a fixed time
   if (s >= 2) 
-    return false;
+  return false;
   }
   return true;
 }

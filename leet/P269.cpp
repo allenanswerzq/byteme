@@ -56,16 +56,16 @@ public:
   
   int n = sz(aa);
   fori (i, 0, aa - 1) {
-    string a = aa[i], b = aa[i + 1];
-    int mi = min(sz(a), sz(b)); 
-    int j;
-    for (; j < mi; ++j) {
-    if (a[i] != b[i]) {
-      st.insert(make_pair(a[i], b[i]));
-      break;
-    }
-    }
-    if (j == mi && sz(a) > sz(b)) return ""; 
+  string a = aa[i], b = aa[i + 1];
+  int mi = min(sz(a), sz(b)); 
+  int j;
+  for (; j < mi; ++j) {
+  if (a[i] != b[i]) {
+    st.insert(make_pair(a[i], b[i]));
+    break;
+  }
+  }
+  if (j == mi && sz(a) > sz(b)) return ""; 
   }
 
   string res;
@@ -73,22 +73,22 @@ public:
   deque<char> dq; 
   fora (t, st) ++in[t.se]; 
   fora (c, ch) 
-    if (in[c] == 0) { 
-    dq.pb(c);
-    res += a;
-    }
+  if (in[c] == 0) { 
+  dq.pb(c);
+  res += a;
+  }
 
   while (sz(dq)) {
-    auto c = dq.front(); dq.ppf(); 
-    fora (t, st) {
-    if (t.fi == c) {
-      --in[t.se];
-      if (in[t.se] == 0) {
-      q.pb(a.se);
-      res += a.se;
-      }
+  auto c = dq.front(); dq.ppf(); 
+  fora (t, st) {
+  if (t.fi == c) {
+    --in[t.se];
+    if (in[t.se] == 0) {
+    q.pb(a.se);
+    res += a.se;
     }
-    }
+  }
+  }
   } 
   return sz(res) == sz(ch) ? res : "";
   }

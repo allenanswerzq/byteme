@@ -18,20 +18,20 @@ public:
   // dp[i].se dentoes the number of the LSP ending at the ith index.
   vpii dp(n, {1, 1});
   fori (i, 0, n) {
-    fori (j, 0, i) {
-    if (aa[j] < aa[i]) {
-      if(dp[i].fi == dp[j].fi + 1) 
-      dp[i].se += dp[j].se;
-      if (dp[i].fi < dp[j].fi + 1)
-      dp[i] = {dp[j].fi + 1, dp[j].se};
-    }
-    }
-    if (mx == dp[i].fi)
-    res += dp[i].se;
-    else if (mx < dp[i].fi) {
-    mx = dp[i].fi;
-    res = dp[i].se;
-    }
+  fori (j, 0, i) {
+  if (aa[j] < aa[i]) {
+    if(dp[i].fi == dp[j].fi + 1) 
+    dp[i].se += dp[j].se;
+    if (dp[i].fi < dp[j].fi + 1)
+    dp[i] = {dp[j].fi + 1, dp[j].se};
+  }
+  }
+  if (mx == dp[i].fi)
+  res += dp[i].se;
+  else if (mx < dp[i].fi) {
+  mx = dp[i].fi;
+  res = dp[i].se;
+  }
   }
   return res;
   }

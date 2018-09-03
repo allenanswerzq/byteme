@@ -17,30 +17,30 @@ int recu(string s, int ix) {
   if (s[ix] == '*') {
   res = 9 * recu(s, ix-1) % mod;
   if (ix > 0 && s[ix-1] == '1')
-    res = (res + 9 * recu(s, ix-2)) % mod;
+  res = (res + 9 * recu(s, ix-2)) % mod;
 
   else if (ix > 0 && s[ix-1] == '2')
-    res = (res + 6 * recu(s, ix-2)) % mod;
+  res = (res + 6 * recu(s, ix-2)) % mod;
 
   else if (ix > 0 && s[ix-1] == '*')
-    res = (res + 15 * recu(s, ix-2)) % mod;
+  res = (res + 15 * recu(s, ix-2)) % mod;
 
   } else {
   if (s[ix] != '0')
-    res = (res + recu(s, ix-1)) % mod;
+  res = (res + recu(s, ix-1)) % mod;
 
   if (ix > 0 && s[ix-1] == '1') 
-    res = (res + recu(s, ix-2)) % mod;
+  res = (res + recu(s, ix-2)) % mod;
 
   else if (ix > 0 && s[ix-1] == '2' && s[ix] <= '6')
-    res = (res + recu(s, ix-2)) % mod;
+  res = (res + recu(s, ix-2)) % mod;
 
   else if (ix > 0 && s[ix-1] == '*') {
-    // ...*[0-6]
-    if (s[ix] <= '6')
-    res = (res + 2 * recu(s, ix-2)) % mod;
-    else 
-    res = (res + recu(s, ix-2)) % mod;
+  // ...*[0-6]
+  if (s[ix] <= '6')
+  res = (res + 2 * recu(s, ix-2)) % mod;
+  else 
+  res = (res + recu(s, ix-2)) % mod;
   }
   }
   return res;
@@ -59,34 +59,34 @@ int numDecodingsDP(string s) {
   int j = i - 1;
 
   if (s[j] == '*') {
-    dp[i] = 9 * dp[i - 1];
+  dp[i] = 9 * dp[i - 1];
 
-    if (j > 0 && s[j - 1] == '1')
-    dp[i] = (dp[i] + 9 * dp[i - 2]) % mod;
+  if (j > 0 && s[j - 1] == '1')
+  dp[i] = (dp[i] + 9 * dp[i - 2]) % mod;
 
-    else if (j > 0 && s[j - 1] == '2')
-    dp[i] = (dp[i] + 6 * dp[i - 2]) % mod;
+  else if (j > 0 && s[j - 1] == '2')
+  dp[i] = (dp[i] + 6 * dp[i - 2]) % mod;
 
-    else if (j > 0 && s[j - 1] == '*')
-    dp[i] = (dp[i] + 15 * dp[i - 2]) % mod;
-    
+  else if (j > 0 && s[j - 1] == '*')
+  dp[i] = (dp[i] + 15 * dp[i - 2]) % mod;
+  
   } else {
 
-    if (s[j] != '0')
-    dp[i] = dp[i-1];
+  if (s[j] != '0')
+  dp[i] = dp[i-1];
 
-    if (j > 0 && s[j - 1] == '1') 
+  if (j > 0 && s[j - 1] == '1') 
+  dp[i] = (dp[i] + dp[i - 2]) % mod;
+
+  else if (j > 0 && s[j - 1] == '2' && s[j] <= '6')
+  dp[i] = (dp[i] + dp[i - 2]) % mod;
+
+  else if (j > 0 && s[j - 1] == '*') {
+  if (s[j] <= '6')
+    dp[i] = (dp[i] + 2 * dp[i - 2]) % mod;
+  else
     dp[i] = (dp[i] + dp[i - 2]) % mod;
-
-    else if (j > 0 && s[j - 1] == '2' && s[j] <= '6')
-    dp[i] = (dp[i] + dp[i - 2]) % mod;
-
-    else if (j > 0 && s[j - 1] == '*') {
-    if (s[j] <= '6')
-      dp[i] = (dp[i] + 2 * dp[i - 2]) % mod;
-    else
-      dp[i] = (dp[i] + dp[i - 2]) % mod;
-    }
+  }
   }
   }
   return dp[n];;

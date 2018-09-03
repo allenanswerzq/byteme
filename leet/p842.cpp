@@ -25,36 +25,36 @@ public:
   inp = S;
   int n = sz(inp);
   fori(len0, 1, 11) {
-    ll a0 = parse(0, len0);
-    if (a0 == -1) break;
+  ll a0 = parse(0, len0);
+  if (a0 == -1) break;
 
-    fori(len1, 1, 11) {
-    ll a1 = parse(len0, len1);
-    if (a1 == -1) break;
+  fori(len1, 1, 11) {
+  ll a1 = parse(len0, len1);
+  if (a1 == -1) break;
 
-    bool ok = true;
-    ll x0 = a0, x1 = a1;
-    int cur = len0 + len1;
-    vi res;
-    res.pb(x0);
-    res.pb(x1);
-    while (cur < n) {
-      ll x2 = x0 + x1; 
-      int len3 = sz(to_string(x2));
-      int y = parse(cur, len3);
-      if (x2 == y) {
-      res.pb(x2);
-      x0 = x1;
-      x1 = x2;
-      cur += len3;
-      } else {
-      ok = false;
-      break;
-      }
+  bool ok = true;
+  ll x0 = a0, x1 = a1;
+  int cur = len0 + len1;
+  vi res;
+  res.pb(x0);
+  res.pb(x1);
+  while (cur < n) {
+    ll x2 = x0 + x1; 
+    int len3 = sz(to_string(x2));
+    int y = parse(cur, len3);
+    if (x2 == y) {
+    res.pb(x2);
+    x0 = x1;
+    x1 = x2;
+    cur += len3;
+    } else {
+    ok = false;
+    break;
     }
-    if (ok && sz(res) >= 3)
-      return res;
-    }
+  }
+  if (ok && sz(res) >= 3)
+    return res;
+  }
   }
   return {};
   }

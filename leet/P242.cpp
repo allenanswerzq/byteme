@@ -12,7 +12,7 @@ bool isAnagram(string s, string t) {
   }
   for (auto it : mp)
   if (it.second > 0)
-    return false;
+  return false;
   return true;
 }
 

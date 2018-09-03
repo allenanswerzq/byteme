@@ -30,15 +30,15 @@ public:
   lo = -1;
   hi = 0;
   while (aa) {
-    if (aa & 1) {
-    if (lo == -1) lo = hi; 
-    else {
-      res = max(res, hi - lo);
-      lo = hi;
-    }
-    }
-    ++hi;
-    aa >>= 1;
+  if (aa & 1) {
+  if (lo == -1) lo = hi; 
+  else {
+    res = max(res, hi - lo);
+    lo = hi;
+  }
+  }
+  ++hi;
+  aa >>= 1;
   }     
   return res;
   }

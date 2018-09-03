@@ -13,10 +13,10 @@ bool dfs(set_t mp, string ret, int n, int k, int tot) {
   mp.insert(next);
   ret += to_string(i);
   if (dfs(mp, ret, n, k, tot)) 
-    return true;
+  return true;
   else {
-    mp.erase(next);
-    ret.pop_back(); 
+  mp.erase(next);
+  ret.pop_back(); 
   }
   }
   return false;

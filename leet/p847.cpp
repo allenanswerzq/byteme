@@ -22,29 +22,29 @@ public:
   deque<pii> q; 
 
   fori(i, 0, n) {
-    // Only node i visited and the stopping node is i.
-    dp[1<<i][i] = 0; 
-    q.eb(1<<i, i);
+  // Only node i visited and the stopping node is i.
+  dp[1<<i][i] = 0; 
+  q.eb(1<<i, i);
   } 
 
   while (sz(q)) {
-    auto cur = q.front(); q.ppf();
-    int state = cur.fi;
-    int start = cur.se;
-    // cout << state << " " << start << endl;
-    fora(node, g[start]) {
-    // Add this node as a visited node.
-    int new_state = state | (1 << node); 
-    if (dp[new_state][node] > dp[state][start] + 1) {
-      dp[new_state][node] = dp[state][start] + 1;
-      q.eb(new_state, node);
-    }
-    }      
+  auto cur = q.front(); q.ppf();
+  int state = cur.fi;
+  int start = cur.se;
+  // cout << state << " " << start << endl;
+  fora(node, g[start]) {
+  // Add this node as a visited node.
+  int new_state = state | (1 << node); 
+  if (dp[new_state][node] > dp[state][start] + 1) {
+    dp[new_state][node] = dp[state][start] + 1;
+    q.eb(new_state, node);
+  }
+  }      
   }
   
   int ret = inf; 
   fori(i, 0, n)
-    ret = min(ret, dp[(1<<n) - 1][i]);
+  ret = min(ret, dp[(1<<n) - 1][i]);
   return ret;
   }
 };

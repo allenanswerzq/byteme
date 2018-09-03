@@ -25,15 +25,15 @@ public:
   unordered_map<string, multiset<string>> m;
 
   for (auto a : strings) {
-    string t = "";
-    for (char c : a) {
-    t += to_string((c + 26 - a[0]) % 26) + ",";
-    }
-    m[t].insert(a);
+  string t = "";
+  for (char c : a) {
+  t += to_string((c + 26 - a[0]) % 26) + ",";
+  }
+  m[t].insert(a);
   }
 
   for (auto it = m.begin(); it != m.end(); ++it) {
-    res.push_back(vector<string>(it->second.begin(), it->second.end()));
+  res.push_back(vector<string>(it->second.begin(), it->second.end()));
   }
   return res;
   }

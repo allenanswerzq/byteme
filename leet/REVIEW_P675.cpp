@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-    printf("%d ", x); 
+  printf("%d ", x); 
   printf("]\n");
 }
 
@@ -23,18 +23,18 @@ int bfs(vector<vector<int>>& forest, int src_x, int src_y, int dest_x, int dest_
   int nq = q.size();
   step++; // walk one step 
   for (int k=0; k<nq; ++k) {
-    int cur_x = q.front().first;
-    int cur_y = q.front().second;
-    q.pop();
-    for (int i=0; i<4; ++i) {
-    int x = cur_x + dir[i][0];
-    int y = cur_y + dir[i][1];
-    if (x>=0 && x<m && y>=0 && y<n && forest[x][y]>0 && visited[x][y]==0) {
-      if (x==dest_x && y==dest_y) return step;
-      visited[x][y] = 1;
-      q.push({x, y});
-    }
-    }
+  int cur_x = q.front().first;
+  int cur_y = q.front().second;
+  q.pop();
+  for (int i=0; i<4; ++i) {
+  int x = cur_x + dir[i][0];
+  int y = cur_y + dir[i][1];
+  if (x>=0 && x<m && y>=0 && y<n && forest[x][y]>0 && visited[x][y]==0) {
+    if (x==dest_x && y==dest_y) return step;
+    visited[x][y] = 1;
+    q.push({x, y});
+  }
+  }
   }
   }
   return -1;
@@ -53,9 +53,9 @@ int dfs(vector<vector<int>>& forest, int src_x, int src_y, int dest_x, int dest_
   int x = src_x + dir[i][0];
   int y = src_y + dir[i][1];
   if (x>=0 && x<m && y>=0 && y<n && forest[x][y]>0) {
-    int step = dfs(forest, x, y, dest_x, dest_y, visited);
-    if (step >= 0)
-    walks = min(walks, step);
+  int step = dfs(forest, x, y, dest_x, dest_y, visited);
+  if (step >= 0)
+  walks = min(walks, step);
   }
   } 
   visited[src_x][src_y] = 0;  // Note: why?
@@ -70,7 +70,7 @@ int cutOffTree(vector<vector<int>>& forest) {
   vector<vector<int>> height;  
   for (int i=0; i<m; ++i)
   for (int j=0; j<n; ++j)
-    if (forest[i][j] > 1) height.push_back({forest[i][j], i, j});
+  if (forest[i][j] > 1) height.push_back({forest[i][j], i, j});
 
   // sort according to height 
   sort(height.begin(), height.end());

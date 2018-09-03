@@ -22,12 +22,12 @@ int threeSumSmaller(vector<int>& nums, int target) {
   int lo = i + 1;
   int hi = n - 1; 
   while (lo < hi) {
-    if (nums[i] + nums[lo] + nums[hi] < target) {
-    ret += hi - lo;
-    ++lo;
-    } else {
-    --hi;
-    }
+  if (nums[i] + nums[lo] + nums[hi] < target) {
+  ret += hi - lo;
+  ++lo;
+  } else {
+  --hi;
+  }
   }
   }
   return ret;

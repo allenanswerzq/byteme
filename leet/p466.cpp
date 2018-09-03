@@ -16,18 +16,18 @@ public:
   p1 = p2 = k1 = k2 = 0;
   // Go through s1 n1 times.
   while (p1 < n1) {
-    if (s1[k1] == s2[k2]) {
-    ++k2;
-    if (k2 == sz(s2)) {
-      k2 = 0;
-      ++p2; 
-    }
-    } 
-    ++k1;
-    if (k1 == sz(s1)) {
-    k1 = 0; 
-    ++p1;
-    }
+  if (s1[k1] == s2[k2]) {
+  ++k2;
+  if (k2 == sz(s2)) {
+    k2 = 0;
+    ++p2; 
+  }
+  } 
+  ++k1;
+  if (k1 == sz(s1)) {
+  k1 = 0; 
+  ++p1;
+  }
   } 
   return p2 / n2;
   }

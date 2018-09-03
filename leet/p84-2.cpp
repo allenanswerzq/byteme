@@ -64,8 +64,8 @@ int go(vi& inp, vi& seg, int lo, int hi) {
   if (lo == hi) return inp[lo]; 
   int mix = rmq(seg, lo, hi, n);
   return max(max(go(inp, seg, lo, mix-1), 
-         go(inp, seg, mix+1, hi)),
-         (inp[mix] * (hi - lo + 1)));
+     go(inp, seg, mix+1, hi)),
+     (inp[mix] * (hi - lo + 1)));
 }
 
 class Solution {
@@ -93,16 +93,16 @@ public:
   stack<int> stk;
   int res = 0;
   fori (i, 0, sz(aa)) {
-    while(!stk.empty() && aa[i] <= aa[stk.top()]) {
-    int h = aa[stk.top()]; stk.pop();
-    int w = stk.empty() ? -1 : stk.top(); 
+  while(!stk.empty() && aa[i] <= aa[stk.top()]) {
+  int h = aa[stk.top()]; stk.pop();
+  int w = stk.empty() ? -1 : stk.top(); 
 
-    res = max(res, h * (i - w - 1));
-    cout << i << " " << w << " " << res << "\n";
-    }
-    // We still need to compute the area with `i`th bar as the smallest bar.
-    // So push it into stack.
-    stk.push(i);
+  res = max(res, h * (i - w - 1));
+  cout << i << " " << w << " " << res << "\n";
+  }
+  // We still need to compute the area with `i`th bar as the smallest bar.
+  // So push it into stack.
+  stk.push(i);
   }
   return res;
   }

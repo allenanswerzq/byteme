@@ -34,7 +34,7 @@ public:
   // Must be long long becasue below operation x * x
   ll x = n;
   while (x * x > n) {
-    x = (x + n / x) / 2;
+  x = (x + n / x) / 2;
   }
   return x; 
   }
@@ -44,9 +44,9 @@ public:
   if (n <= 1) return n;
   int lo = 1, hi = n;
   while (lo < hi) {
-    int mid = lo + (hi - lo) / 2;
-    if (mid > n / mid) hi = mid;
-    else lo = mid + 1;
+  int mid = lo + (hi - lo) / 2;
+  if (mid > n / mid) hi = mid;
+  else lo = mid + 1;
   }
   return lo - 1;
   }

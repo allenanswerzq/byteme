@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 // vary good stack problem
@@ -15,18 +15,18 @@ string simplifyPath(string path) {
   stringstream ss(path);
   string x = "";
   while(getline(ss, x, '/')) {
-    if (x == "..") {
-      if (!stk.empty())
-        stk.pop_back();
-    }
-    else if(x!="" && x!=".")
-      stk.push_back(x);
+  if (x == "..") {
+    if (!stk.empty())
+    stk.pop_back();
+  }
+  else if(x!="" && x!=".")
+    stk.push_back(x);
   }
   string res;
   // NOTE: stack cant do this
   // but vector can
   for (auto x: stk) {
-    res = res + '/' + x;
+  res = res + '/' + x;
   }
   return stk.empty() ? "/":res;
 }

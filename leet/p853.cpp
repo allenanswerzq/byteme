@@ -17,7 +17,7 @@ public:
   if (n == 1) return 1;
 
   fori(i, 0, n)  {
-    a.eb(aa[i], bb[i]); 
+  a.eb(aa[i], bb[i]); 
   } 
   sort(all(a));
 

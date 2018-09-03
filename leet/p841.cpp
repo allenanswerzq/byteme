@@ -17,7 +17,7 @@ void dfs(int start) {
   visit[start] = 1;
   ++res;
   fora(key, rooms[start]) 
-    dfs(key);
+  dfs(key);
   }
 }
 

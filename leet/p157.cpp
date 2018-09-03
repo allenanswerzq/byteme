@@ -24,11 +24,11 @@ public:
   int total = 0;
   char tmp[4];
   while (!eof && total < n) {
-    int cnt = read4(tmp);
-    eof = cnt < 4;
-    cnt = min(cnt, n - total);  
-    fori (i, 0, cnt)
-    buf[total++] = tmp[i];
+  int cnt = read4(tmp);
+  eof = cnt < 4;
+  cnt = min(cnt, n - total);  
+  fori (i, 0, cnt)
+  buf[total++] = tmp[i];
   }
   return total;
   }

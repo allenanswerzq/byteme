@@ -17,11 +17,11 @@ public:
   dp[0] = 0;
 
   fori(i, 1, n+1) {
-    int mi = 0x3f3f3f3f;
-    fora(c, coins)
-    if (i - c >= 0 && dp[i - c] != -1)
-      mi = min(mi, dp[i-c] + 1);
-    dp[i] = mi == 0x3f3f3f3f ? -1 : mi;
+  int mi = 0x3f3f3f3f;
+  fora(c, coins)
+  if (i - c >= 0 && dp[i - c] != -1)
+    mi = min(mi, dp[i-c] + 1);
+  dp[i] = mi == 0x3f3f3f3f ? -1 : mi;
   } 
 
   // fori(i, 0, n+1)

@@ -5,7 +5,7 @@ using namespace std;
 printVector(vector<int>& v) {
   cout << "[ ";
   for (int x:v)
-      cout << x << " ";
+    cout << x << " ";
   cout <<"] " << endl;
 }
 

@@ -39,12 +39,12 @@ public:
   int dp[n][n]; mst(dp, 0);
 
   fori (j, 1, n-1) {
-    ford (i, j, 0) {
-    fori (k, i, j+1) {
-      int tmp = dp[i][k-1] + dp[k+1][j] + (aa[i-1] * aa[k] * aa[j+1]);
-      dp[i][j] = max(dp[i][j], tmp);
-    }
-    } 
+  ford (i, j, 0) {
+  fori (k, i, j+1) {
+    int tmp = dp[i][k-1] + dp[k+1][j] + (aa[i-1] * aa[k] * aa[j+1]);
+    dp[i][j] = max(dp[i][j], tmp);
+  }
+  } 
   }
 
   // fori(i, 0, n) {

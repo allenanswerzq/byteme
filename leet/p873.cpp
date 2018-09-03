@@ -29,17 +29,17 @@ public:
   fora (a, aa) st.insert(a);
   int res = 0;
   fori (i, 0, n) {
-    fori (j, i+1, n) {
-    int tmp = 2;
-    int one = aa[i], two = aa[j];
-    while (st.count(one + two)) {
-      ++tmp;
-      int three = one + two;
-      one = two; 
-      two = three;
-    }
-    if (tmp > 2) res = max(res, tmp);
-    }
+  fori (j, i+1, n) {
+  int tmp = 2;
+  int one = aa[i], two = aa[j];
+  while (st.count(one + two)) {
+    ++tmp;
+    int three = one + two;
+    one = two; 
+    two = three;
+  }
+  if (tmp > 2) res = max(res, tmp);
+  }
   }
   return res;
   }

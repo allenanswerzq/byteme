@@ -5,32 +5,32 @@ class MinStack {
 public:
   /** initialize your data structure here. */
   MinStack() {
-    minValue = INT_MAX; 
-    idx = 0;
+  minValue = INT_MAX; 
+  idx = 0;
   }
   
   void push(int x) {
-    minValue = min(minValue, x);
-    dp.push_back(minValue);
-    stk.push_back(x);
+  minValue = min(minValue, x);
+  dp.push_back(minValue);
+  stk.push_back(x);
   }
   
   void pop() {
-    stk.pop_back();
-    dp.pop_back();
-    minValue = stk.empty() ? INT_MAX : dp.back();
+  stk.pop_back();
+  dp.pop_back();
+  minValue = stk.empty() ? INT_MAX : dp.back();
   }
   
   int top() {
-    if (stk.size())
-      return stk.back();
-    return -1;
+  if (stk.size())
+    return stk.back();
+  return -1;
   }
   
   int getMin() {
-    if (dp.size())
-      return dp.back(); 
-    return -1;
+  if (dp.size())
+    return dp.back(); 
+  return -1;
   }
 private:
   int minValue;

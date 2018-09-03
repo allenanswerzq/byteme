@@ -19,35 +19,35 @@ public:
   q.pb({0, 1}); 
   unordered_set<string> mp;
   for (int level = 0; sz(q); level++) {
-    int n = sz(q);
-    // Search each layer.
-    fori (i, 0, n) {
-    auto cur = q.front(); q.ppf();
-    int pos = cur.fi;
-    int speed = cur.se;
-    if (pos == goal) return level;
-    // Move one step.
-    // Equivalently adding a 'A' in the control sequences.
-    int n_pos = pos + speed;
-    int n_speed = speed * 2;
-    pii nxt = {n_pos, n_speed};
-    string state = to_string(nxt.fi) + " " + 
-             to_string(nxt.se);
-    if (!mp.count(state) && 0 < n_pos && n_pos < 2 * goal) {
-      q.pb(nxt);
-      mp.insert(state); 
-    }
-    // Adding a new 'R' in the control sequence.
-    n_pos = pos;
-    n_speed = speed > 0 ? -1 : 1;
-    nxt = {n_pos, n_speed};
-    state = to_string(nxt.fi) + " " + 
-        to_string(nxt.se);
-    if (!mp.count(state) && 0 < n_pos && n_pos < 2 * goal) {
-      q.pb(nxt);
-      mp.insert(state); 
-    }
-    }    
+  int n = sz(q);
+  // Search each layer.
+  fori (i, 0, n) {
+  auto cur = q.front(); q.ppf();
+  int pos = cur.fi;
+  int speed = cur.se;
+  if (pos == goal) return level;
+  // Move one step.
+  // Equivalently adding a 'A' in the control sequences.
+  int n_pos = pos + speed;
+  int n_speed = speed * 2;
+  pii nxt = {n_pos, n_speed};
+  string state = to_string(nxt.fi) + " " + 
+       to_string(nxt.se);
+  if (!mp.count(state) && 0 < n_pos && n_pos < 2 * goal) {
+    q.pb(nxt);
+    mp.insert(state); 
+  }
+  // Adding a new 'R' in the control sequence.
+  n_pos = pos;
+  n_speed = speed > 0 ? -1 : 1;
+  nxt = {n_pos, n_speed};
+  state = to_string(nxt.fi) + " " + 
+    to_string(nxt.se);
+  if (!mp.count(state) && 0 < n_pos && n_pos < 2 * goal) {
+    q.pb(nxt);
+    mp.insert(state); 
+  }
+  }    
   }
   return -1;
   }

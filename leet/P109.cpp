@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   cout << "[ ";
   for (auto x:v)
-    cout << x << " ";
+  cout << x << " ";
   cout <<"] " << endl;
 }
 
@@ -14,10 +14,10 @@ TreeNode* build(ListNode* head, ListNode* tail) {
   ListNode *mid = head;
   if (head == tail) return NULL;
   while (p!=tail && p->next!=tail) {
-    // p is faster than mid one step
-    // it means mid arrives median of List when p reach tail
-    p = p->next->next;
-    mid = mid->next;
+  // p is faster than mid one step
+  // it means mid arrives median of List when p reach tail
+  p = p->next->next;
+  mid = mid->next;
   }
   TreeNode* root = new TreeNode(mid->val);
   root->left = build(head, mid);

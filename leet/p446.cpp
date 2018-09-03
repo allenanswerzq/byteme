@@ -18,11 +18,11 @@ void dfs(int ix, vl& path) {
   int t = sz(path);
   // The length of the path shouldn't be less than 3.
   if (t < 3) 
-    return;
+  return;
   // Check.
   fori (i, 1, t) {
-    if (path[i] - path[i - 1] != path[1] - path[0])
-    return;
+  if (path[i] - path[i - 1] != path[1] - path[0])
+  return;
   } 
   ++res;
   return;
@@ -56,21 +56,21 @@ public:
   // that ending at the `ith` index and the diff between 
   // two consecutive numbers is `dist`.
   fori (i, 0, n)
-    dp[i].clear();
+  dp[i].clear();
 
   fori (i, 0, n) {
-    fori (j, 0, i) {
-    ll dist = (ll)aa[i] - (ll)aa[j];
-    if (dist > INT_MAX || dist < INT_MIN) continue;
-    int d = (int)dist;
-    int c1 = dp[i][d];
-    int c2 = dp[j][d];
-    // |a1, a2, ... an| {ai}
-    // If we add a new value `ai`, Since the slice at least
-    // has 3 numbers, the total result will increased by `n - 1` here.
-    res += c2;
-    dp[i][d] = c1 + c2 + 1;
-    }
+  fori (j, 0, i) {
+  ll dist = (ll)aa[i] - (ll)aa[j];
+  if (dist > INT_MAX || dist < INT_MIN) continue;
+  int d = (int)dist;
+  int c1 = dp[i][d];
+  int c2 = dp[j][d];
+  // |a1, a2, ... an| {ai}
+  // If we add a new value `ai`, Since the slice at least
+  // has 3 numbers, the total result will increased by `n - 1` here.
+  res += c2;
+  dp[i][d] = c1 + c2 + 1;
+  }
   } 
   return res;
   }

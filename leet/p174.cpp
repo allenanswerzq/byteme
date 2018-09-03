@@ -19,23 +19,23 @@ public:
   mst(dp, 0);
 
   ford (i, m-1, -1) {
-    ford (j, n-1, -1) {
-    if (i == m-1 && j == n-1) 
-      dp[i][j] = max(1, 1 - aa[i][j]);
+  ford (j, n-1, -1) {
+  if (i == m-1 && j == n-1) 
+    dp[i][j] = max(1, 1 - aa[i][j]);
 
-    else if (i == m-1) {
-      // Last row.
-      dp[i][j] = max(dp[i][j+1] - aa[i][j], 1);
-    } 
-    else if (j == n-1) {
-      // Last column.
-      dp[i][j] = max(dp[i+1][j] - aa[i][j], 1);
-    } 
-    else {
-      int mi = min(dp[i+1][j], dp[i][j+1]);
-      dp[i][j] = max(mi - aa[i][j], 1);
-    }
-    }
+  else if (i == m-1) {
+    // Last row.
+    dp[i][j] = max(dp[i][j+1] - aa[i][j], 1);
+  } 
+  else if (j == n-1) {
+    // Last column.
+    dp[i][j] = max(dp[i+1][j] - aa[i][j], 1);
+  } 
+  else {
+    int mi = min(dp[i+1][j], dp[i][j+1]);
+    dp[i][j] = max(mi - aa[i][j], 1);
+  }
+  }
   }
 
   // fori(i, 0, m) {

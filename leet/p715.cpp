@@ -23,9 +23,9 @@ public:
   
   bool queryRange(int left, int right) {
   if (left >= lo && right < hi)
-    return 1;
+  return 1;
   else 
-    return 0;    
+  return 0;    
   }
   
   void removeRange(int left, int right) {

@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-    printf("%d ", x);
+  printf("%d ", x);
   printf("]\n");
 }
 
@@ -47,10 +47,10 @@ string longestWord(vector<string>& words) {
   string cur = "";
   int flag = 1;
   for (int i=0; i<sz; ++i) {
-    cur.push_back(wd[i]);
-    if (st.count(cur) == 0) {
-    flag = 0; break;
-    }
+  cur.push_back(wd[i]);
+  if (st.count(cur) == 0) {
+  flag = 0; break;
+  }
   }
   if (flag) return wd;
   }

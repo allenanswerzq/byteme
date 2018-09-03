@@ -14,7 +14,7 @@ bool check(string s) {
   lo = 0, hi = n-1;
   while(lo < hi) 
   if (s[lo++] != s[hi--])
-    return false;
+  return false;
   return true;
 }
 
@@ -25,7 +25,7 @@ int recu(string s, int lo, int hi) {
   else {
   int mi = 0x3f3f3f3f;
   fori(k, lo, hi) {
-    mi = min(mi, recu(s, lo, k) + 1 + recu(s, k+1, hi)); 
+  mi = min(mi, recu(s, lo, k) + 1 + recu(s, k+1, hi)); 
   }
   return mi;
   }
@@ -49,7 +49,7 @@ public:
   // if (x % 2)
   return minCutRecu(s); 
   // else
-    // return minCutDP(s);
+  // return minCutDP(s);
   }
 };
 

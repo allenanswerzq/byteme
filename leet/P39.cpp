@@ -12,11 +12,11 @@ public:
   if (target == 0) {
   		ret.push_back(path);
   } else {
-    for (int i = start; i < aa.size() && target >= aa[i]; ++i) {
-    path.push_back(aa[i]);
-    bt(aa, target - aa[i], path, ret, i);     
-    path.pop_back();
-    }
+  for (int i = start; i < aa.size() && target >= aa[i]; ++i) {
+  path.push_back(aa[i]);
+  bt(aa, target - aa[i], path, ret, i);     
+  path.pop_back();
+  }
    }
   }
 

@@ -15,9 +15,9 @@ int upper(set<int> st, int inp) {
   while (lo < hi) {
   int mid = lo + (hi - lo) / 2;
   if (*next(it, mid) >= inp) 
-    hi = mid;
+  hi = mid;
   else 
-    lo = mid + 1;
+  lo = mid + 1;
   }
   int res = *next(it, lo); 
   return res >= inp ? res : -0x3f3f3f3f;
@@ -36,7 +36,7 @@ int maxSubArrayNotGreaterThanK(vi& aa, int k) {
   sum += aa[i];
   int tmp = upper(st, sum - k);
   if (tmp != -0x3f3f3f3f) 
-    res = max(res, sum - tmp);
+  res = max(res, sum - tmp);
   // cout << sum << " " << tmp << " " << res << "\n";
   st.insert(sum);
   }
@@ -50,11 +50,11 @@ int maxSubArray(vector<int> aa, int& lo, int& hi) {
   lo = hi = 0;
   fori (i, 1, n) {
   if (t + aa[i] > aa[i]) {
-    t = t + aa[i];
-    hi = i;
+  t = t + aa[i];
+  hi = i;
   } else {
-    t = aa[i]; 
-    lo = i;
+  t = aa[i]; 
+  lo = i;
   }
   res = max(res, t); 
   } 
@@ -71,15 +71,15 @@ int maxSubMatrix(vvi& aa) {
   fori (lt, 0, n) {
   fill(all(dp), 0);
   fori (rt, lt, n) {
-    fori (k, 0, m)
-    dp[k] += aa[k][rt]; 
-    int tp, bt, tmp;
-    tmp = maxSubArray(dp, tp, bt);
-    if (res < tmp) {
-    res = tmp;
-    ux = lt; uy = tp;
-    bx = rt; by = bt;
-    }
+  fori (k, 0, m)
+  dp[k] += aa[k][rt]; 
+  int tp, bt, tmp;
+  tmp = maxSubArray(dp, tp, bt);
+  if (res < tmp) {
+  res = tmp;
+  ux = lt; uy = tp;
+  bx = rt; by = bt;
+  }
   }
   }
   return res;
@@ -95,13 +95,13 @@ public:
   vi dp(m, 0);
   res = -0x3f3f3f3f; 
   fori (lt, 0, n) {
-    fill(all(dp), 0);
-    fori (rt, lt, n) {
-    fori (j, 0, m)
-      dp[j] += aa[j][rt]; 
-    int tmp = maxSubArrayNotGreaterThanK(dp, kk);
-    res = max(res, tmp);
-    }
+  fill(all(dp), 0);
+  fori (rt, lt, n) {
+  fori (j, 0, m)
+    dp[j] += aa[j][rt]; 
+  int tmp = maxSubArrayNotGreaterThanK(dp, kk);
+  res = max(res, tmp);
+  }
   }
   return res;
   }

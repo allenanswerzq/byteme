@@ -13,8 +13,8 @@ vector<vector<char>> bb;
 bool check(int ux, int uy, int bx, int by) {
   fori(i, ux, bx+1) {
   fori(j, uy, by+1)
-    if (bb[i][j] != '1')
-    return 0;    
+  if (bb[i][j] != '1')
+  return 0;    
   }
   return 1;
 }
@@ -29,13 +29,13 @@ int maximalRectangleOne() {
   int res = 0;
   fori(ux, 0, n)
   fori(uy, 0, m)
-    fori(bx, 0, n)
-    fori(by, 0, m) {
-      if (check(ux, uy, bx, by)) {
-      int area = (bx - ux + 1) * (by - uy + 1);
-      res = max(res, area); 
-      }
+  fori(bx, 0, n)
+  fori(by, 0, m) {
+    if (check(ux, uy, bx, by)) {
+    int area = (bx - ux + 1) * (by - uy + 1);
+    res = max(res, area); 
     }
+  }
   return res;
 }
 
@@ -59,8 +59,8 @@ pii bottom_address(int ux, int uy) {
   while(y < y_max && bb[x][y] == '1') ++y;
   y_max = min(y_max, y);
   if (area(ux, uy, x, y-1) > area(ux, uy, bx, by)) {
-    bx = x;
-    by = y-1;
+  bx = x;
+  by = y-1;
   }
   ++x;
   }
@@ -81,12 +81,12 @@ int maximalRectangleTwo() {
 
   fori(ux, 0, n)
   fori(uy, 0, m) {
-    pii b = bottom_address(ux, uy);
-    int bx = b.fi, by = b.se;
-    if (bx == -1 && by == -1) continue;
-    int tmp = area(ux, uy, bx, by);
-    // cout << ux << " " << uy << " " << bx << " " << by << " " << tmp <<"\n";
-    res = max(res, tmp);
+  pii b = bottom_address(ux, uy);
+  int bx = b.fi, by = b.se;
+  if (bx == -1 && by == -1) continue;
+  int tmp = area(ux, uy, bx, by);
+  // cout << ux << " " << uy << " " << bx << " " << by << " " << tmp <<"\n";
+  res = max(res, tmp);
   }
   return res;
 }
@@ -94,9 +94,9 @@ int maximalRectangleTwo() {
 void update_dp(int *dp, int n, int y) {
   fori(x, 0, n) {
   if (bb[x][y] == '1')
-    dp[x] += 1;
+  dp[x] += 1;
   else
-    dp[x] = 0;
+  dp[x] = 0;
   }
 }
 
@@ -113,8 +113,8 @@ pii bottom_address_dp(int *dp, int ux, int uy) {
   y = min(y_max, y);
   y_max = y;
   if (area(ux, uy, x, y-1) > area(ux, uy, bx, by)) {
-    bx = x;
-    by = y-1;
+  bx = x;
+  by = y-1;
   }
   ++x;
   }
@@ -140,12 +140,12 @@ int maximalRectangleThree() {
   ford(uy, m-1, -1) {
   update_dp(dp, n, uy); 
   fori(ux, 0, n) {
-    pii b = bottom_address_dp(dp, ux, uy);
-    int bx = b.fi, by = b.se;
-    if (bx == -1 && by == -1) continue;
-    int tmp = area(ux, uy, bx, by);
-    // cout << ux << " " << uy << " " << bx << " " << by << " " << tmp <<"\n";
-    res = max(res, tmp);
+  pii b = bottom_address_dp(dp, ux, uy);
+  int bx = b.fi, by = b.se;
+  if (bx == -1 && by == -1) continue;
+  int tmp = area(ux, uy, bx, by);
+  // cout << ux << " " << uy << " " << bx << " " << by << " " << tmp <<"\n";
+  res = max(res, tmp);
   }
   }
   return res;
@@ -157,10 +157,10 @@ int largestRectangleArea(vector<int>& aa) {
   int res = 0;
   fori(i, 0, sz(aa)) {
   while(!stk.empty() && aa[i] <= aa[stk.top()]) {
-    int h = aa[stk.top()]; stk.pop();
-    int w = stk.empty() ? -1 : stk.top(); 
-    res = max(res, h * (i - w - 1));
-    // cout << i << " " << w << " " << res << "\n";
+  int h = aa[stk.top()]; stk.pop();
+  int w = stk.empty() ? -1 : stk.top(); 
+  res = max(res, h * (i - w - 1));
+  // cout << i << " " << w << " " << res << "\n";
   }
   // We still need to compute the area with `i`th bar as the smallest bar.
   // So push it into stack.
@@ -184,7 +184,7 @@ int maximalRectangleFour() {
 
   vi tmp;
   fori(i, 0, n)
-    tmp.pb(dp[i]); 
+  tmp.pb(dp[i]); 
   res = max(res, largestRectangleArea(tmp));  
   }
   return res;

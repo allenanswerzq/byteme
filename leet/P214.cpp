@@ -11,7 +11,7 @@ string shortestPalindrome(string s) {
   string t = r.substr(0, i);
   string o = r.substr(i); 
   if (s.substr(0, o.size()) == o)
-    return t + s;
+  return t + s;
   }
   return "";
 }

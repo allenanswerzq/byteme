@@ -5,7 +5,7 @@ using namespace std;
 void printVector(vector<int>& v) {
   printf("[ ");
   for (auto x:v)
-    printf("%d ", x); 
+  printf("%d ", x); 
   printf("]\n");
 }
 

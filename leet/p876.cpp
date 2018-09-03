@@ -53,8 +53,8 @@ public:
   if (len & 1) q = head->next;    
   else q = head->next->next;
   while (q) {
-    p = p->next;
-    q = q->next->next;
+  p = p->next;
+  q = q->next->next;
   }
   if (len % 2 == 0) return p->next;
   return p;

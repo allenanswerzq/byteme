@@ -8,7 +8,7 @@ public:
   TrieNode() {
   isLeaf = false;
   for (int i=0; i<26; ++i)
-    child[i] = nullptr;
+  child[i] = nullptr;
   }
 };
 
@@ -18,14 +18,14 @@ private:
   TrieNode *root;
   bool find(string key, TrieNode *node) {
   for (int i=0; i<key.size() && node; ++i) {
-    if (key[i] != '.')
-    node = node->child[key[i]-'a'];
-    else {
-    int k = 0;
-    for (; k<26; ++k)
-      if (node->child[k] && find(key.substr(i+1), node->child[k])) return true;
-    if (k == 26) return false; // Note: none of all 26 buckets matched
-    }
+  if (key[i] != '.')
+  node = node->child[key[i]-'a'];
+  else {
+  int k = 0;
+  for (; k<26; ++k)
+    if (node->child[k] && find(key.substr(i+1), node->child[k])) return true;
+  if (k == 26) return false; // Note: none of all 26 buckets matched
+  }
   }
   return node && node->isLeaf;
   }
@@ -40,9 +40,9 @@ public:
   void addWord(string word) {
   TrieNode *node = root;
   for (int i=0; i<word.size(); ++i) {
-    if (node->child[word[i]-'a'] == nullptr)
-    node->child[word[i]-'a'] = new TrieNode();
-    node = node->child[word[i]-'a'];
+  if (node->child[word[i]-'a'] == nullptr)
+  node->child[word[i]-'a'] = new TrieNode();
+  node = node->child[word[i]-'a'];
   }
   node->isLeaf = true; // current node is a leaf node 
   }
