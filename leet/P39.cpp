@@ -10,7 +10,7 @@ public:
   // http://www.embedded.com/electronics-blogs/programming-pointers/4023307/References-vs-Pointers
   void bt(vi& aa, int target, vi& path, vvi& ret, int start) {
   if (target == 0) {
-  		ret.push_back(path);
+      ret.push_back(path);
   } else {
     for (int i = start; i < aa.size() && target >= aa[i]; ++i) {
     path.push_back(aa[i]);

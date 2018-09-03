@@ -8,7 +8,7 @@ using namespace std;
 
 // Min heap
 int findKthLargest(vector<int>& aa, int k) {
-	priority_queue<int, vector<int>, greater<int>> pq;
+  priority_queue<int, vector<int>, greater<int>> pq;
   int n = sz(aa);
   fori (i, 0, n) {
   pq.push(aa[i]);
@@ -21,13 +21,13 @@ int findKthLargest(vector<int>& aa, int k) {
 // #define all(x) (x).begin(), (x).end()
 // // MultiSet
 // int findKthLargest(vector<int>& aa, int k) {
-// 	multiset<int> mset(all(aa));
-// 	int i=1;
-// 	for (auto it=mset.rbegin(); it!=mset.rend(); ++it) {
-// 		if (i++ >= k)
-// 			return *it;
-// 	}
-// 	return 0;
+//  multiset<int> mset(all(aa));
+//  int i=1;
+//  for (auto it=mset.rbegin(); it!=mset.rend(); ++it) {
+//    if (i++ >= k)
+//      return *it;
+//  }
+//  return 0;
 // }
 
 // Divide and conquer

@@ -27,43 +27,43 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	int reverse(int x) {
-		long long ret = 0;
-		while ( x != 0 ) {
-			ret = ret * 10 + x % 10;
-			x = x / 10;
-			if (ret >= INT_MAX || ret <= INT_MIN) return 0;
-		} 
-		return ret;	
-	}
+  int reverse(int x) {
+    long long ret = 0;
+    while ( x != 0 ) {
+      ret = ret * 10 + x % 10;
+      x = x / 10;
+      if (ret >= INT_MAX || ret <= INT_MIN) return 0;
+    } 
+    return ret; 
+  }
 
-	int reverse1(int x) {
-		if (x == 0) return x;
-		long long ret = 0;
-		vector<int> v;
-		do {
-			v.push_back(x % 10);
-			x = x / 10;
-		} while ( x );
+  int reverse1(int x) {
+    if (x == 0) return x;
+    long long ret = 0;
+    vector<int> v;
+    do {
+      v.push_back(x % 10);
+      x = x / 10;
+    } while ( x );
 
-		for (int i=0; i<v.size(); ++i) {
-			ret = ret*10 + v[i];
-			if (ret >= INT_MAX || ret <= INT_MIN) return 0;
-		}
-		return ret;	
-	}
+    for (int i=0; i<v.size(); ++i) {
+      ret = ret*10 + v[i];
+      if (ret >= INT_MAX || ret <= INT_MIN) return 0;
+    }
+    return ret; 
+  }
 };
 
 void test(int x) {
-	Solution go;
-	int res = go.reverse(x);
-	output(1, res);
+  Solution go;
+  int res = go.reverse(x);
+  output(1, res);
 }
 
 int main() {
-	test(123);
-	test(-123);
-	test(1534236469);
-	test(-2147483648);
-	return 0;
+  test(123);
+  test(-123);
+  test(1534236469);
+  test(-2147483648);
+  return 0;
 }

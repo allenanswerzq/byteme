@@ -25,60 +25,60 @@ void _f(const char* names, T&& arg, Args&&... args) {
 } 
 
 bool check(string aa) {
-	int cnt = 0;
-	for (int i=0; i<aa.size(); ++i) {
-		if (aa[i] == '(') ++cnt;
-		else if (aa[i] == ')') --cnt;
-		if (cnt < 0) return 0;
-	}
-	return cnt == 0;
+  int cnt = 0;
+  for (int i=0; i<aa.size(); ++i) {
+    if (aa[i] == '(') ++cnt;
+    else if (aa[i] == ')') --cnt;
+    if (cnt < 0) return 0;
+  }
+  return cnt == 0;
 }
 
 #define vs vector<string>
 class Solution {
 public:
-	vs removeInvalidParentheses(string aa) {
-		vs ret;
-		unordered_set<string> visit;
-		deque<string> dq;
-		dq.push_back(aa);
-		visit.insert(aa);
-		while (sz(dq)) {
-			int n = sz(dq);
-			bool ok = 0;
-			fori (i, 0, n) {
-				auto tmp = dq.front(); dq.pop_front();
-				// trace(tmp);
-				if (check(tmp)) {
-					ret.push_back(tmp);	
-					ok = 1;
-				} 
-				if (ok) continue;
-				fori (i, 0, sz(tmp)) {
-					if (!(tmp[i] == '(' || tmp[i] == ')')) continue;
-					string nxt = tmp.substr(0, i) + tmp.substr(i + 1);	
-					if (!visit.count(nxt)) {
-						// trace(tmp, nxt);
-						visit.insert(nxt);
-						dq.push_back(nxt);
-					}
-				}
-			}
-			if (ok == 1) return ret;
-		}
-		return ret;
-	}
+  vs removeInvalidParentheses(string aa) {
+    vs ret;
+    unordered_set<string> visit;
+    deque<string> dq;
+    dq.push_back(aa);
+    visit.insert(aa);
+    while (sz(dq)) {
+      int n = sz(dq);
+      bool ok = 0;
+      fori (i, 0, n) {
+        auto tmp = dq.front(); dq.pop_front();
+        // trace(tmp);
+        if (check(tmp)) {
+          ret.push_back(tmp); 
+          ok = 1;
+        } 
+        if (ok) continue;
+        fori (i, 0, sz(tmp)) {
+          if (!(tmp[i] == '(' || tmp[i] == ')')) continue;
+          string nxt = tmp.substr(0, i) + tmp.substr(i + 1);  
+          if (!visit.count(nxt)) {
+            // trace(tmp, nxt);
+            visit.insert(nxt);
+            dq.push_back(nxt);
+          }
+        }
+      }
+      if (ok == 1) return ret;
+    }
+    return ret;
+  }
 };
 
 void test(string inp) {
-	vs res = removeInvalidParentheses(inp);
-	pvi(res);
+  vs res = removeInvalidParentheses(inp);
+  pvi(res);
 }
 
 int main() {
   test("()())()");
-	test("(a)())()");
-	test(")(");
-	return 0;
+  test("(a)())()");
+  test(")(");
+  return 0;
 }
 

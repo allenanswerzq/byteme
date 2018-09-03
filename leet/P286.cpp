@@ -23,82 +23,82 @@ using namespace std;
 
 // dfs
 void dfs(vector<vector<int>>& rooms, int x, int y) {
-	int m = rooms.size(), n = rooms[0].size();
-	vector<vector<int>> dirs = {{-1,0}, {1,0}, {0,-1}, {0, 1}};	
-	for (int k = 0; k < 4; ++k) {
-		int nx = x + dirs[k][0]; 
-		int ny = y + dirs[k][1];
-		if (0<=nx && nx<m && 0<=ny && ny<n && rooms[nx][ny] > rooms[x][y] + 1) {
-			rooms[nx][ny] = rooms[x][y] + 1; 
-			dfs(rooms, nx, ny);
-		}
-	}
+  int m = rooms.size(), n = rooms[0].size();
+  vector<vector<int>> dirs = {{-1,0}, {1,0}, {0,-1}, {0, 1}}; 
+  for (int k = 0; k < 4; ++k) {
+    int nx = x + dirs[k][0]; 
+    int ny = y + dirs[k][1];
+    if (0<=nx && nx<m && 0<=ny && ny<n && rooms[nx][ny] > rooms[x][y] + 1) {
+      rooms[nx][ny] = rooms[x][y] + 1; 
+      dfs(rooms, nx, ny);
+    }
+  }
 }
 
 void wallsAndGatesDfs(vector<vector<int>>& rooms) {
-	int m = rooms.size(), n = rooms[0].size();
-	for (int i = 0; i < m; ++i) 
-		for (int j = 0; j < n; ++j)
-			if (rooms[i][j] == 0) {
-				dfs(rooms, i, j);
-			}
+  int m = rooms.size(), n = rooms[0].size();
+  for (int i = 0; i < m; ++i) 
+    for (int j = 0; j < n; ++j)
+      if (rooms[i][j] == 0) {
+        dfs(rooms, i, j);
+      }
 }
 
 // multi-end bfs
 // the core idea of multi-end is that starting from multiple point
 // compared to normal bfs we can save a lot time to do repate work
-vector<vector<int>> dirs = {{-1,0}, {1,0}, {0,-1}, {0, 1}};	
+vector<vector<int>> dirs = {{-1,0}, {1,0}, {0,-1}, {0, 1}}; 
 void wallsAndGates(vector<vector<int>>& rooms) {
-	int m = rooms.size(), n = rooms[0].size();
-	if (m == 0) return;
-	queue<int> q;
-	for (int i = 0; i < m; ++i)
-		for (int j = 0; j < n; ++j)
-			if (rooms[i][j] == 0)
-				q.push(i * n + j);
+  int m = rooms.size(), n = rooms[0].size();
+  if (m == 0) return;
+  queue<int> q;
+  for (int i = 0; i < m; ++i)
+    for (int j = 0; j < n; ++j)
+      if (rooms[i][j] == 0)
+        q.push(i * n + j);
 
-	while (!q.empty()) {
-		int p = q.front(); q.pop();	
-		int x = p / n, y = p % n;
-		for (int k = 0; k < 4; k++) {
-			int nx = x + dirs[k][0];
-			int ny = y + dirs[k][1];	
-			if (nx>=0 && nx<m && ny>=0 && ny<n && rooms[nx][ny] > rooms[x][y] + 1) {
-				rooms[nx][ny] = rooms[x][y] + 1;
-				q.push(nx * n + ny);
-			}
-		}
-	}
+  while (!q.empty()) {
+    int p = q.front(); q.pop(); 
+    int x = p / n, y = p % n;
+    for (int k = 0; k < 4; k++) {
+      int nx = x + dirs[k][0];
+      int ny = y + dirs[k][1];  
+      if (nx>=0 && nx<m && ny>=0 && ny<n && rooms[nx][ny] > rooms[x][y] + 1) {
+        rooms[nx][ny] = rooms[x][y] + 1;
+        q.push(nx * n + ny);
+      }
+    }
+  }
 }
 
 
 // Normal bfs
 void bsf(vector<vector<int>>& rooms, int i, int j) {
-	int m=rooms.size(), n=rooms[0].size();
-	queue<int> q;
-	q.push(i*n + j);
-	while(!q.empty()) {
-		int p = q.front(); q.pop();
-		int x = p/n, y = p%n;
-		for (int i=0; i<4; ++i) {
-			int nx = x + dirs[k][0];
-			int ny = y + dirs[k][1];	
-			if (nx>=0 && nx<m && ny>=0 && ny<n && rooms[nx][ny] > rooms[x][y]+1) {
-				rooms[nx][ny] = rooms[x][y]+1;
-				q.push(nx*n + ny);
-			}
+  int m=rooms.size(), n=rooms[0].size();
+  queue<int> q;
+  q.push(i*n + j);
+  while(!q.empty()) {
+    int p = q.front(); q.pop();
+    int x = p/n, y = p%n;
+    for (int i=0; i<4; ++i) {
+      int nx = x + dirs[k][0];
+      int ny = y + dirs[k][1];  
+      if (nx>=0 && nx<m && ny>=0 && ny<n && rooms[nx][ny] > rooms[x][y]+1) {
+        rooms[nx][ny] = rooms[x][y]+1;
+        q.push(nx*n + ny);
+      }
 
-		}
-	}
+    }
+  }
 }
 
 void wallsAndGates(vector<vector<int>>& rooms) {
-	int m=rooms.size(), n=rooms[0].size();
-	if (m == 0) return;
-	for (int i=0; i<m; ++i)
-		for (int j=0; j<n; ++j)
-			if (rooms[i][j] == 0)
-				bfs(rooms, i, j);
+  int m=rooms.size(), n=rooms[0].size();
+  if (m == 0) return;
+  for (int i=0; i<m; ++i)
+    for (int j=0; j<n; ++j)
+      if (rooms[i][j] == 0)
+        bfs(rooms, i, j);
 }
 
 void printVector(vector<int>& v) {
@@ -116,13 +116,13 @@ void printMatrix(vector<vector<int>>& v) {
 }
 
 int main() {
-	vector<vector<int>> rooms = {
-		{INF,  -1,  0 , INF},
-		{INF, INF, INF,  -1},
-		{INF,  -1, INF,  -1},
-	  {0,  -1, INF, INF},
-	};	
-	printMatrix(rooms);
-	wallsAndGates(rooms);
-	printMatrix(rooms);
+  vector<vector<int>> rooms = {
+    {INF,  -1,  0 , INF},
+    {INF, INF, INF,  -1},
+    {INF,  -1, INF,  -1},
+    {0,  -1, INF, INF},
+  };  
+  printMatrix(rooms);
+  wallsAndGates(rooms);
+  printMatrix(rooms);
 }

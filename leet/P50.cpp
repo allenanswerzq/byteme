@@ -30,17 +30,17 @@ class Solution {
 public:
   double myPow(double x, int n) {
   ll t = n;
-  	if (t < 0) {
-  		x = 1 / x;
+    if (t < 0) {
+      x = 1 / x;
     t = labs(t);
-  	}
-  	double res = 1.0;
-  	while (t) {
-  		if (t % 2) res = res * x;
-  		x = x * x;
-  		t = t >> 1;
-  	}
-  	return res;
+    }
+    double res = 1.0;
+    while (t) {
+      if (t % 2) res = res * x;
+      x = x * x;
+      t = t >> 1;
+    }
+    return res;
   }
 
   double myPow1(double x, int n) {

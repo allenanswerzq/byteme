@@ -30,42 +30,42 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	vvi threeSum(vector<int>& aa) {
-		vvi res;
-		int n = sz(aa);
-		if (n < 3) return res;
-		sort(all(aa));
-		// a + b + c = 0
-		// -a = b + c
-		for (int i = 0; i < n - 2; ++i) {
-			if (i > 1 && aa[i - 1] == aa[i]) continue;
-			int lo = i + 1, hi = sz(aa) - 1;	
-			int goal = -aa[i];
-			while (lo < hi) {
-				if (aa[lo] + aa[hi] == goal) {
-					res.push_back({aa[i], aa[lo], aa[hi]});
-					while (lo < hi && aa[lo] == aa[lo + 1]) ++lo;
-					while (lo < hi && aa[hi] == aa[hi - 1]) --hi;
-					++lo; --hi;
-				}	
-				else if (aa[lo] + aa[hi] < goal) ++lo;
-				else --hi;
-			}
-		}
-		return res;
-	}
+  vvi threeSum(vector<int>& aa) {
+    vvi res;
+    int n = sz(aa);
+    if (n < 3) return res;
+    sort(all(aa));
+    // a + b + c = 0
+    // -a = b + c
+    for (int i = 0; i < n - 2; ++i) {
+      if (i > 1 && aa[i - 1] == aa[i]) continue;
+      int lo = i + 1, hi = sz(aa) - 1;  
+      int goal = -aa[i];
+      while (lo < hi) {
+        if (aa[lo] + aa[hi] == goal) {
+          res.push_back({aa[i], aa[lo], aa[hi]});
+          while (lo < hi && aa[lo] == aa[lo + 1]) ++lo;
+          while (lo < hi && aa[hi] == aa[hi - 1]) --hi;
+          ++lo; --hi;
+        } 
+        else if (aa[lo] + aa[hi] < goal) ++lo;
+        else --hi;
+      }
+    }
+    return res;
+  }
 };
 
 void test(vector<int> inp) {
-	Solution go;
-	vvi res = go.threeSum(inp);	
-	fora (r, res) {
-		pvi(r);
-	}
+  Solution go;
+  vvi res = go.threeSum(inp); 
+  fora (r, res) {
+    pvi(r);
+  }
 }
 
 int main() {
-	test({-1, 0, 1, 2, -1, -4});
-	test({0, 0, 0, 0, 0});
-	return 0;
+  test({-1, 0, 1, 2, -1, -4});
+  test({0, 0, 0, 0, 0});
+  return 0;
 }

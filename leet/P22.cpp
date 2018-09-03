@@ -29,27 +29,27 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	vector<string> generateParenthesis(int n) {
-		if (n == 0) return {""};
-		vs res;
-		fori (i, 0, n) {
-			fora (left, generateParenthesis(i))
-				fora (right, generateParenthesis(n - 1 - i))
-					res.push_back("(" + left + ")" + right);
-		}
-		return res;
-	}
+  vector<string> generateParenthesis(int n) {
+    if (n == 0) return {""};
+    vs res;
+    fori (i, 0, n) {
+      fora (left, generateParenthesis(i))
+        fora (right, generateParenthesis(n - 1 - i))
+          res.push_back("(" + left + ")" + right);
+    }
+    return res;
+  }
 };
 
 void test(int x) {
-	Solution go;
-	vs res = go.generateParenthesis(x);
-	pvi(res);
+  Solution go;
+  vs res = go.generateParenthesis(x);
+  pvi(res);
 }
 
 int main(int argc, char **argv) {
-	test(3);
-	test(4);
-	return 0;
+  test(3);
+  test(4);
+  return 0;
 }
 

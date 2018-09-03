@@ -10,10 +10,10 @@ void printVector(vector<int>& v) {
 }
 
 void printMatrix(vector<vector<int>>& v) {
-	printf("{\n");
-	for (auto x:v)
-		printVector(x);
-	printf("}\n");
+  printf("{\n");
+  for (auto x:v)
+    printVector(x);
+  printf("}\n");
 }
 
 // Accepted

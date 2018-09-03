@@ -13,14 +13,14 @@ int cmp(double x, double y = 0, double tol = EPS) {
 // then sum - 2x = target
 // so x = (sum - target) / 2
 int reachNumber(int target) {
-	target = abs(target)
-	int k = 0;
-	int sum = 0;
-	while (true) {
-		if (sum>=target && (sum-target)%2==0)
-			return k;
-		k++;
-		sum += k;
-	}
-	return -1;
+  target = abs(target)
+  int k = 0;
+  int sum = 0;
+  while (true) {
+    if (sum>=target && (sum-target)%2==0)
+      return k;
+    k++;
+    sum += k;
+  }
+  return -1;
 }

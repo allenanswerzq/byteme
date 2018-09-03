@@ -30,61 +30,61 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	void bt(vector<int>& aa, vector<int>& path, vector<vector<int>>& res) {
-		int n = aa.size();
-		if (path.size() == n) {
-			res.push_back(path);
-			return;
-		}	
+  void bt(vector<int>& aa, vector<int>& path, vector<vector<int>>& res) {
+    int n = aa.size();
+    if (path.size() == n) {
+      res.push_back(path);
+      return;
+    } 
 
-		for(int i = 0; i < n; ++i) {
-			if (find(path.begin(), path.end(), aa[i]) != path.end()) 
-				continue;
-			path.push_back(aa[i]);
-			bt(aa, path, res); 
-			path.pop_back();
-		}
-	}
+    for(int i = 0; i < n; ++i) {
+      if (find(path.begin(), path.end(), aa[i]) != path.end()) 
+        continue;
+      path.push_back(aa[i]);
+      bt(aa, path, res); 
+      path.pop_back();
+    }
+  }
 
-	vector<vector<int>> permute(vector<int>& aa) {
-		vector<vector<int>> res;
-		vector<int> path;
-		bt(aa, path, res);
-		return res;
-	}
+  vector<vector<int>> permute(vector<int>& aa) {
+    vector<vector<int>> res;
+    vector<int> path;
+    bt(aa, path, res);
+    return res;
+  }
 
-	// Permute num[begin ... end]
-	// Invariant: num[0 ... begin-1] have been fixed/permuted
-	void permuteRecursive(vector<int> &aa, int begin, vector<vector<int>>& ret)	{
-		if (begin >= aa.size()) {
-			// One permutation instance
-			ret.push_back(aa);
-			return;
-		}
-		
-		for (int i = begin; i < aa.size(); i++) {
-			swap(aa[begin], aa[i]);
-			permuteRecursive(aa, begin + 1, ret);
-			swap(aa[begin], aa[i]);
-		}
-	}
+  // Permute num[begin ... end]
+  // Invariant: num[0 ... begin-1] have been fixed/permuted
+  void permuteRecursive(vector<int> &aa, int begin, vector<vector<int>>& ret) {
+    if (begin >= aa.size()) {
+      // One permutation instance
+      ret.push_back(aa);
+      return;
+    }
+    
+    for (int i = begin; i < aa.size(); i++) {
+      swap(aa[begin], aa[i]);
+      permuteRecursive(aa, begin + 1, ret);
+      swap(aa[begin], aa[i]);
+    }
+  }
 
-	vector<vector<int>> permute1(vector<int> &aa) {
-	  vector<vector<int>> ret;
-	  permuteRecursive(aa, 0, ret);
-	  return ret;
-	}
+  vector<vector<int>> permute1(vector<int> &aa) {
+    vector<vector<int>> ret;
+    permuteRecursive(aa, 0, ret);
+    return ret;
+  }
 };
 
 void test(vi aa) {
-	Solution go;
-	vvi ret = go.permute(aa);	
-	fora (r, ret) {
-		pvi(r);
-	}
+  Solution go;
+  vvi ret = go.permute(aa); 
+  fora (r, ret) {
+    pvi(r);
+  }
 }    
 
 int main(int argc, char** argv) {
-	test({1, 2, 3});
+  test({1, 2, 3});
   return 0;
 }

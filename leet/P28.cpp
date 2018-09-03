@@ -27,47 +27,47 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	int strStr2(string aa, string bb) {
-		if (aa == bb || bb == "") return 0;
-		int m = aa.size(), n = bb.size();
-		for (int i = 0; i < m - n + 1; ++i) {
-			int p = i; 
-			int k = 0;
-			while (k < bb.size() && p < aa.size()) {
-				if (aa[p] == bb[k]) {
-					p++;
-					k++;
-				} else break;
-			}
-			if (k == bb.size()) return i;
-		}
-		return -1;
-	}
+  int strStr2(string aa, string bb) {
+    if (aa == bb || bb == "") return 0;
+    int m = aa.size(), n = bb.size();
+    for (int i = 0; i < m - n + 1; ++i) {
+      int p = i; 
+      int k = 0;
+      while (k < bb.size() && p < aa.size()) {
+        if (aa[p] == bb[k]) {
+          p++;
+          k++;
+        } else break;
+      }
+      if (k == bb.size()) return i;
+    }
+    return -1;
+  }
 
-	int strStr(string aa, string bb) {
-		if (aa == bb || bb == "") return 0;
-		int m = aa.size(), n = bb.size();
-		for (int i = 0; i <= m - n; ++i) {
-			int j = 0;
-			for (; j < n; ++j) {
-				if (aa[i + j] != bb[j]) break;
-			}
-			if (j == n) return i;
-		}
-		return -1;
-	}
+  int strStr(string aa, string bb) {
+    if (aa == bb || bb == "") return 0;
+    int m = aa.size(), n = bb.size();
+    for (int i = 0; i <= m - n; ++i) {
+      int j = 0;
+      for (; j < n; ++j) {
+        if (aa[i + j] != bb[j]) break;
+      }
+      if (j == n) return i;
+    }
+    return -1;
+  }
 };
 
 void test(string aa, string bb) {
-	Solution go;
-	int res = go.strStr2(aa, bb);
-	output(1, res);
+  Solution go;
+  int res = go.strStr2(aa, bb);
+  output(1, res);
 }
 
 int main(){
-	test("", "");
-	test("abcbcde", "bcde");
-	test("mississippi", "issip");
-	return 0;
+  test("", "");
+  test("abcbcde", "bcde");
+  test("mississippi", "issip");
+  return 0;
 }
 

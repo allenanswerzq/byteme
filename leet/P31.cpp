@@ -29,33 +29,33 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	void nextPermutation(vector<int>& aa) {
-		int n = aa.size();
-		int mi;
-	  for (int i = n - 2; i >= 0; --i) {
-			if (aa[i] < aa[i + 1]) {
-				int mi = i + 1;
-				for (int j = i + 2; j < n; ++j)
-					if (aa[i] < aa[j] && aa[j] < aa[mi])
-						mi = j;
-				swap(aa[i], aa[mi]);
-				sort(aa.begin() + i + 1, aa.end());
-				return;
-			}
-		}
-		sort(aa.begin(), aa.end());
-	}
+  void nextPermutation(vector<int>& aa) {
+    int n = aa.size();
+    int mi;
+    for (int i = n - 2; i >= 0; --i) {
+      if (aa[i] < aa[i + 1]) {
+        int mi = i + 1;
+        for (int j = i + 2; j < n; ++j)
+          if (aa[i] < aa[j] && aa[j] < aa[mi])
+            mi = j;
+        swap(aa[i], aa[mi]);
+        sort(aa.begin() + i + 1, aa.end());
+        return;
+      }
+    }
+    sort(aa.begin(), aa.end());
+  }
 };
 
 void test(vi aa) {
-	Solution go;
-	go.nextPermutation(aa);
-	pvi(aa);
+  Solution go;
+  go.nextPermutation(aa);
+  pvi(aa);
 }
 
 int main() {
-	test({1, 2, 3});
-	test({3, 2, 1});
-	test({1, 1, 5});
-	return 0;
+  test({1, 2, 3});
+  test({3, 2, 1});
+  test({1, 1, 5});
+  return 0;
 }

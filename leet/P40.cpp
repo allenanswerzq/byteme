@@ -8,7 +8,7 @@ class Solution {
 public:
   void bt(vi& aa, int target, vi& path, vvi& ret, int start) {
   if (target == 0) {
-  	ret.push_back(path);
+    ret.push_back(path);
   } else {
     for (int i = start; i < aa.size() && target >= aa[i]; ++i) {
     if (i > start && aa[i] == aa[i - 1]) continue;
@@ -22,7 +22,7 @@ public:
   vvi combinationSum(vector<int>& aa, int target) {
   vvi ret;
   vi path;
-  	sort(aa.begin(), aa.end());
+    sort(aa.begin(), aa.end());
   bt(aa, target, path, ret, 0);    
   return ret;
   }

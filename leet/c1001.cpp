@@ -8,5 +8,5 @@ int cmp(double x, double y = 0, double tol = EPS) {
 }
 
 int main() {
-	return 0;
+  return 0;
 }

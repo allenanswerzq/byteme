@@ -26,99 +26,99 @@ void _f(const char* names, T&& arg, Args&&... args) {
 } 
 
 int isMatchRecu(string s, string p) {
-	int n, m;
-	n = sz(s), m = sz(p);
-	// Pattern is null, return true only when text is also null.
-	if (m == 0) return n == 0;	
-	// Whether or not the first character is matched.
-	int first = n && (s[0] == p[0] || p[0] == '.');
-	if (m >= 2 && p[1] == '*') {
+  int n, m;
+  n = sz(s), m = sz(p);
+  // Pattern is null, return true only when text is also null.
+  if (m == 0) return n == 0;  
+  // Whether or not the first character is matched.
+  int first = n && (s[0] == p[0] || p[0] == '.');
+  if (m >= 2 && p[1] == '*') {
   // '*' stands for zero preceding elements.  
-		int x = isMatchRecu(s, p.substr(2));
+    int x = isMatchRecu(s, p.substr(2));
   // '*' stands for multiple preceding elements.
   int y = first && isMatchRecu(s.substr(1), p); 
-		return (x || y);
-	} else {
-		return first && isMatchRecu(s.substr(1), p.substr(1));
-	}
-	return -1;
+    return (x || y);
+  } else {
+    return first && isMatchRecu(s.substr(1), p.substr(1));
+  }
+  return -1;
 }
 
 int isMatchRecuTwo(string s, string p) {
-	int n, m;
-	n = sz(s), m = sz(p);
-	if (m == 0) return n == 0;
-	if (n == 0) {
-		fora (c, p)
-			if (c != '*')
-				return 0;
-		return 1;
-	}
-	if (p[0] == '*') {
+  int n, m;
+  n = sz(s), m = sz(p);
+  if (m == 0) return n == 0;
+  if (n == 0) {
+    fora (c, p)
+      if (c != '*')
+        return 0;
+    return 1;
+  }
+  if (p[0] == '*') {
   // "*" as the empty char.
-		int x = isMatchRecuTwo(s, p.substr(1)); 	
+    int x = isMatchRecuTwo(s, p.substr(1));   
   // "*" as the any sequence.
-		int y = isMatchRecuTwo(s.substr(1), p);
-		return (x || y);
-	} else if ((s[0] == p[0] || p[0] == '.')) {
-		return isMatchRecuTwo(s.substr(1), p.substr(1));	
-	}	else {
-		return false;
-	}	
+    int y = isMatchRecuTwo(s.substr(1), p);
+    return (x || y);
+  } else if ((s[0] == p[0] || p[0] == '.')) {
+    return isMatchRecuTwo(s.substr(1), p.substr(1));  
+  } else {
+    return false;
+  } 
 }
 
 // TODO
 bool isMatchDP(string s, string p) {
-	int n, m;
-	n = sz(s), m = sz(p);
-	int dp[n+1][m+1];
-	mst(dp, 0);
-	fori (i, n, -1) {
-		fori (j, m, -1) {
-		}
-	}
-	return dp[n][m];
+  int n, m;
+  n = sz(s), m = sz(p);
+  int dp[n+1][m+1];
+  mst(dp, 0);
+  fori (i, n, -1) {
+    fori (j, m, -1) {
+    }
+  }
+  return dp[n][m];
 }
 
 bool isMatchTwoDP(string s, string p) {
-	int n, m;
-	n = sz(s), m = sz(p);
-	// dp[i][j] denotes whether the first ith text matches 
-	// the jth pattern text or not.
-	int dp[n+1][m+1];
-	mst(dp, 0);
-	fori (i, 0, n+1) {
-		fori (j, 0, m+1) {
-		}
-	}
-	return dp[n][m];
+  int n, m;
+  n = sz(s), m = sz(p);
+  // dp[i][j] denotes whether the first ith text matches 
+  // the jth pattern text or not.
+  int dp[n+1][m+1];
+  mst(dp, 0);
+  fori (i, 0, n+1) {
+    fori (j, 0, m+1) {
+    }
+  }
+  return dp[n][m];
 }
 
 class Solution {
 public:
-	bool isMatch(string s, string p) {
-		// "*" matches zero or more of the preceding element.
-		// return isMatchRecu(s, p);	
-		return isMatchDP(s, p);
-	}
+  bool isMatch(string s, string p) {
+    // "*" matches zero or more of the preceding element.
+    // return isMatchRecu(s, p);  
+    return isMatchDP(s, p);
+  }
 
-	bool isMatchTwo(string s, string p) {
-		// "*" matches any sequence of characters (including the empty sequence).
-		// return isMatchRecuTwo(s, p);	
-		return isMatchTwoDP(s, p);
-	}
+  bool isMatchTwo(string s, string p) {
+    // "*" matches any sequence of characters (including the empty sequence).
+    // return isMatchRecuTwo(s, p); 
+    return isMatchTwoDP(s, p);
+  }
 };
 
 int test(string s, string p) {
-	Solution go;
-	int x = go.isMatch(s, p);
-	return x;
+  Solution go;
+  int x = go.isMatch(s, p);
+  return x;
 }
 
 int test_two(string s, string p) {
-	Solution go;
-	int x = go.isMatchTwo(s, p);
-	return x;
+  Solution go;
+  int x = go.isMatchTwo(s, p);
+  return x;
 }
 
 int main(int argc, char** argv) {

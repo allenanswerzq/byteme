@@ -27,35 +27,35 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	string convert(string ss, int n) {
-		if (n <= 1 || n >= ss.size()) return ss;
-		
-		vector<string> r(n);
-		int row = 0;
-		int step = 1;
-		for (int i = 0; i < ss.size(); ++i) {
-			r[row] += ss[i];
-			if (row == n-1) step = -1;
-			if (row == 0) step = 1;
-			row += step;
-		}	
+  string convert(string ss, int n) {
+    if (n <= 1 || n >= ss.size()) return ss;
+    
+    vector<string> r(n);
+    int row = 0;
+    int step = 1;
+    for (int i = 0; i < ss.size(); ++i) {
+      r[row] += ss[i];
+      if (row == n-1) step = -1;
+      if (row == 0) step = 1;
+      row += step;
+    } 
 
-		string res;
-		for (auto c: r)
-			res += c;
-		return res;
-	}
+    string res;
+    for (auto c: r)
+      res += c;
+    return res;
+  }
 };
 
 void test(string inp, int aa) {
-	Solution go;
-	string res = go.convert(inp, aa);
-	output(1, res);
+  Solution go;
+  string res = go.convert(inp, aa);
+  output(1, res);
 }
 
 int main() {
-	test("PAYPALISHIRING", 3);
-	test("PAYPALISHIRING", 4);
-	test("AB", 1);
-	return 0;
+  test("PAYPALISHIRING", 3);
+  test("PAYPALISHIRING", 4);
+  test("AB", 1);
+  return 0;
 }

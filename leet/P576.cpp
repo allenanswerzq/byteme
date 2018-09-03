@@ -26,7 +26,7 @@ int findPaths(int m, int n, int N, int i, int j) {
      
 int main() {
 
-	cout << findPaths(2, 2, 2, 0, 0) << endl;
-	cout << findPaths(1, 3, 3, 0, 1) << endl;
-	return 0;
+  cout << findPaths(2, 2, 2, 0, 0) << endl;
+  cout << findPaths(1, 3, 3, 0, 1) << endl;
+  return 0;
 }

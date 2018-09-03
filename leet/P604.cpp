@@ -15,28 +15,28 @@ void printVector(vector<int>& v) {
 class StringIterator {
 public:
   StringIterator(string compressedString) {
-  	nextCnt = 0;
-		numCurr = 0;
-		numCnt = 0;
-		SS = compressedString;	
+    nextCnt = 0;
+    numCurr = 0;
+    numCnt = 0;
+    SS = compressedString;  
   }
   
   char next() {
     if (numCnt < numCurr) {
       numCnt++;
-		    return currChar;
+        return currChar;
     } else if (nextCnt < SS.size()) {
       numCnt = 0;
       currChar = SS[nextCnt];
       //cout << "C: " << SS[nextCnt] << endl;
-  		string t = "";
-  		nextCnt++;
-  		while (SS[nextCnt]>='0' && SS[nextCnt]<='9') {
-  				t += SS[nextCnt++];
-  		}
-  	    numCurr = atoi(t.c_str());
-  	    numCnt++;
-  	    return currChar;
+      string t = "";
+      nextCnt++;
+      while (SS[nextCnt]>='0' && SS[nextCnt]<='9') {
+          t += SS[nextCnt++];
+      }
+        numCurr = atoi(t.c_str());
+        numCnt++;
+        return currChar;
     } else {
       return ' ';
     }
@@ -48,11 +48,11 @@ public:
      return (numCnt<numCurr || nextCnt<SS.size()-1);
   }
 private:
-  	int nextCnt;
-		int numCurr;
-		int numCnt;
-		string SS;
-		char currChar;
+    int nextCnt;
+    int numCurr;
+    int numCnt;
+    string SS;
+    char currChar;
 };
 
 // very good approach
@@ -66,7 +66,7 @@ public:
     int r = 0;
     while (i < s.size() && isdigit(s[i])) r = r * 10 + s[i++] - '0';
     if (r > 0) a.emplace_back(c, r);
-				 //a.push_back(make_pair(c, r))
+         //a.push_back(make_pair(c, r))
     }
     p = 0;
   }

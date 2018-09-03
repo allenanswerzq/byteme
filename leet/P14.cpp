@@ -27,39 +27,39 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	string longestCommonPrefix(vector<string>& aa) {
-		string ret;
-		if (sz(aa) <= 0) return ret;
-		int r = sz(aa), c = (1 << 30);
+  string longestCommonPrefix(vector<string>& aa) {
+    string ret;
+    if (sz(aa) <= 0) return ret;
+    int r = sz(aa), c = (1 << 30);
 
-		for (int i = 0; i < r; ++i)
-			c = min(c, sz(aa[i]));
+    for (int i = 0; i < r; ++i)
+      c = min(c, sz(aa[i]));
 
-		// trace(r, c);
+    // trace(r, c);
 
-		for (int j = 0; j < c; ++j) {
-			char t = aa[0][j];
-			for (int i = 0; i < r; ++i) {
-				if (aa[i][j] != t) 
-					return ret;
-			}
-			ret += t;
-		}
+    for (int j = 0; j < c; ++j) {
+      char t = aa[0][j];
+      for (int i = 0; i < r; ++i) {
+        if (aa[i][j] != t) 
+          return ret;
+      }
+      ret += t;
+    }
 
-		return ret;
-	}
+    return ret;
+  }
 };
 
 
 void test(vector<string> inp) {
-	Solution go;
-	string res = go.longestCommonPrefix(inp);
-	output(1, res);
+  Solution go;
+  string res = go.longestCommonPrefix(inp);
+  output(1, res);
 }
 
 int main() {
-	test({"aa", "aa"});
-	test({"aaaa", "", "acc"});
-	test({"flower","flow","flight"});
-	return 0;
+  test({"aa", "aa"});
+  test({"aaaa", "", "acc"});
+  test({"flower","flow","flight"});
+  return 0;
 }

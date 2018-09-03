@@ -10,8 +10,8 @@ void printVector(vector<int>& v) {
 }
 // more short and clear  code
 vector<int> plusOne(vector<int>& A) {
-	int i = A.size()-1;
-	int c = 0;
+  int i = A.size()-1;
+  int c = 0;
   while (i>=0) {
     if (i == A.size()-1) c += A[i] + 1;
     else c += A[i];
@@ -23,22 +23,22 @@ vector<int> plusOne(vector<int>& A) {
 }
 
 vector<int> plusOne(vector<int>& A) {
-	int n = A.size();
-	int i = n-1;
-	int c = 0;
-	int v = A[i] + 1;
-	A[i] = v%10;
-	c = v/10;
-	i--;
-	while (i>=0 && c) {
-		v = A[i] + 1;
-		A[i--] = v%10;
-		c = v/10;
-	}
-	if (c) {
-		A.insert(A.begin(), 1);
-	}
-	return A;
+  int n = A.size();
+  int i = n-1;
+  int c = 0;
+  int v = A[i] + 1;
+  A[i] = v%10;
+  c = v/10;
+  i--;
+  while (i>=0 && c) {
+    v = A[i] + 1;
+    A[i--] = v%10;
+    c = v/10;
+  }
+  if (c) {
+    A.insert(A.begin(), 1);
+  }
+  return A;
 }
 
 int main(int argc, char** argv) {

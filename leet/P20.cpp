@@ -27,36 +27,36 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	bool isValid(string ss) {
-		if (ss.size() <= 1) return 0;
-		deque<char> dq;
-		for (int i = 0; i < ss.size(); ++i) {
-			if (ss[i] == '(' || ss[i] == '[' || ss[i] == '{')
-				dq.push_back(ss[i]);
-			else if (ss[i] == ')' || ss[i] == ']' || ss[i] == '}') {
-				if (sz(dq) == 0) return 0;
-				char c = dq.back();
-				if ((c == '(' && ss[i] == ')') || 
-					  (c == '[' && ss[i] == ']') || 
-					  (c == '{' && ss[i] == '}'))
-					dq.pop_back();
-				else
-					return 0;
-			}
-		}
+  bool isValid(string ss) {
+    if (ss.size() <= 1) return 0;
+    deque<char> dq;
+    for (int i = 0; i < ss.size(); ++i) {
+      if (ss[i] == '(' || ss[i] == '[' || ss[i] == '{')
+        dq.push_back(ss[i]);
+      else if (ss[i] == ')' || ss[i] == ']' || ss[i] == '}') {
+        if (sz(dq) == 0) return 0;
+        char c = dq.back();
+        if ((c == '(' && ss[i] == ')') || 
+            (c == '[' && ss[i] == ']') || 
+            (c == '{' && ss[i] == '}'))
+          dq.pop_back();
+        else
+          return 0;
+      }
+    }
 
-		return sz(dq) ? 0 : 1;
-	}
+    return sz(dq) ? 0 : 1;
+  }
 };
 
 void test(string inp) {
-	Solution go;
-	int r = go.isValid(inp);
-	output(1, r);
+  Solution go;
+  int r = go.isValid(inp);
+  output(1, r);
 }
 
 int main() {
-	test("()[]{}");
-	test("([)]");
-	return 0;
+  test("()[]{}");
+  test("([)]");
+  return 0;
 }

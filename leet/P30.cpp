@@ -43,10 +43,10 @@ public:
   }
   
   for (int i = 0; i < l; ++i) {
-  	  map<string, int> actual;
-  	  int count = 0;
-  	  int winLeft = i;
-  	  for (int j = i; j <= n - l; j += l) {
+      map<string, int> actual;
+      int count = 0;
+      int winLeft = i;
+      for (int j = i; j <= n - l; j += l) {
     string word = ss.substr(j, l);
     // If not found, then restart from j + 1;
     if (!expected.count(word)) {
@@ -79,10 +79,10 @@ public:
       winLeft += l;
       count--;
     }
-  	  } 
+      } 
   }
-	  return res;
-	}
+    return res;
+  }
 };
 
 class Solution1 {
@@ -124,11 +124,11 @@ void test(string aa, vs bb) {
 
 int main() {
   test("aaaaaaaa", {"aa","aa","aa"});
-	test("barfoothefoobarman", {"foo", "bar"});
-	test("barfoothefoobarman", {"foo", "bar", "the"});
-	test("barfoofoothefoobarman", {"foo", "bar"});
-	test("wordgoodgoodgoodbestword", {"word","good","best","good"});
+  test("barfoothefoobarman", {"foo", "bar"});
+  test("barfoothefoobarman", {"foo", "bar", "the"});
+  test("barfoofoothefoobarman", {"foo", "bar"});
+  test("wordgoodgoodgoodbestword", {"word","good","best","good"});
   test("wordgoodstudentgoodword", {"word","student"});
-	test("lingmindraboofooowingdingbarrwingmonkeypoundcake", {"fooo","barr","wing","ding","wing"});
-	return 0;
+  test("lingmindraboofooowingdingbarrwingmonkeypoundcake", {"fooo","barr","wing","ding","wing"});
+  return 0;
 }

@@ -28,67 +28,67 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	// Count
-	// time complexity O(n + m)
-	double findMedianSortedArrays2(vector<int>& aa, vector<int>& bb) {
-		int na = aa.size();
-		int nb = bb.size();	
-		int total = na + nb;
-		int i = 0, j = 0, k = 0;
-		int sum = 0;
-		int tmp = 0;
+  // Count
+  // time complexity O(n + m)
+  double findMedianSortedArrays2(vector<int>& aa, vector<int>& bb) {
+    int na = aa.size();
+    int nb = bb.size(); 
+    int total = na + nb;
+    int i = 0, j = 0, k = 0;
+    int sum = 0;
+    int tmp = 0;
 
-		while (i < na || j < nb) {
+    while (i < na || j < nb) {
 
-			if (i < na && j < nb) { 
-				if (aa[i] <= bb[j]) tmp = aa[i++]; 
-				else tmp = bb[j++];
-			} else if (i < na) {
-				tmp = aa[i++];
-			} else {
-				tmp = bb[j++];
-			}
+      if (i < na && j < nb) { 
+        if (aa[i] <= bb[j]) tmp = aa[i++]; 
+        else tmp = bb[j++];
+      } else if (i < na) {
+        tmp = aa[i++];
+      } else {
+        tmp = bb[j++];
+      }
 
-			if (k == total / 2) sum += tmp;
-			if (k == total / 2 - 1 && total % 2 == 0) sum += tmp;
-			k++;
-		}
+      if (k == total / 2) sum += tmp;
+      if (k == total / 2 - 1 && total % 2 == 0) sum += tmp;
+      k++;
+    }
 
-		return total % 2 ? sum * 1.0 : sum / 2.0;
-	}
+    return total % 2 ? sum * 1.0 : sum / 2.0;
+  }
 
-	// Merge sort
-	// time complexity O(m + n)
-	double findMedianSortedArrays1(vector<int>& aa, vector<int>& bb) {
-		int na = aa.size();
-		int nb = bb.size();	
-		vector<int> vv(na + nb, 0);
-		int i = 0, j = 0, k = 0;
+  // Merge sort
+  // time complexity O(m + n)
+  double findMedianSortedArrays1(vector<int>& aa, vector<int>& bb) {
+    int na = aa.size();
+    int nb = bb.size(); 
+    vector<int> vv(na + nb, 0);
+    int i = 0, j = 0, k = 0;
 
-		while (i < na || j < nb) {
-			if (i < na && j < nb) {
-				if (aa[i] <= bb[j]) vv[k++] = aa[i++];
-				else vv[k++] = bb[j++];
-			} else if (i < na) {
-				vv[k++] = aa[i++];
-			} else {
-				vv[k++] = bb[j++];
-			}
-		}
+    while (i < na || j < nb) {
+      if (i < na && j < nb) {
+        if (aa[i] <= bb[j]) vv[k++] = aa[i++];
+        else vv[k++] = bb[j++];
+      } else if (i < na) {
+        vv[k++] = aa[i++];
+      } else {
+        vv[k++] = bb[j++];
+      }
+    }
 
-		// trace(k, na + nb);
-		return k % 2 ? vv[k / 2] : (vv[k / 2] + vv[k / 2 - 1]) / 2.0;
-	}
+    // trace(k, na + nb);
+    return k % 2 ? vv[k / 2] : (vv[k / 2] + vv[k / 2 - 1]) / 2.0;
+  }
 };
 
 void test(vi aa, vi bb) {
-	Solution go;
-	double res = go.findMedianSortedArrays1(aa, bb);
-	output(1, res);
+  Solution go;
+  double res = go.findMedianSortedArrays1(aa, bb);
+  output(1, res);
 }
 
 int main() {
-	test({1, 3}, {2});
-	test({1, 2}, {3, 4});
-	return 0;
+  test({1, 3}, {2});
+  test({1, 2}, {3, 4});
+  return 0;
 }

@@ -30,7 +30,7 @@ void test(string aa) {
 }
 
 int main() {
-	test("(()");
-	test("((())()");
-	return 0;
+  test("(()");
+  test("((())()");
+  return 0;
 }

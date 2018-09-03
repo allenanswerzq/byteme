@@ -9,9 +9,9 @@ The tilt of the whole tree is defined as the sum of all nodes' tilt.
 
 Example:
 Input: 
-		 1
-	   /   \
-	  2     3
+     1
+     /   \
+    2     3
 Output: 1
 Explanation: 
 Tilt of node 2 : 0
@@ -33,21 +33,21 @@ class Solution {
 public:
   int postorder(TreeNode *root, int& tilt) {
     if (!root) return 0;
-		int left_sum = postorder(root->left, tilt);
-		int right_sum = postorder(root->right, tilt);
-		tilt += abs(left_sum - right_sum);
-		return left_sum + right_sum + root->val;
+    int left_sum = postorder(root->left, tilt);
+    int right_sum = postorder(root->right, tilt);
+    tilt += abs(left_sum - right_sum);
+    return left_sum + right_sum + root->val;
     
   }
   int findTilt(TreeNode* root) {
     int tilt = 0;
-		postorder(root, tilt);
-		return tilt;
+    postorder(root, tilt);
+    return tilt;
   }
 };
 
 int main(void) {
-	TreeNode root(1);
-	root->left = new TreeNode(2);
-	root->right = new TreeNode(3);
+  TreeNode root(1);
+  root->left = new TreeNode(2);
+  root->right = new TreeNode(3);
 }

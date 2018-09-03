@@ -29,32 +29,32 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	int divide(int dividend, int divisor) {
-		if (!divisor || (dividend == INT_MIN && divisor == -1))
-			return INT_MAX;
-		int sign = ((dividend < 0) ^ (divisor < 0)) ? -1 : 1;
-		ll dvd = labs(dividend);
-		ll dvs = labs(divisor);
-		int res = 0;
-		// aa / bb
-		// aa = (bb * 2 * 2 * 2 ... ) + ((aa - bb) * 2 * 2 ... )
-		while (dvd >= dvs) { 
-			ll temp = dvs, multiple = 1;
-			while (dvd >= (temp << 1)) {
-				temp <<= 1;
-				multiple <<= 1;
-			}
-			dvd -= temp;
-			res += multiple;
-		}
-		return sign == 1 ? res : -res; 
-	}
+  int divide(int dividend, int divisor) {
+    if (!divisor || (dividend == INT_MIN && divisor == -1))
+      return INT_MAX;
+    int sign = ((dividend < 0) ^ (divisor < 0)) ? -1 : 1;
+    ll dvd = labs(dividend);
+    ll dvs = labs(divisor);
+    int res = 0;
+    // aa / bb
+    // aa = (bb * 2 * 2 * 2 ... ) + ((aa - bb) * 2 * 2 ... )
+    while (dvd >= dvs) { 
+      ll temp = dvs, multiple = 1;
+      while (dvd >= (temp << 1)) {
+        temp <<= 1;
+        multiple <<= 1;
+      }
+      dvd -= temp;
+      res += multiple;
+    }
+    return sign == 1 ? res : -res; 
+  }
 };
 
 void test(string rep, int aa, int bb) {
-	Solution go;
-	int res = go.divide(aa, bb);
-	output(rep, res);
+  Solution go;
+  int res = go.divide(aa, bb);
+  output(rep, res);
 }
 
 int main() {
@@ -76,5 +76,5 @@ int main() {
   test("2147483647/10=", 2147483647, 10);
   test("-2147483648/1=", -2147483648, 1);
   test("-2147483648/-1=", -2147483648, -1);
-	return 0;
+  return 0;
 }

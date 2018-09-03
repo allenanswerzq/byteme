@@ -92,5 +92,5 @@ int main() {
   test("babad", "bab");
   test("cbbd", "bb");
   test("abcba", "abcba");
-	return 0;
+  return 0;
 }

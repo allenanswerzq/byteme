@@ -8,18 +8,18 @@ public:
   string multiply(string aa, string bb) {
   int p = aa.size();
   int q = bb.size();
-  	int product[p + q] = {0};     
+    int product[p + q] = {0};     
   string ret = "";
   reverse(aa.begin(), aa.end());
   reverse(bb.begin(), bb.end());
   for (int i = 0; i < q; ++i) {
-  	int carry = 0;
-  	for (int j = 0; j < p; ++j) {
-  		product[i + j] += carry + (aa[j]-'0') * (bb[i]-'0');
-  		carry = product[i + j] / 10;
-  		product[i + j] = product[i + j] % 10;
-  	}
-  	product[i + p] += carry;
+    int carry = 0;
+    for (int j = 0; j < p; ++j) {
+      product[i + j] += carry + (aa[j]-'0') * (bb[i]-'0');
+      carry = product[i + j] / 10;
+      product[i + j] = product[i + j] % 10;
+    }
+    product[i + p] += carry;
   }
 
   int i = p + q - 1;
@@ -40,6 +40,6 @@ void test(string aa, string bb) {
 }
 
 int main(int argc, char** argv) {
-	test("1234", "1111");
+  test("1234", "1111");
   return 0;
 }

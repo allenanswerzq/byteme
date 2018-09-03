@@ -8,25 +8,25 @@ int cmp(double x, double y = 0, double tol = EPS) {
 
 class Solution {
 public:
-		bool isPrime(int x) {
-			int ones=0;
-			while (x) {
-				ones++;
-				x = x&(x-1);
-			}
-			for (int i=2; i*i<=ones; ++i){
-				if (ones%i == 0) return false;
-			}
-			return true;
-		}	
+    bool isPrime(int x) {
+      int ones=0;
+      while (x) {
+        ones++;
+        x = x&(x-1);
+      }
+      for (int i=2; i*i<=ones; ++i){
+        if (ones%i == 0) return false;
+      }
+      return true;
+    } 
 
   int countPrimeSetBits(int L, int R) {
-			int ret=0;
-			for (int i=L; i<R; ++i) {
-				if (isPrime(i))	
-					ret++;
-			}        
-			return ret;
+      int ret=0;
+      for (int i=L; i<R; ++i) {
+        if (isPrime(i)) 
+          ret++;
+      }        
+      return ret;
   }
 };
 

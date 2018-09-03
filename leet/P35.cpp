@@ -17,6 +17,6 @@ void test(vector<int> aa, int bb) {
 }
 
 int main(int argc, char** argv) {
-	test({1, 3, 5, 6}, 7);
+  test({1, 3, 5, 6}, 7);
   return 0;
 }

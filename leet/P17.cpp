@@ -32,45 +32,45 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 class Solution {
 public:
-	vector<string> res;
-	void bt(string aa, int idx, vvc &table, string path) {
-		if (idx == aa.size()) {
-			res.push_back(path);
-			return;
-		} else {
-			vc tmp = table[aa[idx] - '0'];
-			for (int i = 0; i < tmp.size(); i++) {
-				path += tmp[i];
-				bt(aa, idx + 1, table, path);
-				path.pop_back();
-			}
-		}
-	}
+  vector<string> res;
+  void bt(string aa, int idx, vvc &table, string path) {
+    if (idx == aa.size()) {
+      res.push_back(path);
+      return;
+    } else {
+      vc tmp = table[aa[idx] - '0'];
+      for (int i = 0; i < tmp.size(); i++) {
+        path += tmp[i];
+        bt(aa, idx + 1, table, path);
+        path.pop_back();
+      }
+    }
+  }
 
-	vector<string> letterCombinations(string aa) {
-		if(aa.size() == 0) return res;
-		vvc table = {{'0', '0', '0'},
-								 {'0', '0', '0'},
-								 {'a', 'b', 'c'},
-								 {'d', 'e', 'f'},
-								 {'g', 'h', 'i'},
-								 {'j', 'k', 'l'},
-								 {'m', 'n', 'o'},
-								 {'p', 'q', 'r','s'},
-								 {'t', 'u', 'v'},
-								 {'w', 'x', 'y','z'}};
-		bt(aa, 0, table, "");
-		return res;
-	}
+  vector<string> letterCombinations(string aa) {
+    if(aa.size() == 0) return res;
+    vvc table = {{'0', '0', '0'},
+                 {'0', '0', '0'},
+                 {'a', 'b', 'c'},
+                 {'d', 'e', 'f'},
+                 {'g', 'h', 'i'},
+                 {'j', 'k', 'l'},
+                 {'m', 'n', 'o'},
+                 {'p', 'q', 'r','s'},
+                 {'t', 'u', 'v'},
+                 {'w', 'x', 'y','z'}};
+    bt(aa, 0, table, "");
+    return res;
+  }
 };
 
 void test(string aa) {
-	Solution go;
-	vs res = go.letterCombinations(aa);
-	pvi(res);
+  Solution go;
+  vs res = go.letterCombinations(aa);
+  pvi(res);
 }
 
 int main() {
-	test("23");
-	return 0;
+  test("23");
+  return 0;
 }

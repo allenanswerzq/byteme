@@ -97,7 +97,7 @@ void test(vi aa) {
 }
 
 int main(int argc, char** argv) {
-	test({0,1,0,2,1,0,1,3,2,1,2,1});
-	test({4,2,3});
+  test({0,1,0,2,1,0,1,3,2,1,2,1});
+  test({4,2,3});
   return 0;
 }
