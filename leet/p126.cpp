@@ -1,7 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
+#define ll long long
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
 
 template <typename T>
 void _f(const char* name, T&& arg) {
@@ -20,62 +29,71 @@ public:
   string word;
   int level;
   Node* pre;
-  Node (string w, int l, Node* p) {
-  word = w;
-  pre = p;
-  level = l;
+  Node (string w, int l, Node* p) 
+    : word(w), level(l), pre(p) {}
+};
+
+class Solution {
+public:
+  vvs findLadders(string start, string end, vs& wordList) {
+    vvs res;
+    unordered_set<string> wordSet(all(wordList));
+    if (!wordSet.count(end)) return res;
+    if (wordSet.count(start)) wordSet.erase(start);
+
+    int level = 1;
+    bool ok = 0;
+    queue<Node*> que; 
+    que.push(new Node(start, level, nullptr));
+
+    while (!que.empty()) {
+      int n = que.size();
+      set<string> del;
+      for (int i = 0; i < n; ++i) {
+        auto node = que.front(); que.pop();
+        trace(node->word, node->level);
+        if (node->word == end) {
+          ok = 1;
+          Node* tmp = node;
+          vs path;
+          while (tmp != nullptr) {
+            path.insert(path.begin(), tmp->word);
+            tmp = tmp->pre;
+          }
+          res.pb(path);
+        } else {
+          fora (w, wordSet) {
+            int k = 0;
+            fori (i, 0, sz(w)) {
+              if (w[i] != node->word[i]) ++k;
+              if (k > 1) break;
+            } 
+            if (k == 1) {
+              que.push(new Node(w, level+1, node));
+              del.insert(w);
+            }
+          }  
+        } 
+      }
+
+      fora (x, del) {
+        wordSet.erase(x);
+      }
+
+      ++level;
+      if (ok) break;
+    }
+    return res;
   }
 };
 
-vvs findLadders(string start, string end, vs& wordList) {
-  vvs res;
-  queue<Node*> que; 
-  unordered_set<string> wordSet(wordList.begin(), wordList.end());
-  if (!wordSet.count(end)) return res;
-  if (wordSet.count(start)) wordSet.erase(start);
-  int level = 1;
-  bool ok = 0;
-  que.push(new Node(start, level, nullptr));
-  while (!que.empty()) {
-    int n = que.size();
-    set<string> del;
-    for (int i=0; i<n; ++i) {
-    auto node = que.front(); que.pop();
-    trace(node->word, node->level);
-    if (node->word == end) {
-      ok = 1;
-      Node* tmp = node;
-      vs path;
-      while (tmp != nullptr) {
-      path.insert(path.begin(), tmp->word);
-      tmp = tmp->pre;
-      }
-      res.pb(path);
-    } else {
-      fora (w, wordSet) {
-      int k = 0;
-      fori (i, 0, sz(w)) {
-        if (w[i] != node->word[i]) ++k;
-        if (k > 1) break;
-      } 
-      if (k == 1) {
-        que.push(new Node(w, level+1, node));
-        del.insert(w);
-      }
-      }  
-    } 
-    }
-    // pvi(del);
-    fora (x, del) {
-    // trace(x);
-    wordSet.erase(x);
-    }
-    ++level;
-    if (ok) break;
+void test(string aa, string bb, vs cc) {
+  Solution go;
+  vvs ret = go.findLadders(aa, bb, cc);
+  fora (r, ret) {
+    pvi(r);
   }
-  return res;
 }
-
 
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
@@ -83,22 +101,9 @@ int main(int argc, char** argv) {
   cout.precision(5);
   cout << fixed; 
 
-  freopen("p126-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
+  test("hit", "cog", {"hot", "dot", "dog", "lot", "log", "cog"});
+  test("a", "c", {"a", "b", "c"});
+  test("red", "tax", {"ted","tex","red","tax","tad","den","rex","pee"});
 
-  // string aa = "hit", bb = "cog";
-  // vs cc = {"hot", "dot", "dog", "lot", "log", "cog"};
-  // string aa = "a", bb = "c";
-  // vs cc = {"a", "b", "c"};
-  string aa = "red", bb = "tax";
-  vs cc = {"ted","tex","red","tax","tad","den","rex","pee"};
-  vvs res = findLadders(aa, bb, cc);
-  fora (v, res) {
-  pvi(v);
-  }
-
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
   return 0;
 }

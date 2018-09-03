@@ -1,50 +1,58 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
+#define ll long long
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+template <typename T>
+void _f(const char* name, T&& arg) {
+  cout << name << ": " << arg << endl;
 }
 
+template <typename T, typename... Args> 
+void _f(const char* names, T&& arg, Args&&... args) {
+  const char* split = strchr(names + 1, ','); 
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...); 
+} 
 
-string minWindow(string s, string t) {
-  int m = sz(s), n = sz(t);
-  if (m < n) return "";
-  int pat[256] = {};
-  int src[256] = {};
-  fori (i, 0, n) {
-    ++pat[t[i]];
+// TODO
+class Solution {
+public:
+  string minWindow(string ss, string tt) {
+    vector<int> map(128, 0);
+    for (auto c : tt) map[c]++;
+    int counter = tt.size(), begin = 0, end = 0, d = INT_MAX, head = 0;
+    while (end < ss.size()) {
+      if (map[ss[end++]]-- > 0) counter--;
+      while (counter == 0) {
+        if (end - begin < d) {
+          d = end - begin;
+          head = begin;
+        }
+        if (map[ss[begin++]]++ == 0) counter++;
+      }  
+    }
+    return d == INT_MAX? "" : ss.substr(head, d);
   }
-  int lo = 0, ix = -1, len = (1<<30); 
-  int count = 0;
-  fori (hi, 0, m) {
-    ++src[s[hi]]; 
-    if (pat[s[hi]] && src[s[hi]] <= pat[s[hi]]) 
-      ++count;
-    if (count == n) {
-      while (src[s[lo]] > pat[s[lo]] || !pat[s[lo]]) {
-        if (src[s[lo]] > pat[s[lo]])
-          src[s[lo]]--; 
-        ++lo;
-      }
-      int nlen = hi - lo + 1;
-      // cout << lo << " " << hi << " " << nlen << " " << ix << endl;
-      if (nlen < len) {
-        len = nlen;
-        ix = lo;
-      }
-    } 
-  }
-  return ix == -1 ? "" : s.substr(ix, len);
+};
+
+void test(string aa, string bb) {
+  Solution go;
+  string r = go.minWindow(aa, bb);
+  output(1, r);
 }
 
 int main(int argc, char** argv) {
-  string a = "ADOBECODEBANC";
-  string b = "ABC";
-  string r = minWindow(a, b);
-  cout << r << endl;
+  test("ADOBECODEBANC", "ABC");
   return 0;
 }

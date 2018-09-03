@@ -31,24 +31,24 @@ public:
   // https://en.wikipedia.org/wiki/Integer_square_root#Using_only_integer_division
   // newton's iterative approach
   int mySqrt1(int n) {
-  // Must be long long becasue below operation x * x
-  ll x = n;
-  while (x * x > n) {
-    x = (x + n / x) / 2;
-  }
-  return x; 
+    // Must be long long becasue below operation x * x
+    ll x = n;
+    while (x * x > n) {
+      x = (x + n / x) / 2;
+    }
+    return x; 
   }
 
   // Binary search approach
   int mySqrt(int n) {
-  if (n <= 1) return n;
-  int lo = 1, hi = n;
-  while (lo < hi) {
-    int mid = lo + (hi - lo) / 2;
-    if (mid > n / mid) hi = mid;
-    else lo = mid + 1;
-  }
-  return lo - 1;
+    if (n <= 1) return n;
+    int lo = 1, hi = n;
+    while (lo < hi) {
+      int mid = lo + (hi - lo) / 2;
+      if (mid > n / mid) hi = mid;
+      else lo = mid + 1;
+    }
+    return lo - 1;
   }
 };
 

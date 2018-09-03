@@ -1,52 +1,66 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-// Accepted
-// reference: http://www.stanford.edu/class/cs124/lec/med.pdf 
-int minDistance(string w1, string w2) {
-  int m = w1.size(), n=w2.size();
-  vector<vector<int>> dp(m+1, vector<int>(n+1, 0));
-  // initialize 
-  // 0 means pos in w1
-  // i means pos in w2
-  for (int i=0; i<=n; i++) dp[0][i] = i;     
-  for (int i=0; i<=m; i++) dp[i][0] = i;        
-  for (int i=1; i<=m; ++i) 
-    for (int j=1; j<=n; ++j) {
-      int t = min(dp[i-1][j] + 1,     // delection 
-            dp[i][j-1] + 1);    // insertion
-      dp[i][j] = min(t, w1[i-1]==w2[j-1] ? dp[i-1][j-1] : dp[i-1][j-1] + 1);
-    }
-  return dp[m][n];
+#define ll long long
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+template <typename T>
+void _f(const char* name, T&& arg) {
+  cout << name << ": " << arg << endl;
 }
 
-// optimized for extra space also accepted
-int minDistance(string w1, string w2) {
-  int m = w1.size(), n=w2.size();
-  vector<int> pre(m+1, 0);
-  vector<int> cur(m+1, 0);
+template <typename T, typename... Args> 
+void _f(const char* names, T&& arg, Args&&... args) {
+  const char* split = strchr(names + 1, ','); 
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...); 
+} 
 
-  for (int i=0; i<=m; i++)
-     pre[i] = i;        
+#define vi vector<int>
+#define vvi vector<vi>
 
-  for (int j=1; j<=n; ++j)  {
-    cur[0] = j;
-    for (int i=1; i<=m; ++i) {
-      cur[i] = min(min(cur[i-1]+1, pre[i]+1), 
-            w1[i-1]==w2[j-1] ? pre[i-1]:pre[i-1]+1);
+// 1) If last characters of two strings are same, nothing much to do. 
+// Ignore last characters and get count for remaining strings. So we recur for 
+// lengths m-1 and n-1.
+
+// 2) Else (If last characters are not same), we consider all operations 
+// on ‘str1’, consider all three operations on last character of first string, 
+// recursively compute minimum cost for all three operations and 
+// take minimum of three values.
+//  Insert: Recur for m and n-1
+//  Remove: Recur for m-1 and n
+//  Replace: Recur for m-1 and n-1
+
+class Solution {
+public:
+  // ref: http://www.stanford.edu/class/cs124/lec/med.pdf 
+  int minDistance(string w1, string w2) {
+    int n1 = w1.size(), n2 = w2.size();
+    int dp[n1 + 1][n2 + 1];
+    for (int i = 0; i <= n1; ++i) dp[i][0] = i;
+    for (int i = 0; i <= n2; ++i) dp[0][i] = i;
+    for (int i = 1; i <= n1; ++i) {
+      for (int j = 1; j <= n2; ++j) {
+        if (w1[i - 1] == w2[j - 1]) {
+          dp[i][j] = dp[i - 1][j - 1];
+        } else {
+          dp[i][j] = min(dp[i - 1][j - 1], 
+                     min(dp[i - 1][j], dp[i][j - 1])) + 1;
+        }
+      }
     }
-    pre = cur;
+    return dp[n1][n2];
   }
-  // NOTE: pre not cur
-  return pre[m];
-}
+};
 
 int main(int argc, char** argv) {
   return 0;

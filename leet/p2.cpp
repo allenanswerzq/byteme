@@ -52,12 +52,12 @@ public:
   }
   
   int getValue(ListNode* &p) {
-  int ret = 0;
-  if (p) {
-    ret = p->val;
-    p = p->next;
-  }
-  return ret;
+    int ret = 0;
+    if (p) {
+      ret = p->val;
+      p = p->next;
+    }
+    return ret;
   }
 };
 

@@ -1,35 +1,34 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
-// optimized for extra space
-int climbStairs(int n) {
-  int a=1, b=2, c;
-  if(n == 1) return a;
-  if(n == 2) return b;
-  for (int i=2; i<n; ++i) {
-    c = a + b;
-    a = b;
-    b = c;
+class Solution {
+public:
+  int climbStairs(int n) {
+    int dp[n + 1];
+    mst(dp, 0);
+    dp[0] = 1; 
+    dp[1] = 1;
+    fori (i, 2, n+1)
+      dp[i] = dp[i-1] + dp[i-2];
+    return dp[n];    
   }
-  return c;    
-}
 
-int climbstairs(int n) {
-  vector<int> dp(n, 0);
-  dp[0]=1; dp[1]=2;
-  for (int i=2; i<n; ++i)
-    dp[i] = dp[i-1] + dp[i-2];
-  return dp[n-1];    
-}
+  int climbStairs2(int n) {
+    int a = 1, b = 2, c;
+    if (n == 1) return a;
+    if (n == 2) return b;
+    for (int i = 2; i < n; ++i) {
+      c = a + b;
+      a = b;
+      b = c;
+    }
+    return c;    
+  }
+};
 
 int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cout.precision(10);
+  cout << fixed; 
   return 0;
 }

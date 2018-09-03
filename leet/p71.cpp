@@ -1,36 +1,35 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-// vary good stack problem
-// i cant think how to solve this 
-string simplifyPath(string path) {
-  vector<string> stk;
-  stringstream ss(path);
-  string x = "";
-  while(getline(ss, x, '/')) {
-    if (x == "..") {
-      if (!stk.empty())
-        stk.pop_back();
-    }
-    else if(x!="" && x!=".")
-      stk.push_back(x);
-  }
-  string res;
-  // NOTE: stack cant do this
-  // but vector can
-  for (auto x: stk) {
-    res = res + '/' + x;
-  }
-  return stk.empty() ? "/":res;
-}
+class Solution {
+public:
+  string simplifyPath(string path) {
+    vector<string> stk;
+    stringstream ss(path);
+    string seg = "";
 
-int main(int argc, char** argv) {
+    while (getline(ss, seg, '/')) {
+      if (seg == "..") {
+        if (!stk.empty())
+          stk.pop_back();
+      } else if (seg != "" && seg != ".")
+        stk.push_back(seg);
+    }
+
+    string res;
+    for (auto& seg : stk) {
+      res = res + '/' + seg;
+    }
+
+    return stk.empty() ? "/" : res;
+  }
+};
+
+int main() {
+  std::istringstream iss;
+  iss.str("1#2#3#4#5#6#7#");
+  for (std::string seg; std::getline(iss, seg, '#'); ) {
+    cout << seg << endl;
+  }
   return 0;
 }
