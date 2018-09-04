@@ -1,20 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// reference: https://en.wikipedia.org/wiki/Binary_search_tree#Verification
-#define ll long long
-
-bool isBST(TreeNode* root, ll mi, ll mx) {
-  if (!root) return true;
-  if (root->val < mi || root->val > mx) return false;
-  return isBST(root->left, mi, root->val - 1) && 
-     isBST(root->right, root->val + 1, mx); 
+TreeNode *pre;
+bool dfs(TreeNode *root) {
+  if (!root) return 1;
+  if (!dfs(root->left)) return 0;
+  if (pre && pre->val >= root->val) return 0;
+  pre = root;
+  if (!dfs(root->right)) return 0;
+  return 1;
 }
 
-bool isValidBST(TreeNode* root) {
-  return isBST(root, -(1<<31), (1<<31)-1);
+class Solution {
+public:
+  bool isValidBST(TreeNode* root) {
+    if (!root) return 1; 
+    pre = null;
+    return dfs(root);
+  }
+};
+
+void test() {
+  Solution go;
+  int r;
+  cout(r);    
 }
 
 int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cin.tie(0);
+  cout.precision(5);
+  cout << fixed; 
   return 0;
 }

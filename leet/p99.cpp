@@ -1,34 +1,39 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
-// very good approach but not by me
-TreeNode *n1, *n2, *prev;
+TreeNode *n1, *n2, *pre;
 void inOrder(TreeNode* root) {
-  if (!root) return;
+  if (!root) return null;
   inOrder(root->left);
-  if(prev) {
-    if (!n1 && prev->val > root->val) n1 = prev;
-    if (n1 && prev->val > root->val) n2 = root;
+  // Visit current node.
+  if (pre) {
+    if (!n1 && pre->val > root->val) n1 = pre;
+    if (n1 && pre->val > root->val) n2 = root;
   }
-  prev = root;
+  pre = root;
   inOrder(root->right);
 }
 
-void recoverTree(TreeNode* root) {
-  n1 = n2 = prev = NULL; 
-  inOrder(root);
-  if (n1 && n2) 
-    swap(n1->val, n2->val);
+class Solution {
+public:
+  void recoverTree(TreeNode* root) {
+    n1 = n2 = pre = null;
+    inOrder(root);
+    if (n1 && n2)
+      swap(n1->val, n2->val);
+  }
+};
+
+void test() {
+  Solution go;
+  int r;
+  cout(r);    
 }
 
 int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cin.tie(0);
+  cout.precision(5);
+  cout << fixed; 
   return 0;
 }

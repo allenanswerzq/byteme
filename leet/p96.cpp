@@ -1,27 +1,25 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
-// fantistic solution
-int numTrees(int n) { 
-  vector<int> dp(n+1, 0);
-  dp[0] = 1;
-  dp[1] = 1;
-  for (x=2; x<=n; ++x) {      // for each x
-    for (y=1; y<=x; ++y) {  // select each y that less equal x as root
-      dp[x] += dp[y-1] * dp[x-y];
+// TODO
+class Solution {
+public:
+  int numTrees(int n) {
+    int dp[n + 1]; mst(dp, 0);
+    dp[0] = 1;
+    dp[1] = 1;
+    fori (i, 2, n + 1) {
+      fori (j, 0, i) {
+        dp[i] += dp[j] * dp[i - j - 1];
+      }
     }
+    return dp[n];
   }
-  return dp[n];
-}
+};
 
 int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cout.precision(10);
+  cout << fixed; 
   return 0;
 }

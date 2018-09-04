@@ -1,24 +1,34 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
+bool dfs(TreeNode* root, int goal) {
+  if (!root) return 0;
+  if (!root->left && !root->right && root->val == goal)
+    return 1;  
+
+  if (dfs(root->left, goal - root->val) ||
+      dfs(root->right, goal - root->val))
+    return 1;
+  return 0;
 }
 
+class Solution {
+public:
+  bool hasPathSum(TreeNode* root, int goal) {
+    return dfs(root, goal);  
+  }
+};
 
-// Accepte
-bool hasPathSum(TreeNode* root, int sum) {
-  if (!root) return false;
-  if (!root->left && !root->right && root->val == sum)
-    return true;
-  return hasPathSum(root->left, sum-root->val) ||
-      hasPathSum(root->right, sum-root->val);
+void test() {
+  Solution go;
+  int r;
+  cout(r);    
 }
 
 int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cin.tie(0);
+  cout.precision(5);
+  cout << fixed; 
   return 0;
 }

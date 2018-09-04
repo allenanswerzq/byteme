@@ -1,30 +1,35 @@
 #include<bits/stdc++.h>
+using namespace std;
 
-bool hasPathSum(TreeNode* root, int sum) {
-  if (!root) return false;
-  if (!root->left && !root->right && root->val == sum)
-    return true;
-  return hasPathSum(root->left, sum-root->val) ||
-      hasPathSum(root->right, sum-root->val);
-}
+#define vi vector<int>
+#define vvi vector<vi>
 
-void bt(vector<vector<int>>& res, vector<int>& ans, TreeNode* root, int sum) {
+vvi res;
+void dfs(TreeNode* root, int goal, vi& path) {
   if (!root) return;
-  ans.push_back(root->val);
-  if (!root->left && !root->right && root->val == sum)
-    res.push_back(ans);
-  dfs(res, ans, root->left, sum - root->val);
-  dfs(res, ans, root->right, sum - root->val);
-  ans.pop_back();
+  if (!root->left && !root->right && root->val == goal) {
+    path.push_back(root->val);
+    res.push_back(path);
+    path.pop_back();
+    return;
+  }
+
+  path.push_back(root->val);
+  dfs(root->left, goal - root->val, path);
+  path.pop_back();
+
+  path.push_back(root->val);
+  dfs(root->right, goal - root->val, path);
+  path.pop_back();
+  return;
 }
 
-vector<vector<int>> pathSum(TreeNode* root, int sum) {
-  vector<vector<int>> res;
-  vector<int> ans;
-  if (!root) return res;  
-  bt(res, ans, root, sum);
-  return res;
-}
-
-int main() {
-}
+class Solution {
+public:
+  vector<vector<int>> pathSum(TreeNode* root, int goal) {
+    res.clear();
+    vi path;
+    dfs(root, goal, path); 
+    return res;
+  }
+};

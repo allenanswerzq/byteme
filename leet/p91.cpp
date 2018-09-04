@@ -1,47 +1,67 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
+int recu(string ss) {
+  int n = sz(ss);
+  if (n == 0) return 1;
+  if (ss[0] == '0') return 0;
+  if (n == 1) return 1;
+  
+  int res = 0;
+  int x = stoi(ss.substr(0, 2));
+  if (1 <= x && x <= 26) 
+    res += recu(ss.substr(2));
+  res += recu(ss.substr(1));
+  return res;
 }
 
-// NOTE: special case
-// when input include 0 
-// finally, accepted :-(
-int numDecodings(string s) {
-  int n = s.size();
-  vector<int> dp(n, 0);        
-  if (n==0 || s[0]=='0') return 0;
-  if (n==1 && s[0]!='0') return 1;
-  if (stoi(s.substr(0,2))>26 && s[1]=='0') return 0;
-  // intialize dp
-  dp[0] = 1, dp[1] = stoi(s.substr(0,2)) <= 26 ? s[1]=='0' ? 1:2 :1;
-  for (int i=2; i<n; ++i) {
-    if (s[i-1]=='0' && s[i]=='0') return 0;
-    if (stoi(s.substr(i-1, 2))>26 && s[i]=='0') return 0;
-    if (stoi(s.substr(i-1, 2)) <= 26) {
-      if (s[i-1]=='0') dp[i]=dp[i-1];
-      else if(s[i]=='0') dp[i]=dp[i-2];
-      else dp[i] = dp[i-1] + dp[i-2];
-    } else {
-      dp[i] = dp[i-1];
-    }
-    //dp[i] = dp[i-1] + dp[i-1] - (dp[i-1] - dp[i-2]);
+class Solution {
+public:
+  int numDecodingsRecu(string ss) {
+    return recu(ss);
   }
-  return dp[n-1];
-}
 
+  int numDecodingsDP(string ss) {
+    int n = sz(ss);
+    if (ss[0] == '0') return 0;
+    if (n == 1) return 1;
+    int dp[n + 1]; mst(dp, 0);
+    dp[0] = 1; 
+    dp[1] = 1;
+    fori (i, 2, n + 1) {
+      int j = i - 1;
+      if (ss[j] != '0')
+        dp[i] += dp[i-1]; 
+      
+      if (ss[j - 1] != '0') {
+        int x = stoi(ss.substr(j-1, 2));
+        if (1 <= x && x <= 26)
+          dp[i] += dp[i-2];
+      }
+    }
+    return dp[n];
+  }
+
+  int numDecodings(string ss) {
+    return numDecodingsRecu(ss);
+    return numDecodingsDP(ss);
+  }
+
+};
+
+void test(string ss) {
+  Solution go;
+  cout << go.numDecodings(ss) << "\n";
+}
 
 int main(int argc, char** argv) {
-  cout << numDecodings("123") << endl;
-  cout << numDecodings("110") << endl;
-  cout << numDecodings("10") << endl;
-  cout << numDecodings("0") << endl;
-  cout << numDecodings("301") << endl;
-  cout << numDecodings("27") << endl;
+  std::ios_base::sync_with_stdio(false);
+  cout.precision(10);
+  cout << fixed; 
+  test("0");
+  test("120");
+  test("102");
+  test("12");
+  test("226");
   return 0;
 }

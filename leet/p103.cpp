@@ -1,71 +1,41 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
-vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
-  vector<vector<int>> res;
-  if (!root) return res;
-
-  deque<TreeNode*> dq({root});
-  bool dir = false;
-  while (!dq.empty()) {
-    res.push_back(vector<int>());
-    auto level_count = dq.size();
-    for (int i=0; i<level_count; ++i) {
-      if (dir) {  // right to left
-
-
-      } else {    // left to right
-        auto cur = dq.front(); dq.pop_front();
-        result.back().push_back(cur->val);
-        if (cur->left)
-          dq.push_back(cur->left);
-        if (cur->right)
-          dq.push_back(cur->right);
+class Solution {
+public:
+  vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+    vvi res;
+    if(!root) return res;
+    deque<TreeNode*> q;
+    int level = 0;
+    q.push_back(root);
+    while (sz(q)) {
+      int n = sz(q);
+      vi tmp;
+      ++level;
+      fori (i, 0, n) {
+        auto cur = q.front(); q.pop_front(); 
+        if (level % 2) tmp.push_back(cur->val);
+        else tmp.insert(tmp.begin(), cur->val);
+        if (cur->left) q.push_back(cur->left);
+        if (cur->right) q.push_back(cur->right);
       }
+      res.push_back(tmp);
     }
-    dir = !dir;
+    return res;
   }
-  return res;
+};
 
-}
-
-// accepted but not that good approach
-vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
-  vector<vector<int>> res;
-  if (!root) return res;
-  queue<TreeNode*> q;
-  vector<int> ans;
-  q.push(root);
-  q.push(NULL);
-  bool mark = false;
-  while (!q.empty()) {
-    TreeNode* x = q.front(); q.pop();
-    if (x == NULL) {
-      if(mark) { 
-        reverse(ans.begin(), ans.end());
-      }
-      res.push_back(ans);
-      ans.resize(0);
-      mark = !mark;
-      if(q.size() > 0) 
-        q.push(NULL);
-    } else {
-      ans.push_back(x->val);
-      if (x->left) q.push(x->left);
-      if (x->right) q.push(x->right);
-    }
-  }
-  return res;
+void test() {
+  Solution go;
+  int r;
+  cout(r);    
 }
 
 int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cin.tie(0);
+  cout.precision(5);
+  cout << fixed; 
   return 0;
 }

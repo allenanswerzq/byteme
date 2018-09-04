@@ -1,8 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
 template <typename T>
 void _f(const char* name, T&& arg) {
   cout << name << ": " << arg << endl;

@@ -1,28 +1,50 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
+class TreeNode {
+public:
+  int val;
+  TreeNode *left;
+  TreeNode *right;
+  TreeNode(int x) : val(x), left(null), right(null) {}
+};
+ 
+class Solution {
+public:
+  vector<int> inorderTraversal(TreeNode* root) {
+    vi ret;
+    TreeNode *node = root;
+    deque<TreeNode*> stk;
+    while (sz(stk) || node != null) {
+      if (node) {
+        stk.push_back(node);
+        node = node->left;
+      } else {
+        TreeNode *p = stk.back(); stk.pop_back();
+        ret.push_back(p->val);
+        node = p->right;
+      }
+    }
+    return ret;
+  }
+};
 
-// recursive solution 
-void inorder(vector<int>& res, TreeNode* root) {
-  if (!root) return;
-  inorder(res, root->left);
-  res.push_back(root->val);
-  inorder(res, root->right);
-}
+void test() {
+  TreeNode *root = new TreeNode(1);
+  root->right = new TreeNode(2);
+  root->right->left = new TreeNode(3);
 
-vector<int> inorderTraversal(TreeNode* root) {
-  vector<int> res;
-  inorder(res, root);
-  return res;
+  Solution go;
+  vi r = go.inorderTraversal(root);
+  pvi(r);
 }
 
 int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cin.tie(0);
+  cout.precision(5);
+  cout << fixed; 
+
+  test();
   return 0;
 }

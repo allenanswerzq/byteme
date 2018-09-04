@@ -25,30 +25,40 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
+// TODO
+// Increasing Stack.
+// ref: https://www.cnblogs.com/lichen782/p/leetcode_Largest_Rectangle_in_Histogram.html
 class Solution {
 public:
-  bool isSameTree(TreeNode* p, TreeNode* q) {
-    if (!p && !q) return 1;
-    if (!p && q) return 0;
-    if (p && !q) return 0;    
-    if (p->val != q->val) return 0;
-    if (isSameTree(p->left, q->left) && 
-        isSameTree(p->right, q->right))
-      return 1;
-    return 0;
+  int largestRectangleArea(vector<int>& aa) {
+    aa.push_back(0);
+    stack<int> stk;
+    int res = 0;
+    fori (i, 0, sz(aa)) {
+      while (!stk.empty() && aa[i] <= aa[stk.top()]) {
+        int h = aa[stk.top()]; stk.pop();
+        int w = stk.empty() ? -1 : stk.top(); 
+        // Compute the area that created by using h as the lowest edge.
+        res = max(res, h * (i - w - 1));
+        // trace(i, w, res);
+      }
+      // We still need to compute the area with `i`th bar as the smallest bar.
+      // So push it into stack.
+      stk.push(i);
+    }
+    return res;
   }
 };
 
-void test() {
+void test(vi aa) {
   Solution go;
-  int r;
-  cout(r);    
+  cout << go.largestRectangleArea(aa) << "\n";
 }
 
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
+  cout.precision(10);
   cout << fixed; 
+  test({2,1,5,6,2,3});
   return 0;
 }

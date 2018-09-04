@@ -71,19 +71,21 @@ public:
     return ret;
   }
 
+  // TODO
+  // Decreasing stack.
   int trap3(vector<int>& aa) {
     int ret = 0, i = 0;
     int n = sz(aa);
     deque<int> dq;
     while (i < n) {
       if (!sz(dq) || aa[i] <= aa[dq.back()])
-      dq.push_back(i++);
+        dq.push_back(i++);
       else {
-      int top = dq.back(); dq.pop_back();
-      if (!sz(dq)) continue; 
-      int dist = i - dq.back() - 1; 
-      int height = min(aa[dq.back()], aa[i]) - aa[top];
-      ret += dist * height;
+        int top = dq.back(); dq.pop_back();
+        if (!sz(dq)) continue; 
+        int dist = i - dq.back() - 1; 
+        int height = min(aa[dq.back()], aa[i]) - aa[top];
+        ret += dist * height;
       }
     }
     return ret;
