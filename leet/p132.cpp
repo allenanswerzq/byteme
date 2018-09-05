@@ -1,52 +1,61 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
-bool isPalindrome(string s) {
-  if (s == "") return true;
-  int lo=0, hi=s.size()-1;
-  while (lo < hi) {
-    if (s[lo++] != s[hi--]) {
+bool check(string ss) {
+  int lo, hi;
+  lo = 0, hi = sz(ss) - 1;
+  while (lo < hi) 
+    if (ss[lo++] != ss[hi--])
       return false;
-  }
   return true;
 }
 
-int minCut(string s) {
-  int n = s.size();
-  vector<int> dp(n+1, 0);
-  // dp[i] cuts of first i characters
-  //      a a b a
-  //   -1 0 1 2 3 (dp)
-  // first 2 chars are `aa` so the maxinum cuts equals 1
-  for (int i=0; i<=n; ++i)
-    dp[i] = i-1;
+int recu(string ss, int lo, int hi) {
+  if (lo >= hi) return 0;
+  if (check(ss.substr(lo, hi - lo + 1)))
+    return 0;
+  else {
+    int mi = 0x3f3f3f3f;
+    fori (k, lo, hi) {
+      mi = min(mi, recu(ss, lo, k) + 1 + recu(ss, k + 1, hi)); 
+    }
+    return mi;
+  }
+  return -1;
+}
 
-  // for each char
-  for (int i=0; i<n; ++i) {
-    // odd length palindrome
-    // from center i to both sides
-    for (int k=0; i-k>=0 && i+k<n && s[i-k]==s[i+k]; ++k)
-      dp[i+k+1] = min(dp[i+k+1], 1+dp[i-k]); 
-    // even length palindrome
-    // a     a a a
-    // ^     ^   ^
-    // i-k+1 i   i+k
-    for (int k=1; i-k+1>=0 && k+k<n && s[i-k+1]==s[i+k], ++k)
-      dp[i+k+1] = min(dp[i+k+1], 1+dp[i-k+1]);
-      
-  } 
-  return dp[n];
- 
+class Solution {
+public:
+  int minCutRecu(string ss) {
+    return recu(ss, 0, sz(ss) - 1);
+  }
+  
+  // TODO
+  int minCutDP(string ss) {
+    return 0;
+  }
+
+  int minCut(string ss) {
+    srand(time(0));
+    int x = rand();
+    if (x % 2) return minCutRecu(ss); 
+    else return minCutDP(ss);
+  }
+};
+
+void test(string ss) {
+  Solution go;
+  cout << go.minCut(ss) << "\n";
 }
 
 int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cout.precision(10);
+  cout << fixed; 
+
+  test("abcd");
+  test("aab");
+  test("ababbbabbababa");
+
   return 0;
 }

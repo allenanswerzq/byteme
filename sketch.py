@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
   clock_t begin = clock();
 #endif 
 
-  int t; cin >> t;
+  int t; cin >> t >> ws;
   fori (i, 1, t + 1) {
   
   }  

@@ -1,39 +1,36 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
+// TODO
+class Solution {
+public:
+  RandomListNode *copyRandomList(RandomListNode *head) {
+    if (!head) return nullptr;
 
-// Accepted
-RandomListNode *copyRandomList(RandomListNode *head) {
-  if (!head) return NULL;
-  // store random pointer for each node
-  unordered_map<RandomListNode*, RandomListNode*> rdm;
-  // store new node for each node, respectively
-  unordered_map<RandomListNode*, RandomListNode*> mp;
+    // Store random pointer for each node
+    unordered_map<RandomListNode*, RandomListNode*> rdm;
 
-  RandomListNode* p = head, *copy, *q;
-  copy = new RandomListNode(-1);
-  q = copy;
+    // Store new node for each node, respectively
+    unordered_map<RandomListNode*, RandomListNode*> mp;
 
-  while (p) {
-    q->next = new RandomListNode(p->label); 
-    q = q->next;
-    rdm[p] = p->random;
-    mp[p] = q;
-    p = p->next;
+    RandomListNode *cur = head, *dummy, *p;
+    dummy = new RandomListNode(-1);
+    p = dummy;
+
+    while (cur) {
+      p->next = new RandomListNode(cur->label); 
+      p = p->next;
+      rdm[cur] = cur->random;
+      mp[cur] = p;
+      cur = cur->next;
+    }
+
+    for (auto it : rdm)
+      mp[it->first]->random = mp[it->second];
+
+    return dummy->next;
   }
-
-  for (auto it=rdm.begin(); it!=rdm.end(); ++it) 
-    mp[it->first]->random = mp[it->second];
-
-  return copy->next;
-}
+};
 
 int main(int argc, char** argv) {
   return 0;

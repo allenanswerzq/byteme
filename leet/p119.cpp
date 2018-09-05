@@ -1,39 +1,34 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
+#define vi vector<int>
+#define vvi vector<vi>
 
-// Accepted
-vector<int> getRow(int n) {
-  if (n == 0) return vector<int> ({1});
-  vector<int> res(n+1, 1);
-  vector<int> ans(n+1, 1);
-  for (int i=2; i<n; ++i) {
-    for (int k=0; k < i-1; ++k)
-      ans[k+1] = res[k] + res[k+1]; 
-    ans[0] = 1;
-    ans[i] = 1;
-    res = ans;
+class Solution {
+public:
+  vector<int> getRow(int n) {
+    if (n == 0) return {1};
+    vi ret(n + 1, 1);
+    vi tmp(n + 1, 1);
+    for (int i = 2; i < n; ++i) {
+      for (int k = 0; k < i - 1; ++k)
+        tmp[k + 1] = ret[k] + ret[k + 1]; 
+      tmp[0] = 1;
+      tmp[i] = 1;
+      ret = tmp;
+    }
+    return ret;
   }
-  return res;
-}
 
-// more short solution
-// best solution
-vector<int> getRow(int n) {
-  vector<int> A(n+1, 1);
-  for (int i=1; i<=n; ++i) {
-    for (int k=i-1; k>=1; --k)
-      A[k] += A[k-1];
+  vector<int> getRow2(int n) {
+    vi ret(n + 1, 1);
+    for (int i = 1; i <= n; ++i) {
+      for (int k = i - 1; k >= 1; --k)
+        ret[k] += ret[k-1];
+    }
+    return ret;
   }
-  return A;
-}
+};
 
 int main(int argc, char** argv) {
   return 0;

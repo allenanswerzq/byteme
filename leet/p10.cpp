@@ -28,19 +28,23 @@ void _f(const char* names, T&& arg, Args&&... args) {
 int isMatchRecu(string s, string p) {
   int n, m;
   n = sz(s), m = sz(p);
+
   // Pattern is null, return true only when text is also null.
   if (m == 0) return n == 0;  
+
   // Whether or not the first character is matched.
   int first = n && (s[0] == p[0] || p[0] == '.');
+
   if (m >= 2 && p[1] == '*') {
-  // '*' stands for zero preceding elements.  
+    // '*' stands for zero preceding elements.  
     int x = isMatchRecu(s, p.substr(2));
-  // '*' stands for multiple preceding elements.
-  int y = first && isMatchRecu(s.substr(1), p); 
+    // '*' stands for multiple preceding elements.
+    int y = first && isMatchRecu(s.substr(1), p); 
     return (x || y);
   } else {
     return first && isMatchRecu(s.substr(1), p.substr(1));
   }
+  
   return -1;
 }
 
@@ -54,10 +58,11 @@ int isMatchRecuTwo(string s, string p) {
         return 0;
     return 1;
   }
+
   if (p[0] == '*') {
-  // "*" as the empty char.
+    // "*" as the empty char.
     int x = isMatchRecuTwo(s, p.substr(1));   
-  // "*" as the any sequence.
+    // "*" as the any sequence.
     int y = isMatchRecuTwo(s.substr(1), p);
     return (x || y);
   } else if ((s[0] == p[0] || p[0] == '.')) {

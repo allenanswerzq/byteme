@@ -1,49 +1,74 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
-int numDistinct(string s, string t) {
-  int n=s.size(), m=t.size();
-  vector<vector<int>> dp(m+1, vector<int>(n+1, 0)); 
-  // Note: boundary case
-  for (int i=0; i<n; ++i)
-    dp[0][i] = 1;
-  // dp[i][j] t[1...i] s[1...j]
-  for (int i=1; i<=m; ++i) {
-    for (int j=1; j<=n; ++j) {
-      dp[i][j] = s[j-1]==t[i-1] ? dp[i][j-1]+dp[i-1][j-1] : dp[i][j-1];
-      //printf("%d ", dp[i][j]);
-    }
-    //printf("\n");
+int recu(string ss, string tt, int ls, int lt) {
+  if (ls == 0) return 0;
+  if (lt == 0) return 1;
+  if (ss[ls - 1] != tt[lt - 1]) {
+    return recu(ss, tt, ls - 1, lt);
+  } else {
+    return recu(ss, tt, ls - 1, lt) + recu(ss, tt, ls - 1, lt - 1);
   }
-  return dp[m][n];
 }
 
-int numDistinct(string s, string t) {
-  int n=s.size(), m=t.size();
-  vector<vector<int>> dp(n+1, vector<int> (m+1, 0));
-  // dp[i][j] s[0...i] t[0....j] 
-  for (int i=0; i<n; ++i)
-    dp[i][0] = 1;
-  for (int i=1; i<=m; ++i) 
-    for (int j=1; j<=n; ++j) {
-      //dp[j][i] = s[j-1] == t[i-1] ? dp[j-1][i-1]+dp[j-1][i] : dp[j-1][i];
-      dp[j][i] = dp[j-1][i] + (s[j-1]==t[i-1] ? dp[j-1][i-1] : 0);
+const int N = 1000;
+
+class Solution {
+public:
+  int numDistinctRecu(string ss, string tt) {
+    return recu(ss, tt, sz(ss), sz(tt));    
+  }
+
+  int numDistinctDP(string ss, string tt) {
+    int a, b;
+    a = sz(ss), b = sz(tt);
+    if (b > a) return 0;
+
+    int dp[a + 1][b + 1]; mst(dp, 0);
+
+    fori (i, 0, a + 1) {
+      fori (j, 0, b + 1) {
+
+        if (i == 0 && j == 0)
+          dp[i][j] = 1;
+
+        else if (i == 0)
+          dp[i][j] = 0;
+
+        else if (j == 0) 
+          dp[i][j] = 1;
+
+        else if (ss[i-1] == tt[j-1])
+          dp[i][j] = dp[i-1][j] + dp[i-1][j-1];
+
+        else if (ss[i-1] != tt[j-1])
+          dp[i][j] = dp[i-1][j];
+      }
     }
-  return dp[n][m];
-}
 
-// optimized for space
-int numDistinct(string s, string t) {
+    return dp[a][b];
+  }
+
+  int numDistinct(string ss, string tt) {
+    srand(time(0));
+    int x = rand(); 
+    if (x % 2) 
+      return numDistinctRecu(ss, tt);
+    else
+    return numDistinctDP(ss, tt);
+  }
+};
+
+void test(string ss, string tt) {
+  Solution go;
+  cout << go.numDistinct(ss, tt) << "\n";
 }
 
 int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cout.precision(10);
+  cout << fixed; 
+  test("rabbbit", "rabbit");
+  test("babgbag", "bag");
   return 0;
 }

@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define ll long long
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
@@ -24,27 +25,46 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-#define vi vector<int>
-#define vvi vector<vi>
-
-int main() {
-  int t; cin >> t >> ws;
-  fori (i, 0, t) {
-    string tmp;
-    getline(cin, tmp);
+// TODO
+class Solution {
+public:
+  int maxProfit(vector<int>& prices) {
+    int n = sz(prices);
+    int res = 0;
+    int sum = 0;
+    fori (i, 0, n - 1) {
+      int diff = prices[i + 1] - prices[i];
+      sum = max(diff, sum + diff);
+      res = max(res, sum);
+    }
+    return res;
   }
-  return 0;
+
+  int maxProfit2(vi& prices) {
+    int n = sz(prices);
+    int mi = (1 << 30);
+    int res = 0;
+    fori (i, 0, n) {
+      mi = min(mi, prices[i]);
+      res = max(res, prices[i] - mi);
+    } 
+    return res;
+  }
+};
+
+void test(vi inp) {
+  Solution go;
+  cout << go.maxProfit(inp) << "\n";
 }
 
+int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cout.precision(10);
+  cout << fixed; 
 
+  test({7, 1, 5, 3, 6, 4});
+  test({7, 6, 5, 4, 3});
+  test({2, 4, 1});
 
-
-
-
-
-
-
-
-
-
-
+  return 0;
+}

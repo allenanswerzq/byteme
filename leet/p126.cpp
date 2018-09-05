@@ -12,6 +12,7 @@ using namespace std;
 #define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
 #define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
 
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {
   cout << name << ": " << arg << endl;
@@ -23,6 +24,9 @@ void _f(const char* names, T&& arg, Args&&... args) {
   cout.write(names, split - names) << ": " << arg << " |";
   _f(split, args...); 
 } 
+
+#define vs vector<string>
+#define vvs vector<vector<string>>
 
 class Node {
 public:
@@ -54,13 +58,13 @@ public:
         trace(node->word, node->level);
         if (node->word == end) {
           ok = 1;
-          Node* tmp = node;
+          Node* cur = node;
           vs path;
-          while (tmp != nullptr) {
-            path.insert(path.begin(), tmp->word);
-            tmp = tmp->pre;
+          while (cur != nullptr) {
+            path.insert(path.begin(), cur->word);
+            cur = cur->pre;
           }
-          res.pb(path);
+          res.push_back(path);
         } else {
           fora (w, wordSet) {
             int k = 0;

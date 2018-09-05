@@ -24,27 +24,34 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-#define vi vector<int>
-#define vvi vector<vi>
+class Solution {
+public:
+  int candy(vector<int> &aa) {
+    int n = aa.size();
+    if (n <= 1) return n;
 
-int main() {
-  int t; cin >> t >> ws;
-  fori (i, 0, t) {
-    string tmp;
-    getline(cin, tmp);
+    vector<int> dp(n, 1);
+    for (int i = 1; i < n; i++)
+      if (aa[i] > aa[i-1])
+        dp[i] = dp[i-1] + 1;
+
+    for (int i = n - 1; i > 0 ; i--)
+      if (aa[i-1] > aa[i])
+        dp[i-1] = max(dp[i] + 1, dp[i-1]);
+
+    int ret = 0;
+    for (int i = 0; i < n; i++) {
+      ret += dp[i];
+    }
+
+    return ret;
   }
+};
+
+int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cin.tie(0);
+  cout.precision(5);
+  cout << fixed; 
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

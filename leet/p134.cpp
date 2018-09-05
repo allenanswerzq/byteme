@@ -1,37 +1,33 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
+#define vi vector<int>
+#define vvi vector<vi>
 
-int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
-}
+class Solution {
+public:
+  int canCompleteCircuit(vi& gas, vi& cost) {
+    int idx;    
+    int n = gas.size();
+    for (int i = 0; i < n; ++i) {
+      idx = i;
+      int total = gas[i];
+      if (total < cost[i]) continue;
 
-int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
-  int idx;    
-  int n = gas.size();
-  for (int i=0; i<gas.size(); ++i) {
-    idx = i;
-    int total = gas[i];
-    if (total < cost[i]) continue;
-    // Note: gas station along a circular route
-    int j = (i+1) % n;
-    int prev = idx;
-    for (; j!=i; j=(j+1)%n) {
-      total = total-cost[prev] + gas[j];
-      prev = j;
-      if (total < cost[j]) break;
+      // Note: gas station along a circular route.
+      int cur = (i + 1) % n;
+      int pre = idx;
+      for (; cur != i; cur = (cur + 1) % n) {
+        total = total - cost[pre] + gas[cur];
+        if (total < cost[cur]) break;
+        pre = cur;
+      }
+      if (cur == i) return idx;
+
     }
-    if (j == i)
-      return idx;
+    return -1;
   }
-  return -1;
-}
+};
 
 int main(int argc, char** argv) {
   return 0;

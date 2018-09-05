@@ -1,45 +1,38 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
+class Solution {
+public:
+  void reorderList(ListNode* head) {
+    ListNode *p, *q;
+    p = q = head;
+    while (q->next && q->next->next) {
+      q = q->next->next;
+      p = p->next;
+    }    
 
-void reorderList(ListNode* head) {
-  ListNode *p, *q;
-  p = q = head;
-  while (q->next && q->next->next) {
-    q = q->next->next;
-    p = p->next;
-  }    
+    ListNode *pre = nullptr;
+    q = p->next;
+    p->next = nullptr;
+    while (q) {
+      ListNode *next = q->next;
+      q->next = pre;
+      pre = q;
+      q = next;
+    }
 
-  ListNode *prev = NULL;
-  q = p->next;
-  p->next = NULL;
-  while (q) {
-    ListNode *next = q->next;
-    q->next = prev;
-    prev = q;
-    q = next;
+    q = head;
+    p = pre;
+    while (p) {
+      ListNode *x = q->next;
+      ListNode *y = p->next;
+      q->next = p;
+      p->next = x;
+      q = x;
+      p = y;
+    }
   }
-
-  q = head;
-  p = prev;
-  while (p) {
-    ListNode *x = q->next;
-    ListNode *y = p->next;
-    q->next = p;
-    p->next = x;
-
-    q = x;
-    p = y;
-  }
-    
-}
+};
 
 int main(int argc, char** argv) {
   return 0;
