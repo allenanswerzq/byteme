@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define ll long long
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
@@ -25,14 +24,25 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
+// Given a string S, find the length of the longest substring T that contains 
+// at most two distinct characters.
+// For example,
+// Given S = “eceba”,
+// T is “ece” which its length is 3.
+
 class Solution {
 public:
-  int majorityElement(vector<int>& aa) {
-    int ret = 0;
-    int cnt = 0;
-    fori (i, 0, sz(aa)) {
-      if (cnt == 0) ret = aa[i];
-      cnt += (aa[i] == ret) ? 1 : -1;
+  int lengthOfLongestSubstringTwoDistinct(string ss) {
+    int ret = 0, lo = 0;
+    unordered_map<char, int> mp;
+    for (int i = 0; i < ss.size(); ++i) {
+      ++mp[ss[i]];
+      while (mp.size() > 2) {
+        if (--mp[ss[lo]] == 0) 
+          mp.erase(ss[lo]);
+        ++lo;
+      }
+      ret = max(ret, i - lo + 1);
     }
     return ret;
   }

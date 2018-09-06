@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define ll long long
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
@@ -25,17 +24,40 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
+// The API: int read4(char *buf) reads 4 characters at a time from a file.
+// The return value is the actual number of characters read. For example, 
+// it returns 3 if there is only 3 characters left in the file.
+// By using the read4 API, implement the function int read(char *buf, int n) 
+// that reads n characters from the file.
+// Note:
+// The read function may be called multiple times.""
+
+// #define LOCAL_FILE
+
 class Solution {
 public:
-  int majorityElement(vector<int>& aa) {
-    int ret = 0;
-    int cnt = 0;
-    fori (i, 0, sz(aa)) {
-      if (cnt == 0) ret = aa[i];
-      cnt += (aa[i] == ret) ? 1 : -1;
-    }
-    return ret;
+  int read(char *buf, int n) {
+    int total = 0;
+    while (total < n && sz(dq)) {
+      buf[total++] = dq.front();
+    } 
+
+    char tmp[4];
+    bool eof = false;
+    while (!eof && total < n) {
+      int cnt = read4(tmp);
+      eof = cnt < 4;
+      cnt = min(cnt, n - total);
+      fori (i, 0, cnt) 
+        buf[total++] = tmp[i];
+
+      fori (i, cnt, 4)
+        dq.push_back(tmp[i]); 
+    } 
+    return total;
   }
+private:
+  deque<char> dq;
 };
 
 int main(int argc, char** argv) {

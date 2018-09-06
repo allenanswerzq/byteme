@@ -6,7 +6,6 @@ public:
   /** initialize your data structure here. */
   MinStack() {
     minValue = INT_MAX; 
-    idx = 0;
   }
   
   void push(int x) {
