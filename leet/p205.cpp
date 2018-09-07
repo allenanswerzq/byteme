@@ -3,22 +3,25 @@ using namespace std;
 
 #define mst(x, a) memset(x, a, sizeof(x))
 
-bool isIsomorphic(string s, string t) {
-  int aa[256];
-  int bb[256];
-  mst(aa, 0);
-  mst(bb, 0);
-  for (int i=0; i<s.size(); ++i) {
-  if ( !aa.count(s[i]) && !bb.count(t[i]) ) {
-    aa[s[i]] = t[i];
-    bb[t[i]] = s[i];
-  } else {
-    if (aa[s[i]] != t[i] || bb[t[i]] != s[i]) 
-    return false; 
+class Solution {
+public:
+  bool isIsomorphic(string ss, string tt) {
+    int aa[256];
+    int bb[256];
+    mst(aa, 0);
+    mst(bb, 0);
+    for (int i=0; i<ss.size(); ++i) {
+      if (!aa.count(ss[i]) && !bb.count(tt[i]) ) {
+        aa[ss[i]] = tt[i];
+        bb[tt[i]] = ss[i];
+      } else {
+        if (aa[ss[i]] != tt[i] || bb[tt[i]] != ss[i]) 
+          return false; 
+      }
+    }
+    return true;
   }
-  }
-  return true;
-}
+};
 
 int main(int argc, char** argv) {
   return 0;

@@ -28,7 +28,6 @@ public:
 
   vector<int> postorderTraversal(TreeNode* root) {    
     if (!root) return {};
-
     vector<int> ret;
     stack<TreeNode*> stk;
     TreeNode *last_visited = nullptr;

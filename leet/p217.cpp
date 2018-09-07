@@ -1,13 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool containsDuplicate(vector<int>& nums) {
-  map<int, int> mp;
-  for (auto x: nums)
-  if (mp.count(x)) mp[x] = 1;
-  else return true;
-  return false;
-}
+class Solution {
+public:
+  bool containsDuplicate(vector<int>& aa) {
+    set<int> st;
+    for (int i = 0; i < aa.size(); ++i) {
+      if (st.count(aa[i]))
+        return 1;
+      st.insert(aa[i]);
+    }
+    return 0;
+  }
+};
 
 int main(int argc, char** argv) {
   return 0;
