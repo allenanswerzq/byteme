@@ -9,20 +9,23 @@ using namespace std;
 
 #define sz(x) (int)(x).size()
 
-bool isStrobogrammatic(string aa) {
-  unordered_map<char, char> mp{
-  {'0': '0'},
-  {'1': '1'},
-  {'6': '9'}, 
-  {'9': '6'}, 
-  {'8': '8'} 
-  };
-  for (int i=0, r=sz(aa)-1; i < aa.size(), r >= 0; ++i, --r) {
-  if (!mp.count(aa[i])) return 0;
-  if (mp[aa[i]] != aa[r]) return 0;
+class Solution {
+public:  
+  bool isStrobogrammatic(string aa) {
+    unordered_map<char, char> mp{
+      {'0': '0'},
+      {'1': '1'},
+      {'6': '9'}, 
+      {'9': '6'}, 
+      {'8': '8'}};
+    int lo = 0, hi = sz(aa) - 1;
+    for (; lo < aa.size(), hi >= 0; ++lo, --hi) {
+      if (!mp.count(aa[lo])) return 0;
+      if (mp[aa[lo]] != aa[hi]) return 0;
+    }
+    return true;
   }
-  return true;
-}
+};
 
 int main(int argc, char** argv) {
   return 0;

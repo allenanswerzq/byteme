@@ -3,18 +3,21 @@ using namespace std;
 
 #define sz(x) (int)(x).size()
 
-bool isAnagram(string s, string t) {
-  if (sz(s) != sz(t)) return false;     
-  unordered_map<char, int> mp;
-  for (int i=0; i<s.size(); ++i) {
-  mp[s[i]]++;
-  mp[t[i]]--;
+class Solution {
+public:
+  bool isAnagram(string ss, string tt) { 
+    if (sz(ss) != sz(tt)) return false;     
+    unordered_map<char, int> mp;
+    for (int i = 0; i < ss.size(); ++i) {
+      mp[ss[i]]++;
+      mp[tt[i]]--;
+    }
+    for (auto it : mp)
+      if (it.second > 0)
+        return false;
+    return true;
   }
-  for (auto it : mp)
-  if (it.second > 0)
-    return false;
-  return true;
-}
+};
 
 int main(int argc, char** argv) {
   return 0;

@@ -42,42 +42,42 @@ bool dfs(int root, int pre) {
   if (visit[root]) return 0;
   visit[root] = 1;
   fora(e, gg[root]) {
-  if (e == pre) continue;
-  if (!dfs(e, root)) return 0;
+    if (e == pre) continue;
+    if (!dfs(e, root)) return 0;
   }
   return 1;
 }
 
-// class Solution {
-// public:
-//   bool validTree(int n, vpii& edges) {
-//     gg.resize(n);
-//     visit.resize(n);
-//     fora (e, edges) {
-//       gg[e.fi].pb(e.se);
-//       gg[e.se].pb(e.fi);
-//     }
+class Solution {
+public:
+  bool validTree(int n, vpii& edges) {
+    gg.resize(n);
+    visit.resize(n);
+    fora (e, edges) {
+      gg[e.fi].pb(e.se);
+      gg[e.se].pb(e.fi);
+    }
 
-//     fora (g, gg) {
-//       pvi(g);
-//     }
+    fora (g, gg) {
+      pvi(g);
+    }
 
-//     // If there exist cycle.
-//     if (!dfs(0, -1)) 
-//       return 0;
+    // If there exist cycle.
+    if (!dfs(0, -1)) 
+      return 0;
 
-//     // Graph must be connected. 
-//     fora (v, visit)
-//       if (v == 0) 
-//         return 0;
+    // Graph must be connected. 
+    fora (v, visit)
+      if (v == 0) 
+        return 0;
 
-//     return 1;
-//   }
-// };
+    return 1;
+  }
+};
 
 int find(vi& root, int ix) {
   while (root[ix] != -1) 
-  ix = root[ix];
+    ix = root[ix];
   return ix;
 }
 

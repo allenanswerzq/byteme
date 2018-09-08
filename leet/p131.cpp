@@ -55,7 +55,7 @@ public:
         if (rest.size() == 0) {
           res.push_back({front});
         } else {
-          for (auto r : rest) {
+          for (auto& r : rest) {
             r.insert(r.begin(), front);
             res.push_back(r);
           }

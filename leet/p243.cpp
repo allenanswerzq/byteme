@@ -11,14 +11,17 @@ using namespace std;
 // Given word1 = "makes", word2 = "coding", return 1.
 // 
 
-int shortestDistance(vector<string> words, string word1, string word2) {
-  int m = -1, n = -1; 
-  int ret = (1<<31) - 1;
-  for (int i=0; i < words.size(); ++i) {
-  if (words[i] == word1) m = i;
-  if (words[i] == word2) n = i;
-  if (m != -1 && n != -1)
-    ret = min(ret, abs(m-n));
+class Solution {
+public:
+  int shortestDistance(vector<string> words, string word1, string word2) {
+    int m = -1, n = -1; 
+    int ret = (1<<30);
+    for (int i=0; i < words.size(); ++i) {
+      if (words[i] == word1) m = i;
+      if (words[i] == word2) n = i;
+      if (m != -1 && n != -1)
+        ret = min(ret, abs(m - n));
+    }
+    return ret;
   }
-  return ret;
-}
+};

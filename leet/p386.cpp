@@ -24,9 +24,34 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-// #define LOCAL_FILE
+//     1        2        3    ...
+//    /\        /\       /\
+// 10 ...19  20...29  30...39   ....
+
 #define vi vector<int>
 #define vvi vector<vi>
+
+vi ret;
+void dfs(int cur, int goal) {
+  if (cur > goal) return;
+  else {
+    ret.push_back(cur);
+    fori (i, 1, 10) {
+      if (cur * 10 + i > goal) return;
+      dfs(cur * 10 + i, goal);
+    } 
+  }
+}
+
+class Solution {
+public:
+  vi lexicalOrder(int goal) {
+    fori (i, 1, 11) {
+      dfs(i, goal); 
+    }
+    return ret;
+  } 
+}
 
 int main(int argc, char** argv) {
   return 0;

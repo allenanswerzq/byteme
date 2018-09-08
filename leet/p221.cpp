@@ -1,32 +1,53 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int maximalSquare(vector<vector<char>>& matrix) {
-  if (matrix.size() <= 0) return 0;
-  int m = matrix.size();
-  int n = matrix[0].size();
-  int mx = 0;
-  vector<vector<int>> dp(m, vector<int>(n, 0));
+#define sz(x) (int)(x).size()
+#define mst(x, a) memset(x, a, sizeof(x))
+#define fori(i, a, b) for(int i=(a); i<(b); ++i)
 
-  for (int i=0; i<m; ++i) {
-  dp[i][0] = matrix[i][0] - '0';
-  mx = max(mx, dp[i][0]);
-  }
+class Solution {
+public:
+  int maximalSquare(vector<vector<char>>& aa) {
+  if (sz(aa) <= 0) return 0;
+  int n, m;
+  n = sz(aa);
+  m = sz(aa[0]); 
 
-  for (int i=0; i<n; ++i) {
-  dp[0][i] = matrix[0][i] - '0';
-  mx = max(mx, dp[0][i]);
-  }
+  int dp[n][m]; mst(dp, 0);
 
-  for (int i=1; i<m; ++i) 
-  for (int j=1; j<n; ++j)
-    if (matrix[i][j] == '1') {
-    dp[i][j] = min(dp[i-1][j-1], min(dp[i][j-1], dp[i-1][j])) + 1;
-    mx = max(mx, dp[i][j]);
+  int res = 0;
+  fori (i, 0, n) {
+    fori (j, 0, m) {
+      if (i == 0)
+        dp[i][j] = aa[i][j] - '0';
+      else if (j == 0)
+        dp[i][j] = aa[i][j] - '0';
+      else if (aa[i][j] == '1') {
+        dp[i][j] = min(dp[i][j-1], min(dp[i-1][j], dp[i-1][j-1])) + 1;
+      }
     }
-  return mx*mx;
+  }
+
+  fori (i, 0, n) 
+    fori (j, 0, m)
+    res = max(res, dp[i][j] * dp[i][j]);
+  return res;
+  }
+};
+
+void test(vvi aa) {
+  Solution go;
+  cout << go.maximalSquare(aa) << "\n"; 
 }
 
 int main(int argc, char** argv) {
+  std::ios_base::sync_with_stdio(false);
+  cout.precision(10);
+  cout << fixed; 
+  vvi aa = {{1,0,1,0,0},
+      {1,0,1,1,1}, 
+      {1,1,1,1,1},
+      {1,0,0,1,0}};
+  test(aa); 
   return 0;
 }

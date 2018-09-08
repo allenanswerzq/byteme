@@ -45,32 +45,31 @@ using namespace std;
 #define vvi vector<vector<int>>
 #define pvi(v) for(auto& e: v) cout << e << " "; cout << endl
 
-void dfs(vector<vector<int>> &ret, vector<int> &path, int n) {
-  int i = path.empty() ? 2 : path.back();
-  for (; i * i <= n; ++i) {
-  if (n % i == 0) {
-    path.push_back(i);
-    path.push_back(n / i);
-    ret.push_back(path); 
-
-    path.pop_back();
-    dfs(ret, path, n / i);
-    path.pop_back();
+class Solution {
+public:
+  void dfs(vector<vector<int>> &ret, vector<int> &path, int goal) {
+    int i = path.empty() ? 2 : path.back();
+    for (; i * i <= goal; ++i) {
+      if (goal % i == 0) {
+        path.push_back(i);
+        path.push_back(goal / i);
+        ret.push_back(path); 
+        
+        path.pop_back();
+        dfs(ret, path, goal / i);
+        path.pop_back();
+      }
+    }  
   }
-  }  
-}
 
-vector<vector<int>> getFactors(int n) {
-  vector<vector<int>> ret;
-  vector<int> path;
-  dfs(ret, path, n);
-  return ret;
-}
+  vector<vector<int>> getFactors(int goal) {
+    vector<vector<int>> ret;
+    vector<int> path;
+    dfs(ret, path, goal);
+    return ret;
+  }
+};
 
 int main(int argc, char** argv) {
-  vvi res = getFactors(32);  
-  for (auto &r : res) {
-  pvi(r);
-  }
   return 0;
 }

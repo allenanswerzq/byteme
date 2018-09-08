@@ -14,30 +14,36 @@ using namespace std;
 // Idea: After sorted, if i, j, k is a valid triple
 // then (i, j, j+1), (i, j, j+2), ..., (i, j, k-1), (i, j, k) are also valid triples
 
-int threeSumSmaller(vector<int>& nums, int target) {
-  int n = nums.size();
-  int ret = 0;
-  sort(nums.begin(), nums.end());
-  for (int i=0; i < n - 2; ++i){
-  int lo = i + 1;
-  int hi = n - 1; 
-  while (lo < hi) {
-    if (nums[i] + nums[lo] + nums[hi] < target) {
-    ret += hi - lo;
-    ++lo;
-    } else {
-    --hi;
-    }
-  }
-  }
-  return ret;
-}
-
 #define vi vector<int>
 
+class Solution {
+public:
+  int threeSumSmaller(vector<int>& aa, int target) {
+    int n = aa.size();
+    int ret = 0;
+    sort(aa.begin(), aa.end());
+    for (int i = 0; i < n - 2; ++i){
+      int lo = i + 1, hi = n - 1; 
+      while (lo < hi) {
+        if (aa[i] + aa[lo] + aa[hi] < target) {
+          ret += hi - lo;
+          ++lo;
+        } else {
+          --hi;
+        }
+      }
+    }
+    return ret;
+  }
+};
+
+void test(vi aa, int kk) {
+  Solution go;
+  int ret = go.threeSumSmaller(aa, kk); 
+  output(1, ret);
+}
+
 int main(int argc, char** argv) {
-  vi aa = {-2, 0, 1, 3};
-  int res = threeSumSmaller(aa, 2);
-  cout << res << endl;
+  test({-2, 0, 1, 3}, 2);
   return 0;
 }

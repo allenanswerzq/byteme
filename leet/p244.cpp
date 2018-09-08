@@ -16,23 +16,23 @@ using namespace std;
 class WordDistance {
 public:
   WordDistance(vector<string> words) {
-  int n = words.size();
-  for (int i = 0; i < n; i++)
-    wordMap[words[i]].push_back(i);
+    int n = words.size();
+    for (int i = 0; i < n; i++)
+      wordMap[words[i]].push_back(i);
   }
 
   int shortest(string word1, string word2) {
-  vector<int> indices1 = wordMap[word1];
-  vector<int> indices2 = wordMap[word2];
-  int m = indices1.size(), n = indices2.size();
-  int i = 0, j = 0, dist = INT_MAX;
-  // Note: how to get minimum difference between two sorted list
-  while (i < m && j < n) {    
-    dist = min(dist, abs(indices1[i] - indices2[j]));
-    if (indices1[i] < indices2[j]) i++;
-    else j++;
-  }
-  return dist;
+    vector<int> idx1 = wordMap[word1];
+    vector<int> idx2 = wordMap[word2];
+    int m = idx1.size(), n = idx2.size();
+    int i = 0, j = 0, dist = INT_MAX;
+    // Note: how to get minimum difference between two sorted list
+    while (i < m && j < n) {    
+      dist = min(dist, abs(idx1[i] - idx2[j]));
+      if (idx1[i] < idx2[j]) i++;
+      else j++;
+    }
+    return dist;
   }
   
 private:

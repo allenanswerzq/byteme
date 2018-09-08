@@ -24,10 +24,32 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-// #define LOCAL_FILE
-#define vi vector<int>
-#define vvi vector<vi>
+#define vs vector<string>
+
+ //     1        2        3    ...
+ //    /\        /\       /\
+ // 10 ...19  20...29  30...39   ....
+
+class Solution {
+public:
+  // Memory Limit Exceeded. 
+  int findKthNumber(int n, int k) {
+    vs aa;
+    fori (i, 1, n + 1)
+      aa.push_back(to_string(i));
+    sort(all(aa));
+    // pvi(aa);
+    return stoi(aa[k - 1]);
+  }
+};
+
+void test(int n, int k) {
+  Solution go;
+  int ret = go.findKthNumber(n, k);
+  output(1, ret);
+}
 
 int main(int argc, char** argv) {
+  test(13, 2);
   return 0;
 }
