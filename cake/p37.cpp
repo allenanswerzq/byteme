@@ -1,12 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-const double EPS = 1e-9;
-int cmp(double x, double y = 0, double tol = EPS) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 int jran;
 int random(int jlo, int jhi) {
   int im=6075, ia=106, ic=1283;

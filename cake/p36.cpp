@@ -1,12 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-const double EPS = 1e-9;
-int cmp(double x, double y = 0, double tol = EPS) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 bool judge(vi deck, vi half1, vi half2) {
   if (deck.empty())
     return true;
