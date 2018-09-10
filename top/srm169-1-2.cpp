@@ -1,13 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const double eps = 1e-9;
-int cmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
-class FairWorkload
-{
+class FairWorkload {
 public:
   // Predicate: Can x folders be assigned to each worker, with the limited 
   // number of workers available?
