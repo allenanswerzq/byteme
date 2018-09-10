@@ -44,77 +44,73 @@ void _f(const char* names, T&& arg, Args&&... args) {
 // If the order is invalid, return an empty string.
 // There may be multiple valid order of letters, return any one of them is fine.
 
-// #define LOCAL_FILE
+#define vi vector<int>
+#define vvi vector<vi>
+#define pii pair<int, int>
+#define vpii vector<pii>
+#define vs vector<string>
+#define vvs vector<vector<string>>
 
 class Solution {
 public:
   string alienOrder(vs& aa) {
-  set<pii> st;
-  set<char> ch;
-  fora (a, aa) ch.insert(all(a));
-  pvi(st);
-  
-  int n = sz(aa);
-  fori (i, 0, aa - 1) {
-    string a = aa[i], b = aa[i + 1];
-    int mi = min(sz(a), sz(b)); 
-    int j;
-    for (; j < mi; ++j) {
-    if (a[i] != b[i]) {
-      st.insert(make_pair(a[i], b[i]));
-      break;
-    }
-    }
-    if (j == mi && sz(a) > sz(b)) return ""; 
-  }
+    set<pii> edges;
+    set<char> ch;
+    fora (a, aa) 
+      ch.insert(all(a));
 
-  string res;
-  vi in(256, 0);
-  deque<char> dq; 
-  fora (t, st) ++in[t.se]; 
-  fora (c, ch) 
-    if (in[c] == 0) { 
-    dq.pb(c);
-    res += a;
-    }
-
-  while (sz(dq)) {
-    auto c = dq.front(); dq.ppf(); 
-    fora (t, st) {
-    if (t.fi == c) {
-      --in[t.se];
-      if (in[t.se] == 0) {
-      q.pb(a.se);
-      res += a.se;
+    fori (i, 0, sz(aa) - 1) {
+      string a = aa[i], b = aa[i + 1];
+      int mi = min(sz(a), sz(b)); 
+      int j;
+      for (; j < mi; ++j) {
+        if (a[i] != b[i]) {
+          edges.insert(make_pair(a[i], b[i]));
+          break;
+        }
       }
+      // Invalid order.
+      if (j == mi && sz(a) > sz(b)) return ""; 
     }
-    }
-  } 
-  return sz(res) == sz(ch) ? res : "";
+
+    // Topological Sort.
+    vi in(256, 0);
+    deque<char> dq; 
+    string ret;
+
+    fora (edge, edges) 
+      ++in[edge.second]; 
+
+    fora (c, ch)
+      if (in[c] == 0) { 
+        dq.push_back(c);
+        ret += c;
+      }
+
+    trace(ret);
+    while (sz(dq)) {
+      auto c = dq.front(); dq.pop_front(); 
+      fora (edge, edges) {
+        if (edge.first == c) {
+          --in[edge.second];
+          if (in[edge.second] == 0) {
+            dq.push_back(edge.second);
+            ret += edge.second;
+          }
+        }
+      }
+    } 
+    return sz(ret) == sz(ch) ? ret : "";
   }
 };
 
+void test(vs aa) {
+  Solution go;
+  string ret = go.alienOrder(aa);
+  output(1, ret);
+}
+
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("P269-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-
-  int t; cin >> t;
-  fori (i, 1, t + 1) {
-  
-  }  
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
+  test({"wrt", "wrf", "er", "ett", "rftt"});
   return 0;
 }

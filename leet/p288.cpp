@@ -50,17 +50,17 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class ValidWordAbbr {
 public:
   ValidWordAbbr(vector<string>& dicts) {
-  fora (a, dicts) {
-    string t = a[0] + to_string(sz(a) - 2) + a.back();
-    mp[t].insert(a);
-  } 
+    fora (a, dicts) {
+      string t = a[0] + to_string(sz(a) - 2) + a.back();
+      mp[t].insert(a);
+    } 
   }
 
   bool isUnique(string aa) {
-  string t = aa[0] + to_string(sz(aa) - 2) + aa.back();
-  if (mp[t].count(aa) && sz(mp[t]) == 1) 
-    return 1;
-  return 0;
+    string t = aa[0] + to_string(sz(aa) - 2) + aa.back();
+    if (mp[t].count(aa) && sz(mp[t]) == 1) 
+      return 1;
+    return 0;
   }
 
 private:
@@ -68,26 +68,5 @@ private:
 };
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("p288-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-
-  int t; cin >> t;
-  fori (i, 1, t + 1) {
-  
-  }  
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
   return 0;
 }

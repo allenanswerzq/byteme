@@ -13,19 +13,22 @@ using namespace std;
 // Note: There will be exactly one celebrity if he/she is in the party. 
 // Return the celebrity’s label if there is a celebrity in the party. If there is no celebrity, return -1
 
-int findCelebrity(int n) {
-  int candidate = 0;
+class Solution {
+public:
+  int findCelebrity(int n) {
+    int candidate = 0;
 
-  // All other n-1 peple know celebrity, so if knows return true that one might be the one
-  for(int i = 1; i < n; i++){
-  if(knows(candidate, i))  
-    candidate = i;
+    // All other n-1 peple know celebrity, so if knows return true that one might be the one
+    for(int i = 1; i < n; i++){
+    if(knows(candidate, i))  
+      candidate = i;
+    }
+
+    for(int i = 0; i < n; i++){
+    // If candidate knows someone or there exist someone who dont know celebrity, there will not have a celebrity. 
+    if(i != candidate && (knows(candidate, i) || !knows(i, candidate))) return -1;
+    }
+
+    return candidate;
   }
-
-  for(int i = 0; i < n; i++){
-  // If candidate knows someone or there exist someone who dont know celebrity, there will not have a celebrity. 
-  if(i != candidate && (knows(candidate, i) || !knows(i, candidate))) return -1;
-  }
-
-  return candidate;
-}
+};

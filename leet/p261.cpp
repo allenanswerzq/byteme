@@ -35,9 +35,15 @@ void _f(const char* names, T&& arg, Args&&... args) {
 // Tags Expand 
 // Depth First Search Breadth First Search Union Find Facebook Zenefits Google
 
+#define vi vector<int>
+#define vvi vector<vi>
+#define pii pair<int, int>
+#define vpii vector<pii>
+
 vvi gg;
 vi visit;
 
+// Check whether there is a cycle exist.
 bool dfs(int root, int pre) {
   if (visit[root]) return 0;
   visit[root] = 1;
@@ -54,8 +60,8 @@ public:
     gg.resize(n);
     visit.resize(n);
     fora (e, edges) {
-      gg[e.fi].pb(e.se);
-      gg[e.se].pb(e.fi);
+      gg[e.first].push_back(e.second);
+      gg[e.second].push_back(e.first);
     }
 
     fora (g, gg) {
@@ -85,26 +91,26 @@ class Solution {
 public:
   // Union find approach.
   bool validTree(int n, vpii& edges) {
-  vi root(n, -1);
-  fora (e, edges) {
-    int x = find(root, e.fi);
-    int y = find(root, e.se);
-    if (x == y) return 0; 
-    // Union two node together.
-    root[x] = y;
-  }
-  return sz(edges) == n - 1;
-  }
+    vi root(n, -1);
+    fora (e, edges) {
+      int x = find(root, e.first);
+      int y = find(root, e.second);
+      if (x == y) return 0; 
+      // Union two node together.
+      root[x] = y;
+    }
+    return sz(edges) == n - 1;
+   }
 };
 
-int main() {
+void test(int aa, vpii bb) {
   Solution go;
-  vpii aa = {{0, 1}, {0, 2}, {0, 3}, {1, 4}};
-  int res = go.validTree(5, aa);
-  cout << res << endl;
-  
-  aa = {{0, 1}, {1, 2}, {2, 3}, {1, 3}, {1, 4}};
-  res = go.validTree(5, aa); 
-  cout << res << endl;
+  int res = go.validTree(aa, bb);
+  output(1, res);
+}
+
+int main() {
+  test(5, {{0, 1}, {0, 2}, {0, 3}, {1, 4}});
+  test(5, {{0, 1}, {1, 2}, {2, 3}, {1, 3}, {1, 4}});
   return 0;
 }

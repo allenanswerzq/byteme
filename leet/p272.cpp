@@ -19,7 +19,6 @@ using namespace std;
 // 3. Without parent pointer we just need to keep track of the path from the root to the current node using a stack.
 // 4. You would need two stacks to track the path in finding predecessor and successor node separately.
 
-
 class TreeNode {
 public:
   int val;
@@ -27,44 +26,53 @@ public:
   TreeNode *right;
 };
 
-// Max heap
-void dfs(TreeNode *root, priority_queue<pair<int,int>> pq, int target, int k) {
-  if (root == nullptr) return;
-  pq.push(make_pair(abs(target - root->val), root->val));
-  // Remove greatest value
-  if (pq.size() > k) pq.pop();    
-  dfs(root->left, pq, target, k);
-  dfs(root->right, pq, target, k);
-}
-
-vector<int> closestKValues(TreeNode* root, double target, int k) {
-  priority_queue<pair<int, int>> pq;
-  vector<int> ret;
-  dfs(root, pq, target, k);
-  while (!pq.empty()) {
-  ret.push_back(pq.top().second);
-  pq.pop();
+class Solution2 {
+public:
+  // Max heap
+  void dfs(TreeNode *root, priority_queue<pair<int,int>> pq, int target, int k) {
+    if (root == nullptr) return;
+    pq.push(make_pair(abs(target - root->val), root->val));
+    // Remove greatest value
+    if (pq.size() > k) 
+      pq.pop();    
+    dfs(root->left, pq, target, k);
+    dfs(root->right, pq, target, k);
   }
-  return ret;
-}
 
-void inorder(TreeNode* root, double target, int kk, vi& res) {
-  if (!root) return;
-  inorder(root->left, target, kk, res);
-  if (sz(res) < kk) res.pb(root->val);
-  else if (abs(root->val - target) < abs(res[0] - target)) {
-  res.erase(res.begin());
-  res.pb(root->val);
-  } else return;
-  inorder(root->right target, kk, res);
-}
+  vector<int> closestKValues(TreeNode* root, double target, int k) {
+    priority_queue<pair<int, int>> pq;
+    vector<int> ret;
+    dfs(root, pq, target, k);
+    while (!pq.empty()) {
+      ret.push_back(pq.top().second);
+      pq.pop();
+    }
+    return ret;
+  }
+};
 
 class Solution {
 public:
   vi closestKValues(TreeNode* root, double target, int kk) {
-  vi res;
-  inorder(root, target, kk, res);
-  return res;
+    vi res;
+    inorder(root, target, kk, res);
+    return res;
+  }
+
+  void inorder(TreeNode* root, double target, int kk, vi& res) {
+    if (!root) return;
+    inorder(root->left, target, kk, res);
+
+    if (sz(res) < kk) {
+      res.push_back(root->val);
+    } else if (abs(root->val - target) < abs(res[0] - target)) {
+      res.erase(res.begin());
+      res.push_back(root->val);
+    } else {
+      return;
+    }
+
+    inorder(root->right target, kk, res);
   }
 };
 

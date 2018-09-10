@@ -23,11 +23,11 @@ public:
     if (b[0] > b[1]) flag = 0;
     int t;
     if (flag == 0) {
-    t = *a[0];
-    a[0]++;
+      t = *a[0];
+      a[0]++;
     } else {
-    t = *b[0];
-    b[0]++;
+      t = *b[0];
+      b[0]++;
     }
     flag = 1 - flag;
     return t;
@@ -43,9 +43,5 @@ private:
 };
 
 int main() {
-  vector<int> v1 = {1,2};
-  vector<int> v2 = {3, 4, 5, 6};
-  ZigzagIterator z(v1, v2);
-  while (z.hasNext())
-  cout << z.next() << endl;
+  return 0;
 }

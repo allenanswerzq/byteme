@@ -43,19 +43,19 @@ bool go(string aa, int xx, string bb, int yy) {
   if (xx == sz(aa) || yy == sz(bb)) return 0;
   char ch = aa[xx];
   fori (i, yy, sz(bb)) {
-  string tmp = bb.str(yy, i - yy + 1); 
-  if (mp.count(ch) && mp[ch] == tmp) {
-    if (go(aa, xx + 1, bb, i + 1))
-    return 1;
-  } else if (!mp.count(ch)) {
-    if (st.count(tmp)) continue;
-    mp[ch] = tmp;
-    st.insert(tmp);
-    if (go(aa, xx + 1, bb, i + 1))
-    return 1;
-    mp.erase(ch);
-    st.erase(tmp);
-  }
+    string tmp = bb.str(yy, i - yy + 1); 
+    if (mp.count(ch) && mp[ch] == tmp) {
+      if (go(aa, xx + 1, bb, i + 1))
+      return 1;
+    } else if (!mp.count(ch)) {
+      if (st.count(tmp)) continue;
+      mp[ch] = tmp;
+      st.insert(tmp);
+      if (go(aa, xx + 1, bb, i + 1))
+      return 1;
+      mp.erase(ch);
+      st.erase(tmp);
+    }
   } 
   return 0;
 }
@@ -63,33 +63,10 @@ bool go(string aa, int xx, string bb, int yy) {
 class Solution {
 public:
   bool wordPatternMatch(string aa, strin str) {
-  return go(aa, 0, str, 0); 
+    return go(aa, 0, str, 0); 
   }
 };
 
-// #define LOCAL_FILE
-
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("p291-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-
-  int t; cin >> t;
-  fori (i, 1, t + 1) {
-  
-  }  
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
   return 0;
 }

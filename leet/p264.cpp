@@ -1,35 +1,46 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define ll long long
+#define sz(x) ((int)(x).size())
+#define all(x) (x).begin(), (x).end()
+#define mst(x, y) memset(x, y, sizeof(x))
+#define fora(e, c) for (auto &e : c)
+#define fori(i, a, b) for (int i=(a); i<(b); ++i)
+#define ford(i, a, b) for (int i=(a); i>(b); --i)
+#define pvi(x) fora(a, x) cout << a << " "; cout << endl
+#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
+#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+template <typename T>
+void _f(const char* name, T&& arg) {
+  cout << name << ": " << arg << endl;
+}
+
+template <typename T, typename... Args> 
+void _f(const char* names, T&& arg, Args&&... args) {
+  const char* split = strchr(names + 1, ','); 
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...); 
+} 
+
+#define vi vector<int>
+#define vvi vector<vi>
+
 class Solution {
 public:
   int nthUglyNumber(int n) {
-    int dp[n + 1];
-    int a, b, c;
-    mst(dp, 0); 
-    dp[1] = 1;
-    a = b = c = 1; 
-    fori (i, 2, n + 1) {
-      int cur = dp[i-1];
-      while (dp[a] * 2 <= cur) ++a;
-      while (dp[b] * 3 <= cur) ++b;
-      while (dp[c] * 5 <= cur) ++c;
-      dp[i] = min(dp[a] * 2, min(dp[b] * 3, dp[c] * 5));
-    }    
-    return dp[n];
-  }
-  
-  int nthUglyNumber(int n) {
-    vector<int> ugly(n, 1);
+    vector<int> dp(n, 1);
     int i2 = 0, i3 = 0, i5 = 0;
     for (int i = 1; i < n; ++i) {
-      int cur_max = ugly[i-1];
-      while (ugly[i2] * 2 <= cur_max) i2++;
-      while (ugly[i3] * 3 <= cur_max) i3++;
-      while (ugly[i5] * 5 <= cur_max) i5++;
-      ugly[i] = min(min(ugly[i2] * 2, ugly[i3] * 3), ugly[i5] * 5);
+      int cur_max = dp[i-1];
+      while (dp[i2] * 2 <= cur_max) i2++;
+      while (dp[i3] * 3 <= cur_max) i3++;
+      while (dp[i5] * 5 <= cur_max) i5++;
+      dp[i] = min(min(dp[i2] * 2, dp[i3] * 3), dp[i5] * 5);
     }
-    return ugly[n - 1];
+    return dp[n - 1];
   }
 };
 

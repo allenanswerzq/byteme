@@ -11,24 +11,24 @@ using namespace std;
 class Solution {
 public:
   void wiggleSort(vector<int>& aa) {
-  sort(all(aa)); 
-  if (aa.size() <= 2) return;
-  for (int i = 2; i < aa.size(); i += 2) {
-    swap(aa[i], aa[i - 1]);
-  } 
+    sort(all(aa)); 
+    if (aa.size() <= 2) return;
+    for (int i = 2; i < aa.size(); i += 2) {
+      swap(aa[i], aa[i - 1]);
+    } 
   }
 };
 
 class Solution {
 public:
   void wiggleSort(vector<int>& aa) {
-  if (aa.size() <= 1) return; 
-  for (int i = 1; i < aa.size(); ++i) {
-    if (i % 2 == 1 && aa[i] < aa[i - 1]) 
-    swap(aa[i], aa[i - 1]);
-    
-    if (i % 2 == 0 && aa[i] > aa[i - 1])
-    swap(aa[i], aa[i - 1]);
-  }
+    if (aa.size() <= 1) return; 
+    for (int i = 1; i < aa.size(); ++i) {
+      if (i % 2 == 1 && aa[i] < aa[i - 1]) 
+        swap(aa[i], aa[i - 1]);
+      
+      if (i % 2 == 0 && aa[i] > aa[i - 1])
+        swap(aa[i], aa[i - 1]);
+    }
   }
 };

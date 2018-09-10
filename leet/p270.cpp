@@ -8,21 +8,24 @@ using namespace std;
 // You are guaranteed to have only one unique value in the BST
 // that is closest to the target.
 
-// Recusive
-int closestValue(TreeNode* root, double target) {
-  int a = root->val;
-  TreeNode *kid = target < a ? root->left : root->right;
-  int b = closestValue(kid, target);
-  return abs(a-target) < abs(b-target) ? a : b;
-}
-
-// Iterative
-int closestValue(TreeNode* root, double target) {
-  int closest = root->val;
-  while (root) {
-  if (abs(closest - taraget) > abs(root->val - target))
-    closest = root->val;
-  root = target < root->val ? root->left : root->right;
+class Solution {
+public:
+  // Recusive
+  int closestValue(TreeNode* root, double target) {
+    int a = root->val;
+    TreeNode *kid = target < a ? root->left : root->right;
+    int b = closestValue(kid, target);
+    return abs(a - target) < abs(b - target) ? a : b;
   }
-  return closest;
-}
+
+  // Iterative
+  int closestValue(TreeNode* root, double target) {
+    int closest = root->val;
+    while (root) {
+      if (abs(closest - target) > abs(root->val - target))
+        closest = root->val;
+      root = target < root->val ? root->left : root->right;
+    }
+    return closest;
+  }
+};
