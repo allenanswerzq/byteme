@@ -43,59 +43,36 @@ void _f(const char* names, T&& arg, Args&&... args) {
 // Hint:
 // Try to solve it in one dimension first. How can this solution apply to the two dimension case?
 
-// #define LOCAL_FILE
-
 #define vi vector<int>
 #define vvi vector<vi>
 
 int go(vi& aa) {
-  int res = 0;
+  int ret = 0;
   sort(all(aa)); 
   int lo = 0, hi = sz(aa) - 1;
   while (lo < hi) {
-  res += aa[hi] - aa[lo];
-  --hi; ++lo;
+    ret += aa[hi] - aa[lo];
+    --hi; ++lo;
   }
-  return res;
+  return ret;
 }
 
 class Solution {
 public:
   int minTotalDistance(vvi& gg) {
-  vi rows, cols;
-  fori (i, 0, sz(gg)) {
-    fori (j, 0, sz(gg[0])) {
-    if (gg[i][j] == 1) {
-      rows.push_back(i);
-      cols.push_back(j);
+    vi rows, cols;
+    fori (i, 0, sz(gg)) {
+      fori (j, 0, sz(gg[0])) {
+        if (gg[i][j] == 1) {
+          rows.push_back(i);
+          cols.push_back(j);
+        }
+      } 
     }
-    } 
-  }
-  return go(rows) + go(cols);
+    return go(rows) + go(cols);
   }
 };
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("p296-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-
-  int t; cin >> t;
-  fori (i, 1, t + 1) {
-  
-  }  
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
   return 0;
 }

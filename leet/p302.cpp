@@ -46,45 +46,24 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   int minArea(vvc& image, int x, int y) {
-  int left, right, up, down;
-  left = right = y;
-  up = down = x;
-  fori (i, 0, sz(image)) {
-    fori (j, 0, sz(image[0])) {
-    if (image[i][j] == '1') {
-      left = min(left, j);
-      right = max(right, j);
-      up = min(up, i);
-      down = max(down, i);
-    } 
+    int left, right, up, down;
+    left = right = y;
+    up = down = x;
+    fori (i, 0, sz(image)) {
+      fori (j, 0, sz(image[0])) {
+        if (image[i][j] == '1') {
+          left = min(left, j);
+          right = max(right, j);
+          up = min(up, i);
+          down = max(down, i);
+        } 
+      }
     }
-  }
-  return (right - left + 1) * (down - up + 1);
+    return (right - left + 1) * (down - up + 1);
   }
 };
 
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("p302-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-
-  int t; cin >> t;
-  fori (i, 1, t + 1) {
-  
-  }  
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
   return 0;
 }

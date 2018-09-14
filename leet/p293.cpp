@@ -47,38 +47,18 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   vs generatePossibleNextMoves(string aa) {
-  vs res;
-  fori (i, 0, sz(aa) - 1) {
-    if (aa[i] == '+' && aa[i + 1] == '+')
-    res.push_back(
-      aa.substr(0, i) + 
-      "--" + 
-      aa.substr(i + 2));
-  } 
-  return res;
+    vs res;
+    fori (i, 0, sz(aa) - 1) {
+      if (aa[i] == '+' && aa[i + 1] == '+')
+      res.push_back(
+        aa.substr(0, i) + 
+        "--" + 
+        aa.substr(i + 2));
+    } 
+    return res;
   }
 };
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("p293-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-
-  Solution go;
-  vs res = go.generatePossibleNextMoves("++++");
-  pvi(res);
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
   return 0;
 }

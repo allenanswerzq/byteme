@@ -5,11 +5,11 @@ class NumArray {
 public:
   NumArray(vector<int> aa) {
     int n = sz(aa);
-    dp.resize(n+1);
+    dp.resize(n + 1);
     dp.clear();
     dp[0] = 0;
     fori(i, 1, n+1) {
-    dp[i] = dp[i-1] + aa[i-1]; 
+      dp[i] = dp[i-1] + aa[i-1]; 
     } 
   }
   
@@ -18,8 +18,8 @@ public:
   }
 
 private:
-  int n;
   // dp[i] denotes the sum range of [0...i-1].
+  int n;
   vi dp; 
 };
 
@@ -31,9 +31,6 @@ void test(vi aa) {
 }
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
   test({-2, 0, 3, -5, 2, -1});
   return 0;
 }

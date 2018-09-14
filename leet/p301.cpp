@@ -26,7 +26,7 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 bool check(string aa) {
   int cnt = 0;
-  for (int i=0; i<aa.size(); ++i) {
+  for (int i = 0; i < aa.size(); ++i) {
     if (aa[i] == '(') ++cnt;
     else if (aa[i] == ')') --cnt;
     if (cnt < 0) return 0;
@@ -35,6 +35,7 @@ bool check(string aa) {
 }
 
 #define vs vector<string>
+
 class Solution {
 public:
   vs removeInvalidParentheses(string aa) {

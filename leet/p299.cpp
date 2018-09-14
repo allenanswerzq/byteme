@@ -24,66 +24,44 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-// #define LOCAL_FILE
+class Solution2 {
+public:
+  string getHint(string secret, string guess) {
+    int dp[256] = {0}, aa = 0, bb = 0;
 
-// class Solution {
-// public:
-//   string getHint(string secret, string guess) {
-//     int dp[256] = {0}, aa = 0, bb = 0;
+    fori (i, 0, sz(secret)) {
+      if (secret[i] == guess[i]) ++aa;
+      else ++dp[secret[i]];
+    }
 
-//     fori (i, 0, sz(secret)) {
-//       if (secret[i] == guess[i]) ++aa;
-//       else ++dp[secret[i]];
-//     }
+    fori (i, 0, sz(secret)) {
+      if (secret[i] != guess[i] && dp[guess[i]]) {
+        ++bb;
+        --dp[guess[i]];
+      }
+    }
 
-//     fori (i, 0, sz(secret)) {
-//       if (secret[i] != guess[i] && dp[guess[i]]) {
-//         ++bb;
-//         --dp[guess[i]];
-//       }
-//     }
-
-//     return to_string(aa) + "A" + to_string(bb) + "B";
-//   }
-// };
+    return to_string(aa) + "A" + to_string(bb) + "B";
+  }
+};
 
 class Solution {
 public:
   string getHint(string secret, string guess) {
-  int dp[256] = {0}, aa = 0, bb = 0;
-  fori (i, 0, sz(secret)) {
-    if (secret[i] == guess[i]) ++aa;
-    else {
-    if (dp[secret[i]] < 0) ++bb;
-    if (dp[guess[i]] > 0) ++bb;
-    dp[secret[i]]++;
-    dp[guess[i]]--;
+    int dp[256] = {0}, aa = 0, bb = 0;
+    fori (i, 0, sz(secret)) {
+      if (secret[i] == guess[i]) ++aa;
+      else {
+        if (dp[secret[i]] < 0) ++bb;
+        if (dp[guess[i]] > 0) ++bb;
+        dp[secret[i]]++;
+        dp[guess[i]]--;
+      } 
     } 
-  } 
-  return to_string(aa) + "A" + to_string(bb) + "B";
+    return to_string(aa) + "A" + to_string(bb) + "B";
   } 
 };
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("p299-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-
-  Solution go;
-  string res = go.getHint("1123", "0114");
-  output(1, res);
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
   return 0;
 }

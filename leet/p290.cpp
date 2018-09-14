@@ -44,6 +44,7 @@ public:
   }
 };
 
+
 class Solution {
 public:
   bool wordPattern(string aa, string str) {
@@ -53,9 +54,9 @@ public:
     int i = 0;
     for (string b; iss >> b; ++i) {
       if (mp1.count(aa[i]) || mp2.count(b)) {
-      // trace(aa[i], b);
-      if (mp1[aa[i]] != mp2[b]) 
-        return 0;
+        // trace(aa[i], b);
+        if (mp1[aa[i]] != mp2[b]) 
+          return 0;
       } else {
         // trace(i, aa[i], b);
         mp1[aa[i]] = mp2[b] = i + 1;

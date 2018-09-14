@@ -42,15 +42,15 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   bool canWin(string aa) {
-  fori (i, 0, sz(aa) - 1) {
-    if (aa[i] == '+' && aa[i + 1] == '+') {
-    string tmp = aa.substr(0, i) + "--" + aa.substr(i + 2);
-    // If the other person will lose.
-    if (!canWin(tmp))
-      return 1;
+    fori (i, 0, sz(aa) - 1) {
+      if (aa[i] == '+' && aa[i + 1] == '+') {
+        string tmp = aa.substr(0, i) + "--" + aa.substr(i + 2);
+        // If the other person will lose.
+        if (!canWin(tmp))
+          return 1;
+      }
     }
-  }
-  return 0;
+    return 0;
   }
 };
 
@@ -61,12 +61,6 @@ void test(string aa) {
 }
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
   test("++++")
-
   return 0;
 }

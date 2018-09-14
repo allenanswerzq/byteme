@@ -24,7 +24,6 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-// #define LOCAL_FILE
 // Given a binary tree, find the length of the longest consecutive sequence path.
 // The path refers to any sequence of nodes from some starting node to 
 // any node in the tree along the parent-child connections. 
@@ -48,10 +47,10 @@ void _f(const char* names, T&& arg, Args&&... args) {
 //  1
 // Longest consecutive sequence path is 2-3,not3-2-1, so return 2.
 
-void dfs(TreeNode* root, int cur, int path, int& res) {
+void dfs(TreeNode* root, int parent, int path, int& res) {
   if (!root) return;
 
-  if (root->val == cur + 1) ++path;
+  if (root->val == parent + 1) ++path;
   else path = 1;
 
   res = max(res, path);
@@ -62,33 +61,12 @@ void dfs(TreeNode* root, int cur, int path, int& res) {
 class Solution {
 public:
   int longestConsecutive(TreeNode* root) {
-  if (!root) return 0;
-  int res = 0;
-  dfs(root, -1, 0, res); 
+    if (!root) return 0;
+    int res = 0;
+    dfs(root, -1, 0, res); 
   }
 };
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("p298-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-
-  int t; cin >> t;
-  fori (i, 1, t + 1) {
-  
-  }  
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
   return 0;
 }

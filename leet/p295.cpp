@@ -34,20 +34,20 @@ public:
   }
   
   void addNum(int num) {
-  samll.push(num);       
-  // Push the current maximum value into the large heap.
-  large.push(-small.top());
-  small.pop();
-  if (small.size() < large.size()) {
-    small.push(-large.top());
-    large.pop();
-  }
+    samll.push(num);       
+    // Push the current maximum value into the large heap.
+    large.push(-small.top());
+    small.pop();
+    if (small.size() < large.size()) {
+      small.push(-large.top());
+      large.pop();
+    }
   }
   
   double findMedian() {
-  return samll.size() > large.size()
-       ? small.top()
-       : (small.top() - large.top()) / 2.0; 
+    return samll.size() > large.size()
+           ? small.top()
+           : (small.top() - large.top()) / 2.0; 
   }
 
 private:
@@ -61,29 +61,6 @@ private:
  * double param_2 = obj.findMedian();
  */
 
-// #define LOCAL_FILE
-
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("p295-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-
-  int t; cin >> t;
-  fori (i, 1, t + 1) {
-  
-  }  
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
   return 0;
 }
