@@ -4,8 +4,8 @@ using namespace std;
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
-#define fora(e, c) for (auto &e : c)
 #define outret(val) cout << (val) << endl;
+#define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
 #define pvi(x) fora(a, x) cout << a << " "; cout << endl
@@ -32,28 +32,31 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define LOCAL_FILE
+class Solution {
+public:
+  vector<int> sortArrayByParity(vector<int>& aa) {
+    int lo = 0, hi = sz(aa) - 1;
+    while (lo < hi) {
+      while (!(aa[lo] % 2)) ++lo;
+      while (aa[hi] % 2) --hi;
+      if (lo < hi && aa[lo] % 2 && !(aa[hi] % 2)) {
+        swap(aa[lo], aa[hi]);
+      } 
+      ++lo, --hi;
+    } 
+    return aa;
+  }
+};
+
+
+void test(vi aa) {
+  Solution go;
+  vi ret = go.sortArrayByParity(aa);
+  pvi(ret);
+}
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("a-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-  
-  int ret = 0;
-  output(1, ret);
-  outret(ret);
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
-  return 0;
+  test({0, 1});
+  test({3, 1, 2, 4});
+  test({0, 2, 1, 4});
 }

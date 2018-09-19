@@ -4,8 +4,8 @@ using namespace std;
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
-#define fora(e, c) for (auto &e : c)
 #define outret(val) cout << (val) << endl;
+#define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
 #define pvi(x) fora(a, x) cout << a << " "; cout << endl
@@ -32,28 +32,35 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define LOCAL_FILE
+class Solution {
+public:
+  int totalFruit(vector<int>& aa) {
+    int ret = 0;
+    fori (i, 0, sz(aa)) {
+      if (i > 0 && aa[i] == aa[i-1]) continue;
+      unordered_set<int> st;
+      int lo = i;
+      fori (j, i, sz(aa)) {
+        if (sz(st) == 2 && !st.count(aa[j])) break;
+        st.insert(aa[j]);
+        ret = max(ret, j - lo + 1);
+        if (j == sz(aa) - 1) 
+          return ret;
+      }
+    } 
+    return ret;
+  }
+};
+
+void test(vi aa) {
+  Solution go;
+  int ret = go.totalFruit(aa);
+  outret(ret);
+}
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("a-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
-  
-  int ret = 0;
-  output(1, ret);
-  outret(ret);
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
-  return 0;
+  test({1 ,2, 1});
+  test({0, 1, 2, 2});
+  test({1, 2, 3, 2, 2});
+  test({3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4});
 }

@@ -6,7 +6,7 @@ compile:
 	@echo
 	@echo default directory: $(shell pwd)
 	@echo
-	g++ -o elf b.cpp --std=c++11
+	g++ -o elf a.cpp --std=c++11
 
 run: 
 	@chmod +x ./elf
@@ -14,20 +14,20 @@ run:
 
 test: compile
 	@chmod +x ./elf
-	./elf < in-b.txt
+	./elf < in-a.txt
 	@echo "\n---------------------"
-	./elf < in-b.txt > b-OOOOOOUT.txt 
-	colordiff -y b-OOOOOOUT.txt true-b.txt -W 100
+	./elf < in-a.txt > a-OOOOOOUT.txt 
+	colordiff -y a-OOOOOOUT.txt true-a.txt -W 100
 
 small:
 	@echo "Making data.."
 	@-mv ~/Downloads/*-small-*.in ./
-	@cp ./*-small-*.in b-IIIIIIIIIN.txt
+	@cp ./*-small-*.in a-IIIIIIIIIN.txt
    
 large:
 	@echo "Making data.."
 	@-mv ~/Downloads/*-large-*.in ./
-	@cp ./*-large-*.in b-IIIIIIIIIN.txt
+	@cp ./*-large-*.in a-IIIIIIIIIN.txt
 
 clean:
 	rm ./elf
