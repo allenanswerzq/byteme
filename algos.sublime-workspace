@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"ra",
+				"raw_input"
+			],
+			[
+				"stri",
+				"stringSumX"
+			],
+			[
+				"un",
+				"uncommonFromSentences"
+			],
+			[
+				"Te",
+				"TreeNode"
+			],
+			[
+				"all",
+				"allPossibleFBT"
+			],
+			[
+				"num",
+				"numSpecialEquivGroups"
+			],
+			[
+				"Inc",
+				"increasingBST"
+			],
+			[
 				"out",
 				"outret"
 			],
@@ -198,10 +226,6 @@
 			[
 				"con",
 				"countSmaller"
-			],
-			[
-				"num",
-				"numIslands2"
 			],
 			[
 				"pu",
@@ -428,10 +452,6 @@
 				"unordered_map"
 			],
 			[
-				"un",
-				"uniqueLetterString"
-			],
-			[
 				"prt",
 				"prt2"
 			],
@@ -494,108 +514,11 @@
 			[
 				"avg_",
 				"avg_obj"
-			],
-			[
-				"data",
-				"data_ptr"
-			],
-			[
-				"coo",
-				"coord_scale_"
-			],
-			[
-				"w",
-				"width"
-			],
-			[
-				"cood",
-				"anchor_coords_"
-			],
-			[
-				"del",
-				"delta_region_box"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "leet/p907.cpp",
-			"settings":
-			{
-				"buffer_size": 5285,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sketch.py",
-			"settings":
-			{
-				"buffer_size": 6159,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "third_party/codebook/segtree.cpp",
-			"settings":
-			{
-				"buffer_size": 3358,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "leet/true-p904.txt",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/in-p904.txt",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/p904.cpp",
-			"settings":
-			{
-				"buffer_size": 1747,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/true-p905.txt",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/in-p905.txt",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "leet/p905.cpp",
-			"settings":
-			{
-				"buffer_size": 1606,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -609,16 +532,28 @@
 		"selected_items":
 		[
 			[
-				"colo",
-				"UI: Select Color Scheme"
+				"prvop",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
 			],
 			[
 				"col",
 				"UI: Select Color Scheme"
 			],
 			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
 				"inst",
 				"Package Control: Install Package"
+			],
+			[
+				"colo",
+				"UI: Select Color Scheme"
 			],
 			[
 				"co",
@@ -633,20 +568,12 @@
 				"SyntaxFold: Fold All"
 			],
 			[
-				"ins",
-				"Package Control: Install Package"
-			],
-			[
 				"package",
 				"Package Control: Add Repository"
 			],
 			[
 				"color",
 				"UI: Select Color Scheme"
-			],
-			[
-				"in",
-				"Colorsublime: Install Theme"
 			],
 			[
 				"i",
@@ -724,31 +651,94 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/jche/Code/algos",
-		"/Users/jche/Code/algos/misc"
+		"/Users/jche/Code/algos"
 	],
 	"file_history":
 	[
 		"/Users/jche/Code/algos/leet/Makefile",
+		"/Users/jche/Code/algos/leet/p230.cpp",
+		"/Users/jche/Code/algos/test/a.cpp",
+		"/Users/jche/Library/Application Support/Sublime Text 3/Packages/MonokaiFree/MonokaiFree.tmTheme",
+		"/Users/jche/Code/algos/test/Makefile",
+		"/Users/jche/Code/algos/test/true-b.txt",
+		"/Users/jche/Code/algos/test/in-b.txt",
+		"/Users/jche/Code/algos/test/b.cpp",
+		"/Users/jche/Code/algos/test/c.py",
+		"/Users/jche/Code/algos/test/true-a.txt",
+		"/Users/jche/Code/algos/test/in-a.txt",
+		"/Users/jche/Code/algos/leet/p1.cpp",
+		"/Users/jche/Code/algos/leet/p884.cpp",
+		"/Users/jche/Code/algos/leet/in-p884.txt",
+		"/Users/jche/Code/algos/leet/true-p884.txt",
+		"/Users/jche/Code/algos/leet/p40.cpp",
+		"/Users/jche/Code/algos/leet/p39.cpp",
+		"/Users/jche/Code/algos/leet/p357.cpp",
+		"/Users/jche/Code/algos/leet/p254.cpp",
+		"/Users/jche/Code/algos/third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp",
+		"/Users/jche/Code/algos/third_party/codebook/segtree.cpp",
+		"/Users/jche/Code/algos/third_party/codebook/disjoint.cpp",
+		"/Users/jche/Code/algos/third_party/codebook/combination.cpp",
+		"/Users/jche/Code/algos/leet/true-p880.txt",
+		"/Users/jche/Code/algos/leet/in-p880.txt",
+		"/Users/jche/Code/algos/leet/p880.cpp",
+		"/Users/jche/Code/algos/leet/true-p881.txt",
+		"/Users/jche/Code/algos/leet/in-p881.txt",
+		"/Users/jche/Code/algos/leet/p881.cpp",
+		"/Users/jche/Code/algos/leet/p149.cpp",
+		"/Users/jche/Code/flow/tensorflow/contrib/data/python/ops/batching.py",
+		"/Users/jche/Library/Application Support/Sublime Merge/Packages/User/Preferences.sublime-settings",
+		"/Users/jche/Code/algos/leet/true-p891.txt",
+		"/Users/jche/Code/algos/leet/in-p891.txt",
+		"/Users/jche/Code/algos/leet/p891.cpp",
+		"/Users/jche/Code/algos/leet/p888.cpp",
+		"/Users/jche/Code/algos/leet/in-p888.txt",
+		"/Users/jche/Code/algos/leet/true-p888.txt",
+		"/Users/jche/Code/algos/leet/true-p890.txt",
+		"/Users/jche/Code/algos/leet/in-p890.txt",
+		"/Users/jche/Code/algos/leet/p890.cpp",
+		"/Users/jche/Code/algos/leet/p900.cpp",
+		"/Users/jche/Code/algos/leet/in-p900.txt",
+		"/Users/jche/Code/algos/leet/true-p900.txt",
+		"/Users/jche/Code/algos/leet/p901.cpp",
+		"/Users/jche/Code/algos/leet/in-p901.txt",
+		"/Users/jche/Code/algos/leet/true-p901.txt",
+		"/Users/jche/Code/algos/leet/in-p902.txt",
+		"/Users/jche/Code/algos/leet/p902.cpp",
+		"/Users/jche/Code/algos/leet/true-p902.txt",
+		"/Users/jche/Code/algos/leet/p896.cpp",
+		"/Users/jche/Code/algos/leet/in-p896.txt",
+		"/Users/jche/Code/algos/leet/true-p896.txt",
+		"/Users/jche/Code/algos/leet/p897.cpp",
+		"/Users/jche/Code/algos/leet/in-p897.txt",
+		"/Users/jche/Code/algos/leet/true-p897.txt",
+		"/Users/jche/Code/algos/leet/p898.cpp",
+		"/Users/jche/Code/algos/leet/in-p898.txt",
+		"/Users/jche/Code/algos/leet/true-p898.txt",
+		"/Users/jche/Code/algos/leet/p893.cpp",
+		"/Users/jche/Code/algos/leet/in-p893.txt",
+		"/Users/jche/Code/algos/leet/true-p893.txt",
+		"/Users/jche/Code/algos/leet/true-p894.txt",
+		"/Users/jche/Code/algos/leet/in-p894.txt",
+		"/Users/jche/Code/algos/leet/p894.cpp",
+		"/Users/jche/Code/algos/leet/p905.cpp",
+		"/Users/jche/Code/algos/leet/in-p905.txt",
+		"/Users/jche/Code/algos/leet/true-p905.txt",
+		"/Users/jche/Code/algos/leet/p904.cpp",
+		"/Users/jche/Code/algos/leet/in-p904.txt",
+		"/Users/jche/Code/algos/leet/true-p904.txt",
+		"/Users/jche/Code/algos/sketch.py",
+		"/Users/jche/Code/algos/leet/p907.cpp",
 		"/Users/jche/Code/algos/leet/true-p907.txt",
 		"/Users/jche/Code/algos/leet/in-p907.txt",
 		"/Users/jche/Code/algos/third_party/C-Plus-Plus/Range queries/segTree.cpp",
 		"/Users/jche/Code/algos/third_party/codebook/BIT-range.cpp",
 		"/Users/jche/Code/algos/third_party/codebook/BIT.cpp",
-		"/Users/jche/Code/algos/sketch.py",
-		"/Users/jche/Code/algos/test/Makefile",
-		"/Users/jche/Code/algos/test/true-a.txt",
-		"/Users/jche/Code/algos/test/in-a.txt",
-		"/Users/jche/Code/algos/test/a.cpp",
 		"/Users/jche/Code/algos/test/true-.txt",
 		"/Users/jche/Code/algos/test/in-.txt",
 		"/Users/jche/Code/algos/test/a.pp",
 		"/Users/jche/Code/algos/test/c.cpp",
 		"/Users/jche/Code/algos/test/in-c.txt",
 		"/Users/jche/Code/algos/test/true-c.txt",
-		"/Users/jche/Code/algos/test/true-b.txt",
-		"/Users/jche/Code/algos/test/in-b.txt",
-		"/Users/jche/Code/algos/test/b.cpp",
 		"/Users/jche/Code/algos/third_party/graph_algorithms/Mst_Prims.cpp",
 		"/Users/jche/Code/algos/third_party/graph_algorithms/Mst_Krushkal.cpp",
 		"/Users/jche/Code/algos/leet/p71.cpp",
@@ -771,7 +761,6 @@
 		"/Users/jche/Code/algos/leet/p152.cpp",
 		"/Users/jche/Code/algos/leet/p151.cpp",
 		"/Users/jche/Code/algos/leet/p150.cpp",
-		"/Users/jche/Code/algos/leet/p149.cpp",
 		"/Users/jche/Code/algos/leet/p148.cpp",
 		"/Users/jche/Code/algos/leet/p147.cpp",
 		"/Users/jche/Code/algos/leet/p146.cpp",
@@ -793,74 +782,11 @@
 		"/Users/jche/Code/algos/leet/in-p158.txt",
 		"/Users/jche/Code/algos/leet/true-p158.txt",
 		"/Users/jche/Code/algos/leet/p162.cpp",
-		"/Users/jche/Code/algos/leet/p161.cpp",
-		"/Users/jche/Code/algos/leet/p160.cpp",
-		"/Users/jche/Code/algos/leet/p159.cpp",
-		"/Users/jche/Code/algos/leet/in-p159.txt",
-		"/Users/jche/Code/algos/leet/true-p159.txt",
-		"/Users/jche/Code/algos/leet/p170.cpp",
-		"/Users/jche/Code/algos/leet/in-p170.txt",
-		"/Users/jche/Code/algos/leet/true-p170.txt",
-		"/Users/jche/Code/algos/leet/p254.cpp",
-		"/Users/jche/Code/algos/leet/p253.cpp",
-		"/Users/jche/Code/algos/leet/p252.cpp",
-		"/Users/jche/Code/algos/leet/p251.cpp",
-		"/Users/jche/Code/algos/leet/p250.cpp",
-		"/Users/jche/Code/algos/leet/p249.cpp",
-		"/Users/jche/Code/algos/leet/p248.cpp",
-		"/Users/jche/Code/algos/leet/p247.cpp",
-		"/Users/jche/Code/algos/leet/p246.cpp",
-		"/Users/jche/Code/algos/leet/p245.cpp",
-		"/Users/jche/Code/algos/leet/p272.cpp",
-		"/Users/jche/Code/algos/leet/p270.cpp",
-		"/Users/jche/Code/algos/leet/p269.cpp",
-		"/Users/jche/Code/algos/leet/p268.cpp",
-		"/Users/jche/Code/algos/leet/p267.cpp",
-		"/Users/jche/Code/algos/leet/p266.cpp",
-		"/Users/jche/Code/algos/leet/p265.cpp",
-		"/Users/jche/Code/algos/leet/p264.cpp",
-		"/Users/jche/Code/algos/leet/p69.cpp",
-		"/Users/jche/Code/algos/leet/p261.cpp",
-		"/Users/jche/Code/algos/leet/p260.cpp",
-		"/Users/jche/Code/algos/leet/p259.cpp",
-		"/Users/jche/Code/algos/leet/p258.cpp",
-		"/Users/jche/Code/algos/leet/p257.cpp",
-		"/Users/jche/Code/algos/leet/p256.cpp",
-		"/Users/jche/Code/algos/leet/p255.cpp",
-		"/Users/jche/Code/algos/leet/p244.cpp",
-		"/Users/jche/Code/algos/leet/p243.cpp",
-		"/Users/jche/Code/algos/leet/p242.cpp",
-		"/Users/jche/Code/algos/leet/p239.cpp",
-		"/Users/jche/Code/algos/leet/p238.cpp",
-		"/Users/jche/Code/algos/leet/p292.cpp",
-		"/Users/jche/Code/algos/leet/p73.cpp",
-		"/Users/jche/Code/algos/leet/p74.cpp",
-		"/Users/jche/Code/algos/leet/p75.cpp",
-		"/Users/jche/Code/algos/leet/p76.cpp",
-		"/Users/jche/Code/algos/leet/p77.cpp",
-		"/Users/jche/Code/algos/leet/p78.cpp",
-		"/Users/jche/Code/algos/leet/p2.cpp",
-		"/Users/jche/Code/algos/leet/p67.cpp",
-		"/Users/jche/Code/algos/leet/p100.cpp",
-		"/Users/jche/Code/algos/leet/p101.cpp",
-		"/Users/jche/Code/algos/leet/p103.cpp",
-		"/Users/jche/Code/algos/leet/p104.cpp",
-		"/Users/jche/Code/algos/leet/p105.cpp",
-		"/Users/jche/Code/algos/leet/p106.cpp",
-		"/Users/jche/Code/algos/leet/p109.cpp",
-		"/Users/jche/Code/algos/leet/p110.cpp",
-		"/Users/jche/Code/algos/leet/p111.cpp",
-		"/Users/jche/Code/algos/leet/p112.cpp",
-		"/Users/jche/Code/algos/leet/p113.cpp",
-		"/Users/jche/Code/algos/leet/p115.cpp",
-		"/Users/jche/Code/algos/leet/p116.cpp",
-		"/Users/jche/Code/algos/leet/p117.cpp",
-		"/Users/jche/Code/algos/leet/p118.cpp",
-		"/Users/jche/Code/algos/leet/p119.cpp"
+		"/Users/jche/Code/algos/leet/p161.cpp"
 	],
 	"find":
 	{
-		"height": 45.0
+		"height": 199.0
 	},
 	"find_in_files":
 	{
@@ -874,6 +800,38 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"label",
+			"raw_input",
+			"inp",
+			"bb",
+			"aa",
+			"it",
+			"st",
+			"t",
+			"int",
+			"LAZY",
+			"numDisjointSets",
+			"unionSet",
+			"joint",
+			"unionSet",
+			"isSameSet",
+			"findSet",
+			"isSameSet",
+			"findSet",
+			"ncr",
+			"nChoosek",
+			"unsigned",
+			"nChoosek",
+			"b",
+			"\n  ",
+			"unordered_set",
+			"issb",
+			"issa",
+			"tmp",
+			"pat",
+			"mp",
+			"root2",
+			"left",
 			"MOD",
 			"LL",
 			"se",
@@ -969,38 +927,6 @@
 			"s",
 			"nums",
 			"res",
-			"s",
-			"next",
-			"mark",
-			"pair",
-			"start",
-			"n",
-			"nums",
-			"s",
-			"it",
-			"mark",
-			"pair",
-			"q",
-			"prev",
-			"t",
-			"s",
-			"n",
-			"nums",
-			"y",
-			"prices",
-			"TEST",
-			"x",
-			"s",
-			"res",
-			"s",
-			"res",
-			"nums",
-			"headB",
-			"headA",
-			"NULL",
-			"left",
-			"res",
-			"m",
 			"s"
 		],
 		"highlight": true,
@@ -1019,1439 +945,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "leet/p907.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5285,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4590,
-								4590
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										5125,
-										5126
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										4582,
-										4583
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										5125,
-										5126
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										4582,
-										4583
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"ex_data":
-							{
-								"next_sel":
-								[
-									[
-										4157,
-										4157
-									]
-								]
-							},
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 6
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 3410.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "sketch.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6159,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1139,
-								1139
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1487,
-										1490
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"region.greenish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										212,
-										215
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1509,
-										1512
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"region.greenish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										212,
-										215
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 435.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "third_party/codebook/segtree.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3358,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2692,
-								2692
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2698,
-										2699
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										2662,
-										2663
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										3355,
-										3356
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										217,
-										218
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"git_gutter_is_enabled": true,
-							"highlight_line": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 1147.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "leet/true-p904.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "leet/in-p904.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "leet/p904.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1747,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1426,
-								1426
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual_line",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1486,
-										1487
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1312,
-										1313
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1425,
-										1426
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1409,
-										1410
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 34
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 638.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "leet/true-p905.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "leet/in-p905.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "leet/p905.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1606,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1604,
-								1604
-							]
-						],
-						"settings":
-						{
-							"_nv_visual_sel_mode": "mode_visual",
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1604,
-										1605
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1542,
-										1543
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1604,
-										1605
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1542,
-										1543
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 546.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 32.0
+		"height": 186.0
 	},
 	"input":
 	{
@@ -2500,7 +1001,7 @@
 	"project": "algos.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 368.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -2510,12 +1011,108 @@
 		"selected_items":
 		[
 			[
-				"sk",
-				"sketch.py"
+				"make",
+				"leet/Makefile"
+			],
+			[
+				"p23",
+				"leet/p230.cpp"
+			],
+			[
+				"a.",
+				"test/a.cpp"
+			],
+			[
+				"in-a",
+				"test/in-a.txt"
+			],
+			[
+				"c.",
+				"test/c.py"
+			],
+			[
+				"c.py",
+				"test/c.py"
+			],
+			[
+				"p1.c",
+				"leet/p1.cpp"
 			],
 			[
 				"seg",
-				"third_party/C-Plus-Plus/Range queries/segTree.cpp"
+				"third_party/codebook/segtree.cpp"
+			],
+			[
+				"disj",
+				"third_party/codebook/disjoint.cpp"
+			],
+			[
+				"combina",
+				"third_party/codebook/combination.cpp"
+			],
+			[
+				"combi",
+				"third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp"
+			],
+			[
+				"a.c",
+				"test/a.cpp"
+			],
+			[
+				"bin",
+				"third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp"
+			],
+			[
+				"p40",
+				"leet/p40.cpp"
+			],
+			[
+				"p39.c",
+				"leet/p39.cpp"
+			],
+			[
+				"p357",
+				"leet/p357.cpp"
+			],
+			[
+				"p254.",
+				"leet/p254.cpp"
+			],
+			[
+				"binom",
+				"third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp"
+			],
+			[
+				"combin",
+				"third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp"
+			],
+			[
+				"b.",
+				"test/b.cpp"
+			],
+			[
+				"ma",
+				"test/Makefile"
+			],
+			[
+				"p149",
+				"leet/p149.cpp"
+			],
+			[
+				"dis",
+				"third_party/codebook/disjoint.cpp"
+			],
+			[
+				"p900",
+				"leet/p900.cpp"
+			],
+			[
+				"p",
+				"leet/p901.cpp"
+			],
+			[
+				"sk",
+				"sketch.py"
 			],
 			[
 				"bit",
@@ -2532,10 +1129,6 @@
 			[
 				"s",
 				"sketch.py"
-			],
-			[
-				"c.",
-				"test/c.cpp"
 			],
 			[
 				"p241.",
@@ -2558,28 +1151,8 @@
 				"test/b.cpp"
 			],
 			[
-				"make",
-				"test/Makefile"
-			],
-			[
-				"a.",
-				"test/a.cpp"
-			],
-			[
-				"in-a",
-				"test/in-a.txt"
-			],
-			[
 				"in_a",
 				"gcj/2018/practice/a/in_a.txt"
-			],
-			[
-				"a.c",
-				"test/a.cpp"
-			],
-			[
-				"b.",
-				"test/b.cpp"
 			],
 			[
 				"m",
@@ -2948,78 +1521,6 @@
 			[
 				"p213.cpp",
 				"leet/p213.cpp"
-			],
-			[
-				"p213-2",
-				"leet/p213-2.cpp"
-			],
-			[
-				"p212",
-				"leet/p212.cpp"
-			],
-			[
-				"p211.c",
-				"leet/p211.cpp"
-			],
-			[
-				"to",
-				"third_party/graph_algorithms/Topsort.cpp"
-			],
-			[
-				"p210.c",
-				"leet/p210.cpp"
-			],
-			[
-				"p209",
-				"leet/p209.cpp"
-			],
-			[
-				"p208.",
-				"leet/p208.cpp"
-			],
-			[
-				"p207",
-				"leet/p207.cpp"
-			],
-			[
-				"p206.cpp",
-				"leet/p206.cpp"
-			],
-			[
-				"p206.",
-				"leet/p206.cpp"
-			],
-			[
-				"p205",
-				"leet/p205.cpp"
-			],
-			[
-				"p204.",
-				"leet/p204.cpp"
-			],
-			[
-				"p203",
-				"leet/p203.cpp"
-			],
-			[
-				"p202",
-				"leet/p202.cpp"
-			],
-			[
-				"p201.c",
-				"leet/p201.cpp"
-			],
-			[
-				"p200",
-				"leet/p200.cpp"
-			],
-			[
-				"p199.cp",
-				"leet/p199.cpp"
-			],
-			[
-				"p198",
-				"leet/p198.cpp"
 			]
 		],
 		"width": 0.0
@@ -3113,10 +1614,10 @@
 	"selected_group": 0,
 	"settings":
 	{
-		"_vintageous_last_buffer_search": "struct",
+		"_vintageous_last_buffer_search": "label",
 		"_vintageous_last_buffer_search_command": "vi_slash",
 		"_vintageous_last_char_search_command": "vi_f",
-		"_vintageous_last_character_search": "k",
+		"_vintageous_last_character_search": "d",
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{

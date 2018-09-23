@@ -15,7 +15,7 @@ public:
 
   int kthSmallest(TreeNode* root, int k) {
     num = k;
-    inOrder(root);        
+    inOrder(root);
     return res;
   }
 
