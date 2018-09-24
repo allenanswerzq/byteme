@@ -33,29 +33,15 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define LOCAL_FILE
-
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
   cin.tie(0);
   cout.precision(5);
   cout << fixed;
 
-#ifdef LOCAL_FILE
-  freopen("4a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
-  int t; cin >> t >> ws;
-  fori (i, 1, t + 1) {
-
-  }
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-
-  return 0;
+  int w;
+  cin >> w;
+  if (w == 2) cout << "NO" << endl;
+  else if (w % 2 == 0) cout << "YES" << endl;
+  else cout << "NO" << endl;
 }

@@ -14,10 +14,11 @@ def build_cpp(fn):
 #include<bits/stdc++.h>
 using namespace std;
 
+#define pb push_back
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
-#define outret(val) cout << (val) << endl;
+#define outret(val) cout << (val) << endl
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
@@ -46,7 +47,7 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define LOCAL_FILE
+// define LOCAL_FILE
 
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
@@ -55,7 +56,7 @@ int main(int argc, char** argv) {
   cout << fixed;
 
 #ifdef LOCAL_FILE
-  freopen(\"""" + name + """\", "rt", stdin);
+  // freopen(\"""" + name + """\", "rt", stdin);
   clock_t begin = clock();
 #endif
 
@@ -67,106 +68,13 @@ int main(int argc, char** argv) {
 #ifdef LOCAL_FILE
   clock_t end = clock();
   double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
+  cout << "elapsed(s): " << elapsed << endl;
 #endif
 
   return 0;
 }
 """
-
-  cpp = """\
-#include<bits/stdc++.h>
-using namespace std;
-
-#define bk back
-#define fi first
-#define fr front
-#define se second
-#define mk make_pair
-#define inf INT_MAX
-#define nnf INT_MIN
-#define dist distance
-#define null nullptr
-#define ll long long
-#define ld long double
-#define ull unsigned ll
-#define uset unordered_set
-#define umap unordered_map
-
-#define pb push_back
-#define ppb pop_back
-#define pf push_front
-#define ppf pop_front
-#define eb emplace_back
-#define vi vector<int>
-#define vvi vector<vi>
-#define vl vector<ll>
-#define vvl vector<vl>
-#define vs vector<string>
-#define pll pair<ll, ll>
-#define pii pair<int, int>
-
-#define sz(x) ((int)(x).size())
-#define vpii vector<pair<int,int>>
-#define judge(a, b) assert((a) == (b))
-#define all(x) (x).begin(), (x).end()
-#define xpq priority_queue<int, vi>
-#define mpq priority_queue<int, vi, greater<int>>
-#define mst(x, y) memset(x, y, sizeof(x))
-#define rall(x) (x).rbegin(), (x).rend()
-#define fora(e, c) for (auto &e : c)
-#define fori(i, a, b) for (int i=(a); i<(b); ++i)
-#define ford(i, a, b) for (int i=(a); i>(b); --i)
-#define pvi(x) cout << #x << ": "; fora(a, x) cout << a << " "; cout << endl
-#define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
-#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
-
-#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
-template <typename T>
-void _f(const char* name, T&& arg) {
-  cout << name << ": " << arg << endl;
-}
-
-template <typename T, typename... Args>
-void _f(const char* names, T&& arg, Args&&... args) {
-  const char* split = strchr(names + 1, ',');
-  cout.write(names, split - names) << ": " << arg << " |";
-  _f(split, args...);
-}
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
-// #define LOCAL_FILE
-
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
-#ifdef LOCAL_FILE
-  freopen(\"""" + name + """\", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
-
-  int t; cin >> t;
-  fori (i, 1, t + 1) {
-
-  }
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
-  return 0;
-}
-"""
-  return cpp2;
+  return cpp2
 
 def generate_file(file_name):
 
@@ -215,7 +123,7 @@ test: compile
 \t@chmod +x ./elf
 \trun_samples in-""" + name + """.txt
 \t@echo
-\tcolordiff -y result.txt true-""" + name + """.txt -W 100
+\tdiff -y result.txt true-""" + name + """.txt -W 100 | sed 's/ /-/g'
 
 clean:
 \trm ./elf

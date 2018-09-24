@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import copy
+from pathlib import Path
+
+print('Spliting algorithm samples... ' + sys.argv[1])
+
+inputs = []
+outputs = []
+inputs_sign = "input"
+outputs_sign = "output"
+inputs_ok = 0
+outputs_ok = 0
+with open(sys.argv[1], 'r') as f:
+  bag = []
+  for line in f:
+    if inputs_sign in line or outputs_sign in line:
+      if inputs_ok:
+        inputs.append(copy.deepcopy(bag))
+
+      if outputs_ok:
+        outputs.append(copy.deepcopy(bag))
+
+      bag.clear()
+
+    if inputs_sign in line:
+      inputs_ok = 1
+      outputs_ok = 0
+    elif outputs_sign in line:
+      inputs_ok = 0
+      outputs_ok = 1
+    else:
+      if inputs_ok or outputs_ok: 
+        bag.append(line)
+      else:
+        break
+
+outputs.append(copy.deepcopy(bag))
+# print(inputs)
+# print(outputs)
+
+if len(outputs) > 0 and len(inputs) > 0:
+  with open(sys.argv[1], 'w') as f :
+    for inp in inputs:
+      for line in inp:
+        f.write(line)
+      f.write("\n")
+
+  with open(sys.argv[1].replace("in", "true"), "w") as f:
+    for out in outputs:
+      for line in out:
+        f.write(line)

@@ -5,7 +5,7 @@ compile:
 	@echo
 	@echo default directory: $(shell pwd)
 	@echo
-	g++ -o elf 4a.cpp --std=c++11 -O2
+	g++ -o elf 734a.cpp --std=c++11 -O2
 
 run:
 	@chmod +x ./elf
@@ -13,9 +13,10 @@ run:
 
 test: compile
 	@chmod +x ./elf
-	run_samples in-4a.txt
+	split_samples in-734a.txt
+	run_samples in-734a.txt
 	@echo
-	colordiff -y result.txt true-4a.txt -W 100
+	diff -y result.txt true-734a.txt -W 100 | sed 's/ /-/g'
 
 clean:
 	rm ./elf
