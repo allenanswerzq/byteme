@@ -3,3 +3,6 @@
 a.out
 elf
 misc
+in*.txt
+true*.txt
+result.txt

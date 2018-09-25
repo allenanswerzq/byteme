@@ -47,7 +47,7 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// define LOCAL_FILE
+// #define LOCAL_FILE
 
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
@@ -121,6 +121,7 @@ run:
 
 test: compile
 \t@chmod +x ./elf
+\tsplit_samples in-""" + name + """.txt
 \trun_samples in-""" + name + """.txt
 \t@echo
 \tdiff -y result.txt true-""" + name + """.txt -W 100 | sed 's/ /-/g'
