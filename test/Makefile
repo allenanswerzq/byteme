@@ -1,11 +1,10 @@
 #!/bin/bash
 all: compile run
-
 compile:
 	@echo
 	@echo default directory: $(shell pwd)
 	@echo
-	g++ -o elf 822a.cpp --std=c++11 -O2
+	g++ -o elf b.cpp --std=c++11 -O2
 
 run:
 	@chmod +x ./elf
@@ -13,10 +12,10 @@ run:
 
 test: compile
 	@chmod +x ./elf
-	split_samples in-822a.txt
-	run_samples in-822a.txt | tee log-822a.txt
+	split_samples in-b.txt
+	run_samples in-b.txt | tee log-b.txt
 	@echo
-	diff -y result.txt true-822a.txt -W 100 | sed 's/ /-/g'
+	diff -y result.txt true-b.txt -W 100 | sed "s/ /-/g"
 
 clean:
 	rm ./elf

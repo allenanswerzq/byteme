@@ -1,7 +1,9 @@
+import numpy as np
 
 print("\n\n")
-print(100000)
-aa = 1000000000000
-for i in range(100000):
-  print(aa)
-  aa -= 1
+n = 100
+print(n)
+for i in range(n // 2):
+  x = np.random.randint(100, size=1)[0]
+  y = 200 - x
+  print(x, y, end=' ')

@@ -5,4 +5,5 @@ elf
 misc
 in*.txt
 true*.txt
+log*.txt
 result*.txt

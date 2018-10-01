@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Generate files skeleton for my algorithm practice."""
+"""Generate a file skeleton for my algorithm practice."""
 
 import os
 import sys
@@ -15,16 +15,18 @@ def build_cpp(fn):
 using namespace std;
 
 #define pb push_back
+#define pend cout << endl
+#define pvar(x) cout << #x << ": "
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
-#define outret(val) cout << (val) << endl
-#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
-#define pvi(x) cout << #x << ": "; fora(a, x) cout << a << " "; cout << endl
-#define par(x, n) cout<< #x << ": "; fori(a, 0, n) cout<<x[a]<<" "; cout <<endl
+#define outret(v) cout << (v) << endl
+#define output(ix, v) cout << "Case #" << (ix) << ": " << (v) << endl
+#define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
+#define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
@@ -41,6 +43,7 @@ void _f(const char* names, T&& arg, Args&&... args) {
 
 typedef long long ll;
 typedef vector<int> vi;
+typedef vector<ll> vl;
 typedef vector<vi> vvi;
 typedef vector<string> vs;
 typedef vector<vector<string>> vvs;
@@ -76,71 +79,61 @@ int main(int argc, char** argv) {
 """
   return cpp2
 
-def generate_file(file_name):
+def generate_file(fn):
 
-  if os.path.isfile(file_name):
+  if os.path.isfile(fn):
     print("File already exists")
     cmd = "subl " if sys.platform == "darwin" else "subl "
-    os.system(cmd + file_name)
+    os.system(cmd + fn)
     return
 
-  with open(file_name, 'w') as f:
+  with open(fn, 'w') as f:
     cmd = "subl "
-    cpp = build_cpp(file_name);
+    cpp = build_cpp(fn);
     f.write(cpp)
-    print("=>Writing to {}".format(file_name))
+    print("=>Writing to {}".format(fn))
 
-  name = file_name[0: -4]
-  os.system(cmd + 'Makefile')
+  name = fn[0: -4]
   os.system('touch true-' + name + '.txt')
-  os.system(cmd + ' true-' + name + '.txt')
   os.system('touch in-' + name +'.txt')
+  os.system(cmd + 'Makefile')
+  os.system(cmd + ' true-' + name + '.txt')
+  os.system(cmd + ' log-' + name + '.txt')
   os.system(cmd + ' in-' + name + '.txt')
-  os.system(cmd + file_name)
-
+  os.system(cmd + fn)
   os.system("run_algo")
 
 
 def generate_makefile(fn):
-  print(fn)
-  name = fn[0:-4]
-
-  makefile = """\
-#!/bin/bash
-all: compile run
-
-compile:
-\t@echo
-\t@echo default directory: $(shell pwd)
-\t@echo
-\tg++ -o elf """ + fn + """ --std=c++11 -O2
-
-run:
-\t@chmod +x ./elf
-\t./elf
-
-test: compile
-\t@chmod +x ./elf
-\tsplit_samples in-""" + name + """.txt
-\trun_samples in-""" + name + """.txt
-\t@echo
-\tdiff -y result.txt true-""" + name + """.txt -W 100 | sed 's/ /-/g'
-
-clean:
-\trm ./elf
-"""
+  makefile = (
+      '#!/bin/bash\n'
+      'all: compile run\n'
+      'compile:\n'
+      '\t@echo\n'
+      '\t@echo default directory: $(shell pwd)\n'
+      '\t@echo\n'
+      '\tg++ -o elf {0} --std=c++11 -O2\n'
+      '\n'
+      'run:\n'
+      '\t@chmod +x ./elf\n'
+      '\t./elf\n'
+      '\n'
+      'test: compile\n'
+      '\t@chmod +x ./elf\n'
+      '\tsplit_samples in-{1}.txt\n'
+      '\trun_samples in-{1}.txt | tee log-{1}.txt\n'
+      '\t@echo\n'
+      '\tdiff -y result.txt true-{1}.txt -W 100 | sed "s/ /-/g"\n'
+      '\n'
+      'clean:\n'
+      '\trm ./elf\n').format(fn, fn[0:-4])
 
   with open('Makefile', 'w') as f:
     f.write(makefile)
 
 if __name__ == "__main__":
-  if len(sys.argv) < 3:
-    print(usage)
-  else:
-    # Generate data input file.
     print('=>Creating Makefile..')
-    file_type = sys.argv[1]
-    file_name = sys.argv[2]
+    file_name = sys.argv[1]
     generate_makefile(file_name)
     generate_file(file_name)
 
