@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"m",
+				"m"
+			],
+			[
+				"v",
+				"v"
+			],
+			[
+				"if",
+				"if\tif"
+			],
+			[
+				"xyy",
+				"xyy\ttest"
+			],
+			[
+				"tra",
+				"trace2"
+			],
+			[
 				"sum_",
 				"sum_right"
 			],
@@ -308,10 +328,6 @@
 				"capacity"
 			],
 			[
-				"tra",
-				"traverse"
-			],
-			[
 				"cout",
 				"count_"
 			],
@@ -498,22 +514,6 @@
 			[
 				"clas",
 				"classes_"
-			],
-			[
-				"col",
-				"class_count"
-			],
-			[
-				"bat",
-				"batch_size"
-			],
-			[
-				"Ch",
-				"CHECK_EQ"
-			],
-			[
-				"class",
-				"class_scale_"
 			]
 		]
 	},
@@ -531,6 +531,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"sin",
+				"Snippet: template <typename ${1:_InputIter}>"
+			],
 			[
 				"col",
 				"UI: Select Color Scheme"
@@ -657,145 +661,140 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/Users/jche/Code/algos",
-		"/Users/jche/Code/algos/gcj"
-	],
 	"file_history":
 	[
-		"/Users/jche/Code/algos/cf/in-499b.txt",
-		"/Users/jche/Code/algos/cf/log-499b.txt",
-		"/Users/jche/Code/algos/cf/true-499b.txt",
-		"/Users/jche/Code/algos/cf/478b.cpp",
-		"/Users/jche/Code/algos/cf/in-478b.txt",
-		"/Users/jche/Code/algos/cf/log-478b.txt",
-		"/Users/jche/Code/algos/cf/true-478b.txt",
-		"/Users/jche/Code/algos/cf/459a.cpp",
-		"/Users/jche/Code/algos/cf/in-459a.txt",
-		"/Users/jche/Code/algos/cf/log-459a.txt",
-		"/Users/jche/Code/algos/cf/true-459a.txt",
-		"/Users/jche/Code/algos/cf/567a.cpp",
-		"/Users/jche/Code/algos/cf/in-567a.txt",
-		"/Users/jche/Code/algos/cf/log-567a.txt",
-		"/Users/jche/Code/algos/cf/true-567a.txt",
-		"/Users/jche/Code/algos/cf/706g.cpp",
-		"/Users/jche/Code/algos/cf/in-706g.txt",
-		"/Users/jche/Code/algos/cf/log-706g.txt",
-		"/Users/jche/Code/algos/cf/true-706g.txt",
-		"/Users/jche/Code/algos/cf/gen.py",
-		"/Users/jche/Code/algos/cf/706b.cpp",
-		"/Users/jche/Code/algos/cf/in-706b.txt",
-		"/Users/jche/Code/algos/cf/log-706b.txt",
-		"/Users/jche/Code/algos/cf/true-706b.txt",
-		"/Users/jche/Code/algos/cf/in-550a.txt",
-		"/Users/jche/Code/algos/cf/log-550a.txt",
-		"/Users/jche/Code/algos/cf/true-550a.txt",
-		"/Users/jche/Code/algos/sketch.py",
-		"/Users/jche/Code/algos/third_party/codebook/prime.cpp",
-		"/Users/jche/Code/algos/cf/Makefile",
-		"/Users/jche/Code/algos/cf/true-466c.txt",
-		"/Users/jche/Code/algos/cf/log-466c.txt",
-		"/Users/jche/Code/algos/cf/in-466c.txt",
-		"/Users/jche/Code/algos/cf/466c.cpp",
-		"/Volumes/Linux HFS+ ESP/EFI/qubes/xen.cfg",
-		"/Users/jche/Code/algos/cf/550a.cpp",
-		"/Users/jche/Code/algos/cf/499b.cpp",
-		"/Users/jche/Code/algos/test/Makefile",
-		"/Users/jche/Downloads/refind-bin-0.11.3/refind-install",
-		"/Users/jche/Code/algos/test/true-a.txt",
-		"/Users/jche/Code/algos/test/log-a.txt",
-		"/Users/jche/Code/algos/test/in-a.txt",
+		"/Users/jche/Code/algos/cf/719a.cpp",
+		"/Users/jche/Code/algos/cf/in-719a.txt",
+		"/Users/jche/Code/algos/cf/log-719a.txt",
+		"/Users/jche/Code/algos/cf/true-719a.txt",
+		"/Users/jche/Code/algos/cf/1b.cpp",
+		"/Users/jche/Code/algos/cf/in-1b.txt",
+		"/Users/jche/Code/algos/cf/log-1b.txt",
+		"/Users/jche/Code/algos/cf/true-1b.txt",
+		"/Users/jche/Code/algos/cf/560a.cpp",
+		"/Users/jche/Code/algos/cf/in-560a.txt",
+		"/Users/jche/Code/algos/cf/log-560a.txt",
+		"/Users/jche/Code/algos/cf/true-560a.txt",
+		"/Users/jche/Code/algos/cf/214a.cpp",
+		"/Users/jche/Code/algos/cf/in-214a.txt",
+		"/Users/jche/Code/algos/cf/log-214a.txt",
+		"/Users/jche/Code/algos/cf/true-214a.txt",
+		"/Users/jche/Code/algos/cf/330a.cpp",
+		"/Users/jche/Code/algos/cf/in-330a.txt",
+		"/Users/jche/Code/algos/cf/log-330a.txt",
+		"/Users/jche/Code/algos/cf/true-330a.txt",
+		"/Users/jche/Code/algos/cf/570a.cpp",
+		"/Users/jche/Code/algos/cf/in-570a.txt",
+		"/Users/jche/Code/algos/cf/log-570a.txt",
+		"/Users/jche/Code/algos/cf/true-570a.txt",
+		"/Users/jche/Code/algos/cf/479c.cpp",
+		"/Users/jche/Code/algos/cf/in-479c.txt",
+		"/Users/jche/Code/algos/cf/log-479c.txt",
+		"/Users/jche/Code/algos/cf/true-479c.txt",
+		"/Users/jche/Code/algos/cf/551a.cpp",
+		"/Users/jche/Code/algos/cf/in-551a.txt",
+		"/Users/jche/Code/algos/cf/log-551a.txt",
+		"/Users/jche/Code/algos/cf/true-551a.txt",
+		"/Users/jche/Code/algos/cf/279b.cpp",
+		"/Users/jche/Code/algos/cf/in-279b.txt",
+		"/Users/jche/Code/algos/cf/log-279b.txt",
+		"/Users/jche/Code/algos/cf/true-279b.txt",
+		"/Users/jche/Code/algos/cf/580c.cpp",
+		"/Users/jche/Code/algos/cf/in-580c.txt",
+		"/Users/jche/Code/algos/cf/log-580c.txt",
+		"/Users/jche/Code/algos/cf/true-580c.txt",
 		"/Users/jche/Code/algos/test/a.cpp",
-		"/Users/jche/Code/algos/cf/439a.cpp",
-		"/Users/jche/Code/algos/cf/true-749a.txt",
-		"/Users/jche/Code/algos/cf/log-749a.txt",
-		"/Users/jche/Code/algos/cf/in-749a.txt",
-		"/Users/jche/Code/algos/cf/749a.cpp",
-		"/Users/jche/Code/algos/third_party/C-Plus-Plus/Others/sieve_of_Eratosthenes.cpp",
-		"/Users/jche/Code/algos/third_party/C-Plus-Plus/sieve_of_Eratosthenes.cpp",
-		"/Users/jche/Code/algos/third_party/cosmos/code/mathematical_algorithms/src/sieve_of_eratosthenes/sieve_of_eratosthenes.c",
-		"/Users/jche/Code/algos/cf/in-439a.txt",
-		"/Users/jche/Code/algos/cf/true-439a.txt",
-		"/Users/jche/Code/algos/cf/log-439a.txt",
-		"/Users/jche/Code/algos/cf/log-785a.txt",
-		"/Users/jche/Code/algos/cf/true-785a.txt",
-		"/Users/jche/Code/algos/cf/in-785a.txt",
-		"/Users/jche/Code/algos/cf/785a.cpp",
-		"/Users/jche/Code/algos/cf/result.txt",
-		"/Users/jche/Code/algos/cf/509a.cpp",
-		"/Users/jche/Code/algos/cf/in-509a.txt",
-		"/Users/jche/Code/algos/cf/true-509a.txt",
-		"/Users/jche/Code/algos/cf/599a.cpp",
-		"/Users/jche/Code/algos/cf/in-599a.txt",
-		"/Users/jche/Code/algos/cf/true-599a.txt",
-		"/Users/jche/Code/algos/cf/448a.cpp",
-		"/Users/jche/Code/algos/cf/in-448a.txt",
-		"/Users/jche/Code/algos/cf/true-448a.txt",
-		"/Users/jche/Code/algos/cf/489a.cpp",
-		"/Users/jche/Code/algos/cf/in-489a.txt",
-		"/Users/jche/Code/algos/cf/true-489a.txt",
-		"/Users/jche/Code/algos/cf/489b.cpp",
-		"/Users/jche/Code/algos/cf/in-489b.txt",
-		"/Users/jche/Code/algos/cf/true-489b.txt",
-		"/Users/jche/Code/algos/cf/149a.cpp",
-		"/Users/jche/Code/algos/cf/in-149a.txt",
-		"/Users/jche/Code/algos/cf/true-149a.txt",
-		"/Users/jche/Code/algos/cf/474a.cpp",
-		"/Users/jche/Code/algos/cf/588a.cpp",
-		"/Users/jche/Code/algos/cf/in-588a.txt",
-		"/Users/jche/Code/algos/cf/true-588a.txt",
-		"/Users/jche/Code/algos/cf/474b.cpp",
-		"/Users/jche/Code/algos/cf/in-474b.txt",
-		"/Users/jche/Code/algos/cf/true-474b.txt",
-		"/Users/jche/Code/algos/cf/467b.cpp",
-		"/Users/jche/Code/algos/cf/in-467b.txt",
-		"/Users/jche/Code/algos/cf/true-467b.txt",
-		"/Users/jche/Code/algos/cf/520b.cpp",
-		"/Users/jche/Code/algos/cf/in-520b.txt",
-		"/Users/jche/Code/algos/cf/true-520b.txt",
-		"/Users/jche/Code/algos/cf/313b.cpp",
-		"/Users/jche/Code/algos/cf/in-313b.txt",
-		"/Users/jche/Code/algos/cf/true-313b.txt",
-		"/Users/jche/Code/algos/cf/519a.cpp",
-		"/Users/jche/Code/algos/cf/in-519a.txt",
-		"/Users/jche/Code/algos/cf/true-519a.txt",
-		"/Users/jche/Code/algos/cf/513a.cpp",
-		"/Users/jche/Code/algos/cf/in-513a.txt",
-		"/Users/jche/Code/algos/cf/true-513a.txt",
-		"/Users/jche/Code/algos/cf/456a.cpp",
-		"/Users/jche/Code/algos/cf/in-456a.txt",
-		"/Users/jche/Code/algos/cf/true-456a.txt",
-		"/Users/jche/Code/algos/cf/734b.cpp",
-		"/Users/jche/Code/algos/cf/in-734b.txt",
-		"/Users/jche/Code/algos/cf/true-734b.txt",
-		"/Users/jche/Code/algos/cf/459b.cpp",
-		"/Users/jche/Code/algos/cf/in-459b.txt",
-		"/Users/jche/Code/algos/cf/true-459b.txt",
-		"/Users/jche/Code/algos/cf/log-716a.txt",
-		"/Users/jche/Code/algos/cf/true-716a.txt",
-		"/Users/jche/Code/algos/cf/in-716a.txt",
-		"/Users/jche/Code/algos/cf/716a.cpp",
-		"/Users/jche/Code/algos/cf/log-520b.txt",
-		"/Users/jche/Code/algos/run_algo",
-		"/Users/jche/.config/alacritty/alacritty.yml",
-		"/Users/jche/Code/algos/cf/true-711a.txt",
-		"/Users/jche/Code/algos/cf/in-711a.txt",
-		"/Users/jche/Code/algos/cf/711a.cpp",
-		"/Users/jche/Code/algos/cf/327a.cpp",
-		"/Users/jche/Code/algos/cf/in-327a.txt",
-		"/Users/jche/Code/algos/cf/true-327a.txt",
-		"/Users/jche/Code/algos/cf/478a.cpp",
-		"/Users/jche/Code/algos/cf/in-478a.txt",
-		"/Users/jche/Code/algos/cf/true-478a.txt",
-		"/Users/jche/Code/algos/cf/476a.cpp",
-		"/Users/jche/Code/algos/cf/in-476a.txt",
-		"/Users/jche/Code/algos/cf/true-476a.txt",
-		"/Users/jche/Code/algos/cf/703a.cpp"
+		"/Users/jche/Code/algos/test/in-a.txt",
+		"/Users/jche/Code/algos/test/log-a.txt",
+		"/Users/jche/Code/algos/test/true-a.txt",
+		"/Users/jche/Code/algos/test/gen.py",
+		"/Users/jche/Code/algos/test/b.cpp",
+		"/Users/jche/Code/algos/test/in-b.txt",
+		"/Users/jche/Code/algos/test/log-b.txt",
+		"/Users/jche/Code/algos/test/true-b.txt",
+		"/Users/jche/Code/algos/cf/true-519c.txt",
+		"/Users/jche/Code/algos/cf/log-519c.txt",
+		"/Users/jche/Code/algos/cf/in-519c.txt",
+		"/Users/jche/Code/algos/cf/519c.cpp",
+		"/Users/jche/Code/algos/test/Makefile",
+		"/Users/jche/Code/algos/test/true-c.txt",
+		"/Users/jche/Code/algos/test/log-c.txt",
+		"/Users/jche/Code/algos/test/in-c.txt",
+		"/Users/jche/Code/algos/test/c.cpp",
+		"/Users/jche/Code/algos/.gitignore",
+		"/Users/jche/Code/algos/cf/Makefile",
+		"/Users/jche/Code/algos/leet/p159.cpp",
+		"/Users/jche/Code/algos/cf/gen.py",
+		"/Users/jche/Library/Application Support/Sublime Text 3/Packages/User/if.sublime-snippet",
+		"/Users/jche/Code/algos/sketch.py",
+		"/Users/jche/Library/Application Support/Sublime Text 3/Packages/User/fora.sublime-snippet",
+		"/Users/jche/Library/Application Support/Sublime Text 3/Packages/User/fori.sublime-snippet",
+		"/Users/jche/Library/Application Support/Sublime Text 3/Packages/User/test.sublime-snippet",
+		"/Users/jche/Library/Application Support/Sublime Text 3/Packages/User/test",
+		"/Users/jche/Code/algos/cf/test",
+		"/Users/jche/Code/algos/cf/fori-snippet",
+		"/Users/jche/Code/algos/cf/686a.cpp",
+		"/Users/jche/Code/algos/leet/p91.cpp",
+		"/Users/jche/Code/algos/cf/in-686a.txt",
+		"/Users/jche/Code/algos/cf/log-686a.txt",
+		"/Users/jche/Code/algos/cf/true-686a.txt",
+		"/Users/jche/Code/algos/cf/118b.cpp",
+		"/Users/jche/Code/algos/cf/in-118b.txt",
+		"/Users/jche/Code/algos/cf/true-118b.txt",
+		"/Users/jche/Code/algos/cf/log-118b.txt",
+		"/Users/jche/Code/algos/leet/p686.cpp",
+		"/Users/jche/Code/algos/cf/688b.cpp",
+		"/Users/jche/Code/algos/cf/in-688b.txt",
+		"/Users/jche/Code/algos/cf/log-688b.txt",
+		"/Users/jche/Code/algos/cf/true-688b.txt",
+		"/Users/jche/Code/algos/cf/630a.cpp",
+		"/Users/jche/Code/algos/cf/in-630a.txt",
+		"/Users/jche/Code/algos/cf/log-630a.txt",
+		"/Users/jche/Code/algos/cf/true-630a.txt",
+		"/Users/jche/Code/algos/cf/363b.cpp",
+		"/Users/jche/Code/algos/cf/in-363b.txt",
+		"/Users/jche/Code/algos/cf/log-363b.txt",
+		"/Users/jche/Code/algos/cf/true-363b.txt",
+		"/Users/jche/Code/algos/cf/37a.cpp",
+		"/Users/jche/Code/algos/cf/in-37a.txt",
+		"/Users/jche/Code/algos/cf/log-37a.txt",
+		"/Users/jche/Code/algos/cf/true-37a.txt",
+		"/Users/jche/Code/algos/cf/721a.cpp",
+		"/Users/jche/Code/algos/cf/in-721a.txt",
+		"/Users/jche/Code/algos/cf/log-721a.txt",
+		"/Users/jche/Code/algos/cf/true-721a.txt",
+		"/Users/jche/Code/algos/cf/451b.cpp",
+		"/Users/jche/Code/algos/cf/115a.cpp",
+		"/Users/jche/Code/algos/cf/true-913a.txt",
+		"/Users/jche/Code/algos/cf/log-913a.txt",
+		"/Users/jche/Code/algos/cf/in-913a.txt",
+		"/Users/jche/Code/algos/cf/913a.cpp",
+		"/Users/jche/Code/algos/cf/true-115a.txt",
+		"/Users/jche/Code/algos/cf/log-115a.txt",
+		"/Users/jche/Code/algos/cf/in-115a.txt",
+		"/Users/jche/Code/algos/cf/true-651a.txt",
+		"/Users/jche/Code/algos/cf/log-651a.txt",
+		"/Users/jche/Code/algos/cf/in-651a.txt",
+		"/Users/jche/Code/algos/cf/651a.cpp",
+		"/Users/jche/Code/algos/cf/in-451b.txt",
+		"/Users/jche/Code/algos/cf/log-451b.txt",
+		"/Users/jche/Code/algos/cf/true-451b.txt",
+		"/Users/jche/Code/algos/cf/621a.cpp",
+		"/Users/jche/Code/algos/cf/in-621a.txt",
+		"/Users/jche/Code/algos/cf/log-621a.txt",
+		"/Users/jche/Code/algos/cf/true-621a.txt",
+		"/Users/jche/Code/algos/cf/true-431a.txt",
+		"/Users/jche/Code/algos/cf/log-431a.txt",
+		"/Users/jche/Code/algos/cf/in-431a.txt",
+		"/Users/jche/Code/algos/cf/431a.cpp",
+		"/Users/jche/Code/algos/cf/701a.cpp",
+		"/Users/jche/Code/algos/cf/in-701a.txt",
+		"/Users/jche/Code/algos/cf/log-701a.txt",
+		"/Users/jche/Code/algos/cf/true-701a.txt"
 	],
 	"find":
 	{
-		"height": 43.0
+		"height": 29.0
 	},
 	"find_in_files":
 	{
@@ -809,134 +808,6 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"3",
-			"hi",
-			"lo",
-			"int",
-			"vl",
-			"int",
-			"hi",
-			"lo",
-			"sum_mid",
-			"sum_right",
-			"sum_left",
-			"t",
-			"b",
-			"a",
-			"set",
-			"labs",
-			"ll",
-			"int",
-			"1",
-			"n",
-			"maxn",
-			"a",
-			"maxn",
-			"t",
-			"n",
-			"N",
-			"int",
-			"ret",
-			"sovle",
-			"start",
-			"t",
-			"b",
-			"a",
-			"t",
-			"_gcd",
-			"int",
-			"mx",
-			"unordered_set",
-			"t",
-			"int",
-			"t",
-			"IsPrime",
-			"number",
-			"aa",
-			"number",
-			"( ",
-			"int",
-			"IsPrime",
-			"a",
-			"start",
-			"int",
-			"t",
-			"i",
-			"_gcd",
-			"hash",
-			"str",
-			"int",
-			"unsigned",
-			"st",
-			"size_t",
-			"unsigned",
-			"_HashFunc",
-			"_Tp",
-			"_container",
-			"int",
-			"string",
-			"unsigned",
-			"aa",
-			"t",
-			"x",
-			"t",
-			"inp",
-			"10000",
-			"1000",
-			"maxn",
-			"2",
-			"t",
-			"bb",
-			"t",
-			"end",
-			"t",
-			"ok",
-			"int",
-			"first",
-			"t",
-			"check",
-			"t",
-			"a",
-			"cur",
-			"t",
-			"samples",
-			"outputCopy",
-			"inputCopy",
-			"t",
-			"outputCopy",
-			"inputCopy",
-			"comb",
-			"ix",
-			"x",
-			"t",
-			"outputCopy",
-			"inputCopy",
-			"outputCopy",
-			"inputCopy",
-			"dfs",
-			"flag",
-			"inputCopy",
-			"outputCopy",
-			"inputCopy",
-			"outputCopy",
-			"inputCopy",
-			"int",
-			"5\n6",
-			"outputCopy",
-			"inputCopy",
-			"label",
-			"raw_input",
-			"inp",
-			"bb",
-			"aa",
-			"it",
-			"st",
-			"t",
-			"int",
-			"LAZY",
-			"numDisjointSets",
-			"unionSet",
-			"joint"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -961,7 +832,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 31.0
+		"height": 29.0
 	},
 	"input":
 	{
@@ -1010,7 +881,7 @@
 	"project": "algos.sublime-project",
 	"replace":
 	{
-		"height": 58.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1020,11 +891,67 @@
 		"selected_items":
 		[
 			[
+				".git",
+				".gitignore"
+			],
+			[
+				"M",
+				"test/Makefile"
+			],
+			[
+				"b.",
+				"test/b.cpp"
+			],
+			[
+				"Make",
+				"test/Makefile"
+			],
+			[
+				"mak",
+				"cf/Makefile"
+			],
+			[
+				"c",
+				"test/c.cpp"
+			],
+			[
+				"519",
+				"cf/519c.cpp"
+			],
+			[
+				"p519",
+				"leet/p159.cpp"
+			],
+			[
+				"ge",
+				"test/gen.py"
+			],
+			[
 				"sk",
 				"sketch.py"
 			],
 			[
-				"ge",
+				"p91.",
+				"leet/p91.cpp"
+			],
+			[
+				"115a",
+				"cf/115a.cpp"
+			],
+			[
+				".gi",
+				".gitignore"
+			],
+			[
+				"factori",
+				"third_party/cosmos/code/string_algorithms/src/arithmetic_on_large_numbers/string_factorial.cpp"
+			],
+			[
+				"fact",
+				"third_party/cosmos/code/mathematical_algorithms/src/factorial/factorial_iteration.c"
+			],
+			[
+				"gen",
 				"cf/gen.py"
 			],
 			[
@@ -1056,20 +983,12 @@
 				"cf/log-716a.txt"
 			],
 			[
-				"gen",
-				"cf/gen.py"
-			],
-			[
 				"log-2",
 				"cf/log-520b.txt"
 			],
 			[
 				"run_al",
 				"run_algo"
-			],
-			[
-				".git",
-				".gitignore"
 			],
 			[
 				"540",
@@ -1202,10 +1121,6 @@
 			[
 				"combin",
 				"third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp"
-			],
-			[
-				"b.",
-				"test/b.cpp"
 			],
 			[
 				"p149",
@@ -1486,50 +1401,6 @@
 			[
 				"p238.cp",
 				"leet/p238.cpp"
-			],
-			[
-				"p237.c",
-				"leet/p237.cpp"
-			],
-			[
-				"p236.c",
-				"leet/p236.cpp"
-			],
-			[
-				"p235.",
-				"leet/p235.cpp"
-			],
-			[
-				"p234.c",
-				"leet/p234.cpp"
-			],
-			[
-				"p233.",
-				"leet/p233.cpp"
-			],
-			[
-				"p440",
-				"leet/p440.cpp"
-			],
-			[
-				"p386",
-				"leet/p368.cpp"
-			],
-			[
-				"a.cpp",
-				"gcj/2018/practice/a/a.cpp"
-			],
-			[
-				"a.py",
-				"test/a.py"
-			],
-			[
-				"bell",
-				"third_party/C-Plus-Plus/Dynamic Programming/Bellman-Ford.cpp"
-			],
-			[
-				"be",
-				"third_party/graph_algorithms/Bellman_Ford_2.cpp"
 			]
 		],
 		"width": 0.0
@@ -1537,9 +1408,13 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "phay",
+		"last_filter": "al",
 		"selected_items":
 		[
+			[
+				"al",
+				"~/Code/algos/algos.sublime-workspace"
+			],
 			[
 				"phay",
 				"~/Code/phyai/phyai.sublime-project"
@@ -1585,10 +1460,6 @@
 				"~/Code/flow/flow.sublime-project"
 			],
 			[
-				"al",
-				"~/Code/algos/algos.sublime-project"
-			],
-			[
 				"js",
 				"~/Code/json-tutorial/json.sublime-project"
 			],
@@ -1623,21 +1494,15 @@
 	"selected_group": 0,
 	"settings":
 	{
-		"_vintageous_last_buffer_search": "100000",
-		"_vintageous_last_buffer_search_command": "vi_slash",
-		"_vintageous_last_char_search_command": "vi_f",
-		"_vintageous_last_character_search": "i",
-		"_vintageous_reset_during_init": true,
 		"vintage":
 		{
-			"_cmdline_cd": "/Users/jche/Code/algos/cf"
 		}
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": false,
-	"side_bar_width": 210.0,
+	"side_bar_width": 275.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

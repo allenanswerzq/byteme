@@ -7,3 +7,4 @@ in*.txt
 true*.txt
 log*.txt
 result*.txt
+test/*

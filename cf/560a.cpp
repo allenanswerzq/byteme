@@ -46,14 +46,19 @@ int main(int argc, char** argv) {
   cout << fixed;
 
 #ifdef LOCAL_FILE
-  // freopen("b-input.txt", "rt", stdin);
+  // freopen("560a-input.txt", "rt", stdin);
   clock_t begin = clock();
 #endif
 
-  int t; cin >> t >> ws;
-  fori (i, 1, t + 1) {
-
+  int n; cin >> n;
+  fori (i, 0, n) {
+    int a; cin >> a;
+    if (a == 1) {
+      outret(-1);
+      return 0;
+    }
   }
+  outret(1);
 
 #ifdef LOCAL_FILE
   clock_t end = clock();
@@ -63,3 +68,4 @@ int main(int argc, char** argv) {
 
   return 0;
 }
+

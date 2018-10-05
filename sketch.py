@@ -46,7 +46,7 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 typedef vector<vi> vvi;
 typedef vector<string> vs;
-typedef vector<vector<string>> vvs;
+typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
@@ -76,6 +76,7 @@ int main(int argc, char** argv) {
 
   return 0;
 }
+
 """
   return cpp2
 
