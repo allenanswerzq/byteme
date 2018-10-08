@@ -1,21 +1,21 @@
 #!/bin/bash
-all: compile run
+all: run
 compile:
 	@echo
 	@echo default directory: $(shell pwd)
 	@echo
-	g++ -o elf 519c.cpp --std=c++11 -O2
+	g++ -o elf 1033a.cpp --std=c++11 -O2 -Wall
 
-run:
+run: clean compile
 	@chmod +x ./elf
 	./elf
 
-test: compile
+test: clean compile
 	@chmod +x ./elf
-	split_samples in-519c.txt
-	run_samples in-519c.txt | tee log-519c.txt
-	@echo
-	diff -y result.txt true-519c.txt -W 100 | sed "s/ /-/g"
+	algo-split in-1033a.txt
+	algo-run in-1033a.cpp
+	@echo "====================" 
+	diff -y result.txt true-1033a.txt -W 100 | sed "s/ /-/g"
 
 clean:
-	rm ./elf
+	@rm -f ./elf input_* output_* result.txt

@@ -1,12 +1,10 @@
 #!/bin/bash
 all: compile run
-
 compile:
-	@echo
 	@echo
 	@echo default directory: $(shell pwd)
 	@echo
-	g++ -o elf p880.cpp --std=c++11
+	g++ -o elf p909.cpp --std=c++11 -O2
 
 run:
 	@chmod +x ./elf
@@ -14,20 +12,10 @@ run:
 
 test: compile
 	@chmod +x ./elf
-	./elf < in-p880.txt
-	@echo "\n---------------------"
-	./elf < in-p880.txt > p880-OOOOOOUT.txt
-	colordiff -y p880-OOOOOOUT.txt true-p880.txt -W 100
-
-small:
-	@echo "Making data.."
-	@-mv ~/Downloads/*-small-*.in ./
-	@cp ./*-small-*.in p880-IIIIIIIIIN.txt
-
-large:
-	@echo "Making data.."
-	@-mv ~/Downloads/*-large-*.in ./
-	@cp ./*-large-*.in p880-IIIIIIIIIN.txt
+	split_samples in-p909.txt
+	run_samples in-p909.txt | tee log-p909.txt
+	@echo
+	diff -y result.txt true-p909.txt -W 100 | sed "s/ /-/g"
 
 clean:
 	rm ./elf

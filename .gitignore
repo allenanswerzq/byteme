@@ -4,6 +4,8 @@ a.out
 elf
 misc
 in*.txt
+input_*
+output_*
 true*.txt
 log*.txt
 result*.txt

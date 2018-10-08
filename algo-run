@@ -1,0 +1,34 @@
+#!/bin/bash
+
+function trap_ctrlc () {
+  echo [1m[31mExit...[0m
+  exit 2
+}
+ 
+# Initialise trap to call trap_ctrlc function
+# when signal 2 (SIGINT) is received
+trap "trap_ctrlc" 2
+
+input_name=input_
+output_name=output_
+res_name=result.txt
+
+for test_file in "$input_name"*; do
+  if [[ "$test_file" == "input_*" ]]; then
+    echo [1m[31mEmpty input[0m
+    exit 2
+  fi
+
+  len=${#input_name}
+  num=${test_file:$len}
+  input="$input_name""$num"
+  output="$output_name""$num"
+  echo "===================="
+  # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
+  if ! { ./elf < "$input"; } | tee "$output"; then
+    echo [1m[31mRuntime error[0m
+  else
+    cat "$output" >> "$res_name"
+  fi
+  rm -f "$input" "$output"
+done
