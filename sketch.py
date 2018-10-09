@@ -11,7 +11,7 @@ def build_cpp(fn):
 using namespace std;
 
 #define pb push_back
-#define pend cout << '\n'
+#define pend cout << '\\n'
 #define pvar(x) cout << #x << ": "
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
@@ -19,15 +19,15 @@ using namespace std;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
-#define outret(v) cout << (v) << '\n'
-#define output(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
+#define outret(v) cout << (v) << '\\n'
+#define output(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\\n'
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {
-  cout << name << ": " << arg << '\n';
+  cout << name << ": " << arg << '\\n';
 }
 
 template <typename T, typename... Args>
@@ -67,7 +67,7 @@ int main(int argc, char** argv) {
 #ifdef EXTERNAL
   clock_t end = clock();
   double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << '\n';
+  cout << "elapsed(s): " << elapsed << '\\n';
 #endif
 
   return 0;
@@ -105,7 +105,6 @@ def generate_makefile(fn):
       '#!/bin/bash\n'
       'all: run\n'
       'compile:\n'
-      '\t@echo\n'
       '\t@echo default directory: $(shell pwd)\n'
       '\t@echo\n'
       '\tg++ -o elf {0}.cpp --std=c++11 -O2 -Wall\n'
