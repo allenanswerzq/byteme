@@ -5,7 +5,8 @@ import os
 import sys
 
 def build_cpp(fn):
-  name = fn[0:-4] + "-input.txt"
+  in_name = fn[0:-4] + "-input.txt"
+  out_name = fn[0:-4] + "-output.txt"
   cpp2 = """\
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,7 +38,16 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...);
 }
 
+double tick() {
+  static clock_t oldtick;
+  clock_t newtick = clock();
+  double diff = 1.0 * (newtick - oldtick) / CLOCKS_PER_SEC;
+  oldtick = newtick;
+  return diff;
+}
+
 typedef long long ll;
+typedef long double ld;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 typedef vector<vi> vvi;
@@ -46,29 +56,16 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define EXTERNAL
-
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
   cin.tie(0);
   cout.precision(5);
   cout << fixed;
 
-#ifdef EXTERNAL
-  // freopen(\"""" + name + """\", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   int t; cin >> t >> ws;
   fori (i, 1, t + 1) {
 
   }
-
-#ifdef EXTERNAL
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << '\\n';
-#endif
 
   return 0;
 }

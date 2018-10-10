@@ -3,7 +3,7 @@ all: run
 compile:
 	@echo default directory: $(shell pwd)
 	@echo
-	g++ -o elf 454a.cpp --std=c++11 -O2 -Wall
+	g++ -o elf b.cpp --std=c++11 -O2 -Wall
 
 run: clean compile
 	@chmod +x ./elf
@@ -11,10 +11,10 @@ run: clean compile
 
 test: clean compile
 	@chmod +x ./elf
-	algo-split in-454a.txt
-	algo-run in-454a.cpp
+	algo-split in-b.txt
+	algo-run in-b.cpp
 	@echo "====================" 
-	diff -y result.txt true-454a.txt -W 100 | sed "s/ /-/g"
+	diff -y result.txt true-b.txt -W 100 | sed "s/ /-/g"
 
 clean:
 	@rm -f ./elf input_* output_* result.txt
