@@ -34,7 +34,7 @@ public:
     vector<int> dp(n, 1);
     int i2 = 0, i3 = 0, i5 = 0;
     for (int i = 1; i < n; ++i) {
-      int cur_max = dp[i-1];
+      int cur_max = dp[i - 1];
       while (dp[i2] * 2 <= cur_max) i2++;
       while (dp[i3] * 3 <= cur_max) i3++;
       while (dp[i5] * 5 <= cur_max) i5++;

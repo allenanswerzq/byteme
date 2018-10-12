@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Tr",
+				"trieNode"
+			],
+			[
 				"out",
 				"outret"
 			],
@@ -510,10 +514,6 @@
 			[
 				"emp",
 				"emplace_back"
-			],
-			[
-				"uno",
-				"unordered_map"
 			]
 		]
 	},
@@ -671,6 +671,107 @@
 	],
 	"file_history":
 	[
+		"/Users/jche/Code/algos/codeforces/Makefile",
+		"/Users/jche/Code/algos/codeforces/true-573a.txt",
+		"/Users/jche/Code/algos/codeforces/in-573a.txt",
+		"/Users/jche/Code/algos/codeforces/573a.cpp",
+		"/Users/jche/Code/algos/test/Makefile",
+		"/Users/jche/Code/algos/test/true-a.txt",
+		"/Users/jche/Code/algos/test/in-a.txt",
+		"/Users/jche/Code/algos/test/a.cpp",
+		"/Users/jche/Code/algos/codeforces/334a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-334a.txt",
+		"/Users/jche/Code/algos/codeforces/true-334a.txt",
+		"/Users/jche/Code/algos/codeforces/698a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-698a.txt",
+		"/Users/jche/Code/algos/codeforces/true-698a.txt",
+		"/Users/jche/Code/algos/codeforces/true-999a.txt",
+		"/Users/jche/Code/algos/codeforces/in-999a.txt",
+		"/Users/jche/Code/algos/codeforces/999a.cpp",
+		"/Users/jche/Code/algos/hackerrank/30b.cpp",
+		"/Users/jche/Code/algos/hackerrank/Makefile",
+		"/Users/jche/Code/algos/hackerrank/true-30b.txt",
+		"/Users/jche/Code/algos/hackerrank/in-30b.txt",
+		"/Users/jche/Code/algos/hackerrank/log_0",
+		"/Users/jche/Code/algos/hackerrank/log_2",
+		"/Users/jche/Code/algos/third_party/codebook/trie-tree.cpp",
+		"/Users/jche/Code/algos/hackerrank/true-30a.txt",
+		"/Users/jche/Code/algos/hackerrank/in-30a.txt",
+		"/Users/jche/Code/algos/hackerrank/30a.cpp",
+		"/Users/jche/Code/algos/third_party/cosmos/code/string_algorithms/src/trie_pattern_search/trie.cpp",
+		"/Users/jche/Code/algos/codeforces/676a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-676a.txt",
+		"/Users/jche/Code/algos/codeforces/true-676a.txt",
+		"/Users/jche/Code/algos/codeforces/true-672a.txt",
+		"/Users/jche/Code/algos/codeforces/in-672a.txt",
+		"/Users/jche/Code/algos/codeforces/672a.cpp",
+		"/Users/jche/Code/algos/codeforces/true-611a.txt",
+		"/Users/jche/Code/algos/codeforces/in-611a.txt",
+		"/Users/jche/Code/algos/codeforces/611a.cpp",
+		"/Users/jche/Code/algos/codeforces/462a.cpp",
+		"/Users/jche/Code/algos/codeforces/true-462a.txt",
+		"/Users/jche/Code/algos/codeforces/in-462a.txt",
+		"/Users/jche/Code/algos/codeforces/805a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-805a.txt",
+		"/Users/jche/Code/algos/codeforces/true-805a.txt",
+		"/Users/jche/Code/algos/codeforces/true-935a.txt",
+		"/Users/jche/Code/algos/codeforces/in-935a.txt",
+		"/Users/jche/Code/algos/codeforces/935a.cpp",
+		"/Users/jche/Code/algos/codeforces/true-233a.txt",
+		"/Users/jche/Code/algos/codeforces/in-233a.txt",
+		"/Users/jche/Code/algos/codeforces/233a.cpp",
+		"/Users/jche/Code/algos/codeforces/401a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-401a.txt",
+		"/Users/jche/Code/algos/codeforces/true-401a.txt",
+		"/Users/jche/Code/algos/codeforces/918a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-918a.txt",
+		"/Users/jche/Code/algos/codeforces/true-919b.txt",
+		"/Users/jche/Code/algos/codeforces/in-919b.txt",
+		"/Users/jche/Code/algos/codeforces/919b.cpp",
+		"/Users/jche/Code/algos/codeforces/true-918a.txt",
+		"/Users/jche/Code/algos/sketch.py",
+		"/Users/jche/Code/algos/codeforces/log_0",
+		"/Users/jche/Code/algos/codeforces/454a.cpp",
+		"/Users/jche/Code/algos/leetcode/output_0.txt",
+		"/Users/jche/Code/algos/codeforces/1003a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-1003a.txt",
+		"/Users/jche/Code/algos/codeforces/true-1003a.txt",
+		"/Users/jche/Code/algos/codeforces/true-454a.txt",
+		"/Users/jche/Code/algos/codeforces/in-454a.txt",
+		"/Users/jche/Code/algos/codeforces/true-670a.txt",
+		"/Users/jche/Code/algos/codeforces/in-670a.txt",
+		"/Users/jche/Code/algos/codeforces/670a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-839a.txt",
+		"/Users/jche/Code/algos/third_party/algorithm/graph/traveling_salesman.cc",
+		"/Users/jche/Code/algos/codeforces/552b.cpp",
+		"/Users/jche/Code/algos/codeforces/in-552b.txt",
+		"/Users/jche/Code/algos/codeforces/true-552b.txt",
+		"/Users/jche/Code/algos/codeforces/688a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-688a.txt",
+		"/Users/jche/Code/algos/codeforces/true-688a.txt",
+		"/Users/jche/Code/algos/codeforces/977b.cpp",
+		"/Users/jche/Code/algos/codeforces/in-977b.txt",
+		"/Users/jche/Code/algos/codeforces/true-977b.txt",
+		"/Users/jche/Code/algos/codeforces/384a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-384a.txt",
+		"/Users/jche/Code/algos/codeforces/true-384a.txt",
+		"/Users/jche/Code/algos/codeforces/507b.cpp",
+		"/Users/jche/Code/algos/codeforces/in-507b.txt",
+		"/Users/jche/Code/algos/codeforces/true-507b.txt",
+		"/Users/jche/Code/algos/codeforces/true-681a.txt",
+		"/Users/jche/Code/algos/codeforces/in-681a.txt",
+		"/Users/jche/Code/algos/codeforces/681a.cpp",
+		"/Users/jche/Code/algos/codeforces/839a.cpp",
+		"/Users/jche/Code/algos/third_party/algorithm/math/bigint.cc",
+		"/Users/jche/Code/algos/third_party/codebook/bignum.cpp",
+		"/Users/jche/Code/algos/codeforces/true-839a.txt",
+		"/Users/jche/Code/algos/third_party/cosmos/code/unclassified/src/biggest_of_n_numbers/biggest_of_n.js",
+		"/Users/jche/Code/algos/codejam/2018/rounde/Makefile",
+		"/Users/jche/Code/algos/codejam/2018/rounde/true-b.txt",
+		"/Users/jche/Code/algos/codejam/2018/rounde/in-b.txt",
+		"/Users/jche/Code/algos/codejam/2018/rounde/b.cpp",
+		"/Users/jche/Code/algos/codejam/2018/rounde/a.cpp",
+		"/Users/jche/Code/algos/codeforces/500a.cpp",
 		"/Users/jche/Code/algos/cf/true-450a.txt",
 		"/Users/jche/Code/algos/cf/in-450a.txt",
 		"/Users/jche/Code/algos/cf/450a.cpp",
@@ -697,108 +798,7 @@
 		"/Users/jche/Code/algos/cf/764.cpp",
 		"/Users/jche/Code/algos/cf/true-675a.txt",
 		"/Users/jche/Code/algos/cf/in-675a.txt",
-		"/Users/jche/Code/algos/cf/675a.cpp",
-		"/Users/jche/Code/algos/cf/550c.cpp",
-		"/Users/jche/Code/algos/cf/in-550c.txt",
-		"/Users/jche/Code/algos/cf/true-550c.txt",
-		"/Users/jche/Code/algos/cf/746a.cpp",
-		"/Users/jche/Code/algos/cf/in-746a.txt",
-		"/Users/jche/Code/algos/cf/true-746a.txt",
-		"/Users/jche/Code/algos/cf/546b.cpp",
-		"/Users/jche/Code/algos/cf/in-546b.txt",
-		"/Users/jche/Code/algos/cf/true-546b.txt",
-		"/Users/jche/Code/algos/cf/501a.cpp",
-		"/Users/jche/Code/algos/cf/in-501a.txt",
-		"/Users/jche/Code/algos/cf/true-501a.txt",
-		"/Users/jche/Code/algos/cf/571a.cpp",
-		"/Users/jche/Code/algos/cf/in-571a.txt",
-		"/Users/jche/Code/algos/cf/true-571a.txt",
-		"/Users/jche/Code/algos/cf/572a.cpp",
-		"/Users/jche/Code/algos/cf/in-572a.txt",
-		"/Users/jche/Code/algos/cf/true-572a.txt",
-		"/Users/jche/Code/algos/cf/583a.cpp",
-		"/Users/jche/Code/algos/cf/in-583a.txt",
-		"/Users/jche/Code/algos/cf/true-583a.txt",
-		"/Users/jche/Code/algos/cf/894a.cpp",
-		"/Users/jche/Code/algos/cf/in-894a.txt",
-		"/Users/jche/Code/algos/cf/true-894a.txt",
-		"/Users/jche/Code/algos/codeforces/Makefile",
-		"/Users/jche/Code/algos/codejam/2018/rounde/a-output.txt",
-		"/Users/jche/Code/algos/codejam/2018/rounde/a.cpp",
-		"/Users/jche/Code/algos/cf/463b.cpp",
-		"/Users/jche/Code/algos/cf/Makefile",
-		"/Users/jche/Code/algos/cf/true-255a.txt",
-		"/Users/jche/Code/algos/cf/in-255a.txt",
-		"/Users/jche/Code/algos/cf/255a.cpp",
-		"/Users/jche/Code/algos/codejam/2018/rounde/A-small-practice.in",
-		"/Users/jche/Code/algos/codejam/Makefile",
-		"/Users/jche/Code/algos/codejam/true-a.txt",
-		"/Users/jche/Code/algos/codejam/in-a.txt",
-		"/Users/jche/Code/algos/codejam/a.cpp",
-		"/Users/jche/Code/algos/cf/550a.cpp",
-		"/Users/jche/Code/algos/cf/true-378a.txt",
-		"/Users/jche/Code/algos/cf/in-378a.txt",
-		"/Users/jche/Code/algos/cf/378a.cpp",
-		"/Users/jche/Code/algos/cf/in-463b.txt",
-		"/Users/jche/Code/algos/cf/true-463b.txt",
-		"/Users/jche/Code/algos/cf/276a.cpp",
-		"/Users/jche/Code/algos/cf/in-276a.txt",
-		"/Users/jche/Code/algos/cf/true-276a.txt",
-		"/Users/jche/Code/algos/cf/476b.cpp",
-		"/Users/jche/Code/algos/cf/in-476b.txt",
-		"/Users/jche/Code/algos/cf/true-476b.txt",
-		"/Users/jche/Code/algos/cf/true-761a.txt",
-		"/Users/jche/Code/algos/cf/in-761a.txt",
-		"/Users/jche/Code/algos/cf/761a.cpp",
-		"/Users/jche/Code/algos/cf/gen.py",
-		"/Users/jche/Code/algos/third_party/codebook/combination.cpp",
-		"/Users/jche/Code/algos/sketch.py",
-		"/Users/jche/Code/algos/cf/835a.cpp",
-		"/Users/jche/Code/algos/cf/in-835a.txt",
-		"/Users/jche/Code/algos/cf/true-835a.txt",
-		"/Users/jche/Code/algos/cf/706a.cpp",
-		"/Users/jche/Code/algos/cf/in-706a.txt",
-		"/Users/jche/Code/algos/cf/true-706a.txt",
-		"/Users/jche/Code/algos/cf/320a.cpp",
-		"/Users/jche/Code/algos/cf/in-320a.txt",
-		"/Users/jche/Code/algos/cf/true-320a.txt",
-		"/Users/jche/Code/algos/cf/1033a.cpp",
-		"/Users/jche/Code/algos/cf/in-1033a.txt",
-		"/Users/jche/Code/algos/cf/true-1033a.txt",
-		"/Users/jche/Code/algos/cf/true-1033b.txt",
-		"/Users/jche/Code/algos/cf/in-1033b.txt",
-		"/Users/jche/Code/algos/cf/1033b.cpp",
-		"/Users/jche/Code/algos/third_party/codebook/prime.cpp",
-		"/Users/jche/Code/algos/third_party/cosmos/code/mathematical_algorithms/src/prime_factors/prime_factors.c",
-		"/Users/jche/Code/algos/third_party/cosmos/code/mathematical_algorithms/src/prime_factors/prime_factors.cpp",
-		"/Users/jche/Code/algos/third_party/cosmos/code/mathematical_algorithms/src/factorial/factorial_iteration.py",
-		"/Users/jche/Code/algos/third_party/cosmos/code/mathematical_algorithms/src/factorial/factorial_recursion.cpp",
-		"/Users/jche/Code/algos/third_party/algorithm/graph/gabow_edmonds.cc",
-		"/Users/jche/Code/algos/cf/43a.cpp",
-		"/Users/jche/Code/algos/cf/in-43a.txt",
-		"/Users/jche/Code/algos/cf/true-43a.txt",
-		"/Users/jche/Code/algos/cf/461a.cpp",
-		"/Users/jche/Code/algos/cf/in-461a.txt",
-		"/Users/jche/Code/algos/cf/true-461a.txt",
-		"/Users/jche/Code/algos/cf/988a.cpp",
-		"/Users/jche/Code/algos/cf/in-988a.txt",
-		"/Users/jche/Code/algos/cf/true-988a.txt",
-		"/Users/jche/Code/algos/cf/1006a.cpp",
-		"/Users/jche/Code/algos/cf/in-1006a.txt",
-		"/Users/jche/Code/algos/cf/true-1006a.txt",
-		"/Users/jche/Code/algos/cf/441a.cpp",
-		"/Users/jche/Code/algos/cf/in-441a.txt",
-		"/Users/jche/Code/algos/cf/true-441a.txt",
-		"/Users/jche/Code/algos/cf/1030a.cpp",
-		"/Users/jche/Code/algos/cf/in-1030a.txt",
-		"/Users/jche/Code/algos/cf/true-1030a.txt",
-		"/Users/jche/Code/algos/third_party/algorithm/other/subset_sum.cc",
-		"/Users/jche/Code/algos/cf/507a.cpp",
-		"/Users/jche/Code/algos/cf/in-507a.txt",
-		"/Users/jche/Code/algos/cf/true-507a.txt",
-		"/Users/jche/Code/algos/cf/true-798a.txt",
-		"/Users/jche/Code/algos/cf/in-798a.txt",
-		"/Users/jche/Code/algos/cf/798a.cpp"
+		"/Users/jche/Code/algos/cf/675a.cpp"
 	],
 	"find":
 	{
@@ -816,6 +816,51 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"t",
+			"_f",
+			"t",
+			"1010",
+			"v",
+			"sport",
+			"gym",
+			"x",
+			"t",
+			"ret",
+			"t",
+			"back",
+			"pop_back",
+			"pb",
+			"deque",
+			"ret",
+			"aa",
+			"bb",
+			"------------------",
+			"ret",
+			"v",
+			"push_back",
+			"root",
+			"dfs",
+			"walk",
+			"trieNode",
+			"t",
+			"mx",
+			"mi",
+			"t",
+			"i",
+			"t",
+			"j",
+			"t",
+			"int",
+			"dp",
+			"t",
+			"ch",
+			"int",
+			"n",
+			"t",
+			"bigint",
+			"ll",
+			"int",
+			"ou_name",
 			"t",
 			"vv",
 			"hh",
@@ -963,6 +1008,78 @@
 		"selected_items":
 		[
 			[
+				"30b",
+				"hackerrank/30b.cpp"
+			],
+			[
+				"log",
+				"hackerrank/log_2"
+			],
+			[
+				"trie",
+				"third_party/cosmos/code/string_algorithms/src/trie_pattern_search/trie.cpp"
+			],
+			[
+				"trie-",
+				"third_party/codebook/trie-tree.cpp"
+			],
+			[
+				"sk",
+				"sketch.py"
+			],
+			[
+				"out",
+				"leetcode/output_0.txt"
+			],
+			[
+				"454",
+				"codeforces/454a.cpp"
+			],
+			[
+				"trav",
+				"third_party/algorithm/graph/traveling_salesman.cc"
+			],
+			[
+				"in-839",
+				"codeforces/in-839a.txt"
+			],
+			[
+				"839",
+				"codeforces/839a.cpp"
+			],
+			[
+				"bigint",
+				"third_party/algorithm/math/bigint.cc"
+			],
+			[
+				"bigin",
+				"third_party/algorithm/math/bigint.cc"
+			],
+			[
+				"bignum",
+				"third_party/codebook/bignum.cpp"
+			],
+			[
+				"big",
+				"third_party/cosmos/code/unclassified/src/biggest_of_n_numbers/biggest_of_n.js"
+			],
+			[
+				"bi",
+				"third_party/algorithm/math/bigint.cc"
+			],
+			[
+				"a.c",
+				"codejam/2018/rounde/a.cpp"
+			],
+			[
+				"5",
+				"codeforces/500a.cpp"
+			],
+			[
+				"make",
+				"codeforces/Makefile"
+			],
+			[
 				"a-ou",
 				"codejam/2018/rounde/a-output.txt"
 			],
@@ -985,10 +1102,6 @@
 			[
 				"gen.",
 				"cf/gen.py"
-			],
-			[
-				"sk",
-				"sketch.py"
 			],
 			[
 				"comb",
@@ -1043,10 +1156,6 @@
 				"cf/Makefile"
 			],
 			[
-				"make",
-				"cf/Makefile"
-			],
-			[
 				"Ma",
 				"third_party/algorithm/number_theory/modular_arithmetics.cc"
 			],
@@ -1089,10 +1198,6 @@
 			[
 				"1b.",
 				"cf/1b.cpp"
-			],
-			[
-				"big",
-				"third_party/algorithm/math/bigint.cc"
 			],
 			[
 				"gcd",
@@ -1245,10 +1350,6 @@
 			[
 				"combi",
 				"third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp"
-			],
-			[
-				"a.c",
-				"test/a.cpp"
 			],
 			[
 				"bin",
@@ -1417,62 +1518,6 @@
 			[
 				"p274.",
 				"leet/p274.cpp"
-			],
-			[
-				"p273.c",
-				"leet/p237.cpp"
-			],
-			[
-				"p272.c",
-				"leet/p272.cpp"
-			],
-			[
-				"p270",
-				"leet/p270.cpp"
-			],
-			[
-				"top",
-				"third_party/graph_algorithms/Topsort.cpp"
-			],
-			[
-				"p269.c",
-				"leet/p269.cpp"
-			],
-			[
-				"p268.c",
-				"leet/p268.cpp"
-			],
-			[
-				"p267.c",
-				"leet/p267.cpp"
-			],
-			[
-				"p266.cp",
-				"leet/p266.cpp"
-			],
-			[
-				"p265.c",
-				"leet/p265.cpp"
-			],
-			[
-				"p264c",
-				"leet/p264.cpp"
-			],
-			[
-				"p69",
-				"leet/p69.cpp"
-			],
-			[
-				"p261.c",
-				"leet/p261.cpp"
-			],
-			[
-				"p260.c",
-				"leet/p260.cpp"
-			],
-			[
-				"p259.c",
-				"leet/p259.cpp"
 			]
 		],
 		"width": 0.0
@@ -1566,10 +1611,10 @@
 	"selected_group": 0,
 	"settings":
 	{
-		"_vintageous_last_buffer_search": "LOCA",
+		"_vintageous_last_buffer_search": "main",
 		"_vintageous_last_buffer_search_command": "vi_slash",
 		"_vintageous_last_char_search_command": "vi_f",
-		"_vintageous_last_character_search": "i",
+		"_vintageous_last_character_search": "f",
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{
