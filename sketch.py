@@ -90,11 +90,13 @@ def generate_file(fn):
   name = fn[0: -4]
   os.system('touch true-' + name + '.txt')
   os.system('touch in-' + name +'.txt')
-  os.system(cmd + 'Makefile')
+  make = 'Makefile-' + name
+  os.system('mv Makefile ' + make)
+  os.system(cmd + make)
   os.system(cmd + ' true-' + name + '.txt')
   os.system(cmd + ' in-' + name + '.txt')
   os.system(cmd + fn)
-  os.system("algo-make")
+  os.system('algo-make ' + make)
 
 
 def generate_makefile(fn):

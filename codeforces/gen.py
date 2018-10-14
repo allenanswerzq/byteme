@@ -1,5 +1,5 @@
 import numpy as np
 
-for i in range(2**10):
-  print(bin(i))
+for i in range(100):
+  print(90*i)
 
