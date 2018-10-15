@@ -1,2 +1,2 @@
 # algos
-Some algorithm exercieses
+My algorithm exercieses, Keep coding!!!
