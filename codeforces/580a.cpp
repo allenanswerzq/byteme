@@ -42,11 +42,6 @@ int main(int argc, char** argv) {
   cout.precision(5);
   cout << fixed;
 
-#ifdef LOCAL_FILE
-  // freopen("580a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   vi aa;
   int t; cin >> t >> ws;
   fori (i, 1, t + 1) {
@@ -57,16 +52,13 @@ int main(int argc, char** argv) {
   int ret = 0;
   fori (i, 0, sz(aa)) {
     int cnt = 1;
-    while (i + 1 < sz(aa) && aa[i] <= aa[i+1]) {++cnt; ++i;}
+    while (i + 1 < sz(aa) && aa[i] <= aa[i+1]) {
+      ++cnt; 
+      ++i;
+    }
     ret = max(ret, cnt);
   }
   outret(ret);
   
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
-
   return 0;
 }

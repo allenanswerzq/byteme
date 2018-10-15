@@ -96,7 +96,7 @@ def generate_file(fn):
   os.system(cmd + ' true-' + name + '.txt')
   os.system(cmd + ' in-' + name + '.txt')
   os.system(cmd + fn)
-  os.system('algo-make ' + make)
+  os.system('algo-make test ' + make)
 
 
 def generate_makefile(fn):
