@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Generate a file skeleton for my algorithm practice."""
 
 import os
@@ -20,8 +20,8 @@ using namespace std;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
-#define outret(v) cout << (v) << '\\n'
-#define output(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\\n'
+#define output(v) cout << (v) << '\\n'
+#define outjam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\\n'
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
@@ -130,4 +130,5 @@ if __name__ == "__main__":
     file_name = sys.argv[1]
     generate_makefile(file_name)
     generate_file(file_name)
+    # sys.exit(0)
 

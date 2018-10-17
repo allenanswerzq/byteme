@@ -519,6 +519,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "codeforces/431a.cpp",
+			"settings":
+			{
+				"buffer_size": 1877,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -531,6 +539,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"open",
+				"PackageResourceViewer: Open Resource"
+			],
 			[
 				"ke",
 				"Preferences: Key Bindings"
@@ -550,10 +566,6 @@
 			[
 				"co",
 				"Origami: Create Pane on the Left"
-			],
-			[
-				"open",
-				"PackageResourceViewer: Open Resource"
 			],
 			[
 				"ope",
@@ -630,10 +642,6 @@
 			[
 				"re",
 				"Package Control: Remove Package"
-			],
-			[
-				"pack",
-				"Package Control: Remove Package"
 			]
 		],
 		"width": 412.0
@@ -671,134 +679,134 @@
 	],
 	"file_history":
 	[
-		"/Users/jche/Code/algos/codeforces/Makefile",
-		"/Users/jche/Code/algos/codeforces/true-573a.txt",
-		"/Users/jche/Code/algos/codeforces/in-573a.txt",
-		"/Users/jche/Code/algos/codeforces/573a.cpp",
-		"/Users/jche/Code/algos/test/Makefile",
+		"/Users/jche/Code/algos/codeforces/Makefile-431c",
+		"/Users/jche/Code/algos/codeforces/true-431c.txt",
+		"/Users/jche/Code/algos/gen.py",
+		"/Users/jche/Code/algos/codeforces/431c.cpp",
+		"/Users/jche/Code/algos/codeforces/in-431c.txt",
+		"/Users/jche/Code/algos/sketch.py",
+		"/Users/jche/Code/algos/codeforces/796a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-796a.txt",
+		"/Users/jche/Code/algos/codeforces/true-796a.txt",
+		"/Users/jche/Code/algos/codeforces/Makefile-796a",
+		"/Users/jche/Code/algos/codeforces/709a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-709a.txt",
+		"/Users/jche/Code/algos/codeforces/true-709a.txt",
+		"/Users/jche/Code/algos/codeforces/Makefile-709a",
+		"/Users/jche/Code/algos/codeforces/Makefile-80a",
+		"/Users/jche/Code/algos/codeforces/true-80a.txt",
+		"/Users/jche/Code/algos/codeforces/in-80a.txt",
+		"/Users/jche/Code/algos/codeforces/80a.cpp",
+		"/Users/jche/Code/algos/codeforces/580d.cpp",
+		"/Users/jche/Code/algos/README.md",
+		"/Users/jche/Code/algos/codeforces/Makefile-580d",
+		"/Users/jche/Code/algos/codeforces/true-580d.txt",
+		"/Users/jche/Code/algos/codeforces/in-580d.txt",
+		"/Users/jche/Code/algos/codeforces/580c.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-580b",
+		"/Users/jche/Code/algos/codeforces/true-580b.txt",
+		"/Users/jche/Code/algos/codeforces/in-580b.txt",
+		"/Users/jche/Code/algos/codeforces/580b.cpp",
+		"/Users/jche/Code/algos/codeforces/538b.cpp",
+		"/Users/jche/Code/algos/codeforces/580a.cpp",
+		"/Users/jche/Code/algos/codeforces/log_1",
+		"/Users/jche/Code/algos/codeforces/Makefile-538b",
+		"/Users/jche/Code/algos/codeforces/true-538b.txt",
+		"/Users/jche/Code/algos/codeforces/in-538b.txt",
+		"/Users/jche/Code/algos/leetcode/Makefile-924",
+		"/Users/jche/Code/algos/leetcode/true-924.txt",
+		"/Users/jche/Code/algos/leetcode/in-924.txt",
+		"/Users/jche/Code/algos/leetcode/924.cpp",
+		"/Users/jche/Code/algos/leetcode/Makefile-922",
+		"/Users/jche/Code/algos/leetcode/true-922.txt",
+		"/Users/jche/Code/algos/leetcode/in-922.txt",
+		"/Users/jche/Code/algos/leetcode/922.cpp",
+		"/Users/jche/Code/algos/leetcode/Makefile-921",
+		"/Users/jche/Code/algos/leetcode/true-921.txt",
+		"/Users/jche/Code/algos/leetcode/in-921.txt",
+		"/Users/jche/Code/algos/leetcode/921.cpp",
+		"/Users/jche/Code/algos/leetcode/Makefile-923",
+		"/Users/jche/Code/algos/leetcode/true-923.txt",
+		"/Users/jche/Code/algos/leetcode/in-923.txt",
+		"/Users/jche/Code/algos/leetcode/923.cpp",
+		"/Users/jche/Code/algos/third_party/codebook/combination.cpp",
+		"/Users/jche/Code/algos/codeforces/1065b.cpp",
+		"/Users/jche/Code/algos/codeforces/3a.cpp",
+		"/Users/jche/Code/algos/test/log_0",
+		"/Users/jche/Code/algos/test/in-b.txt",
+		"/Users/jche/Code/algos/test/gen.py",
+		"/Users/jche/Code/algos/test/b.cpp",
+		"/Users/jche/Code/algos/test/Makefile-c",
+		"/Users/jche/Code/algos/test/true-c.txt",
+		"/Users/jche/Code/algos/test/in-c.txt",
+		"/Users/jche/Code/algos/test/c.cpp",
+		"/Users/jche/Code/algos/test/log-b.txt",
+		"/Users/jche/Code/algos/codeforces/gen.py",
+		"/Users/jche/Code/algos/test/Makefile-a",
 		"/Users/jche/Code/algos/test/true-a.txt",
 		"/Users/jche/Code/algos/test/in-a.txt",
 		"/Users/jche/Code/algos/test/a.cpp",
-		"/Users/jche/Code/algos/codeforces/334a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-334a.txt",
-		"/Users/jche/Code/algos/codeforces/true-334a.txt",
-		"/Users/jche/Code/algos/codeforces/698a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-698a.txt",
-		"/Users/jche/Code/algos/codeforces/true-698a.txt",
-		"/Users/jche/Code/algos/codeforces/true-999a.txt",
-		"/Users/jche/Code/algos/codeforces/in-999a.txt",
-		"/Users/jche/Code/algos/codeforces/999a.cpp",
-		"/Users/jche/Code/algos/hackerrank/30b.cpp",
-		"/Users/jche/Code/algos/hackerrank/Makefile",
-		"/Users/jche/Code/algos/hackerrank/true-30b.txt",
-		"/Users/jche/Code/algos/hackerrank/in-30b.txt",
-		"/Users/jche/Code/algos/hackerrank/log_0",
-		"/Users/jche/Code/algos/hackerrank/log_2",
-		"/Users/jche/Code/algos/third_party/codebook/trie-tree.cpp",
-		"/Users/jche/Code/algos/hackerrank/true-30a.txt",
-		"/Users/jche/Code/algos/hackerrank/in-30a.txt",
-		"/Users/jche/Code/algos/hackerrank/30a.cpp",
-		"/Users/jche/Code/algos/third_party/cosmos/code/string_algorithms/src/trie_pattern_search/trie.cpp",
-		"/Users/jche/Code/algos/codeforces/676a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-676a.txt",
-		"/Users/jche/Code/algos/codeforces/true-676a.txt",
-		"/Users/jche/Code/algos/codeforces/true-672a.txt",
-		"/Users/jche/Code/algos/codeforces/in-672a.txt",
-		"/Users/jche/Code/algos/codeforces/672a.cpp",
-		"/Users/jche/Code/algos/codeforces/true-611a.txt",
-		"/Users/jche/Code/algos/codeforces/in-611a.txt",
-		"/Users/jche/Code/algos/codeforces/611a.cpp",
-		"/Users/jche/Code/algos/codeforces/462a.cpp",
-		"/Users/jche/Code/algos/codeforces/true-462a.txt",
-		"/Users/jche/Code/algos/codeforces/in-462a.txt",
-		"/Users/jche/Code/algos/codeforces/805a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-805a.txt",
-		"/Users/jche/Code/algos/codeforces/true-805a.txt",
-		"/Users/jche/Code/algos/codeforces/true-935a.txt",
-		"/Users/jche/Code/algos/codeforces/in-935a.txt",
-		"/Users/jche/Code/algos/codeforces/935a.cpp",
-		"/Users/jche/Code/algos/codeforces/true-233a.txt",
-		"/Users/jche/Code/algos/codeforces/in-233a.txt",
-		"/Users/jche/Code/algos/codeforces/233a.cpp",
-		"/Users/jche/Code/algos/codeforces/401a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-401a.txt",
-		"/Users/jche/Code/algos/codeforces/true-401a.txt",
-		"/Users/jche/Code/algos/codeforces/918a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-918a.txt",
-		"/Users/jche/Code/algos/codeforces/true-919b.txt",
-		"/Users/jche/Code/algos/codeforces/in-919b.txt",
-		"/Users/jche/Code/algos/codeforces/919b.cpp",
-		"/Users/jche/Code/algos/codeforces/true-918a.txt",
-		"/Users/jche/Code/algos/sketch.py",
+		"/Users/jche/Code/algos/codeforces/Makefile-b",
+		"/Users/jche/Code/algos/codeforces/true-b.txt",
+		"/Users/jche/Code/algos/codeforces/in-b.txt",
+		"/Users/jche/Code/algos/codeforces/b.cpp",
+		"/Users/jche/.tmux.conf",
+		"/Users/jche/Code/algos/codeforces/Makefile-352a",
+		"/Users/jche/Code/algos/codeforces/true-352a.txt",
+		"/Users/jche/Code/algos/codeforces/in-352a.txt",
+		"/Users/jche/Code/algos/codeforces/352a.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-3a",
+		"/Users/jche/Code/algos/codeforces/true-3a.txt",
+		"/Users/jche/Code/algos/codeforces/in-3a.txt",
+		"/Users/jche/Code/algos/.gitignore",
+		"/Users/jche/Code/algos/codeforces/Makefile",
+		"/Users/jche/Code/algos/codeforces/912a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-912a.txt",
+		"/Users/jche/Code/algos/codeforces/true-912a.txt",
+		"/Users/jche/Code/algos/codeforces/true-385a.txt",
+		"/Users/jche/Code/algos/codeforces/in-385a.txt",
+		"/Users/jche/Code/algos/codeforces/385a.cpp",
+		"/Users/jche/.config/alacritty/alacritty.yml",
+		"/Users/jche/Library/Application Support/Sublime Text 3/Packages/MonokaiFree/MonokaiFree.tmTheme",
+		"/Users/jche/Code/algos/codeforces/672b.cpp",
+		"/Users/jche/Code/algos/codeforces/in-672b.txt",
+		"/Users/jche/Code/algos/codeforces/true-672b.txt",
+		"/Users/jche/Code/algos/codeforces/true-38a.txt",
+		"/Users/jche/Code/algos/codeforces/in-38a.txt",
+		"/Users/jche/Code/algos/codeforces/38a.cpp",
+		"/Users/jche/Code/algos/test/Makefile",
+		"/Users/jche/Code/algos/test/true-b.txt",
+		"/Users/jche/Code/algos/codeforces/true-610a.txt",
+		"/Users/jche/Code/algos/codeforces/in-610a.txt",
+		"/Users/jche/Code/algos/codeforces/610a.cpp",
+		"/Users/jche/Code/algos/codeforces/339a.cpp",
+		"/Users/jche/Code/algos/codeforces/441a.cpp",
+		"/Users/jche/Code/algos/codeforces/263a.cpp",
+		"/Users/jche/Code/algos/codeforces/true-680b.txt",
+		"/Users/jche/Code/algos/codeforces/in-680b.txt",
+		"/Users/jche/Code/algos/codeforces/680b.cpp",
+		"/Users/jche/Code/algos/codeforces/true-258a.txt",
+		"/Users/jche/Code/algos/codeforces/in-258a.txt",
+		"/Users/jche/Code/algos/codeforces/258a.cpp",
+		"/Users/jche/Code/algos/leetcode/p258.cpp",
+		"/Users/jche/Code/algos/codeforces/true-445a.txt",
+		"/Users/jche/Code/algos/codeforces/in-445a.txt",
+		"/Users/jche/Code/algos/codeforces/445a.cpp",
+		"/Users/jche/Code/algos/codeforces/in-697a.txt",
+		"/Users/jche/Code/algos/codeforces/697a.cpp",
+		"/Users/jche/Code/algos/codeforces/true-915a.txt",
+		"/Users/jche/Code/algos/codeforces/in-915a.txt",
+		"/Users/jche/Code/algos/codeforces/915a.cpp",
+		"/Users/jche/Code/algos/codeforces/true-697a.txt",
 		"/Users/jche/Code/algos/codeforces/log_0",
-		"/Users/jche/Code/algos/codeforces/454a.cpp",
-		"/Users/jche/Code/algos/leetcode/output_0.txt",
-		"/Users/jche/Code/algos/codeforces/1003a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-1003a.txt",
-		"/Users/jche/Code/algos/codeforces/true-1003a.txt",
-		"/Users/jche/Code/algos/codeforces/true-454a.txt",
-		"/Users/jche/Code/algos/codeforces/in-454a.txt",
-		"/Users/jche/Code/algos/codeforces/true-670a.txt",
-		"/Users/jche/Code/algos/codeforces/in-670a.txt",
-		"/Users/jche/Code/algos/codeforces/670a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-839a.txt",
-		"/Users/jche/Code/algos/third_party/algorithm/graph/traveling_salesman.cc",
-		"/Users/jche/Code/algos/codeforces/552b.cpp",
-		"/Users/jche/Code/algos/codeforces/in-552b.txt",
-		"/Users/jche/Code/algos/codeforces/true-552b.txt",
-		"/Users/jche/Code/algos/codeforces/688a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-688a.txt",
-		"/Users/jche/Code/algos/codeforces/true-688a.txt",
-		"/Users/jche/Code/algos/codeforces/977b.cpp",
-		"/Users/jche/Code/algos/codeforces/in-977b.txt",
-		"/Users/jche/Code/algos/codeforces/true-977b.txt",
-		"/Users/jche/Code/algos/codeforces/384a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-384a.txt",
-		"/Users/jche/Code/algos/codeforces/true-384a.txt",
-		"/Users/jche/Code/algos/codeforces/507b.cpp",
-		"/Users/jche/Code/algos/codeforces/in-507b.txt",
-		"/Users/jche/Code/algos/codeforces/true-507b.txt",
-		"/Users/jche/Code/algos/codeforces/true-681a.txt",
-		"/Users/jche/Code/algos/codeforces/in-681a.txt",
-		"/Users/jche/Code/algos/codeforces/681a.cpp",
-		"/Users/jche/Code/algos/codeforces/839a.cpp",
-		"/Users/jche/Code/algos/third_party/algorithm/math/bigint.cc",
-		"/Users/jche/Code/algos/third_party/codebook/bignum.cpp",
-		"/Users/jche/Code/algos/codeforces/true-839a.txt",
-		"/Users/jche/Code/algos/third_party/cosmos/code/unclassified/src/biggest_of_n_numbers/biggest_of_n.js",
-		"/Users/jche/Code/algos/codejam/2018/rounde/Makefile",
-		"/Users/jche/Code/algos/codejam/2018/rounde/true-b.txt",
-		"/Users/jche/Code/algos/codejam/2018/rounde/in-b.txt",
-		"/Users/jche/Code/algos/codejam/2018/rounde/b.cpp",
-		"/Users/jche/Code/algos/codejam/2018/rounde/a.cpp",
-		"/Users/jche/Code/algos/codeforces/500a.cpp",
-		"/Users/jche/Code/algos/cf/true-450a.txt",
-		"/Users/jche/Code/algos/cf/in-450a.txt",
-		"/Users/jche/Code/algos/cf/450a.cpp",
-		"/Users/jche/Code/algos/cf/true-804a.txt",
-		"/Users/jche/Code/algos/cf/in-804a.txt",
-		"/Users/jche/Code/algos/cf/804a.cpp",
-		"/Users/jche/Code/algos/cf/true-34b.txt",
-		"/Users/jche/Code/algos/cf/in-34b.txt",
-		"/Users/jche/Code/algos/cf/34b.cpp",
-		"/Users/jche/Code/algos/cf/true-34v.txt",
-		"/Users/jche/Code/algos/cf/in-34v.txt",
-		"/Users/jche/Code/algos/cf/34v.cpp",
-		"/Users/jche/Code/algos/cf/true-598a.txt",
-		"/Users/jche/Code/algos/cf/in-598a.txt",
-		"/Users/jche/Code/algos/cf/598a.cpp",
-		"/Users/jche/Code/algos/cf/true-919a.txt",
-		"/Users/jche/Code/algos/cf/in-919a.txt",
-		"/Users/jche/Code/algos/cf/919a.cpp",
-		"/Users/jche/Code/algos/cf/true-764a.txt",
-		"/Users/jche/Code/algos/cf/in-764a.txt",
-		"/Users/jche/Code/algos/cf/764a.cpp",
-		"/Users/jche/Code/algos/cf/true-764.txt",
-		"/Users/jche/Code/algos/cf/in-764.txt",
-		"/Users/jche/Code/algos/cf/764.cpp",
-		"/Users/jche/Code/algos/cf/true-675a.txt",
-		"/Users/jche/Code/algos/cf/in-675a.txt",
-		"/Users/jche/Code/algos/cf/675a.cpp"
+		"/Users/jche/Code/algos/codeforces/true-591a.txt",
+		"/Users/jche/Code/algos/codeforces/in-591a.txt",
+		"/Users/jche/Code/algos/codeforces/591a.cpp",
+		"/Users/jche/Code/algos/codeforces/true-496a.txt",
+		"/Users/jche/Code/algos/codeforces/in-496a.txt",
+		"/Users/jche/Code/algos/codeforces/496a.cpp",
+		"/Users/jche/Code/algos/codeforces/true-1005a.txt",
+		"/Users/jche/Code/algos/codeforces/in-1005a.txt"
 	],
 	"find":
 	{
@@ -816,6 +824,53 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"int",
+			"parent",
+			"int",
+			"n",
+			"int",
+			"z",
+			"mid",
+			"a",
+			"n",
+			"b",
+			"t",
+			"#!/",
+			"0",
+			"2",
+			"n",
+			"sovle",
+			"int",
+			"t",
+			"ret",
+			"bb",
+			"aa",
+			"dst",
+			"src",
+			"cur",
+			"pre",
+			"1",
+			"yellow",
+			"t",
+			"cn",
+			"c",
+			"ret",
+			"sovle",
+			"dfs",
+			"x",
+			"sovle",
+			"t",
+			"kk",
+			"ii",
+			"flag",
+			"t",
+			"cnt",
+			"sovle",
+			"t",
+			"ret",
+			"t",
+			"two",
+			"int",
 			"t",
 			"_f",
 			"t",
@@ -896,35 +951,7 @@
 			"1",
 			"compile",
 			"RES_NAME",
-			"OUTPUT_NAME",
-			"INPUT_NAME",
-			"test_file",
-			"i",
-			"test_case",
-			"output_file",
-			"input_file",
-			"a",
-			"line",
-			"cur",
-			"sovle",
-			"t",
-			"ret",
-			"a",
-			"g",
-			"cur",
-			"y",
-			"i",
-			"y",
-			"Bear",
-			"int",
-			"b",
-			"a",
-			"y",
-			"x",
-			"n_gg",
-			"{[-",
-			"ret",
-			"_gcd"
+			"OUTPUT_NAME"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -942,8 +969,143 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "codeforces/431a.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1877,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								313,
+								313
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										314,
+										315
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										312,
+										313
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 36
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1008,12 +1170,120 @@
 		"selected_items":
 		[
 			[
-				"30b",
-				"hackerrank/30b.cpp"
+				"431",
+				"codeforces/431a.cpp"
+			],
+			[
+				"sk",
+				"sketch.py"
+			],
+			[
+				"580d",
+				"codeforces/580d.cpp"
+			],
+			[
+				"re",
+				"README.md"
+			],
+			[
+				"580c",
+				"codeforces/580c.cpp"
+			],
+			[
+				"538",
+				"codeforces/538b.cpp"
 			],
 			[
 				"log",
-				"hackerrank/log_2"
+				"codeforces/log_1"
+			],
+			[
+				"comb",
+				"third_party/codebook/combination.cpp"
+			],
+			[
+				"com",
+				"third_party/codebook/combination.cpp"
+			],
+			[
+				"1065b",
+				"codeforces/1065b.cpp"
+			],
+			[
+				"3a",
+				"codeforces/3a.cpp"
+			],
+			[
+				"gen",
+				"test/gen.py"
+			],
+			[
+				"in-b",
+				"test/in-b.txt"
+			],
+			[
+				"b.",
+				"test/b.cpp"
+			],
+			[
+				"log-",
+				"test/log-b.txt"
+			],
+			[
+				"ge.py",
+				"test/gen.py"
+			],
+			[
+				"gen.",
+				"codeforces/gen.py"
+			],
+			[
+				".gi",
+				".gitignore"
+			],
+			[
+				"makef",
+				"codeforces/Makefile-3a"
+			],
+			[
+				".git",
+				".gitignore"
+			],
+			[
+				"ma",
+				"test/Makefile"
+			],
+			[
+				"441",
+				"codeforces/441a.cpp"
+			],
+			[
+				"339a",
+				"codeforces/339a.cpp"
+			],
+			[
+				"263a",
+				"codeforces/263a.cpp"
+			],
+			[
+				"258",
+				"leetcode/p258.cpp"
+			],
+			[
+				"p264",
+				"leetcode/p264.cpp"
+			],
+			[
+				"l",
+				"codeforces/log_0"
+			],
+			[
+				"573a",
+				"codeforces/573a.cpp"
+			],
+			[
+				"30b",
+				"hackerrank/30b.cpp"
 			],
 			[
 				"trie",
@@ -1022,10 +1292,6 @@
 			[
 				"trie-",
 				"third_party/codebook/trie-tree.cpp"
-			],
-			[
-				"sk",
-				"sketch.py"
 			],
 			[
 				"out",
@@ -1084,10 +1350,6 @@
 				"codejam/2018/rounde/a-output.txt"
 			],
 			[
-				"makef",
-				"codeforces/Makefile"
-			],
-			[
 				"a.",
 				"codejam/2018/rounde/a.cpp"
 			],
@@ -1098,14 +1360,6 @@
 			[
 				"550a",
 				"cf/550a.cpp"
-			],
-			[
-				"gen.",
-				"cf/gen.py"
-			],
-			[
-				"comb",
-				"third_party/codebook/combination.cpp"
 			],
 			[
 				"prim",
@@ -1148,10 +1402,6 @@
 				"cf/43a.cpp"
 			],
 			[
-				".gi",
-				".gitignore"
-			],
-			[
 				"Makef",
 				"cf/Makefile"
 			],
@@ -1180,10 +1430,6 @@
 				"cf/1060b.cpp"
 			],
 			[
-				"gen",
-				"cf/gen.py"
-			],
-			[
 				"M",
 				"cf/Makefile"
 			],
@@ -1202,14 +1448,6 @@
 			[
 				"gcd",
 				"third_party/cosmos/code/mathematical_algorithms/src/gcd_and_lcm/gcd_and_lcm.c"
-			],
-			[
-				".git",
-				".gitignore"
-			],
-			[
-				"b.",
-				"test/b.cpp"
 			],
 			[
 				"Make",
@@ -1302,10 +1540,6 @@
 			[
 				"hash",
 				"third_party/cosmos/code/data_structures/src/hashs/hash_table/hash_table.cpp"
-			],
-			[
-				"ma",
-				"cf/Makefile"
 			],
 			[
 				"p510",
@@ -1420,10 +1654,6 @@
 				"leet/p71.cpp"
 			],
 			[
-				"in-b",
-				"test/in-b.txt"
-			],
-			[
 				"b.cp",
 				"test/b.cpp"
 			],
@@ -1450,74 +1680,6 @@
 			[
 				"p290.c",
 				"leet/p290.cpp"
-			],
-			[
-				"p289.c",
-				"leet/p289.cpp"
-			],
-			[
-				"p288.c",
-				"leet/p288.cpp"
-			],
-			[
-				"p287.c",
-				"leet/p287.cpp"
-			],
-			[
-				"p286.c",
-				"leet/p286.cpp"
-			],
-			[
-				"p285.c",
-				"leet/p285.cpp"
-			],
-			[
-				"p284",
-				"leet/p284.cpp"
-			],
-			[
-				"p284.c",
-				"leet/p284.cpp"
-			],
-			[
-				"p283.c",
-				"leet/p283.cpp"
-			],
-			[
-				"p282.c",
-				"leet/p282.cpp"
-			],
-			[
-				"p281.c",
-				"leet/p281.cpp"
-			],
-			[
-				"p280.c",
-				"leet/p280.cpp"
-			],
-			[
-				"p279",
-				"leet/p279.cpp"
-			],
-			[
-				"278",
-				"leet/p278.cpp"
-			],
-			[
-				"p277.",
-				"leet/p277.cpp"
-			],
-			[
-				"p276",
-				"leet/p276.cpp"
-			],
-			[
-				"275",
-				"leet/p275.cpp"
-			],
-			[
-				"p274.",
-				"leet/p274.cpp"
 			]
 		],
 		"width": 0.0
@@ -1525,9 +1687,13 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "al",
+		"last_filter": "fl",
 		"selected_items":
 		[
+			[
+				"fl",
+				"~/Code/flow/flow.sublime-project"
+			],
 			[
 				"al",
 				"~/Code/algos/algos.sublime-project"
@@ -1535,10 +1701,6 @@
 			[
 				"phay",
 				"~/Code/phyai/phyai.sublime-project"
-			],
-			[
-				"fl",
-				"~/Code/flow/flow.sublime-project"
 			],
 			[
 				"sim",
@@ -1611,14 +1773,14 @@
 	"selected_group": 0,
 	"settings":
 	{
-		"_vintageous_last_buffer_search": "main",
+		"_vintageous_last_buffer_search": "cap",
 		"_vintageous_last_buffer_search_command": "vi_slash",
 		"_vintageous_last_char_search_command": "vi_f",
-		"_vintageous_last_character_search": "f",
+		"_vintageous_last_character_search": "j",
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{
-			"_cmdline_cd": "/Users/jche/Code/algos/cf"
+			"_cmdline_cd": "/Users/jche/Code/algos/codeforces"
 		}
 	},
 	"show_minimap": true,
