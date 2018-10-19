@@ -96,7 +96,7 @@ def generate_file(fn):
 
   name = fn[0: -4]
   make = 'Makefile-' + name
-  os.system('touch ' + name + '.txt')
+  # os.system('touch ' + name + '.txt')
   os.system('touch in-' + name +'.txt')
   os.system('mv Makefile ' + make)
   os.system(cmd + make)
