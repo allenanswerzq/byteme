@@ -2,7 +2,7 @@
 using namespace std;
 
 #define pb push_back
-#define pend cout << endl
+#define pend cout << '\n'
 #define pvar(x) cout << #x << ": "
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
@@ -10,15 +10,15 @@ using namespace std;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
-#define outret(v) cout << (v) << endl
-#define output(ix, v) cout << "Case #" << (ix) << ": " << (v) << endl
+#define output(v) cout << (v) << '\n'
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {
-  cout << name << ": " << arg << endl;
+  cout << name << ": " << arg << '\n';
 }
 
 template <typename T, typename... Args>
@@ -28,7 +28,17 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...);
 }
 
+double tick() {
+  static clock_t old;
+  clock_t now = clock();
+  double diff = 1.0 * (now - old);
+  diff /= CLOCKS_PER_SEC;
+  old = now;
+  return diff;
+}
+
 typedef long long ll;
+typedef long double ld;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 typedef vector<vi> vvi;
@@ -37,31 +47,31 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+ll gcd(ll a, ll b) {
+  if(!b) return (a);
+  return (gcd(b, a % b));
+}
+
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
   cin.tie(0);
-  cout.precision(5);
+  cout.precision(10);
   cout << fixed;
 
-  int t; cin >> t >> ws;
-  vi aa(t, 0);
-  fori (i, 0, t) {
-    cin >> aa[i];
-  }
-
-  sort(all(aa));
-
-  ll tot = 0;
-  int ret = 0;
-  fori (i, 0, sz(aa)) {
-    // trace(tot, aa[i]);
-    if (tot <= aa[i]) {
-      ++ret;
-      tot += aa[i];
+  ll l, r; cin >> l >> r;
+  for (ll a = l; a <= r; ++a) {
+    for (ll b = a + 1; b <= r; ++b) {
+      for (ll c = b + 1; c <= r; ++c) {
+        // trace(a, b, c);
+        if (gcd(a, b) == 1 && gcd(b, c) == 1 && gcd(a, c) > 1) {
+          cout << a << " " << b << " " << c << '\n';
+          return 0;
+        } 
+      }
     }
   }
-  outret(ret);
 
+  output(-1);
   return 0;
 }
 

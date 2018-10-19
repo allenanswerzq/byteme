@@ -519,14 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "codeforces/431a.cpp",
-			"settings":
-			{
-				"buffer_size": 1877,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -679,12 +671,76 @@
 	],
 	"file_history":
 	[
+		"/Users/jche/Code/algos/codeforces/Makefile-746b",
+		"/Users/jche/Code/algos/codeforces/true-746b.txt",
+		"/Users/jche/Code/algos/codeforces/in-746b.txt",
+		"/Users/jche/Code/algos/codeforces/746b.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-914a",
+		"/Users/jche/Code/algos/codeforces/true-914a.txt",
+		"/Users/jche/Code/algos/codeforces/in-914a.txt",
+		"/Users/jche/Code/algos/codeforces/914a.cpp",
+		"/Users/jche/Code/algos/leetcode/p757.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-757a",
+		"/Users/jche/Code/algos/codeforces/true-757a.txt",
+		"/Users/jche/Code/algos/codeforces/in-757a.txt",
+		"/Users/jche/Code/algos/codeforces/757a.cpp",
+		"/Users/jche/Code/algos/codeforces/1047a.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-535a",
+		"/Users/jche/Code/algos/codeforces/true-535a.txt",
+		"/Users/jche/Code/algos/codeforces/in-535a.txt",
+		"/Users/jche/Code/algos/codeforces/535a.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-978a",
+		"/Users/jche/Code/algos/codeforces/true-978a.txt",
+		"/Users/jche/Code/algos/codeforces/in-978a.txt",
+		"/Users/jche/Code/algos/codeforces/978a.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-2a",
+		"/Users/jche/Code/algos/codeforces/true-2a.txt",
+		"/Users/jche/Code/algos/codeforces/in-2a.txt",
+		"/Users/jche/Code/algos/codeforces/2a.cpp",
+		"/Users/jche/Code/algos/sketch.py",
+		"/Users/jche/Code/algos/codeforces/474d.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-474d",
+		"/Users/jche/Code/algos/codeforces/true-474d.txt",
+		"/Users/jche/Code/algos/codeforces/in-474d.txt",
+		"/Users/jche/Code/algos/codeforces/581b.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-581b",
+		"/Users/jche/Code/algos/codeforces/true-581b.txt",
+		"/Users/jche/Code/algos/codeforces/in-581b.txt",
+		"/Users/jche/Code/algos/codeforces/Makefile-404a",
+		"/Users/jche/Code/algos/codeforces/true-404a.txt",
+		"/Users/jche/Code/algos/codeforces/in-404a.txt",
+		"/Users/jche/Code/algos/codeforces/404a.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-404aa",
+		"/Users/jche/Code/algos/codeforces/true-404aa.txt",
+		"/Users/jche/Code/algos/codeforces/in-404aa.txt",
+		"/Users/jche/Code/algos/codeforces/404aa.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-680a",
+		"/Users/jche/Code/algos/codeforces/true-680a.txt",
+		"/Users/jche/Code/algos/codeforces/in-680a.txt",
+		"/Users/jche/Code/algos/codeforces/680a.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-733b",
+		"/Users/jche/Code/algos/codeforces/true-733b.txt",
+		"/Users/jche/Code/algos/codeforces/in-733b.txt",
+		"/Users/jche/Code/algos/codeforces/733b.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-447b",
+		"/Users/jche/Code/algos/codeforces/true-447b.txt",
+		"/Users/jche/Code/algos/codeforces/in-447b.txt",
+		"/Users/jche/Code/algos/codeforces/447b.cpp",
+		"/Users/jche/Code/algos/.gitignore",
+		"/Users/jche/Code/algos/codeforces/Makefile-841b",
+		"/Users/jche/Code/algos/codeforces/true-841b.txt",
+		"/Users/jche/Code/algos/codeforces/in-841b.txt",
+		"/Users/jche/Code/algos/codeforces/841b.cpp",
+		"/Users/jche/Code/algos/codeforces/Makefile-841a",
+		"/Users/jche/Code/algos/codeforces/true-841a.txt",
+		"/Users/jche/Code/algos/codeforces/in-841a.txt",
+		"/Users/jche/Code/algos/codeforces/841a.cpp",
+		"/Users/jche/Code/algos/codeforces/431c.cpp",
+		"/Users/jche/Code/algos/codeforces/431a.cpp",
 		"/Users/jche/Code/algos/codeforces/Makefile-431c",
 		"/Users/jche/Code/algos/codeforces/true-431c.txt",
 		"/Users/jche/Code/algos/gen.py",
-		"/Users/jche/Code/algos/codeforces/431c.cpp",
 		"/Users/jche/Code/algos/codeforces/in-431c.txt",
-		"/Users/jche/Code/algos/sketch.py",
 		"/Users/jche/Code/algos/codeforces/796a.cpp",
 		"/Users/jche/Code/algos/codeforces/in-796a.txt",
 		"/Users/jche/Code/algos/codeforces/true-796a.txt",
@@ -742,71 +798,7 @@
 		"/Users/jche/Code/algos/test/c.cpp",
 		"/Users/jche/Code/algos/test/log-b.txt",
 		"/Users/jche/Code/algos/codeforces/gen.py",
-		"/Users/jche/Code/algos/test/Makefile-a",
-		"/Users/jche/Code/algos/test/true-a.txt",
-		"/Users/jche/Code/algos/test/in-a.txt",
-		"/Users/jche/Code/algos/test/a.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-b",
-		"/Users/jche/Code/algos/codeforces/true-b.txt",
-		"/Users/jche/Code/algos/codeforces/in-b.txt",
-		"/Users/jche/Code/algos/codeforces/b.cpp",
-		"/Users/jche/.tmux.conf",
-		"/Users/jche/Code/algos/codeforces/Makefile-352a",
-		"/Users/jche/Code/algos/codeforces/true-352a.txt",
-		"/Users/jche/Code/algos/codeforces/in-352a.txt",
-		"/Users/jche/Code/algos/codeforces/352a.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-3a",
-		"/Users/jche/Code/algos/codeforces/true-3a.txt",
-		"/Users/jche/Code/algos/codeforces/in-3a.txt",
-		"/Users/jche/Code/algos/.gitignore",
-		"/Users/jche/Code/algos/codeforces/Makefile",
-		"/Users/jche/Code/algos/codeforces/912a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-912a.txt",
-		"/Users/jche/Code/algos/codeforces/true-912a.txt",
-		"/Users/jche/Code/algos/codeforces/true-385a.txt",
-		"/Users/jche/Code/algos/codeforces/in-385a.txt",
-		"/Users/jche/Code/algos/codeforces/385a.cpp",
-		"/Users/jche/.config/alacritty/alacritty.yml",
-		"/Users/jche/Library/Application Support/Sublime Text 3/Packages/MonokaiFree/MonokaiFree.tmTheme",
-		"/Users/jche/Code/algos/codeforces/672b.cpp",
-		"/Users/jche/Code/algos/codeforces/in-672b.txt",
-		"/Users/jche/Code/algos/codeforces/true-672b.txt",
-		"/Users/jche/Code/algos/codeforces/true-38a.txt",
-		"/Users/jche/Code/algos/codeforces/in-38a.txt",
-		"/Users/jche/Code/algos/codeforces/38a.cpp",
-		"/Users/jche/Code/algos/test/Makefile",
-		"/Users/jche/Code/algos/test/true-b.txt",
-		"/Users/jche/Code/algos/codeforces/true-610a.txt",
-		"/Users/jche/Code/algos/codeforces/in-610a.txt",
-		"/Users/jche/Code/algos/codeforces/610a.cpp",
-		"/Users/jche/Code/algos/codeforces/339a.cpp",
-		"/Users/jche/Code/algos/codeforces/441a.cpp",
-		"/Users/jche/Code/algos/codeforces/263a.cpp",
-		"/Users/jche/Code/algos/codeforces/true-680b.txt",
-		"/Users/jche/Code/algos/codeforces/in-680b.txt",
-		"/Users/jche/Code/algos/codeforces/680b.cpp",
-		"/Users/jche/Code/algos/codeforces/true-258a.txt",
-		"/Users/jche/Code/algos/codeforces/in-258a.txt",
-		"/Users/jche/Code/algos/codeforces/258a.cpp",
-		"/Users/jche/Code/algos/leetcode/p258.cpp",
-		"/Users/jche/Code/algos/codeforces/true-445a.txt",
-		"/Users/jche/Code/algos/codeforces/in-445a.txt",
-		"/Users/jche/Code/algos/codeforces/445a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-697a.txt",
-		"/Users/jche/Code/algos/codeforces/697a.cpp",
-		"/Users/jche/Code/algos/codeforces/true-915a.txt",
-		"/Users/jche/Code/algos/codeforces/in-915a.txt",
-		"/Users/jche/Code/algos/codeforces/915a.cpp",
-		"/Users/jche/Code/algos/codeforces/true-697a.txt",
-		"/Users/jche/Code/algos/codeforces/log_0",
-		"/Users/jche/Code/algos/codeforces/true-591a.txt",
-		"/Users/jche/Code/algos/codeforces/in-591a.txt",
-		"/Users/jche/Code/algos/codeforces/591a.cpp",
-		"/Users/jche/Code/algos/codeforces/true-496a.txt",
-		"/Users/jche/Code/algos/codeforces/in-496a.txt",
-		"/Users/jche/Code/algos/codeforces/496a.cpp",
-		"/Users/jche/Code/algos/codeforces/true-1005a.txt",
-		"/Users/jche/Code/algos/codeforces/in-1005a.txt"
+		"/Users/jche/Code/algos/test/Makefile-a"
 	],
 	"find":
 	{
@@ -824,6 +816,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"t",
+			"a",
+			"intervals",
+			"t",
+			"a",
 			"int",
 			"parent",
 			"int",
@@ -946,12 +943,7 @@
 			"ret",
 			"ss",
 			"t",
-			"1",
-			"talgo_run",
-			"1",
-			"compile",
-			"RES_NAME",
-			"OUTPUT_NAME"
+			"1"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -969,143 +961,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "codeforces/431a.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1877,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								313,
-								313
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										314,
-										315
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										312,
-										313
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 36
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1170,12 +1027,36 @@
 		"selected_items":
 		[
 			[
-				"431",
-				"codeforces/431a.cpp"
+				"757",
+				"leetcode/p757.cpp"
+			],
+			[
+				"1047",
+				"codeforces/1047a.cpp"
 			],
 			[
 				"sk",
 				"sketch.py"
+			],
+			[
+				"474d",
+				"codeforces/474d.cpp"
+			],
+			[
+				"581b",
+				"codeforces/581b.cpp"
+			],
+			[
+				".git",
+				".gitignore"
+			],
+			[
+				"431c",
+				"codeforces/431c.cpp"
+			],
+			[
+				"431",
+				"codeforces/431a.cpp"
 			],
 			[
 				"580d",
@@ -1244,10 +1125,6 @@
 			[
 				"makef",
 				"codeforces/Makefile-3a"
-			],
-			[
-				".git",
-				".gitignore"
 			],
 			[
 				"ma",
@@ -1660,26 +1537,6 @@
 			[
 				"in_a",
 				"gcj/2018/practice/a/in_a.txt"
-			],
-			[
-				"m",
-				"test/Makefile"
-			],
-			[
-				"a.cp",
-				"test/a.cpp"
-			],
-			[
-				"p292.",
-				"leet/p292.cpp"
-			],
-			[
-				"p291.c",
-				"leet/p291.cpp"
-			],
-			[
-				"p290.c",
-				"leet/p290.cpp"
 			]
 		],
 		"width": 0.0
@@ -1687,9 +1544,13 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "fl",
+		"last_filter": "res",
 		"selected_items":
 		[
+			[
+				"res",
+				"~/Code/cv/resume-zh_CN/resume.sublime-project"
+			],
 			[
 				"fl",
 				"~/Code/flow/flow.sublime-project"

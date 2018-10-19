@@ -2,7 +2,7 @@
 using namespace std;
 
 #define pb push_back
-#define pend cout << endl
+#define pend cout << '\n'
 #define pvar(x) cout << #x << ": "
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
@@ -10,15 +10,15 @@ using namespace std;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
-#define outret(v) cout << (v) << endl
-#define output(ix, v) cout << "Case #" << (ix) << ": " << (v) << endl
+#define output(v) cout << (v) << '\n'
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {
-  cout << name << ": " << arg << endl;
+  cout << name << ": " << arg << '\n';
 }
 
 template <typename T, typename... Args>
@@ -28,7 +28,16 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...);
 }
 
+double tick() {
+  static clock_t oldtick;
+  clock_t newtick = clock();
+  double diff = 1.0 * (newtick - oldtick) / CLOCKS_PER_SEC;
+  oldtick = newtick;
+  return diff;
+}
+
 typedef long long ll;
+typedef long double ld;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 typedef vector<vi> vvi;
@@ -43,24 +52,35 @@ int main(int argc, char** argv) {
   cout.precision(5);
   cout << fixed;
 
-  int t; cin >> t >> ws;
-  vi aa(t, 0);
-  fori (i, 0, t) {
-    cin >> aa[i];
-  }
+  string dd = "Bulbasaur";
+  string ss; cin >> ss; 
+  unordered_map<char, int> mp;
+  fori (i, 0, sz(ss)) {
+    char c = ss[i];
+    bool ok = 0;
+    fori (j, 0, sz(dd)) {
+      if (dd[j] == c) {
+        ok = 1;
+        break;
+      }
+    }
 
-  sort(all(aa));
-
-  ll tot = 0;
-  int ret = 0;
-  fori (i, 0, sz(aa)) {
-    // trace(tot, aa[i]);
-    if (tot <= aa[i]) {
-      ++ret;
-      tot += aa[i];
+    if (ok) {
+      mp[c]++;
     }
   }
-  outret(ret);
+
+  int ret = (1 << 30);
+  fora (it, mp) {
+    int tmp;
+    if (it.first == 'a' || it.first == 'u')
+      tmp = it.second / 2;
+    else
+      tmp = it.second;
+    // trace(it.first, it.second);
+    ret = min(ret, tmp);
+  }
+  output(sz(mp) == 7 ? ret : 0);
 
   return 0;
 }

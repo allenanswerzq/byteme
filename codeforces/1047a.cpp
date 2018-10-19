@@ -35,18 +35,11 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 // TODO
-// #define LOCAL_FILE
-
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
   cin.tie(0);
   cout.precision(5);
   cout << fixed;
-
-#ifdef LOCAL_FILE
-  // freopen("1047a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
 
   int n; cin >> n;
   int a = 1, b = 1;
@@ -56,12 +49,6 @@ int main(int argc, char** argv) {
     a = a + 1;
   } 
   cout << a << " " << b << " "  << c << endl;
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }
