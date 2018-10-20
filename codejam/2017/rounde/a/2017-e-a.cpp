@@ -1,26 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-
-template <typename T>
-void _f(const char* name, T&& arg) {
-  cout << name << ": " << arg << endl;
-}
-
-template <typename T, typename... Args> 
-void _f(const char* names, T&& arg, Args&&... args) {
-  const char* split = strchr(names + 1, ','); 
-  cout.write(names, split - names) << ": " << arg << " |";
-  _f(split, args...); 
-} 
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 // TODO: 
 const int maxn = 120;
 int dp[maxn];
@@ -64,9 +44,6 @@ int main(int argc, char** argv) {
   cout.precision(5);
   cout << fixed; 
 
-  freopen("2017-e-a-SSSSSSmall.txt", "rt", stdin);
-  clock_t begin = clock();
-
   int t; cin >> t;
   fori (i, 1, t + 1) {
     string s; cin >> s;
@@ -74,8 +51,5 @@ int main(int argc, char** argv) {
     output(i, r);
   }
 
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
   return 0;
 }

@@ -11,7 +11,7 @@ using namespace std;
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
 #define output(v) cout << (v) << '\n'
-#define outjam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
@@ -28,6 +28,15 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...);
 }
 
+double tick() {
+  static clock_t old;
+  clock_t now = clock();
+  double diff = 1.0 * (now - old);
+  diff /= CLOCKS_PER_SEC;
+  old = now;
+  return diff;
+}
+
 typedef long long ll;
 typedef long double ld;
 typedef vector<int> vi;
@@ -38,46 +47,33 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// TODO
-const int maxn = 1e5 + 7;
-const int mod = 1e9 + 7;
-int dp[maxn];
-int sum[maxn];
-
-int add(int a, int b) {
-  int c = a + b;
-  if (c >= mod) 
-    c -= mod;
-  return c;
-}
-
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
   cin.tie(0);
-  cout.precision(5);
+  cout.precision(10);
   cout << fixed;
 
-  int t, k; cin >> t >> k;
+  int n; cin >> n;
 
-  dp[0] = 1;
-  fori (i, 1, maxn) {
-    dp[i] = dp[i - 1];
-    if (i >= k) {
-      dp[i] = add(dp[i], dp[i - k]);
-    }
-  }
-  
-  sum[0] = 0; 
-  fori (i, 1, maxn) {
-    sum[i] = add(sum[i - 1], dp[i]);
-  }
+  vi aa, bb;
+  for (int i = 1; i <= n; i += 2) aa.pb(i);
+  for (int i = 2; i <= n; i += 2) bb.pb(i);
 
-  while (t--) {
-    int a, b; cin >> a >> b;
-    int ret = (sum[b] - sum[a - 1] + mod) % mod;
-    output(ret);
+  reverse(all(aa));
+  reverse(all(bb));
+
+  // pvi(aa, 1);
+  // pvi(bb, 1);
+
+  int x = sz(aa), y = sz(bb);
+  if (x && y && abs(aa[x - 1] - bb[0]) == 1) {
+    fori (i, 1, y) aa.pb(bb[i]);
+  } else {
+    fori (i, 0, y) aa.pb(bb[i]);
   }
 
+  output(sz(aa));
+  pvi(aa, 0);
   return 0;
 }
 

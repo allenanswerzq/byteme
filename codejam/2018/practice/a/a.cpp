@@ -1,18 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-template <typename T>
-void _f(const char* name, T&& arg) {
-  cout << name << ": " << arg << endl;
-}
-
-template <typename T, typename... Args> 
-void _f(const char* names, T&& arg, Args&&... args) {
-  const char* split = strchr(names + 1, ','); 
-  cout.write(names, split - names) << ": " << arg << " |";
-  _f(split, args...); 
-} 
-
 vpii bus;
 vi goal;
 
@@ -36,10 +24,6 @@ int main(int argc, char** argv) {
   cin.tie(0);
   cout.precision(5);
   cout << fixed; 
-
-  freopen("in.txt", "rt", stdin);
-  clock_t begin = clock();
-
 
   int t;
   cin >> t;
@@ -69,8 +53,5 @@ int main(int argc, char** argv) {
     cout << endl;
   }
 
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed << endl;
   return 0;
 }

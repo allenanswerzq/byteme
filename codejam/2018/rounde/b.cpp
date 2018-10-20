@@ -37,35 +37,16 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
-void solve(int t) {
-  
-}
-
-// #define EXTERNAL
-
 int main(int argc, char** argv) {
   std::ios_base::sync_with_stdio(false);
   cin.tie(0);
   cout.precision(5);
   cout << fixed;
 
-#ifdef EXTERNAL
-  // freopen("b-input.txt", "rt", stdin);
-  // freopen("b-output.txt", "w", stdout);
-  clock_t begin = clock();
-#endif
-
   int t; cin >> t >> ws;
   fori (i, 1, t + 1) {
     solve(i);
   }
-
-#ifdef EXTERNAL
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << '\n';
-#endif
 
   return 0;
 }
