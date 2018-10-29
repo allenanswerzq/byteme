@@ -12,33 +12,33 @@ public:
   
   /** Push element x to the back of queue. */
   void push(int x) {
-  in.push(x); 
+    in.push(x); 
   }
   
   /** Removes the element from in front of queue and returns that element. */
   int pop() {
-  // make true `out` is not empty so it contains front number
-  int x = peek();  
-  out.pop();      
-  return x;
+    // make true `out` is not empty so it contains front number
+    int x = peek();  
+    out.pop();      
+    return x;
   }
   
   /** Get the front element. */
   int peek() {
-  // only push into `out` when `out` is empty 
-  // otherwise it will break the order of queue
-  if (out.empty()) { 
-    while(!in.empty()) {
-    out.push(in.top());
-    in.pop();
-    }    
-  } 
-  return out.top();
+    // only push into `out` when `out` is empty 
+    // otherwise it will break the order of queue
+    if (out.empty()) { 
+      while (!in.empty()) {
+        out.push(in.top());
+        in.pop();
+      }    
+    } 
+    return out.top();
   }
   
   /** Returns whether the queue is empty. */
   bool empty() {
-  return in.empty() && out.empty();    
+    return in.empty() && out.empty();    
   }
 };
 

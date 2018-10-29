@@ -6,6 +6,7 @@ public:
   queue<int> q;        
   /** Initialize your data structure here. */
   MyStack() {
+    
   }
   
   /** Push element x onto stack. */
@@ -25,12 +26,12 @@ public:
   
   /** Get the top element. */
   int top() {
-   return q.front(); 
+    return q.front(); 
   }
   
   /** Returns whether the stack is empty. */
   bool empty() {
-   return q.empty(); 
+    return q.empty(); 
   }
 };
 

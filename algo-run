@@ -32,3 +32,4 @@ for test_file in "$input_name"*; do
   fi
   rm -f "$input" "$output"
 done
+
