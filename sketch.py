@@ -13,6 +13,8 @@ def build_cpp(fn):
 #include<bits/stdc++.h>
 using namespace std;
 
+#define fi first
+#define se second
 #define pb push_back
 #define pend cout << '\\n'
 #define pvar(x) cout << #x << ": "
@@ -63,7 +65,7 @@ void solve() {
   
 }
 
-int main(int argc, char** argv) {
+int main() {
   std::ios_base::sync_with_stdio(false);
   cin.tie(0);
   cout.precision(10);
