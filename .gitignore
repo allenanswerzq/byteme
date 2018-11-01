@@ -8,6 +8,7 @@ input_*
 output_*
 true*.txt
 log*.txt
+log*
 result*.txt
 test/*
 Makefile*

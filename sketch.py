@@ -13,8 +13,6 @@ def build_cpp(fn):
 #include<bits/stdc++.h>
 using namespace std;
 
-#define fi first
-#define se second
 #define pb push_back
 #define pend cout << '\\n'
 #define pvar(x) cout << #x << ": "
@@ -32,7 +30,7 @@ using namespace std;
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {
-  cout << name << ": " << arg << '\\n';
+  cout << fixed << name << ": " << arg << '\\n';
 }
 
 template <typename T, typename... Args>
@@ -62,20 +60,14 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 void solve() {
-  
+
 }
 
 int main() {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
   int t; cin >> t >> ws;
   fori (i, 1, t + 1) {
 
   }
-
   return 0;
 }
 
@@ -124,7 +116,7 @@ def generate_makefile(fn):
       'test: clean compile\n'
       '\t@chmod +x ./elf\n'
       '\talgo-split in-{0}.txt\n'
-      '\talgo-run in-{0}.cpp\n'
+      '\talgo-run in-{0}.cpp | tee in-{0}.cpp\n'
       '\t@echo "====================" \n'
       '\tdiff -y result.txt true-{0}.txt -W 100 | sed "s/ /-/g"\n'
       '\n'
