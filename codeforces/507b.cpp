@@ -47,11 +47,6 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
   ll r, x, y, dx, dy;
   cin >> r >> x >> y >> dx >> dy;
   ld dd = sqrt((x - dx) * (x - dx) + (y - dy) * (y - dy));

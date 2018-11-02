@@ -49,24 +49,19 @@ typedef vector<pii> vpii;
 
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
   string ss; cin >> ss;
   ss = "#" + ss;
   int n = sz(ss);
   vi dp(n, 0);
   fori (i, 2, n) {
     if (ss[i] != ss[i-1]) {
-      dp[i] = dp[i-1]; 
+      dp[i] = dp[i-1];
     } else if (ss[i] == ss[i-2]) {
       dp[i] = dp[i-2] + 1;
     } else {
       dp[i] = dp[i-1] + 1;
     }
-  } 
+  }
   // pvi(dp, 1);
   output(dp[n-1]);
   return 0;

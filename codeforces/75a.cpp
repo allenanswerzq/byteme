@@ -61,11 +61,6 @@ int strip(int aa) {
 }
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
   int aa, bb; cin >> aa >> bb; 
   int a = strip(aa);
   int b = strip(bb);

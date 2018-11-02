@@ -59,17 +59,12 @@ void dfs(int src) {
   else ret[src] = -1;
 
   fora (dst, g[src]) {
-    dfs(dst); 
+    dfs(dst);
   }
   --cnt;
 }
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
   cin >> n >> d;
   fori (i, 2, n + 1) {
     int x; cin >> x;

@@ -44,11 +44,6 @@ bool check(string ss, string aa, string bb) {
 }
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
 #ifdef LOCAL_FILE
   // freopen("550a-input.txt", "rt", stdin);
   clock_t begin = clock();

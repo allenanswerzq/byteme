@@ -52,14 +52,14 @@ typedef vector<pii> vpii;
 const int maxn = 110;
 int aa[maxn][maxn];
 void solve() {
-  int n, m; 
-  cin >> n >> m;  
+  int n, m;
+  cin >> n >> m;
   vi sr(n), sc(m);
-  fori (i, 0, n) cin >> sr[i]; 
+  fori (i, 0, n) cin >> sr[i];
   fori (i, 0, m) cin >> sc[i];
-  
+
   // pvi(sr, 1);
-  // pvi(sc, 1);  
+  // pvi(sc, 1);
 
   fori (i, 0, n) {
     fori (j, 0, m) {
@@ -67,10 +67,10 @@ void solve() {
       aa[i][j] = x;
       sr[i] -= x; sc[j] -= x;
     }
-  } 
+  }
 
   // pvi(sr, 1);
-  // pvi(sc, 1);  
+  // pvi(sc, 1);
 
   fori (i, 0, n) {
     par(aa[i], m, 0);
@@ -78,11 +78,6 @@ void solve() {
 }
 
 int main() {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
   solve();
   return 0;
 }

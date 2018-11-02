@@ -46,12 +46,7 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
+int main() {
   int n; cin >> n >> ws;
   unordered_map<int, int> mp;
   int mx = 0;
@@ -61,7 +56,7 @@ int main(int argc, char** argv) {
     mx = max(mx, mp[x]);
   }
   outret(mx);
-  
+
   return 0;
 }
 

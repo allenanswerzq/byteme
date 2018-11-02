@@ -53,11 +53,6 @@ ll gcd(ll a, ll b) {
 }
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
   ll l, r; cin >> l >> r;
   for (ll a = l; a <= r; ++a) {
     for (ll b = a + 1; b <= r; ++b) {

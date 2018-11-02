@@ -51,11 +51,6 @@ int aa[105];
 int dp[105][4];
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
   // 0: neither
   // 1: sport
   // 2: contest

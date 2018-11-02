@@ -48,11 +48,6 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
   int n, x; cin >> n >> x;
   vi aa(n, 0);
   fori (i, 0, n) cin >> aa[i];

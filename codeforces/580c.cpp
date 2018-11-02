@@ -74,11 +74,6 @@ void dfs(int uu, int parent, int path) {
 }
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
   cin >> n_vtc >> n_cats;
   fori (i, 1, n_vtc + 1) {
     cin >> cats[i];

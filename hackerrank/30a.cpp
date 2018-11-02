@@ -102,7 +102,7 @@ public:
       if (head->child[s[i] - 'a'] != nullptr)
         head = head->child[s[i] - 'a'];
       else return -1;
-    }  
+    }
     return head->leaf;
   }
 
@@ -115,20 +115,15 @@ public:
 
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
   vs ret;
-  TrieNode *root = new TrieNode(); 
+  TrieNode *root = new TrieNode();
 
   int n; cin >> n >> ws;
   fori (i, 1, n + 1) {
     string ss, tt; cin >> ss;
     int c = root->find(ss);
     if (c >= 1) {
-      tt = ss + " " + to_string(c + 1); 
+      tt = ss + " " + to_string(c + 1);
     } else {
       fori (i, 1, sz(ss) + 1) {
         tt = ss.substr(0, i);

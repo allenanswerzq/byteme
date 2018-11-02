@@ -49,11 +49,6 @@ typedef vector<pii> vpii;
 
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
   int n; cin >> n >> ws;
   vi aa(n + 1, 0);
   fori (i, 1, n + 1) {

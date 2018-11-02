@@ -52,7 +52,7 @@ vi aa[maxn];
 void solve() {
   int n; cin >> n;
   fori (i, 0, n) {
-    int x, h, m, s; string t; char c; 
+    int x, h, m, s; string t; char c;
     cin >> x >> t;
     istringstream iss(t);
     iss >> h >> c >> m >> c >> s;
@@ -60,7 +60,7 @@ void solve() {
   }
 
   fori (i, 0, maxn) if (sz(aa[i])) {
-    sort(all(aa[i])); 
+    sort(all(aa[i]));
     fori (j, 4, sz(aa[i])) {
       if (aa[i][j] - aa[i][j-4] <= 3600) {
         output(i);
@@ -72,11 +72,6 @@ void solve() {
 }
 
 int main() {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
   solve();
   return 0;
 }

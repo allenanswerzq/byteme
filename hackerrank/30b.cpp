@@ -49,11 +49,6 @@ typedef vector<pii> vpii;
 stack<string> stk;
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
   string ss; cin >> ss;
 
   tick();
@@ -72,17 +67,17 @@ int main(int argc, char** argv) {
       if (sz(stk) >= 2) {
         string aa = stk.top(); stk.pop();
         string bb = stk.top(); stk.pop();
-        string sign; sign += ss[i]; 
+        string sign; sign += ss[i];
         if (sign == "-") {
-          // trace(aa, sign, bb); 
+          // trace(aa, sign, bb);
           fori (i, 0, sz(bb)) {
             if (bb[i] == '+') bb[i] = '-';
             else if (bb[i] == '-') bb[i] = '+';
           }
-          // trace(aa, sign, bb); 
+          // trace(aa, sign, bb);
         }
         stk.push(aa + sign + bb);
-      }  
+      }
     }
 
   }
@@ -92,7 +87,7 @@ int main(int argc, char** argv) {
   // trace(op);
 
   // vi ret; ret.pb(1);
-  // int sum = 1, aa = 0, bb = 1; 
+  // int sum = 1, aa = 0, bb = 1;
   // fori (i, 1, sz(op)) {
   //   if (op[i] == '-') {
   //     --sum; ++aa;
@@ -113,7 +108,7 @@ int main(int argc, char** argv) {
 
   // if (sum > 0) {
   //   fori (i, 0, sz(ret)) {
-  //     if (ret[i] < 0) 
+  //     if (ret[i] < 0)
   //       ret[i] -= div;
   //     if (ret[i] < 0 && rem) {
   //       ret[i]--; rem--;
@@ -123,7 +118,7 @@ int main(int argc, char** argv) {
 
   // if (sum < 0) {
   //   fori (i, 0, sz(ret)) {
-  //     if (ret[i] > 0) 
+  //     if (ret[i] > 0)
   //       ret[i] += div;
   //     if (ret[i] > 0 && rem) {
   //       ret[i]++; rem--;
@@ -136,7 +131,7 @@ int main(int argc, char** argv) {
 
   // fora (r, ret) {
   //   outret(abs(r));
-  // } 
+  // }
 
   return 0;
 }

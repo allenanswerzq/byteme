@@ -61,21 +61,16 @@ bool check(ll i, ll n) {
 }
 
 void solve() {
-  ll n; 
+  ll n;
   cin >> n;
   for (ll i = 2; i * i < n; ++i)  {
-    if (check(i, n)) 
+    if (check(i, n))
       output(i);
   }
   output(n - 1);
 }
 
 int main() {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
   solve();
   return 0;
 }

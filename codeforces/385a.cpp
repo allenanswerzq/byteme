@@ -47,11 +47,6 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
   int n, c; cin >> n >> c;
   int buy = 0, sell, mx = 0, pre;
   fori (i, 0, n) {
