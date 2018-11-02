@@ -5,8 +5,7 @@ class Node {
 public:
   int val;
   Node *next;
-  Node(int x)
-    : val(x), next(nullptr) {}
+  Node(int x) : val(x), next(nullptr) {}
 };
 
 Node* reverseList(Node *head) {
@@ -23,17 +22,5 @@ Node* reverseList(Node *head) {
 }
 
 int main() {
-  Node *head = new Node(1);
-  Node *p = head;
-  for (int i=2; i<=5; ++i) {
-    p->next = new Node(i);
-    p = p->next;
-  }
-  p = reverseList(head);
-  while (p) {
-    cout << p->val << " ";
-    p = p->next;
-  }
-  cout << '\n';
   return 0;
 }

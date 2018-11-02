@@ -19,7 +19,7 @@ int uniform_random5() {
 
 int uniform_random7() {
 
-  while (true) { 
+  while (true) {
 
     int r = uniform_random5() - 1;
     int c = uniform_random5() - 1;
@@ -46,7 +46,7 @@ int uniform_random7_1() {
     {7, 0, 0, 0 ,0}
   };
 
-  while (true) { 
+  while (true) {
 
     int r = uniform_random5() - 1;
     int c = uniform_random5() - 1;
@@ -62,10 +62,6 @@ int uniform_random7_1() {
   return -1;
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  // jran = 1000;
-  for (int i=0; i<100; ++i)
-    cout << uniform_random7() << '\n';
+int main() {
   return 0;
 }

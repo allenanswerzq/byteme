@@ -24,6 +24,5 @@ bool containCycle(Node* firstNode) {
 }
 
 int main() {
-   
   return 0;
 }

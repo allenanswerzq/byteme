@@ -41,18 +41,5 @@ vi shuffle_in_place(vi& a) {
 }
 
 int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  // Choose a random seed
-  jran = 200;
-  vi v = {1, 2, 3, 4, 5};
-  vi vv = shuffle(v);
-  fora(x, vv)
-    cout << x << ' ';
-  cout << '\n';
-
-  vv = shuffle_in_place(v);
-  fora(x, vv)
-    cout << x << ' ';
-  cout << '\n';
   return 0;
 }

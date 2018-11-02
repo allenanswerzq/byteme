@@ -4,8 +4,7 @@ using namespace std;
 void reverseWord(string& aa, int lo, int hi) {
   while (lo < hi) {
     swap(aa[lo], aa[hi]);
-    ++lo;
-    --hi;
+    ++lo; --hi;
   }
 }
 
@@ -26,7 +25,5 @@ void reverseMessage(string& message) {
 }
 
 int main() {
-  string msg = "cake pound steal";
-  reverseMessage(msg);
-  cout << msg << '\n';
+  return 0;
 }

@@ -32,11 +32,5 @@ int maxDuffelBagValue(vector<CakeType> cakes, int capacity) {
 }
 
 int main() {
-  vector<CakeType> cakes {
-    CakeType(7, 160),
-    CakeType(3, 90),
-    CakeType(2, 15)
-  };  
-  cout << maxDuffelBagValue(cakes, 20) << endl;
   return 0;
 }

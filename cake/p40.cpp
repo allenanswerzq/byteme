@@ -14,7 +14,7 @@ int findDuplicate(vi& v) {
       hi++;
       p++;
     }
-    if (p > 1) 
+    if (p > 1)
       return v[lo];
     lo = hi;
     ++hi;
@@ -30,7 +30,7 @@ unsigned int findRepeat(const vi& theVector)
   while (lo < hi) {
 
     unsigned int mid = lo + ((hi - lo) / 2);
-    // Scan the whole vector and find out 
+    // Scan the whole vector and find out
     // all the numbers belong to lo->mid range
     unsigned int cnt = 0;
     for (unsigned int item : theVector) {
@@ -39,10 +39,10 @@ unsigned int findRepeat(const vi& theVector)
       }
     }
     // Assume all numbes in range lo->mid are distinct.
-    // Range lo->mid can only hold this number of numbers. 
+    // Range lo->mid can only hold this number of numbers.
     unsigned int distinct_cnt = mid - lo + 1;
 
-    //cout << "mid: " << mid << " cnt: " << cnt 
+    //cout << "mid: " << mid << " cnt: " << cnt
     // << " d: " << distinct_cnt << '\n';
     if (cnt > distinct_cnt) {
       // There must have some number in range lo->mid duplicated.
@@ -50,7 +50,7 @@ unsigned int findRepeat(const vi& theVector)
     }
     else {
       // Since the whole vector has the number belong to range lo->mid
-      // equals the number in this range. So there is no duplicate 
+      // equals the number in this range. So there is no duplicate
       // in lo->mid range.
       lo = mid+1;
     }
@@ -59,10 +59,6 @@ unsigned int findRepeat(const vi& theVector)
   return lo;
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  vi a = {0, 1, 4, 2, 3, 2};
-  cout << findDuplicate(a) << '\n';
-  cout << findRepeat(a) << '\n';
+int main() {
   return 0;
 }

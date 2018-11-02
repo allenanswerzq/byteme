@@ -5,14 +5,13 @@ class Node {
 public:
   int val;
   Node *next;
-  Node(int x)
-    : val(x), next(nullptr) {}
+  Node(int x) : val(x), next(nullptr) {}
 };
 
 int kthToLastNode(int kth, Node *head) {
   // Case: head is nullptr
   if (!head) return -1;
-  // Case: input is not correct 
+  // Case: input is not correct
   if (kth <= 0) return -1;
 
   Node *p1 = head;
@@ -25,7 +24,7 @@ int kthToLastNode(int kth, Node *head) {
   if (!p2 && kth>0) {
     printf("Not gonna happen\n");
     return -1;
-  } 
+  }
   // Case: normal situation
   // Cache analysis: temporal locality
   while (p1 && p2) {
@@ -36,12 +35,5 @@ int kthToLastNode(int kth, Node *head) {
 }
 
 int main() {
-  Node *head = new Node(1);
-  Node *p = head;
-  for (int i=2; i<=5; ++i) {
-    p->next = new Node(i);
-    p = p->next;
-  }
-  cout << kthToLastNode(6, head) << '\n';
   return 0;
 }

@@ -10,7 +10,7 @@ bool validator(string& a) {
       char ch = stk.top(); stk.pop();
       if ((ch=='{' && c=='}') ||
           (ch=='[' && c==']') ||
-          (ch=='(' && c==')')) 
+          (ch=='(' && c==')'))
           continue;
       return false;
     }
@@ -19,6 +19,5 @@ bool validator(string& a) {
 }
 
 int main() {
-  string a = "{[]()}";
-  cout << validator(a) << '\n';
+  return 0;
 }
