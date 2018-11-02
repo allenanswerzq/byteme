@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define LOCAL_FILE
 
 bool check(int a, int b, int k) {
   int ret = 0;
@@ -47,11 +46,6 @@ bool check(int a, int b, int k) {
 }
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("467b-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   int n, m, k; cin >> n >> m >> k;
   vi aa(m + 1, 0);
   fori (i, 0, m + 1) {
@@ -64,12 +58,6 @@ int main(int argc, char** argv) {
     if (check(fedor, aa[i], k)) ++ret;
   }
   outret(ret);
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }

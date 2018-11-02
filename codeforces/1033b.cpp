@@ -55,10 +55,6 @@ bool prime(ll inp) {
 
 int main(int argc, char** argv) {
 #ifdef EXTERNAL
-  // freopen("1033b-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   int n; cin >> n >> ws;
   fori (i, 1, n + 1) {
     ll a, b; cin >> a >> b; 
@@ -68,11 +64,6 @@ int main(int argc, char** argv) {
   }
 
 #ifdef EXTERNAL
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << '\n';
-#endif
-
   return 0;
 }
 

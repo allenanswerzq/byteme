@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// define LOCAL_FILE
 
 int main(int argc, char** argv) {
   vi aa;

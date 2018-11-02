@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define LOCAL_FILE
 
 ll gcd(ll a, ll b) {
   if (!b) return (a);
@@ -43,22 +42,11 @@ ll gcd(ll a, ll b) {
 
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("1041b-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   ll a, b, x, y;
   cin >> a >> b >> x >> y;
   ll g = gcd(x, y);
   x /= g; y /= g;
   outret(min(a / x, b / y));
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }

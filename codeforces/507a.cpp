@@ -38,17 +38,11 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 
-// #define LOCAL_FILE
 
 #define maxn 120
 pii aa[maxn];
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("507a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   int n, k; cin >> n >> k >> ws;
   fori (i, 1, n + 1) {
     cin >> aa[i].first;
@@ -71,12 +65,6 @@ int main(int argc, char** argv) {
 
   outret(cnt);
   pvi(ret, 0);
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }

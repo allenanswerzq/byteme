@@ -61,19 +61,10 @@ bool check(int n) {
 
 int main(int argc, char** argv) {
 #ifdef EXTERNAL
-  // freopen("320a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   string ss; cin >> ss;
   outret(dfs(ss) ? "YES" : "NO");
 
 #ifdef EXTERNAL
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
-
   return 0;
 }
 

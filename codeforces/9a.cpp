@@ -37,18 +37,12 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define LOCAL_FILE
 int gcd(int a, int b) {
   if(!b) return (a);
   return (gcd(b, a % b));
 }
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("9a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   int y, w; cin >> y >> w;
   int cnt = 0;
   fori (i, max(y, w), 7) {
@@ -58,12 +52,6 @@ int main(int argc, char** argv) {
   int a = cnt / g, b = 6 / g;
   string ret = to_string(a) + "/" + to_string(b);
   outret(ret);
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }

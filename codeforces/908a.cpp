@@ -37,14 +37,8 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define LOCAL_FILE
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("908a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   string ss; cin >> ss;
   unordered_set<char> st1 = {'a', 'e', 'i', 'o', 'u'};
   unordered_set<char> st2 = {'0', '2', '4', '6', '8'};
@@ -55,12 +49,6 @@ int main(int argc, char** argv) {
       ++ret;
   }
   outret(ret);
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }

@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define LOCAL_FILE
 
 #define maxn 40000
 
@@ -47,11 +46,6 @@ int get(int x, int len) {
 }
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("459a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   int x1, y1, x2, y2; 
   int x3, y3, x4, y4;
   cin >> x1 >> y1 >> x2 >> y2;
@@ -79,12 +73,6 @@ int main(int argc, char** argv) {
     outret(-1);
   else 
     cout << x3 << " " << y3 << " " << x4 << " " << y4 << endl;
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }

@@ -34,14 +34,8 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// define LOCAL_FILE
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("141a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   vi dp(256, 0);
   string aa, bb, cc; cin >> aa >> bb >> cc;
   fora (ch, aa) dp[ch]++;
@@ -53,11 +47,5 @@ int main(int argc, char** argv) {
 
   outret(ret == 0 ? "YES" : "NO");
    
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
-
   return 0;
 }

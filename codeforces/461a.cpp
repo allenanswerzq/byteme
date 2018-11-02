@@ -37,7 +37,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define LOCAL_FILE
 
 #define maxn 300100
 ll sum[maxn];
@@ -53,11 +52,6 @@ ll solve(int lo, int hi) {
 }
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("461a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   mst(aa, 0);
   mst(sum, 0);
 
@@ -77,12 +71,6 @@ int main(int argc, char** argv) {
   ll ret = solve(1, n);
   outret(ret);
    
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }

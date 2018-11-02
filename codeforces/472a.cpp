@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// define LOCAL_FILE
 
 bool is_prime(int number) {
   if (((!(number & 1)) && number != 2) 
@@ -51,11 +50,6 @@ bool is_prime(int number) {
 
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("472a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   int n; cin >> n >> ws;
   int a = 4, b = n - a;
   while (is_prime(b)) {
@@ -64,12 +58,6 @@ int main(int argc, char** argv) {
   }
 
   cout << a << " " << b << endl;
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }

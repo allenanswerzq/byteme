@@ -46,14 +46,8 @@ uint hash_str(string& ss) {
 
 unordered_map<uint, uint> mp;
 
-// #define LOCAL_FILE
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("4c-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   int n; cin >> n >> ws;
   fori (i, 1, n + 1) {
     string a; cin >> a;
@@ -68,12 +62,6 @@ int main(int argc, char** argv) {
       outret(na);
     }
   } 
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }

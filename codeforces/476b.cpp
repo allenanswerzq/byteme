@@ -55,10 +55,6 @@ int comb(int n, int k){
 
 int main(int argc, char** argv) {
 #ifdef EXTERNAL
-  // freopen("476b-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   string aa, bb; cin >> aa >> bb;
   int da, db;
   da = db = 0;
@@ -80,11 +76,6 @@ int main(int argc, char** argv) {
   outret(ret);
 
 #ifdef EXTERNAL
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << '\n';
-#endif
-
   return 0;
 }
 

@@ -39,7 +39,6 @@ int gcd(int a, int b)  {
   return gcd(b, a % b);
 }
 
-// #define LOCAL_FILE
 bool solve(int a, int& n) {
   int x = gcd(a, n);
   if (x > n) return 0;
@@ -48,11 +47,6 @@ bool solve(int a, int& n) {
 }
 
 int main(int argc, char** argv) {
-#ifdef LOCAL_FILE
-  // freopen("119a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   int a, b, n; cin >> a >> b >> n;
 
   while (1) {
@@ -61,12 +55,6 @@ int main(int argc, char** argv) {
     else if (!solve(b, n)) {outret("0"); break;}
   }
 
-
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << endl;
-#endif
 
   return 0;
 }

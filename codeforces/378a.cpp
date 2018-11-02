@@ -41,10 +41,6 @@ typedef vector<pii> vpii;
 
 int main(int argc, char** argv) {
 #ifdef EXTERNAL
-  // freopen("378a-input.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif
-
   int a, b; cin >> a >> b;
   int c1, c2, c3;
   c1 = c2 = c3 = 0;
@@ -57,11 +53,6 @@ int main(int argc, char** argv) {
   cout << c1 << " " << c2 << " " << c3 << '\n';
 
 #ifdef EXTERNAL
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cout << "elapsed(s): " << elapsed << '\n';
-#endif
-
   return 0;
 }
 
