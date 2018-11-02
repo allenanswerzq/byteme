@@ -1,16 +1,17 @@
 #!/bin/bash
 
 function trap_ctrlc () {
-  echo [1m[31mExit...[0m
+
+  echo [1m[31mLoop exists, see log file. Exit...[0m
   exit 2
 }
- 
+
 # Initialise trap to call trap_ctrlc function
-# whenhsignal 2 (SIGINT) is received
+# when signal 2 (SIGINT) is received
 trap "trap_ctrlc" 2
 
 input_name=input_
-output_name=output_
+output_name=log_
 res_name=result.txt
 
 for test_file in "$input_name"*; do
@@ -29,7 +30,7 @@ for test_file in "$input_name"*; do
     echo [1m[31mRuntime error[0m
   else
     cat "$output" >> "$res_name"
+    # echo "====================" >> "$res_name"
   fi
   rm -f "$input" "$output"
 done
-

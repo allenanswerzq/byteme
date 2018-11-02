@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define pb push_back
@@ -47,74 +47,15 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-ll comb(int n, int k) {
-  if (k > n) return 0;
-  if (k == 0) return 1;
-  if (k * 2 > n) k = n - k;
+void solve() {
 
-  ll ret = n;
-  for (int i = 2; i <= k; ++i) {
-    ret *= (n - i + 1);
-    ret /= i;
-  }
-  return ret;
-}
-
-const int maxn = 8000;
-ll aa[maxn];
-ll solve() {
-  int n; cin >> n;
-  int c = 0;
-  fori (i, 0, n) {
-    cin >> aa[i];
-    if (aa[i] == 0) ++c;
-  }
-
-  sort(aa, aa + n);
-  // par(aa, n, 1);
-
-  // tick();
-  ll ret = 0;
-  unordered_map<ll, ll> mp;
-  ford (y, n - 1, -1) {
-    ford (x, y - 1, -1) {
-      ll z = aa[x] * aa[y];
-      if (z && mp.count(z))
-        ret += mp[z];
-    }
-    mp[aa[y]]++;
-  }
-  // trace(tick());
-  ret += comb(c, 3) + comb(c, 2) * (n - c) * 1ll;
-  return ret;
-}
-
-ll solve2() {
-  int n; cin >> n;
-  fori (i, 0, n) cin >> aa[i];
-
-  // sort(aa, aa + n);
-  ll r = 0;
-  fori (i, 0, n) {
-    fori (j, i + 1, n) {
-      fori (k, j + 1, n) {
-        if (aa[i] * aa[j] == aa[k] ||
-            aa[i] * aa[k] == aa[j] ||
-            aa[j] * aa[k] == aa[i]) {
-          ++r;
-          // trace(i + 1, j + 1, k + 1);
-        }
-      }
-    }
-  }
-  return r;
 }
 
 int main() {
   int t; cin >> t >> ws;
   fori (i, 1, t + 1) {
-    ll r = solve();
-    codejam(i, r);
+
   }
   return 0;
 }
+

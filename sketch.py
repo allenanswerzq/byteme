@@ -10,7 +10,7 @@ def build_cpp(fn):
   in_name = fn[0:-4] + "-input.txt"
   out_name = fn[0:-4] + "-output.txt"
   cpp2 = """\
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define pb push_back
@@ -116,7 +116,7 @@ def generate_makefile(fn):
       'test: clean compile\n'
       '\t@chmod +x ./elf\n'
       '\talgo-split in-{0}.txt\n'
-      '\talgo-run in-{0}.cpp | tee in-{0}.cpp\n'
+      '\talgo-run in-{0}.cpp | tee log-{0}.txt\n'
       '\t@echo "====================" \n'
       '\tdiff -y result.txt true-{0}.txt -W 100 | sed "s/ /-/g"\n'
       '\n'

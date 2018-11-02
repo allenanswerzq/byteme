@@ -3,12 +3,19 @@
 import os
 import sys
 import copy
+import signal
 from pathlib import Path
+
+# def signal_handler(sig, frame):
+#     print('You pressed Ctrl+C!')
+#     sys.exit(0)
+
+# signal.signal(signal.SIGINT, signal_handler)
 
 inputs = []
 outputs = []
-inputs_sign = "input"
-outputs_sign = "output"
+inputs_sign = "nput"
+outputs_sign = "utput"
 inputs_ok = 0
 outputs_ok = 0
 with open(sys.argv[1], 'r') as f:
@@ -29,7 +36,7 @@ with open(sys.argv[1], 'r') as f:
     elif outputs_sign in line:
       inputs_ok, outputs_ok = 0, 1
     else:
-      if inputs_ok or outputs_ok: 
+      if inputs_ok or outputs_ok:
         bag.append(line)
       else: break
 
@@ -48,8 +55,9 @@ if len(outputs) > 0 and len(inputs) > 0:
     for out in outputs:
       for line in out:
         f.write(line)
+      # f.write("====================\n")
 
- 
+
 sample = ""
 samples = [];
 sep = ""

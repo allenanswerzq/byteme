@@ -1,5 +1,5 @@
 
 # n, k, d = map(int, input().split())
-
-for i in range(100):
-  print(i, bin(i)[2:], i & 4)
+print(30, 30, 30)
+for i in range(30):
+  print ('.' * 30)
