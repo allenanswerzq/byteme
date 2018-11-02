@@ -1,44 +1,39 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class CaptureThemAll { 
-public: 
-  int dist[9][9]; 
-  int doit(string from, string to) 
-  { 
-    vector<vi> dir = {{-2,-1}, {-2,1}, {2,-1}, {2,1}, {-1,-2}, {1,-2},
-                    {-1,2}, {1,2}};
-    queue<string> Q;
-    Q.push(from);
+class CaptureThemAll {
+public:
+  int dist[9][9];
+  int go(string from, string to) {
+    vector<vi> dirs = {{-2,-1}, {-2,1}, {2,-1}, {2,1},
+                      {-1,-2}, {1,-2}, {-1,2}, {1,2}};
+    queue<string> dq;
+    dq.push(from);
     // Note: use memset could cause problems sometime.
-    fori(i, 0, 10)
-      fori(j, 0, 10)
+    fori (i, 0, 10)
+      fori (j, 0, 10)
         dist[i][j] = 1000;
-    // mst(dist, 1000);
-    // fori(i, 0, 10)
-    //   fori(j, 0, 10)
-    //     cout << dist[i][j] << ' ';
 
-    // Note: index 
-    dist[from[0] - 'a' + 1][from[1]-'0'] = 0;
+    // Note: index
+    dist[from[0] - 'a' + 1][from[1] - '0'] = 0;
     int tc = to[0] - 'a' + 1;
     int tr = to[1] - '0';
 
-    while (!Q.empty()) {
-      string top = Q.front(); Q.pop();
+    while (!dq.empty()) {
+      string top = dq.front(); dq.pop();
       if (top == to)
         return dist[tc][tr];
-        int c = top[0]-'a'+1;
-        int r = top[1]-'0';
-        fora(d, dir) {
+        int c = top[0] - 'a' + 1;
+        int r = top[1] - '0';
+        fora (d, dirs) {
           int nc = c + d[0]; int nr = r + d[1];
-          if(0<nc && nc<9 && 0<nr && nr<9) {
+          if (0 < nc && nc < 9 && 0 < nr && nr < 9) {
             if (dist[c][r] + 1 < dist[nc][nr]) {
               dist[nc][nr] = dist[c][r] + 1;
               string nxt_state;
               nxt_state += (char)('a' + nc - 1);
               nxt_state += (char)('0' + nr);
-              Q.push(nxt_state);
+              dq.push(nxt_state);
             }
           }
         }
@@ -46,24 +41,28 @@ public:
     return -1;
   }
 
-  int fastKnight (string knight, string rook, string queen) {
-    int a = doit(knight, rook) + doit(rook, queen);
-    int b = doit(knight, queen) + doit(queen, rook);
-    // int c = 2*doit(knight, rook) + doit(knight, queen);
-    // int d = 2*doit(knight, queen) + doit(knight, rook);
+  int fastKnight(string knight, string rook, string queen) {
+    int a = go(knight, rook) + go(rook, queen);
+    int b = go(knight, queen) + go(queen, rook);
+    // int c = 2*go(knight, rook) + go(knight, queen);
+    // int d = 2*go(knight, queen) + go(knight, rook);
     // cout << a << " " << b << " " << c << " " << d << '\n';
     // return min(min(a, min(b, c)), d);
     return min(a, b);
   }
 };
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
+void test(string aa, string bb, string cc) {
   CaptureThemAll go;
-  cout << go.fastKnight("a1", "b3", "c5") << '\n';
-  cout << go.fastKnight("b1", "c3", "a3") << '\n';
-  cout << go.fastKnight("a1", "a2", "b2") << '\n';
-  cout << go.fastKnight("a5", "b7", "e4") << '\n';
-  cout << go.fastKnight("h8", "e2", "d2") << '\n';
+  int r = go.fastKnight(aa, bb, cc);
+  output(r);
+}
+
+int main() {
+  test("a1", "b3", "c5");
+  test("b1", "c3", "a3");
+  test("a1", "a2", "b2");
+  test("a5", "b7", "e4");
+  test("h8", "e2", "d2");
   return 0;
 }

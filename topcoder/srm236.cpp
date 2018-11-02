@@ -15,14 +15,15 @@ public:
   }
 };
 
-// int main(int argc, char** argv) {
-//   std::ios_base::sync_with_stdio(false);
-//   BusinessTasks go;
-//   vector<string> t {"a", "b", "c", "d"};
-//   cout << go.getTask(t, 2) << '\n';
-//   vector<string> a {"a", "b", "c", "d", "e"};
-//   cout << go.getTask(a, 3) << '\n';
-//   vector<string> c {"a", "b"};
-//   cout << go.getTask(c, 1000) << '\n';
-//   return 0;
-// }
+void test(vs aa) {
+  BusinessTasks go;
+  auto r = go.getTask(aa);
+  output(r);
+}
+
+int main() {
+  test({"a", "b", "c", "d"});
+  test({"a", "b", "c", "d", "e"});
+  test({"a", "b"});
+  return 0;
+}

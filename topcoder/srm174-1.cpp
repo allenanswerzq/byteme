@@ -17,12 +17,6 @@ public:
   }
 };
 
-// int main(int argc, char** argv) {
-//   std::ios_base::sync_with_stdio(false);
-//   BirthayOdds bi;
-//   int a, b;
-//   while (cin >> a >> b) {
-//     cout << bi.minPeople(a, b) << '\n';
-//   }
-//   return 0;
-// }
+int main() {
+  return 0;
+}

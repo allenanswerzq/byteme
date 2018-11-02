@@ -17,7 +17,7 @@ public:
         mp[end] = c;
         if (c == 'z')
           c = 'A';
-        else 
+        else
           ++c;
       }
       res += mp[end];
@@ -33,7 +33,7 @@ string Poetry::endPattern(string s) {
   while (iss >> w) {} // get the last word
   if (w.empty())
     return w;
-  
+
   // fori(i, 0, sz(w))
   //   if (isvowel(w, i))
   //     return w.substr(i);
@@ -62,8 +62,7 @@ string Poetry::lower(string s) {
   return r;
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
+int main() {
   vector<string> poem;
   string s;
   Poetry go;
@@ -72,7 +71,7 @@ int main(int argc, char** argv) {
       poem.pb(s.substr(1));
     else if (s.back() == '}')
       poem.pb(s.substr(0, sz(s)-1));
-    else 
+    else
       poem.pb(s);
     fora(s, poem)
       cout << s << '\n';

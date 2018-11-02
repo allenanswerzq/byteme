@@ -18,24 +18,25 @@ public:
     ll ans = 0;
 
     // Case 1: fill this level with only one color.
-    if (r >= level) ans += dp(level+1, r-level, g, b);
-    if (g >= level) ans += dp(level+1, r, g-level, b); 
-    if (b >= level) ans += dp(level+1, r, g, b-level);
+    if (r >= level) ans += dp(level + 1, r - level, g, b);
+    if (g >= level) ans += dp(level + 1, r, g - level, b);
+    if (b >= level) ans += dp(level + 1, r, g, b - level);
 
     // Case 2: fill this level with two colors.
     if (level % 2 == 0) {
       int k = level / 2;
-      ll c = comb[level][k]; 
-      if (r >=k && g >= k) ans += dp(level+1, r-k, g-k, b) * c;
-      if (r >=k && b >= k) ans += dp(level+1, r-k, g, b-k) * c;
-      if (g >=k && b >= k) ans += dp(level+1, r, g-k, b-k) * c;
+      ll c = comb[level][k];
+      if (r >=k && g >= k) ans += dp(level + 1, r - k, g - k, b) * c;
+      if (r >=k && b >= k) ans += dp(level + 1, r - k, g, b - k) * c;
+      if (g >=k && b >= k) ans += dp(level + 1, r, g - k, b - k) * c;
     }
 
     // Case 3: fill this level with three colors.
     if (level % 3 == 0) {
       int k = level / 3;
-      ll c = comb[level][k] * comb[level-k][k];
-      if (r>=k && g>=k && b>=k) ans += dp(level+1, r-k, g-k, b-k) * c; 
+      ll c = comb[level][k] * comb[level - k][k];
+      if (r >= k && g >= k && b >= k)
+        ans += dp(level + 1, r - k, g - k, b - k) * c;
     }
 
     cnt[level][r][g][b] = ans;
@@ -50,12 +51,12 @@ public:
     // c(n, k) = c(n-1, k-1) + c(n-1, k)
     comb[0][0] = 1;
     fori(n, 0, 60)
-      fori(k, 0, n+1)
+      fori(k, 0, n + 1)
         comb[n][k] = (k == 0) ? 1 : comb[n-1][k-1] + comb[n-1][k];
 
     return dp(1, red, green, blue);
-  } 
-  
+  }
+
 };
 
 // Expected:
@@ -64,12 +65,16 @@ public:
 // Received:
 // 1911898796777794
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
+void test(int a, int b, int c, int d) {
   ChristmasTree go;
-  cout << go.decorationWays(2, 1, 1, 1) << "\n";
-  cout << go.decorationWays(8, 1, 15, 20) << "\n";
+  auto r = go.decorationWays(a, b, c, d);
+  output(r);
+}
+
+int main() {
+  test(2, 1, 1, 1);
+  test(8, 1, 15, 20);
   // This case is wrong.
-  cout << go.decorationWays(10, 50, 50, 50) << "\n";
+  test(10, 50, 50, 50);
   return 0;
 }
