@@ -37,10 +37,8 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define EXTERNAL
 
 int main(int argc, char** argv) {
-#ifdef EXTERNAL
   int n, m, z; cin >> n >> m >> z;
   int ret = 0;
   fori (i, 1, z + 1) {
@@ -50,7 +48,6 @@ int main(int argc, char** argv) {
 
   outret(ret);
 
-#ifdef EXTERNAL
   return 0;
 }
 

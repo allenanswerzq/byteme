@@ -37,7 +37,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define EXTERNAL
 
 bool prime(ll inp) {
   if (((!(inp & 1)) && inp != 2 ) || 
@@ -54,7 +53,6 @@ bool prime(ll inp) {
 }
 
 int main(int argc, char** argv) {
-#ifdef EXTERNAL
   int n; cin >> n >> ws;
   fori (i, 1, n + 1) {
     ll a, b; cin >> a >> b; 
@@ -63,7 +61,6 @@ int main(int argc, char** argv) {
     else outret("NO");
   }
 
-#ifdef EXTERNAL
   return 0;
 }
 

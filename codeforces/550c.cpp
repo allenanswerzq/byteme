@@ -43,10 +43,8 @@ typedef vector<pii> vpii;
 // number 3624 is 624, which is evenly divisible by 8 so 3624 is evenly 
 // divisible by 8.
 
-// #define EXTERNAL
 
 int main(int argc, char** argv) {
-#ifdef EXTERNAL
   string ss; cin >> ss;
   for (int i = 0; i <= 1000; i += 8) {
     string tt = to_string(i);
@@ -62,7 +60,6 @@ int main(int argc, char** argv) {
   }
   outret("NO");
 
-#ifdef EXTERNAL
   return 0;
 }
 

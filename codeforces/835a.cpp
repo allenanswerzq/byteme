@@ -37,10 +37,8 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define EXTERNAL
 
 int main(int argc, char** argv) {
-#ifdef EXTERNAL
   int s, v1, v2, t1, t2; 
   cin >> s >> v1 >> v2 >> t1 >> t2;
   int r1 = 2 * t1 + s * v1;
@@ -48,7 +46,6 @@ int main(int argc, char** argv) {
   // trace(r1, r2);
   outret(r1 < r2 ? "First" : r1 == r2 ? "Friendship" : "Second");
 
-#ifdef EXTERNAL
   return 0;
 }
 

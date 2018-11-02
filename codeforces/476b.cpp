@@ -37,7 +37,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define EXTERNAL
 // TODO
 
 int comb(int n, int k){
@@ -54,7 +53,6 @@ int comb(int n, int k){
 }
 
 int main(int argc, char** argv) {
-#ifdef EXTERNAL
   string aa, bb; cin >> aa >> bb;
   int da, db;
   da = db = 0;
@@ -75,7 +73,6 @@ int main(int argc, char** argv) {
   }
   outret(ret);
 
-#ifdef EXTERNAL
   return 0;
 }
 

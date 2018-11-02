@@ -37,7 +37,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define EXTERNAL
 
 bool dfs(string ss) {
   if (sz(ss) == 0) return 1;
@@ -60,11 +59,9 @@ bool check(int n) {
 }
 
 int main(int argc, char** argv) {
-#ifdef EXTERNAL
   string ss; cin >> ss;
   outret(dfs(ss) ? "YES" : "NO");
 
-#ifdef EXTERNAL
   return 0;
 }
 

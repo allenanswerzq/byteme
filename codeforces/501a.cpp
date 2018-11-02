@@ -37,17 +37,14 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define EXTERNAL
 
 int main(int argc, char** argv) {
-#ifdef EXTERNAL
   int a, b, c, d;
   cin >> a >> b >> c >> d;
   int v = max(3 * a / 10, a - a / 250 * c); 
   int t = max(3 * b / 10, b - b / 250 * d); 
   outret(v < t ? "Vasya" : v == t ? "Tie" : "Misha");
 
-#ifdef EXTERNAL
   return 0;
 }
 

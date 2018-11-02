@@ -37,15 +37,12 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// #define EXTERNAL
 
 int main(int argc, char** argv) {
-#ifdef EXTERNAL
   int n; cin >> n;
   int ret = (n + 1) / 2 - 1;
   outret(ret);
 
-#ifdef EXTERNAL
   return 0;
 }
 
