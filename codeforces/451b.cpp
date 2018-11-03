@@ -10,8 +10,8 @@ using namespace std;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
-#define outret(v) cout << (v) << endl
-#define output(ix, v) cout << "Case #" << (ix) << ": " << (v) << endl
+#define output(v) cout << (v) << endl
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << endl
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
   
   // Already sorted. 
   if (lo == -1) {
-    outret("yes");
+    output("yes");
     cout << 1 << " " << 1 << endl;
     return 0;
   }
@@ -73,7 +73,7 @@ int main(int argc, char** argv) {
     if (hi != -1) {
       while (++i < sz(aa)) {
         if (aa[i] != bb[i]) {
-          outret("no");
+          output("no");
           return 0;
         }
       }
@@ -85,13 +85,13 @@ int main(int argc, char** argv) {
   while (lo <= r2 && hi >= 0) {
     // trace(lo, hi, aa[lo], bb[hi]);
     if (aa[lo] != bb[hi]) {
-      outret("no");
+      output("no");
       return 0;
     }
     ++lo; --hi;
   }
 
-  outret("yes");
+  output("yes");
   cout << r1 + 1 << " " << r2 + 1 << endl;
 
   return 0;

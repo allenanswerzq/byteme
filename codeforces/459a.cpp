@@ -8,8 +8,8 @@ using namespace std;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
-#define outret(val) cout << (val) << endl
-#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+#define output(val) cout << (val) << endl
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (val) << endl
 #define pvi(x) cout << #x << ": "; fora(a, x) cout << a << " "; cout << endl
 #define par(x, n) cout<< #x << ": "; fori(a, 0, n) cout<<x[a]<<" "; cout <<endl
 
@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
   }
 
   if (x3 == maxn || y3 == maxn || x4 == maxn || y4 == maxn)
-    outret(-1);
+    output(-1);
   else 
     cout << x3 << " " << y3 << " " << x4 << " " << y4 << endl;
 

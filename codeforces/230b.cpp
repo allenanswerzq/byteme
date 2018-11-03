@@ -5,13 +5,13 @@ using namespace std;
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
-#define outret(val) cout << (val) << endl
+#define output(val) cout << (val) << endl
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
 #define pvi(x) fora(a, x) cout << a << " "; cout << endl
 #define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
-#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (val) << endl
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
@@ -51,8 +51,8 @@ int main(int argc, char** argv) {
   fori (i, 1, n + 1) {
     ll inp; cin >> inp;
     ll a = sqrt(inp);
-    if (a * a == inp && prime(a)) outret("YES");
-    else outret("NO");
+    if (a * a == inp && prime(a)) output("YES");
+    else output("NO");
   }
 
   return 0;

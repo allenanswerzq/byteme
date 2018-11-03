@@ -8,8 +8,8 @@ using namespace std;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
-#define outret(val) cout << (val) << endl
-#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+#define output(val) cout << (val) << endl
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (val) << endl
 #define pvi(x) cout << #x << ": "; fora(a, x) cout << a << " "; cout << endl
 #define par(x, n) cout<< #x << ": "; fori(a, 0, n) cout<<x[a]<<" "; cout <<endl
 
@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
     if (a > b) ++aa;
     if (a < b) ++bb;
   }
-  outret(aa > bb ? "Mishka" : aa == bb ? "Friendship is magic!^^" : "Chris");
+  output(aa > bb ? "Mishka" : aa == bb ? "Friendship is magic!^^" : "Chris");
 
   return 0;
 }

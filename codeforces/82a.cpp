@@ -5,13 +5,13 @@ using namespace std;
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
-#define outret(val) cout << (val) << endl
+#define output(val) cout << (val) << endl
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
 #define pvi(x) fora(a, x) cout << a << " "; cout << endl
 #define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
-#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (val) << endl
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
@@ -45,11 +45,11 @@ int main(int argc, char** argv) {
 
   int ret = (n - sum + kk - 1) / kk;
 
-  if (ret == 1) outret("Sheldon");
-  else if (ret == 2) outret("Leonard");
-  else if (ret == 3) outret("Penny");
-  else if (ret == 4) outret("Rajesh");
-  else if (ret == 5) outret("Howard");
+  if (ret == 1) output("Sheldon");
+  else if (ret == 2) output("Leonard");
+  else if (ret == 3) output("Penny");
+  else if (ret == 4) output("Rajesh");
+  else if (ret == 5) output("Howard");
 
   return 0;
 }

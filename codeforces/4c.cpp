@@ -5,13 +5,13 @@ using namespace std;
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
-#define outret(val) cout << (val) << endl
+#define output(val) cout << (val) << endl
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
 #define pvi(x) fora(a, x) cout << a << " "; cout << endl
 #define par(x, n) fori(a, 0, n) cout << x[a] << " "; cout << endl
-#define output(ix, val) cout << "Case #" << (ix) << ": " << (val) << endl
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (val) << endl
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
@@ -53,13 +53,13 @@ int main(int argc, char** argv) {
     string a; cin >> a;
     uint hs = hash_str(a);
     if (!mp.count(hs)) {
-      outret("OK"); 
+      output("OK"); 
       mp[hs] = 0;
     } else {
       int cnt = mp[hs] + 1;
       mp[hs] = cnt;
       string na = a + to_string(cnt);
-      outret(na);
+      output(na);
     }
   } 
 

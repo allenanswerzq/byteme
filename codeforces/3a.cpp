@@ -10,8 +10,8 @@ using namespace std;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
-#define outret(v) cout << (v) << '\n'
-#define output(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
+#define output(v) cout << (v) << '\n'
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
@@ -55,21 +55,21 @@ int main(int argc, char** argv) {
 
   if (sx == dx) {
     int ret = abs(dy - sy);
-    outret(ret);
+    output(ret);
     if (dy > sy) {
-      fori (i, 0, ret) outret("U"); 
+      fori (i, 0, ret) output("U"); 
     } else if (dy < sy) {
-      fori (i, 0, ret) outret("D");
+      fori (i, 0, ret) output("D");
     }
   } 
 
   else if (sy == dy) {
     int ret = abs(dx - sx);
-    outret(ret);
+    output(ret);
     if (sx < dx) {
-      fori (i, 0, ret) outret("R");
+      fori (i, 0, ret) output("R");
     } else if (sx > dx) 
-      fori (i, 0, ret) outret("L");
+      fori (i, 0, ret) output("L");
   } 
 
   else {
@@ -78,42 +78,42 @@ int main(int argc, char** argv) {
     int p1 = abs(xd - yd) + yd;
     int p2 = abs(xd - yd) + xd;
     int ret = min(p1, p2);
-    outret(ret);
+    output(ret);
     if (c > 0) {
       if (d > 0) {
         if (p1 < p2) {
-          fori (i, 0, yd) outret("LD");
-          fori (i, 0, abs(xd - yd)) outret("L"); 
+          fori (i, 0, yd) output("LD");
+          fori (i, 0, abs(xd - yd)) output("L"); 
         } else {
-          fori (i, 0, xd) outret("LD");
-          fori (i, 0, abs(xd - yd)) outret("D"); 
+          fori (i, 0, xd) output("LD");
+          fori (i, 0, abs(xd - yd)) output("D"); 
         }
       } else if (d < 0) {
         if (p1 < p2) {
-          fori (i, 0, yd) outret("LU");
-          fori (i, 0, abs(xd - yd)) outret("L"); 
+          fori (i, 0, yd) output("LU");
+          fori (i, 0, abs(xd - yd)) output("L"); 
         } else {
-          fori (i, 0, xd) outret("LU");
-          fori (i, 0, abs(xd - yd)) outret("U"); 
+          fori (i, 0, xd) output("LU");
+          fori (i, 0, abs(xd - yd)) output("U"); 
         }
       }
     } else if (c < 0) {
       if (d > 0) {
         if (p1 < p2) {
-          fori (i, 0, yd) outret("RD");
-          fori (i, 0, abs(xd - yd)) outret("R"); 
+          fori (i, 0, yd) output("RD");
+          fori (i, 0, abs(xd - yd)) output("R"); 
         } else {
-          fori (i, 0, xd) outret("RD");
-          fori (i, 0, abs(xd - yd)) outret("D"); 
+          fori (i, 0, xd) output("RD");
+          fori (i, 0, abs(xd - yd)) output("D"); 
         }
 
       } else if (d < 0) {
         if (p1 < p2) {
-          fori (i, 0, yd) outret("RU");
-          fori (i, 0, abs(xd - yd)) outret("R"); 
+          fori (i, 0, yd) output("RU");
+          fori (i, 0, abs(xd - yd)) output("R"); 
         } else {
-          fori (i, 0, yd) outret("RU");
-          fori (i, 0, abs(xd - yd)) outret("U"); 
+          fori (i, 0, yd) output("RU");
+          fori (i, 0, abs(xd - yd)) output("U"); 
         }
       }
     }   

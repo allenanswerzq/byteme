@@ -10,8 +10,8 @@ using namespace std;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
-#define outret(v) cout << (v) << '\n'
-#define output(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
+#define output(v) cout << (v) << '\n'
+#define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
@@ -48,7 +48,7 @@ typedef vector<pii> vpii;
 
 int main(int argc, char** argv) {
   int n; cin >> n >> ws;
-  if (n & 1) outret(-1);
+  if (n & 1) output(-1);
   else {
     for (int i = 1; i <= n; i += 2) {
       cout << i + 1 << " " << i << " ";
