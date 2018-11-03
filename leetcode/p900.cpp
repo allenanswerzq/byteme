@@ -4,7 +4,7 @@ using namespace std;
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
-#define outret(val) cout << (val) << endl;
+#define output(val) cout << (val) << endl;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
@@ -67,24 +67,24 @@ public:
 
 void test(vi aa) {
   RLEIterator go(aa);
-  outret(go.next(2)); 
-  outret(go.next(1));
-  outret(go.next(1));
-  outret(go.next(2)); 
+  output(go.next(2)); 
+  output(go.next(1));
+  output(go.next(1));
+  output(go.next(2)); 
 }
 
 void test2(vi aa) {
   RLEIterator go(aa);
-  outret(go.next(358));
-  outret(go.next(345));
-  outret(go.next(154));
-  outret(go.next(265));
-  outret(go.next(73));
-  outret(go.next(220));
-  outret(go.next(138));
-  outret(go.next(4));
-  outret(go.next(170));
-  outret(go.next(88));
+  output(go.next(358));
+  output(go.next(345));
+  output(go.next(154));
+  output(go.next(265));
+  output(go.next(73));
+  output(go.next(220));
+  output(go.next(138));
+  output(go.next(4));
+  output(go.next(170));
+  output(go.next(88));
 }
 
 int main(int argc, char** argv) {

@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <vector>
+#include <deque>
+#include <iostream>
 using namespace std;
 
 #define pb push_back
@@ -15,27 +18,27 @@ using namespace std;
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
-#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
-template <typename T>
-void _f(const char* name, T&& arg) {
-  cout << fixed << name << ": " << arg << '\n';
-}
+// #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+// template <typename T>
+// void _f(const char* name, T&& arg) {
+//   cout << fixed << name << ": " << arg << '\n';
+// }
 
-template <typename T, typename... Args>
-void _f(const char* names, T&& arg, Args&&... args) {
-  const char* split = strchr(names + 1, ',');
-  cout.write(names, split - names) << ": " << arg << " |";
-  _f(split, args...);
-}
+// template <typename T, typename... Args>
+// void _f(const char* names, T&& arg, Args&&... args) {
+//   const char* split = strchr(names + 1, ',');
+//   cout.write(names, split - names) << ": " << arg << " |";
+//   _f(split, args...);
+// }
 
-double tick() {
-  static clock_t old;
-  clock_t now = clock();
-  double diff = 1.0 * (now - old);
-  diff /= CLOCKS_PER_SEC;
-  old = now;
-  return diff;
-}
+// double tick() {
+//   static clock_t old;
+//   clock_t now = clock();
+//   double diff = 1.0 * (now - old);
+//   diff /= CLOCKS_PER_SEC;
+//   old = now;
+//   return diff;
+// }
 
 typedef long long ll;
 typedef long double ld;
@@ -47,15 +50,47 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-void solve() {
+const int maxn = 1e5 + 7;
+int visit[maxn];
+int n, k;
 
+int bfs() {
+  deque<int> dq;
+  dq.pb(n);
+  visit[n] = 1;
+
+  int level = 0;
+  while (sz(dq)) {
+    int l = sz(dq);
+    fori (i, 0, l) {
+      int cur = dq.front(); dq.pop_front();
+      if (cur == k) return level;
+      int nxt = 0;
+      fori (j, 0, 3) {
+        if (j == 0) nxt = cur - 1;
+        if (j == 1) nxt = cur + 1;
+        if (j == 2) nxt = cur * 2;
+        if (nxt < 0 || nxt > maxn || visit[nxt]) continue;
+        visit[nxt] = 1;
+        dq.pb(nxt);
+      }
+    }
+    ++level;
+  }
+
+  // Never reach here.
+  return -1;
+}
+
+void solve() {
+  cin >> n >> k;
+  if (n > k) output(n - k);
+  else if (n == k) output(0);
+  else output(bfs());
 }
 
 int main() {
-  int t; cin >> t >> ws;
-  fori (i, 1, t + 1) {
-
-  }
+  solve();
   return 0;
 }
 

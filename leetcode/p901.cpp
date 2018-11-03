@@ -4,7 +4,7 @@ using namespace std;
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
-#define outret(val) cout << (val) << endl;
+#define output(val) cout << (val) << endl;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
@@ -63,22 +63,22 @@ public:
 
 void test() {
   StockSpanner go;
-  outret(go.next(100));
-  outret(go.next(80));
-  outret(go.next(60));
-  outret(go.next(70));
-  outret(go.next(60));
-  outret(go.next(75));
-  outret(go.next(85));
+  output(go.next(100));
+  output(go.next(80));
+  output(go.next(60));
+  output(go.next(70));
+  output(go.next(60));
+  output(go.next(75));
+  output(go.next(85));
 }
 
 void test2() {
   StockSpanner go;
-  outret(go.next(31));
-  outret(go.next(41));
-  outret(go.next(48));
-  outret(go.next(59));
-  outret(go.next(79));
+  output(go.next(31));
+  output(go.next(41));
+  output(go.next(48));
+  output(go.next(59));
+  output(go.next(79));
 }
 
 int main(int argc, char** argv) {

@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define pb push_back
@@ -18,7 +18,7 @@ using namespace std;
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {
-  cout << name << ": " << arg << '\n';
+  cout << fixed << name << ": " << arg << '\n';
 }
 
 template <typename T, typename... Args>
@@ -29,10 +29,11 @@ void _f(const char* names, T&& arg, Args&&... args) {
 }
 
 double tick() {
-  static clock_t oldtick;
-  clock_t newtick = clock();
-  double diff = 1.0 * (newtick - oldtick) / CLOCKS_PER_SEC;
-  oldtick = newtick;
+  static clock_t old;
+  clock_t now = clock();
+  double diff = 1.0 * (now - old);
+  diff /= CLOCKS_PER_SEC;
+  old = now;
   return diff;
 }
 
@@ -46,36 +47,15 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-class Solution {
-public:
-  int minAddToMakeValid(string ss) {
-    deque<char> dq;
-    int ret = 0;
-    fori (i, 0, sz(ss)) {
-      if (ss[i] == ')') {
-        if (sz(dq) && dq.back() == '(') dq.pop_back();
-        else ++ret;
-      } else {
-        dq.pb('(');
-      }
-    } 
+void solve() {
 
-    // trace(ss, sz(ss), ret, sz(dq));
-    return ret + sz(dq);
+}
+
+int main() {
+  int t; cin >> t >> ws;
+  fori (i, 1, t + 1) {
+
   }
-};
-
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
-  string ss; cin >> ss;
-  Solution go;
-  int r = go.minAddToMakeValid(ss);
-  output(r);
-
   return 0;
 }
 

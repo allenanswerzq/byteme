@@ -4,7 +4,7 @@ using namespace std;
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
-#define outret(val) cout << (val) << endl;
+#define output(val) cout << (val) << endl;
 #define fora(e, c) for (auto &e : c)
 #define fori(i, a, b) for (int i = (a); i < (b); ++i)
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
@@ -50,7 +50,7 @@ public:
 void test(vi aa) {
   Solution go;
   int r = go.isMonotonic(aa);
-  outret(r);
+  output(r);
 }
 
 int main(int argc, char** argv) {
