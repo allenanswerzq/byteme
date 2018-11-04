@@ -10,10 +10,10 @@ if [[ "$1" == "test" ]]; then
   cmd="make test -f $2"
 elif [[ "$1" == "run" ]]; then
   cmd="make run -f $2"
-else
+  else
   cmd="make test"
 fi
 
 while 1; clear && tmux clear-history; do $cmd; \
-echo -n "Press Enter to continue"; read newline; \
+echo -en "\nPress Enter to continue"; read newline; \
 clear && tmux clear-history; done;
