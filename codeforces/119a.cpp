@@ -46,7 +46,7 @@ bool solve(int a, int& n) {
   return 1;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int a, b, n; cin >> a >> b >> n;
 
   while (1) {

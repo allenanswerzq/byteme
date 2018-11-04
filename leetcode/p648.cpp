@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -37,6 +36,6 @@ string replaceWords(vector<string>& dict, string sentence) {
   return res;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

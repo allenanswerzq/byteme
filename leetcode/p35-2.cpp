@@ -13,19 +13,8 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
+int main() {
+ 
 
-  freopen("p35-2-small.txt", "rt", stdin);
-  clock_t begin = clock();
-
-
-
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
   return 0;
 }

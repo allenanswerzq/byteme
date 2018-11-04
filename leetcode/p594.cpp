@@ -30,7 +30,7 @@ int findLHS(vector<int>& A) {
     
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n[] = {1,3,2,2,5,2,3,7};
   vector<int> v(n, n+8);
   cout << findLHS(v) << endl;

@@ -1,13 +1,5 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-    printf("%d ", x); 
-  printf("]\n");
-}
 
 int bfs(vector<vector<int>>& forest, int src_x, int src_y, int dest_x, int dest_y) {
   if (src_x == dest_x && src_y == dest_y) return 0;

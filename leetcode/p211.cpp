@@ -62,6 +62,6 @@ public:
  * obj.addWord(word);
  * bool param_2 = obj.search(word);
  */
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

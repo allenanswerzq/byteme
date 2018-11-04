@@ -62,26 +62,15 @@ void test(string inp) {
   cout << r << endl;
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-#ifdef LOCAL_FILE
-  freopen("p306-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-#endif 
+int main() {
+ 
+#ifdef LOCAL_FILE#endif 
 
   test("1023");
   test("112358");
   test("199100199");
 
-#ifdef LOCAL_FILE
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
-#endif
+#ifdef LOCAL_FILE#endif
 
   return 0;
 }

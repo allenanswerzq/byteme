@@ -110,7 +110,7 @@ void test(vs aa) {
   output(1, ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({"wrt", "wrf", "er", "ett", "rftt"});
   return 0;
 }

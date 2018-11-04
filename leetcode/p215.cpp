@@ -82,7 +82,7 @@ void test(vi aa, int kk) {
   output(1, ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({3,2,3,1,2,4,5,5,6}, 4);
   return 0;
 }

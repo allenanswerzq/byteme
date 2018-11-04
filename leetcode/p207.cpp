@@ -105,7 +105,7 @@ void test(int kk, vpii aa) {
   output(1, ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({{0, 1}, {0, 2}, {1, 2}});
   return 0;
 }

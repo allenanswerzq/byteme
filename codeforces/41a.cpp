@@ -34,7 +34,7 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   string aa, bb; cin >> aa >> bb;
   reverse(all(bb));
   output(bb == aa ? "YES" : "NO");

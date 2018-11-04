@@ -48,7 +48,7 @@ bool is_prime(int number) {
 }
 
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   int a = 4, b = n - a;
   while (is_prime(b)) {

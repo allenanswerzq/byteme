@@ -55,7 +55,7 @@ void test(vi aa, int kk) {
   output(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({1}, 0);
   test({0, 10}, 2);
   test({1, 3, 6}, 3);

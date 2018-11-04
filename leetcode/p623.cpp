@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -69,6 +68,6 @@ TreeNode* addOneRow(TreeNode* root, int v, int d) {
   return root;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

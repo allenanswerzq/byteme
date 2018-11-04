@@ -40,7 +40,7 @@ ll gcd(ll a, ll b) {
 }
 
 
-int main(int argc, char** argv) {
+int main() {
   ll a, b, x, y;
   cin >> a >> b >> x >> y;
   ll g = gcd(x, y);

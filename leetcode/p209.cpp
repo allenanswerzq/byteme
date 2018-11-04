@@ -70,7 +70,7 @@ void test(int kk, vi aa) {
   output(1, ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test(7, {2, 3, 1, 2, 4, 3});
   return 0;
 }

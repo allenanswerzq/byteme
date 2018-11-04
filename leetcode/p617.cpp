@@ -19,6 +19,6 @@ TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
   return t1;  
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

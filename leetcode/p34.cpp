@@ -57,7 +57,7 @@ void test(vector<int> aa, int bb) {
   pvi(res);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({0,0,2,3,4,4,4,5}, 4);
   return 0;
 }

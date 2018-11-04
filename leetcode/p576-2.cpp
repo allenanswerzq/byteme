@@ -1,12 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 const int MOD = 1e9 + 7;
 ll dp[51][50][50];
 class Solution {
@@ -35,11 +28,7 @@ int test(int m, int n, int kk, int x, int y) {
   return r;
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed; 
-  judge(test(8, 50, 23, 5, 26), 914783380);
+int main() {
+   judge(test(8, 50, 23, 5, 26), 914783380);
   return 0;
 }

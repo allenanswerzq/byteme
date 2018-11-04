@@ -182,7 +182,7 @@ void test(vi aa) {
   output(r);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({3, 1, 2, 4});
   return 0;
 }

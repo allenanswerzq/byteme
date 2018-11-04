@@ -66,11 +66,8 @@ void test(string a, string b, string c) {
   cout << go.isInterleave(a, b, c) << "\n"; 
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test("XXY", "XXZ", "XXZXXXY");
+int main() {
+   test("XXY", "XXZ", "XXZXXXY");
   test("XY" ,"WZ" ,"WZXY");
   test ("XY", "X", "XXY");
   test ("YX", "X", "XXY");

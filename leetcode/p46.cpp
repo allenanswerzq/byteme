@@ -84,7 +84,7 @@ void test(vi aa) {
   }
 }    
 
-int main(int argc, char** argv) {
+int main() {
   test({1, 2, 3});
   return 0;
 }

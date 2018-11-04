@@ -102,7 +102,7 @@ void test(vvi gg) {
   output(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   vvi gg = {{-1,-1,-1,-1,-1,-1},
             {-1,-1,-1,-1,-1,-1},
             {-1,-1,-1,-1,-1,-1},

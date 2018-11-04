@@ -45,6 +45,6 @@ private:
 // wordDistance.shortest("word1", "word2");
 // wordDistance.shortest("anotherWord1", "anotherWord2");
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

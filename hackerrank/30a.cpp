@@ -106,7 +106,7 @@ public:
 };
 
 
-int main(int argc, char** argv) {
+int main() {
   vs ret;
   TrieNode *root = new TrieNode();
 

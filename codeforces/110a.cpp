@@ -43,7 +43,7 @@ bool check(int aa) {
   return cnt == sz(ss);
 }
 
-int main(int argc, char** argv) {
+int main() {
   string ss; cin >> ss;
   int cnt = 0;
   fori (i, 0, sz(ss)) {

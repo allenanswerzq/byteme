@@ -47,7 +47,7 @@ uint hash_str(string& ss) {
 unordered_map<uint, uint> mp;
 
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   fori (i, 1, n + 1) {
     string a; cin >> a;

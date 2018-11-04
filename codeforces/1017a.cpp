@@ -48,7 +48,7 @@ typedef struct Node{
   } 
 } Node;
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   Node aa[n];
   fori (i, 0, n) {

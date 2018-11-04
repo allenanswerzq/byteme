@@ -38,7 +38,7 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   int n, x; cin >> n >> x;
   int sum = 0; 
   fori (i, 0, n) {

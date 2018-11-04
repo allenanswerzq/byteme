@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 bool canPartitionRecu(vi& bb, int goal, int n) {
   // Returns true if the sum of any subset from range [0...n-1] can equal goal.
   // if (goal == 0) return 1;
@@ -69,10 +62,7 @@ void test(vi aa) {
   cerr(x);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test({1, 5, 11, 5});
+int main() {
+   test({1, 5, 11, 5});
   return 0;
 }

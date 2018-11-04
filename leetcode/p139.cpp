@@ -112,11 +112,8 @@ bool test(string ss, vs aa) {
   return x;
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test("cars", {"car", "ca", "rs"});
+int main() {
+   test("cars", {"car", "ca", "rs"});
   test("leetcode", {"leet", "code"});
   test("applepenapple", {"apple", "pen"});
   test("catsandog", {"cats", "dog", "sand", "and", "cat"});

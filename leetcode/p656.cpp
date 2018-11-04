@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -40,6 +39,6 @@ vector<int> cheapestJump(vector<int>& A, int B) {
   return res;
 }        
   
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

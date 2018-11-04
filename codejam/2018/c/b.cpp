@@ -46,12 +46,8 @@ int solve(int n) {
 
 // Only small data works.
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
+int main() {
+ 
   int t; cin >> t;
   // t = 2;
   fori (i, 1, t + 1) {

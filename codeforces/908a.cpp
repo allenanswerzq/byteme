@@ -37,7 +37,7 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   string ss; cin >> ss;
   unordered_set<char> st1 = {'a', 'e', 'i', 'o', 'u'};
   unordered_set<char> st2 = {'0', '2', '4', '6', '8'};

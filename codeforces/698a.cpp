@@ -42,7 +42,7 @@ typedef vector<pii> vpii;
 int aa[105];
 int dp[105][4];
 
-int main(int argc, char** argv) {
+int main() {
   // 0: neither
   // 1: sport
   // 2: contest

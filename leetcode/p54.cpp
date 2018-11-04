@@ -44,6 +44,6 @@ void test(vvi aa) {
   pvi(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

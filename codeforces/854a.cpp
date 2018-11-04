@@ -52,7 +52,7 @@ int gcd(int a, int b) {
   return gcd(b, a % b);
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   int a = 0, b = 0;
   fori (i, 1, n + 1) {

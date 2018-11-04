@@ -1,13 +1,5 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
 
 // brute force approch
 // but it wroked
@@ -30,18 +22,9 @@ double findMaxAverage(vector<int>& A, int k) {
 
 // binary search approach
 double findMaxAverage(vector<int>& A, int k) {
-  int lo=-10000, hi=10000;
-  while (h-l > 1e5) {
-    double mid = lo + (hi-lo)/2;
-    if (isgreater(A, mid, k)) {
-      hi = mid;
-    } else {
-      lo = mid;
-    }
-  }        
-  return mid;
+     
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

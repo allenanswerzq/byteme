@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -30,6 +29,6 @@ vector<int> exclusiveTime(int n, vector<string>& logs) {
   return res;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

@@ -48,7 +48,7 @@ ll cal(ll aa) {
   return ret;
 }
 
-int main(int argc, char** argv) {
+int main() {
   ll n; cin >> n >> ws;
   ll cur = 0;
   ll ret = 0;

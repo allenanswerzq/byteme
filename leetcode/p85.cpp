@@ -217,11 +217,8 @@ void test(vector<vector<char>> aa) {
   cout << go.maximalRectangle(aa) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-
+int main() {
+ 
   vector<vector<char>> aa = {
       {'1','0','1','0','0'},
       {'1','0','1','1','1'},

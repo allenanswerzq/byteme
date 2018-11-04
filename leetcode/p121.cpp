@@ -57,11 +57,8 @@ void test(vi inp) {
   cout << go.maxProfit(inp) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-
+int main() {
+ 
   test({7, 1, 5, 3, 6, 4});
   test({7, 6, 5, 4, 3});
   test({2, 4, 1});

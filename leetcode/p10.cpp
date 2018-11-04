@@ -128,11 +128,8 @@ int test_two(string s, string p) {
 
 #define judge(a, b) assert((a) == (b))
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  
+int main() {
+   
   // Note: invalid input.
   // judge(test("", "*"), 1);
   judge(test("", ".*"), 1);

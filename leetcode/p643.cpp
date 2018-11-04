@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -21,6 +20,6 @@ double findMaxAverage(vector<int>& A, int k) {
   return (double)res / k;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

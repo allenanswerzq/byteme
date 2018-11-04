@@ -71,7 +71,7 @@ void dfs(int uu, int parent, int path) {
   }
 }
 
-int main(int argc, char** argv) {
+int main() {
   cin >> n_vtc >> n_cats;
   fori (i, 1, n_vtc + 1) {
     cin >> cats[i];

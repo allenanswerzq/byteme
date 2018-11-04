@@ -47,7 +47,7 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   string ss; cin >> ss;
   vvi dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}, 
               {1, 1}, {-1, -1}, {1, -1}, {-1, 1}};

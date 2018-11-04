@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 // TODO
 const int size = 12;
 // dp[i][j] i stands for visiting states and j stands for
@@ -49,9 +42,8 @@ public:
   }
 };
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  vector<int> v;
+int main() {
+   vector<int> v;
   v.emplace_back(4);
   // v.emplace(5);
   deque<int> dq;

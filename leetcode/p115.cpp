@@ -64,11 +64,8 @@ void test(string ss, string tt) {
   cout << go.numDistinct(ss, tt) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test("rabbbit", "rabbit");
+int main() {
+   test("rabbbit", "rabbit");
   test("babgbag", "bag");
   return 0;
 }

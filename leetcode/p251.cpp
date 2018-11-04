@@ -63,6 +63,6 @@ public:
  * while (i.hasNext()) cout << i.next();
  **/
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

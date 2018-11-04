@@ -28,11 +28,8 @@ void test(vi aa) {
   cout << go.lengthOfLIS(aa) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test({10, 9, 2, 5, 3, 5, 101, 18});
+int main() {
+   test({10, 9, 2, 5, 3, 5, 101, 18});
   test({1,3,6,7,9,4,10,5,6});
   return 0;
 }

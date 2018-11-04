@@ -85,12 +85,8 @@ void test(vvi g, vi a) {
   output(r);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed;
-
+int main() {
+ 
   test({{1,1,0},{1,1,0},{0,0,1}}, {0, 1});
   test({{1,0,0},{0,1,0},{0,0,1}}, {0,2});
   test({{1,1,1},{1,1,1},{1,1,1}}, {1,2});

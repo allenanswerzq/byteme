@@ -40,7 +40,7 @@ typedef vector<pii> vpii;
 
 int aa[110];
 
-int main(int argc, char** argv) {
+int main() {
   mst(aa, 0);
   int n, m; cin >> n >> m;
   int cnt = 0;

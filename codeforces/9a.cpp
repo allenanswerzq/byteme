@@ -42,7 +42,7 @@ int gcd(int a, int b) {
   return (gcd(b, a % b));
 }
 
-int main(int argc, char** argv) {
+int main() {
   int y, w; cin >> y >> w;
   int cnt = 0;
   fori (i, max(y, w), 7) {

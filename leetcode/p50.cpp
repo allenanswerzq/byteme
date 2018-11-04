@@ -60,7 +60,7 @@ void test(double x, int n) {
   trace(x, n, ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test(2.0, 10);
   test(-2, 10);
   test(-2.1345, 9);

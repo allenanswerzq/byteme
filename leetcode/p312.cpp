@@ -60,10 +60,7 @@ void test(vi aa) {
   cout << go.maxCoins(aa) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test({3, 1, 5, 8});
+int main() {
+   test({3, 1, 5, 8});
   return 0;
 }

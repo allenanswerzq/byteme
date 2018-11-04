@@ -59,7 +59,7 @@ void solve(int lo, int hi, int flag) {
 
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   fori (i, 1, n + 1) {
     cin >> aa[i];

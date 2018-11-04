@@ -28,11 +28,8 @@ void test(vi aa) {
   cout << go.maxProfit(aa) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-
+int main() {
+ 
   test({1, 2, 4});
   test({1, 2, 3, 0, 2});
   

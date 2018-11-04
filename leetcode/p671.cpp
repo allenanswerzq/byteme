@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -26,6 +25,6 @@ int findSecondMinimumValue(TreeNode* root) {
   return *it;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -35,6 +34,6 @@ vector<vector<string>> printTree(TreeNode* root) {
   return res;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

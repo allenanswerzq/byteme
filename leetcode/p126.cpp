@@ -99,12 +99,8 @@ void test(string aa, string bb, vs cc) {
   }
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
+int main() {
+ 
   test("hit", "cog", {"hot", "dot", "dog", "lot", "log", "cog"});
   test("a", "c", {"a", "b", "c"});
   test("red", "tax", {"ted","tex","red","tax","tad","den","rex","pee"});

@@ -47,7 +47,7 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   unordered_map<string, string> mp;
   mp["Power"] = "purple";
   mp["Time"] = "green";

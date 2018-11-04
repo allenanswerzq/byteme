@@ -55,7 +55,7 @@ void test(vi aa) {
   pvi(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({0, 1});
   test({3, 1, 2, 4});
   test({0, 2, 1, 4});

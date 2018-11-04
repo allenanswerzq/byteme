@@ -21,7 +21,7 @@ void test(int n) {
   cout << r << '\n';
 }
 
-int main(int argc, char** argv) {
+int main() {
   test(1);
   test(26);
   test(27);

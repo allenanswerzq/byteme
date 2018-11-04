@@ -37,7 +37,7 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   int a, b, c; cin >> a >> b >> c;
   int n = min(a, min(b / 2, c / 4)); 
   // trace(n);

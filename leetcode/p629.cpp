@@ -35,12 +35,8 @@ void test(int n, int k) {
   cerr(r);    
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed; 
-  test(3, 1);
+int main() {
+   test(3, 1);
   test(3, 0);
   test(1000, 1000);
   return 0;

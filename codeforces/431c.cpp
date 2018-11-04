@@ -48,7 +48,7 @@ void add(int& a, int b) {
     a -= mod;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n, k, d; cin >> n >> k >> d;
   // trace(n, k, d);
   dp[0][0] = 1;

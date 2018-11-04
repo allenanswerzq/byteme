@@ -39,7 +39,7 @@ void test(string aa, string bb) {
   trace(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test("1234", "1111");
   return 0;
 }

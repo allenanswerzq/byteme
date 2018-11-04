@@ -81,7 +81,7 @@ void solve2() {
   output(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   solve2();
   return 0;
 }

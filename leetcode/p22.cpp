@@ -47,7 +47,7 @@ void test(int x) {
   pvi(res);
 }
 
-int main(int argc, char **argv) {
+int main() {
   test(3);
   test(4);
   return 0;

@@ -54,11 +54,8 @@ void test(string ss) {
   cout << go.numDecodings(ss) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test("0");
+int main() {
+   test("0");
   test("120");
   test("102");
   test("12");

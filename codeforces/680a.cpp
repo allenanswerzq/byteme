@@ -38,7 +38,7 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   unordered_map<int, int> mp;
   int sum = 0;
   fori (i, 0, 5) {

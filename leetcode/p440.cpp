@@ -49,7 +49,7 @@ void test(int n, int k) {
   output(1, ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test(13, 2);
   return 0;
 }

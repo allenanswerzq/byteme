@@ -59,11 +59,8 @@ void test(vvi aa) {
   cout << go.sumRegion(1, 2, 2, 4) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-
+int main() {
+ 
   vvi aa = {{3, 0, 1, 4, 2},
       {5, 6, 3, 2, 1},
       {1, 2, 0, 1, 5},

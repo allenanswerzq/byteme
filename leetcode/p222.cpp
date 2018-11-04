@@ -35,7 +35,7 @@ public:
   }
 };
 
-int main(int argc, char** argv) {
+int main() {
   int x = (1 << 5 - 1)
   cout << x << endl;
   return 0;

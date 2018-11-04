@@ -40,7 +40,7 @@ typedef vector<pii> vpii;
 
 stack<string> stk;
 
-int main(int argc, char** argv) {
+int main() {
   string ss; cin >> ss;
 
   tick();

@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -29,6 +28,6 @@ TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
   return build(nums, 0, nums.size()-1);        
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

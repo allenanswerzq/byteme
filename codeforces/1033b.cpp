@@ -51,7 +51,7 @@ bool prime(ll inp) {
   return true;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   fori (i, 1, n + 1) {
     ll a, b; cin >> a >> b; 

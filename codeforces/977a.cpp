@@ -35,7 +35,7 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   int n, k; cin >> n >> k;
   while (k--) {
     if (n % 10) n -= 1;

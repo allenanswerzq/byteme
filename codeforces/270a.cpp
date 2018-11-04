@@ -39,7 +39,7 @@ int gcd(int a, int b) {
   return (gcd(b, a % b));
 }
 
-int main(int argc, char** argv) {
+int main() {
   int t; cin >> t >> ws;
   fori (i, 1, t + 1) {
     int b = 180;

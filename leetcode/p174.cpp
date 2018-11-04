@@ -62,7 +62,7 @@ void test(vvi aa) {
   cout << go.calculateMinimumHP(aa) << "\n"; 
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({{-2, -3, 3}, {-5, -10, 1}, {10, 30, -5}});
   test({{1,0,0}});
   return 0;

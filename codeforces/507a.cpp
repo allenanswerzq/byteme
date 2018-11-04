@@ -40,7 +40,7 @@ typedef vector<pii> vpii;
 #define maxn 120
 pii aa[maxn];
 
-int main(int argc, char** argv) {
+int main() {
   int n, k; cin >> n >> k >> ws;
   fori (i, 1, n + 1) {
     cin >> aa[i].first;

@@ -80,7 +80,7 @@ void solve2() {
   pend;
 }
 
-int main(int argc, char** argv) {
+int main() {
   solve2();
   return 0;
 }

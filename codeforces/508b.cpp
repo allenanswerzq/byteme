@@ -38,7 +38,7 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   string ss; cin >> ss;
   bool ok = 0;
   int n = sz(ss);

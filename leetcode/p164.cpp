@@ -3,6 +3,6 @@ using namespace std;
 
 // Bucket Sorting.
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

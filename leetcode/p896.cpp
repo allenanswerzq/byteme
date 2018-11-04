@@ -53,6 +53,6 @@ void test(vi aa) {
   output(r);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({6, 5, 4, 4});
 }

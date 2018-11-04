@@ -88,9 +88,8 @@ void test(vi aa) {
   output(r);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  test({1,2,3,3,2,1,2,2,2});
+int main() {
+   test({1,2,3,3,2,1,2,2,2});
   test({4,4,4,4,4,4,4,4,4});
   test({1,5,1,2,5,6,2,3,2});
   return 0;

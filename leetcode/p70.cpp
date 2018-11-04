@@ -26,9 +26,6 @@ public:
   }
 };
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  return 0;
+int main() {
+   return 0;
 }

@@ -52,7 +52,7 @@ void test(string aa, string bb) {
   output(1, r);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test("ADOBECODEBANC", "ABC");
   return 0;
 }

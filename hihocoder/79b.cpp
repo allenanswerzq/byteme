@@ -64,7 +64,7 @@ void dfs(int src) {
   --cnt;
 }
 
-int main(int argc, char** argv) {
+int main() {
   cin >> n >> d;
   fori (i, 2, n + 1) {
     int x; cin >> x;

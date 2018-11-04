@@ -62,7 +62,7 @@ void test(vi aa) {
   output(1, r);
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }
 

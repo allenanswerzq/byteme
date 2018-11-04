@@ -50,7 +50,7 @@ int solve(int a, int b) {
   return dp[a][b] = max(x, y);
 }
 
-int main(int argc, char** argv) {
+int main() {
   int a, b; cin >> a >> b;
   int ret = solve(a, b);
   output(ret);

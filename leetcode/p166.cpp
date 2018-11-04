@@ -60,7 +60,7 @@ void test(int a, int b) {
   output(1, ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   Solution go;
   test(1, 3);
   test(1, 7);

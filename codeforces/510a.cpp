@@ -37,7 +37,7 @@ typedef vector<pii> vpii;
 int n, m;
 vector<vector<char>> dp;
 
-int main(int argc, char** argv) {
+int main() {
   cin >> n >> m;
   dp.resize(n, vector<char>(m, '.'));
 

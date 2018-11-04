@@ -44,7 +44,7 @@ typedef vector<pii> vpii;
 // divisible by 8.
 
 
-int main(int argc, char** argv) {
+int main() {
   string ss; cin >> ss;
   for (int i = 0; i <= 1000; i += 8) {
     string tt = to_string(i);

@@ -98,7 +98,7 @@ void test(vi aa) {
   trace(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({0,1,0,2,1,0,1,3,2,1,2,1});
   test({4,2,3});
   return 0;

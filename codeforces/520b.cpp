@@ -35,7 +35,7 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 // TODO
-int main(int argc, char** argv) {
+int main() {
   int n, m; cin >> n >> m;
   unordered_set<int> visit;
   deque<int> dq;

@@ -16,7 +16,7 @@ void test(vector<int> aa, int bb) {
   cout << r << endl;
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({1, 3, 5, 6}, 7);
   return 0;
 }

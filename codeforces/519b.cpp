@@ -34,7 +34,7 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   multiset<int> cur, pre; 
   int n; cin >> n >> ws;
   fori (i, 0, 3) {

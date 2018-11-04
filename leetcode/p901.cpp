@@ -81,7 +81,7 @@ void test2() {
   output(go.next(79));
 }
 
-int main(int argc, char** argv) {
+int main() {
   test();
   test2();
 }

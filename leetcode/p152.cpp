@@ -26,7 +26,7 @@ void test(vi aa) {
   cout << r << '\n';
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({1, 3, 0, -1, -8});
   return 0;
 }

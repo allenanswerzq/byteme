@@ -123,7 +123,7 @@ void test(vs aa) {
   output(r);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({"a","b","c","a","c","c"}); 
   test({"aa","bb","ab","ba"});
   test({"abc","acb","bac","bca","cab","cba"});

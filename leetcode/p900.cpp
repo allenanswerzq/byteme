@@ -87,7 +87,7 @@ void test2(vi aa) {
   output(go.next(88));
 }
 
-int main(int argc, char** argv) {
+int main() {
   // test({3, 8, 0, 9, 2, 5});
   test2({811,903,310,730,899,684,472,100,434,611});
   return 0;

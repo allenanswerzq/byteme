@@ -159,7 +159,7 @@ void test() {
   cout << cache.get(4) << endl;
 }
 
-int main(int argc, char** argv) {
+int main() {
   test();
   return 0;
 }

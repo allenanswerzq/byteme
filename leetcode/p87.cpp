@@ -45,11 +45,8 @@ void test(string s1, string s2) {
   cout << go.isScramble(s1, s2) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-
+int main() {
+ 
   test("abc", "bca");
   test("great", "rgeat");
   test("abcde", "caebd");

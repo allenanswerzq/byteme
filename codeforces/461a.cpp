@@ -50,7 +50,7 @@ ll solve(int lo, int hi) {
   return ret;
 }
 
-int main(int argc, char** argv) {
+int main() {
   mst(aa, 0);
   mst(sum, 0);
 

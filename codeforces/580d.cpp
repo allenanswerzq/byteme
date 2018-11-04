@@ -52,7 +52,7 @@ int len(int mask) {
   return r;
 }
 
-int main(int argc, char** argv) {
+int main() {
   cin >> n >> m >> k;
   fori (i, 0, n) cin >> aa[i];
   fori (i, 0, k) {

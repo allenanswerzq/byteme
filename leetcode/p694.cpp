@@ -1,20 +1,5 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-    printf("%d ", x);
-  printf("]\n");
-}
-
-void printMatrix(vector<vector<int>>& v) {
-  printf("{\n");
-  for (auto x:v)
-    printVector(x);
-  printf("}\n");
-}
 
 // Accepted
 bool dfs(int startx, int starty, int x, int y, vector<vector<int>>& grid, vector<vector<int>>&visit, vector<vector<int>>& island) {
@@ -51,6 +36,6 @@ int numDistinctIslands(vector<vector<int>>& grid) {
   return islands.size();
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

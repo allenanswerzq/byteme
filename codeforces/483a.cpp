@@ -52,7 +52,7 @@ ll gcd(ll a, ll b) {
   return (gcd(b, a % b));
 }
 
-int main(int argc, char** argv) {
+int main() {
   ll l, r; cin >> l >> r;
   for (ll a = l; a <= r; ++a) {
     for (ll b = a + 1; b <= r; ++b) {

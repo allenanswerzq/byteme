@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -34,6 +33,6 @@ vector<vector<int>> imageSmoother(vector<vector<int>>& M) {
   return res; 
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

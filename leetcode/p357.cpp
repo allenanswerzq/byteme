@@ -39,11 +39,8 @@ int test(int n) {
   return x;
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test(1);
+int main() {
+   test(1);
   test(2);
   test(3);
   return 0;

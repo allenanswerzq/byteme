@@ -45,7 +45,7 @@ void test(string ss, int kk) {
   output(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test("a23", 6);
   test("leet2code3", 10);
   test("ha22", 5);

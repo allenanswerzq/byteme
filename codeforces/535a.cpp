@@ -46,7 +46,7 @@ vs aa = {"zero", "one", "two", "three", "four", "five", "six",
 vs bb = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", 
          "seventy", "eighty", "ninety"};
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   if (n <= 19) output(aa[n]);
   else {

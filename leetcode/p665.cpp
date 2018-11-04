@@ -1,13 +1,5 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
 
 bool checkPossibility(vector<int>& nums) {
   int n = nums.size();
@@ -24,6 +16,6 @@ bool checkPossibility(vector<int>& nums) {
 }
 
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

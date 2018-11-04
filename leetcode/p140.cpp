@@ -45,11 +45,8 @@ void test(string s, vs aa) {
   cout << s << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test("catsanddog", {"cat", "cats", "sand", "and", "dog"});
+int main() {
+   test("catsanddog", {"cat", "cats", "sand", "and", "dog"});
   test("pineapplepenapple", {"apple", "pen", "applepen", "pine", "pineapple"});
   // Hard case.
   // string s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";

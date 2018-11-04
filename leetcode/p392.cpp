@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 bool recu(str s, str t) {
   if (s == t) return 1; 
   int m, n;
@@ -83,11 +76,8 @@ void test(str s, str t) {
   cout << go.isSubsequence(s, t) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test("", "abc");
+int main() {
+   test("", "abc");
   test("abc", "");
   test("abc", "ahbgdc");
   test("axc", "ahbgdc");

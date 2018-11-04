@@ -58,7 +58,7 @@ void test(int x) {
   trace(x, ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test(0);
   test(1);
   test(2);

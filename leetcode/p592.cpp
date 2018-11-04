@@ -129,7 +129,7 @@ string fractionAddition1(string s) {
   return ret;
 }
 
-int main(int argc, char** argv) {
+int main() {
   cout << fractionAddition("-1/2+1/2") << endl;
   cout << endl;
   cout << fractionAddition("-1/2+1/2+1/3") << endl;

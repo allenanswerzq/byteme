@@ -69,7 +69,7 @@ void test(string inp, int right) {
   assert(res == right);
 }
 
-int main(int argc, char **argv) {
+int main() {
   test("abcabcbb", 3);
   test("bbbb", 1);
   test("pwwkew", 3);

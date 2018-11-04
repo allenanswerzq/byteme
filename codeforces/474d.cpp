@@ -51,7 +51,7 @@ int add(int a, int b) {
   return c;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int t, k; cin >> t >> k;
 
   dp[0] = 1;

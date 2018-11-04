@@ -43,7 +43,7 @@ int bb[maxn];
 int cc[maxn];
 int dd[maxn];
 
-int main(int argc, char** argv) {
+int main() {
   int n_cand, n_city; cin >> n_cand >> n_city;
   fori (i, 0, n_city) {
     int mx = 0;

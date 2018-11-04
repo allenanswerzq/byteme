@@ -53,12 +53,8 @@ void test(vs inp, int right) {
   assert(res == right);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
+int main() {
+ 
   test({"abcw","baz","foo","bar","xtfn","abcdef"}, 16);
   test({"a","ab","abc","d","cd","bcd","abcd"}, 4);
   test({"a","aa","aaa","aaaa"}, 0);

@@ -44,7 +44,7 @@ bool check(int a, int b, int k) {
   return ret <= k;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n, m, k; cin >> n >> m >> k;
   vi aa(m + 1, 0);
   fori (i, 0, m + 1) {

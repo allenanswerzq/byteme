@@ -38,7 +38,7 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   int sum = n * n * (1 + n * n) / (2 * n); 
   // trace(sum);

@@ -48,11 +48,8 @@ void test(string ss) {
   cout << go.minCut(ss) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-
+int main() {
+ 
   test("abcd");
   test("aab");
   test("ababbbabbababa");

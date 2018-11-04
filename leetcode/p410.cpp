@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 vi bb;
 vi sum;
 
@@ -85,11 +78,8 @@ void test(vi aa, int n) {
   cerr(x);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test({7, 2, 5, 10, 8}, 2);
+int main() {
+   test({7, 2, 5, 10, 8}, 2);
   test({5, 1, 3, 5, 10, 7, 4, 9, 2, 8}, 1);
   test({1, 2147483646}, 1);
   test({1, 4, 4}, 3);

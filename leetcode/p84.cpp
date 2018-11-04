@@ -55,10 +55,7 @@ void test(vi aa) {
   cout << go.largestRectangleArea(aa) << "\n";
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test({2,1,5,6,2,3});
+int main() {
+   test({2,1,5,6,2,3});
   return 0;
 }

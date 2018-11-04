@@ -60,7 +60,7 @@ int strip(int aa) {
   return r;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int aa, bb; cin >> aa >> bb; 
   int a = strip(aa);
   int b = strip(bb);

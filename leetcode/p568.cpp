@@ -97,7 +97,7 @@ void printMatrix(vector<vector<int> > &matrix)
   cout << endl;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int m[][3] = {{0,1,1},{1,0,1},{1,1,0}};   
   int n[][3] = {{1,3,1},{6,0,3},{3,3,3}}; 
 

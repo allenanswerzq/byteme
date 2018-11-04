@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-printVector(vector<int>& v) {
-  cout << "[ ";
-  for (int x:v)
-      cout << x << " ";
-  cout <<"] " << endl;
-}
 // why this not work???
 bool validSquare(vector<int>& p1, vector<int>& p2, vector<int>& p3, vector<int>& p4) {
   int d1 = DIST(p1, p2);
@@ -20,7 +13,7 @@ bool validSquare(vector<int>& p1, vector<int>& p2, vector<int>& p3, vector<int>&
   return false;
 }
 
-int main(int argc, char** argv) {
+int main() {
   vector<int> a({0,0});
   vector<int> b({1,1});
   vector<int> c({1,0});

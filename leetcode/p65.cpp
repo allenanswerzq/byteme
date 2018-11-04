@@ -60,7 +60,7 @@ void test(string aa) {
   output(1, r);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test("  343   ");
   test("0");
   test(" ");

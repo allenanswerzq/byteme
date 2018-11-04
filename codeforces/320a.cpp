@@ -57,7 +57,7 @@ bool check(int n) {
   return 0;
 }
 
-int main(int argc, char** argv) {
+int main() {
   string ss; cin >> ss;
   output(dfs(ss) ? "YES" : "NO");
 

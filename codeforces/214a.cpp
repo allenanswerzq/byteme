@@ -37,7 +37,7 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   int n, m; cin >> n >> m;
   int maxn = 1005;
   int ret = 0;

@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -25,6 +24,6 @@ int smallestFactorization(int a) {
   return res <= INT_MAX ? res : 0;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

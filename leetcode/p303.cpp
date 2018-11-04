@@ -30,7 +30,7 @@ void test(vi aa) {
   cout << go.sumRange(0, 5) << "\n";
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({-2, 0, 3, -5, 2, -1});
   return 0;
 }

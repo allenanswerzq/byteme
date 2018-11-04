@@ -39,7 +39,7 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 // TODO
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n;
   vi res;
   while (n > 0) {

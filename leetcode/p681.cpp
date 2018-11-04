@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -49,6 +48,6 @@ string nextClosestTime(string time) {
   return res; 
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

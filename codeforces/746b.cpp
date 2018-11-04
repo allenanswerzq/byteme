@@ -48,7 +48,7 @@ string solve(string ss) {
   return r;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   string ss; cin >> ss;
   output(solve(ss));

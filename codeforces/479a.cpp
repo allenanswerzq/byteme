@@ -36,7 +36,7 @@ typedef vector<pii> vpii;
 
 // TODO
 
-int main(int argc, char** argv) {
+int main() {
   int a, b, c; cin >> a >> b >> c;
   int ret = 0;
   ret = max(ret, a + b + c);

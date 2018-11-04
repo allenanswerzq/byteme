@@ -85,7 +85,7 @@ string solve(string ss) {
   return ret;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   fori (i, 1, n + 1) {
     string ss; cin >> ss;

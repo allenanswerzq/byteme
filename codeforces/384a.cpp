@@ -40,7 +40,7 @@ typedef vector<pii> vpii;
 #define maxn 1010
 char aa[maxn][maxn];
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   fori (i, 0, n) 
     fori (j, 0, n) 

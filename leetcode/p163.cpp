@@ -59,7 +59,7 @@ void test(vi aa, int lo, int hi) {
   pvi(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({1}, 0, 99);
   test({}, 0, 99);  
   test({0, 1, 3, 50, 75}, 0, 99);

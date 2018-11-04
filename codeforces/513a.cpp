@@ -34,7 +34,7 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   int n1, n2, k1, k2; cin >> n1 >> n2 >> k1 >> k2;
   if (n1 > n2) output("First");
   else output("Second");

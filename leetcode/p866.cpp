@@ -2,26 +2,6 @@
 using namespace std;
 
 
-
-
-template <typename T>
-void _f(const char* name, T&& arg) {
-  cout << name << ": " << arg << endl;
-}
-
-template <typename T, typename... Args> 
-void _f(const char* names, T&& arg, Args&&... args) {
-  const char* split = strchr(names + 1, ','); 
-  cout.write(names, split - names) << ": " << arg << " |";
-  _f(split, args...); 
-} 
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
-
 bool prime(int aa) {
   if (aa == 1) return 0;
   // fori (i, 2, sqrt(aa + 1))
@@ -55,15 +35,8 @@ public:
   }
 };
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-
-  freopen("p866-IIIIIIIIIN.txt", "rt", stdin);
-  clock_t begin = clock();
-
+int main() {
+ 
   Solution go;
   cout << go.primePalindrome(1) << endl;
   cout << go.primePalindrome(2) << endl;
@@ -72,9 +45,5 @@ int main(int argc, char** argv) {
   cout << go.primePalindrome(11) << endl;
   cout << go.primePalindrome((int)(1e8)) << endl;
   cout << go.primePalindrome(9989900) << endl;
-
-  clock_t end = clock();
-  double elapsed = double(end - begin) / CLOCKS_PER_SEC;
-  cerr << "Elapsed: " << elapsed;
   return 0;
 }

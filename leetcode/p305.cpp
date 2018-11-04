@@ -118,6 +118,6 @@ void test(int m, int n, vpii& aa) {
   pvi(res);
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

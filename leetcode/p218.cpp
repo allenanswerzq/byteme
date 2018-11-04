@@ -80,11 +80,8 @@ void test(vvi aa) {
   }
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test({{2,9,10}, {3,7,15}, {5,12,12}, {15,20,10}, {19,24,8}});
+int main() {
+   test({{2,9,10}, {3,7,15}, {5,12,12}, {15,20,10}, {19,24,8}});
   test({{0,2,3}, {2,5,3}});
   return 0;
 }

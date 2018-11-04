@@ -54,7 +54,7 @@ bool check(int aa) {
   return 0;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   vi aa(n, 0); 
   fori (i, 0, n) cin >> aa[i];

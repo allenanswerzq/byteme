@@ -30,6 +30,6 @@ int shortestDistance(vector<string> words, string word1, string word2) {
   return ret;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

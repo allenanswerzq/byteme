@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 // Note: here a reference symbol can make big difference.
 // I guess it doesn't need to allocate a set on stack
 // every time, so the speed will be improved.
@@ -141,11 +134,8 @@ void test(vs aa) {
   cerr(r);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  // test({"a", "ab"});
+int main() {
+   // test({"a", "ab"});
   test({"cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdogcat"});
 
   return 0;

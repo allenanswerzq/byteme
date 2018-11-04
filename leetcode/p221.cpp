@@ -40,11 +40,8 @@ void test(vvi aa) {
   cout << go.maximalSquare(aa) << "\n"; 
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  vvi aa = {{1,0,1,0,0},
+int main() {
+   vvi aa = {{1,0,1,0,0},
       {1,0,1,1,1}, 
       {1,1,1,1,1},
       {1,0,0,1,0}};

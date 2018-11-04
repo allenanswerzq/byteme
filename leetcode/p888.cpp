@@ -53,7 +53,7 @@ void test(vi aa, vi bb) {
   pvi(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({1, 1}, {2, 2});
   test({2}, {1, 3});
   test({1, 2, 5}, {2, 4});

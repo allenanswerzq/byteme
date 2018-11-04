@@ -30,9 +30,8 @@ int uniform_rand5() {
 //   return r;
 // }
 
-// int main(int argc, char** argv) {
-//   std::ios_base::sync_with_stdio(false);
-//   return 0;
+// int main() {
+//  //   return 0;
 // }
 
 

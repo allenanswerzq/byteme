@@ -42,7 +42,7 @@ const int maxn = 10e5 + 10;
 int dp[maxn][3];
 pii aa[maxn];
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   fori (i, 1, n + 1) {
     cin >> aa[i].first;

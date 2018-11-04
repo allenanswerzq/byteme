@@ -1,12 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 // TODO
 const int kk = 110;
 // dp[i][j] denotes the minimum times needed to 
@@ -40,12 +33,8 @@ void test(string inp) {
   cerr(r);    
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed; 
-  test("aaabbb");
+int main() {
+   test("aaabbb");
   test("aba");
   return 0;
 }

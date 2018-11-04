@@ -35,7 +35,7 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 // TODO
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n;
   int a = 1, b = 1;
   int c = n - (a + b);

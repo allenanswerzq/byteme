@@ -45,11 +45,8 @@ void test(vi aa) {
   pvi(res);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  test({1, 2, 3});
+int main() {
+   test({1, 2, 3});
   test({1, 2, 4, 8});
   test({1, 2, 4, 3, 9, 27});
   test({2,3,8,9,27});

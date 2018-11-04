@@ -43,7 +43,7 @@ bool check(int aa) {
   return 0;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int ss; cin >> ss;
   fori (i, 1, ss) {
     if (check(i) && ss % i == 0) {

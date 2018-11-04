@@ -109,7 +109,7 @@ bool check(int a, int b) {
   return 0;
 }
 
-int main(int argc, char** argv) {
+int main() {
   cin >> n >> x >> y;
   fori (i, 0, n) {
     int a, b; cin >> a >> b;

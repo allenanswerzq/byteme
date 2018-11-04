@@ -1,13 +1,5 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
 
 int binary_search(vector<int> &arr, int tar) {
   int lo=0, hi=arr.size()-1;
@@ -45,6 +37,6 @@ vector<int> findClosestElements(vector<int>& arr, int k, int x) {
   return res;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

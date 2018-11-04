@@ -60,11 +60,7 @@ void test(vi aa, vi bb) {
   pre(res);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(5);
-  cout << fixed; 
-  test({3,9,20,15,7}, {9,3,15,20,7});
+int main() {
+   test({3,9,20,15,7}, {9,3,15,20,7});
   return 0;
 }

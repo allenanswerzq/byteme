@@ -34,7 +34,7 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   unordered_map<string, int> mp;
   mp["Tetrahedron"] = 4;
   mp["Cube"] = 6;

@@ -16,6 +16,6 @@ int repeatedStringMatch(string A, string B) {
   return -1;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

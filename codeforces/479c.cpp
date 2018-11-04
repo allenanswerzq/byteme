@@ -41,7 +41,7 @@ typedef vector<pii> vpii;
 #define maxn 5005
 pii aa[maxn];
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n >> ws;
   fori (i, 0, n) {
     cin >> aa[i].first >> aa[i].second;

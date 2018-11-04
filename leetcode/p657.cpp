@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void printVector(vector<int>& v) {
@@ -26,6 +25,6 @@ bool judgeCircle(string moves) {
   return x==0 && y==0;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

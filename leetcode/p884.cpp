@@ -62,7 +62,7 @@ void test(string aa, string bb) {
   pvi(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test("this apple is sweet", "this apple is sour");
   test("apple apple", "banana");
   return 0;

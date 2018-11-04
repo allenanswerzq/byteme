@@ -25,6 +25,6 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...); 
 } 
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

@@ -90,9 +90,8 @@ public:
   }
 };
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  Solution go;
+int main() {
+   Solution go;
   vs v = {"aaaa", "aaaa"}; 
   cout << go.numSimilarGroups(v) << endl;
   return 0;

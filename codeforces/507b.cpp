@@ -38,7 +38,7 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   ll r, x, y, dx, dy;
   cin >> r >> x >> y >> dx >> dy;
   ld dd = sqrt((x - dx) * (x - dx) + (y - dy) * (y - dy));

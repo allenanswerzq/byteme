@@ -66,7 +66,7 @@ bool dfs(int n) {
   return 0;
 }
 
-int main(int argc, char** argv) {
+int main() {
   sieve(100000);
   int n; cin >> n >> ws;
   output(n / 2);

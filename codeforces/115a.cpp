@@ -50,7 +50,7 @@ int dfs(int uu) {
   return ret;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n; cin >> n;
   fori (i, 1, n + 1) {
     int a; cin >> a;

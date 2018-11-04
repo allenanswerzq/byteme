@@ -34,7 +34,7 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int main(int argc, char** argv) {
+int main() {
   int k2, k3, k5, k6; cin >> k2 >> k3 >> k5 >> k6;
   int x = min(k2, min(k5, k6));
   k2 = k2 - x;

@@ -27,7 +27,7 @@ void test(int kk) {
   cout << ret << endl;
 }
 
-int main(int argc, char** argv) {
+int main() {
   test(3);
   test(4);
   test(5);

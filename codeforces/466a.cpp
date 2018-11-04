@@ -48,7 +48,7 @@ int solve(int n) {
   return dp[n];
 }
 
-int main(int argc, char** argv) {
+int main() {
   cin >> n >> m >> a >> b;
   mst(dp, -1);
   dp[0] = 0;

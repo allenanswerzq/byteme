@@ -47,7 +47,7 @@ void solve() {
    
 }
 
-int main(int argc, char** argv) {
+int main() {
   int t; cin >> t >> ws;
   fori (i, 1, t + 1) {
     solve();  

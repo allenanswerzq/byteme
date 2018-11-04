@@ -40,7 +40,7 @@ int firstGe(vector<int>& A, int target) {
   return lo;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n = 3;
   if (argc > 1)
     n = atoi(argv[1]);

@@ -13,7 +13,7 @@ public:
   }
 };
 
-int main(int argc, char** argv) {
+int main() {
   cout << reverseBits(43261596) << endl;
   return 0;
 }

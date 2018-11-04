@@ -63,9 +63,8 @@ void test(vi aa) {
   output(r);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  test({1, 2, 5, 10});
+int main() {
+   test({1, 2, 5, 10});
   test({1, 2, 3, 50, 99, 100});
   test({100});
   return 0;

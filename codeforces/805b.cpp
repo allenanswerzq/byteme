@@ -42,7 +42,7 @@ typedef long double ld;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 typedef vector<vi> vvi;
-int main(int argc, char** argv) {
+int main() {
 typedef vector<string> vs;
 typedef vector<vs> vvs;
 typedef pair<int, int> pii;

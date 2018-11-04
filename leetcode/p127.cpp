@@ -88,7 +88,7 @@ void test(string aa, string bb, vs cc) {
   output(1, ret); 
 }
 
-int main(int argc, char** argv) {
+int main() {
   test("hit", "cog", {"hot","dot","dog","lot","log","cog"}); 
   test("hit", "cog", {"hot","dot","dog","lot","log"});
   return 0;

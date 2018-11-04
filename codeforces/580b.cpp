@@ -41,7 +41,7 @@ typedef vector<pii> vpii;
 const int maxn = 1e5 + 10;
 pii aa[maxn];
 
-int main(int argc, char** argv) {
+int main() {
   int n, d; cin >> n >> d;
   fori (i, 0, n) {
     int a, b; cin >> a >> b;

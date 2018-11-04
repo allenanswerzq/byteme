@@ -41,7 +41,7 @@ bool check(string ss, string aa, string bb) {
   return 1;
 }
 
-int main(int argc, char** argv) {
+int main() {
   string ss; cin >> ss;
   bool aa, bb;
   aa = bb = 0;

@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-const double eps = 1e-9;
-int dcmp(double x, double y = 0, double tol = eps) {
-  return (x <= y + tol) ? (x + tol < y) ? -1 : 0 : 1;
-}
-
 int upper(set<int> st, int inp) {
   int lo = 0; 
   int hi = sz(st) - 1;
@@ -133,11 +126,8 @@ int test_upper(set<int>& aa, int inp) {
   return res;
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-
+int main() {
+ 
   // Test find an element greater or equal than input.
   set<int> st = {-1, -2, 3, 5};
   test_upper(st, 3);

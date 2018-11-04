@@ -43,7 +43,7 @@ void test(vi aa, int kk) {
   output(1, ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({-2, 0, 1, 3}, 2);
   return 0;
 }

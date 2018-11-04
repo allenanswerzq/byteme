@@ -36,7 +36,7 @@ void test(vi aa) {
   }
 }
 
-int main(int argc, char** argv) {
+int main() {
   test({10, 1, 2, 7, 6, 1, 5}, 8);
   return 0;
 }

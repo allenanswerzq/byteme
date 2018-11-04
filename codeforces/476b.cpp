@@ -52,7 +52,7 @@ int comb(int n, int k){
   return result;
 }
 
-int main(int argc, char** argv) {
+int main() {
   string aa, bb; cin >> aa >> bb;
   int da, db;
   da = db = 0;

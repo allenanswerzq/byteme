@@ -23,12 +23,8 @@ ld solve(int k) {
   return pre;
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(6);
-  cout << fixed; 
-
+int main() {
+ 
   int t; cin >> t;
   fori (i, 0, t) {
     inp.clear();

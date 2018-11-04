@@ -87,12 +87,8 @@ void test(string ss) {
   output(r);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  cout.precision(10);
-  cout << fixed;
-
+int main() {
+ 
   test("00110");
   test("010110");
   test("00011000");

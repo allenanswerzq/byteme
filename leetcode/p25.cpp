@@ -68,7 +68,7 @@ void test() {
   print(go.reverseKGroup(h, n));
 }
 
-int main(int argc, char **argv) {
+int main() {
   test();
   return 0;
 }

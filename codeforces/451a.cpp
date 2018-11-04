@@ -41,7 +41,7 @@ bool win(int n, int m) {
   return 0;
 }
 
-int main(int argc, char** argv) {
+int main() {
   int n, m; cin >> n >> m;
   output(win(n, m) ? "Akshat" : "Malvika"); 
 

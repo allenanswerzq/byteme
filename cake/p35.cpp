@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 int jran;
@@ -40,6 +39,6 @@ vi shuffle_in_place(vi& a) {
   return a;
 }
 
-int main(int argc, char** argv) {
+int main() {
   return 0;
 }

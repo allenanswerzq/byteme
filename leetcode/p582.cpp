@@ -62,7 +62,7 @@ void printVector(vector<int> v) {
   cout << "]" << endl;
 }
 
-int main(int argc, char **argv) {
+int main() {
   int n = 5;
   if (argc > 1)
     n = atoi(argv[1]);

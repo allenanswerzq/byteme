@@ -49,7 +49,7 @@ ll solve(ll aa, ll bb) {
 
 }
 
-int main(int argc, char** argv) {
+int main() {
   ll a, b; cin >> a >> b;
   ll ret = solve(a, b);
   output(ret);

@@ -109,11 +109,8 @@ void test(vi aa) {
   pvi(res);
 }
 
-int main(int argc, char** argv) {
-  std::ios_base::sync_with_stdio(false);
-  cout.precision(10);
-  cout << fixed; 
-  // test({-1, -1});
+int main() {
+   // test({-1, -1});
   test({5, 2, 6, 1});
   // test({7, 2, 8, 6, 5, 1});
   return 0;
