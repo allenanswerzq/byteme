@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 bool win(int n, int m) {
   if (n == 1 || m == 1) return 1;
   if (!win(n - 1, m - 1))

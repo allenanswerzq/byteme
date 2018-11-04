@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 int main(int argc, char** argv) {
   int k, n, w; cin >> k >> n >> w;
   ll pay = 0;

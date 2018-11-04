@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 bool check(int aa) {
   string bb = to_string(aa);
   int cnt = 0;

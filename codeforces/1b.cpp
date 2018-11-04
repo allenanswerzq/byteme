@@ -37,7 +37,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 int dec(string ss) {
   int ret = 0;
   fori (i, 0, sz(ss)) {

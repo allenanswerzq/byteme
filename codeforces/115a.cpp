@@ -37,7 +37,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 #define maxn 2002
 vi gg[maxn];
 int visit[maxn];

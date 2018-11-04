@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 ll gcd(ll a, ll b) {
   if (!b) return (a);
   return (gcd(b, a % b));

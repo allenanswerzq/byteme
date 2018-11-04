@@ -37,7 +37,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 bool prime(ll inp) {
   if (((!(inp & 1)) && inp != 2 ) || 
        (inp < 2) || 

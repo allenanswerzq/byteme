@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 bool is_prime(int number) {
   if (((!(number & 1)) && number != 2) 
       || (number < 2) 

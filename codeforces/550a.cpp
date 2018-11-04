@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 bool check(string ss, string aa, string bb) {
   int x = ss.find(aa);
   if (x == string::npos) return 0;

@@ -38,7 +38,6 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 
-
 #define maxn 120
 pii aa[maxn];
 

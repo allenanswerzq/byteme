@@ -37,7 +37,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 #define maxn 300100
 ll sum[maxn];
 ll aa[maxn];

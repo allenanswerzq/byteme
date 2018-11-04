@@ -37,7 +37,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 ll solve(ll aa, ll bb) {
   if (aa < bb) {
     swap(aa, bb);

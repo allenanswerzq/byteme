@@ -34,7 +34,6 @@ typedef vector<vector<string>> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 const int maxn = 5000;
 int n, a, b, c;
 int dp[maxn];

@@ -37,7 +37,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 bool dfs(string ss) {
   if (sz(ss) == 0) return 1;
   bool ret = 0;
