@@ -1,32 +1,35 @@
 #include<bits/stdc++.h>
-
 using namespace std;
-// NOTE:
-// dp(N, i, j) = sum{ dp(N-1, adjacent cell) } 
-int findPaths1(int m, int n, int N, int i, int j) {
-  while (N-- > 0)
-  int dp[51][50][50] = {};
-  for (auto Ni = 1; Ni <= N; ++Ni)
-  for (auto mi = 0; mi < m; ++mi)
-    for (auto ni = 0; ni < n; ++ni)
-    dp[Ni][mi][ni] = ((mi == 0 ? 1 : dp[Ni - 1][mi - 1][ni]) + (mi == m - 1? 1 : dp[Ni - 1][mi + 1][ni])
-      + (ni == 0 ? 1 : dp[Ni - 1][mi][ni - 1]) + (ni == n - 1 ? 1 : dp[Ni - 1][mi][ni + 1])) % 1000000007;
-  return dp[N][i][j];
-}         
-     
-int findPaths(int m, int n, int N, int i, int j) {
-  int g[2][50][50] = {};
-  while (N-- > 0) // Cant understand this
-  for (auto k = 0; k < m; ++k)
-    for (auto l = 0; l < n; ++l)
-    g[(N + 1) % 2][k][l] = ((k == 0 ? 1 : g[N % 2][k - 1][l]) + (k == m - 1? 1 : g[N % 2][k + 1][l])
-      + (l == 0 ? 1 : g[N % 2][k][l - 1]) + (l == n - 1 ? 1 : g[N % 2][k][l + 1])) % 1000000007;
-  return g[1][i][j];// why 1???
-}         
-     
-int main() {
 
-  cout << findPaths(2, 2, 2, 0, 0) << endl;
-  cout << findPaths(1, 3, 3, 0, 1) << endl;
+const int MOD = 1e9 + 7;
+ll dp[51][50][50];
+class Solution {
+public:
+  int findPaths(int m, int n, int kk, int x, int y) {
+    mst(dp, 0);
+    fori (k, 1, kk + 1) {
+      fori (i, 0, m) {
+      fori (j, 0, n) {
+        ll up = (i == 0 ? 1 : dp[k-1][i-1][j]) % MOD;
+        ll down = (i == m-1 ? 1 : dp[k-1][i+1][j]) % MOD;
+        ll left = (j == 0 ? 1 : dp[k-1][i][j-1]) % MOD;
+        ll right = (j == n-1 ? 1 : dp[k-1][i][j+1]) % MOD;
+        dp[k][i][j] = (up + down + left + right) % MOD;
+      }
+      }
+    }
+    return dp[kk][x][y];
+  }
+};
+
+int test(int m, int n, int kk, int x, int y) {
+  Solution go;
+  int r = go.findPaths(m, n, kk, x, y);
+  output(r);
+  return r;
+}
+
+int main() {
+  judge(test(8, 50, 23, 5, 26), 914783380);
   return 0;
 }

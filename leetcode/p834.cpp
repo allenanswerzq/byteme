@@ -1,65 +1,45 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N = 1e4 + 10;
-vector<int> graph[N];
-int num_nodes[N]; // The number of child nodes for root i.
-int dist[N];      // The sum of the distance from root i to it's all children. 
-
-void dfs(int u, int parent) {
-  num_nodes[u] = 1;
-  dist[u] = 0;
-  fora(v, graph[u]) {
-  if (v == parent) continue;
-  dfs(v, u);
-  num_nodes[u] += num_nodes[v];
-  dist[u] += num_nodes[v] + dist[v];
+// Brute force DFS.
+// Got a TLE. 5 cases can't be passed.
+const int size = 10000;
+unordered_map<int, vi> g;
+vi visit(size, 0);
+void dfs(int start, int& sum, int path) {
+  if (visit[start]) return;
+  visit[start] = 1;
+  fora (node, g[start]) {
+    if (!visit[node]) {
+      sum += path;
+      // trace(start, node, path, sum);
+      dfs(node, sum, path + 1);
+    }
   }
 }
 
-void dfs2(int u, int parent, int n, vi &res) {
-  fora(v, graph[u]) {
-  if (v == parent) continue; 
-  // When root node changed from u to v, The distance of `num_nodes[v]` nodes
-  // will be decreased by 1, and the distance of `n - num_nodes[v]` nodes will
-  // be increased by 1.
-  res[v] = res[u] - num_nodes[v] + (n - num_nodes[v]);
-  dfs2(v, u, n, res);
-  }
-}
-
-// TODO
 class Solution {
 public:
-  vector<int> sumOfDistancesInTree(int n, vector<vector<int>>& edges) {
-    // Reset.
-    mst(num_nodes, 0);
-    mst(dist, 0);
-    fori(i, 0, N)
-    graph[i].clear();
-
-    fora(e, edges) {
-    int src = e[0];
-    int dst = e[1];
-    graph[src].pb(dst);
-    graph[dst].pb(src);
+  vector<int> sumOfDistancesInTree(int n, vvi& edges) {
+    vi res;
+    g.clear();
+    fora (e, edges) {
+      g[e[0]].pb(e[1]);
+      g[e[1]].pb(e[0]);
     }
 
-    dfs(0, -1);
-    vi res(n, 0);
-    res[0] = dist[0];
-    dfs2(0, -1, n, res);
+    fori (i, 0, n) {
+      int sum = 0;
+      dfs(i, sum, 1);
+      res.pb(sum);
+      // trace(sum);
+      visit.clear();
+      visit.resize(size);
+    }
     return res;
   }
 };
 
 int main() {
- 
-  Solution go;
-  vvi edges = {{0,1},{0,2},{2,3},{2,4},{2,5}};
-  vi r = go.sumOfDistancesInTree(6, edges);
-  pvi(r);
-  // vvi edges = {{0,2}, {2,1}};
-  // go.sumOfDistancesInTree(3, edges);
   return 0;
 }

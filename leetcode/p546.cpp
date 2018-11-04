@@ -7,26 +7,26 @@ int recu(string& inp) {
   int n, res;
   vi seg;
 
-  // Simple memorization. 
+  // Simple memorization.
   if (mp.count(inp)) return mp[inp];
 
   n = sz(inp);
   seg.pb(-1);
   fori (i, 0, n) {
-  while (i+1<n && inp[i] == inp[i+1]) ++i;
-  seg.pb(i);
-  }    
+    while (i+1<n && inp[i] == inp[i+1]) ++i;
+    seg.pb(i);
+  }
 
   res = 0;
   fori (i, 1, sz(seg)) {
-  int ans = 0;
-  int r = seg[i] - seg[i-1]; 
-  ans += r * r;
-  string rem;
-  rem += inp.substr(0, seg[i-1] + 1);
-  rem += inp.substr(seg[i]+1);
-  ans += recu(rem);
-  res = max(ans, res);
+    int ans = 0;
+    int r = seg[i] - seg[i-1];
+    ans += r * r;
+    string rem;
+    rem += inp.substr(0, seg[i-1] + 1);
+    rem += inp.substr(seg[i]+1);
+    ans += recu(rem);
+    res = max(ans, res);
   }
 
   mp[inp] = res;
@@ -37,15 +37,15 @@ int recu(string& inp) {
 class Solution {
 public:
   int removeBoxesBruteForce(vector<int>& aa) {
-  int n, lo, hi;
-  string inp;
-  n = sz(aa);
-  fori (i, 0, n) inp += (aa[i] + '0');
-  return recu(inp);
+    int n, lo, hi;
+    string inp;
+    n = sz(aa);
+    fori (i, 0, n) inp += (aa[i] + '0');
+    return recu(inp);
   }
 
   int removeBoxes(vi& aa) {
-  return removeBoxesBruteForce(aa); 
+    return removeBoxesBruteForce(aa);
   }
 
 };
@@ -53,11 +53,11 @@ public:
 void test(vi aa) {
   Solution go;
   int r = go.removeBoxes(aa);
-  cerr(r);    
+  output(r);
 }
 
 int main() {
-   test({1,3,2,2,2,3,4,3,1});
+  test({1,3,2,2,2,3,4,3,1});
   return 0;
 }
 

@@ -1,16 +1,14 @@
-#include<bits/stdc++.h>
-
-using namespace std;
+#include<bits/stdc++.h>using namespace std;
 
 class Solution {
-      
+
 public:
-  // THINKING: How do we know string p is a permutation of string s?
-  // Easy, each character in p is in s too. So the count of each character 
+  // Ideas: How do we know string p is a permutation of string s?
+  // Easy, each character in p is in s too. So the count of each character
   // is same in s and p
   //
   // Need to create a slide window with length of s1
-  // NOTE: my method but not true 
+  // NOTE: my method but not true
   bool checkInclusion(string s1, string s2) {
     int m = s1.size();
     int n = s2.size();
@@ -49,9 +47,9 @@ public:
   bool checkInclusion1(string s1, string s2) {
     do {
       size_t found = s2.find(s1);
-      if (found != string::npos) 
-        return true;  
-    } while (next_permutation(s1.begin(), s1.end()) ); 
+      if (found != string::npos)
+        return true;
+    } while (next_permutation(s1.begin(), s1.end()) );
     return false;
   }
 };

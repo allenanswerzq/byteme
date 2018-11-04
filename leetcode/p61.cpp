@@ -1,5 +1,4 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include<bits/stdc++.h>using namespace std;
 
 class Solution {
   // Carefully read the statement for problems.

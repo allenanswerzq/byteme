@@ -3,9 +3,9 @@ using namespace std;
 void test() {
   Solution go;
   int r;
-  cerr(r);    
+  output(r);
 }
 
 int main() {
-   return 0;
+  return 0;
 }

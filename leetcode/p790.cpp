@@ -12,7 +12,7 @@ public:
 void test() {
   Solution go;
   int r;
-  cerr(r);    
+  output(r);
 }
 
 int main() {

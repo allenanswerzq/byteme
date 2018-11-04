@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
-
-using namespace std;
+using namespace std;
 // Accepted
 int minDistance(string word1, string word2) {
   int n = word1.size(), m = word2.size();

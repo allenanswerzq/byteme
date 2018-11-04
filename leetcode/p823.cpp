@@ -13,23 +13,18 @@ public:
 
     vector<long> dp(n+1, 0);
     for (int i=0; i<n; ++i) {
-    int ans = 1;
-    for (int j=0; j<i; ++j) {
-      if (a[i] % a[j] == 0) {
-      auto it = mp.find(a[i] / a[j]);
-      if (it != mp.end())
-        // Error
-        // ans += (dp[j] * dp[it->second]) % MOD; 
-        // Right
-        ans = (ans + dp[j] * dp[it->second]) % MOD;
+      int ans = 1;
+      for (int j=0; j<i; ++j) {
+        if (a[i] % a[j] == 0) {
+          auto it = mp.find(a[i] / a[j]);
+          if (it != mp.end()) ans = (ans + dp[j] * dp[it->second]) % MOD;
+        }
       }
-    }
-    dp[i] = ans;
+      dp[i] = ans;
     }
 
     long res = 0;
-    for (auto p : dp)
-    res += p;
+    for (auto p : dp) res += p;
     return  res % MOD;
   }
 };

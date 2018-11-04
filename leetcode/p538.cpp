@@ -23,17 +23,17 @@ void travel(TreeNode *root) {
 class Solution {
 public:
   TreeNode* convertBST(TreeNode* root) {
-  travel(root);
-  return root;
+    travel(root);
+    return root;
   }
 };
 
 void test() {
   Solution go;
   int r;
-  cout(r);    
+  output(r);
 }
 
 int main() {
-   return 0;
+  return 0;
 }

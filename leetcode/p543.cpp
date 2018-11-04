@@ -19,21 +19,21 @@ int height(TreeNode* root) {
 class Solution {
 public:
   int diameterOfBinaryTree(TreeNode* root) {
-  if (!root) return 0;
-  int a = diameterOfBinaryTree(root->left);
-  int b = diameterOfBinaryTree(root->right);      
-  int c = height(root->left);
-  int d = height(root->right);
-  return max(max(a, b), c + d);
+    if (!root) return 0;
+    int a = diameterOfBinaryTree(root->left);
+    int b = diameterOfBinaryTree(root->right);
+    int c = height(root->left);
+    int d = height(root->right);
+    return max(max(a, b), c + d);
   }
 };
 
 void test() {
   Solution go;
   int r;
-  cout(r);    
+  output(r);
 }
 
 int main() {
-   return 0;
+  return 0;
 }

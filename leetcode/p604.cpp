@@ -1,26 +1,15 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
-
-// NOTE: vector<pair<char, int>> a;
-//       map<char, int> a;
 class StringIterator {
 public:
   StringIterator(string compressedString) {
     nextCnt = 0;
     numCurr = 0;
     numCnt = 0;
-    SS = compressedString;  
+    SS = compressedString;
   }
-  
+
   char next() {
     if (numCnt < numCurr) {
       numCnt++;
@@ -55,32 +44,31 @@ private:
     char currChar;
 };
 
-// very good approach
+// A very good approach
 class StringIterator {
   vector<pair<char, int>> a;
   int p;
 public:
   StringIterator(string s) {
     for (size_t i = 0; i < s.size(); ) {
-    char c = s[i++];
-    int r = 0;
-    while (i < s.size() && isdigit(s[i])) r = r * 10 + s[i++] - '0';
-    if (r > 0) a.emplace_back(c, r);
-         //a.push_back(make_pair(c, r))
+      char c = s[i++];
+      int r = 0;
+      while (i < s.size() && isdigit(s[i])) r = r * 10 + s[i++] - '0';
+      if (r > 0) a.emplace_back(c, r);
     }
     p = 0;
   }
-  
+
   char next() {
     if (p >= a.size()) {
-    return ' ';
+      return ' ';
     }
     char c = a[p].first;
     a[p].second--;
     if (a[p].second == 0) p++;
     return c;
   }
-  
+
   bool hasNext() {
     return p < a.size();
   }

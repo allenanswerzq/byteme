@@ -5,11 +5,10 @@ using namespace std;
 class Solution {
 public:
   int rectangleArea(vector<vector<int>>& aa) {
-   
+
   }
 };
 
 int main() {
- 
   return 0;
 }

@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 class Solution {
 public:
   // Naive approach
@@ -10,12 +9,12 @@ public:
     string s = "";
     for (int i=1; i<=n; ++i)
       s += ('0' + i);
-      
+
     while (--k > 0) {
       next_permutation(s.begin(), s.end());
     }
-    
-    return s; 
+
+    return s;
   }
 
   void bt(int k, int n, string ans, string& res) {
@@ -26,7 +25,7 @@ public:
       for (int i = 1; i <= n; ++i) {
         if (find(ans.begin(), ans.end(), '0' + i) != ans.end()) continue;
         ans.push_back('0' + i);
-        bt(); 
+        bt();
         ans.pop_back();
       }
     }

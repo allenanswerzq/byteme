@@ -6,30 +6,26 @@ string strip(string inp) {
   char stk[n];
   int k = 0;
   fori(i, 0, n) {
-  if (inp[i] == '#') {
-    if (k > 0)
-    --k;
-  } else {
-    stk[k++] = inp[i];
+    if (inp[i] == '#') {
+      if (k > 0) --k;
+    } else {
+      stk[k++] = inp[i];
+    }
   }
-  } 
-
   string res = "";
-  fori(i, 0, k)
-  res += stk[i];
+  fori(i, 0, k) res += stk[i];
   return res;
 }
 
 class Solution {
 public:
   bool backspaceCompare(string S, string T) {
-  string a = strip(S);
-  string b = strip(T);
-  return a == b;
+    string a = strip(S);
+    string b = strip(T);
+    return a == b;
   }
 };
 
 int main() {
- 
   return 0;
 }
