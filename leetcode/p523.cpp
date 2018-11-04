@@ -19,30 +19,6 @@ public:
   }
 };
 
-// class Solution {
-// public:
-//   // Naive approach.
-//   bool checkSubarraySum(vector<int>& aa, int k) {
-//     int n;
-//     n = sz(aa);
-//     fori (i, 0, n) {
-//       int sum = 0;
-//       ford (j, i, -1) {
-//         sum += aa[j];
-//         if (j < i) {
-//           if (k && sum % k == 0)
-//             return 1;
-//           else if (k == 0) {
-//             if (sum == 0)
-//               return 1;
-//           }
-//         }
-//       }
-//     }
-//     return 0;
-//   }
-// };
-
 void test(vi aa, int k) {
   Solution go;
   int r = go.checkSubarraySum(aa, k);

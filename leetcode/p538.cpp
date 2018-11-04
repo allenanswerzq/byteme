@@ -28,12 +28,6 @@ public:
   }
 };
 
-void test() {
-  Solution go;
-  int r;
-  output(r);
-}
-
 int main() {
   return 0;
 }

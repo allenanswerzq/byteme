@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
 // Accepted
 ListNode* deleteDuplicates(ListNode* head) {
   if (!head) return NULL;

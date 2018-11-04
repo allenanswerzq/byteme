@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-    printf("%d ", x); 
-  printf("]\n");
-}
-
 
 void run(TreeNode* cur, set<int>& A) {
   if (!cur) return;

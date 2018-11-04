@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
 vector<int> cheapestJump(vector<int>& A, int B) {
   int n = A.size();
   vector<int> dp(n, 2000000);
@@ -20,15 +13,15 @@ vector<int> cheapestJump(vector<int>& A, int B) {
         continue;
       }
     }
-    for (int j=i-1; j>=i-B; --j) 
+    for (int j=i-1; j>=i-B; --j)
       if (j>=0 && dp[j] + A[i] <= dp[i]) {
         dp[i] = dp[j] + A[i];
         steps[i+1] = j+1;
       }
   }
-  
+
   if (dp[n-1] >= 2000000) return {};
-  vector<int> res; 
+  vector<int> res;
   int x = n-1;
   res.push_back(n);
   while (steps[x]) {
@@ -37,8 +30,8 @@ vector<int> cheapestJump(vector<int>& A, int B) {
   }
 
   return res;
-}        
-  
+}
+
 int main() {
   return 0;
 }

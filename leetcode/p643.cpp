@@ -1,15 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
 double findMaxAverage(vector<int>& A, int k) {
-  int res = INT_MIN;        
+  int res = INT_MIN;
   int lo = 0, hi = k-1;
   for(; hi<A.size(); ++lo,++hi) {
     int sum = 0;

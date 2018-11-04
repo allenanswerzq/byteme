@@ -17,15 +17,15 @@ void _f(const char* name, T&& arg) {
   cout << name << ": " << arg << endl;
 }
 
-template <typename T, typename... Args> 
+template <typename T, typename... Args>
 void _f(const char* names, T&& arg, Args&&... args) {
-  const char* split = strchr(names + 1, ','); 
+  const char* split = strchr(names + 1, ',');
   cout.write(names, split - names) << ": " << arg << " |";
-  _f(split, args...); 
-} 
+  _f(split, args...);
+}
 
-// You want to build a house on an empty land which reaches all buildings 
-// in the shortest amount of distance. You can only move up, down, left and right. 
+// You want to build a house on an empty land which reaches all buildings
+// in the shortest amount of distance. You can only move up, down, left and right.
 // You are given a 2D grid of values 0, 1 or 2, where:
 
 // Each 0 marks an empty land which you can pass by freely.
@@ -49,68 +49,62 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   int shortestDistance(vvi& gg) {
-  int res = (1<<30);
-  int m = sz(gg), n = sz(gg[0]); 
-  int buildings_cnt = 0;
-  // The sum distances from a point `(x, y)` to all buildings.
-  int dist[m][n]; mst(dist, 0);
-  // The number of buildings can reach from a position `(x,y)`.
-  int count[m][n]; mst(count, 0); 
-  vvi dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
-  fori (i, 0, m) {
-    fori (j, 0, n) {
-    if (gg[i][j] == 1) {
-      ++buildings_cnt; 
-      deque<pair<int, int>> dq;
-      dq.push_back({i, j});
-      int visit[m][n]; mst(visit, 0);
-      int level = 1;
-      while (sz(dq)) {
-      int nn = sz(dq);
-      fori (k, 0, nn) {
-        int x = dq.front().first;
-        int y = dq.front().second; dq.pop_front();
-        fora (d, dirs) {
-        int nx = x + d[0];
-        int ny = y + d[1];
-        if (0<=nx && nx<m && 0<=ny && ny<n && 
-          gg[nx][ny] == 0 && !visit[nx][ny]) {
-          // trace(x, y, nx, ny);
-          dist[nx][ny] += level;
-          ++count[nx][ny];
-          visit[nx][ny] = 1;
-          dq.push_back({nx, ny}); 
-        }
+    int ret = (1 << 30);
+    int m = sz(gg), n = sz(gg[0]);
+    int cnt = 0;
+    // The sum distances from a point `(x, y)` to all buildings.
+    int dist[m][n]; mst(dist, 0);
+    // The number of buildings can reach from a position `(x,y)`.
+    int count[m][n]; mst(count, 0);
+    vvi dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+    fori (i, 0, m) fori (j, 0, n) {
+      if (gg[i][j] == 1) {
+        ++cnt;
+        deque<pair<int, int>> dq;
+        dq.push_back({i, j});
+        int visit[m][n]; mst(visit, 0);
+        int level = 1;
+        while (sz(dq)) {
+          int nn = sz(dq);
+          fori (k, 0, nn) {
+            int x = dq.front().first;
+            int y = dq.front().second; dq.pop_front();
+            fora (d, dirs) {
+              int nx = x + d[0], ny = y + d[1];
+              if (0 <= nx && nx < m && 0 <= ny && ny < n &&
+                gg[nx][ny] == 0 && !visit[nx][ny]) {
+                // trace(x, y, nx, ny);
+                dist[nx][ny] += level;
+                ++count[nx][ny];
+                visit[nx][ny] = 1;
+                dq.push_back({nx, ny});
+              }
+            }
+          }
+          ++level;
         }
       }
-      ++level;
-      }
     }
-    }
-  }
-  // trace(buildings_cnt);
-  fori (i, 0, m) 
-    fori (j, 0, n) 
-    if (gg[i][j] == 0 && count[i][j] == buildings_cnt)
-      res = min(res, dist[i][j]); 
-  return res;
+
+    fori (i, 0, m) fori (j, 0, n)
+      if (gg[i][j] == 0 && count[i][j] == cnt)
+        ret = min(ret, dist[i][j]);
+    return ret;
   }
 };
 
 void test(vvi& inp, int right) {
   Solution go;
-  int res = go.shortestDistance(inp);
-  trace(res, right);
-  assert(res == right);
+  int ret = go.shortestDistance(inp);
+  trace(ret, right);
+  assert(ret == right);
 }
 
 int main() {
- 
   vvi aa = {{1, 0, 2, 0, 1},
       {0, 0, 0, 0, 0},
       {0, 0, 1, 0, 0}};
 
   test(aa, 7);
-
   return 0;
 }

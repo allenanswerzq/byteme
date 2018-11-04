@@ -1,22 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
-int minSteps(int n) {
-  int N = 1001;
-  vector<int> dp(N, INT_MAX);
-  dp[1] = 0;
-  for (int i=1; i<N; ++i) {
-    for (int j=2*i; j<N; j+=i) 
-      dp[j] = min(dp[j], dp[i] + j/i);
+// TODO
+class Solution {
+public:
+  int minSteps(int n) {
+    int dp[n + 1];
+    mst(dp, 0);
+    fori (i, 2, n+1) {
+      dp[i] = i;
+      ford (j, i - 1, 1) {
+        if (i % j == 0) {
+          dp[i] = dp[j] + i / j;
+          break;
+        }
+      }
+    }
+    return dp[n];
   }
-  return dp[n];
+};
+
+void test() {
+  Solution go;
+  int r;
+  output(r);
 }
 
 int main() {

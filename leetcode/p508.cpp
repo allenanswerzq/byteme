@@ -25,24 +25,17 @@ int go(TreeNode *root) {
 class Solution {
 public:
   vector<int> findFrequentTreeSum(TreeNode* root) {
-  vi res;
-  mp.clear();
-  if (!root) return res;
-  mx = 0;
-  go(root);
-  fora (a, mp)
-    if (a.se == mx)
-    res.pb(a.fi);
-  return res;
+    vi res;
+    mp.clear();
+    if (!root) return res;
+    mx = 0;
+    go(root);
+    fora (a, mp)
+      if (a.se == mx) res.pb(a.fi);
+    return res;
   }
 };
 
-void test() {
-  Solution go;
-  int r;
-  cout(r);    
-}
-
 int main() {
-   return 0;
+  return 0;
 }

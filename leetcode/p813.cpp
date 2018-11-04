@@ -2,8 +2,8 @@
 using namespace std;
 
 // TODO
-const int size = 105;
-double dp[size][size];
+const int maxn = 105;
+double dp[maxn][maxn];
 class Solution {
 public:
   double largestSumOfAverages(vector<int>& aa, int kk) {
@@ -12,19 +12,14 @@ public:
     dp[0][0] = 0;
     fori (k, 1, kk + 1) {
       fori (i, 1, n + 1) {
-      double sum = 0;
-      ford (j, i-1, -1) {
-        sum += aa[j + 1];
-        if (dp[j][k-1] == -1) continue;
-        dp[i][k] = max(dp[i][k], dp[j][k-1] + sum / (i - j));
-      }
+        double sum = 0;
+        ford (j, i-1, -1) {
+          sum += aa[j + 1];
+          if (dp[j][k-1] == -1) continue;
+          dp[i][k] = max(dp[i][k], dp[j][k-1] + sum / (i - j));
+        }
       }
     }
-
-    // fori (i, 0, n + 1) {
-    //   par(dp[i], kk + 1);
-    // }
-
     return dp[n][kk];
   }
 };

@@ -8,7 +8,7 @@ int dfs(string ring, string key, int ix) {
   string sa, sb;
 
   if (ix == sz(key)) return 0;
-  if (mp.count(ring + key + to_string(ix))) 
+  if (mp.count(ring + key + to_string(ix)))
   return mp[ring + key + to_string(ix)];
 
   n = sz(ring);
@@ -27,7 +27,7 @@ int dfs(string ring, string key, int ix) {
   rb = 1 + n - b + dfs(sb, key, ix + 1);
   res = min(ra, rb);
 
-  mp[ring + key + to_string(ix)] = res; 
+  mp[ring + key + to_string(ix)] = res;
   return res;
 }
 
@@ -37,14 +37,14 @@ int findRotateStepsDP(string ring, string key) {
   m = sz(key);
   int dp[m + 1][n];
   mst(dp, 0);
-  
+
 }
 
 class Solution {
 public:
   int findRotateSteps(string ring, string key) {
-  // return dfs(ring, key, 0);    
-  return findRotateStepsDP(ring, key);
+    // return dfs(ring, key, 0);
+    return findRotateStepsDP(ring, key);
   }
 
 };
@@ -52,10 +52,10 @@ public:
 void test(str inp, str key) {
   Solution go;
   int r = go.findRotateSteps(inp, key);
-  cerr(r);    
+  output(r);
 }
 
 int main() {
-   test("godding", "gd");
+  test("godding", "gd");
   return 0;
 }

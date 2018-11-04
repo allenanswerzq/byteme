@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"unorder",
+				"unordered_set\t(p523.cpp)"
+			],
+			[
+				"how",
+				"howMany"
+			],
+			[
+				"get",
+				"getOrdering"
+			],
+			[
+				"bus",
+				"BusinessTasks"
+			],
+			[
+				"Wal",
+				"WalkingHome"
+			],
+			[
+				"sort",
+				"sortedAreas"
+			],
+			[
+				"re",
+				"reverseLinkList"
+			],
+			[
+				"min",
+				"minFlipsMonoIncr"
+			],
+			[
+				"Cl",
+				"CLOCKS_PER_SEC"
+			],
+			[
+				"sub",
+				"subprocess"
+			],
+			[
 				"Tr",
 				"trieNode"
 			],
@@ -138,10 +178,6 @@
 			[
 				"Tre",
 				"TreeLinkNode"
-			],
-			[
-				"min",
-				"minWindow"
 			],
 			[
 				"conne",
@@ -340,10 +376,6 @@
 				"verifyPreorder"
 			],
 			[
-				"get",
-				"getFactors"
-			],
-			[
 				"fa",
 				"fastLongestPalindromes"
 			],
@@ -390,10 +422,6 @@
 			[
 				"stt",
 				"startFuel"
-			],
-			[
-				"re",
-				"reorderedPowerOf2"
 			],
 			[
 				"log",
@@ -486,34 +514,6 @@
 			[
 				"numd",
 				"numDecodingsDP"
-			],
-			[
-				"maximalRe",
-				"maximalRectangleOne"
-			],
-			[
-				"maximal",
-				"maximalRectangleOne"
-			],
-			[
-				"em",
-				"empty"
-			],
-			[
-				"maxPro",
-				"maxProfitOne"
-			],
-			[
-				"numDis",
-				"numDistinctRecu"
-			],
-			[
-				"qu",
-				"quiet"
-			],
-			[
-				"emp",
-				"emplace_back"
 			]
 		]
 	},
@@ -532,6 +532,50 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"FontCycler - Next Font"
+			],
+			[
+				"col",
+				"UI: Select Color Scheme"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"fotn",
+				"FontCycler - Next Font"
+			],
+			[
+				"fon",
+				"FontCycler - Next Font"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"sy",
+				"Set Syntax: C++"
+			],
+			[
+				"sk",
+				"Set Syntax: LaTeXing (Knitr)"
+			],
+			[
+				"set sy",
+				"Set Syntax: C++"
+			],
+			[
 				"pack",
 				"Package Control: Remove Package"
 			],
@@ -544,16 +588,8 @@
 				"Preferences: Key Bindings"
 			],
 			[
-				"key",
-				"Preferences: Key Bindings"
-			],
-			[
 				"sin",
 				"Snippet: template <typename ${1:_InputIter}>"
-			],
-			[
-				"col",
-				"UI: Select Color Scheme"
 			],
 			[
 				"co",
@@ -572,15 +608,7 @@
 				"PackageResourceViewer: Open Resource"
 			],
 			[
-				"ins",
-				"Package Control: Install Package"
-			],
-			[
 				"in",
-				"Package Control: Install Package"
-			],
-			[
-				"inst",
 				"Package Control: Install Package"
 			],
 			[
@@ -610,10 +638,6 @@
 			[
 				"them",
 				"UI: Select Theme"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
 			],
 			[
 				"remo",
@@ -671,138 +695,138 @@
 	],
 	"file_history":
 	[
-		"/Users/jche/Code/algos/codeforces/Makefile-746b",
-		"/Users/jche/Code/algos/codeforces/true-746b.txt",
-		"/Users/jche/Code/algos/codeforces/in-746b.txt",
-		"/Users/jche/Code/algos/codeforces/746b.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-914a",
-		"/Users/jche/Code/algos/codeforces/true-914a.txt",
-		"/Users/jche/Code/algos/codeforces/in-914a.txt",
-		"/Users/jche/Code/algos/codeforces/914a.cpp",
-		"/Users/jche/Code/algos/leetcode/p757.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-757a",
-		"/Users/jche/Code/algos/codeforces/true-757a.txt",
-		"/Users/jche/Code/algos/codeforces/in-757a.txt",
-		"/Users/jche/Code/algos/codeforces/757a.cpp",
-		"/Users/jche/Code/algos/codeforces/1047a.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-535a",
-		"/Users/jche/Code/algos/codeforces/true-535a.txt",
-		"/Users/jche/Code/algos/codeforces/in-535a.txt",
-		"/Users/jche/Code/algos/codeforces/535a.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-978a",
-		"/Users/jche/Code/algos/codeforces/true-978a.txt",
-		"/Users/jche/Code/algos/codeforces/in-978a.txt",
-		"/Users/jche/Code/algos/codeforces/978a.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-2a",
-		"/Users/jche/Code/algos/codeforces/true-2a.txt",
-		"/Users/jche/Code/algos/codeforces/in-2a.txt",
-		"/Users/jche/Code/algos/codeforces/2a.cpp",
-		"/Users/jche/Code/algos/sketch.py",
-		"/Users/jche/Code/algos/codeforces/474d.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-474d",
-		"/Users/jche/Code/algos/codeforces/true-474d.txt",
-		"/Users/jche/Code/algos/codeforces/in-474d.txt",
-		"/Users/jche/Code/algos/codeforces/581b.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-581b",
-		"/Users/jche/Code/algos/codeforces/true-581b.txt",
-		"/Users/jche/Code/algos/codeforces/in-581b.txt",
-		"/Users/jche/Code/algos/codeforces/Makefile-404a",
-		"/Users/jche/Code/algos/codeforces/true-404a.txt",
-		"/Users/jche/Code/algos/codeforces/in-404a.txt",
-		"/Users/jche/Code/algos/codeforces/404a.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-404aa",
-		"/Users/jche/Code/algos/codeforces/true-404aa.txt",
-		"/Users/jche/Code/algos/codeforces/in-404aa.txt",
-		"/Users/jche/Code/algos/codeforces/404aa.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-680a",
-		"/Users/jche/Code/algos/codeforces/true-680a.txt",
-		"/Users/jche/Code/algos/codeforces/in-680a.txt",
-		"/Users/jche/Code/algos/codeforces/680a.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-733b",
-		"/Users/jche/Code/algos/codeforces/true-733b.txt",
-		"/Users/jche/Code/algos/codeforces/in-733b.txt",
-		"/Users/jche/Code/algos/codeforces/733b.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-447b",
-		"/Users/jche/Code/algos/codeforces/true-447b.txt",
-		"/Users/jche/Code/algos/codeforces/in-447b.txt",
-		"/Users/jche/Code/algos/codeforces/447b.cpp",
-		"/Users/jche/Code/algos/.gitignore",
-		"/Users/jche/Code/algos/codeforces/Makefile-841b",
-		"/Users/jche/Code/algos/codeforces/true-841b.txt",
-		"/Users/jche/Code/algos/codeforces/in-841b.txt",
-		"/Users/jche/Code/algos/codeforces/841b.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-841a",
-		"/Users/jche/Code/algos/codeforces/true-841a.txt",
-		"/Users/jche/Code/algos/codeforces/in-841a.txt",
-		"/Users/jche/Code/algos/codeforces/841a.cpp",
-		"/Users/jche/Code/algos/codeforces/431c.cpp",
-		"/Users/jche/Code/algos/codeforces/431a.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-431c",
-		"/Users/jche/Code/algos/codeforces/true-431c.txt",
-		"/Users/jche/Code/algos/gen.py",
-		"/Users/jche/Code/algos/codeforces/in-431c.txt",
-		"/Users/jche/Code/algos/codeforces/796a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-796a.txt",
-		"/Users/jche/Code/algos/codeforces/true-796a.txt",
-		"/Users/jche/Code/algos/codeforces/Makefile-796a",
-		"/Users/jche/Code/algos/codeforces/709a.cpp",
-		"/Users/jche/Code/algos/codeforces/in-709a.txt",
-		"/Users/jche/Code/algos/codeforces/true-709a.txt",
-		"/Users/jche/Code/algos/codeforces/Makefile-709a",
-		"/Users/jche/Code/algos/codeforces/Makefile-80a",
-		"/Users/jche/Code/algos/codeforces/true-80a.txt",
-		"/Users/jche/Code/algos/codeforces/in-80a.txt",
-		"/Users/jche/Code/algos/codeforces/80a.cpp",
-		"/Users/jche/Code/algos/codeforces/580d.cpp",
-		"/Users/jche/Code/algos/README.md",
-		"/Users/jche/Code/algos/codeforces/Makefile-580d",
-		"/Users/jche/Code/algos/codeforces/true-580d.txt",
-		"/Users/jche/Code/algos/codeforces/in-580d.txt",
-		"/Users/jche/Code/algos/codeforces/580c.cpp",
-		"/Users/jche/Code/algos/codeforces/Makefile-580b",
-		"/Users/jche/Code/algos/codeforces/true-580b.txt",
-		"/Users/jche/Code/algos/codeforces/in-580b.txt",
-		"/Users/jche/Code/algos/codeforces/580b.cpp",
-		"/Users/jche/Code/algos/codeforces/538b.cpp",
-		"/Users/jche/Code/algos/codeforces/580a.cpp",
-		"/Users/jche/Code/algos/codeforces/log_1",
-		"/Users/jche/Code/algos/codeforces/Makefile-538b",
-		"/Users/jche/Code/algos/codeforces/true-538b.txt",
-		"/Users/jche/Code/algos/codeforces/in-538b.txt",
-		"/Users/jche/Code/algos/leetcode/Makefile-924",
-		"/Users/jche/Code/algos/leetcode/true-924.txt",
-		"/Users/jche/Code/algos/leetcode/in-924.txt",
+		"/Users/jche/Code/algos/vjudge/kuangbin1/gen.py",
+		"/Users/jche/Code/algos/notes.md",
+		"/Users/jche/Code/algos/leetcode/p516.cpp",
+		"/Users/jche/Code/algos/leetcode/p151.cpp",
 		"/Users/jche/Code/algos/leetcode/924.cpp",
-		"/Users/jche/Code/algos/leetcode/Makefile-922",
-		"/Users/jche/Code/algos/leetcode/true-922.txt",
-		"/Users/jche/Code/algos/leetcode/in-922.txt",
-		"/Users/jche/Code/algos/leetcode/922.cpp",
-		"/Users/jche/Code/algos/leetcode/Makefile-921",
-		"/Users/jche/Code/algos/leetcode/true-921.txt",
-		"/Users/jche/Code/algos/leetcode/in-921.txt",
-		"/Users/jche/Code/algos/leetcode/921.cpp",
-		"/Users/jche/Code/algos/leetcode/Makefile-923",
-		"/Users/jche/Code/algos/leetcode/true-923.txt",
-		"/Users/jche/Code/algos/leetcode/in-923.txt",
 		"/Users/jche/Code/algos/leetcode/923.cpp",
-		"/Users/jche/Code/algos/third_party/codebook/combination.cpp",
-		"/Users/jche/Code/algos/codeforces/1065b.cpp",
-		"/Users/jche/Code/algos/codeforces/3a.cpp",
-		"/Users/jche/Code/algos/test/log_0",
-		"/Users/jche/Code/algos/test/in-b.txt",
-		"/Users/jche/Code/algos/test/gen.py",
-		"/Users/jche/Code/algos/test/b.cpp",
-		"/Users/jche/Code/algos/test/Makefile-c",
-		"/Users/jche/Code/algos/test/true-c.txt",
-		"/Users/jche/Code/algos/test/in-c.txt",
-		"/Users/jche/Code/algos/test/c.cpp",
-		"/Users/jche/Code/algos/test/log-b.txt",
-		"/Users/jche/Code/algos/codeforces/gen.py",
-		"/Users/jche/Code/algos/test/Makefile-a"
+		"/Users/jche/Code/algos/leetcode/922.cpp",
+		"/Users/jche/Code/algos/leetcode/921.cpp",
+		"/Users/jche/Code/algos/leetcode/p61.cpp",
+		"/Users/jche/Code/algos/leetcode/p606.cpp",
+		"/Users/jche/Code/algos/leetcode/p604.cpp",
+		"/Users/jche/Code/algos/leetcode/p600.cpp",
+		"/Users/jche/Code/algos/leetcode/p765.cpp",
+		"/Users/jche/Code/algos/leetcode/p764.cpp",
+		"/Users/jche/Code/algos/leetcode/p82.cpp",
+		"/Users/jche/Code/algos/leetcode/p818.cpp",
+		"/Users/jche/Code/algos/leetcode/p814.cpp",
+		"/Users/jche/Code/algos/leetcode/p813.cpp",
+		"/Users/jche/Code/algos/leetcode/p81.cpp",
+		"/Users/jche/Code/algos/leetcode/p808.cpp",
+		"/Users/jche/Code/algos/leetcode/p801.cpp",
+		"/Users/jche/Code/algos/leetcode/p80.cpp",
+		"/Users/jche/Code/algos/leetcode/p8.cpp",
+		"/Users/jche/Code/algos/leetcode/p790.cpp",
+		"/Users/jche/Code/algos/leetcode/p79.cpp",
+		"/Users/jche/Code/algos/leetcode/p787.cpp",
+		"/Users/jche/Code/algos/leetcode/p78.cpp",
+		"/Users/jche/Code/algos/leetcode/p77.cpp",
+		"/Users/jche/Code/algos/leetcode/p766.cpp",
+		"/Users/jche/Code/algos/leetcode/p691.cpp",
+		"/Users/jche/Code/algos/leetcode/p60.cpp",
+		"/Users/jche/Code/algos/leetcode/p6.cpp",
+		"/Users/jche/Code/algos/leetcode/p594.cpp",
+		"/Users/jche/Code/algos/leetcode/p593.cpp",
+		"/Users/jche/Code/algos/leetcode/p592.cpp",
+		"/Users/jche/Code/algos/leetcode/p59.cpp",
+		"/Users/jche/Code/algos/leetcode/p583.cpp",
+		"/Users/jche/Code/algos/leetcode/p582.cpp",
+		"/Users/jche/Code/algos/leetcode/p57.cpp",
+		"/Users/jche/Code/algos/leetcode/p581.cpp",
+		"/Users/jche/Code/algos/leetcode/p576.cpp",
+		"/Users/jche/Code/algos/leetcode/p575.cpp",
+		"/Users/jche/Code/algos/leetcode/p572.cpp",
+		"/Users/jche/Code/algos/leetcode/p572-2.cpp",
+		"/Users/jche/Code/algos/leetcode/p568.cpp",
+		"/Users/jche/Code/algos/leetcode/p567.cpp",
+		"/Users/jche/Code/algos/leetcode/p830.cpp",
+		"/Users/jche/Code/algos/leetcode/p829.cpp",
+		"/Users/jche/Code/algos/leetcode/p828.cpp",
+		"/Users/jche/Code/algos/leetcode/p823.cpp",
+		"/Users/jche/Code/algos/leetcode/p822.cpp",
+		"/Users/jche/Code/algos/leetcode/p821.cpp",
+		"/Users/jche/Code/algos/leetcode/p820.cpp",
+		"/Users/jche/Code/algos/leetcode/p83.cpp",
+		"/Users/jche/Code/algos/vjudge/kuangbin1/Makefile-e",
+		"/Users/jche/Code/algos/vjudge/kuangbin1/true-e.txt",
+		"/Users/jche/Code/algos/vjudge/kuangbin1/in-e.txt",
+		"/Users/jche/Code/algos/vjudge/kuangbin1/e.cpp",
+		"/Users/jche/Code/algos/leetcode/p159.cpp",
+		"/Users/jche/Code/algos/leetcode/p40.cpp",
+		"/Users/jche/Code/algos/leetcode/p517.cpp",
+		"/Users/jche/Code/algos/leetcode/p523.cpp",
+		"/Users/jche/Code/algos/leetcode/p538.cpp",
+		"/Users/jche/Code/algos/leetcode/p543.cpp",
+		"/Users/jche/Code/algos/leetcode/p546.cpp",
+		"/Users/jche/Code/algos/leetcode/p552.cpp",
+		"/Users/jche/Code/algos/leetcode/p556.cpp",
+		"/Users/jche/Code/algos/leetcode/p564.cpp",
+		"/Users/jche/Code/algos/leetcode/p566.cpp",
+		"/Users/jche/Code/algos/leetcode/p831.cpp",
+		"/Users/jche/Code/algos/leetcode/p832.cpp",
+		"/Users/jche/Code/algos/leetcode/p833.cpp",
+		"/Users/jche/Code/algos/leetcode/p834.cpp",
+		"/Users/jche/Code/algos/leetcode/p835.cpp",
+		"/Users/jche/Code/algos/leetcode/p837.cpp",
+		"/Users/jche/Code/algos/leetcode/p838.cpp",
+		"/Users/jche/Code/algos/leetcode/p839.cpp",
+		"/Users/jche/Code/algos/leetcode/p84.cpp",
+		"/Users/jche/Code/algos/leetcode/p840.cpp",
+		"/Users/jche/Code/algos/leetcode/p841.cpp",
+		"/Users/jche/Code/algos/leetcode/p842.cpp",
+		"/Users/jche/Code/algos/leetcode/p843.cpp",
+		"/Users/jche/Code/algos/leetcode/p844.cpp",
+		"/Users/jche/Code/algos/leetcode/p845.cpp",
+		"/Users/jche/Code/algos/leetcode/p846.cpp",
+		"/Users/jche/Code/algos/leetcode/p847.cpp",
+		"/Users/jche/Code/algos/leetcode/p848.cpp",
+		"/Users/jche/Code/algos/leetcode/p849.cpp",
+		"/Users/jche/Code/algos/leetcode/p850.cpp",
+		"/Users/jche/Code/algos/leetcode/p851.cpp",
+		"/Users/jche/Code/algos/leetcode/p852.cpp",
+		"/Users/jche/Code/algos/leetcode/p853.cpp",
+		"/Users/jche/Code/algos/leetcode/p854.cpp",
+		"/Users/jche/Code/algos/leetcode/p855.cpp",
+		"/Users/jche/Code/algos/leetcode/p856.cpp",
+		"/Users/jche/Code/algos/leetcode/p857.cpp",
+		"/Users/jche/Code/algos/leetcode/p858.cpp",
+		"/Users/jche/Code/algos/leetcode/p859.cpp",
+		"/Users/jche/Code/algos/leetcode/p86.cpp",
+		"/Users/jche/Code/algos/leetcode/p860.cpp",
+		"/Users/jche/Code/algos/leetcode/p861.cpp",
+		"/Users/jche/Code/algos/leetcode/p862.cpp",
+		"/Users/jche/Code/algos/leetcode/p863.cpp",
+		"/Users/jche/Code/algos/leetcode/p864.cpp",
+		"/Users/jche/Code/algos/leetcode/p865.cpp",
+		"/Users/jche/Code/algos/leetcode/p866.cpp",
+		"/Users/jche/Code/algos/leetcode/p867.cpp",
+		"/Users/jche/Code/algos/leetcode/p868.cpp",
+		"/Users/jche/Code/algos/leetcode/p869.cpp",
+		"/Users/jche/Code/algos/leetcode/p870.cpp",
+		"/Users/jche/Code/algos/leetcode/p871.cpp",
+		"/Users/jche/Code/algos/leetcode/p872.cpp",
+		"/Users/jche/Code/algos/leetcode/p873.cpp",
+		"/Users/jche/Code/algos/leetcode/p874.cpp",
+		"/Users/jche/Code/algos/leetcode/p875.cpp",
+		"/Users/jche/Code/algos/leetcode/p876.cpp",
+		"/Users/jche/Code/algos/leetcode/p877.cpp",
+		"/Users/jche/Code/algos/leetcode/p890.cpp",
+		"/Users/jche/Code/algos/leetcode/p878.cpp",
+		"/Users/jche/Code/algos/leetcode/p879.cpp",
+		"/Users/jche/Code/algos/leetcode/p834-2.cpp",
+		"/Users/jche/Code/algos/leetcode/p563-2.cpp",
+		"/Users/jche/Code/algos/leetcode/p576-2.cpp",
+		"/Users/jche/Code/algos/vjudge/kuangbin1/a.cpp",
+		"/Users/jche/Code/algos/vjudge/kuangbin1/b.cpp",
+		"/Users/jche/Code/algos/test/d.cpp",
+		"/Users/jche/Code/algos/test/a.cpp",
+		"/Users/jche/Code/algos/test/result.txt"
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -816,134 +840,134 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"t",
-			"a",
-			"intervals",
-			"t",
-			"a",
-			"int",
-			"parent",
-			"int",
-			"n",
-			"int",
-			"z",
-			"mid",
-			"a",
-			"n",
-			"b",
-			"t",
-			"#!/",
-			"0",
-			"2",
-			"n",
-			"sovle",
-			"int",
-			"t",
-			"ret",
-			"bb",
-			"aa",
-			"dst",
-			"src",
-			"cur",
-			"pre",
-			"1",
-			"yellow",
-			"t",
-			"cn",
-			"c",
-			"ret",
-			"sovle",
-			"dfs",
-			"x",
-			"sovle",
-			"t",
-			"kk",
-			"ii",
-			"flag",
-			"t",
-			"cnt",
-			"sovle",
-			"t",
-			"ret",
-			"t",
-			"two",
-			"int",
-			"t",
-			"_f",
-			"t",
-			"1010",
-			"v",
-			"sport",
-			"gym",
-			"x",
-			"t",
-			"ret",
-			"t",
-			"back",
-			"pop_back",
-			"pb",
-			"deque",
-			"ret",
-			"aa",
-			"bb",
-			"------------------",
-			"ret",
-			"v",
-			"push_back",
-			"root",
-			"dfs",
-			"walk",
-			"trieNode",
-			"t",
-			"mx",
-			"mi",
-			"t",
+			"ull",
+			"mst",
+			"que",
+			"B",
+			"A",
+			"false",
+			"true",
+			"eb",
+			"deq",
+			"eb",
+			"dp",
+			"eb",
+			"len0",
 			"i",
 			"t",
+			"f",
+			"ans",
+			"tmp",
 			"j",
-			"t",
-			"int",
-			"dp",
-			"t",
-			"ch",
-			"int",
-			"n",
-			"t",
-			"bigint",
+			"17",
+			"codejam",
+			"cur",
+			"bsf",
+			"dfs",
+			"Q",
+			"fi",
+			"Q",
+			"doit",
+			"Q",
+			"dir",
+			"r",
+			"dst",
+			"src",
+			"x",
+			"dfs",
+			"sr",
+			"bool",
+			"8",
+			"16",
+			"d",
+			"unordered_set",
+			"lr",
+			"nz",
+			"ny",
+			"nx",
+			"z",
+			"y",
+			"x",
+			"void",
+			"10",
+			"x",
+			"c",
+			"r",
+			"Max",
 			"ll",
 			"int",
-			"ou_name",
-			"t",
-			"vv",
-			"hh",
-			"t",
+			"rr",
+			"kk",
+			"xx",
+			"start",
+			"comb",
+			"c",
+			"r",
+			"pp",
 			"a",
-			"f",
-			"int",
-			"m",
+			"pre",
+			"sum",
+			"sumr",
+			"second",
+			"first",
+			"tb",
 			"n",
-			"e",
-			"cnt",
-			"da",
-			"aa",
+			"i",
+			"a",
+			"s",
+			"result",
+			"MOD",
+			"MAX",
+			"sum",
+			"t",
+			"0",
 			"tmp",
+			"res",
+			"ret",
+			"\n  ",
 			"x",
-			"t",
-			"endl",
-			"1033b",
+			"rec2",
+			"rec1",
+			"p",
+			"reverseLinkList",
+			"ListNode",
+			"tmp",
 			"int",
-			"num",
-			"raw_input",
-			"t",
-			"EX",
-			"LOCAL_FILE",
+			"q",
+			"0",
+			"aa",
+			"0",
 			"ret",
-			"t",
+			"right",
+			"left",
+			"x",
+			"A1",
+			"int",
+			"×",
+			"Yi",
+			"Xi",
+			"Ri",
+			"modulo",
+			"Zi",
+			"Yi",
+			"Xi",
+			"inp",
+			"res",
+			"kk",
+			"cc",
+			"rr",
+			"kk",
+			"cc",
+			"rr",
+			"size",
+			"grid",
 			"output",
-			"ret",
-			"ss",
-			"t",
-			"1"
+			"len",
+			"q",
+			"p",
+			"typed",
+			"name",
+			"q"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -968,7 +992,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 131.0
+		"height": 40.0
 	},
 	"input":
 	{
@@ -1017,7 +1041,7 @@
 	"project": "algos.sublime-project",
 	"replace":
 	{
-		"height": 258.0
+		"height": 76.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1027,6 +1051,382 @@
 		"selected_items":
 		[
 			[
+				"p566",
+				"leetcode/p566.cpp"
+			],
+			[
+				"b.c",
+				"vjudge/kuangbin1/b.cpp"
+			],
+			[
+				"a.",
+				"vjudge/kuangbin1/a.cpp"
+			],
+			[
+				"a.c",
+				"test/a.cpp"
+			],
+			[
+				"d.",
+				"test/d.cpp"
+			],
+			[
+				"d.c",
+				"test/d.cpp"
+			],
+			[
+				"no",
+				"notes.md"
+			],
+			[
+				"resul",
+				"test/result.txt"
+			],
+			[
+				"ge",
+				"vjudge/kuangbin1/gen.py"
+			],
+			[
+				"note",
+				"notes.md"
+			],
+			[
+				"in-d.t",
+				"vjudge/kuangbin1/in-d.txt"
+			],
+			[
+				"log-d",
+				"vjudge/kuangbin1/log-d.txt"
+			],
+			[
+				"log-c",
+				"vjudge/kuangbin1/log-c.txt"
+			],
+			[
+				"c.",
+				"vjudge/kuangbin1/c.cpp"
+			],
+			[
+				"in-c",
+				"vjudge/kuangbin1/in-c.txt"
+			],
+			[
+				"a.cp",
+				"vjudge/kuangbin1/a.cpp"
+			],
+			[
+				"a.cpp",
+				"vjudge/kuangbin1/a.cpp"
+			],
+			[
+				"input_",
+				"vjudge/kuangbin1/input_0"
+			],
+			[
+				"algo-sp",
+				"algo-split"
+			],
+			[
+				"algo-ma",
+				"algo-make"
+			],
+			[
+				"algo",
+				"algo-run"
+			],
+			[
+				"algo-r",
+				"algo-run"
+			],
+			[
+				"gen",
+				"vjudge/kuangbin1/gen.py"
+			],
+			[
+				"gen.",
+				"codeforces/gen.py"
+			],
+			[
+				"sk",
+				"sketch.py"
+			],
+			[
+				"log-b",
+				"vjudge/kuangbin1/log-b.txt"
+			],
+			[
+				"log",
+				"vjudge/kuangbin1/log-b.txt"
+			],
+			[
+				"in-a",
+				"codejam/2018/g/in-a.txt"
+			],
+			[
+				"comb",
+				"third_party/codebook/combination.cpp"
+			],
+			[
+				"in-b",
+				"codejam/2018/in-b.txt"
+			],
+			[
+				"b",
+				"codejam/2018/b.cpp"
+			],
+			[
+				"in-b.",
+				"codejam/2018/in-b.txt"
+			],
+			[
+				"b.cp",
+				"codejam/2018/b.cpp"
+			],
+			[
+				"notes",
+				"notes.md"
+			],
+			[
+				"sl",
+				"third_party/kactl/content/numerical/SolveLinear.h"
+			],
+			[
+				"maka",
+				"codejam/2018/Makefile-a"
+			],
+			[
+				"106",
+				"codeforces/1065b.cpp"
+			],
+			[
+				"combi",
+				"third_party/codebook/combination.cpp"
+			],
+			[
+				"in-a.txt",
+				"codejam/2018/in-a.txt"
+			],
+			[
+				"78b",
+				"hihocoder/78b.cpp"
+			],
+			[
+				"78a",
+				"hihocoder/78a.cpp"
+			],
+			[
+				".gi",
+				".gitignore"
+			],
+			[
+				".git",
+				".gitignore"
+			],
+			[
+				"",
+				"algo-run"
+			],
+			[
+				"run",
+				"algo-run"
+			],
+			[
+				"tire",
+				"third_party/codebook/trie-tree.cpp"
+			],
+			[
+				"ecu",
+				"third_party/kactl/content/number-theory/euclid.h"
+			],
+			[
+				"modularA",
+				"third_party/kactl/content/number-theory/ModularArithmetic.h"
+			],
+			[
+				"modu",
+				"third_party/codebook/modular.cpp"
+			],
+			[
+				"mod",
+				"third_party/codebook/modular.cpp"
+			],
+			[
+				"p232",
+				"leetcode/p232.cpp"
+			],
+			[
+				"p225",
+				"leetcode/p225.cpp"
+			],
+			[
+				"p152",
+				"leetcode/p152.cpp"
+			],
+			[
+				"p168.",
+				"leetcode/p168.cpp"
+			],
+			[
+				"p12",
+				"leetcode/p12.cpp"
+			],
+			[
+				"a.pc",
+				"test/a.cpp"
+			],
+			[
+				"p836",
+				"leetcode/p836.cpp"
+			],
+			[
+				"p850",
+				"leetcode/p850.cpp"
+			],
+			[
+				"p206",
+				"leetcode/p206.cpp"
+			],
+			[
+				"p264",
+				"leetcode/p264.cpp"
+			],
+			[
+				"p56",
+				"leetcode/p56.cpp"
+			],
+			[
+				"A-sm",
+				"test/A-small-attempt0.in"
+			],
+			[
+				"result",
+				"test/result.txt"
+			],
+			[
+				"resu",
+				"codeforces/result.txt"
+			],
+			[
+				"2017-c-b",
+				"codejam/2017/c/b/2017-c-b.cpp"
+			],
+			[
+				"101",
+				"codeforces/1016a.cpp"
+			],
+			[
+				"2017-c",
+				"codejam/2017/c/a/2017-c-a.cpp"
+			],
+			[
+				"in-2-7",
+				"codejam/2017/b/in-2017-b-a.txt"
+			],
+			[
+				"2017-b",
+				"codejam/2017/b/2017-b-a.cpp"
+			],
+			[
+				"2017-p2-c",
+				"codejam/2017/practice2/c/2017-p2-c.cpp"
+			],
+			[
+				"1016",
+				"codeforces/1016a.cpp"
+			],
+			[
+				"10",
+				"codeforces/1047a.cpp"
+			],
+			[
+				"2017-p2-b",
+				"codejam/2017/practice2/b/2017-p2-b.cpp"
+			],
+			[
+				"924",
+				"leetcode/924.cpp"
+			],
+			[
+				"p924",
+				"leetcode/p294.cpp"
+			],
+			[
+				"p149",
+				"leetcode/p149.cpp"
+			],
+			[
+				"tick",
+				"third_party/algorithm/_misc/tick.cc"
+			],
+			[
+				"474d",
+				"codeforces/474d.cpp"
+			],
+			[
+				"431c",
+				"codeforces/431c.cpp"
+			],
+			[
+				"1017a",
+				"codeforces/1017a.cpp"
+			],
+			[
+				"disjo",
+				"third_party/codebook/disjoint.cpp"
+			],
+			[
+				"514b",
+				"codeforces/514b.cpp"
+			],
+			[
+				"gcd",
+				"third_party/cosmos/code/mathematical_algorithms/src/gcd_and_lcm/gcd_and_lcm.c"
+			],
+			[
+				"959a",
+				"codeforces/959a.txt"
+			],
+			[
+				"pow",
+				"third_party/kactl/content/number-theory/ModPow.h"
+			],
+			[
+				"gen.py",
+				"gen.py"
+			],
+			[
+				"disjoint",
+				"third_party/codebook/disjoint.cpp"
+			],
+			[
+				"union",
+				"third_party/kactl/content/data-structures/UnionFind.h"
+			],
+			[
+				"746b",
+				"codeforces/746b.cpp"
+			],
+			[
+				"545d",
+				"codeforces/545d.cpp"
+			],
+			[
+				"914",
+				"codeforces/914a.cpp"
+			],
+			[
+				"s",
+				"sketch.py"
+			],
+			[
+				"4",
+				"codeforces/431a.cpp"
+			],
+			[
+				"tccc2004",
+				"topcoder/tccc2004-1-2.cpp"
+			],
+			[
 				"757",
 				"leetcode/p757.cpp"
 			],
@@ -1035,24 +1435,8 @@
 				"codeforces/1047a.cpp"
 			],
 			[
-				"sk",
-				"sketch.py"
-			],
-			[
-				"474d",
-				"codeforces/474d.cpp"
-			],
-			[
 				"581b",
 				"codeforces/581b.cpp"
-			],
-			[
-				".git",
-				".gitignore"
-			],
-			[
-				"431c",
-				"codeforces/431c.cpp"
 			],
 			[
 				"431",
@@ -1075,14 +1459,6 @@
 				"codeforces/538b.cpp"
 			],
 			[
-				"log",
-				"codeforces/log_1"
-			],
-			[
-				"comb",
-				"third_party/codebook/combination.cpp"
-			],
-			[
 				"com",
 				"third_party/codebook/combination.cpp"
 			],
@@ -1095,14 +1471,6 @@
 				"codeforces/3a.cpp"
 			],
 			[
-				"gen",
-				"test/gen.py"
-			],
-			[
-				"in-b",
-				"test/in-b.txt"
-			],
-			[
 				"b.",
 				"test/b.cpp"
 			],
@@ -1113,14 +1481,6 @@
 			[
 				"ge.py",
 				"test/gen.py"
-			],
-			[
-				"gen.",
-				"codeforces/gen.py"
-			],
-			[
-				".gi",
-				".gitignore"
 			],
 			[
 				"makef",
@@ -1145,10 +1505,6 @@
 			[
 				"258",
 				"leetcode/p258.cpp"
-			],
-			[
-				"p264",
-				"leetcode/p264.cpp"
 			],
 			[
 				"l",
@@ -1205,338 +1561,6 @@
 			[
 				"big",
 				"third_party/cosmos/code/unclassified/src/biggest_of_n_numbers/biggest_of_n.js"
-			],
-			[
-				"bi",
-				"third_party/algorithm/math/bigint.cc"
-			],
-			[
-				"a.c",
-				"codejam/2018/rounde/a.cpp"
-			],
-			[
-				"5",
-				"codeforces/500a.cpp"
-			],
-			[
-				"make",
-				"codeforces/Makefile"
-			],
-			[
-				"a-ou",
-				"codejam/2018/rounde/a-output.txt"
-			],
-			[
-				"a.",
-				"codejam/2018/rounde/a.cpp"
-			],
-			[
-				"A-",
-				"codejam/2018/rounde/A-small-practice.in"
-			],
-			[
-				"550a",
-				"cf/550a.cpp"
-			],
-			[
-				"prim",
-				"third_party/codebook/prime.cpp"
-			],
-			[
-				"prime",
-				"third_party/codebook/prime.cpp"
-			],
-			[
-				"prime_fa",
-				"third_party/cosmos/code/mathematical_algorithms/src/prime_factors/prime_factors.cpp"
-			],
-			[
-				"fact",
-				"third_party/cosmos/code/mathematical_algorithms/src/factorial/factorial_iteration.py"
-			],
-			[
-				"factorial.cc",
-				"third_party/cosmos/code/mathematical_algorithms/src/factorial/factorial_recursion.cpp"
-			],
-			[
-				"ge.",
-				"third_party/algorithm/graph/gabow_edmonds.cc"
-			],
-			[
-				"507",
-				"cf/507a.cpp"
-			],
-			[
-				"sub",
-				"third_party/algorithm/other/subset_sum.cc"
-			],
-			[
-				"s",
-				"sketch.py"
-			],
-			[
-				"43.",
-				"cf/43a.cpp"
-			],
-			[
-				"Makef",
-				"cf/Makefile"
-			],
-			[
-				"Ma",
-				"third_party/algorithm/number_theory/modular_arithmetics.cc"
-			],
-			[
-				"test.sh",
-				"cf/test.sh"
-			],
-			[
-				"par",
-				"cf/codeforces-parser/parse.py"
-			],
-			[
-				"run",
-				"run_samples"
-			],
-			[
-				"split",
-				"split_samples"
-			],
-			[
-				"106",
-				"cf/1060b.cpp"
-			],
-			[
-				"M",
-				"cf/Makefile"
-			],
-			[
-				"res",
-				"cf/result.txt"
-			],
-			[
-				"4",
-				"cf/471a.cpp"
-			],
-			[
-				"1b.",
-				"cf/1b.cpp"
-			],
-			[
-				"gcd",
-				"third_party/cosmos/code/mathematical_algorithms/src/gcd_and_lcm/gcd_and_lcm.c"
-			],
-			[
-				"Make",
-				"test/Makefile"
-			],
-			[
-				"mak",
-				"cf/Makefile"
-			],
-			[
-				"c",
-				"test/c.cpp"
-			],
-			[
-				"519",
-				"cf/519c.cpp"
-			],
-			[
-				"p519",
-				"leet/p159.cpp"
-			],
-			[
-				"ge",
-				"test/gen.py"
-			],
-			[
-				"p91.",
-				"leet/p91.cpp"
-			],
-			[
-				"115a",
-				"cf/115a.cpp"
-			],
-			[
-				"factori",
-				"third_party/cosmos/code/string_algorithms/src/arithmetic_on_large_numbers/string_factorial.cpp"
-			],
-			[
-				"siev",
-				"third_party/C-Plus-Plus/Others/sieve_of_Eratosthenes.cpp"
-			],
-			[
-				"sive",
-				"third_party/C-Plus-Plus/sieve_of_Eratosthenes.cpp"
-			],
-			[
-				"sieve",
-				"third_party/C-Plus-Plus/Others/sieve_of_Eratosthenes.cpp"
-			],
-			[
-				"sei",
-				"third_party/cosmos/code/mathematical_algorithms/src/sieve_of_eratosthenes/sieve_of_eratosthenes.c"
-			],
-			[
-				"log-71",
-				"cf/log-716a.txt"
-			],
-			[
-				"log-2",
-				"cf/log-520b.txt"
-			],
-			[
-				"run_al",
-				"run_algo"
-			],
-			[
-				"540",
-				"cf/540a.cpp"
-			],
-			[
-				"p540",
-				"leet/p450.cpp"
-			],
-			[
-				"584",
-				"cf/584a.cpp"
-			],
-			[
-				"",
-				".gitignore"
-			],
-			[
-				"230b",
-				"cf/230b.cpp"
-			],
-			[
-				"has",
-				"third_party/codebook/hash-table.cpp"
-			],
-			[
-				"hash",
-				"third_party/cosmos/code/data_structures/src/hashs/hash_table/hash_table.cpp"
-			],
-			[
-				"p510",
-				"leet/p150.cpp"
-			],
-			[
-				"spli",
-				"cf/split.py"
-			],
-			[
-				"p23",
-				"leet/p230.cpp"
-			],
-			[
-				"in-a",
-				"test/in-a.txt"
-			],
-			[
-				"c.",
-				"test/c.py"
-			],
-			[
-				"c.py",
-				"test/c.py"
-			],
-			[
-				"p1.c",
-				"leet/p1.cpp"
-			],
-			[
-				"seg",
-				"third_party/codebook/segtree.cpp"
-			],
-			[
-				"disj",
-				"third_party/codebook/disjoint.cpp"
-			],
-			[
-				"combina",
-				"third_party/codebook/combination.cpp"
-			],
-			[
-				"combi",
-				"third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp"
-			],
-			[
-				"bin",
-				"third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp"
-			],
-			[
-				"p40",
-				"leet/p40.cpp"
-			],
-			[
-				"p39.c",
-				"leet/p39.cpp"
-			],
-			[
-				"p357",
-				"leet/p357.cpp"
-			],
-			[
-				"p254.",
-				"leet/p254.cpp"
-			],
-			[
-				"binom",
-				"third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp"
-			],
-			[
-				"combin",
-				"third_party/cosmos/code/mathematical_algorithms/src/binomial_coefficient/binomial_coefficient.cpp"
-			],
-			[
-				"p149",
-				"leet/p149.cpp"
-			],
-			[
-				"dis",
-				"third_party/codebook/disjoint.cpp"
-			],
-			[
-				"p900",
-				"leet/p900.cpp"
-			],
-			[
-				"p",
-				"leet/p901.cpp"
-			],
-			[
-				"bit",
-				"third_party/codebook/BIT-range.cpp"
-			],
-			[
-				"mst_k",
-				"third_party/graph_algorithms/Mst_Krushkal.cpp"
-			],
-			[
-				"mst_p",
-				"third_party/graph_algorithms/Mst_Prims.cpp"
-			],
-			[
-				"p241.",
-				"leet/p241.cpp"
-			],
-			[
-				"p240",
-				"leet/p240.cpp"
-			],
-			[
-				"p71.cp",
-				"leet/p71.cpp"
-			],
-			[
-				"b.cp",
-				"test/b.cpp"
-			],
-			[
-				"in_a",
-				"gcj/2018/practice/a/in_a.txt"
 			]
 		],
 		"width": 0.0
@@ -1634,21 +1658,21 @@
 	"selected_group": 0,
 	"settings":
 	{
-		"_vintageous_last_buffer_search": "cap",
+		"_vintageous_last_buffer_search": "ret",
 		"_vintageous_last_buffer_search_command": "vi_slash",
 		"_vintageous_last_char_search_command": "vi_f",
-		"_vintageous_last_character_search": "j",
+		"_vintageous_last_character_search": "k",
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{
-			"_cmdline_cd": "/Users/jche/Code/algos/codeforces"
+			"_cmdline_cd": "/Users/jche/Code/algos/vjudge/kuangbin1"
 		}
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 232.0,
+	"side_bar_visible": true,
+	"side_bar_width": 221.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

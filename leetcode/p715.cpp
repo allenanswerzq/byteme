@@ -5,27 +5,24 @@ using namespace std;
 class RangeModule {
 public:
   RangeModule() {
-  lo = inf;
-  hi = -inf; 
-  }
-  
-  void addRange(int left, int right) {
-  lo = min(left, lo);     
-  hi = max(right, hi);
-  }
-  
-  bool queryRange(int left, int right) {
-  if (left >= lo && right < hi)
-    return 1;
-  else 
-    return 0;    
-  }
-  
-  void removeRange(int left, int right) {
-  lo = max(lo, left);
-  hi = min(hi, right); 
+    lo = inf;
+    hi = -inf;
   }
 
+  void addRange(int left, int right) {
+    lo = min(left, lo);
+    hi = max(right, hi);
+  }
+
+  bool queryRange(int left, int right) {
+    if (left >= lo && right < hi) return 1;
+    else return 0;
+  }
+
+  void removeRange(int left, int right) {
+    lo = max(lo, left);
+    hi = min(hi, right);
+  }
   int lo;
   int hi;
 };
@@ -38,12 +35,6 @@ public:
  * obj.removeRange(left,right);
  */
 
-void test() {
-  Solution go;
-  int r;
-  cerr(r);    
-}
-
 int main() {
-   return 0;
+  return 0;
 }

@@ -5,16 +5,14 @@ using namespace std;
 #define vvi vector<vi>
 
 // TODO
-int go(TreeNode* root, int pre_sum, int goal, 
-       unordered_map<int, int>& mp) {
+int go(TreeNode* root, int pre_sum, int goal, unordered_map<int, int>& mp) {
   if (!root) return 0;
   pre_sum += root->val;
   // prefix_sum_now - goal = prefix_sum_last
   // prefix_sum_now - prefix_sum_last = goal
   int res = mp[pre_sum - goal];
   mp[pre_sum]++;
-  res += go(root->left, pre_sum, goal, mp) +
-         go(root->right, pre_sum, goal, mp);
+  res += go(root->left, pre_sum, goal, mp) + go(root->right, pre_sum, goal, mp);
   // Note: this line plays a important role here.
   mp[pre_sum]--;
   return res;
@@ -27,7 +25,7 @@ public:
     unordered_map<int, int> mp;
     mp[0] = 1;
     return go(root, 0, goal, mp);
-  } 
+  }
 };
 
 int res;
@@ -57,13 +55,13 @@ public:
     vi path;
     dfs(root, goal, path);
     return res;
-  } 
+  }
 };
 
 void test() {
   Solution go;
   int r;
-  cout(r);    
+  cout(r);
 }
 
 int main() {

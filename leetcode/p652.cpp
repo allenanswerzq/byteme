@@ -1,12 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
 // TODO
 map<TreeNode*, string> mp;
 map<string, vector<TreeNode*>> res;

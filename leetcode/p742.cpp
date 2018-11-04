@@ -18,7 +18,7 @@ public:
     traverse(cur->left, cur->val);
     traverse(cur->right, cur->val);
   }
-  
+
   int findClosestLeaf(TreeNode* root, int k) {
     for (int i = 0; i < N; ++i) {
       a[i].clear();
@@ -26,16 +26,16 @@ public:
       visit[i] = -1;
     }
     traverse(root, -1);
-    queue<int> Q;
-    Q.push(k);
+    queue<int> dq;
+    dq.push(k);
     visit[k] = 0;
-    while (!Q.empty()) {
-      int u = Q.front(); Q.pop();
-      
+    while (!dq.empty()) {
+      int u = dq.front(); dq.pop();
+
       if (leaf[u]) return u;
       for (auto& v : a[u]) {
         if (visit[v] >= 0) continue;
-        Q.push(v);
+        dq.push(v);
         //visit[v] = visit[u] + 1;
         visit[v] = 1;
       }

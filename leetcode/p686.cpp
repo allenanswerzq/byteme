@@ -7,12 +7,10 @@ int repeatedStringMatch(string A, string B) {
     t += A;
     ++k;
   }
-  if (t.find(B) != string::npos)
-    return k;
+  if (t.find(B) != string::npos) return k;
 
   t += A; ++k;
-  if (t.find(B) != string::npos)
-    return k;
+  if (t.find(B) != string::npos) return k;
   return -1;
 }
 

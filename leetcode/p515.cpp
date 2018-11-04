@@ -13,32 +13,26 @@ using namespace std;
 class Solution {
 public:
   vector<int> largestValues(TreeNode* root) {
-  vi res; 
-  res.clear();
-  if (!root) return res;    
-  deque<TreeNode*> q;
-  q.pb(root);
-  while (sz(q)) {
-    int n = sz(q);
-    int mx = nnf;
-    fori (i, 0, n) {
-    auto cur = q.fr(); q.ppf();
-    mx = max(mx, cur->val);
-    if (cur->left) q.pb(cur->left);
-    if (cur->right) q.pb(cur->right);
+    vi res;
+    res.clear();
+    if (!root) return res;
+    deque<TreeNode*> dq;
+    dq.pb(root);
+    while (sz(dq)) {
+      int n = sz(dq);
+      int mx = nnf;
+      fori (i, 0, n) {
+        auto cur = dq.fr(); dq.ppf();
+        mx = max(mx, cur->val);
+        if (cur->left) dq.pb(cur->left);
+        if (cur->right) dq.pb(cur->right);
+      }
+      res.pb(mx);
     }
-    res.pb(mx);
-  }
-  return res;
+    return res;
   }
 };
 
-void test() {
-  Solution go;
-  int r;
-  cout(r);    
-}
-
 int main() {
-   return 0;
+  return 0;
 }

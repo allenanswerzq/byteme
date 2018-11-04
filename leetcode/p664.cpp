@@ -2,7 +2,7 @@
 using namespace std;
 // TODO
 const int kk = 110;
-// dp[i][j] denotes the minimum times needed to 
+// dp[i][j] denotes the minimum times needed to
 // print string in the range of i...j.
 int dp[kk][kk];
 
@@ -21,8 +21,8 @@ public:
       if (s[lo] == s[k+1] || s[k] == s[hi]) --tmp;
       dp[lo][hi] = min(dp[lo][hi], tmp);
     }
-    } 
-  } 
+    }
+  }
   return dp[0][n-1];
   }
 };
@@ -30,11 +30,11 @@ public:
 void test(string inp) {
   Solution go;
   int r = go.strangePrinter(inp);
-  cerr(r);    
+  output(r);
 }
 
 int main() {
-   test("aaabbb");
+  test("aaabbb");
   test("aba");
   return 0;
 }

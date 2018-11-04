@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
 // Perfect
 int findLongestChain(vector<vector<int>>& pairs) {
   int n = pairs.size();
@@ -18,10 +11,10 @@ int findLongestChain(vector<vector<int>>& pairs) {
     for (int j=0; j<i; ++j) {
       if (pairs[i][0] > pairs[j][1])
         dp[i] = max(dp[i], dp[j]+1);
-      else 
+      else
         dp[i] = max(dp[i], 1);
     }
-  }    
+  }
   return dp[n-1];
 }
 

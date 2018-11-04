@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
 pair<double, double> parse(string str) {
   // ----start ----- end---
   // ---- +   73234   +
@@ -24,7 +17,7 @@ pair<double, double> parse(string str) {
     }
 
     if (str[end-1] == 'x') {
-      if (end-1>start) 
+      if (end-1>start)
         res.first += sign*stod(str.substr(start, end-start-1));
       else
         res.first += sign;
@@ -39,9 +32,9 @@ pair<double, double> parse(string str) {
 string solves(string s) {
   int idx = 0;
   for (; idx<s.length(); ++idx)
-    if (s[idx] == '=') 
+    if (s[idx] == '=')
       break;
-  if (idx == s.length()) return "Infinite solutions";  
+  if (idx == s.length()) return "Infinite solutions";
   pair<double, double> left = parse(s.substr(0, idx));
   pair<double, double> right = parse(s.substr(idx+1));
 

@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
 // TODO
 int height(TreeNode* root) {
   if (!root) return 0;
@@ -23,14 +16,14 @@ void build(vector<vector<string>>& res, TreeNode* root, int h, int row,
   res[row][col] = to_string(root->val);
   build(res, root->left, h-1, row+1, lo);
   build(res, root->right, h-1, row+1, col+1);
-} 
+}
 
 vector<vector<string>> printTree(TreeNode* root) {
   int r = height(root);
   int c = (1 << r) - 1;
 
   vector<vector<string>> res(r, vector<string>(c, ""));
-  build(res, root, r, 0, 0); 
+  build(res, root, r, 0, 0);
   return res;
 }
 

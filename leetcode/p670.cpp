@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-    printf("%d ", x); 
-  printf("]\n");
- string a = to_string(num);}
-
 int maximumSwap(int num) {
   string a = to_string(num);        
   int ret = 0;

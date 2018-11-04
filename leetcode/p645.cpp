@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
 vector<int> findErrorNums(vector<int>& nums) {
   vector<int> res;
   unordered_map<int, int> mp;
@@ -19,7 +12,7 @@ vector<int> findErrorNums(vector<int>& nums) {
   for (int i=1; i<=n; ++i) {
     if (mp.find(i) == mp.end())
       a = i;
-    else if (mp[i] > 1) 
+    else if (mp[i] > 1)
       b = i;
   }
   res.push_back(b);

@@ -17,33 +17,33 @@ void _f(const char* name, T&& arg) {
   cout << name << ": " << arg << endl;
 }
 
-template <typename T, typename... Args> 
+template <typename T, typename... Args>
 void _f(const char* names, T&& arg, Args&&... args) {
-  const char* split = strchr(names + 1, ','); 
+  const char* split = strchr(names + 1, ',');
   cout.write(names, split - names) << ": " << arg << " |";
-  _f(split, args...); 
-} 
+  _f(split, args...);
+}
 
 // #define LOCAL_FILE
 
 class Solution {
 public:
   string removeDuplicateLetters(string inp) {
-  int dp[256]; mst(dp, 0);
-  int visit[256]; mst(visit, 0);
-  string res = "0";
-  fora (ch, inp) dp[ch]++;  
-  fora (ch, inp) {
-    --dp[ch]; 
-    if (visit[ch]) continue;
-    while (ch < res.back() && dp[res.back()]) {
-    visit[res.back()] = 0;
-    res.pop_back(); 
+    int dp[256]; mst(dp, 0);
+    int visit[256]; mst(visit, 0);
+    string res = "0";
+    fora (ch, inp) dp[ch]++;
+    fora (ch, inp) {
+      --dp[ch];
+      if (visit[ch]) continue;
+      while (ch < res.back() && dp[res.back()]) {
+        visit[res.back()] = 0;
+        res.pop_back();
+      }
+      res += ch;
+      visit[ch] = 1;
     }
-    res += ch;
-    visit[ch] = 1;
-  }
-  return res.substr(1);
+    return res.substr(1);
   }
 };
 
@@ -55,7 +55,7 @@ void test(string inp, string right) {
 }
 
 int main() {
- 
+
   test("bcabc", "abd");
   test("cbacdcbc", "acdb");
 

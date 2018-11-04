@@ -1,22 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
 vector<double> averageOfLevels(TreeNode* root) {
-  vector<double> res;        
+  vector<double> res;
   queue<TreeNode*> q;
   q.push(root);
   while (!q.empty()) {
     double sum = 0;
     int n = q.size();
     for (auto i=0; i<n; ++i) {
-      TreeNode* x = q.front(); 
+      TreeNode* x = q.front();
       q.pop();
       sum += x->val;
       if (x->left)

@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>using namespace std;
+#include<bits/stdc++.h>
+using namespace std;
 
 #define vi vector<int>
 #define vvi vector<vi>
@@ -13,7 +14,7 @@ public:
     } else {
       for (int i = start; i < aa.size() && target >= aa[i]; ++i) {
         path.push_back(aa[i]);
-        bt(aa, target - aa[i], path, ret, i);     
+        bt(aa, target - aa[i], path, ret, i);
         path.pop_back();
       }
     }
@@ -23,10 +24,9 @@ public:
     sort(aa.being(), aa.end());
     vector<vector<int>> ret;
     vector<int> path;
-    bt(aa, target, path, ret, 0);    
+    bt(aa, target, path, ret, 0);
     return ret;
   }
-  
 };
 
 int main() {

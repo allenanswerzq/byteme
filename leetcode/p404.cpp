@@ -13,22 +13,19 @@ using namespace std;
 class Solution {
 public:
   int sumOfLeftLeaves(TreeNode* root) {
-  if (!root) return 0;
-  if (root->left && 
-    !root->left->left && 
-    !root->left->right) 
-    return root->left->val + sumOfLeftLeaves(root->right);
-  return sumOfLeftLeaves(root->left) + 
-       sumOfLeftLeaves(root->right);
+    if (!root) return 0;
+    if (root->left && !root->left->left && !root->left->right)
+      return root->left->val + sumOfLeftLeaves(root->right);
+    return sumOfLeftLeaves(root->left) + sumOfLeftLeaves(root->right);
   }
 };
 
 void test() {
   Solution go;
-  int r;
-  cout(r);    
+  int r = go.sumOfLeftLeaves;
+  output(r);
 }
 
 int main() {
-   return 0;
+  return 0;
 }

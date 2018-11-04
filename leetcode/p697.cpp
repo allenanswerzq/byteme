@@ -11,16 +11,16 @@ int findShortestSubArray(vector<int>& nums) {
       }
     }
 
-    int max_degree = -1;
-    int shortest_path = INT_MAX;
-    for (auto it=mp.begin(); it!=mp.end(); it++) {
+    int md = -1;
+    int ret = INT_MAX;
+    for (auto it = mp.begin(); it != mp.end(); it++) {
       vector<int> v = it->second;
-      if (v[2] > max_degree) {
-        max_degree = v[2];
-        shortest_path = v[1]-v[0]+1;
-      } else if (v[2] == max_degree) {
-        shortest_path = min(shortest_path, v[1]-v[0]+1);
+      if (v[2] > md) {
+        md = v[2];
+        ret = v[1] - v[0] + 1;
+      } else if (v[2] == md) {
+        ret = min(ret, v[1] - v[0] + 1);
       }
     }
-    return shortest_path;
+    return ret;
   }

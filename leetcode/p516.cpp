@@ -18,17 +18,17 @@ int longestPalindromeSubseqDP(string& inp) {
   int n = sz(inp);
   mst(dp, 0);
   fori (r, 1, n + 1) {
-  fori (i, 0, n - r + 1) {
-    int j = i + r - 1;
-    if (r == 1)
-    dp[i][j] = 1;
-    else if (inp[i] == inp[j] && j == i+ 1)
-    dp[i][j] = 2;
-    else if (inp[i] == inp[j])
-    dp[i][j] = dp[i+1][j-1] + 2;
-    else
-    dp[i][j] = max(dp[i + 1][j], dp[i][j - 1]);
-  }
+    fori (i, 0, n - r + 1) {
+      int j = i + r - 1;
+      if (r == 1)
+      dp[i][j] = 1;
+      else if (inp[i] == inp[j] && j == i+ 1)
+      dp[i][j] = 2;
+      else if (inp[i] == inp[j])
+      dp[i][j] = dp[i+1][j-1] + 2;
+      else
+      dp[i][j] = max(dp[i + 1][j], dp[i][j - 1]);
+    }
   }
   return dp[0][n-1];
 }

@@ -11,12 +11,11 @@ public:
 
   int go(int sr, int sc) {
     int keys = 0;
-    fori (i, 0, m)
-      fori (j, 0, n) {
-        if ('a'<=grid[i][j] && grid[i][j]<='z') {
-          keys |= 1 << (grid[i][j] - 'a');
-        }
+    fori (i, 0, m) fori (j, 0, n) {
+      if ('a'<=grid[i][j] && grid[i][j]<='z') {
+        keys |= 1 << (grid[i][j] - 'a');
       }
+    }
 
     mst(dp, -1);
     dp[sr][sc][0] = 0;
@@ -56,11 +55,9 @@ public:
     m = sz(grid);
     if (m < 1) return -1;
     n = sz(grid[0]);
-    fori (i, 0, m) {
-      fori (j, 0, n)
-        if (grid[i][j] == '@')
-          return go(i, j);
-    }
+    fori (i, 0, m) fori (j, 0, n)
+      if (grid[i][j] == '@')
+        return go(i, j);
     return -1;
   }
 };

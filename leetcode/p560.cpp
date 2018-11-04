@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
-using namespace std;
+using namespace std;
 
 class Solution {
   public:
     // solution 2
-    // NOTE: auto variable 
+    // NOTE: auto variable
     // algorithm ***
     int subarraySum(vector<int>& a, int k) {
       map<int, int> M;
@@ -15,7 +15,7 @@ class Solution {
         auto it = M.find(csum - k);
         if ( it != M.end() )
           ans += it->second;
-        M[csum]++;    
+        M[csum]++;
       }
       return ans;
     }
@@ -35,7 +35,7 @@ class Solution {
         for (int j=i; j<n; ++j) {
           sum[i][j] = fun(i, j, a);
           if (sum[i][j] == k)
-            ans++;    
+            ans++;
         }
       }
       return ans;
@@ -43,11 +43,5 @@ class Solution {
 };
 
 int main(void) {
-  int a[] = {1, 1, 2};
-  vector<int> n(a, a+3);
-  Solution s;
-  int sum;
-    sum = s.subarraySum(n, 2);
-  cout << "Sum: " << sum << endl; 
   return 0;
 }

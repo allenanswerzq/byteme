@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
 int result(vector<vector<int>> &M, int x, int y) {
   int m = M.size();
   int n = M[0].size();
@@ -19,7 +12,7 @@ int result(vector<vector<int>> &M, int x, int y) {
       sum += M[i][j];
       ++k;
     }
-  return sum / k; 
+  return sum / k;
 }
 
 vector<vector<int>> imageSmoother(vector<vector<int>>& M) {
@@ -30,7 +23,7 @@ vector<vector<int>> imageSmoother(vector<vector<int>>& M) {
     for (int j=0; j<n; ++j) {
       res[i][j] = result(M, i, j);
     }
-  return res; 
+  return res;
 }
 
 int main() {

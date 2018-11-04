@@ -26,10 +26,5 @@ public:
 };
 
 int main() {
-  std::istringstream iss;
-  iss.str("1#2#3#4#5#6#7#");
-  for (std::string seg; std::getline(iss, seg, '#'); ) {
-    cout << seg << endl;
-  }
   return 0;
 }

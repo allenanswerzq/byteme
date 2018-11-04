@@ -17,12 +17,12 @@ void _f(const char* name, T&& arg) {
   cout << name << ": " << arg << endl;
 }
 
-template <typename T, typename... Args> 
+template <typename T, typename... Args>
 void _f(const char* names, T&& arg, Args&&... args) {
-  const char* split = strchr(names + 1, ','); 
+  const char* split = strchr(names + 1, ',');
   cout.write(names, split - names) << ": " << arg << " |";
-  _f(split, args...); 
-} 
+  _f(split, args...);
+}
 
 #define vi vector<int>
 #define vs vector<string>
@@ -30,19 +30,18 @@ void _f(const char* names, T&& arg, Args&&... args) {
 class Solution {
 public:
   int maxProduct(vector<string>& aa) {
-  int res = 0;
-  int n = sz(aa);
-  vi mask(n, 0);
-  fori (i, 0, n) {
-    fora (c, aa[i])
-    mask[i] |= 1 << (c - 'a');
+    int res = 0;
+    int n = sz(aa);
+    vi mask(n, 0);
+    fori (i, 0, n) {
+      fora (c, aa[i]) mask[i] |= 1 << (c - 'a');
 
-    fori (j, 0, i) 
-    // If no common letters.
-    if (!(mask[i] & mask[j]))
-      res = max(res, sz(aa[i]) * sz(aa[j]));
-  }   
-  return res;
+      fori (j, 0, i)
+        // If no common letters.
+        if (!(mask[i] & mask[j]))
+          res = max(res, sz(aa[i]) * sz(aa[j]));
+    }
+    return res;
   }
 };
 
@@ -54,7 +53,7 @@ void test(vs inp, int right) {
 }
 
 int main() {
- 
+
   test({"abcw","baz","foo","bar","xtfn","abcdef"}, 16);
   test({"a","ab","abc","d","cd","bcd","abcd"}, 4);
   test({"a","aa","aaa","aaaa"}, 0);

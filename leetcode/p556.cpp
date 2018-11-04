@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-using namespace std;
+using namespace std;
 
 class Solution {
 public:
@@ -25,15 +25,15 @@ public:
                 minIndex = k;
         swap(buf[i], buf[minIndex]);
         sort(buf.begin()+i+1, buf.end());
-        
+
         long long result = 0; // need to be initialized
         for (i=0; i<buf.size(); i++)
           result = result*10 + buf[i];
         if (result <= INT_MAX)
-          return result;    
+          return result;
         else
           return -1;
-        
+
       }
     }
 
@@ -41,11 +41,6 @@ public:
   }
 };
 
-
-int main() 
-{
-  Solution s;
-  cout <<  s.nextGreaterElement(12);
-  
+int main() {
   return 0;
 }

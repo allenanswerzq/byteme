@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  printf("[ ");
-  for (auto x:v)
-    printf("%d ", x); 
-  printf("]\n");
-}
-
 // TODO
 TreeNode* trimBST(TreeNode* root, int L, int R) {
   if (!root) return nullptr;

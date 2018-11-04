@@ -1,33 +1,32 @@
 #include<bits/stdc++.h>
+using namespace std;
+
 // ref: http://www.geeksforgeeks.org/partition-set-k-subsets-equal-sum/
 // ref: https://www.hackerearth.com/practice/notes/bit-manipulation/
 
-bool dfs(vector<int>& nums, vector<vector<int>>& path, vector<int>& subSetSum, 
-         vector<int>& taken, int sum, int idx, int k, int lastIdx) {
+bool dfs(vi& aa, vvi& path, vi& subSetSum, vi& taken, int sum, int idx, int k, int lastIdx) {
   if (subSetSum[idx] == sum) {
-  if (idx == k-1)
-    return true;
-  return dfs(nums, path, subSetSum, taken, sum, idx+1, k, nums.size()-1);
+    if (idx == k-1) return true;
+    return dfs(aa, path, subSetSum, taken, sum, idx+1, k, aa.size()-1);
   }
 
   // lastIdx from where elements should be taken
   // Use this to avoid repeat already tested elements
-  for (int i=lastIdx; i>=0; --i) {
+  for (int i = lastIdx; i >= 0; --i) {
     if (taken[i]) continue;
-    int tmp = subSetSum[idx] + nums[i];
+    int tmp = subSetSum[idx] + aa[i];
     if (tmp <= sum) {
       taken[i] = 1;
-      subSetSum[idx] += nums[i];
-      path[idx].push_back(nums[i]);
-      bool next = dfs(nums, path, subSetSum, taken, sum, idx, k, i-1);
+      subSetSum[idx] += aa[i];
+      path[idx].push_back(aa[i]);
+      bool next = dfs(aa, path, subSetSum, taken, sum, idx, k, i-1);
 
-      // After taken nums[i] we can partition then just return
-      if (next)
-        return true;
+      // After taken aa[i] we can partition then just return
+      if (next) return true;
 
-      // if cannt, remove already taken nums[i] and find a new one
+      // If cannt, remove already taken aa[i] and find a new one
       taken[i] = 0;
-      subSetSum[idx] -= nums[i];
+      subSetSum[idx] -= aa[i];
       path[idx].pop_back();
 
     }
@@ -37,31 +36,27 @@ bool dfs(vector<int>& nums, vector<vector<int>>& path, vector<int>& subSetSum,
 }
 
 // Every element exactly in one partition namely cannt use elements mulit times
-bool canPartitionKSubsets(vector<int>& nums, int k) {
-  int N = nums.size();
+bool canPartitionKSubsets(vi& aa, int k) {
+  int N = aa.size();
   if (k == 1) return true;
   if (k > N) return false;
 
   int sum = 0;
-  for (auto n: nums)
-  sum += n;
-  // if sum cant divide by k then we cant partition k subsets that have euqal sum
-  if (sum % k != 0)
-   return false;
+  for (auto n: aa) sum += n;
+
+  // If sum cant divide by k then we cant partition k subsets that have euqal sum
+  if (sum % k != 0) return false;
 
   sum /= k;
-  vector<int> subSetSum(k, 0);
-  vector<int> taken(N, 0);
-  vector<vector<int>> path(k); // save the partition result
+  vi subSetSum(k, 0);
+  vi taken(N, 0);
+  vvi path(k); // save the partition result
 
-  subSetSum[0] = nums[N-1];
+  subSetSum[0] = aa[N-1];
   taken[N-1] = 1;
   path[0].push_back(1);
 
-  bool ret = dfs(nums, path, subSetSum, taken, sum, 0, k, N-1);
-  //printMatrix(path);
-  //printVector(subSetSum);
-  //printVector(taken);
+  bool ret = dfs(aa, path, subSetSum, taken, sum, 0, k, N-1);
   return ret;
 }
 
@@ -77,14 +72,13 @@ bool canPartitionKSubsets(vector<int>& nums, int k) {
 
 vector<int> a;
 int dfs(int bit, int sum) {
-  if (bit == 0) return 1; // no elements can be taken
-  for (int i=(1<<a.size())-1; i>=0; i--) {
+  if (bit == 0) return 1;
+  for (int i= (1 << a.size())-1; i >= 0; i--) {
     i &= bit;
 
     int tot = 0;
-    for (int j=0; j<a.size(); j++)
-      if (i & (1<<j))
-      tot += a[j];
+    for (int j = 0; j < a.size(); j++)
+      if (i & (1 << j)) tot += a[j];
 
     if (tot == sum) {
       int tmp = dfs(bit ^ i, sum);
@@ -96,14 +90,11 @@ int dfs(int bit, int sum) {
 
 class Solution {
 public:
-  bool canPartitionKSubsets(vector<int>& nums, int k) {
-    int i,sum;
-    sum=0;
-    for (i=0;i<nums.size();i++)
-      sum+=nums[i];
-    if (sum%k!=0) return false;
-    sum/=k;
-    a=nums;
-    return dfs((1<<a.size())-1,sum);
+  bool canPartitionKSubsets(vector<int>& aa, int k) {
+    int i, sum = 0;
+    for (i = 0; i < aa.size(); i++) sum += aa[i];
+    if (sum % k != 0) return false;
+    sum /= k; a = aa;
+    return dfs((1 << a.size()) - 1, sum);
   }
 };

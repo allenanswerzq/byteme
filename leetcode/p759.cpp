@@ -14,19 +14,19 @@ using namespace std;
 class Solution {
 public:
   vector<Interval> employeeFreeTime(vector<vector<Interval>>& schedule) {
-    int n = SZ(schedule);
+    int n = sz(schedule);
     vector<Interval> ret;
-    vector<PII> pp;
+    vector<pii> pp;
     for (auto s: schedule) {
       for (auto e: s) pp.PB(MP(e.start, e.end));
     }
-    sort(ALL(pp));
-      int lo = INF; 
+    sort(all(pp));
+      int lo = inf;
       for (auto p: pp) {
-        if (lo<p.first && lo!=INF)
-          ret.PB(Interval(lo, p.first));
+        if (lo<p.first && lo!=inf)
+          ret.pb(Interval(lo, p.first));
         lo = max(lo, p.second);
-      } 
+      }
     return ret;
   }
 };

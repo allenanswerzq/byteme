@@ -6,11 +6,11 @@ public:
   int climbStairs(int n) {
     int dp[n + 1];
     mst(dp, 0);
-    dp[0] = 1; 
+    dp[0] = 1;
     dp[1] = 1;
     fori (i, 2, n+1)
       dp[i] = dp[i-1] + dp[i-2];
-    return dp[n];    
+    return dp[n];
   }
 
   int climbStairs2(int n) {
@@ -22,10 +22,10 @@ public:
       a = b;
       b = c;
     }
-    return c;    
+    return c;
   }
 };
 
 int main() {
-   return 0;
+  return 0;
 }

@@ -1,17 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printVector(vector<int>& v) {
-  cout << "[ ";
-  for (auto x:v)
-    cout << x << " ";
-  cout <<"] " << endl;
-}
-
 bool isPal(string s) {
   if (s == "") return true;
   int lo=0, hi=s.size()-1;
-  while (lo < hi) 
+  while (lo < hi)
     if (s[lo++] != s[hi--])
       return false;
   return true;
@@ -31,7 +24,7 @@ int countSubstrings(string s) {
 
 const int mod = 1e9 + 7;
 const int N = 1004;
-// dp[i][j] denotes the longest palindrome in the 
+// dp[i][j] denotes the longest palindrome in the
 // range of [i...j].
 int dp[N][N];
 
@@ -40,12 +33,12 @@ int countSubstrings(string& inp) {
   int res = 0;
   mst(dp, 0);
   fori (r, 1, n + 1) {
-  fori (i, 0, n - r + 1) {
-    int j = i + r - 1; 
-    dp[i][j] = (inp[i] == inp[j]  && (j - i < 3 || dp[i+1][j-1]));
-    if (dp[i][j])
-    ++res;
-  } 
+    fori (i, 0, n - r + 1) {
+      int j = i + r - 1;
+      dp[i][j] = (inp[i] == inp[j] && (j - i < 3 || dp[i+1][j-1]));
+      if (dp[i][j])
+      ++res;
+    }
   }
   return res;
 }

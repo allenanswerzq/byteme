@@ -12,8 +12,7 @@ using namespace std;
  */
 
 int height(TreeNode* root) {
-  return root == null ? 0 : max(height(root->left),
-                height(root->right)) + 1;
+  return root == nullptr ? 0 : max(height(root->left), height(root->right)) + 1;
 }
 
 class Solution {
@@ -27,12 +26,6 @@ public:
     return max(max(a, b), c + d);
   }
 };
-
-void test() {
-  Solution go;
-  int r;
-  output(r);
-}
 
 int main() {
   return 0;
