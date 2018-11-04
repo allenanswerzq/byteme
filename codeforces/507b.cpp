@@ -28,14 +28,6 @@ void _f(const char* names, T&& arg, Args&&... args) {
   _f(split, args...);
 }
 
-double tick() {
-  static clock_t oldtick;
-  clock_t newtick = clock();
-  double diff = 1.0 * (newtick - oldtick) / CLOCKS_PER_SEC;
-  oldtick = newtick;
-  return diff;
-}
-
 typedef long double ld;
 typedef long long ll;
 typedef vector<int> vi;

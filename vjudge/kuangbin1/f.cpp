@@ -105,7 +105,6 @@ void solve() {
           }
         }
       }
-
     }
     ++level;
   }
