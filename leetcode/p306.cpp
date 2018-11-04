@@ -64,13 +64,9 @@ void test(string inp) {
 
 int main() {
  
-#ifdef LOCAL_FILE#endif 
-
   test("1023");
   test("112358");
   test("199100199");
-
-#ifdef LOCAL_FILE#endif
 
   return 0;
 }

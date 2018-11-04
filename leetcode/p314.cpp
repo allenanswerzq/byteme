@@ -85,14 +85,5 @@ public:
 
 int main() {
  
-#ifdef LOCAL_FILE#endif 
-
-  int t; cin >> t;
-  fori (i, 1, t + 1) {
-  
-  }  
-
-#ifdef LOCAL_FILE#endif
-
   return 0;
 }
