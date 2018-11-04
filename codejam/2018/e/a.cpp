@@ -37,7 +37,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 void solve(int t) {
   int n, k; cin >> n >> k;
   vi aa(n, 0);

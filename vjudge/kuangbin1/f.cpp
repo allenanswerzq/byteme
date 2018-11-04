@@ -52,7 +52,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 bool prime(int a) {
   for (int i = 2; i * i <= a; ++i) {
     if (a % i == 0) return 0;

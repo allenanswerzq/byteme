@@ -37,7 +37,6 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-
 class Solution {
 public:
   int smallestRangeI(vector<int>& aa, int kk) {
