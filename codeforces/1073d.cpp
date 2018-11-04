@@ -48,7 +48,7 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 const int maxn = 2e5 + 123;
-ll n, t; 
+ll n, t;
 int aa[maxn];
 
 void go(ll t, ll& sum, ll& cnt) {
@@ -63,8 +63,8 @@ void go(ll t, ll& sum, ll& cnt) {
 }
 
 void solve() {
-  cin >> n >> t; 
-  fori (i, 0, n) cin >> aa[i];   
+  cin >> n >> t;
+  fori (i, 0, n) cin >> aa[i];
 
   ll mi = *min_element(aa, aa + n);
   ll ret = 0;
@@ -77,7 +77,7 @@ void solve() {
   output(ret);
 }
 
-int main(int argc, char** argv) {
+int main() {
   solve();
   return 0;
 }

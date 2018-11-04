@@ -59,13 +59,11 @@ bool check(string ss) {
     if (cnt[i] > n / 2) {
       return 0;
     }
-  } 
+  }
   return 1;
 }
 
-int main(int argc, char** argv) {
-  // trace(check("code"));
-
+int main() {
   int n; string ss;
   cin >> n >> ss;
 
