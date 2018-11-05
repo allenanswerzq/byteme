@@ -3,6 +3,7 @@
 function trap_ctrlc () {
 
   echo [1m[31mLoop exists, see log file. Exit...[0m
+  rm -f input_* log_*
   exit 2
 }
 
@@ -12,7 +13,7 @@ trap "trap_ctrlc" 2
 
 input_name=input_
 output_name=log_
-res_name=result.txt
+res_name=result_1.txt
 
 for test_file in "$input_name"*; do
   if [[ "$test_file" == "input_*" ]]; then

@@ -55,6 +55,7 @@ if len(outputs) > 0 and len(inputs) > 0:
     for out in outputs:
       for line in out:
         f.write(line)
+      f.write("\n")
       # f.write("====================\n")
 
 
