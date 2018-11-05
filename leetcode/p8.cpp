@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
 int myAtoi(string ss) {
   if (ss.size() <= 0) return 0;

@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // The API: int read4(char *buf) reads 4 characters at a time from a file.

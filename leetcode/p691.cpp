@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 // dp[i] denotes the mininum stickers needed for state `i`.
 const int size = 1 << 15;

@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
 int distributeCandies(vector<int>& candies) {
   map<int, int> m;

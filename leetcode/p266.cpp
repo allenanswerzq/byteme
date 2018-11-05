@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 //Given a string, determine if a permutation of the string could form a palindrome.

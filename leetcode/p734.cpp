@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 bool areSentencesSimilar(vs& a, vs& b, vector<pair<string, string>> p) {

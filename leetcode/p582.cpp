@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
 vector<int> helper(int kill, unordered_map<int, vector<int>> m) {
   vector<int> ret;

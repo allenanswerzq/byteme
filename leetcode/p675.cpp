@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int bfs(vvi& forest, int src_x, int src_y, int dest_x, int dest_y) {

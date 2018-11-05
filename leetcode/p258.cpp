@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // (100a+10b+c)%9 = (a+99a+b+9b+c)%9 = (a+b+c)%9

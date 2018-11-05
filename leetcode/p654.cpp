@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 TreeNode* build(vector<int>&num, int lo, int hi) {

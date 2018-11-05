@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
 #define ll long long
 #define sz(x) ((int)(x).size())

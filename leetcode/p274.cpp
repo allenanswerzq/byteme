@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.

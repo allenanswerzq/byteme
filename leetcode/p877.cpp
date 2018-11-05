@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 bool dfs(vi& aa, int lo, int hi, int sum, int path) {

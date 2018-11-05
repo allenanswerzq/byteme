@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
 class Solution {
   int uniquePathsWithObstacles(vector<vector<int>>& aa) {

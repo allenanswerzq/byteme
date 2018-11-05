@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // There is a fence with n posts, each post can be painted with one of the k colors. 

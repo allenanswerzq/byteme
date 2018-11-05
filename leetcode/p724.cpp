@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 //  sum[i] denotes total sum from aa[0] to aa[i-1]

@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()

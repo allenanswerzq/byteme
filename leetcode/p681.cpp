@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 void bt(vi& nums, string& path, string& res, int& min_dist) {

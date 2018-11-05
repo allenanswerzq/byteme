@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 // Ref: https://www.geeksforgeeks.org/how-to-print-maximum-number-of-a-using-given-four-keys/
 

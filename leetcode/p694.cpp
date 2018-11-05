@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 bool dfs(int sx, int sy, int x, int y, vvi& grid, vvi&visit, vvi& island) {
