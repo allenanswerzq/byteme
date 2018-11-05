@@ -176,7 +176,7 @@ void path(Stat *cur) {
   output(ret.substr(0, sz(ret)-1));
 }
 
-int visit[100 * 100 + 10];
+int visit[120 * 120 + 120];
 
 void solve() {
   cin >> va >> vb >> c;
@@ -207,7 +207,7 @@ void solve() {
           if (j == 0) nxt->fill(k);
           if (j == 1) nxt->pour(k); 
           if (j == 2) nxt->drop(k);
-          int st = nxt->a * 100 + nxt->b;
+          int st = nxt->a * 120 + nxt->b;
           // trace(nxt->a, nxt->b, nxt->op, nxt->k);
           if (!visit[st]) {
             visit[st] = 1;
