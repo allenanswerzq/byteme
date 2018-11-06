@@ -3,10 +3,8 @@
 
 N = 101
 S = 1
-for a in range(S, N):
-  for b in range(S, N):
-    for c in range(1, max(a, b) + 1):
-      print(a, b, c)
-      print() 
-      print(b, a, c);
-      print()
+for s in range(S, N):
+  for a in range(1, s):
+    if a + a <= s:
+      print (s, a, s - a);
+print(0, 0, 0)
