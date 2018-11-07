@@ -56,12 +56,21 @@ typedef vector<pii> vpii;
 const int maxn = 220;
 const int inf = (1 << 20);
 char aa[maxn][maxn];
+int dist[maxn][maxn];
+int dist2[maxn][maxn];
 int visit[maxn][maxn];
 int n, m, yy, mm;
 int dx[] = {0, 0, -1, 1};
 int dy[] = {-1, 1, 0, 0};
 
-int bfs(int ss, int kk) {
+bool check(int x, int y) {
+  if (!(0 <= x && x < n && 0 <= y && y < m)) return 0;
+  if (visit[x][y] || aa[x][y] == '#') return 0;
+  visit[x][y] = 1;
+  return 1;
+}
+
+void bfs(int ss, int dd[maxn][maxn]) {
   mst(visit, 0);
   deque<int> dq;
   dq.clear();
@@ -70,32 +79,26 @@ int bfs(int ss, int kk) {
 
   int level = 0;
   while (sz(dq)) {
+    ++level;
     int l = sz(dq);
     fori (i, 0, l) {
       int cur = dq.front(); dq.pop_front();
-      if (cur == kk) {
-        return level;
-      }
       int x = cur / n, y = cur % n;
+      // trace(cur, x, y);
       fori (i, 0, 4) {
         int nx = x + dx[i], ny = y + dy[i];
-        if (!(0 <= nx && nx < n && 0 <= ny && ny < m)) continue;
-        if (visit[nx][ny] || aa[nx][ny] == '#') continue;
-        visit[nx][ny] = 1;
+        if (!check(nx, ny)) continue;
+        if (aa[nx][ny] == '@') dd[nx][ny] = level;
         dq.pb(nx * n + ny);
+        // trace(nx, ny);
       }
     }
-    ++level;
   }
-  return inf;
 }
 
 void solve() {
-
-  vi bb;
   fori (i, 0, n) fori (j, 0, m) {
     cin >> aa[i][j];
-    if (aa[i][j] == '@') bb.pb(i * n + j);
     if (aa[i][j] == 'Y') yy = i * n + j;
     if (aa[i][j] == 'M') mm = i * n + j;
   }
@@ -104,9 +107,23 @@ void solve() {
   //   par(aa[i], m, 1);
   // }
 
+  mst(dist, 0);
+  mst(dist2, 0);
+  bfs(yy, dist);
+  bfs(mm, dist2);
+
+  // fori (i, 0, n) {
+  //   par(dist[i], m, 1);
+  // }
+
+  // fori (i, 0, n) {
+  //   par(dist2[i], m, 1);
+  // }
+
   int ret = inf;
-  fori (i, 0, sz(bb)) {
-    ret = min(ret, bfs(yy, bb[i]) + bfs(mm, bb[i])); 
+  fori (i, 0, n) fori (j, 0, m) {
+    if (aa[i][j] == '@' && dist[i][j] && dist2[i][j])
+      ret = min(ret, dist[i][j] + dist2[i][j]);
   }
 
   output(ret * 11);

@@ -4,8 +4,8 @@ using namespace std;
 class MNS {
 public:
   int res;
-  vi nums;
-  vi new_nums;
+  vi bb;
+  vi aa;
   int visit[9];
   set<ll> st;
 
@@ -13,7 +13,7 @@ public:
     ll bits = 0;
     fori (i, 0, 9) {
       bits <<= 4;
-      bits |= new_nums[i] & 0xf;
+      bits |= aa[i] & 0xf;
     }
 
     if (st.count(bits)) {
@@ -25,7 +25,7 @@ public:
     int sum = 0;
     fori (i, 0, 3) {
       int r = 0;
-      r = new_nums[3*i + 0] + new_nums[3*i + 1] + new_nums[3*i + 2];
+      r = aa[3*i + 0] + aa[3*i + 1] + aa[3*i + 2];
       if (i == 0)
         sum = r;
       else if (r != sum)
@@ -35,7 +35,7 @@ public:
     // Check column
     fori (i, 0, 3) {
       int r = 0;
-      r = new_nums[i] + new_nums[i + 3] + new_nums[i + 6];
+      r = aa[i] + aa[i + 3] + aa[i + 6];
       if (r != sum)
         return false;
     }
@@ -52,7 +52,7 @@ public:
     fori (i, 0, 9) {
       if (!visit[i]) {
         visit[i] = 1;
-        new_nums[idx] = nums[i];
+        aa[idx] = bb[i];
         dfs(idx+1);
         visit[i] = 0;
       }
@@ -60,9 +60,9 @@ public:
   }
 
   int combos(vi aa) {
-    nums = aa;
+    bb = aa;
     mst(visit, 0);
-    new_nums.resize(9);
+    aa.resize(9);
     res = 0;
     dfs(0);
     return res;
@@ -70,13 +70,13 @@ public:
 
   // int combos(vi aa) {
   //   res = 0;
-  //   new_nums = aa;
+  //   aa = aa;
   // Note: we must sort fist in order to get all permutations.
-  //   sort(all(new_nums));
+  //   sort(all(aa));
   //   do {
   //     if (check())
   //       res++;
-  //   } while (next_permutation(all(new_nums)));
+  //   } while (next_permutation(all(aa)));
 
   //   return res;
   // }

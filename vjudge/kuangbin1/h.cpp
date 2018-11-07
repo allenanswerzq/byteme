@@ -75,7 +75,7 @@ struct Stat {
   void fill(int i) {
     k = i, op = 0;
     if (i == 1) a = va;
-    if (i == 2) b = vb; 
+    if (i == 2) b = vb;
   }
 
   void pour(int i) {
@@ -129,14 +129,14 @@ void test_fill() {
   assert(st.a == 0 && st.b == 5);
   st.reset(); st.fill(1); st.fill(2);
   assert(st.a == 3 && st.b == 5);
-} 
+}
 
 void test_pour() {
   va = 3, vb = 5;
   Stat st(2, 1);
   // 1 --> 2
   st.pour(1);
-  assert(st.a == 0 && st.b == 3); 
+  assert(st.a == 0 && st.b == 3);
   // 2 --> 1
   st.reset(); st.pour(2);
   assert(st.a == 3 && st.b == 0);
@@ -170,9 +170,9 @@ void test_all() {
 void path(Stat *cur) {
   string ret = "";
   while (cur->pre) {
-    ret = cur->to_string() + "\n" + ret; 
+    ret = cur->to_string() + "\n" + ret;
     cur = cur->pre;
-  } 
+  }
   output(ret.substr(0, sz(ret)-1));
 }
 
@@ -197,7 +197,7 @@ void solve() {
       // trace(cur->a, cur->b, cur->op);
       if (cur->a == c || cur->b == c) {
         output(level);
-        path(cur); 
+        path(cur);
         return;
       }
 
@@ -205,7 +205,7 @@ void solve() {
         fori (k, 1, 3) {
           Stat *nxt = new Stat(cur->a, cur->b, cur);
           if (j == 0) nxt->fill(k);
-          if (j == 1) nxt->pour(k); 
+          if (j == 1) nxt->pour(k);
           if (j == 2) nxt->drop(k);
           int st = nxt->a * 120 + nxt->b;
           // trace(nxt->a, nxt->b, nxt->op, nxt->k);
