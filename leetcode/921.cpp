@@ -50,7 +50,7 @@ public:
       } else {
         dq.pb('(');
       }
-    } 
+    }
 
     // trace(ss, sz(ss), ret, sz(dq));
     return ret + sz(dq);
@@ -58,12 +58,6 @@ public:
 };
 
 int main() {
- 
-  string ss; cin >> ss;
-  Solution go;
-  int r = go.minAddToMakeValid(ss);
-  output(r);
-
   return 0;
 }
 
