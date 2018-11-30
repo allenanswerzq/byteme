@@ -1,5 +1,6 @@
 #include <set>
 #include <deque>
+#include <algorithm>
 #include <vector>
 #include <cstring>
 #include <iostream>
@@ -53,7 +54,16 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int facts[12] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800};
+// TODO: this code still tle...
+int facts[12];
+
+void fact() {
+  facts[0] = 1;
+  fori (i, 1, 12) {
+    facts[i] = facts[i - 1] * i;
+  }
+}
+
 int cantor(string& arg) {
   int ret = 1, len = sz(arg);
   fori (i, 0, len) {
@@ -83,19 +93,21 @@ string inv_cantor(int num, int len) {
 
 typedef struct Stat {
   int val;
-  char op;
+  char pa;
+  char pb;
   int pre;
-  Stat(int v = 0, char o = 0, int p = 0) : val(v), op(o), pre(p) {}
+  int nxt;
+  Stat(int v = 1, char a = '#', char b = '#', int p = -1, int n = -1)
+    : val(v), pa(a), pb(b), pre(p), nxt(n) {}
 } Stat;
 
 const int maxn = 500000;
-int dx[] = {-1, 1, 0, 0};
-int dy[] = {0, 0, 1, -1};
-char ops[][4] = {{'u', 'd', 'r', 'l'}, {'d', 'u', 'l', 'r'}};
+int dx[] = {1, 0, 0, -1};
+int dy[] = {0, -1, 1, 0};
+char ops[][4] = {{'d', 'l', 'r', 'u'}, {'u', 'r', 'l', 'd'}};
 int visit[2][maxn];
 string ss, aa, bb;
 Stat path[maxn];
-set<int> st[2];
 
 void strip(string& aa) {
   fori (i, 0, sz(aa)) {
@@ -103,20 +115,26 @@ void strip(string& aa) {
   }
 }
 
-void print_path() {
+void print_path(int ii, int vv) {
   string rr = "";
-  int kt = cantor(aa);
-  trace(kt, path[kt].op, path[]);
-  while (path[kt].op) {
-    rr += string(1, path[kt].op);
+  int kt = vv;
+
+  while (path[kt].pa != '#' && path[kt].pa) {
+    rr += string(1, path[kt].pa);
     kt = path[kt].pre;
   }
 
-  kt = cantor(bb);
-  while (path[kt].op) {
-    rr += string(1, path[kt].op);
-    kt = path[kt].pre;
+  reverse(all(rr));
+  // trace(rr, sz(rr));
+  kt = vv;
+  while (path[kt].pb != '#' && path[kt].pb) {
+    // trace(path[kt].pb, (int)(path[kt].pb));
+    rr += string(1, path[kt].pb);
+    kt = path[kt].nxt;
   }
+
+  // trace(rr);
+  codejam(ii, sz(rr));
   output(rr);
 }
 
@@ -125,32 +143,32 @@ void bfs(int ii) {
   mst(path, 0);
 
   deque<Stat> dq[2];
-  Stat a(cantor(aa), '#', -1);
-  Stat b(cantor(bb), '#', - 1);
+  Stat a(cantor(aa), '#');
+  Stat b(cantor(bb), '#');
 
-  path[a.val] = a, path[b.val] = b;
-  visit[0][a.val] = 1, visit[1][b.val] = 1;
-  dq[0].pb(a), dq[1].pb(b);
-  st[0].insert(a.val), st[1].insert(b.val);
+  path[a.val] = a;
+  path[b.val] = b;
+  visit[0][a.val] = 1;
+  visit[1][b.val] = 1;
+  dq[0].pb(a);
+  dq[1].pb(b);
 
   int level = 0;
   while (sz(dq[0]) || sz(dq[1])) {
 
     fori (i, 0, 2) {
-      // Check if two queues have the same state.
-      fora(v, st[0]) if (st[1].count(v)) {
-        codejam(ii, 2 * level + i + 1);
-        print_path();
-        return;
+      fora (v, dq[0]) fora (u, dq[1]) {
+        if (v.val == u.val) {
+          print_path(ii, v.val);
+          return;
+        }
       }
-      // pvi(st[i], 1);
-      st[i].clear();
-      //
+
       int l = sz(dq[i]);
       fori (j, 0, l) {
         Stat cur = dq[i].front(); dq[i].pop_front();
         string cs = inv_cantor(cur.val, 9);
-
+        // trace(cur.val, cs);
         int p = 0;
         fori (t, 0, 9) if (cs[t] == '9') p = t;
         int x = p / 3, y = p % 3;
@@ -166,10 +184,12 @@ void bfs(int ii) {
           if (visit[i][hh]) continue;
           visit[i][hh] = 1;
 
-          st[i].insert(hh);
-          Stat nxt(hh, ops[i][k], cur.val);
-          path[hh] = nxt;
-          dq[i].pb(nxt);
+          Stat nst = path[hh];
+          nst.val = hh;
+          if (i == 0) nst.pre = cur.val, nst.pa = ops[i][k];
+          if (i == 1) nst.nxt = cur.val, nst.pb = ops[i][k];
+          path[hh] = nst;
+          dq[i].pb(nst);
         }
       }
     }
@@ -178,11 +198,12 @@ void bfs(int ii) {
 }
 
 int main() {
+  fact();
   int t; cin >> t;
   fori (i, 1, t + 1) {
     cin >> aa >> bb;
     strip(aa), strip(bb);
-    trace(i, aa, bb);
+    // trace(i, aa, bb);
     bfs(i);
   }
   return 0;
