@@ -1,11 +1,14 @@
 // #include <bits/stdc++.h>
-#include <set>
-#include <deque>
+// #include <set>
+// #include <deque>
+#include <algorithm>
 #include <vector>
 #include <cstring>
 #include <iostream>
 using namespace std;
 
+#define fi first
+#define se second
 #define pb push_back
 #define pend cout << '\n'
 #define pvar(x) cout << #x << ": "
@@ -52,66 +55,50 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int L, R, C;
-int src, dst, ret;
-char aa[40][40][40];
-int visit[1 << 16];
-int xx[6] = {0, 0, 0, 0, 1, -1};
-int yy[6] = {0, 1, -1, 0, 0, 0};
-int zz[6] = {1, 0, 0, -1, 0, 0};
+const int maxn = 100;
+int visit[maxn];
+int aa[maxn][3];
+int src, cnt;
 
-int bfs() {
+void dfs(int m, vi &path) {
+  if (visit[m] == 1) return;
 
-  int level = 0;
-  deque<int> dq;
-  dq.pb(dst);
-  visit[dst] = 1;
+  visit[m] = 1;
+  path.pb(m);
 
-  while (sz(dq)) {
-    int n = sz(dq);
-    fori (i, 0, n) {
-      int cur = dq.front(); dq.pop_front();
-      if (cur == src) return level;
-      int l = (cur >> 10) & 0x1f, r = (cur >> 5) & 0x1f, c = (cur) & 0x1f;
-      // trace(l, r, c, level);
-      fori (i, 0, 6) {
-        int nl = l + xx[i], nr = r + yy[i], nc = c + zz[i];
-        int nxt = (nl << 10) | (nr << 5) | nc;
-        if (0 <= nl && nl < L && 0 <= nr && nr < R &&
-            0 <= nc && nc < C && aa[nl][nr][nc] != '#') {
-          if (visit[nxt]) continue;
-          visit[nxt] = 1;
-          dq.pb(nxt);
-        }
-      }
+  if (sz(path) >= 20) {
+    int t = path.back();
+    if (t == aa[src][0] || t == aa[src][1] || t == aa[src][2]) {
+      cout << cnt++ << ":  ";
+      vi out = path; out.pb(src);
+      fori (i, 0, sz(out)) cout << out[i] << (i == sz(out) - 1 ? '\n': ' ');
     }
-    ++level;
-  }
-  // Not reach to source.
-  return -1;
-}
-
-void solve() {
-  mst(aa, 0);
-  mst(visit, 0);
-
-  fori (l, 0, L) fori (r, 0, R) fori (c, 0, C) {
-    char a; cin >> a;
-    aa[l][r][c] = a;
-    if (a == 'E') { dst = (l << 10) | (r << 5) | c; }
-    if (a == 'S') { src = (l << 10) | (r << 5) | c; }
   }
 
-  ret = bfs();
-  if (ret != -1) cout << "Escaped in " << ret << " minute(s)." << '\n';
-  else cout << "Trapped!" << '\n';
+  fori (i, 0, 3) {
+    int t = aa[m][i];
+    if (visit[t]) continue;
+    dfs(t, path);
+  }
+
+  path.pop_back();
+  visit[m] = 0;
 }
 
 int main() {
-  while (cin >> L >> R >> C) {
-    if (!L && !R && !C) break;
-    solve();
+  fori (i, 1, 21) {
+    cin >> aa[i][0] >> aa[i][1] >> aa[i][2];
+    sort(aa[i], aa[i] + 3);
   }
+
+  while (cin >> src) {
+    if (!src) return 0;
+    vi path;
+    mst(visit, 0);
+    cnt = 1;
+    dfs(src, path);
+  }
+
   return 0;
 }
 

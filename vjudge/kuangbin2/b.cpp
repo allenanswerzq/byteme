@@ -154,7 +154,7 @@ void bfs(int ii) {
   dq[1].pb(b);
 
   int level = 0;
-  while (sz(dq[0]) || sz(dq[1])) {
+  while (sz(dq[0]) && sz(dq[1])) {
 
     fori (i, 0, 2) {
       fora (v, dq[0]) fora (u, dq[1]) {

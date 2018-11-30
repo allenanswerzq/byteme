@@ -120,7 +120,7 @@ def generate_makefile(fn):
       '\talgo-split in-{0}.txt\n'
       '\talgo-run in-{0}.cpp | tee log-{0}.txt\n'
       '\t@echo "====================" \n'
-      '\tdiff -y result.txt true-{0}.txt -W 100 | sed "s/ /-/g"\n'
+      '\tdiff -y result.txt true-{0}.txt'
       '\n'
       'clean:\n'
       '\t@rm -f ./elf input_* log_* result.txt\n').format(fn[0:-4])
