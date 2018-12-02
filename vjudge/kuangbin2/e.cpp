@@ -120,7 +120,7 @@ void solve() {
   ford (i, n - 1, -1) {
     finall = finall * shift + sz(seq[i]);
   }
-  // A optimization so that we dont need to call memset for every case.
+  // An optimization so that we dont need to call memset for every case.
   ++cnt;
   // trace(finall, shift);
   bfs();
