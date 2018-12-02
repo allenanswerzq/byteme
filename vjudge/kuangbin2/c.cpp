@@ -61,7 +61,9 @@ int aa[maxn][3];
 int src, cnt;
 
 void dfs(int m, vi &path) {
-  if (visit[m] == 1) return;
+  if (visit[m] == 1) {
+    return;
+  }
 
   visit[m] = 1;
   path.pb(m);
@@ -71,14 +73,17 @@ void dfs(int m, vi &path) {
     if (t == aa[src][0] || t == aa[src][1] || t == aa[src][2]) {
       cout << cnt++ << ":  ";
       vi out = path; out.pb(src);
-      fori (i, 0, sz(out)) cout << out[i] << (i == sz(out) - 1 ? '\n': ' ');
+      fori (i, 0, sz(out)) {
+        cout << out[i] << (i == sz(out) - 1 ? '\n': ' ');
+      }
     }
   }
 
   fori (i, 0, 3) {
     int t = aa[m][i];
-    if (visit[t]) continue;
-    dfs(t, path);
+    if (!visit[t]) {
+      dfs(t, path);
+    }
   }
 
   path.pop_back();
@@ -92,11 +97,14 @@ int main() {
   }
 
   while (cin >> src) {
-    if (!src) return 0;
-    vi path;
-    mst(visit, 0);
-    cnt = 1;
-    dfs(src, path);
+    if (src) {
+      vi path;
+      mst(visit, 0);
+      cnt = 1;
+      dfs(src, path);
+    } else {
+      return 0;
+    }
   }
 
   return 0;
