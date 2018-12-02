@@ -121,8 +121,7 @@ void bfs() {
       fori (i, 0, 5) {
         int nx = x + dirs[i][0];
         int ny = y + dirs[i][1];
-        if (0 <= nx && nx <= m &&
-            0 <= ny && ny <= n &&
+        if (0 <= nx && nx <= m && 0 <= ny && ny <= n &&
             !visit[level + 1][nx][ny] &&
             !dead[level + 1][nx][ny] &&
             !casts[nx][ny]) {

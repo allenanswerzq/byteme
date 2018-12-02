@@ -72,7 +72,8 @@ void dfs(int m, vi &path) {
     int t = path.back();
     if (t == aa[src][0] || t == aa[src][1] || t == aa[src][2]) {
       cout << cnt++ << ":  ";
-      vi out = path; out.pb(src);
+      vi out = path;
+      out.pb(src);
       fori (i, 0, sz(out)) {
         cout << out[i] << (i == sz(out) - 1 ? '\n': ' ');
       }

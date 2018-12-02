@@ -1,11 +1,12 @@
 // #include <bits/stdc++.h>
-#include <set>
 #include <deque>
 #include <vector>
-#include <cstring>
 #include <iostream>
+#include <cstring>
 using namespace std;
 
+#define fi first
+#define se second
 #define pb push_back
 #define pend cout << '\n'
 #define pvar(x) cout << #x << ": "
@@ -52,67 +53,82 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int L, R, C;
-int src, dst, ret;
-char aa[40][40][40];
-int visit[1 << 16];
-int xx[6] = {0, 0, 0, 0, 1, -1};
-int yy[6] = {0, 1, -1, 0, 0, 0};
-int zz[6] = {1, 0, 0, -1, 0, 0};
 
-int bfs() {
+const int maxn = 2015538 + 2000;
+int n, cnt, shift, finall, visit[maxn];
+string gene = "ACGT";
+vs seq;
 
-  int level = 0;
+void bfs() {
   deque<int> dq;
-  dq.pb(dst);
-  visit[dst] = 1;
-
+  int pos[10];
+  // All cursors point to 0 first.
+  dq.pb(0);
+  int level = 0;
   while (sz(dq)) {
-    int n = sz(dq);
-    fori (i, 0, n) {
+    int l = sz(dq);
+    fori (i, 0, l) {
       int cur = dq.front(); dq.pop_front();
-      if (cur == src) return level;
-      int l = (cur >> 10) & 0x1f, r = (cur >> 5) & 0x1f, c = (cur) & 0x1f;
-      // trace(l, r, c, level);
-      fori (i, 0, 6) {
-        int nl = l + xx[i], nr = r + yy[i], nc = c + zz[i];
-        int nxt = (nl << 10) | (nr << 5) | nc;
-        if (0 <= nl && nl < L && 0 <= nr && nr < R &&
-            0 <= nc && nc < C && aa[nl][nr][nc] != '#') {
-          if (visit[nxt]) continue;
-          visit[nxt] = 1;
+
+      if (cur == finall) {
+        output(level);
+        return;
+      }
+
+      // Compute the cursor for each sequence.
+      fori (i, 0, n) {
+        pos[i] = cur % shift;
+        cur /= shift;
+      }
+
+      // par(pos, n, 1);
+
+      fori (j, 0, 4) {
+        // Update the cursor for each sequence according to
+        // the last gene symbol `gene[j]` we added.
+        int nxt = 0;
+        // Two choices here: if new added gene matches, forward cursor by 1.
+        // Otherwise keep the old cursor and wait for the later update.
+        // See e.jpeg for a strightforwd explanation.
+        ford (i, n - 1, -1) {
+          nxt = nxt * shift + pos[i] + (seq[i][pos[i]] == gene[j]);
+        }
+
+        if (visit[nxt] != cnt) {
+          visit[nxt] = cnt;
           dq.pb(nxt);
         }
       }
     }
     ++level;
   }
-  // Not reach to source.
-  return -1;
 }
 
 void solve() {
-  mst(aa, 0);
-  mst(visit, 0);
-
-  fori (l, 0, L) fori (r, 0, R) fori (c, 0, C) {
-    char a; cin >> a;
-    aa[l][r][c] = a;
-    if (a == 'E') { dst = (l << 10) | (r << 5) | c; }
-    if (a == 'S') { src = (l << 10) | (r << 5) | c; }
+  cin >> n;
+  seq.clear();
+  // mst(visit, 0);
+  shift = 0;
+  fori (i, 0, n) {
+    string s; cin >> s;
+    seq.pb(s);
+    shift = max(sz(s), shift);
   }
 
-  ret = bfs();
-  if (ret != -1) {
-    cout << "Escaped in " << ret << " minute(s)." << '\n';
-  } else {
-    cout << "Trapped!" << '\n';
+  ++shift;
+  finall = 0;
+  ford (i, n - 1, -1) {
+    finall = finall * shift + sz(seq[i]);
   }
+  ++cnt;
+  // trace(finall, shift);
+  bfs();
 }
 
 int main() {
-  while (cin >> L >> R >> C) {
-    if (!L && !R && !C) break;
+  int t; cin >> t >> ws;
+  cnt = 0;
+  fori (i, 1, t + 1) {
     solve();
   }
   return 0;
