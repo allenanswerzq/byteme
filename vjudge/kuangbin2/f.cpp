@@ -135,13 +135,12 @@ void solve() {
       }
     }
   }
-
 }
 
 int main(){
-    int t; cin >> t;
-    fori (i, 0, t) {
-      solve();
-    }
-    return 0;
+  int t; cin >> t;
+  fori (i, 0, t) {
+    solve();
+  }
+  return 0;
 }
