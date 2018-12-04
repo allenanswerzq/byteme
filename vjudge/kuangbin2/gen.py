@@ -1,4 +1,3 @@
-print(200)
-for i in range(200):
-  print("87654321X")
-  print("321X45678")
+print(800, 800)
+for i in range(800):
+  print('.' * 800)

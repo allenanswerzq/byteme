@@ -68,7 +68,11 @@ int cantor(string& arg) {
   int ret = 1, len = sz(arg);
   fori (i, 0, len) {
     int cnt = 0;
-    fori (k, i + 1, len) if (arg[i] > arg[k]) cnt++;
+    fori (k, i + 1, len) {
+      if (arg[i] > arg[k]) {
+        cnt++;
+      }
+    }
     ret = ret + facts[len - i - 1] * cnt;
   }
   return ret;
