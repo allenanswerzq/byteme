@@ -151,7 +151,7 @@ void solve() {
   cin >> m >> n;
   int k = 0;
   fori (i, 0, m) {
-    // TODO: understand why using cin acts very slove here.
+    // TODO: understand why using cin acts very slow here.
     scanf("%s", maze[i]);
     fori (j, 0, n) {
       char ch = maze[i][j];
