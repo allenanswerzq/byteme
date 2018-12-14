@@ -32,23 +32,23 @@ using namespace std;
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {
-  cout << fixed << name << ": " << arg << '\\n';
+    cout << fixed << name << ": " << arg << '\\n';
 }
 
 template <typename T, typename... Args>
 void _f(const char* names, T&& arg, Args&&... args) {
-  const char* split = strchr(names + 1, ',');
-  cout.write(names, split - names) << ": " << arg << " |";
-  _f(split, args...);
+    const char* split = strchr(names + 1, ',');
+    cout.write(names, split - names) << ": " << arg << " |";
+    _f(split, args...);
 }
 
 double tick() {
-  static clock_t old;
-  clock_t now = clock();
-  double diff = 1.0 * (now - old);
-  diff /= CLOCKS_PER_SEC;
-  old = now;
-  return diff;
+    static clock_t old;
+    clock_t now = clock();
+    double diff = 1.0 * (now - old);
+    diff /= CLOCKS_PER_SEC;
+    old = now;
+    return diff;
 }
 
 typedef long long ll;
@@ -66,11 +66,11 @@ void solve() {
 }
 
 int main() {
-  int t; cin >> t >> ws;
-  fori (i, 1, t + 1) {
+    int t; cin >> t >> ws;
+    fori (i, 1, t + 1) {
 
-  }
-  return 0;
+    }
+    return 0;
 }
 
 """

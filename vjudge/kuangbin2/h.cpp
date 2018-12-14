@@ -94,20 +94,19 @@ void bfs() {
         return;
       }
 
-      fori (k, 0, 4) {
-        fori (j, 1, 8) {
-          int gp = cur[k * 8 + j];
-          int ng = cur[k * 8 + j - 1];
-          if (gp == 1 && ng != 1) {
-            string nxt = cur;
-            step(nxt, ng + 1, k * 8 + j);
-            if (!visit.count(nxt)) {
-              visit.insert(nxt);
-              dq.pb(nxt);
-            }
+      fori (k, 0, 4) fori (j, 1, 8) {
+        int gp = cur[k * 8 + j];
+        int ng = cur[k * 8 + j - 1];
+        if (gp == 1 && ng != 1) {
+          string nxt = cur;
+          step(nxt, ng + 1, k * 8 + j);
+          if (!visit.count(nxt)) {
+            visit.insert(nxt);
+            dq.pb(nxt);
           }
         }
       }
+
     }
     ++level;
   }
