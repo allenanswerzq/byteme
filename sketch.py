@@ -13,8 +13,6 @@ def build_cpp(fn):
 #include <bits/stdc++.h>
 using namespace std;
 
-#define fi first
-#define se second
 #define pb push_back
 #define pend cout << '\\n'
 #define pvar(x) cout << #x << ": "
