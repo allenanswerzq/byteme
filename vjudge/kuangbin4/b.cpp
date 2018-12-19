@@ -1,9 +1,9 @@
 // #include <bits/stdc++.h>
 #include <queue>
 #include <vector>
-#include <iostream>
 #include <cstring>
-#include <functional>
+#include <iostream>
+#include <cmath>
 using namespace std;
 
 #define pb push_back
@@ -51,49 +51,93 @@ typedef vector<string> vs;
 typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
+typedef pair<int, float> pif;
 
-const int maxn = 1200;
-int T, N;
-int edges[maxn][maxn];
-int dist[maxn];
+
+const int maxn = 220;
+int n, cnt;
+float edges[maxn][maxn], dist[maxn];
+vpii points;
+
+float calc(pii x, pii y) {
+    int r = (x.first - y.first) * (x.first - y.first) +
+            (x.second - y.second) * (x.second - y.second);
+    return sqrt(r);
+}
+
+void compute_weight() {
+
+    fori (i, 0, n) {
+        fori (j, i + 1, n) {
+            edges[i][j] = calc(points[i], points[j]);
+            edges[j][i] = edges[i][j];
+            // trace(edges[i][j], edges[j][i]);
+        }
+    }
+}
 
 void dijkstra(int src) {
-    mst(dist, 0x3f);
-    priority_queue<pii, vector<pii>, greater<pii> > dq;
+
+    fori (i, 0, n) {
+        dist[i] = 1e10;
+    }
+
+    // Min heap
+    priority_queue<pif, vector<pif>, greater<pif> > dq;
     dq.push({src, 0});
     dist[src] = 0;
 
     while (sz(dq)) {
-        pii cur = dq.top(); dq.pop();
+        pif cur = dq.top(); dq.pop();
         int u = cur.first;
-        fori (i, 1, N + 1) {
-            int v = i, w = edges[u][v];
-            if (w != 0x3f3f3f3f && dist[v] > dist[u] + w) {
-                dist[v] = dist[u] + w;
-                dq.push({v, dist[v]});
+        fori (i, 0, n) {
+            float w = edges[u][i];
+            if (i != u && dist[i] > max(dist[u], w)) {
+                dist[i] = max(dist[u], w);
+                dq.push({i, dist[i]});
             }
         }
     }
 
-    // par(dist, N + 1, 1);
+    // par(dist, n, 1);
 
-    output(dist[N]);
+    cout << "Scenario #" << cnt << '\n';
+    cout << "Frog Distance = " << dist[1] << '\n';
+    cout << '\n';
+
 }
 
 void solve() {
-    mst(edges, 0x3f);
-    fori (i, 0, T) {
-        int u, v, w; cin >> u >> v >> w;
-        // In case repeated edges exist.
-        edges[u][v] = min(edges[u][v], w);
-        edges[v][u] = min(edges[v][u], w);
+    points.clear();
+    fori (i, 0, n) {
+        int x, y; cin >> x >> y;
+        points.pb({x, y});
     }
 
-    dijkstra(1);
+    compute_weight();
+
+    // fori (i, 0, n) {
+    //     par(edges[i], n, 1);
+    // }
+
+    dijkstra(0);
+}
+
+void test() {
+    using pif = pair<int, float>;
+    vector<pif> tt = {{0, 0.4}, {1, 0.2}, {0, 0.5}};
+    sort(all(tt), greater<pif>());
+    fora (t, tt) {
+        trace(t.first, t.second);
+    }
 }
 
 int main() {
-    while (cin >> T >> N) {
+    cnt = 0;
+    cout.precision(3);
+    cout << fixed;
+    while (cin >> n && n) {
+        ++cnt;
         solve();
     }
     return 0;
