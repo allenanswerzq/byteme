@@ -62,6 +62,7 @@ bool check(int x, int y) {
     // [1] for a 2 x 1 block.
     // [0]
 
+    // Whether the last column is fit well.
     bool last = false;
     for (int k = 0; k < m; ++k) {
         if (x & b[k]) {

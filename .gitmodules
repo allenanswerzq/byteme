@@ -16,3 +16,9 @@
 [submodule "third_party/kactl"]
 	path = third_party/kactl
 	url = https://github.com/kth-competitive-programming/kactl.git
+[submodule "third_party/jngen"]
+	path = third_party/jngen
+	url = https://github.com/landcold7/jngen.git
+[submodule "third_party/testlib"]
+	path = third_party/testlib
+	url = https://github.com/MikeMirzayanov/testlib.git

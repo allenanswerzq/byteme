@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define fi first
-#define se second
 #define pb push_back
 #define pend cout << '\\n'
 #define pvar(x) cout << #x << ": "
@@ -14,8 +12,8 @@ using namespace std;
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
 #define output(v) cout << (v) << '\\n'
 #define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\\n'
-#define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
-#define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
+#define pvi(x, v) if (v) pvar(x); fora(a, x) cout << a << " "; pend
+#define par(x, n, v) if (v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>

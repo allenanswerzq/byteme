@@ -6,10 +6,8 @@
 import os
 import sys
 
-def build_cpp(fn):
-  in_name = fn[0:-4] + "-input.txt"
-  out_name = fn[0:-4] + "-output.txt"
-  cpp2 = """\
+def build_cpp():
+  cpp = '''\
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,29 +22,29 @@ using namespace std;
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
 #define output(v) cout << (v) << '\\n'
 #define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\\n'
-#define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; pend
-#define par(x, n, v) if(v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
+#define pvi(x, v) if (v) pvar(x); fora(a, x) cout << a << " "; pend
+#define par(x, n, v) if (v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {
-    cout << fixed << name << ": " << arg << '\\n';
+  cout << fixed << name << ": " << arg << '\\n';
 }
 
 template <typename T, typename... Args>
 void _f(const char* names, T&& arg, Args&&... args) {
-    const char* split = strchr(names + 1, ',');
-    cout.write(names, split - names) << ": " << arg << " |";
-    _f(split, args...);
+  const char* split = strchr(names + 1, ',');
+  cout.write(names, split - names) << ": " << arg << " |";
+  _f(split, args...);
 }
 
 double tick() {
-    static clock_t old;
-    clock_t now = clock();
-    double diff = 1.0 * (now - old);
-    diff /= CLOCKS_PER_SEC;
-    old = now;
-    return diff;
+  static clock_t old;
+  clock_t now = clock();
+  double diff = 1.0 * (now - old);
+  diff /= CLOCKS_PER_SEC;
+  old = now;
+  return diff;
 }
 
 typedef long long ll;
@@ -64,15 +62,18 @@ void solve() {
 }
 
 int main() {
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
+  ios_base::sync_with_stdio(false);
+  cin.tie(0);
 
-    }
-    return 0;
+  int t; cin >> t >> ws;
+  fori (i, 1, t + 1) {
+
+  }
+  return 0;
 }
+'''
 
-"""
-  return cpp2
+  return cpp
 
 def generate_file(fn):
 
@@ -84,16 +85,18 @@ def generate_file(fn):
 
   with open(fn, 'w') as f:
     cmd = "subl "
-    cpp = build_cpp(fn);
+    cpp = build_cpp();
     f.write(cpp)
     print("=>Writing to {}".format(fn))
 
   name = fn[0: -4]
   make = 'Makefile-' + name
-  # os.system('touch ' + name + '.txt')
+
   os.system('touch in-' + name +'.txt')
   os.system('mv Makefile ' + make)
   os.system(cmd + make)
+  os.system(cmd + ' gen-' + name + '.cpp')
+  os.system(cmd + ' comp-' + name + '.cpp')
   os.system(cmd + ' true-' + name + '.txt')
   os.system(cmd + ' in-' + name + '.txt')
   os.system(cmd + fn)
@@ -118,7 +121,17 @@ def generate_makefile(fn):
       '\talgo-split in-{0}.txt\n'
       '\talgo-run in-{0}.cpp | tee log-{0}.txt\n'
       '\t@echo "====================" \n'
-      '\tdiff -y result.txt true-{0}.txt'
+      '\tdiff -y result.txt true-{0}.txt\n'
+      '\n'
+      'comp: comp-c.cpp\n'
+      '\tg++ -o comp comp-{0}.cpp --std=c++11 -O2 -Wall\n'
+      '\t./comp | tee comp-{0}.txt\n'
+      '\n'
+      'gen: gen-{0}.cpp\n'
+      '\t@echo "Generating test data.."\n'
+      '\t@g++ -O2 -std=c++11 -DJNGEN_DECLARE_ONLY gen-{0}.cpp -o gen -ljngen -lgvc -lcgraph\n'
+      '\t./gen | tee in-{0}.txt\n'
+      '\t@rm gen\n'
       '\n'
       'clean:\n'
       '\t@rm -f ./elf input_* log_* result.txt\n').format(fn[0:-4])

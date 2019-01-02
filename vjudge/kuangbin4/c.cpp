@@ -3,6 +3,7 @@
 #include <vector>
 #include <cstring>
 #include <iostream>
+#include <cstdio>
 #include <cmath>
 using namespace std;
 
@@ -51,86 +52,63 @@ typedef vector<string> vs;
 typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
-typedef pair<int, float> pif;
 
-
-const int maxn = 220;
-int n, cnt;
-float edges[maxn][maxn], dist[maxn];
-vpii points;
-
-float calc(pii x, pii y) {
-    int r = (x.first - y.first) * (x.first - y.first) +
-            (x.second - y.second) * (x.second - y.second);
-    return sqrt(r);
-}
-
-void compute_weight() {
-
-    fori (i, 0, n) {
-        fori (j, i + 1, n) {
-            edges[i][j] = calc(points[i], points[j]);
-            edges[j][i] = edges[i][j];
-            // trace(edges[i][j], edges[j][i]);
-        }
-    }
-}
+const int maxn = 1004;
+int edges[maxn][maxn];
+int n, m, cnt, dist[maxn], visit[maxn];
 
 void dijkstra(int src) {
 
-    fori (i, 0, n) {
-        dist[i] = 1e10;
+    fori (i, 1, n + 1) {
+        dist[i] = edges[1][i];
     }
 
-    // Min heap
-    priority_queue<pif, vector<pif>, greater<pif> > dq;
-    dq.push({src, 0});
-    dist[src] = 0;
+    visit[src] = cnt;
 
-    while (sz(dq)) {
-        pif cur = dq.top(); dq.pop();
-        int u = cur.first;
-        fori (v, 0, n) {
-            float w = edges[u][v];
-            if (v != u && dist[v] > max(dist[u], w)) {
-                dist[v] = max(dist[u], w);
-                dq.push({v, dist[v]});
+    while (1) {
+        int u = -1, mx = 0;
+        fori (i, 1, n + 1) {
+            if (visit[i] != cnt && dist[i] > mx) {
+                mx = dist[i], u = i;
+            }
+        }
+        if (u == -1) {
+            break;
+        }
+        visit[u] = cnt;
+        fori (v, 1, n + 1) {
+            int w = edges[u][v];
+            if (visit[v] != cnt && w) {
+                dist[v] = max(dist[v], min(dist[u], w));
             }
         }
     }
 
-    // par(dist, n, 1);
+    // par(dist, n + 1, 1);
 
-    cout << "Scenario #" << cnt << '\n';
-    cout << "Frog Distance = " << dist[1] << '\n';
-    cout << '\n';
-
+    cout << "Scenario #" << cnt << ":" << '\n';
+    cout << dist[n] << "\n\n";
 }
 
 void solve() {
-    points.clear();
-    fori (i, 0, n) {
-        int x, y; cin >> x >> y;
-        points.pb({x, y});
+    cin >> n >> m;
+    mst(edges, 0);
+    fori (i, 0, m) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        edges[u][v] = edges[v][u] = w;
     }
-
-    compute_weight();
-
-    // fori (i, 0, n) {
-    //     par(edges[i], n, 1);
-    // }
-
-    dijkstra(0);
+    dijkstra(1);
 }
 
 int main() {
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(0);
     cnt = 0;
-    cout.precision(3);
-    cout << fixed;
-    while (cin >> n && n) {
+    int t; cin >> t >> ws;
+    fori (i, 1, t + 1) {
         ++cnt;
         solve();
     }
     return 0;
 }
-
