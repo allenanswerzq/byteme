@@ -91,19 +91,19 @@ void dijkstra(int src) {
 }
 
 void solve() {
-    cin >> n >> m;
+    // cin >> n >> m;
+    scanf("%d %d", &n, &m);
     mst(edges, 0);
     fori (i, 0, m) {
         int u, v, w;
-        cin >> u >> v >> w;
+        // cin >> u >> v >> w;
+        scanf("%d %d %d", &u, &v, &w);
         edges[u][v] = edges[v][u] = w;
     }
     dijkstra(1);
 }
 
 int main() {
-    std::ios_base::sync_with_stdio(false);
-    cin.tie(0);
     cnt = 0;
     int t; cin >> t >> ws;
     fori (i, 1, t + 1) {

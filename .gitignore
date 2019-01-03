@@ -13,6 +13,7 @@ result*.txt
 test/*
 Makefile*
 *sublime-*
-gen*
 comp*.cpp
 comp*.txt
+*.gv
+gen-*.cpp

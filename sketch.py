@@ -28,23 +28,23 @@ using namespace std;
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {
-  cout << fixed << name << ": " << arg << '\\n';
+    cout << fixed << name << ": " << arg << '\\n';
 }
 
 template <typename T, typename... Args>
 void _f(const char* names, T&& arg, Args&&... args) {
-  const char* split = strchr(names + 1, ',');
-  cout.write(names, split - names) << ": " << arg << " |";
-  _f(split, args...);
+    const char* split = strchr(names + 1, ',');
+    cout.write(names, split - names) << ": " << arg << " |";
+    _f(split, args...);
 }
 
 double tick() {
-  static clock_t old;
-  clock_t now = clock();
-  double diff = 1.0 * (now - old);
-  diff /= CLOCKS_PER_SEC;
-  old = now;
-  return diff;
+    static clock_t old;
+    clock_t now = clock();
+    double diff = 1.0 * (now - old);
+    diff /= CLOCKS_PER_SEC;
+    old = now;
+    return diff;
 }
 
 typedef long long ll;
@@ -62,14 +62,14 @@ void solve() {
 }
 
 int main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(0);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
 
-  int t; cin >> t >> ws;
-  fori (i, 1, t + 1) {
+    int t; cin >> t >> ws;
+    fori (i, 1, t + 1) {
 
-  }
-  return 0;
+    }
+    return 0;
 }
 '''
 
@@ -95,8 +95,8 @@ def generate_file(fn):
   os.system('touch in-' + name +'.txt')
   os.system('mv Makefile ' + make)
   os.system(cmd + make)
-  os.system(cmd + ' gen-' + name + '.cpp')
   os.system(cmd + ' comp-' + name + '.cpp')
+  os.system(cmd + ' gen-' + name + '.cpp')
   os.system(cmd + ' true-' + name + '.txt')
   os.system(cmd + ' in-' + name + '.txt')
   os.system(cmd + fn)
@@ -124,8 +124,9 @@ def generate_makefile(fn):
       '\tdiff -y result.txt true-{0}.txt\n'
       '\n'
       'comp: comp-c.cpp\n'
-      '\tg++ -o comp comp-{0}.cpp --std=c++11 -O2 -Wall\n'
-      '\t./comp | tee comp-{0}.txt\n'
+      '\tg++ -o elf comp-{0}.cpp --std=c++11 -O2 -Wall\n'
+      '\talgo-split in-e.txt\n'
+      '\talgo-run | tee comp-e.txt\n'
       '\n'
       'gen: gen-{0}.cpp\n'
       '\t@echo "Generating test data.."\n'
@@ -134,7 +135,7 @@ def generate_makefile(fn):
       '\t@rm gen\n'
       '\n'
       'clean:\n'
-      '\t@rm -f ./elf input_* log_* result.txt\n').format(fn[0:-4])
+      '\t@rm -f ./elf input_* log_* result.txt g*.pdf\n').format(fn[0:-4])
 
   with open('Makefile', 'w') as f:
     f.write(makefile)
