@@ -3,6 +3,8 @@
 #include <vector>
 #include <queue>
 #include <cstring>
+#include <cstdlib>
+#include <cstdio>
 using namespace std;
 
 #define pb push_back
@@ -51,73 +53,94 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-int n, m, s; double v;
+const int maxn = 200;
+int n;
+int graph[maxn][maxn];
+int visit[maxn], dist[maxn];
 
-typedef struct Operation {
-    int to;
-    double rate, commission;
-    Operation(int to, double r, double c)
-        : to(to), rate(r), commission(c) {}
-} Operation;
-
-const int maxn = 120;
-vector<Operation> ops[maxn];
-double dist[maxn];
-int counters[maxn];
-// Mark whether a node is in queue.
-int visit[maxn];
-
-// Shortest path faster algorithm.
-bool spfa() {
+void spfa() {
     mst(visit, 0);
-    mst(counters, 0);
+    mst(dist, 0x3f);
 
     deque<int> dq;
-    dq.pb(s);
-    dist[s] = v;
-    counters[s] = 1;
-    visit[s] = 1;
+    dq.pb(1);
+    visit[1] = 1;
+    dist[1] = 0;
+
     while (sz(dq)) {
         int u = dq.front(); dq.pop_front();
-        // Poped from queue.
         visit[u] = 0;
-        fori (i, 0, sz(ops[u])) {
-            Operation op = ops[u][i];
-            // If this u to v exchange can make money increases.
-            double new_momey = (dist[u] - op.commission) * op.rate;
-            if (new_momey > dist[op.to]) {
-                dist[op.to] = new_momey;
-                if (!visit[op.to]) {
-                    dq.pb(op.to);
-                    visit[op.to] = 1;
-                    // If there is a money increasing cycle.
-                    if (++counters[op.to] > n) {
-                        return 1;
-                    }
+        fori (v, 1, n + 1) {
+            int w = graph[u][v];
+            if (v != u && w && w != -1 && dist[v] > dist[u] + w) {
+                dist[v] = dist[u] + w;
+                if (!visit[v]) {
+                    visit[v] = 1;
+                    dq.pb(v);
                 }
             }
         }
     }
 
-    return dist[s] > v ? 1 : 0;
+    // par(dist, n + 1, 1);
+
+    int ret = 0;
+    fori (i, 1, n + 1) {
+        ret = max(ret, dist[i]);
+    }
+
+    output(ret);
+
+}
+
+void dijkstra() {
+    mst(visit, 0);
+    mst(dist, 0x3f);
+
+    priority_queue<pii, vpii, greater<pii> > dq;
+    dq.push({0, 1});
+    dist[1] = 0;
+
+    while (sz(dq)) {
+        int u = dq.top().second; dq.pop();
+        fori (v, 1, n + 1) {
+            int w = graph[u][v];
+            if (v != u && w && w != -1 && dist[v] > dist[u] + w) {
+                dist[v] = dist[u] + w;
+                dq.push({dist[v], v});
+            }
+        }
+    }
+
+    // par(dist, n + 1, 1);
+
+    int ret = 0;
+    fori (i, 1, n + 1) {
+        ret = max(ret, dist[i]);
+    }
+
+    output(ret);
 }
 
 void solve() {
-    cin >> n >> m >> s >> v;
-    fori (i, 0, m) {
-        int u, v;
-        double rate_u2v, commission_u2v, rate_v2u, commission_v2u;
-        cin >> u >> v
-            >> rate_u2v >> commission_u2v
-            >> rate_v2u >> commission_v2u;
-        ops[u].pb(Operation(v, rate_u2v, commission_u2v));
-        ops[v].pb(Operation(u, rate_v2u, commission_v2u));
+    cin >> n;
+    fori (i, 1, n + 1) {
+        for (int j = 1; j < i; ++j) {
+            string w; cin >> w;
+            if (w == "x") {
+                graph[i][j] = graph[j][i] = -1;
+            } else {
+                graph[i][j] = graph[j][i] = atoi(w.c_str());
+            }
+        }
     }
-    if (spfa()) {
-        output("YES");
-    } else {
-        output("NO");
-    }
+
+    // fori (i, 1, n + 1) {
+    //     par(graph[i], n + 1, 1);
+    // }
+
+    spfa();
+    // dijkstra();
 }
 
 int main() {
