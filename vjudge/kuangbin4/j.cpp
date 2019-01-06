@@ -65,7 +65,7 @@ vector<Edge> graph[maxn];
 vector<Edge> reverse_graph[maxn];
 int dist[maxn];
 
-void dijkstra(vector<Edge> *graph) {
+void dijkstra(vector<Edge> *gg) {
 
     fori (i, 1, n + 1) {
         dist[i] = inf;
@@ -78,8 +78,8 @@ void dijkstra(vector<Edge> *graph) {
 
     while (sz(dq)) {
         int u = dq.top().second; dq.pop();
-        fori (i, 0, sz(graph[u])) {
-            Edge e = graph[u][i];
+        fori (i, 0, sz(gg[u])) {
+            Edge e = gg[u][i];
             int v = e.to, w = e.weight;
             if (v != u && w && dist[v] > dist[u] + w) {
                 dist[v] = dist[u] + w;
