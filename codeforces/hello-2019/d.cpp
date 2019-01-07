@@ -47,6 +47,8 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+// TODO(landcold7): number theory stuff kind hard...
+
 void solve() {
 
 }

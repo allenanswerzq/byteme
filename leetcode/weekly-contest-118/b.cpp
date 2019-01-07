@@ -65,7 +65,7 @@ public:
     }
 };
 
-// Messy solution by mine.
+// Messy solution by me.
 class Solution {
 public:
     void dfs(vi &aa, vi &path, int last) {

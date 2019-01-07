@@ -38,15 +38,6 @@ void _f(const char* names, T&& arg, Args&&... args) {
     _f(split, args...);
 }
 
-double tick() {
-    static clock_t old;
-    clock_t now = clock();
-    double diff = 1.0 * (now - old);
-    diff /= CLOCKS_PER_SEC;
-    old = now;
-    return diff;
-}
-
 typedef long long ll;
 typedef long double ld;
 typedef vector<int> vi;
