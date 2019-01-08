@@ -28,15 +28,6 @@ void _f(const char* names, T&& arg, Args&&... args) {
     _f(split, args...);
 }
 
-double tick() {
-    static clock_t old;
-    clock_t now = clock();
-    double diff = 1.0 * (now - old);
-    diff /= CLOCKS_PER_SEC;
-    old = now;
-    return diff;
-}
-
 typedef long long ll;
 typedef long double ld;
 typedef vector<int> vi;
@@ -47,20 +38,25 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-const vector<int> BAD = {-1};
-
 vector<int> concat(vector<int> a, const vector<int> &b) {
     a.insert(a.end(), b.begin(), b.end());
     return a;
 }
 
+// [start ... end - 1]
 vector<int> subvector(const vector<int> &v, int start, int end) {
     return vector<int>(v.begin() + start, v.begin() + end);
 }
 
-int subtree_size(TreeNode *root) {
-    return root == nullptr ? 0 : 1 + subtree_size(root->left)
-                                   + subtree_size(root->right);
+int tree_size(TreeNode *root) {
+    if (!root) {
+        return 0;
+    }
+
+    int left = tree_size(root->left);
+    int right = tree_size(root->right);
+
+    return (left + 1 + right);
 }
 
 /**
@@ -72,41 +68,49 @@ int subtree_size(TreeNode *root) {
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+const vector<int> BAD = {-1};
 class Solution {
 public:
     vector<int> flipMatchVoyage(TreeNode* root, vector<int> voyage) {
-        if (root == nullptr)
+        if (root == nullptr || sz(voyage) == 0) {
             return {};
+        }
 
-        if (root->val != voyage.front())
+        if (root->val != voyage[0]) {
             return BAD;
+        }
 
-        vector<int> answer;
+        vector<int> ret;
 
-        if (root->left != nullptr && root->right != nullptr &&
-            root->right->val == voyage[1]) {
-            answer = {root->val};
+        if (root->left && root->right && root->right->val == voyage[1]) {
+            ret = {root->val};
             swap(root->left, root->right);
         }
 
-        vector<int> left_answer
-            = flipMatchVoyage(root->left, subvector(voyage, 1, 1 + subtree_size(root->left)));
+        vector<int> lefts = flipMatchVoyage(
+                root->left,
+                subvector(voyage, 1, 1 + tree_size(root->left)));
 
-        if (left_answer == BAD)
+        if (lefts == BAD) {
             return BAD;
+        }
 
-        vector<int> right_answer =
-            flipMatchVoyage(root->right, subvector(voyage, 1 + subtree_size(root->left), voyage.size()));
+        vector<int> rights = flipMatchVoyage(
+                root->right,
+                subvector(voyage, 1 + tree_size(root->left), voyage.size()));
 
-        if (right_answer == BAD)
+        if (rights == BAD){
             return BAD;
+        }
 
-        return concat(answer, concat(left_answer, right_answer));
+        return concat(ret, concat(lefts, rights));
     }
 };
 
-// Misunderstading: swap all child under one node instead of swapping
-// only left chlild and right child.
+// Misunderstanding: swap all child under one node instead of swapping
+// only left chlild'value and right child's value.
+
 const int maxn = 120;
 int parent[maxn];
 int lefts[maxn];

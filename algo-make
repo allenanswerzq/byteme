@@ -10,7 +10,9 @@ if [[ "$1" == "test" ]]; then
   cmd="make test -f $2"
 elif [[ "$1" == "run" ]]; then
   cmd="make run -f $2"
-  else
+elif [[ "$1" == "comp" ]]; then
+  cmd="make comp -f $2"
+else
   cmd="make test"
 fi
 

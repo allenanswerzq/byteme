@@ -38,68 +38,79 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-class Solution2 {
-public:
-    vector<int> pancakeSort(vector<int>& A) {
-        vector<int> pancake;
-        int n = A.size();
+const int maxn = 1e5 + 7;
+vi tree[maxn];
+int sum[maxn];
+int val[maxn];
+ll ret;
 
-        for (int big = n; big > 0; big--) {
-            int index = find(A.begin(), A.end(), big) - A.begin();
-            pancake.push_back(index + 1);
-            reverse(A.begin(), A.begin() + index + 1);
-            pancake.push_back(big);
-            reverse(A.begin(), A.begin() + big);
-        }
+// Note: read problem statement carefully.
 
-        return pancake;
-    }
-};
+// This case never occur, because the statement says
+// `erased all values S𝑣 for vertices with even depth`
+// 3
+// 1 2
+// 2 -1 -1
 
-// Messy solution by me.
-class Solution {
-public:
-    void dfs(vi &aa, vi &path, int last) {
-        if (last == 1) {
-            return;
-        }
-
-        int idx = 0;
-        fori (i, 0, sz(aa)) {
-            if (aa[i] == last) {
-                idx = i;
-                break;
-            }
-        }
-
-        if (idx == last - 1) {
-            dfs(aa, path, last - 1);
+bool dfs(int u, int par = 0) {
+    if (sum[u] == -1) {
+        if (sz(tree[u]) == 0) {
+            sum[u] = sum[par];
+            val[u] = 0;
         } else {
-            path.pb(idx + 1);
-            reverse(aa.begin(), aa.begin() + idx + 1);
-            path.pb(last);
-            reverse(aa.begin(), aa.begin() + last);
-            dfs(aa, path, last - 1);
+            int mi = (1 << 30);
+            fora (v, tree[u]) {
+                mi = min(sum[v], mi);
+            }
+
+            // trace(u, par, mi);
+
+            if (sum[par] > mi) {
+                return 0;
+            }
+            val[u] = mi - sum[par];
+            sum[u] = mi;
         }
 
+    } else {
+        val[u] = sum[u] - sum[par];
     }
 
-    vector<int> pancakeSort(vector<int>& aa) {
-        vi path;
-        dfs(aa, path, sz(aa));
-        return path;
+    ret += val[u];
+    fora (v, tree[u]) {
+        if (!dfs(v, u)) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+void solve() {
+    int n; cin >> n;
+    fori (i, 2, n + 1) {
+        int u; cin >> u;
+        // u --> i
+        tree[u].pb(i);
     }
 
-};
+    fori (i, 1, n + 1) {
+        int s; cin >> s;
+        sum[i] = s;
+    }
 
-void test(vi aa) {
-    Solution go;
-    vi ret = go.pancakeSort(aa);
-    pvi(ret, 1);
+    ret = 0;
+    if (dfs(1, 0)) {
+        output(ret);
+    } else {
+        output(-1);
+    }
+
 }
 
 int main() {
-    test({3, 2, 4, 1});
-    test({1, 2, 3});
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
+    solve();
     return 0;
 }
