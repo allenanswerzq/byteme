@@ -126,7 +126,7 @@ def generate_makefile(fn):
       '\t@rm gen\n'
       '\n'
       'clean:\n'
-      '\t@rm -f ./elf input_* log_* result.txt g*.pdf\n').format(fn[0:-4])
+      '\t@rm -f ./elf input_* log_* result.txt\n').format(fn[0:-4])
 
   with open('Makefile', 'w') as f:
     f.write(makefile)

@@ -21,18 +21,18 @@ using namespace std;
 #define pvi(x, v) if (v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if (v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
-// #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
-// template <typename T>
-// void _f(const char* name, T&& arg) {
-//     cout << fixed << name << ": " << arg << '\n';
-// }
+#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+template <typename T>
+void _f(const char* name, T&& arg) {
+    cout << fixed << name << ": " << arg << '\n';
+}
 
-// template <typename T, typename... Args>
-// void _f(const char* names, T&& arg, Args&&... args) {
-//     const char* split = strchr(names + 1, ',');
-//     cout.write(names, split - names) << ": " << arg << " |";
-//     _f(split, args...);
-// }
+template <typename T, typename... Args>
+void _f(const char* names, T&& arg, Args&&... args) {
+    const char* split = strchr(names + 1, ',');
+    cout.write(names, split - names) << ": " << arg << " |";
+    _f(split, args...);
+}
 
 typedef long long ll;
 typedef long double ld;
@@ -72,10 +72,15 @@ void dijkstra() {
         pii p = dq.top(); dq.pop();
         int d = p.first, u = p.second;
 
-        // Why this could ever happen??? If the node we choose in min heap
-        // whose distance is greater than global shortes path of itself,
-        // then do nothing.
-        //
+        // Why this could ever happen???
+        // If the node we choose in min heap whose distance is
+        // greater than global shortes path of itself, then do nothing.
+
+        // Because all edges we put into heap will all be poped later on,
+        // When one vertex be released by two edges, these two operations will be
+        // put into min heap, one of which is more shorter that the other, which
+        // made the larger one useless in terms of releasing other vetrices.
+
         if (d > dist[u]) {
             continue;
         }
