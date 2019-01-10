@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Generate a file skeleton for my algorithm practice."""
 
-# TODO: this file is really ugly, need to rewrite someday.
+# TODO(landcold7): this file is really ugly, need to rewrite someday.
+# TODO(landcold7): rewrite makefile generating, make it more professional.
 
 import os
 import sys
@@ -110,14 +111,15 @@ def generate_makefile(fn):
       'test: clean compile\n'
       '\t@chmod +x ./elf\n'
       '\talgo-split in-{0}.txt\n'
-      '\talgo-run in-{0}.cpp | tee log-{0}.txt\n'
+      '\talgo-run result.txt | tee log-{0}.txt\n'
       '\t@echo "====================" \n'
       '\tdiff -y result.txt true-{0}.txt\n'
       '\n'
       'comp: comp-{0}.cpp\n'
       '\tg++ -o elf comp-{0}.cpp --std=c++11 -O2 -Wall\n'
       '\talgo-split in-{0}.txt\n'
-      '\talgo-run | tee comp-{0}.txt\n'
+      '\talgo-run comp-result.txt | tee comp-{0}.txt\n'
+      '\t diff -y result.txt comp-result.txt'
       '\n'
       'gen: gen-{0}.cpp\n'
       '\t@echo "Generating test data.."\n'
@@ -126,7 +128,7 @@ def generate_makefile(fn):
       '\t@rm gen\n'
       '\n'
       'clean:\n'
-      '\t@rm -f ./elf input_* log_* result.txt\n').format(fn[0:-4])
+      '\t@rm -f ./elf input_* log_* \n').format(fn[0:-4])
 
   with open('Makefile', 'w') as f:
     f.write(makefile)

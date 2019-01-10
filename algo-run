@@ -13,7 +13,7 @@ trap "trap_ctrlc" 2
 
 input_name=input_
 output_name=log_
-res_name=result.txt
+res_name="$1"
 
 for test_file in "$input_name"*; do
   if [[ "$test_file" == "input_*" ]]; then
@@ -30,7 +30,7 @@ for test_file in "$input_name"*; do
   if ! { ./elf < "$input"; } | tee "$output"; then
     echo [1m[31mRuntime error[0m
   else
-    cat "$output" >> "$res_name"
+    cat "$output" > "$res_name"
     # echo "====================" >> "$res_name"
   fi
   rm -f "$input" "$output"
