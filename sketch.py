@@ -119,7 +119,8 @@ def generate_makefile(fn):
       '\tg++ -o elf comp-{0}.cpp --std=c++11 -O2 -Wall\n'
       '\talgo-split in-{0}.txt\n'
       '\talgo-run comp-result.txt | tee comp-{0}.txt\n'
-      '\t diff -y result.txt comp-result.txt'
+      '\tdiff -y result.txt comp-result.txt\n'
+      '\trm comp-result.txt\n'
       '\n'
       'gen: gen-{0}.cpp\n'
       '\t@echo "Generating test data.."\n'
@@ -128,7 +129,7 @@ def generate_makefile(fn):
       '\t@rm gen\n'
       '\n'
       'clean:\n'
-      '\t@rm -f ./elf input_* log_* \n').format(fn[0:-4])
+      '\t@rm -f ./elf input_* log_* result.txt\n').format(fn[0:-4])
 
   with open('Makefile', 'w') as f:
     f.write(makefile)
