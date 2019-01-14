@@ -38,19 +38,38 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// TODO(landcold7): maximum flow
-
 void solve() {
+    int n, k; cin >> n >> k;
+    vi aa(n + 1, 0);
+    fori (i, 1, n + 1) {
+        cin >> aa[i];
+    }
 
+    int ret = 0;
+    fori (b, 0, 100) {
+        vi bb = aa;
+        fori (i, -100, 100) {
+            int c = b + i * k;
+            if (1 <= c && c <= n) {
+                bb[c] = 2;
+            }
+        }
+
+        int e = 0, s = 0;
+        fori (i, 1, n + 1) {
+            if (bb[i] == 1) ++e;
+            else if (bb[i] == -1) ++s;
+        }
+        ret = max(ret, abs(e - s));
+    }
+
+    output(ret);
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
-
-    }
+    solve();
     return 0;
 }

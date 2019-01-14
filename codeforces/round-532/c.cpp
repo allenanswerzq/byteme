@@ -38,19 +38,21 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// TODO(landcold7): maximum flow
+const double pi = std::acos(-1);
 
 void solve() {
-
+    int n, r; cin >> n >> r;
+    double deg = pi / n;
+    double ret = r * sin(deg) / (1 - sin(deg));
+    output(ret);
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
+    cout.precision(7);
+    cout << fixed;
 
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
-
-    }
+    solve();
     return 0;
 }

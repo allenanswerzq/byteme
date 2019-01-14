@@ -31,7 +31,6 @@ for test_file in "$input_name"*; do
     echo [1m[31mRuntime error[0m
   else
     cat "$output" >> "$res_name"
-    # echo "====================" >> "$res_name"
   fi
   rm -f "$input" "$output"
 done
