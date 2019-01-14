@@ -6,6 +6,20 @@
 
 import os
 import sys
+import time
+
+def build_copy(name, date, author, copyright, desc):
+  copy = ('''\
+//============================================================================
+// Name        : {0}
+// Date        : {1}
+// Author      : {2}
+// Copyright   : Your copyright notice
+// Description : {3}
+//============================================================================
+''').format(name, date, author, copyright, desc)
+  return copy
+
 
 def build_cpp():
   cpp = '''\
@@ -68,6 +82,8 @@ int main() {
   return cpp
 
 def generate_file(fn):
+  name = fn[0: -4]
+  make = 'Makefile-' + name
 
   if os.path.isfile(fn):
     print("File already exists")
@@ -77,12 +93,11 @@ def generate_file(fn):
 
   with open(fn, 'w') as f:
     cmd = "subl "
+    # cpp = build_copy(name, time.ctime(), "landcold7", "None", "Keep coding")
     cpp = build_cpp();
     f.write(cpp)
     print("=>Writing to {}".format(fn))
 
-  name = fn[0: -4]
-  make = 'Makefile-' + name
 
   os.system('touch in-' + name +'.txt')
   os.system('mv Makefile ' + make)
@@ -135,9 +150,7 @@ def generate_makefile(fn):
     f.write(makefile)
 
 if __name__ == "__main__":
-    print('=>Creating Makefile..')
+    # print('=>Creating Makefile..')
     file_name = sys.argv[1]
     generate_makefile(file_name)
     generate_file(file_name)
-    # sys.exit(0)
-

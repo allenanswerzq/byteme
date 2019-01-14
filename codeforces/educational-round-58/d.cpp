@@ -38,46 +38,8 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-const ll step = 1e6;
+void solve() {
 
-void solve(int tt) {
-    int n; cin >> n;
-    vpii aa;
-    unordered_map<ll, vi> mp;
-    fori (i, 0, n) {
-        int a, b; cin >> a >> b;
-        aa.pb({a, b});
-        mp[a * step + b].pb(i);
-    }
-    sort(all(aa));
-
-    int split = -1, mx = aa[0].second;
-    fori (i, 1, sz(aa)) {
-        if (aa[i].first > mx) {
-            split = i;
-            break;
-        }
-        mx = max(mx, aa[i].second);
-    }
-
-    if (split == -1) {
-        output(-1);
-    } else {
-        vi ret(n, 0);
-        fori (i, 0, n) {
-            ll p = aa[i].first * step + aa[i].second;
-            vi indices = mp[p];
-            fori (j, 0, sz(indices)) {
-                if (i < split) {
-                    ret[indices[j]] = 1;
-                } else {
-                    ret[indices[j]] = 2;
-                }
-            }
-            mp[p].clear();
-        }
-        pvi(ret, 0);
-    }
 }
 
 int main() {
@@ -86,7 +48,7 @@ int main() {
 
     int t; cin >> t >> ws;
     fori (i, 1, t + 1) {
-        solve(i);
+
     }
     return 0;
 }
