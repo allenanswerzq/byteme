@@ -51,7 +51,9 @@ void solve() {
     int full = 0;
     fori (i, 0, m) {
         ++cnt[aa[i]];
-        if (cnt[aa[i]] == 1) ++full;
+        if (cnt[aa[i]] == 1) {
+            ++full;
+        }
         if (full == n) {
             cout << "1";
             fori (j, 1, n + 1) {

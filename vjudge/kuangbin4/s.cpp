@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <cstring>
 using namespace std;
 
 #define pb push_back
@@ -15,18 +18,18 @@ using namespace std;
 #define pvi(x, v) if (v) pvar(x); fora(a, x) cout << a << " "; pend
 #define par(x, n, v) if (v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
 
-#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
-template <typename T>
-void _f(const char* name, T&& arg) {
-    cout << fixed << name << ": " << arg << '\n';
-}
+// #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+// template <typename T>
+// void _f(const char* name, T&& arg) {
+//     cout << fixed << name << ": " << arg << '\n';
+// }
 
-template <typename T, typename... Args>
-void _f(const char* names, T&& arg, Args&&... args) {
-    const char* split = strchr(names + 1, ',');
-    cout.write(names, split - names) << ": " << arg << " |";
-    _f(split, args...);
-}
+// template <typename T, typename... Args>
+// void _f(const char* names, T&& arg, Args&&... args) {
+//     const char* split = strchr(names + 1, ',');
+//     cout.write(names, split - names) << ": " << arg << " |";
+//     _f(split, args...);
+// }
 
 typedef long long ll;
 typedef long double ld;
@@ -69,7 +72,8 @@ bool spfa(int src, int n) {
 
     while (front != rear) {
         int u = que[front++];
-        fora (edge, gg[u])  {
+        fori (i, 0, sz(gg[u])) {
+            Edge edge = gg[u][i];
             int v = edge.v, w = edge.w;
             if (dist[v] > dist[u] + w) {
                 dist[v] = dist[u] + w;

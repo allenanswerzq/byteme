@@ -82,36 +82,35 @@ int main() {
   return cpp
 
 def generate_file(fn):
-  name = fn[0: -4]
-  make = 'Makefile-' + name
+    name = fn[0: -4]
+    make = 'Makefile-' + name
 
-  if os.path.isfile(fn):
-    print("File already exists")
-    cmd = "subl " if sys.platform == "darwin" else "subl "
+    if os.path.isfile(fn):
+        print("File already exists")
+        cmd = "subl " if sys.platform == "darwin" else "subl "
+        os.system(cmd + fn)
+        return
+
+    with open(fn, 'w') as f:
+        cmd = "subl "
+        cpp = build_copy(name, time.ctime(), "landcold7", "None", "Keep coding")
+        cpp += build_cpp();
+        f.write(cpp)
+        print("=>Writing to {}".format(fn))
+
+    os.system('touch in-' + name +'.txt')
+    os.system('mv Makefile ' + make)
+    os.system(cmd + make)
+    os.system(cmd + ' comp-' + name + '.cpp')
+    os.system(cmd + ' gen-' + name + '.cpp')
+    os.system(cmd + ' true-' + name + '.txt')
+    os.system(cmd + ' in-' + name + '.txt')
     os.system(cmd + fn)
-    return
-
-  with open(fn, 'w') as f:
-    cmd = "subl "
-    # cpp = build_copy(name, time.ctime(), "landcold7", "None", "Keep coding")
-    cpp = build_cpp();
-    f.write(cpp)
-    print("=>Writing to {}".format(fn))
-
-
-  os.system('touch in-' + name +'.txt')
-  os.system('mv Makefile ' + make)
-  os.system(cmd + make)
-  os.system(cmd + ' comp-' + name + '.cpp')
-  os.system(cmd + ' gen-' + name + '.cpp')
-  os.system(cmd + ' true-' + name + '.txt')
-  os.system(cmd + ' in-' + name + '.txt')
-  os.system(cmd + fn)
-  os.system('algo-make test ' + make)
+    os.system('algo-make test ' + make)
 
 
 def generate_makefile(fn):
-  makefile = (
+    makefile = (
       '#!/bin/bash\n'
       'all: run\n'
       'compile:\n'
@@ -146,8 +145,8 @@ def generate_makefile(fn):
       'clean:\n'
       '\t@rm -f ./elf input_* log_* result.txt\n').format(fn[0:-4])
 
-  with open('Makefile', 'w') as f:
-    f.write(makefile)
+    with open('Makefile', 'w') as f:
+        f.write(makefile)
 
 if __name__ == "__main__":
     # print('=>Creating Makefile..')
