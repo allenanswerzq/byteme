@@ -1,15 +1,14 @@
 //============================================================================
-// Name        : e
-// Date        : Wed Jan 16 13:37:53 2019
+// Name        : h
+// Date        : Thu Jan 17 09:40:38 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
 //============================================================================
-// #include <bits/stdc++.h>
+// #include <bits/stdc++.h
 #include <iostream>
 #include <vector>
-#include <cstdio>
-#include <cassert>
+#include <map>
 using namespace std;
 
 #define pb push_back
@@ -51,60 +50,61 @@ typedef vector<pii> vpii;
 
 struct UF {
     vi e, val;
-    int count, n;
-    UF(int n) : e(n + 1, -1), val(n + 1, 0), count(0), n(n) {}
+    UF(int n) : e(n+1, -1), val(n+1, 0) {}
 
     int find(int x) {
         if (e[x] < 0) return x;
-        int parent = find(e[x]);
-        val[x] += val[e[x]];
-        val[x] %= 3;
-        e[x] = parent;
-        return parent;
+        int root = find(e[x]);
+        val[x] ^= val[e[x]];
+        e[x] = root;
+        return root;
     }
 
-    int answer() {
-        return count;
-    }
-
-    void join(int op, int x, int y) {
-        if (x > n || y > n) {
-            ++count;
-            return;
-        }
-        int t1 = find(x), t2 = find(y);
+    bool join(int u, int v, string op) {
+        int t1 = find(u), t2 = find(v);
+        int parity = (op == "even" ? 0 : 1);
         if (t1 == t2) {
-            if (op == 1) {
-                if (val[x] != val[y]) ++count;
-            } else if (op == 2) {
-                if ((val[x] + 1) % 3 != val[y]) ++count;
+            // val[u] denotes the parity from u to root of this set.
+            // thus val[u] ^ val[v] denotes the parity in the range of (u...v]
+            if ((val[u] ^ val[v]) != parity) {
+                return 0;
             }
         } else {
-            if (op == 1) {
-                // x and y are the same kind animal.
-                e[t2] = t1;
-                val[t2] = val[x] - val[y];
-                val[t2] = (val[t2] + 3) % 3;
-            } else {
-                // x can eat y: x + 1 = y
-                e[t2] = t1;
-                val[t2] = val[x] - val[y] + 1;
-                val[t2] = (val[t2] + 3) % 3;
-            }
+            e[t2] = t1;
+            val[t2] = val[u] ^ val[v] ^ parity;
         }
+        return 1;
     }
 };
 
+const int maxn = 1e4 + 7;
+int n, m;
+
+// Because the length of the input sequence is huge(1e9) that can not
+// fit into memory, but here we only need to touch a few of these sequence
+// indices, thus use a hashmap to assign each a new samller index.
+int tot;
+map<int, int> mp;
+int get(int x) {
+    if (mp.count(x)) return mp[x];
+    mp[x] = tot++;
+    return mp[x];
+}
+
 void solve() {
-    int n, k;
-    scanf("%d %d", &n, &k);
-    UF uf(n);
-    fori (i, 0, k) {
-        int t, x, y;
-        scanf("%d %d %d", &t, &x, &y);
-        uf.join(t, x, y);
+    cin >> n >> m;
+    tot = 0;
+    int ret = 0;
+    UF uf(maxn);
+    fori (i, 0, m) {
+        int u, v; string op;
+        cin >> u >> v >> op;
+        u = get(u - 1);
+        v = get(v);
+        if (uf.join(u, v, op)) ++ret;
+        else break;
     }
-    output(uf.answer());
+    output(ret);
 }
 
 int main() {

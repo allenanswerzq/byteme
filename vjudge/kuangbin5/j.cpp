@@ -1,15 +1,15 @@
 //============================================================================
-// Name        : e
-// Date        : Wed Jan 16 13:37:53 2019
+// Name        : j
+// Date        : Fri Jan 18 14:04:14 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
 //============================================================================
 // #include <bits/stdc++.h>
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include <cstdio>
-#include <cassert>
 using namespace std;
 
 #define pb push_back
@@ -51,66 +51,57 @@ typedef vector<pii> vpii;
 
 struct UF {
     vi e, val;
-    int count, n;
-    UF(int n) : e(n + 1, -1), val(n + 1, 0), count(0), n(n) {}
+    UF(int n) : e(n + 1, -1), val(n + 1, 0) {}
 
     int find(int x) {
         if (e[x] < 0) return x;
-        int parent = find(e[x]);
-        val[x] += val[e[x]];
-        val[x] %= 3;
-        e[x] = parent;
-        return parent;
+        int root = find(e[x]);
+        val[x] = (val[x] + val[e[x]]) % 2;
+        e[x] = root;
+        return root;
     }
 
-    int answer() {
-        return count;
-    }
-
-    void join(int op, int x, int y) {
-        if (x > n || y > n) {
-            ++count;
-            return;
-        }
-        int t1 = find(x), t2 = find(y);
-        if (t1 == t2) {
-            if (op == 1) {
-                if (val[x] != val[y]) ++count;
-            } else if (op == 2) {
-                if ((val[x] + 1) % 3 != val[y]) ++count;
-            }
+    bool join(int u, int v) {
+        if (u == v) return 0;
+        int t1 = find(u), t2 = find(v);
+        if (t1 != t2) {
+            e[t2] = t1;
+            val[t2] = (val[u] - val[v] + 1 + 2) % 2;
         } else {
-            if (op == 1) {
-                // x and y are the same kind animal.
-                e[t2] = t1;
-                val[t2] = val[x] - val[y];
-                val[t2] = (val[t2] + 3) % 3;
-            } else {
-                // x can eat y: x + 1 = y
-                e[t2] = t1;
-                val[t2] = val[x] - val[y] + 1;
-                val[t2] = (val[t2] + 3) % 3;
-            }
+            if (val[u] == val[v]) return 0;
         }
+        return 1;
     }
 };
 
-void solve() {
-    int n, k;
-    scanf("%d %d", &n, &k);
+void solve(int tt) {
+    int n, m;
+    scanf("%d %d", &n, &m);
+
     UF uf(n);
-    fori (i, 0, k) {
-        int t, x, y;
-        scanf("%d %d %d", &t, &x, &y);
-        uf.join(t, x, y);
+    bool ok = 0;
+    fori (i, 0, m) {
+        int u, v;
+        scanf("%d %d", &u, &v);
+        if (!uf.join(u, v)) ok = 1;
     }
-    output(uf.answer());
+
+    cout << "Scenario #" << tt << ":\n";
+    if (ok) {
+        cout << "Suspicious bugs found!\n";
+    } else {
+        cout << "No suspicious bugs found!\n";
+    }
+    cout << "\n";
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+    // ios_base::sync_with_stdio(0);
+    // cin.tie(0);
 
-    solve();
+    int t; scanf("%d", &t);
+    fori (i, 1, t + 1) {
+        solve(i);
+    }
     return 0;
 }

@@ -1,15 +1,14 @@
 //============================================================================
-// Name        : e
-// Date        : Wed Jan 16 13:37:53 2019
+// Name        : g
+// Date        : Wed Jan 16 21:43:23 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
 //============================================================================
 // #include <bits/stdc++.h>
 #include <iostream>
+#include <algorithm>
 #include <vector>
-#include <cstdio>
-#include <cassert>
 using namespace std;
 
 #define pb push_back
@@ -49,68 +48,56 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+typedef struct Node {
+    int p, d;
+} Node;
+
 struct UF {
-    vi e, val;
-    int count, n;
-    UF(int n) : e(n + 1, -1), val(n + 1, 0), count(0), n(n) {}
+    vi e;
+    UF(int n) : e(n + 1, -1) {}
 
     int find(int x) {
-        if (e[x] < 0) return x;
-        int parent = find(e[x]);
-        val[x] += val[e[x]];
-        val[x] %= 3;
-        e[x] = parent;
-        return parent;
+        return e[x] < 0 ? x : find(e[x]);
     }
 
-    int answer() {
-        return count;
-    }
-
-    void join(int op, int x, int y) {
-        if (x > n || y > n) {
-            ++count;
-            return;
-        }
-        int t1 = find(x), t2 = find(y);
-        if (t1 == t2) {
-            if (op == 1) {
-                if (val[x] != val[y]) ++count;
-            } else if (op == 2) {
-                if ((val[x] + 1) % 3 != val[y]) ++count;
-            }
-        } else {
-            if (op == 1) {
-                // x and y are the same kind animal.
-                e[t2] = t1;
-                val[t2] = val[x] - val[y];
-                val[t2] = (val[t2] + 3) % 3;
-            } else {
-                // x can eat y: x + 1 = y
-                e[t2] = t1;
-                val[t2] = val[x] - val[y] + 1;
-                val[t2] = (val[t2] + 3) % 3;
-            }
-        }
+    void set(int t) {
+        e[t] = t - 1;
     }
 };
 
+const int maxn = 1e4 + 10;
+Node aa[maxn];
+int n;
+
+bool cmp(Node a, Node b) {
+    return a.p > b.p;
+}
+
 void solve() {
-    int n, k;
-    scanf("%d %d", &n, &k);
-    UF uf(n);
-    fori (i, 0, k) {
-        int t, x, y;
-        scanf("%d %d %d", &t, &x, &y);
-        uf.join(t, x, y);
+    fori (i, 0, n) {
+        cin >> aa[i].p >> aa[i].d;
     }
-    output(uf.answer());
+    sort(aa, aa + n, cmp);
+
+    int ret = 0;
+    UF uf(maxn);
+    fori (i, 0, n) {
+        int t = uf.find(aa[i].d);
+        if (t > 0) {
+            ret += aa[i].p;
+            uf.set(t);
+        }
+    }
+
+    output(ret);
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    solve();
+    while (cin >> n) {
+        solve();
+    }
     return 0;
 }
