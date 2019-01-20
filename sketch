@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+root=${ALGO:=$HOME/Code/algos}
+for filepath in $*; do
+    mkdir -p $filepath
+    filename=$(basename "$filepath")
+    cat "$root/template.cpp" > $filepath/$filename.cpp
+    cp "$root/Makefile" $filepath/Makefile
+    touch $filepath/ins
+    echo "==> Problem $filepath created."
+    subl $filepath/*
+done

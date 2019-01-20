@@ -6,12 +6,6 @@ import copy
 import signal
 from pathlib import Path
 
-# def signal_handler(sig, frame):
-#     print('You pressed Ctrl+C!')
-#     sys.exit(0)
-
-# signal.signal(signal.SIGINT, signal_handler)
-
 inputs = []
 outputs = []
 inputs_sign = "nput"
@@ -51,7 +45,7 @@ if len(outputs) > 0 and len(inputs) > 0:
         f.write(line)
       f.write("\n")
 
-  with open(sys.argv[1].replace("in", "true"), "w") as f:
+  with open("true", "w") as f:
     for out in outputs:
       for line in out:
         f.write(line)
@@ -75,7 +69,7 @@ if sample != '':
 
 ret = []
 for i, sample_content in enumerate(samples):
-  input_name = 'input_' + str(i)
+  input_name = str(i) + ".in"
   with open(input_name, 'w') as f:
     f.write(sample_content)
 

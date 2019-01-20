@@ -3,15 +3,10 @@
 var=1
 trap '{ echo $var && test $var -eq 10 && exit 1; var=$(expr $var + 1); }' INT
 
-makefile=$1
-run=$2
-
-if [[ "$1" == "test" ]]; then
-  cmd="make test -f $2"
-elif [[ "$1" == "run" ]]; then
-  cmd="make run -f $2"
+if [[ "$1" == "run" ]]; then
+  cmd="make run"
 elif [[ "$1" == "comp" ]]; then
-  cmd="make comp -f $2"
+  cmd="make comp"
 else
   cmd="make test"
 fi
