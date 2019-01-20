@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : b
+// Date        : Sun Jan 20 13:42:03 CST 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
@@ -45,17 +45,50 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-void solve() {
+struct Interval {
+    int l, r;
+    bool operator== (const Interval& b) const {
+        return l == b.l && r == b.r;
+    }
+};
 
+bool cmp(const Interval& a, const Interval& b) {
+    if (a.l != b.l) {
+        return a.l < b.l;
+    }
+    return a.r > b.r;
+}
+
+int containedIntervals(vector<Interval>& aa) {
+    sort(all(aa), cmp);
+
+    int mx = numeric_limits<int>::min();
+    int ret = 0, n = sz(aa);
+    fori (i, 0, n) {
+        if (aa[i].r <= mx || (i + 1 < n && aa[i] == aa[i + 1])) {
+            ++ret;
+        }
+        mx = max(mx, aa[i].r);
+    }
+    return ret;
+}
+
+void solve() {
+    int n; cin >> n;
+    vector<Interval> aa;
+    fori (i, 0, n) {
+        int a, b; cin >> a >> b;
+        aa.pb({a, b});
+    }
+    int ret = containedIntervals(aa);
+    output(ret);
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
+    // ios_base::sync_with_stdio(0);
+    // cin.tie(0);
 
-    }
+    solve();
     return 0;
 }
 

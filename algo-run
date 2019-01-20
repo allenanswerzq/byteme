@@ -14,6 +14,7 @@ inp=*.in
 elf=${1:-elf}
 res=${2:-test.res}
 
+rm $res
 for i in $inp; do
     if ! [ -e "$i" ]; then
         echo [1m[31mEmpty input[0m

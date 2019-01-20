@@ -11,10 +11,11 @@ log*.txt
 log*
 result*.txt
 test/*
-Makefile-*
+Makefile*
 *sublime-*
 comp*.cpp
 comp*.txt
+*.in
 *.gv
 gen-*.cpp
 *.bak

@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : a
+// Date        : Sun Jan 20 13:31:49 CST 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
@@ -45,17 +45,25 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-void solve() {
+int bitcount(int x) {
+    int ret = 0;
+    while (x) {
+        ++ret;
+        x = x & (x - 1);
+    }
+    return ret;
+}
 
+void solve() {
+    int x; cin >> x;
+    output(bitcount(x));
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
 
-    }
+    solve();
     return 0;
 }
 

@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : l
+// Date        : Sat Jan 19 21:22:35 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
@@ -52,10 +52,10 @@ void solve() {
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
+
     int t; cin >> t >> ws;
     fori (i, 1, t + 1) {
 
     }
     return 0;
 }
-

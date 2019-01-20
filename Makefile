@@ -8,7 +8,9 @@ TARGET := $(notdir $(CURDIR))
 all: test
 
 clean:
-	-rm -rf $(TARGET) *.res *.log cmp
+	@echo "current directory: " $(CURDIR)
+	@echo
+	-rm -rf $(TARGET) *.log cmp
 
 % : %.cpp
 	$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
@@ -23,15 +25,15 @@ test : clean $(TARGET)
 	@echo "--------------------"
 	ls test.res true >> /dev/null 2>&1 && diff -y test.res true
 
-comp : clean test cmp
+comp : clean cmp
 	ls cmp.cpp > /dev/null || touch cmp.cpp
 	algo-split ./ins
 	algo-run cmp comp.res | tee comp.log
 	@echo "---------------------"
-	ls test.res comp.res >> /dev/null 2>&1 && diff -y test.res comp.res
+	# ls test.res comp.res >> /dev/null 2>&1 && diff -y test.res comp.res
+	diff -y test.res comp.res
 
 .PHONY: all clean run test comp
 
 print-%:
 	@echo $* = $($*)
-
