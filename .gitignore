@@ -19,3 +19,7 @@ comp*.txt
 *.gv
 gen-*.cpp
 *.bak
+*.log
+*.res
+cmp.cpp
+cmp
