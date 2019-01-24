@@ -20,7 +20,7 @@ for i in $inp; do
         echo [1m[31mEmpty input[0m
         exit 1
     fi
-    echo "===================="
+    echo "//-------------------------------------------------------------\\\\"
     out="${i%.in}".out
     # # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
     if ! { ./$elf < $i; } | tee $out; then
@@ -28,5 +28,6 @@ for i in $inp; do
     else
       cat $out >> $res
     fi
+    echo "\\\\-------------------------------------------------------------//"
     rm -f $i $out
 done

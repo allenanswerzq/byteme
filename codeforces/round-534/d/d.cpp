@@ -1,8 +1,14 @@
+//============================================================================
+// Name        : d
+// Date        : Wed Jan 23 11:42:02 CST 2019
+// Author      : landcold7
+// Copyright   : Your copyright notice
+// Description : None
+//============================================================================
 #include <bits/stdc++.h>
 using namespace std;
 
 #define pb push_back
-#define pend cout << '\n'
 #define pvar(x) cout << #x << ": "
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
@@ -12,8 +18,9 @@ using namespace std;
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
 #define output(v) cout << (v) << '\n'
 #define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
-#define pvi(x, v) if (v) pvar(x); fora(a, x) cout << a << " "; pend
-#define par(x, n, v) if (v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
+#define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
+#define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; cout << '\n'
+#define par(x, s, n, v) if(v) pvar(x); fori(a, s, n) prt(x, a, n) cout << '\n'
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
@@ -38,32 +45,37 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+bool send(int x, int y) {
+    cout << "? " << x << " " << y << endl;
+    string res; cin >> res;
+    return res == "y";
+}
+
 void solve() {
-    int n; cin >> n;
-    int mh, mw;
-    mh = mw = 0;
-    fori (i, 0, n) {
-        char ch; int h, w;
-        cin >> ch >> h >> w;
-        if (ch == '+') {
-            if (h < w) swap(h, w);
-            mh = max(h, mh);
-            mw = max(w, mw);
-        } else {
-            if (h < w) swap(h, w);
-            if (h >= mh && w >= mw) {
-                output("YES");
+    string ss; cin >> ss;
+    while (ss == "start") {
+        int x = 0, y = 1;
+        while (send(x, y)) {
+            x = y;
+            y *= 2;
+        }
+        while (y - x > 1) {
+            int m = (x + y) / 2;
+            if (send(x, m)) {
+                x = m;
             } else {
-                output("NO");
+                y = m;
             }
         }
+        cout << "! " << x + 1 << endl;
+        cin >> ss;
     }
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-
     solve();
     return 0;
 }
+

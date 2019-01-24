@@ -1,8 +1,14 @@
+//============================================================================
+// Name        : c
+// Date        : Wed Jan 23 10:07:20 CST 2019
+// Author      : landcold7
+// Copyright   : Your copyright notice
+// Description : None
+//============================================================================
 #include <bits/stdc++.h>
 using namespace std;
 
 #define pb push_back
-#define pend cout << '\n'
 #define pvar(x) cout << #x << ": "
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
@@ -12,8 +18,9 @@ using namespace std;
 #define ford(i, a, b) for (int i = (a); i > (b); --i)
 #define output(v) cout << (v) << '\n'
 #define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
-#define pvi(x, v) if (v) pvar(x); fora(a, x) cout << a << " "; pend
-#define par(x, n, v) if (v) pvar(x); fori(a, 0, n) cout << x[a] << " "; pend
+#define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
+#define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; cout << '\n'
+#define par(x, s, n, v) if(v) pvar(x); fori(a, s, n) prt(x, a, n) cout << '\n'
 
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
@@ -39,23 +46,17 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 void solve() {
-    int n; cin >> n;
-    int mh, mw;
-    mh = mw = 0;
-    fori (i, 0, n) {
-        char ch; int h, w;
-        cin >> ch >> h >> w;
-        if (ch == '+') {
-            if (h < w) swap(h, w);
-            mh = max(h, mh);
-            mw = max(w, mw);
+    string ss; cin >> ss;
+    int c1 = 1, c2 = 1;
+    fori (i, 0, sz(ss)) {
+        char ch = ss[i];
+        if (ch == '0') {
+            cout << 1 << " " << c1 << "\n";
+            if (++c1 == 5) c1 = 1;
         } else {
-            if (h < w) swap(h, w);
-            if (h >= mh && w >= mw) {
-                output("YES");
-            } else {
-                output("NO");
-            }
+            cout << 3 << " " << c2 << "\n";
+            c2 += 2;
+            if (c2 == 5) c2 = 1;
         }
     }
 }
@@ -63,7 +64,7 @@ void solve() {
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-
     solve();
     return 0;
 }
+

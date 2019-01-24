@@ -18,7 +18,7 @@ clean:
 	-rm -rf $(TARGET) *.log cmp
 
 % : %.cpp
-	$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
+	@$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 run: $(TARGET)
 	./$(TARGET)
@@ -27,14 +27,14 @@ test : clean $(TARGET)
 	-mv /tmp/algo-samples ./ins > /dev/null 2>&1
 	algo-split ins
 	algo-run $(TARGET) test.res | tee test.log
-	@echo "--------------------"
+	@echo "//-------------------------------------------------------------\\\\"
 	ls test.res true >> /dev/null 2>&1 && diff -y test.res true
 
 comp : clean cmp
 	ls cmp.cpp > /dev/null || touch cmp.cpp
 	algo-split ./ins
 	algo-run cmp comp.res | tee comp.log
-	@echo "---------------------"
+	@echo "//-------------------------------------------------------------\\\\"
 	# ls test.res comp.res >> /dev/null 2>&1 && diff -y test.res comp.res
 	diff -y test.res comp.res
 
