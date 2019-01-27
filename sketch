@@ -11,6 +11,7 @@ for filepath in $*; do
     touch $filepath/ins
     echo "==> Problem $filepath created."
     subl $filepath/*
+    subl $filepath/true
     cd $filepath
     while [ 1 ]; do
         clear && tmux clear-history

@@ -35,7 +35,8 @@ comp : clean cmp
 	algo-split ./ins
 	algo-run cmp comp.res | tee comp.log
 	@echo "//-------------------------------------------------------------\\\\"
-	ls test.res comp.res >> /dev/null 2>&1 && diff -y test.res comp.res
+	# ls test.res comp.res >> /dev/null 2>&1 && diff -y test.res comp.res
+	diff -y test.res comp.res
 
 .PHONY: all clean run test comp
 
