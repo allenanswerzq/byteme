@@ -10,8 +10,8 @@ for filepath in $*; do
     cp "$root/Makefile" $filepath/Makefile
     touch $filepath/ins
     echo "==> Problem $filepath created."
-    subl $filepath/*
     subl $filepath/true
+    subl $filepath/*
     cd $filepath
     while [ 1 ]; do
         clear && tmux clear-history
