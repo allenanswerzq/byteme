@@ -13,9 +13,6 @@
 [submodule "third_party/algorithm"]
 	path = third_party/algorithm
 	url = https://github.com/spaghetti-source/algorithm.git
-[submodule "third_party/kactl"]
-	path = third_party/kactl
-	url = https://github.com/kth-competitive-programming/kactl.git
 [submodule "third_party/jngen"]
 	path = third_party/jngen
 	url = https://github.com/landcold7/jngen.git
@@ -25,3 +22,6 @@
 [submodule "third_party/ByteHelper"]
 	path = third_party/ByteHelper
 	url = git@github.com:landcold7/ByteHelper.git
+[submodule "third_party/kactl"]
+	path = third_party/kactl
+	url = https://github.com/landcold7/kactl.git
