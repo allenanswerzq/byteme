@@ -1,12 +1,3 @@
-[submodule "third_party/cosmos"]
-	path = third_party/cosmos
-	url = https://github.com/landcold7/cosmos.git
-[submodule "third_party/C-Plus-Plus"]
-	path = third_party/C-Plus-Plus
-	url = https://github.com/landcold7/C-Plus-Plus.git
-[submodule "third_party/graph_algorithms"]
-	path = third_party/graph_algorithms
-	url = git@github.com:landcold7/graph_algorithms.git
 [submodule "third_party/codebook"]
 	path = third_party/codebook
 	url = https://github.com/landcold7/codebook.git
@@ -19,9 +10,9 @@
 [submodule "third_party/testlib"]
 	path = third_party/testlib
 	url = https://github.com/MikeMirzayanov/testlib.git
-[submodule "third_party/ByteHelper"]
-	path = third_party/ByteHelper
-	url = git@github.com:landcold7/ByteHelper.git
 [submodule "third_party/kactl"]
 	path = third_party/kactl
 	url = https://github.com/landcold7/kactl.git
+[submodule "third_party/bytedump"]
+	path = third_party/bytedump
+	url = https://github.com/landcold7/bytedump.git
