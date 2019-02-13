@@ -14,8 +14,8 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
 #define fora(e, c) for (auto &e : c)
-#define rep(i, a, b) for (int i = a; i < b; ++i)
-#define repd(i, a, b) for (int i = a; i > b; --i)
+#define fori(i, a, b) for (int i = a; i < b; ++i)
+#define ford(i, a, b) for (int i = a; i > b; --i)
 #define output(v) cout << (v) << '\n'
 #define codejam(ix, v) cout << "Case #" << (ix) << ": " << (v) << '\n'
 #define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }

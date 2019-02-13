@@ -37,6 +37,9 @@ comp : clean cmp
 	@echo "//-------------------------------------------------------------\\\\"
 	ls test.res comp.res >> /dev/null 2>&1 && diff -y test.res comp.res
 
+memo:
+	ps aux | grep "[.]/$(TARGET)" | awk '{$$6=int($$6/1024)"M";}{print;}'
+
 .PHONY: all clean run test comp
 
 print-%:
