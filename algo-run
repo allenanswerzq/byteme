@@ -1,5 +1,6 @@
 #!/bin/bash
 # Usage: algo-run elf res_name
+set -o pipefail
 
 function trap_ctrlc () {
     echo [1m[31mLoop exists, see log file. Exit...[0m
@@ -22,9 +23,9 @@ for i in $inp; do
     fi
     echo "//-------------------------------------------------------------\\\\"
     out="${i%.in}".out
-    # # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
+    # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
     if ! { ./$elf < $i; } | tee $out; then
-      echo [1m[31mRuntime error[0m
+      echo [1m[31mRuntime error, Check source code, Please :\(\-[0m
     else
       cat $out >> $res
     fi

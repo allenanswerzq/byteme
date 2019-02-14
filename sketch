@@ -12,12 +12,4 @@ for filepath in $*; do
     echo "==> Problem $filepath created."
     subl $filepath/true
     subl $filepath/*
-    cd $filepath
-    while [ 1 ]; do
-        clear && tmux clear-history
-        make
-        echo -en "\nPress Enter to continue"
-        read newline
-        clear && tmux clear-history
-    done
 done

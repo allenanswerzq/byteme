@@ -1,12 +1,11 @@
 SHELL = /bin/bash -o pipefail
-CXX = g++
+CXX = clang++
 CXXFLAGS = -Wall -Wextra -pedantic -std=c++11 -O2 -Wshadow -Wformat=2
-CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align
-# CXXFLAGS += -Wlogical-op -Wconversion
+CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align -Wconversion
 
-DEBUGFLAGS = -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fsanitize=address
-DEBUGFLAGS += -fsanitize=undefined -fstack-protector
-# DEBUGFLAGS += -lmcheck -D_FORTIFY_SOURCE=2
+DEBUGFLAGS = -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
+DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
+DEBUGFLAGS += -lmcheck
 
 TARGET := $(notdir $(CURDIR))
 
@@ -28,14 +27,14 @@ test : clean $(TARGET)
 	algo-split ins
 	algo-run $(TARGET) test.res | tee test.log
 	@echo "//-------------------------------------------------------------\\\\"
-	ls test.res true >> /dev/null 2>&1 && diff -y test.res true
+	ls test.res true > /dev/null 2>&1 && diff -y test.res true | tee -a test.log
 
 comp : clean cmp
-	ls cmp.cpp > /dev/null || touch cmp.cpp
+	ls cmp.cpp > /dev/null 2>&1 || touch cmp.cpp
 	algo-split ./ins
 	algo-run cmp comp.res | tee comp.log
 	@echo "//-------------------------------------------------------------\\\\"
-	ls test.res comp.res >> /dev/null 2>&1 && diff -y test.res comp.res
+	ls test.res comp.res > /dev/null 2>&1 && diff -y test.res comp.res | tee -a comp.log
 
 memo:
 	ps aux | grep "[.]/$(TARGET)" | awk '{$$6=int($$6/1024)"M";}{print;}'
