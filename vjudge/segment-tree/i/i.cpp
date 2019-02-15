@@ -45,8 +45,11 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+// TODO(landcold7): solve this use segemnt tree.
+
 int n, m;
 void solve() {
+    vector<bool> visit(n + 1, 0);
     vi destory, stk;
     destory.pb(0), destory.pb(n + 1);
     fori (i, 0, m) {
@@ -54,6 +57,7 @@ void solve() {
         if (op == 'D') {
             int x; cin >> x;
             stk.pb(x);
+            visit[x] = 1;
             auto it = lower_bound(all(destory), x);
             if (*it != x) {
                 destory.insert(it, x);
@@ -70,6 +74,9 @@ void solve() {
         } else {
             if (sz(stk)) {
                 int tp = stk.back(); stk.pop_back();
+                visit[tp] = 0;
+                // The case that one node been destoryed multiple times.
+                while (sz(stk) && !visit[stk.back()]) stk.pop_back();
                 auto it = lower_bound(all(destory), tp);
                 if (*it == tp) destory.erase(it);
             }

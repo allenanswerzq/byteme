@@ -12,4 +12,6 @@ for filepath in $*; do
     echo "==> Problem $filepath created."
     subl $filepath/true
     subl $filepath/*
+    cd $filepath
+    algo-make
 done

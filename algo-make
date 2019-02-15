@@ -1,7 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+# Enable job control
+set -m
 
 var=1
-trap '{ echo $var && test $var -eq 10 && exit 1; var=$(expr $var + 1); }' INT
+
+function trap_ctrlc () {
+    echo [1m[31mCaught ctrlc $var[0m
+    test $var -ge 10 && exit 124
+    var=$(expr $var + 1)
+}
+
+trap 'trap_ctrlc' 2
 
 if [[ "$1" == "run" ]]; then
   cmd="make run"
@@ -11,6 +21,10 @@ else
   cmd="make test"
 fi
 
-while 1; clear && tmux clear-history; do $cmd; \
-echo -en "\nPress Enter to continue"; read newline; \
-clear && tmux clear-history; done;
+# Ref: https://stackoverflow.com/questions/12771909/bash-using-trap-ctrlc
+while [ 1 ]; do
+    clear && tmux clear-history
+    $cmd
+    echo -en [1m[31mPress Enter to continue[0m
+    read newline
+done

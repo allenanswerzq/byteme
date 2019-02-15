@@ -3,8 +3,8 @@
 set -o pipefail
 
 function trap_ctrlc () {
-    echo [1m[31mLoop exists, see log file. Exit...[0m
-    exit 2
+    echo [1m[31mLoop exists, see log file[0m
+    exit 123
 }
 
 # Initialise trap to call trap_ctrlc function
@@ -15,7 +15,7 @@ inp=*.in
 elf=${1:-elf}
 res=${2:-test.res}
 
-rm $res
+rm -rf $res
 for i in $inp; do
     if ! [ -e "$i" ]; then
         echo [1m[31mEmpty input[0m
@@ -24,7 +24,7 @@ for i in $inp; do
     echo "//-------------------------------------------------------------\\\\"
     out="${i%.in}".out
     # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
-    if ! { ./$elf < $i; } | tee $out; then
+    if ! { ASAN_OPTIONS=detect_leaks=1 ./$elf < $i; } | tee $out; then
       echo [1m[31mRuntime error, Check source code, Please :\(\-[0m
     else
       cat $out >> $res
