@@ -13,5 +13,6 @@ for filepath in $*; do
     subl $filepath/true
     subl $filepath/*
     cd $filepath
+    subl ./*
     algo-make
 done

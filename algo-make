@@ -25,6 +25,6 @@ fi
 while [ 1 ]; do
     clear && tmux clear-history
     $cmd
-    echo -en [1m[31mPress Enter to continue[0m
+    echo -en Press Enter to continue
     read newline
 done
