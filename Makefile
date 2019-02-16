@@ -1,6 +1,6 @@
 SHELL = /bin/bash -o pipefail
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -pedantic -std=c++11 -O2 -Wshadow -Wformat=2
+CXXFLAGS = -Wall -Wextra -pedantic -std=c++11 -Wshadow -Wformat=2
 CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align
 # CXXFLAGS += -Wconversion
 
@@ -8,7 +8,7 @@ DEBUGFLAGS = -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
 DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
 # DEBUGFLAGS += -lmcheck
 
-ifeq ($(shell brew info llvm 2>&1 | grep -c "Built from source"), 1)
+ifeq ($(shell ls /usr/local/opt/llvm/bin/clang | grep -c clang), 1)
 	# We are using a homebrew clang, need new flags
 	CXX = /usr/local/opt/llvm/bin/clang++
 	LDFLAGS += -L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib
@@ -22,16 +22,19 @@ all: test
 clean:
 	@echo "current directory: " $(CURDIR)
 	@echo
-	-rm -rf $(TARGET) *.log cmp
+	-rm -rf *.log
 
 % : %.cpp
-	@$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
+	@echo "clang++ $^"
+	@$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) $^ $(LDFLAGS)  -o $@
 
 run: $(TARGET)
 	./$(TARGET)
 
-test : clean $(TARGET)
-	-mv /tmp/algo-samples ./ins > /dev/null 2>&1
+samples :
+	-mv -f /tmp/algo-samples ./ins >> /dev/null 2>&1 || true
+
+test : clean samples $(TARGET)
 	algo-split ins
 	algo-run $(TARGET) test.res | tee test.log
 	@echo "//-------------------------------------------------------------\\\\"
@@ -44,7 +47,7 @@ comp : clean cmp
 	@echo "//-------------------------------------------------------------\\\\"
 	diff -y test.res comp.res | tee -a comp.log
 
-memo:
+memo :
 	ps aux | grep "[.]/$(TARGET)" | awk '{$$6=int($$6/1024)"M";}{print;}'
 
 .PHONY: all clean run test comp

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Enable job control
-set -m
-
 var=1
 
 function trap_ctrlc () {
