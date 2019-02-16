@@ -1,6 +1,6 @@
 SHELL = /bin/bash -o pipefail
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -pedantic -std=c++11 -Wshadow -Wformat=2
+CXXFLAGS = -Wall -Wextra -pedantic -std=c++11 -O2 -Wshadow -Wformat=2
 CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align
 # CXXFLAGS += -Wconversion
 
