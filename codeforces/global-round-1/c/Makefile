@@ -31,25 +31,22 @@ clean:
 run: $(TARGET)
 	./$(TARGET)
 
-samples:
+samples :
 	-mv -f /tmp/algo-samples ./ins >> /dev/null 2>&1 || true
 
-test: clean samples $(TARGET)
+test : clean samples $(TARGET)
 	algo-split ins
 	algo-run $(TARGET) test.res | tee test.log
-	diff -y test.res true | tee -a test.log
+	# diff -y test.res true | tee -a test.log
 
-comp: clean cmp
+comp : clean cmp
 	ls cmp.cpp > /dev/null 2>&1 || touch cmp.cpp
 	algo-split ./ins
 	algo-run cmp comp.res | tee comp.log
 	diff -y test.res comp.res | tee -a comp.log
 
-memo:
+memo :
 	ps aux | grep "[.]/$(TARGET)" | awk '{$$6=int($$6/1024)"M";}{print;}'
-
-gen:
-	python3 gen.py | tee ins
 
 .PHONY: all clean run test comp
 

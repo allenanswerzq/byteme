@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : c
+// Date        : Sat Feb 16 21:45:54 CST 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
@@ -45,18 +45,37 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+// Ref: https://www.quora.com/How-do-I-find-the-number-of-trailing-zeroes-of-N-factorial-in-Base-B
+// Ref: https://janmr.com/blog/2010/10/prime-factors-of-factorial-numbers/
+map<ll, ll> fact;
 void solve() {
+    ll n, b;
+    cin >> n >> b;
+    for (ll i = 2; i * i <= b; ++i) {
+        while (b % i == 0) {
+            fact[i]++;
+            b /= i;
+        }
+    }
+    if (b > 1) fact[b]++;
 
+    ll ret = numeric_limits<ll>::max();
+    fora (f, fact) {
+        ll p = f.first, y = f.second;
+        ll x = 0, m = n;
+        while (m) {
+            x += m / p;
+            m /= p;
+        }
+        ret = min(ret, x / y);
+    }
+    output(ret);
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
-
-    }
+    solve();
     return 0;
 }
 

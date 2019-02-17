@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : a
+// Date        : Sat Feb 16 20:55:31 CST 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
@@ -46,17 +46,29 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 void solve() {
-
+    int x, y, z; cin >> x >> y >> z;
+    int a, b, c; cin >> a >> b >> c;
+    if (a < x) {
+        output("NO");
+        return;
+    }
+    a -= x;
+    if (a + b < y) {
+        output("NO");
+        return;
+    }
+    a = a + b - y;
+    if (a + c < z) {
+        output("NO");
+        return;
+    }
+    output("YES");
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
-
-    }
+    solve();
     return 0;
 }
 

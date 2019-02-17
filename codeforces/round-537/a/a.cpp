@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : a
+// Date        : Fri Feb 15 19:52:17 CST 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
@@ -45,18 +45,29 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
 void solve() {
+    string a, b; cin >> a >> b;
+    if (sz(a) != sz(b)) {
+        output("No");
+        return;
+    }
 
+    fori (i, 0, sz(a)) {
+        int c = vowels.count(a[i]);
+        int d = vowels.count(b[i]);
+        if (c ^ d) {
+            output("NO");
+            return;
+        }
+    }
+    output("Yes");
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+    ios_base::sync_with_stdio(0); cin.tie(0);
 
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
-
-    }
+    solve();
     return 0;
 }
 

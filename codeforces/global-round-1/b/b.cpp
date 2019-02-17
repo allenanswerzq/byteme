@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : b
+// Date        : Sat Feb 16 13:42:05 CST 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
@@ -46,17 +46,28 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 void solve() {
+    int n, m, k;
+    cin >> n >> m >> k;
+    vi aa(n, 0), bb(n - 1, 0);
+    fori (i, 0, n) {
+        cin >> aa[i];
+        if (i > 0) {
+            bb[i - 1] = aa[i] - aa[i - 1] - 1;
+        }
+    }
 
+    sort(all(bb));
+
+    ll ret = n;
+    fori (i, 0, n - k) {
+        ret += bb[i];
+    }
+    output(ret);
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
-
-    }
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    solve();
     return 0;
 }
 

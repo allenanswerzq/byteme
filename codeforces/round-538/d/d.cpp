@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : d
+// Date        : Sun Feb 17 12:03:10 CST 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
@@ -45,18 +45,44 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-void solve() {
+const int maxn = 5200;
+int dp[maxn][maxn][2];
 
+void amin(int& a, int b) {
+    a = min(a, b);
+}
+
+void solve() {
+    int n; cin >> n;
+    vi cc(n, 0);
+    fori (i, 0, n) {
+        cin >> cc[i];
+    }
+
+    int inf = 0x3f3f3f3f;
+    fori (i, 0, n) fori (j, 0, n) {
+        dp[i][j][0] = dp[i][j][1] = (i == j ? 0 : inf);
+    }
+
+    fori (r, 0, n) ford (l, r, -1) {
+        fori (k, 0, 2) {
+            int c = (k == 0 ? cc[l] : cc[r]);
+            if (l) {
+                amin(dp[l-1][r][0], dp[l][r][k] + (c != cc[l-1]));
+            }
+            if (r + 1 < n) {
+                amin(dp[l][r+1][1], dp[l][r][k] + (c != cc[r+1]));
+            }
+        }
+    }
+
+    output(min(dp[0][n-1][0], dp[0][n-1][1]));
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
-
-    }
+    solve();
     return 0;
 }
 

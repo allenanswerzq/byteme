@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : c
+// Date        : Sun Feb 17 15:29:36 CST 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
@@ -46,17 +46,35 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 void solve() {
+    int n; cin >> n;
+    vi aa(n, 0), pre(n + 1, 0);
+    fori (i, 0, n) {
+        cin >> aa[i];
+        pre[i + 1] = pre[i] ^ aa[i];
+    }
+
+    // pvi(aa, 1);
+    // pvi(pre, 1);
+
+    vvi dp(1 << 20, vi(2, 0));
+    fori (i, 0, n + 1) {
+        dp[pre[i]][i % 2]++;
+    }
+
+    ll ret = 0;
+    fori (i, 0, 1 << 20) {
+        fori (k, 0, 2) {
+            ret += 1ll * dp[i][k] * (dp[i][k] - 1);
+        }
+    }
+    output(ret / 2);
 
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
-
-    }
+    solve();
     return 0;
 }
 

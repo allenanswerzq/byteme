@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : c
+// Date        : Fri Feb 15 21:10:40 CST 2019
 // Author      : landcold7
 // Copyright   : Your copyright notice
 // Description : None
@@ -45,18 +45,41 @@ typedef vector<vs> vvs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-void solve() {
+int n, k, A, B;
+vi cc;
 
+int binary_search(int lo, int hi) {
+    auto l = lower_bound(all(cc), lo);
+    auto r = upper_bound(all(cc), hi);
+    return r - l;
+}
+
+ll go(int lo, int hi) {
+    int x = binary_search(lo, hi);
+    // trace(lo, hi, x);
+    ll cost = x == 0 ? A : 1ll * B * x * (hi - lo + 1);
+    if (hi == lo || x == 0) return cost;
+    int mid = lo + (hi - lo) / 2;
+    ll l = go(lo, mid);
+    ll h = go(mid + 1, hi);
+    return min(cost, l + h);
+}
+
+void solve() {
+    cin >> n >> k >> A >> B;
+    fori (i, 0, k) {
+        int x; cin >> x;
+        cc.pb(x);
+    }
+    sort(all(cc));
+    // pvi(cc, 1);
+    ll ret = go(1, (1 << n));
+    output(ret);
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
-
-    }
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    solve();
     return 0;
 }
 
