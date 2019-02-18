@@ -2,7 +2,6 @@
 // Name        : $NAME
 // Date        : $DATE
 // Author      : landcold7
-// Copyright   : Your copyright notice
 // Description : Actions speak louder more than words
 //============================================================================
 #include "bits/stdc++.h"
