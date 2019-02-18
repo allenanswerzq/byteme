@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 root=${ALGO:=$HOME/Code/algos}
 for filepath in $*; do
+    echo $root $filepath
     mkdir -p $filepath
     filename=$(basename "$filepath")
     ctime=$(date)
     sed -e "s/\\\$NAME/$filename/g" \
         -e "s/\\\$DATE/$ctime/g" \
         "$root/template.cpp" > $filepath/$filename.cpp
-    cp "$root/Makefile" $filepath/Makefile
+    sed "s|\\\$ALGOLIB|$root|g" "$root/Makefile" > $filepath/Makefile
     touch $filepath/ins
     echo "==> Problem $filepath created."
     subl $filepath/true

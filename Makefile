@@ -8,6 +8,10 @@ DEBUGFLAGS = -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
 DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
 # DEBUGFLAGS += -lmcheck
 
+# For debug purpose
+CXXFLAGS += -I$ALGOLIB
+DEBUGFLAGS += -DTRACE
+
 ifeq ($(shell ls /usr/local/opt/llvm/bin/clang | grep -c clang), 1)
 	# We are using a homebrew clang, need new flags
 	CXX = /usr/local/opt/llvm/bin/clang++
