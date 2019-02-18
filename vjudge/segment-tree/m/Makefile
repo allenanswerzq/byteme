@@ -9,7 +9,7 @@ DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
 # DEBUGFLAGS += -lmcheck
 
 # For debug purpose
-CXXFLAGS += -I$ALGOLIB
+CXXFLAGS += -I/Users/jche/Code/algos
 DEBUGFLAGS += -DTRACE
 
 ifeq ($(shell ls /usr/local/opt/llvm/bin/clang | grep -c clang), 1)

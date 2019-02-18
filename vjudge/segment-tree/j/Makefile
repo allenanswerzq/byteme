@@ -9,7 +9,7 @@ DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
 # DEBUGFLAGS += -lmcheck
 
 # For debug purpose
-CXXFLAGS += -I$ALGOLIB
+CXXFLAGS += -I/Users/jche/Code/algos
 DEBUGFLAGS += -DTRACE
 
 ifeq ($(shell ls /usr/local/opt/llvm/bin/clang | grep -c clang), 1)
@@ -52,8 +52,9 @@ comp: clean cmp
 memo:
 	ps aux | grep "[.]/$(TARGET)$$" | awk '{$$6=int($$6/1024)"M";}{print;}'
 
-gen: gen.py
+gen:
 	python3 gen.py | tee ins
+
 
 .PHONY: all clean run test comp
 
