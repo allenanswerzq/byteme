@@ -11,7 +11,7 @@ function trap_ctrlc () {
 # when signal 2 (SIGINT) is received
 trap "trap_ctrlc" 2
 
-inp=*.in
+inp=*.inp
 elf=${1:-elf}
 res=${2:-test.res}
 
@@ -22,7 +22,7 @@ for i in $inp; do
         exit 1
     fi
     echo "//-------------------------------------------------------------\\\\"
-    out="${i%.in}".out
+    out="${i%.inp}".out
     # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
     if ! { ASAN_OPTIONS=detect_leaks=1 ./$elf < $i; } | tee $out; then
       echo [1m[31mRuntime error, Check source code, Please :\(\-[0m

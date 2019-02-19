@@ -8,8 +8,8 @@ DEBUGFLAGS = -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
 DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
 # DEBUGFLAGS += -lmcheck
 
-# For debug purpose
-CXXFLAGS += -I$ALGOLIB
+# For local debug purpose
+CXXFLAGS += -I/Users/jche/Code/algos
 DEBUGFLAGS += -DTRACE
 
 ifeq ($(shell ls /usr/local/opt/llvm/bin/clang | grep -c clang), 1)
@@ -26,7 +26,7 @@ all: test
 clean:
 	@echo "current directory: " $(CURDIR)
 	@echo
-	-rm -rf *.log
+	-rm -rf *.log *.inp *.out
 
 % : %.cpp
 	@echo "clang++ $^"
@@ -35,25 +35,31 @@ clean:
 run: $(TARGET)
 	./$(TARGET)
 
-samples:
-	-mv -f /tmp/algo-samples ./ins >> /dev/null 2>&1 || true
+# Making samples.
+samples: clean
+	-mv -f /tmp/algo-samples ./ins.in >> /dev/null 2>&1 || true
+	algo-split ins.in
 
-test: clean samples $(TARGET)
-	algo-split ins
+test.res: samples $(TARGET)
 	algo-run $(TARGET) test.res | tee test.log
-	diff -y test.res true | tee -a test.log
 
-comp: clean cmp
-	ls cmp.cpp > /dev/null 2>&1 || touch cmp.cpp
-	algo-split ./ins
-	algo-run cmp comp.res | tee comp.log
-	diff -y test.res comp.res | tee -a comp.log
+# Compare my results with other person's correct real results.
+comp.res: samples cmp
+	algo-run cmp comp.rel | tee comp.log
+	@mv test.res comp.res
+
+__diff_%: %.res
+	diff -y $*.res $*.rel | tee -a $*.log
+
+test: __diff_test
+
+comp: __diff_comp
 
 memo:
 	ps aux | grep "[.]/$(TARGET)$$" | awk '{$$6=int($$6/1024)"M";}{print;}'
 
 gen: gen.py
-	python3 gen.py | tee ins
+	python3 gen.py | tee ins.in
 
 .PHONY: all clean run test comp
 

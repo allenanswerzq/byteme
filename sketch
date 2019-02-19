@@ -9,9 +9,9 @@ for filepath in $*; do
         -e "s/\\\$DATE/$ctime/g" \
         "$root/template.cpp" > $filepath/$filename.cpp
     sed "s|\\\$ALGOLIB|$root|g" "$root/Makefile" > $filepath/Makefile
-    touch $filepath/ins
+    touch $filepath/ins.in
     echo "==> Problem $filepath created."
-    subl $filepath/true
+    subl $filepath/test.rel
     subl $filepath/*
     cd $filepath
     subl ./*

@@ -17,9 +17,12 @@ using namespace std;
 #define ford(i, a, b) for (int i = a; i > b; --i)
 #define output(v) cout << (v) << '\n'
 #define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
-#define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; cout << '\n'
-#define par(x, s, n, v) if(v) pvar(x); fori(y, s, n) prt(x, y, n) cout << '\n'
+#define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; cout << "\n"
+#define par(x, s, n, v) if(v) pvar(x); fori(y, s, n) prt(x, y, n) cout << "\n"
 
+#ifndef TRACE
+#define trace(...)
+#endif
 typedef long long ll;
 typedef vector<int> vi;
 typedef vector<ll> vl;

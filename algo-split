@@ -45,7 +45,7 @@ if len(outputs) > 0 and len(inputs) > 0:
         f.write(line)
       f.write("\n")
 
-  with open("true", "w") as f:
+  with open("test.rel", "w") as f:
     for out in outputs:
       for line in out:
         f.write(line)
@@ -69,7 +69,7 @@ if sample != '':
 
 ret = []
 for i, sample_content in enumerate(samples):
-  input_name = str(i) + ".in"
+  input_name = str(i) + ".inp"
   with open(input_name, 'w') as f:
     f.write(sample_content)
 
