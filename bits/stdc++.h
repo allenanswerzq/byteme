@@ -28,9 +28,6 @@
 
 // Also writing "using namespace std;" here so that you dont need to write it everytime you start a cpp file
 
-using namespace std;
-
-
   // 17.4.1.2 Headers
 
   // C
@@ -119,3 +116,6 @@ using namespace std;
   #include <unordered_map>
   #include <unordered_set>
   #endif
+
+  // Hacking to add trace.
+  #include "debug.h"

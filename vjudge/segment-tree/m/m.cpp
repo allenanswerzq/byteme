@@ -17,26 +17,8 @@ using namespace std;
 #define ford(i, a, b) for (int i = a; i > b; --i)
 #define output(v) cout << (v) << '\n'
 #define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
+#define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; cout << '\n'
 #define par(x, s, n, v) if(v) pvar(x); fori(y, s, n) prt(x, y, n) cout << '\n'
-
-#ifdef TRACE
-#include "debug.h"
-#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
-template <typename T>
-void _f(const char* name, T&& arg) {
-    debug() << name << ": " << arg << '\n';
-}
-
-template <typename T, typename... Args>
-void _f(const char* names, T&& arg, Args&&... args) {
-    const char* split = strchr(names + 1, ',');
-    string name = string(names).substr(0, split - names);
-    debug() << name << ": " << arg << " |";
-    _f(split, args...);
-}
-#else
-#define trace(...)
-#endif
 
 typedef long long ll;
 typedef vector<int> vi;
@@ -151,7 +133,6 @@ void solve() {
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-
     int t; cin >> t >> ws;
     fori (i, 1, t + 1) {
         solve();
