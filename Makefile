@@ -28,9 +28,10 @@ clean:
 	@echo
 	-rm -rf *.log *.inp *.out
 
-% : %.cpp
-	@echo "clang++ $^"
-	@$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) $^ $(LDFLAGS)  -o $@
+# Hacking to make it rebuilding when change debug flags.
+% : %.cpp Makefile
+	@echo "clang++ $<"
+	@$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) $< $(LDFLAGS)  -o $@
 
 run: $(TARGET)
 	./$(TARGET)
