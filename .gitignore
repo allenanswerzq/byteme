@@ -14,7 +14,7 @@ test/*
 *sublime-*
 comp*.cpp
 comp*.txt
-*.in
+comp.rel
 *.gv
 gen-*.cpp
 *.bak
