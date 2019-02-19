@@ -32,7 +32,7 @@ struct debug {
     }
 };
 
-#ifdef TRACE
+#ifdef __has_trace
 #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
 template <typename T>
 void _f(const char* name, T&& arg) {

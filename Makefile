@@ -10,7 +10,7 @@ DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
 
 # For local debug purpose
 CXXFLAGS += -I$ALGOLIB
-DEBUGFLAGS += -DTRACE
+DEBUGFLAGS += -D__has_trace
 
 ifeq ($(shell ls /usr/local/opt/llvm/bin/clang | grep -c clang), 1)
 	# We are using a homebrew clang, need new flags

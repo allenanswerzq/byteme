@@ -20,7 +20,7 @@ using namespace std;
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; cout << "\n"
 #define par(x, s, n, v) if(v) pvar(x); fori(y, s, n) prt(x, y, n) cout << "\n"
 
-#ifndef TRACE
+#ifndef __has_trace
 #define trace(...)
 #endif
 typedef long long ll;
