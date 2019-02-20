@@ -1,12 +1,16 @@
 SHELL = /bin/bash -o pipefail
 CXX = clang++
+
 CXXFLAGS = -Wall -Wextra -pedantic -std=c++11 -O2 -Wshadow -Wformat=2
 CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align
 # CXXFLAGS += -Wconversion
 
-DEBUGFLAGS = -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
-DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
-# DEBUGFLAGS += -lmcheck
+BUILD ?= 1
+ifeq ($(BUILD), 1)
+	DEBUGFLAGS = -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
+	DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
+	# DEBUGFLAGS += -lmcheck
+endif
 
 # For local debug purpose
 CXXFLAGS += -I$ALGOLIB
