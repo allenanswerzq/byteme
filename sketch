@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 root=${ALGO:=$HOME/Code/algos}
 for filepath in $*; do
-    echo $root $filepath
+    if test -d $filepath; then
+        echo "==> Problem $filepath already exist."
+        exit 1
+    fi
     mkdir -p $filepath
     filename=$(basename "$filepath")
     ctime=$(date)

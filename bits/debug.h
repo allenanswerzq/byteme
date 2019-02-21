@@ -15,7 +15,7 @@ struct debug {
 
     template < class T >
     typename enable_if< sizeof(dud<T>(0)) == 1, debug& >::type operator<< (T i) {
-        return *this << range(begin(i), end(i));
+        return *this << range(begin(i), end(i)) << "\n";
     }
 
     template < class T, class b > debug &operator<< (pair < b, T > d) {
