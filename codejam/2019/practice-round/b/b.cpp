@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : b
+// Date        : Sun Feb 24 10:19:23 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -32,8 +32,42 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-void solve() {
+// Wow, it got accepted, how so???
+int go(int s, int lo, int hi, string& ss, vector<bool>& visit) {
+    if (s == sz(ss)) {
+        return 0;
+    }
+    if (visit[s]) {
+        return 0;
+    }
+    int a, b;
+    a = b = (ss[s] - '0'), visit[s] = 1;
+    if (!visit[lo]) {
+        visit[lo] = 1;
+        a += go(s + 1, lo + 1, hi, ss, visit);
+        visit[lo] = 0;
+    }
 
+    if (!visit[hi]) {
+        visit[hi] = 1;
+        b += go(s + 1, lo, hi - 1, ss, visit);
+        visit[hi] = 0;
+    }
+    // trace(ss, s, lo, hi, a, b);
+    return max(a, b);
+}
+
+void solve(int t) {
+    int n; cin >> n;
+    string ss; cin >> ss;
+    assert(n == sz(ss));
+
+    int ret = 0;
+    fori (i, 0, n) {
+        vector<bool> visit(n, 0);
+        ret = max(ret, go(i, 0, n - 1, ss, visit));
+    }
+    jam(t, ret);
 }
 
 int main() {
@@ -42,7 +76,7 @@ int main() {
 
     int t; cin >> t >> ws;
     fori (i, 1, t + 1) {
-
+        solve(i);
     }
     return 0;
 }

@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : $NAME
-// Date        : $DATE
+// Name        : a
+// Date        : Sun Feb 24 09:45:41 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -19,7 +19,6 @@ using namespace std;
 #define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
 #define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; cout << "\n"
 #define par(x, s, n, v) if(v) pvar(x); fori(y, s, n) prt(x, y, n) cout << "\n"
-#define jam(x, n) cout << "Case #" << x << ": " << n << "\n"
 
 #ifndef __has_trace
 #define trace(...)
@@ -33,7 +32,22 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 void solve() {
+    int a, b, n;
+    cin >> a >> b >> n;
 
+    int lo = a + 1, hi = b;
+    while (lo <= hi) {
+        int mid = lo + (hi - lo) / 2;
+        cout << mid << endl;
+        string res; cin >> res;
+        if (res == "CORRECT") {
+            break;
+        } else if (res == "TOO_SMALL") {
+            lo = mid + 1;
+        } else {
+            hi = mid - 1;
+        }
+    }
 }
 
 int main() {
@@ -42,7 +56,7 @@ int main() {
 
     int t; cin >> t >> ws;
     fori (i, 1, t + 1) {
-
+        solve();
     }
     return 0;
 }
