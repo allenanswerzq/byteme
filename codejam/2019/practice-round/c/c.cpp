@@ -54,12 +54,6 @@ ull mod_pow(ull a, ull b, ull mod) {
 }
 
 const int mod = (int) 1e9 + 7;
-void add(ull& a, ull b) {
-    a += b;
-    if (a >= mod) {
-        a -= mod;
-    }
-}
 
 void solve(int t) {
     int N, K, x1, y1, C, D, E1, E2, F;
@@ -81,7 +75,7 @@ void solve(int t) {
             fori (h, i, j + 1) {
                 // power %= mod;
                 assert(power < mod);
-                add(power, (A[h] * mod_pow(c++, k, mod)) % mod);
+                power = (power % mod + (A[h] * mod_pow(c++, k, mod)) % mod) % mod;
             }
         }
     }
