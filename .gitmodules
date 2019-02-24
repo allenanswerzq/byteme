@@ -16,3 +16,6 @@
 [submodule "third_party/bytedump"]
 	path = third_party/bytedump
 	url = https://github.com/landcold7/bytedump.git
+[submodule "third_party/acmdocs"]
+	path = third_party/acmdocs
+	url = https://github.com/landcold7/acmdocs.git

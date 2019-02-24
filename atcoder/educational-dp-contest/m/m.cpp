@@ -42,41 +42,48 @@ void add(ll &a, ll b) {
 
 void sub(ll &a, ll b) {
     a -= b;
-    if (a <= mod) {
+    if (a < 0) {
         a += mod;
     }
 }
 
 void solve() {
-    int n, k;
-    cin >> n >> k;
+    int n, k; cin >> n >> k;
+    vi aa(n + 1);
+    fori (i, 1, n + 1) {
+        cin >> aa[i];
+    }
 
-    // dp[i]: the number of ways such that used `i` candies so far.
-    vl dp(k + 1);
-    dp[0] = 1;
-    fori (child, 0, n) {
-        int a; cin >> a;
-        vl fake(k + 1);
-        ford (used, k, -1) {
-            int ways = dp[used];
-            int lo = used + 1, hi = used + min(a, k - used);
-            if (lo <= hi) {
-                add(fake[lo], ways);
-                if (hi + 1 <= k) {
-                    sub(fake[hi + 1], ways);
-                }
+    vector<vl> dp(n + 1, vl(k + 1, 0));
+    // dp[i][j]: the number of ways such that there are j candies for i childs.
+    dp[0][0] = 1;
+    fori (i, 1, n + 1) {
+        // Compute prefix sum
+        vl sum(k + 2, 0);
+        fori (j, 1, k + 2) {
+            sum[j] = (sum[j - 1] % mod + dp[i - 1][j - 1] % mod) % mod;
+        }
+
+        fori (j, 0, k + 1) {
+            // dp[i][j] <- dp[i - 1][j - aa[i] + aa[i]]
+            // dp[i][j] <- dp[i - 1][j - aa[i] - 1 + (aa[i] - 1)]
+
+            ll pre = sum[j + 1];
+            if (j - aa[i] >= 0) {
+                sub(pre, sum[j - aa[i]]);
             }
-            // fori (i, lo, hi + 1) {
-            //     add(dp[i], ways);
+            add(dp[i][j], pre);
+
+            // Navie way of computing
+            // fori (h, 0, aa[i] + 1) {
+            //     if (j - h >= 0) {
+            //         add(dp[i][j], dp[i - 1][j - h]);
+            //     }
             // }
         }
-        ll prefix_sum = 0;
-        fori (i, 0, k + 1) {
-            add(prefix_sum, fake[i]);
-            add(dp[i], prefix_sum);
-        }
     }
-    output(dp[k]);
+    // trace(dp);
+    output(dp[n][k]);
 }
 
 int main() {
