@@ -33,18 +33,18 @@ struct debug {
 };
 
 #ifdef __has_trace
-#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
-template <typename T>
-void _f(const char* name, T&& arg) {
-    debug() << name << ": " << arg << '\n';
-}
+    #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+    template <typename T>
+    void _f(const char* name, T&& arg) {
+        debug() << name << ": " << arg << '\n';
+    }
 
-template <typename T, typename... Args>
-void _f(const char* names, T&& arg, Args&&... args) {
-    const char* split = strchr(names + 1, ',');
-    string name = string(names).substr(0, split - names);
-    debug() << name << ": " << arg << " |";
-    _f(split, args...);
-}
-#define debugstream debug
+    template <typename T, typename... Args>
+    void _f(const char* names, T&& arg, Args&&... args) {
+        const char* split = strchr(names + 1, ',');
+        string name = string(names).substr(0, split - names);
+        debug() << name << ": " << arg << " |";
+        _f(split, args...);
+    }
+    #define debugstream debug
 #endif
