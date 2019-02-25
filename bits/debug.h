@@ -46,4 +46,5 @@ void _f(const char* names, T&& arg, Args&&... args) {
     debug() << name << ": " << arg << " |";
     _f(split, args...);
 }
+#define debugstream debug
 #endif
