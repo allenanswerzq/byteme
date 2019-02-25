@@ -32,50 +32,41 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-typedef unsigned long long ull;
-const int bits = 1;
-// if all numbers are less than 2^k, set bits = 64-k
-const ull po = 1 << bits;
-ull mod_mul(ull a, ull b, ull &c) {
-    ull x = a * (b & (po - 1)) % c;
-    while ((b >>= bits) > 0) {
-        a = (a << bits) % c;
-        x += (a * (b & (po - 1))) % c;
-    }
-    return x % c;
-}
-
-ull mod_pow(ull a, ull b, ull mod) {
-    if (b == 0) return 1;
-    ull res = mod_pow(a, b / 2, mod);
-    res = mod_mul(res, res, mod);
-    if (b & 1) return mod_mul(res, a, mod);
-    return res;
-}
-
 const int mod = (int) 1e9 + 7;
 
+ll mod_pow(ll x, ll y) {
+    if (y == 0) return 1;
+    ll ret = 1;
+    while (y) {
+        if (y & 1) {
+            ret = ret * x % mod;
+        }
+        x = x * x % mod;
+        y /= 2;
+    }
+    return ret % mod;
+}
+
 void solve(int t) {
-    int N, K, x1, y1, C, D, E1, E2, F;
+    ll N, K, x1, y1, C, D, E1, E2, F;
     cin >> N >> K >> x1 >> y1 >> C >> D >> E1 >> E2 >> F;
 
-    vector<ull> A(N + 1);
-    A[1] = (x1 + y1);
+    vector<ll> A(N + 1);
+    A[1] = (x1 + y1) % F;
     fori (i, 2, N + 1) {
-        int xi = ( 1ll * C * x1 + 1ll * D * y1 + E1 ) % F;
-        int yi = ( 1ll * D * x1 + 1ll * C * y1 + E2 ) % F;
+        ll xi = ( C * x1 + D * y1 + E1 ) % F;
+        ll yi = ( D * x1 + C * y1 + E2 ) % F;
         x1 = xi, y1 = yi;
         A[i] = (xi + yi) % F;
     }
 
-    ull power = 0;
+    ll power = 0;
     fori (k, 1, K + 1) {
-        fori (i, 1, N + 1) fori (j, i, N + 1) {
-            int c = 1;
-            fori (h, i, j + 1) {
-                // power %= mod;
-                assert(power < mod);
-                power = (power % mod + (A[h] * mod_pow(c++, k, mod)) % mod) % mod;
+        fori (L, 1, N + 1) {
+            fori (R, L, N + 1) {
+                fori (j, L, R + 1) {
+                    power = (power + A[j] * mod_pow(j - L + 1, k)) % mod;
+                }
             }
         }
     }
