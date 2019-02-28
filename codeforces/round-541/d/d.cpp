@@ -117,7 +117,8 @@ void solve() {
 
     tree = vector<set<int>>(n + m);
     fori (i, 0, n) fori (j, 0, m) {
-        int u = uf.find(i), v = uf.find(j + n);
+        int u = uf.find(i);
+        int v = uf.find(j + n);
         if (aa[i][j] == '>') {
             tree[v].insert(u);
         } else if (aa[i][j] == '<') {
