@@ -5,6 +5,7 @@ ln -sf $ALGO/sketch      ~/.local/bin/sketch
 ln -sf $ALGO/algo-run    ~/.local/bin/algo-run
 ln -sf $ALGO/algo-make   ~/.local/bin/algo-make
 ln -sf $ALGO/algo-split  ~/.local/bin/algo-split
+ln -sf $ALGO/clean       ~/.local/bin/algo-clean
 
 cd third_party/bytedump
 npm install
