@@ -6,5 +6,4 @@
 
 1m = 2**10 kb == 2**20b
 
-speed difference between scanf and cin
-
+careful with overflow problems
