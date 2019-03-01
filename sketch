@@ -15,7 +15,6 @@ for filepath in $*; do
     touch $filepath/ins.in
     echo "==> Problem $filepath created."
     subl $filepath/test.rel
-    subl $filepath/*
     cd $filepath
     subl ./*
     algo-make
