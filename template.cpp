@@ -16,9 +16,9 @@ using namespace std;
 #define fori(i, a, b) for (int i = a; i < b; ++i)
 #define ford(i, a, b) for (int i = a; i > b; --i)
 #define output(v) cout << (v) << '\n'
+#define jam(x, n) cout << "Case #" << x << ": " << n << "\n"
 #define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
 #define par(x, s, n, v) if(v) pvar(x); fori(y, s, n) prt(x, y, n) cout << "\n"
-#define jam(x, n) cout << "Case #" << x << ": " << n << "\n"
 
 #ifndef __has_trace
 #define trace(...)
