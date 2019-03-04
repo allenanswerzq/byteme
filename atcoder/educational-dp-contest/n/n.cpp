@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : j
-// Date        : Wed Feb 20 15:48:43 CST 2019
+// Name        : n
+// Date        : Mon Mar  4 15:57:57 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -16,8 +16,8 @@ using namespace std;
 #define fori(i, a, b) for (int i = a; i < b; ++i)
 #define ford(i, a, b) for (int i = a; i > b; --i)
 #define output(v) cout << (v) << '\n'
+#define jam(x, n) cout << "Case #" << x << ": " << n << "\n"
 #define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
-#define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; cout << "\n"
 #define par(x, s, n, v) if(v) pvar(x); fori(y, s, n) prt(x, y, n) cout << "\n"
 
 #ifndef __has_trace
@@ -31,53 +31,41 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// https://math.stackexchange.com/questions/2368304/how-do-you-calculate-the-expected-value-of-geometric-distribution-without-diffre
-// https://codeforces.com/blog/entry/64250?
-
-const int maxn = 307;
-// dp[i][j][k]
-double dp[maxn][maxn][maxn];
+const ll inf = (ll) 1e18 + 7;
 
 void solve() {
     int n; cin >> n;
-    vi cnt(4, 0);
+    vi aa(n);
     fori (i, 0, n) {
-        int x; cin >> x;
-        ++cnt[x];
+        cin >> aa[i];
     }
 
-    dp[0][0][0] = 0;
-    fori (c, 0, n + 1) fori (b, 0, n + 1) fori (a, 0, n + 1) {
-        if (!a && !b && !c) continue;
-        int x = (a + b + c);
-        // trace(a, b, c);
-
-        double p = 1.0 * n / x;
-        // eat 1
-        if (a) {
-            dp[a][b][c] += dp[a - 1][b][c] * a * 1.0 / x;
+    auto sum = [&](int lo, int hi) {
+        ll s = 0;
+        fori (i, lo, hi + 1) {
+            s += aa[i];
         }
+        return s;
+    };
 
-        // eat 2
-        if (b) {
-            dp[a][b][c] += dp[a + 1][b - 1][c] * b * 1.0 / x;
+    vector<vl> dp(n, vl(n, inf));
+    fori (hi, 0, n) ford (lo, hi, -1) {
+        if (lo == hi) {
+            dp[lo][hi] = 0;
+        } else {
+            ll s = sum(lo, hi);
+            fori (i, lo, hi) {
+                dp[lo][hi] = min(dp[lo][hi], dp[lo][i] + dp[i + 1][hi] + s);
+            }
         }
-
-        // eat 3
-        if (c) {
-            dp[a][b][c] += dp[a][b + 1][c - 1] * c * 1.0 / x;
-        }
-
-        dp[a][b][c] += p;
     }
 
-    output(dp[cnt[1]][cnt[2]][cnt[3]]);
+    output(dp[0][n - 1]);
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    cout << setprecision(14);
     solve();
     return 0;
 }

@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : j
-// Date        : Wed Feb 20 15:48:43 CST 2019
+// Name        : f
+// Date        : Sun Mar  3 10:45:21 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -16,8 +16,8 @@ using namespace std;
 #define fori(i, a, b) for (int i = a; i < b; ++i)
 #define ford(i, a, b) for (int i = a; i > b; --i)
 #define output(v) cout << (v) << '\n'
+#define jam(x, n) cout << "Case #" << x << ": " << n << "\n"
 #define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
-#define pvi(x, v) if(v) pvar(x); fora(a, x) cout << a << " "; cout << "\n"
 #define par(x, s, n, v) if(v) pvar(x); fori(y, s, n) prt(x, y, n) cout << "\n"
 
 #ifndef __has_trace
@@ -31,53 +31,53 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-// https://math.stackexchange.com/questions/2368304/how-do-you-calculate-the-expected-value-of-geometric-distribution-without-diffre
-// https://codeforces.com/blog/entry/64250?
-
-const int maxn = 307;
-// dp[i][j][k]
-double dp[maxn][maxn][maxn];
-
+// TODO: ugly code...
 void solve() {
-    int n; cin >> n;
-    vi cnt(4, 0);
+    int k; cin >> k;
+    vi aa; aa.pb(-1);
+    int x = k + 2, mx = 1000000;
+    int n = x / mx, r = x % mx;
+    int m = n > 1 ? mx : x;
+
+    trace(k, x, n, r, m);
+
     fori (i, 0, n) {
-        int x; cin >> x;
-        ++cnt[x];
+        aa.pb(m);
     }
 
-    dp[0][0][0] = 0;
-    fori (c, 0, n + 1) fori (b, 0, n + 1) fori (a, 0, n + 1) {
-        if (!a && !b && !c) continue;
-        int x = (a + b + c);
-        // trace(a, b, c);
-
-        double p = 1.0 * n / x;
-        // eat 1
-        if (a) {
-            dp[a][b][c] += dp[a - 1][b][c] * a * 1.0 / x;
+    if (r) {
+        r = r + n;
+        trace(r);
+        if (r <= mx) {
+            aa.pb(r);
+        } else {
+            aa.pb(mx);
+            aa.pb(r % mx + 1);
         }
-
-        // eat 2
-        if (b) {
-            dp[a][b][c] += dp[a + 1][b - 1][c] * b * 1.0 / x;
-        }
-
-        // eat 3
-        if (c) {
-            dp[a][b][c] += dp[a][b + 1][c - 1] * c * 1.0 / x;
-        }
-
-        dp[a][b][c] += p;
     }
 
-    output(dp[cnt[1]][cnt[2]][cnt[3]]);
+    if (!r && n > 1) {
+        if (n <= mx) {
+            aa.pb(n);
+        } else {
+            aa.pb(mx);
+            aa.pb(n % mx);
+        }
+    }
+
+    if (sz(aa) > 2000) {
+        output(-1);
+    } else {
+        ll sum = accumulate(all(aa), 0);
+        assert (sum - sz(aa) + 1 == k);
+        output(sz(aa));
+        par(aa, 0, sz(aa), 0);
+    }
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    cout << setprecision(14);
     solve();
     return 0;
 }
