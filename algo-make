@@ -8,8 +8,6 @@ function trap_ctrlc () {
     var=$(expr $var + 1)
 }
 
-trap 'trap_ctrlc' 2
-
 if [[ "$1" == "run" ]]; then
   cmd="make run"
 elif [[ "$1" == "comp" ]]; then
@@ -21,7 +19,9 @@ fi
 # Ref: https://stackoverflow.com/questions/12771909/bash-using-trap-ctrlc
 while [ 1 ]; do
     clear && tmux clear-history
+    trap 'trap_ctrlc' 2
     $cmd
+    trap 'trap_ctrlc' 2
     echo -en Press Enter to continue
     read newline
 done
