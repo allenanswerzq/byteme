@@ -5,15 +5,15 @@ CXXFLAGS = -Wall -Wextra -pedantic -std=c++11 -O2 -Wshadow -Wformat=2
 CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align
 # CXXFLAGS += -Wconversion
 
-BUILD ?= 1
-ifeq ($(BUILD), 1)
+RELEASE ?= 0
+ifeq ($(RELEASE), 0)
 	DEBUGFLAGS = -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
 	DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
 	# DEBUGFLAGS += -lmcheck
 endif
 
 # For local debug purpose
-CXXFLAGS += -I$ALGOLIB
+CXXFLAGS += -I/Users/jche/Code/algos
 DEBUGFLAGS += -D__has_trace
 
 ifeq ($(shell ls /usr/local/opt/llvm/bin/clang | grep -c clang), 1)
