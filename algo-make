@@ -12,6 +12,9 @@ if [[ "$1" == "run" ]]; then
   cmd="make run"
 elif [[ "$1" == "comp" ]]; then
   cmd="make comp"
+elif [[ "$1" == "release" ]]; then
+  rm -f $(basename $(PWD))
+  cmd='make RELEASE=1'
 else
   cmd="make test"
 fi
