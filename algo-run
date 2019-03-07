@@ -14,6 +14,7 @@ trap "trap_ctrlc" 2
 inp=*.inp
 elf=${1:-elf}
 res=${2:-test.res}
+exec_time=${3:-0}
 
 rm -rf $res
 for i in $inp; do
@@ -23,8 +24,13 @@ for i in $inp; do
     fi
     echo "//-------------------------------------------------------------\\\\"
     out="${i%.inp}".out
+    if [ "$exec_time" -eq "0" ]; then
+        cmd="ASAN_OPTIONS=detect_leaks=1 ./$elf < $i"
+    else
+        cmd="time ASAN_OPTIONS=detect_leaks=1 ./$elf < $i"
+    fi
     # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
-    if ! { ASAN_OPTIONS=detect_leaks=1 ./$elf < $i; } | tee $out; then
+    if ! { bash -c "$cmd"; } | tee $out; then
       echo [1m[31mRuntime error, Check source code, Please :\(\-[0m
       exit 124
     else
