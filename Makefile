@@ -6,11 +6,11 @@ CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align
 # CXXFLAGS += -Wconversion
 
 RELEASE ?= 0
-EXEC_TIME ?= 0
+EXEC_TIME ?= 1
 ifeq ($(RELEASE), 0)
 	DEBUGFLAGS = -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
 	DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
-	EXEC_TIME = 1
+	EXEC_TIME = 0
 	# DEBUGFLAGS += -lmcheck
 endif
 
