@@ -56,7 +56,7 @@ comp.res: samples cmp
 	@mv test.res comp.res
 
 __diff_%: %.res
-	diff -y $*.res $*.rel | tee -a $*.log
+	# diff -y $*.res $*.rel | tee -a $*.log
 
 test: __diff_test
 

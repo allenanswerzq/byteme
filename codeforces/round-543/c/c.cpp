@@ -34,50 +34,50 @@ typedef vector<pii> vpii;
 void solve() {
     int n, k;
     cin >> n >> k;
-    vi aa(n);
-    fori (i, 0, n) {
+    vi aa(n + 1);
+    fori (i, 1, n + 1) {
         cin >> aa[i];
     }
 
-    priority_queue<pii, vpii, greater<pii>> dq;
-    fori (i, 0, k) {
-        dq.push({aa[i], i});
+    vi cpu(k), jobs(n * 150), start(n + 1);
+    int m = 0, tested_cnt = 0;
+    fori (t, 0, n * 150) {
+        fori (j, 0, k) {
+            if (cpu[j] == t) {
+            // This cpu has no task to do right now,
+            // Bring one from queue into it
+                if (m < n) {
+                    cpu[j] = t + aa[++m];
+                    start[m] = t;
+                }
+                if (t) {
+                // How many solutions are already been
+                // tested before this moment?
+                    ++tested_cnt;
+                }
+            }
+        }
+        jobs[t] = tested_cnt;
     }
 
-    vi tt(n);
-    while (sz(dq)) {
-        auto cur = dq.top(); dq.pop();
-        int t = cur.first, i = cur.second;
-        // trace(cur, t, i);
-        tt[i] = t;
-        if (k < n) {
-            dq.push({t + aa[k], k});
-            ++k;
-        }
-    }
+    // trace(start, jobs);
 
-    sort(all(tt));
-    trace(tt);
-
-    int t = 0, ret = 0, m = 0, d = 0, e = 0;
-    fori (i, 0, n) {
-        int c = tt[i];
-        trace(c, t, d, ret, e, m);
-        if (d && c - t >= d) {
-            ret += e;
+    int ret = 0;
+    fori (i, 1, n + 1) {
+        int L = start[i], R = start[i] + aa[i];
+        // trace(L, R);
+        fori (j, L, R) {
+            int x = j - L + 1;
+            int d = (100.0 * jobs[j] / n + 0.5);
+            if (x == d) {
+                ++ret;
+                break;
+            }
         }
-        e = 1;
-        // How many tests are finished at this time.
-        while (i + 1 < n && tt[i] == tt[i + 1]) {
-            ++e, ++i;
-        }
-        m += e;
-        d = (m * 1.0 / n * 100 + 0.5);
-        t = c;
-        trace(e, m, i, d, t, c, ret);
     }
     output(ret);
 }
+
 
 int main() {
     ios_base::sync_with_stdio(0);
