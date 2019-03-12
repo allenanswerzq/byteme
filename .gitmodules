@@ -1,9 +1,6 @@
 [submodule "third_party/codebook"]
 	path = third_party/codebook
 	url = https://github.com/landcold7/codebook.git
-[submodule "third_party/algorithm"]
-	path = third_party/algorithm
-	url = https://github.com/spaghetti-source/algorithm.git
 [submodule "third_party/jngen"]
 	path = third_party/jngen
 	url = https://github.com/landcold7/jngen.git
@@ -22,3 +19,6 @@
 [submodule "third_party/cyaron"]
 	path = third_party/cyaron
 	url = https://github.com/landcold7/cyaron.git
+[submodule "third_party/algorithm"]
+	path = third_party/algorithm
+	url = git@github.com:landcold7/algorithm.git
