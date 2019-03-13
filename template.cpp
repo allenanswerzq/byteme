@@ -7,14 +7,13 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+#define first x
+#define second y
 #define pb push_back
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
 #define mst(x, y) memset(x, y, sizeof(x))
 #define pvar(x) cout << #x << ": "
-#define fora(e, c) for (auto &e : c)
-#define fori(i, a, b) for (int i = a; i < b; ++i)
-#define ford(i, a, b) for (int i = a; i > b; --i)
 #define output(v) cout << (v) << '\n'
 #define jam(x, n) cout << "Case #" << x << ": " << n << "\n"
 #define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
