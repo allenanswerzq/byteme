@@ -15,7 +15,7 @@ ifeq ($(RELEASE), 0)
 endif
 
 # For local debug purpose
-CXXFLAGS += -I$ALGOLIB/Code/algos
+CXXFLAGS += -I$ALGOLIB
 DEBUGFLAGS += -D__has_trace
 
 ifeq ($(shell ls /usr/local/opt/llvm/bin/clang > /dev/null && echo $$?), 0)
