@@ -7,8 +7,8 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-#define first x
-#define second y
+#define x first
+#define y second
 #define pb push_back
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
