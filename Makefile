@@ -15,7 +15,7 @@ ifeq ($(RELEASE), 0)
 endif
 
 # For local debug purpose
-CXXFLAGS += -I/Users/jche/Code/algos
+CXXFLAGS += -I$ALGOLIB/Code/algos
 DEBUGFLAGS += -D__has_trace
 
 ifeq ($(shell ls /usr/local/opt/llvm/bin/clang > /dev/null && echo $$?), 0)
@@ -28,6 +28,9 @@ endif
 TARGET := $(notdir $(CURDIR))
 
 all: test
+
+__diff_%: %.res
+	# diff -y $*.res $*.rel | tee -a $*.log
 
 clean:
 	@echo "current directory: " $(CURDIR)
@@ -55,9 +58,6 @@ comp.res: samples cmp
 	algo-run cmp comp.rel | tee comp.log
 	@mv test.res comp.res
 
-__diff_%: %.res
-	# diff -y $*.res $*.rel | tee -a $*.log
-
 test: __diff_test
 
 comp: __diff_comp
@@ -65,8 +65,13 @@ comp: __diff_comp
 memo:
 	ps aux | grep "[.]/$(TARGET)$$" | awk '{$$6=int($$6/1024)"M";}{print;}'
 
-gen: gen.py
+pygen: gen.py
 	python3 gen.py | tee ins.in
+
+# Ugly hacking to speed up the comiplation time of jngen library...
+cppgen:
+	g++ gen.cpp --std=c++11 -I$ALGOLIB/third_party/jngen/includes -o gen
+	./gen | tee ins.in
 
 .PHONY: all clean run test comp
 
