@@ -70,7 +70,7 @@ gen: gen.py
 	python3 gen.py | tee ins.in
 
 cppgen:
-	g++ cgen.cpp --std=c++11 -I../../../third_party/jngen/includes -o gen
+	g++ gen.cpp --std=c++11 -I../../../third_party/jngen/includes -o gen
 	./gen | tee ins.in
 
 .PHONY: all clean run test comp

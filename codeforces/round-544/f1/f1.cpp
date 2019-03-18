@@ -33,9 +33,31 @@ typedef vector<pii> vpii;
 
 const int maxn = (int)2e5 + 7;
 vi g[maxn];
+int n, m;
+
+void bfs(int u) {
+    deque<int> dq;
+    dq.pb(u);
+    vi visit(n + 1);
+    visit[u] = 1;
+    vpii ret;
+    while (sz(dq)) {
+        auto t = dq.front(); dq.pop_front();
+        for (auto v : g[t]) {
+            if (!visit[v]) {
+                ret.pb({t, v});
+                visit[v] = 1;
+                dq.pb(v);
+            }
+        }
+    }
+    assert(sz(ret) == n - 1);
+    for (auto p : ret) {
+        cout << p.x << " " << p.y << "\n";
+    }
+}
 
 void solve() {
-    int n, m;
     cin >> n >> m;
     vi deg(n + 1);
     int mg = 0, ig = 0;
@@ -55,31 +77,7 @@ void solve() {
             ig = v;
         }
     }
-    // trace(mg, ig, deg);
-
-    vi visit(n + 1);
-    visit[ig] = 1;
-    vpii ret;
-    for (auto &v : g[ig]) {
-        visit[v] = 1;
-        ret.pb({ig, v});
-    }
-
-    for (int i = 1; i < n + 1; ++i) {
-        if (!visit[i]) {
-            for (auto &v : g[i]) {
-                if (visit[v]) {
-                    ret.pb({i, v});
-                    break;
-                }
-            }
-        }
-    }
-    // trace(n, sz(ret));
-    // assert(sz(ret) == n - 1);
-    for (auto p : ret) {
-        cout << p.x << " " << p.y << "\n";
-    }
+    bfs(ig);
 }
 
 int main() {
