@@ -79,4 +79,4 @@ print-%:
 	@echo $* = $($*)
 
 __diff_%: %.res
-	diff -y $*.res $*.rel | tee -a $*.log
+	# diff -y $*.res $*.rel | tee -a $*.log
