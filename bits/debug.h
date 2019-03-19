@@ -46,5 +46,5 @@ struct debug {
         debug() << name << ": " << arg << " |";
         _f(split, args...);
     }
-    #define debugstream debug
+    #define dbstream debug
 #endif
