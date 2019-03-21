@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : d
-// Date        : Wed Mar 20 22:01:35 CST 2019
+// Name        : f
+// Date        : Thu Mar 21 19:28:36 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -32,59 +32,42 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 void solve() {
-    int n; string a, b;
-    cin >> n >> a >> b;
-    int A = 26;
-    vvi va(A), vb(A);
-    vi sa, sb;
+    int n; cin >> n;
+    vi a(n);
     for (int i = 0; i < n; ++i) {
-        if (a[i] == '?') {
-            sa.pb(i);
-        } else {
-            va[a[i] - 'a'].pb(i);
+        cin >> a[i];
+    }
+
+    map<ll, vpii> mp;
+    for (int R = 0; R < n; ++R) {
+        ll sum = 0;
+        for (int L = R; L >= 0; --L) {
+            sum += a[L];
+            mp[sum].pb({L, R});
         }
     }
 
-    for (int i = 0; i < n; ++i) {
-        if (b[i] == '?') {
-            sb.pb(i);
-        } else {
-            vb[b[i] - 'a'].pb(i);
+    trace(mp);
+    int ret = 0;
+    vpii g;
+    for (auto it : mp) {
+        vpii p = it.y;
+        int last = -1, cur = 0;
+        vpii t;
+        for (auto s : p) {
+            if (s.x > last) {
+                ++cur;
+                t.pb(s);
+                last = s.y;
+            }
+        }
+        if (ret < cur) {
+            ret = cur;
+            g = t;
         }
     }
-
-    vpii ret;
-    vi ca(A), cb(A);
-    for (int i = 0; i < A; ++i) {
-        int x = sz(va[i]), y = sz(vb[i]);
-        for (int j = 0; j < min(x, y); ++j) {
-            ret.pb({va[i][j], vb[i][j]});
-        }
-        ca[i] = cb[i] = min(x, y);
-    }
-
-    for (int i = 0; i < A; ++i) {
-        while (ca[i] < sz(va[i]) && sz(sb)) {
-            ret.pb({va[i][ca[i]], sb[sz(sb) - 1]});
-            ca[i]++;
-            sb.pop_back();
-        }
-    }
-
-    for (int i = 0; i < A; ++i) {
-        while (cb[i] < sz(vb[i]) && sz(sa)) {
-            ret.pb({sa[sz(sa) - 1], vb[i][cb[i]]});
-            cb[i]++;
-            sa.pop_back();
-        }
-    }
-
-    for (int i = 0; i < min(sz(sa), sz(sb)); ++i) {
-        ret.pb({sa[i], sb[i]});
-    }
-
-    output(sz(ret));
-    for (auto it : ret) {
+    output(ret);
+    for (auto it : g) {
         cout << it.x + 1 << " " << it.y + 1 << "\n";
     }
 }
