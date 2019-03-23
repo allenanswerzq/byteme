@@ -18,7 +18,7 @@ endif
 CXXFLAGS += -I$ALGOLIB
 DEBUGFLAGS += -D__has_trace
 
-ifeq ($(shell ls /usr/local/opt/llvm/bin/clang > /dev/null && echo $$?), 0)
+ifeq ($(shell ls /usr/local/opt/llvm/bin/clang > /dev/null 2>&1 && echo $$?), 0)
 	# We are using a homebrew clang, need new flags
 	CXX = /usr/local/opt/llvm/bin/clang++
 	LDFLAGS += -L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib
@@ -28,9 +28,6 @@ endif
 TARGET := $(notdir $(CURDIR))
 
 all: test
-
-__diff_%: %.res
-	# diff -y $*.res $*.rel | tee -a $*.log
 
 clean:
 	@echo "current directory: " $(CURDIR)
@@ -80,3 +77,4 @@ print-%:
 
 __diff_%: %.res
 	# diff -y $*.res $*.rel | tee -a $*.log
+	# @echo [1m[31mdiff successful!!![0m
