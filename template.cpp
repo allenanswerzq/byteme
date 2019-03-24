@@ -12,6 +12,7 @@ using namespace std;
 #define pb push_back
 #define sz(x) ((int)(x).size())
 #define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
 #define mst(x, y) memset(x, y, sizeof(x))
 #define pvar(x) cout << #x << ": "
 #define output(v) cout << (v) << '\n'
@@ -22,6 +23,7 @@ using namespace std;
 
 #ifndef __has_trace
 #define trace(...)
+#define dbstream ostream
 #endif
 typedef long long ll;
 typedef vector<int> vi;
