@@ -25,8 +25,10 @@ struct debug {
     template <class T> debug &operator<< (rge<T> d) {
         *this << "[";
         for (auto it = d.b; it != d.e; ++it) {
+            if (it != d.b) {
+               *this << ", ";
+            }
             *this << *it;
-            if (it != prev(d.e)) *this << ", ";
         }
         return *this << "]";
     }
