@@ -21,7 +21,7 @@ using namespace std;
 #define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
 #define par(x, s, n, v) if(v) pvar(x); fori(y, s, n) prt(x, y, n) cout << "\n"
 
-#ifndef __has_trace
+#ifndef _has_trace
 #define trace(...)
 #define dbstream ostream
 #endif
