@@ -16,7 +16,7 @@ endif
 
 # For local debug purpose
 CXXFLAGS += -I$ALGOLIB
-DEBUGFLAGS += -D__has_trace
+DEBUGFLAGS += -D_has_trace
 
 ifeq ($(shell ls /usr/local/opt/llvm/bin/clang > /dev/null 2>&1 && echo $$?), 0)
 	# We are using a homebrew clang, need new flags
