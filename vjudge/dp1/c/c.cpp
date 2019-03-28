@@ -59,7 +59,7 @@ void solve() {
         if (a.l == b.l) return a.w > b.w;
         return a.l > b.l;
     });
-    // trace(base);
+    trace(base);
     // Try use each one of these blocks as a top block.
     vi dp(sz(base));
     for (int i = 0; i < sz(base); ++i) {

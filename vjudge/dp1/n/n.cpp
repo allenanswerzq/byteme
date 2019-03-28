@@ -6,6 +6,8 @@
 //============================================================================
 // #include "bits/stdc++.h"
 #include <iostream>
+#include <algorithm>
+#include <cassert>
 #include <vector>
 #include <cstring>
 using namespace std;
@@ -23,8 +25,9 @@ using namespace std;
 #define prt(x, a, n) { cout << x[a]; if (a < n - 1) cout << " "; }
 #define par(x, s, n, v) if(v) pvar(x); fori(y, s, n) prt(x, y, n) cout << "\n"
 
-#ifndef __has_trace
+#ifndef _has_trace
 #define trace(...)
+#define dbstream ostream
 #endif
 typedef long long ll;
 typedef vector<int> vi;
@@ -41,11 +44,11 @@ struct Node {
     bool operator<(const Node &b) const {
         return height < b.height;
     }
-    // friend dbstream& operator<<(dbstream& os, Node &n) {
-    //     os << "Node(" << n.start << " " << n.end << " "
-    //        << n.height << ")\n";
-    //     return os;
-    // }
+    friend dbstream& operator<<(dbstream& os, Node &n) {
+        os << "Node(" << n.start << " " << n.end << " "
+           << n.height << ")\n";
+        return os;
+    }
 };
 
 const int inf = (int)1e9 + 7;
@@ -58,8 +61,11 @@ void solve() {
     cin >> n >> x >> y >> mx;
 
     vector<Node> a(n);
-    for (auto &t : a) {
-        cin >> t.start >> t.end >> t.height;
+    // for (auto &t : a) {
+    //     cin >> t.start >> t.end >> t.height;
+    // }
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i].start >> a[i].end >> a[i].height;
     }
     a.pb({x, x, y});
 
