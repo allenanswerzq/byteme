@@ -42,7 +42,7 @@ int main() {
     cin.tie(0);
 
     int t; cin >> t >> ws;
-    fori (i, 1, t + 1) {
+    for (int i = 1; i <= t; ++i) {
 
     }
     return 0;
