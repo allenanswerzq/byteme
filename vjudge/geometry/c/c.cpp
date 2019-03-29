@@ -43,26 +43,17 @@ int sign(double x) {
     if (x > +EPS) return +1;
     return 0;
 }
-
-typedef long double T;
+typedef double T;
 struct Point {
     T x, y;
-    Point() {}
-    Point(T x, T y) : x(x), y(y) {}
     Point &operator+=(Point p) { x += p.x; y += p.y; return *this; }
     Point &operator-=(Point p) { x -= p.x; y -= p.y; return *this; }
-    Point &operator*=(T a) { x *= a; y *= a; return *this; }
-    Point &operator/=(T a) { return *this *= (1.0/a); }
-    Point operator-() const { return {-x, -y}; }
-    double operator^(const Point &b) const { return x * b.y - y * b.x; }
-    double operator*(const Point &b) const { return x * b.x + y * b.y; }
+    Point &operator*=(T a)     { x *= a;   y *= a;   return *this; }
+    Point &operator/=(T a)     { return *this *= (1.0 / a); }
+    Point operator-() const    { return {-x, -y}; }
     bool operator<(Point p) const {
         int s = sign(x - p.x);
         return s ? s < 0 : sign(y - p.y) < 0;
-    }
-    // Returns point rotated `a` degree ccw around the origin point.
-    Point rotate(double a) {
-        return Point(x * cos(a) - y * sin(a), x * sin(a) + y * cos(a));
     }
 };
 bool operator==(Point p, Point q) { return !(p < q) && !(q < p); }
@@ -70,47 +61,61 @@ bool operator!=(Point p, Point q) { return p < q || q < p; }
 bool operator<=(Point p, Point q) { return !(q < p); }
 Point operator+(Point p, Point q) { return p += q; }
 Point operator-(Point p, Point q) { return p -= q; }
+Point operator*(T a, Point p) { return p *= a; }
+Point operator*(Point p, T a) { return p *= a; }
 Point operator/(Point p, T a) { return p /= a; }
+T dot(Point p, Point q) { return p.x * q.x + p.y * q.y; }
+T cross(Point p, Point q) { return p.x * q.y - p.y * q.x; }
+T norm2(Point p) { return dot(p, p); }
 Point orth(Point p) { return {-p.y, p.x}; }
-T dist(Point a, Point b) { return sqrt((b - a) * (b - a)); }
-T norm2(Point p) { return p * p; }
-T norm(Point p) { return sqrt(p * p); }
+T norm(Point p) { return sqrt(dot(p, p)); }
 T arg(Point p) { return atan2(p.y, p.x); }
-T arg(Point p, Point q) { return atan2(p ^ q, p * q); }
-istream& operator>>(istream &is, Point &p) { return is >> p.x >> p.y; }
-ostream& operator<<(ostream &os, const Point &p) {
-    return os << "Point(" << p.x << ", " << p.y << ")";
+T arg(Point p, Point q){ return atan2(cross(p, q), dot(p, q)); }
+istream &operator>>(istream &is, Point &p) { return is >> p.x >> p.y;}
+ostream &operator<<(ostream &os, Point &p) {
+    return os << "(" << p.x << "," << p.y << ")";
 }
 
-struct Line {
-    Point s, e;
-    Line() {}
-    Line(Point s, Point e) : s(s), e(e) {}
-    friend ostream& operator<<(ostream& os, Line& a) {
-        return os << "Line(" << a.s << " " << a.e << ")\n";
+struct Line { Point p, q; };
+bool operator==(Line l, Line m) {
+    return !sign(cross(l.p - l.q, m.p - m.q)) &&
+           !sign(cross(l.p - l.q, m.p - l.p));
+}
+
+struct Segment { Point p, q; };
+bool operator==(Segment l, Line m) {
+    return (l.p == m.p && l.q == m.q) || (l.p == m.q && l.q == m.p);
+}
+
+bool intersect(Line l, Segment s) {
+    T a = cross(s.q - s.p, l.q - l.p);
+    T b = cross(l.p - s.p, l.q - l.p);
+    if (a < 0) { a *= -1; b *= -1; }
+    if (sign(b) < 0 || sign(a - b) < 0) {
+        return 0;
     }
-};
-
-double half(Point a, Point b, Point c) {
-    return (b - a) ^ (c - a);
+    if (sign(a) != 0) {
+        return 1;
+    }
+    if (sign(b) == 0) {
+        return 1;
+    }
+    return 0;
 }
 
-// If a seg `a` is intersects with a line `b`.
-bool seg_line_intersect(Line a, Line b) {
-    return sign(half(a.s, b.s, b.e)) * sign(half(a.e, b.s, b.e)) <= 0;
+T dist(Point& p, Point& q) {
+    return norm(p - q);
 }
-
-// Ref: http://poj.org/showmessage?message_id=100149:
 
 int n;
-vector<Line> a;
+vector<Segment> a;
 bool check(Line b) {
-    if (sign(dist(b.s, b.e)) == 0) {
+    if (sign(dist(b.p, b.q)) == 0) {
     // If this line only has one point, then it can't make a desirable line
         return 0;
     }
     for (int i = 0; i < n; ++i) {
-        if (seg_line_intersect(a[i], b) == 0) {
+        if (intersect(b, a[i]) == 0) {
             return 0;
         }
     }
@@ -120,20 +125,20 @@ bool check(Line b) {
 
 void solve() {
     cin >> n;
-    a = vector<Line>(n);
+    a = vector<Segment>(n);
     for (int i = 0; i < n; ++i) {
         Point s, e;
         cin >> s >> e;
-        a[i] = Line(s, e);
+        a[i] = {s, e};
     }
     // trace(a);
     bool ok = 0;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (check(Line(a[i].s, a[j].s)) ||
-                check(Line(a[i].s, a[j].e)) ||
-                check(Line(a[i].e, a[j].s)) ||
-                check(Line(a[i].e, a[j].e)) ) {
+            if (check(Line{a[i].p, a[j].p}) ||
+                check(Line{a[i].p, a[j].q}) ||
+                check(Line{a[i].q, a[j].p}) ||
+                check(Line{a[i].q, a[j].q}) ) {
                 ok = 1;
                 break;
             }

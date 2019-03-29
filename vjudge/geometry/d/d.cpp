@@ -47,21 +47,14 @@ int sign(double x) {
 typedef double T;
 struct Point {
     T x, y;
-    Point() {}
-    Point(T x, T y) : x(x), y(y) {}
     Point &operator+=(Point p) { x += p.x; y += p.y; return *this; }
     Point &operator-=(Point p) { x -= p.x; y -= p.y; return *this; }
-    Point &operator*=(T a) { x *= a; y *= a; return *this; }
-    Point &operator/=(T a) { return *this *= (1.0/a); }
-    Point operator-() const { return {-x, -y}; }
-    double operator^(const Point &b) const { return x * b.y - y * b.x; }
-    double operator*(const Point &b) const { return x * b.x + y * b.y; }
+    Point &operator*=(T a)     { x *= a;   y *= a;   return *this; }
+    Point &operator/=(T a)     { return *this *= (1.0 / a); }
+    Point operator-() const    { return {-x, -y}; }
     bool operator<(Point p) const {
         int s = sign(x - p.x);
         return s ? s < 0 : sign(y - p.y) < 0;
-    }
-    Point rotate_ccw(double a) {
-        return Point(x * cos(a) - y * sin(a), x * sin(a) + y * cos(a));
     }
 };
 bool operator==(Point p, Point q) { return !(p < q) && !(q < p); }
@@ -69,61 +62,58 @@ bool operator!=(Point p, Point q) { return p < q || q < p; }
 bool operator<=(Point p, Point q) { return !(q < p); }
 Point operator+(Point p, Point q) { return p += q; }
 Point operator-(Point p, Point q) { return p -= q; }
+Point operator*(T a, Point p) { return p *= a; }
+Point operator*(Point p, T a) { return p *= a; }
 Point operator/(Point p, T a) { return p /= a; }
+T dot(Point p, Point q) { return p.x * q.x + p.y * q.y; }
+T cross(Point p, Point q) { return p.x * q.y - p.y * q.x; }
+T norm2(Point p) { return dot(p, p); }
 Point orth(Point p) { return {-p.y, p.x}; }
-T dist(Point a, Point b) { return sqrt((b - a) * (b - a)); }
-T norm2(Point p) { return p * p; }
-T norm(Point p) { return sqrt(p * p); }
+T norm(Point p) { return sqrt(dot(p, p)); }
 T arg(Point p) { return atan2(p.y, p.x); }
-T arg(Point p, Point q) { return atan2(p ^ q, p * q); }
-istream& operator>>(istream &is, Point &p) { return is >> p.x >> p.y; }
-ostream& operator<<(ostream &os, const Point &p) {
-    return os << "Point(" << p.x << ", " << p.y << ")";
+T arg(Point p, Point q){ return atan2(cross(p, q), dot(p, q)); }
+istream &operator>>(istream &is, Point &p) { return is >> p.x >> p.y;}
+ostream &operator<<(ostream &os, Point &p) {
+    return os << "(" << p.x << "," << p.y << ")";
 }
 
-struct Line {
-    Point s, e;
-    T A, B, C;
-    Line() {}
-    Line(Point s, Point e) : s(s), e(e) {}
-    void coeff() {
-        A = e.y - s.y;
-        B = s.x - e.x;
-        C = A * s.x + B * s.y;
-    }
-    friend ostream& operator<<(ostream& os, Line& a) {
-        return os << "Line(" << a.s << " " << a.e << ") "
-                  << a.A << "x + " << a.B << "y = " << a.C << "\n";
-    }
-};
-bool operator==(Line a, Line b) {
-    return !sign((a.s - a.e) ^ (b.s - b.e))
-        && !sign((a.s - a.e) ^ (b.s - a.s));
+struct Line { Point p, q; };
+bool operator==(Line l, Line m) {
+    return !sign(cross(l.p - l.q, m.p - m.q)) &&
+           !sign(cross(l.p - l.q, m.p - l.p));
 }
 
-void intersect(Line a, Line b) {
-    T det = a.A * b.B - b.A * a.B;
-    if (!sign(det)) {
-        if (a == b) {
-            output("LINE");
-        } else {
-            output("NONE");
-        }
-    } else {
-        T x = (b.B * a.C - a.B * b.C) / det;
-        T y = (a.A * b.C - b.A * a.C) / det;
-        if (sign(x) == 0) x = 0;
-        if (sign(y) == 0) y = 0;
-        cout << "POINT " << x << " " << y << "\n";
+vector<Point> intersect(Line l, Line m) {
+    vector<Point> ret;
+    T a = cross(m.q - m.p, l.q - l.p);
+    T b = cross(l.p - m.p, l.q - l.p);
+    if (sign(a)) {
+        ret.pb(m.p + b / a * (m.q - m.p));
+        return ret;
     }
+    if (!sign(b)) {
+        ret.pb(m.p);
+        ret.pb(m.q);
+    }
+    return ret;
+}
+
+T dist(Point p, Point q) {
+    return norm(p - q);
 }
 
 void solve() {
     Line a, b;
-    cin >> a.s >> a.e >> b.s >> b.e;
-    a.coeff(), b.coeff();
-    // trace(a, b);
-    intersect(a, b);
+    cin >> a.p >> a.q >> b.p >> b.q;
+    vector<Point> ret = intersect(a, b);
+    int n = sz(ret);
+    if (n == 0) {
+        output("NONE");
+    } else if (n == 2) {
+        output("LINE");
+    } else {
+        cout << "POINT " << ret[0].x << " " << ret[0].y << "\n";
+    }
 }
 
 int main() {
