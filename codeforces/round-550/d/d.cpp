@@ -32,35 +32,47 @@ typedef vector<vi> vvi;
 typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
-const int maxn = (int)2e5 + 7;
 
 struct Op {
    int t, u, v;
 };
 
+const int maxn = (int)2e5 + 7;
 void solve() {
     int n; cin >> n;
-    vi a(n);
-    vector<set<int>> h(maxn);
+    vi a(n), b(maxn);
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
-        h[a[i]].insert(i);
+        b[a[i]]++;
     }
-    sort(all(a));
-    trace(a);
-    vpii e;
-    for (int i = n - 2; i >= 0; --i) {
-        int d = a[i + 1] - a[i];
-        while (d) {
-            d = a[i + 1] - a[i] - d;
-            e.pb({a[i], a[i + 1]});
+    int mx = max_element(all(b)) - b.begin();
+    int ix = find(all(a), mx) - a.begin();
+    vector<Op> ret;
+    for (int i = ix - 1; i >= 0; --i) {
+        if (a[i] != a[i + 1]) {
+            if (a[i] < a[i + 1]) {
+                ret.pb({1, i, i + 1});
+            } else if (a[i] > a[i + 1]) {
+                ret.pb({2, i, i + 1});
+            } else {
+            }
+            a[i] = a[i + 1];
         }
     }
-    trace(e);
-    vector<Op> ret;
-    for (auto it : e) {
-        int x = it.x, y = it.y;
-        // Leave it now...
+    for (int i = ix + 1; i < n; ++i) {
+        if (a[i] != a[i - 1]) {
+            if (a[i - 1] < a[i]) {
+                ret.pb({2, i, i - 1});
+            } else if (a[i - 1] > a[i]) {
+                ret.pb({1, i, i - 1});
+            } else {
+            }
+            a[i] = a[i - 1];
+        }
+    }
+    cout << sz(ret) << "\n";
+    for (auto& it : ret) {
+        cout << it.t << " " << it.u + 1 << " " << it.v + 1 << "\n";
     }
 }
 

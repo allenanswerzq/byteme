@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : b
-// Date        : Mon Apr  1 21:39:25 CST 2019
+// Name        : g
+// Date        : Tue Apr  2 15:06:23 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -33,33 +33,43 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+const int inf = (int)2e5 + 7;
 void solve() {
     int n; cin >> n;
-    vi a(n), o, e;
+    vi a(n);
     for (auto &t : a) {
         cin >> t;
-        if (t % 2) {
-            o.pb(t);
+    }
+    vpii inc, dec;
+    inc.pb({-1, -1}), dec.pb({inf, -1});
+    for (int i = 0; i < n; ++i) {
+        bool b = a[i] > inc.back().x;
+        bool c = a[i] < dec.back().x;
+        if (b && !c) {
+            inc.pb({a[i], i});
+        } else if (!b && c) {
+            dec.pb({a[i], i});
+        } else if (b && c) {
+            if (i + 1 < n && a[i + 1] > a[i]) {
+                inc.pb({a[i], i});
+            } else {
+                dec.pb({a[i], i});
+            }
         } else {
-            e.pb(t);
+            output("NO");
+            return;
         }
     }
-    sort(all(o));
-    sort(all(e));
-    int p = sz(o), m = sz(e);
-    if (p == m && abs(p - m) == 1) {
-        output(0);
-        return;
-    }
-    ll ret = 0;
-    for (int i = 0; i < abs(p - m) - 1; ++i) {
-        if (p > m) {
-            ret += o[i];
-        } else {
-            ret += e[i];
+    // trace(inc, dec);
+    output("YES");
+    vi ret(n, 0);
+    for (auto it : dec) {
+        // trace(it);
+        if (it.y != -1) {
+            ret[it.y] = 1;
         }
     }
-    output(ret);
+    par(ret, 0, sz(ret), 0);
 }
 
 int main() {

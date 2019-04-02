@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : b
-// Date        : Mon Apr  1 21:39:25 CST 2019
+// Name        : e
+// Date        : Tue Apr  2 10:59:27 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -33,31 +33,42 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+vi parse(string& a) {
+    vi ret(sz(a) + 1);
+    for (int i = 0; i < sz(a); ++i) {
+        ret[i + 1] = a[i] - 'a';
+    }
+    return ret;
+}
+
 void solve() {
-    int n; cin >> n;
-    vi a(n), o, e;
-    for (auto &t : a) {
-        cin >> t;
-        if (t % 2) {
-            o.pb(t);
+    int n; string s, t;
+    cin >> n >> s >> t;
+    vi a = parse(s), b = parse(t);
+    trace(a, b);
+    // Base 26 addition
+    int carry = 0;
+    for (int i = n; i > 0; --i) {
+        a[i] += b[i] + carry;
+        carry = a[i] / 26;
+        a[i] %= 26;
+    }
+    a[0] = carry;
+    trace(a, b);
+    // Base 26 division.
+    for (int i = 0; i <= n; ++i) {
+        int rem = a[i] % 2;
+        a[i] /= 2;
+        if (i + 1 <= n) {
+            a[i + 1] += rem * 26;
         } else {
-            e.pb(t);
+            assert(rem == 0);
         }
     }
-    sort(all(o));
-    sort(all(e));
-    int p = sz(o), m = sz(e);
-    if (p == m && abs(p - m) == 1) {
-        output(0);
-        return;
-    }
-    ll ret = 0;
-    for (int i = 0; i < abs(p - m) - 1; ++i) {
-        if (p > m) {
-            ret += o[i];
-        } else {
-            ret += e[i];
-        }
+    trace(a, b);
+    string ret;
+    for (int i = 1; i <= n; ++i) {
+        ret += (char)(a[i] + 'a');
     }
     output(ret);
 }

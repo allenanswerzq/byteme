@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : b
-// Date        : Mon Apr  1 21:39:25 CST 2019
+// Name        : f
+// Date        : Tue Apr  2 14:18:27 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -33,33 +33,52 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-void solve() {
-    int n; cin >> n;
-    vi a(n), o, e;
-    for (auto &t : a) {
-        cin >> t;
-        if (t % 2) {
-            o.pb(t);
+vvi g;
+vi color;
+bool bipartite;
+
+void dfs(int u, int c) {
+    color[u] = c;
+    for (auto v : g[u]) {
+        if (color[v] == -1) {
+            dfs(v, c ^ 1);
         } else {
-            e.pb(t);
+            if (color[v] == color[u]) {
+                bipartite = 0;
+            }
         }
     }
-    sort(all(o));
-    sort(all(e));
-    int p = sz(o), m = sz(e);
-    if (p == m && abs(p - m) == 1) {
-        output(0);
+}
+
+void solve() {
+    int n, m;
+    cin >> n >> m;
+    g = vvi(n);
+    vpii e;
+    for (int i = 0; i < m; ++i) {
+        int u, v;
+        cin >> u >> v;
+        --u, --v;
+        g[u].pb(v);
+        g[v].pb(u);
+        e.pb({u, v});
+    }
+
+    bipartite = 1;
+    color = vi(n, -1);
+    dfs(0, 0);
+    trace(color, e, g);
+
+    if (!bipartite) {
+        output("NO");
         return;
     }
-    ll ret = 0;
-    for (int i = 0; i < abs(p - m) - 1; ++i) {
-        if (p > m) {
-            ret += o[i];
-        } else {
-            ret += e[i];
-        }
+    output("YES");
+    for (int i = 0; i < m; ++i) {
+        int x = e[i].x, y = e[i].y;
+        cout << (color[x] < color[y]);
     }
-    output(ret);
+    cout << "\n";
 }
 
 int main() {
