@@ -22,3 +22,6 @@
 [submodule "third_party/algorithm"]
 	path = third_party/algorithm
 	url = git@github.com:landcold7/algorithm.git
+[submodule "third_party/Programming-contest"]
+	path = third_party/Programming-contest
+	url = https://github.com/pin3da/Programming-contest.git
