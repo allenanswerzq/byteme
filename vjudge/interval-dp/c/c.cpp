@@ -87,7 +87,7 @@ int rec(int lo, int hi, int cl, int cr) {
             }
         }
     }
-    return ret = dp[lo][hi][cl][cr];
+    return ret;
 }
 
 void solve() {
