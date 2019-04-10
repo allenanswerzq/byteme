@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : 139a
-// Date        : Tue Apr  9 22:33:07 CST 2019
+// Name        : 779c
+// Date        : Wed Apr 10 10:50:09 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -36,32 +36,45 @@ typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
 void solve() {
-  int n;
-  cin >> n;
-  vi a(7);
-  int sum = 0;
-  for (int i = 0; i < 7; ++i) {
+  int n, k;
+  cin >> n >> k;
+  vi a(n);
+  for (int i = 0; i < n; ++i) {
     cin >> a[i];
-    sum += a[i];
   }
-  n -= (n / sum - 1) * sum;
-  trace(n, sum, a);
-  for (int i = 0; ; ++i) {
-    if (i >= 7) {
-      i -= 7;
-    }
-    n -= a[i];
-    if (n <= 0) {
-      output(i + 1);
-      return;
+  vi b(n);
+  for (int j = 0; j < n; ++j) {
+    cin >> b[j];
+  }
+  vpii d(n);
+  for (int i = 0; i < n; ++i) {
+    d[i] = {b[i] - a[i], i};
+  }
+  sort(rall(d));
+  d.pb({0, -1});
+  for (int i = 0; i <= n; ++i) {
+    if (d[i].x <= 0) {
+    // If the price goes higher after a week,
+    // We should buy right now.
+      k = max(k, i);
+      break;
     }
   }
+  trace(d, k);
+  ll ret = 0;
+  for (int i = 0; i < n; ++i) {
+    if (i < k) {
+      ret += a[d[i].y];
+    } else {
+      ret += b[d[i].y];
+    }
+  }
+  output(ret);
 }
 
 int main() {
   ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  solve();
+  cin.tie(0); solve();
   return 0;
 }
 

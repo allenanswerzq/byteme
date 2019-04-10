@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : 139a
-// Date        : Tue Apr  9 22:33:07 CST 2019
+// Name        : 758b
+// Date        : Wed Apr 10 16:54:49 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -35,26 +35,31 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+
 void solve() {
-  int n;
-  cin >> n;
-  vi a(7);
-  int sum = 0;
-  for (int i = 0; i < 7; ++i) {
-    cin >> a[i];
-    sum += a[i];
+  string a;
+  cin >> a;
+  string s(4, '#');
+  for (int i = 0; i < sz(a); i += 4) {
+    string sub = a.substr(i, 4);
+    for (int j = 0; j < min(4, sz(sub)); ++j) {
+      if (sub[j] != '!') {
+        s[j] = sub[j];
+      }
+    }
   }
-  n -= (n / sum - 1) * sum;
-  trace(n, sum, a);
-  for (int i = 0; ; ++i) {
-    if (i >= 7) {
-      i -= 7;
+  map<char, int> ret;
+  for (int i = 0; i < sz(a); i += 4) {
+    string sub = a.substr(i, 4);
+    for (int j = 0; j < min(4, sz(sub)); ++j) {
+      if (sub[j] != s[j]) {
+        ret[s[j]]++;
+      }
     }
-    n -= a[i];
-    if (n <= 0) {
-      output(i + 1);
-      return;
-    }
+  }
+  trace(ret);
+  for (auto c : {'R', 'B', 'Y', 'G'}) {
+    cout << ret[c] << (c == 'G' ? "\n" : " ");
   }
 }
 

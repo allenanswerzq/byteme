@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : 139a
-// Date        : Tue Apr  9 22:33:07 CST 2019
+// Name        : 548a
+// Date        : Wed Apr 10 10:16:32 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -35,27 +35,35 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-void solve() {
-  int n;
-  cin >> n;
-  vi a(7);
-  int sum = 0;
-  for (int i = 0; i < 7; ++i) {
-    cin >> a[i];
-    sum += a[i];
-  }
-  n -= (n / sum - 1) * sum;
-  trace(n, sum, a);
-  for (int i = 0; ; ++i) {
-    if (i >= 7) {
-      i -= 7;
+inline bool check(string s) {
+  int lo = 0, hi = sz(s) - 1;
+  while (lo < hi) {
+    if (s[lo] != s[hi]) {
+      return false;
     }
-    n -= a[i];
-    if (n <= 0) {
-      output(i + 1);
+    ++lo, --hi;
+  }
+  return true;
+}
+
+void solve() {
+  string s;
+  cin >> s;
+  int k;
+  cin >> k;
+  int n = sz(s);
+  if (n % k) {
+    output("NO");
+    return;
+  }
+  n /= k;
+  for (int i = 0; i < sz(s); i += n) {
+    if (!check(s.substr(i, n))) {
+      output("NO");
       return;
     }
   }
+  output("YES");
 }
 
 int main() {

@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : 139a
-// Date        : Tue Apr  9 22:33:07 CST 2019
+// Name        : 558a
+// Date        : Wed Apr 10 19:13:19 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -38,24 +38,36 @@ typedef vector<pii> vpii;
 void solve() {
   int n;
   cin >> n;
-  vi a(7);
-  int sum = 0;
-  for (int i = 0; i < 7; ++i) {
-    cin >> a[i];
-    sum += a[i];
-  }
-  n -= (n / sum - 1) * sum;
-  trace(n, sum, a);
-  for (int i = 0; ; ++i) {
-    if (i >= 7) {
-      i -= 7;
-    }
-    n -= a[i];
-    if (n <= 0) {
-      output(i + 1);
-      return;
+  vpii a, b;
+  for (int i = 0; i < n; ++i) {
+    int x, y;
+    cin >> x >> y;
+    if (x > 0) {
+      a.pb({x, y});
+    } else {
+      b.pb({x, y});
     }
   }
+  sort(all(a));
+  sort(rall(b));
+  trace(a, b);
+  if (sz(a) < sz(b)) {
+    swap(a, b);
+  }
+  int ret = 0;
+  if (sz(a) == sz(b)) {
+    for (int i = 0; i < sz(a); ++i) {
+      ret += a[i].y + b[i].y;
+    }
+  } else {
+    for (int i = 0; i < min(sz(a), sz(b) + 1); ++i) {
+      ret += a[i].y;
+    }
+    for (int i = 0; i < sz(b); ++i) {
+      ret += b[i].y;
+    }
+  }
+  output(ret);
 }
 
 int main() {

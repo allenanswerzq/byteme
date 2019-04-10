@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : 139a
-// Date        : Tue Apr  9 22:33:07 CST 2019
+// Name        : 743b
+// Date        : Wed Apr 10 09:58:56 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -35,27 +35,27 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
+int rec(ll n, ll k, ll a) {
+  a = (a + 1) / 2;
+  int ret = 0;
+  if (k == a) {
+    ret = n;
+  } else if (k > a) {
+    return rec(n - 1, k - a, a - 1);
+  } else {
+    return rec(n - 1, k, a - 1);
+  }
+  return ret;
+}
+
 void solve() {
-  int n;
-  cin >> n;
-  vi a(7);
-  int sum = 0;
-  for (int i = 0; i < 7; ++i) {
-    cin >> a[i];
-    sum += a[i];
+  ll n, k;
+  cin >> n >> k;
+  ll a = 0;
+  for (int i = 1; i <= n; ++i) {
+    a = 2 * a + 1;
   }
-  n -= (n / sum - 1) * sum;
-  trace(n, sum, a);
-  for (int i = 0; ; ++i) {
-    if (i >= 7) {
-      i -= 7;
-    }
-    n -= a[i];
-    if (n <= 0) {
-      output(i + 1);
-      return;
-    }
-  }
+  output(rec(n, k, a));
 }
 
 int main() {

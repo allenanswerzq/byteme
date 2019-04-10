@@ -1,6 +1,6 @@
 //============================================================================
-// Name        : 139a
-// Date        : Tue Apr  9 22:33:07 CST 2019
+// Name        : 583b
+// Date        : Wed Apr 10 19:37:25 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //============================================================================
@@ -38,24 +38,20 @@ typedef vector<pii> vpii;
 void solve() {
   int n;
   cin >> n;
-  vi a(7);
-  int sum = 0;
-  for (int i = 0; i < 7; ++i) {
+  vi a(n);
+  for (int i = 0; i < n; ++i) {
     cin >> a[i];
-    sum += a[i];
   }
-  n -= (n / sum - 1) * sum;
-  trace(n, sum, a);
-  for (int i = 0; ; ++i) {
-    if (i >= 7) {
-      i -= 7;
-    }
-    n -= a[i];
-    if (n <= 0) {
-      output(i + 1);
-      return;
+  trace(a);
+  vi dp(n, 1);
+  for (int i = 0; i < n; ++i) {
+    for (int j = i - 1; j >= 0; --j) {
+      if (a[i] > a[j]) {
+        amax(dp[i], dp[j] + 1);
+      }
     }
   }
+  trace(dp);
 }
 
 int main() {
