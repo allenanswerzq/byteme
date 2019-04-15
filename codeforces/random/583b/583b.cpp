@@ -42,16 +42,30 @@ void solve() {
   for (int i = 0; i < n; ++i) {
     cin >> a[i];
   }
-  trace(a);
-  vi dp(n, 1);
-  for (int i = 0; i < n; ++i) {
-    for (int j = i - 1; j >= 0; --j) {
-      if (a[i] > a[j]) {
-        amax(dp[i], dp[j] + 1);
+  int ret = 0, s = 0;
+  while (1) {
+    for (int i = 0; i < n; ++i) {
+      if (s >= a[i]) {
+        a[i] = n + 1;
+        s++;
       }
     }
+    if (s == n) {
+      break;
+    }
+    ret++;
+    for (int i = n - 1; i >= 0; --i) {
+      if (a[i] <= s) {
+        a[i] = n + 1;
+        s++;
+      }
+    }
+    if (s == n) {
+      break;
+    }
+    ret++;
   }
-  trace(dp);
+  output(ret);
 }
 
 int main() {
