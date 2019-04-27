@@ -25,3 +25,9 @@
 [submodule "third_party/Programming-contest"]
 	path = third_party/Programming-contest
 	url = https://github.com/pin3da/Programming-contest.git
+[submodule "thts-contests"]
+	path = thts-contests
+	url = https://github.com/thtsalgo/thts-contests.git
+[submodule "thtsalgo"]
+	path = thtsalgo
+	url = https://github.com/thtsalgo/thts-contests.git
