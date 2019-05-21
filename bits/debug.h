@@ -34,13 +34,22 @@ struct debug {
     }
 };
 
+// Leave these extra handy code here, in case of needed in future.
+#define fore(i, a, b) for (int i = a; i < b; ++i)
+#define prt(x, i, n) { cout << x[i] << (i == n - 1 ? "\n" : " "); }
+#define par(x, s, n, v) if(v) cout << #x << ": "; fore(i, s, n) prt(x, i, n)
+template<class T> inline void amin(T &x, const T &y) { if (y < x) x = y; }
+template<class T> inline void amax(T &x, const T &y) { if (x < y) x = y; }
+// template <typename T> void output(T t) { cout << t << "\n"; }
+// template <typename T, typename U, typename... Args>
+// void output(T t, U u, Args... args) { cout << t << " "; output(u, args...); }
+
 #ifdef _has_trace
     #define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
     template <typename T>
     void _f(const char* name, T&& arg) {
         debug() << name << ": " << arg << '\n';
     }
-
     template <typename T, typename... Args>
     void _f(const char* names, T&& arg, Args&&... args) {
         const char* split = strchr(names + 1, ',');

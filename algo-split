@@ -48,7 +48,8 @@ if len(outputs) > 0 and len(inputs) > 0:
   with open("test.rel", "w") as f:
     for out in outputs:
       for line in out:
-        f.write(line)
+        f.write(line.strip())
+        f.write('\n')
       # f.write("====================\n")
 
 

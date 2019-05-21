@@ -119,3 +119,25 @@
 
   // Hacking to add trace.
   #include "debug.h"
+
+  // For the situation where oj doesn't support stdc++11 or above, so
+  // that i can quick copy this part.
+  #ifdef _common_headers
+  #include <vector>
+  #include <map>
+  #include <set>
+  #include <cmath>
+  #include <cstdio>
+  #include <queue>
+  #include <stack>
+  #include <string>
+  #include <limits>
+  #include <iomanip>
+  #include <fstream>
+  #include <sstream>
+  #include <cstdlib>
+  #include <utility>
+  #include <cstring>
+  #include <iostream>
+  #include <algorithm>
+  #endif
