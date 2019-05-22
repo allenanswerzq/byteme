@@ -9,7 +9,7 @@ template < class T > auto dud(T* x) -> decltype(cout << *x, 0);
 struct debug {
     template < class T >
     typename enable_if< sizeof(dud<T>(0)) != 1, debug& >::type operator<< (T i) {
-        cout << i;
+        cout << i << flush;
         return *this;
     }
 
