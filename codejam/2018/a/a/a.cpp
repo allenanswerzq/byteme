@@ -97,6 +97,8 @@ void solve(int cs) {
     ll x = down(s);
     ll y = up(s);
     // trace(n, x, y, n - x, y - n);
+    assert(n >= x);
+    assert(y >= n);
     jam(cs, min(n - x, y - n));
 }
 

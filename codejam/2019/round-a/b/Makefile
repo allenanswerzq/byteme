@@ -16,7 +16,7 @@ endif
 
 # For local debug purpose
 CXXFLAGS += -I/Users/jche/Code/algos
-DEBUGFLAGS += -D__has_trace
+DEBUGFLAGS += -D_has_trace
 
 ifeq ($(shell ls /usr/local/opt/llvm/bin/clang > /dev/null 2>&1 && echo $$?), 0)
 	# We are using a homebrew clang, need new flags
@@ -76,5 +76,5 @@ print-%:
 	@echo $* = $($*)
 
 __diff_%: %.res
-	# diff -y $*.res $*.rel | tee -a $*.log
-	# @echo [1m[31mdiff successful!!![0m
+	diff -y $*.res $*.rel | tee -a $*.log
+	@echo [1m[31mdiff successful!!![0m
