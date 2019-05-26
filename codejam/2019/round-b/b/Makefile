@@ -30,9 +30,8 @@ TARGET := $(notdir $(CURDIR))
 all: test
 
 clean:
-	@echo "current directory: " $(CURDIR)
-	@echo
-	-rm -rf *.log *.inp *.out
+	@echo "Current:" $(CURDIR)
+	@-rm -rf *.log *.inp *.out
 
 # Hacking to make it rebuilding when change debug flags.
 % : %.cpp Makefile
@@ -44,15 +43,17 @@ run: $(TARGET)
 
 # Making samples.
 samples: clean
-	-mv -f /tmp/algo-samples ./ins.in >> /dev/null 2>&1 || true
+	@-mv -f /tmp/algo-samples ./ins.in >> /dev/null 2>&1 || true
 	algo-split ins.in
 
 test.res: samples $(TARGET)
-	algo-run $(TARGET) test.res $(EXEC_TIME) | tee test.log
+	@echo algo-run $(TARGET)
+	@algo-run $(TARGET) test.res $(EXEC_TIME) | tee test_run.log
 
 # Compare my results with other person's correct real results.
 comp.res: samples cmp
-	algo-run cmp comp.rel | tee comp.log
+	@echo algo-run $(TARGET)
+	@algo-run cmp comp.rel | tee comp_run.log
 	@mv test.res comp.res
 
 test: __diff_test
@@ -76,5 +77,6 @@ print-%:
 	@echo $* = $($*)
 
 __diff_%: %.res
-	# diff -y $*.res $*.rel | tee -a $*.log
+	# @echo diff $*.res $*.rel
+	# @diff -y $*.res $*.rel | tee -a $*_diff.log
 	# @echo [1m[31mdiff successful!!![0m
