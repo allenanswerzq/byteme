@@ -1,6 +1,7 @@
 //=============================================================
 // Name        : $NAME
 // Date        : $DATE
+// Accepted    : $ACCEPTED
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //=============================================================
@@ -10,7 +11,6 @@ using namespace std;
 #define x first
 #define y second
 #define sz(x) ((int)(x).size())
-
 #ifndef _has_trace
 #define trace(...)
 #endif

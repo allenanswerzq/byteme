@@ -1,12 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 var=1
 
 function trap_ctrlc () {
-    echo [1m[31mCaught ctrlc $var[0m
-    test $var -ge 10 && exit 124
-    var=$(expr $var + 1)
+  echo [1m[31mCaught ctrlc $var[0m
+  test $var -ge 10 && exit 124
+  var=$(expr $var + 1)
 }
+
+filename=$1
 
 if [[ "$1" == "run" ]]; then
   cmd="make run"
@@ -21,10 +23,19 @@ fi
 
 # Ref: https://stackoverflow.com/questions/12771909/bash-using-trap-ctrlc
 while [ 1 ]; do
-    clear && tmux clear-history
-    trap 'trap_ctrlc' 2
-    $cmd
-    trap 'trap_ctrlc' 2
-    echo -en Press Enter to continue
-    read newline
+  clear && tmux clear-history
+  trap 'trap_ctrlc' 2
+  $cmd
+  if [[ ! -z "$filename" ]]; then
+    ctime=$(date)
+    # echo "timestamp: $ctime"
+    sed -i.bak "s|.*Accepted.*|// Accepted    : $ctime|g" ./"$filename".cpp
+    rm $filename.cpp.bak
+  else
+    sed -i.bak "/Accepted/d" ./$filename.cpp
+    rm $filename.cpp.bak
+  fi
+  trap 'trap_ctrlc' 2
+  echo -en Press Enter to continue
+  read newline
 done
