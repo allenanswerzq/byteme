@@ -1,29 +1,24 @@
 SHELL = /bin/bash -o pipefail
-CXX = g++
+CXX = g++-8
 
-CXXFLAGS = -Wall -Wextra -pedantic -std=c++11 -O2 -Wshadow -Wformat=2
-CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align
+CXXFLAGS = -Wall -Wextra -pedantic -std=c++17 -O2 -Wshadow -Wformat=2
+CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align -fvisibility=hidden
 # CXXFLAGS += -Wconversion
 
 RELEASE ?= 0
 EXEC_TIME ?= 1
 ifeq ($(RELEASE), 0)
 	DEBUGFLAGS = -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
-	DEBUGFLAGS += -fsanitize=address -fsanitize=undefined -fstack-protector
+	DEBUGFLAGS += -fsanitize=address -fsanitize=undefined
+	# Since this flag will case a AddressSantizer error on my debug
+	# function `trace`, so here i just simply comment out this one.
+	# -fstack-protector
 	EXEC_TIME = 0
-	# DEBUGFLAGS += -lmcheck
 endif
 
 # For local debug purpose
 CXXFLAGS += -I/Users/jche/Code/algos
 DEBUGFLAGS += -D_has_trace
-
-ifeq ($(shell ls /usr/local/opt/llvm/bin/clang > /dev/null 2>&1 && echo $$?), 0)
-	# We are using a homebrew clang, need new flags
-	CXX = /usr/local/opt/llvm/bin/clang++
-	LDFLAGS += -L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib
-	CXXFLAGS += -I/usr/local/opt/llvm/include -I/usr/local/opt/llvm/include/c++/v1/
-endif
 
 TARGET := $(notdir $(CURDIR))
 
@@ -35,7 +30,7 @@ clean:
 
 # Hacking to make it rebuilding when change debug flags.
 % : %.cpp Makefile
-	@echo "clang++ $<"
+	@echo "cxx $<"
 	@$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) $< $(LDFLAGS)  -o $@
 
 run: $(TARGET)
@@ -53,7 +48,7 @@ test.res: samples $(TARGET)
 # Compare my results with other person's correct real results.
 comp.res: samples cmp
 	@echo algo-run $(TARGET)
-	@algo-run cmp comp.rel | tee comp_run.log
+	@algo-run cmp comp.rel $(EXEC_TIME) | tee comp_run.log
 	@mv test.res comp.res
 
 test: __diff_test
@@ -68,7 +63,7 @@ pygen: gen.py
 
 # Ugly hacking to speed up the comiplation time of jngen library...
 cppgen:
-	g++ gen.cpp --std=c++11 -I/Users/jche/Code/algos/third_party/jngen/includes -o gen
+	g++ gen.cpp --std=c++11 -I$(ALGOROOT)/third_party/jngen/includes -o gen
 	./gen | tee ins.in
 
 .PHONY: all clean run test comp
@@ -77,6 +72,9 @@ print-%:
 	@echo $* = $($*)
 
 __diff_%: %.res
-	@echo diff $*.res $*.rel
-	@diff -y $*.res $*.rel | tee -a $*_diff.log
-	@echo [1m[31mdiff successful!!![0m
+	# think before code
+
+# __diff_%: %.res
+# 	@>&2 echo diff $*.res $*.rel
+# 	@>&2 diff -y $*.res $*.rel
+# 	@>&2 echo [1m[31mdiff successful!!![0m
