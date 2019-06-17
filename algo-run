@@ -25,16 +25,16 @@ for i in $inp; do
     echo "//-------------------------------------------------------------\\\\"
     out="${i%.inp}".out
     if [ "$exec_time" -eq "0" ]; then
-        cmd="ASAN_OPTIONS=detect_leaks=1 ./$elf < $i"
+        cmd="./$elf < $i"
     else
-        cmd="time ASAN_OPTIONS=detect_leaks=1 ./$elf < $i"
+        cmd="time ./$elf < $i"
     fi
     # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
-    if ! { bash -c "$cmd"; } | tee $out; then
-      echo [1m[31mRuntime error, Check source code, Please :\(\-[0m
-      exit 124
+    if ! { bash -c "$cmd"; } | tee $out ; then
+        echo [1m[31mRuntime error, Check source code, Please :\(\-[0m
+        exit 124
     else
-      cat $out >> $res
+        cat $out >> $res
     fi
     rm -f $i $out
 done
