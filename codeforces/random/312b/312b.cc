@@ -1,7 +1,7 @@
 //=============================================================
 // Name        : 312b
 // Date        : Wed Jun 19 17:12:10 CST 2019
-// Accepted    : Wed Jun 19 17:29:41 CST 2019
+// Accepted    : Wed Jun 19 17:54:53 CST 2019
 // Author      : landcold7
 // Description : Actions speak louder more than words
 //=============================================================
