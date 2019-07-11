@@ -3,9 +3,30 @@
 set -o pipefail
 
 function trap_ctrlc () {
-    echo [1m[31mLoop exists, see log file[0m
-    exit 123
+  echo [1m[31mLoop exists, see log file[0m
+  exit 123
 }
+
+initializeANSI() {
+  esc=""
+
+  blackf="${esc}[30m";   redf="${esc}[31m";    greenf="${esc}[32m"
+  yellowf="${esc}[33m"   bluef="${esc}[34m";   purplef="${esc}[35m"
+  cyanf="${esc}[36m";    whitef="${esc}[37m"
+
+  blackb="${esc}[40m";   redb="${esc}[41m";    greenb="${esc}[42m"
+  yellowb="${esc}[43m"   blueb="${esc}[44m";   purpleb="${esc}[45m"
+  cyanb="${esc}[46m";    whiteb="${esc}[47m"
+
+  boldon="${esc}[1m";    boldoff="${esc}[22m"
+  italicson="${esc}[3m"; italicsoff="${esc}[23m"
+  ulon="${esc}[4m";      uloff="${esc}[24m"
+  invon="${esc}[7m";     invoff="${esc}[27m"
+
+  reset="${esc}[0m"
+}
+
+initializeANSI
 
 # Initialise trap to call trap_ctrlc function
 # when signal 2 (SIGINT) is received
@@ -13,30 +34,87 @@ trap "trap_ctrlc" 2
 
 inp=*.inp
 elf=${1:-elf}
-res=${2:-test.res}
 exec_time=${3:-0}
 
-rm -rf $res
-for i in $inp; do
-    if ! [ -e "$i" ]; then
-        echo [1m[31mEmpty input[0m
-        exit 1
-    fi
-    echo "//-------------------------------------------------------------\\\\"
-    out="${i%.inp}".out
-    if [ "$exec_time" -eq "0" ]; then
-        cmd="./$elf < $i"
-    else
-        cmd="time ./$elf < $i"
-    fi
-    # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
-    if ! { bash -c "$cmd"; } | tee $out ; then
-        echo [1m[31mRuntime error, Check source code, Please :\(\-[0m
-        exit 124
-    else
-        cat $out >> $res
-    fi
-    rm -f $i $out
-done
-echo "\\\\-------------------------------------------------------------//"
+compare=0
+if [ "$elf" == "cmp" ]; then
+  compare=1
+fi
 
+if [ $compare -eq 0 ]; then
+  rm -f *.out
+else
+  rm -f *.cmp
+fi
+
+total_cnt=0
+correct_cnt=0
+for i in $inp; do
+  # Check input
+  if ! [ -e "$i" ]; then
+    echo [1m[31mEmpty input[0m
+    exit 1
+  fi
+  # Print input sample
+  echo "//-------------------------------------------------------------//"
+  if [ $compare -eq 0 ]; then
+    echo "Input: "
+    cat $i | tee
+    echo ""
+  fi
+  # Naming
+  if [ $compare -eq 1 ]; then
+    out="${i%.inp}".cmp
+    rel="${i%.inp}".out
+  else
+    out="${i%.inp}".out
+    rel="${i%.inp}".rel
+  fi
+  # Execute
+  total_cnt=$((total_cnt + 1))
+  if [ $exec_time -eq 0 ]; then
+      cmd="./$elf < $i"
+  else
+      cmd="time ./$elf < $i"
+  fi
+  # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
+  if ! { bash -c "$cmd"; } > $out ; then
+    echo "${redf}Runtime error, Check source code, Please :\(\- ${reset}"
+    exit 124
+  else
+    if [ $compare -eq 0 ]; then
+      cat $out | tee
+    fi
+  fi
+  # Diff checking
+  # echo $out $rel
+  if [ -e "$rel" ]; then
+    diff -y $out $rel >> /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+      correct_cnt=$((correct_cnt + 1))
+      echo -e "\t\t\t\t\t\t${boldon}${greenf}Passed[0m${reset}"
+    else
+      echo -e "\t\t\t\t\t\t${boldon}${redf}Failed${reset}"
+      if [ $compare -eq 1 ]; then
+        echo "Input: "
+        cat $i | tee
+        echo ""
+        # echo $rel $out
+        diff -y -W 100 $rel $out
+      else
+        diff -y -W 100 $out $rel
+      fi
+      if [ $compare -eq 1 ]; then
+        exit 124
+      fi
+    fi
+  else
+    echo -e "\t\t\t\t\t\t${boldon}${redf}Custom${reset}"
+  fi
+  # rm -f $i $out
+done
+if [ $compare -eq 1 ]; then
+  ratio=$((total_cnt / correct_cnt * 100))
+  echo "${boldon}${greenf}Correct ratio: $ratio%"
+fi
+echo "//-------------------------------------------------------------//"

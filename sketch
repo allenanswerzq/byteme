@@ -1,21 +1,31 @@
 #!/usr/bin/env bash
+set -x
+set -e
+
 root=${ALGO:=$HOME/Code/algos}
-for filepath in $*; do
+
+if [[ "$1" == "cpp" ]]; then
+  shift
+  for filepath in $*; do
     if test -d $filepath; then
-        echo "==> Problem $filepath already exist."
-        exit 1
+      echo "==> Problem $filepath already exist."
+      exit 1
     fi
     mkdir -p $filepath
     filename=$(basename "$filepath")
     ctime=$(date)
     sed -e "s/\\\$NAME/$filename/g" \
         -e "s/\\\$DATE/$ctime/g" \
-        "$root/template.cpp" > $filepath/$filename.cpp
+        "$root/template.cc" > $filepath/$filename.cc
     sed "s|\\\$ALGOLIB|$root|g" "$root/Makefile" > $filepath/Makefile
-    touch $filepath/ins.in
+    touch $filepath/tests.in
     echo "==> Problem $filepath created."
-    subl $filepath/test.rel
     cd $filepath
-    subl ./*
-    algo-make
-done
+    subl ./tests.in
+    subl ./"$filepath"*
+    algo-make $filename
+  done
+elif [[ "$1" == "gen" ]]; then
+  cat "$root/gen.cc" > "gen.cc"
+  subl gen.cc
+fi

@@ -1,76 +1,138 @@
 #!/usr/bin/env python3
-
 import os
 import sys
 import copy
 import signal
 from pathlib import Path
 
-inputs = []
-outputs = []
-inputs_sign = "nput"
-outputs_sign = "utput"
-inputs_ok = 0
-outputs_ok = 0
-with open(sys.argv[1], 'r') as f:
+# Script used to parse algorithm samples into files.
+  # Two kinds of paring supported:
+  # 1. orinial texts samples copied from oj websites. Most of them
+  #    have format as following:
+        # input
+        # 5
+        # CY??Y
+        # output
+        # Yes
+        # input
+        # 5
+        # C?C?Y
+        # output
+        # Yes
+  # 2. Custom test cases paring also supported,
+  #    i dont want to create a seperate test file every time.
+
+INPUT_SIGN = "nput"
+OUTPUT_SIGN = "utput"
+INPUT_SUFX = ".inp"
+OUTPUT_SUFX = ".rel"
+INPUT_FILE = "tests.in"
+OUTPUT_FILE = "test.rel"
+
+
+def is_plain_text(texts):
+  return INPUT_SIGN in texts and OUTPUT_SIGN in texts
+
+
+def write(name, content):
+  with open(name, 'w') as f:
+    for line in content:
+      if line == "\\n":
+        f.write("\n")
+      else:
+        f.write(line + "\n")
+    # f.write("\n")
+
+
+def write_two(name, content, nl=''):
+  with open(name, 'w') as f:
+    for k, v in enumerate(content):
+      for line in v:
+        f.write(line + nl)
+      if k < len(content) - 1:
+        f.write("\n")
+
+
+def write_out(inp, out=None):
+  write_two(INPUT_FILE, inp, nl='\n')
+  for k, v in enumerate(inp):
+    write(str(k) + INPUT_SUFX, v)
+
+  if out:
+    write_two(OUTPUT_FILE, out, nl='\n')
+    for k, v in enumerate(out):
+      write(str(k) + OUTPUT_SUFX, v)
+
+
+def parse_plain_text(texts):
+  inputs = []
+  outputs = []
+  inputs_ok = 0
+  outputs_ok = 0
   bag = []
-  for line in f:
-    if inputs_sign in line or outputs_sign in line:
+  texts = texts.rstrip().split('\n')
+  # print(texts)
+  for line in texts:
+    if INPUT_SIGN in line or OUTPUT_SIGN in line:
       if inputs_ok:
         inputs.append(copy.deepcopy(bag))
 
       if outputs_ok:
         outputs.append(copy.deepcopy(bag))
-
       bag.clear()
 
-    if inputs_sign in line:
-      inputs_ok, outputs_ok = 1, 0
+    if INPUT_SIGN in line:
+      inputs_ok = 1
       outputs_ok = 0
-    elif outputs_sign in line:
-      inputs_ok, outputs_ok = 0, 1
+
+    elif OUTPUT_SIGN in line:
+      inputs_ok = 0
+      outputs_ok = 1
+
     else:
       if inputs_ok or outputs_ok:
-        bag.append(line)
-      else: break
-
-outputs.append(copy.deepcopy(bag))
-# print(inputs)
-# print(outputs)
-
-if len(outputs) > 0 and len(inputs) > 0:
-  with open(sys.argv[1], 'w') as f :
-    for inp in inputs:
-      for line in inp:
-        f.write(line)
-      f.write("\n")
-
-  with open("test.rel", "w") as f:
-    for out in outputs:
-      for line in out:
-        f.write(line.strip())
-        f.write('\n')
-      # f.write("====================\n")
+        bag.append(line.rstrip())
+      else:
+        break
+  if len(bag) > 0:
+    outputs.append(copy.deepcopy(bag))
+  # print(inputs)
+  # print(outputs)
+  write_out(inputs, outputs)
 
 
-sample = ""
-samples = [];
-sep = ""
-with open(sys.argv[1], 'r') as f:
-  for line in f:
-    if line != '\n':
-      sample += line
+def parse_custom(texts):
+  # Supporting add custom test cases, i only need to put
+  # my test case into `tests.in` file, it will automatically save
+  # all those test cases.
+  # Note: for custom test cases, no real output value for comparison
+  inputs = []
+  bag = []
+  texts = texts.rstrip().split('\n')
+  # print(texts)
+  for line in texts:
+    if line == '':
+      if len(bag) > 0:
+        inputs.append(copy.deepcopy(bag))
+        bag.clear()
     else:
-      if sample != '':
-        samples.append(copy.deepcopy(sample))
-        sample = ""
+      bag.append(line.rstrip())
+  if len(bag) > 0:
+    inputs.append(copy.deepcopy(bag))
+  write_out(inputs)
 
-if sample != '':
-  samples.append(copy.deepcopy(sample))
 
-ret = []
-for i, sample_content in enumerate(samples):
-  input_name = str(i) + ".inp"
-  with open(input_name, 'w') as f:
-    f.write(sample_content)
+def parse(fn):
+  with open(fn, 'r') as f:
+    texts = f.read()
+    if is_plain_text(texts):
+      parse_plain_text(texts)
+    else:
+      parse_custom(texts)
 
+
+if __name__ == "__main__":
+  if len(sys.argv) < 2:
+    print("No file need to parse, exiting..")
+    exit(0)
+  parse(sys.argv[1])
