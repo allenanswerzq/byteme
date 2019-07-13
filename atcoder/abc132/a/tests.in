@@ -1,0 +1,16 @@
+input
+ASSA
+output
+Yes
+input
+STOP
+output
+No
+input
+FFEE
+output
+Yes
+input
+FREE
+output
+No
