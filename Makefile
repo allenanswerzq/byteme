@@ -18,7 +18,7 @@ ifeq ($(RELEASE), 0)
 endif
 
 # For local debug purpose
-CXXFLAGS += -I/Users/jche/Code/algos
+CXXFLAGS += -I$(ALGOROOT)
 DEBUGFLAGS += -D_has_trace
 
 TARGET := $(notdir $(CURDIR))
@@ -57,7 +57,7 @@ memo:
 pygen: gen.py
 	python3 gen.py | tee tests.in
 
-# Ugly hacking to speed up the comiplation time of jngen library...
+# Ugly hacking to speed up the compilation time of jngen library...
 cppgen:
 	g++ gen.cc --std=c++11 -I$(ALGOROOT)/third_party/jngen/includes -o gen
 	./gen | tee tests.in

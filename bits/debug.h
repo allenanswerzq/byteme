@@ -44,18 +44,18 @@ struct debug {
 // mt19937 rng((int) std::chrono::steady_clock::now().time_since_epoch().count());
 
 #ifdef _has_trace
-	#define trace(...) _f(#__VA_ARGS__, __VA_ARGS__)
+	#define dbstream debug
+	#define trace(...) print(#__VA_ARGS__, __VA_ARGS__)
 	template <class T>
-	void _f(const char* name, T&& arg) {
+	void print(const char* name, T&& arg) {
 		debug() << name << ": " << arg << "\n";
 	}
 	template <class T, class... Args>
-	void _f(const char* names, T&& arg, Args&&... args) {
+	void print(const char* names, T&& arg, Args&&... args) {
 		const char* comma = strchr(names, ',');
 		int len = comma - names;
 		string name = string(names).substr(0, len);
 		debug() << name << ": " << arg << " | ";
-		_f(comma + 2, args...);
+		print(comma + 2, args...);
 	}
-	#define dbstream debug
 #endif
