@@ -9,7 +9,7 @@ boldon="${esc}[1m"
 reset="${esc}[0m"
 
 function trap_ctrlc () {
-  echo "${redf}Loop exists, see log file${reset}"
+  echo "${boldon}${redf}Loop exists, see log file${reset}"
   exit 122
 }
 
@@ -34,13 +34,13 @@ correct_cnt=0
 for i in $inp; do
   # Check input
   if ! [ -e "$i" ]; then
-    echo "${redf}Empty input${reset}"
+    echo "${boldon}${redf}Empty input${reset}"
     exit 123
   fi
 
   # Print input samples
   echo "//-------------------------------------------------------------//"
-  if [[ $compare -eq 0 ]]; then
+  if [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
     echo "Input: "
     cat "$i"
     echo ""
@@ -64,7 +64,7 @@ for i in $inp; do
   fi
 
   if ! { bash -c "$cmd"; } > "$out"; then
-    echo "${redf}Runtime error, Check source code, Please :(- ${reset}"
+    echo "${boldon}${redf}Runtime error, Check source code, Please :(- ${reset}"
     exit 124
   elif [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
     echo -e "------------------------------------------------------------------"
@@ -95,9 +95,9 @@ for i in $inp; do
   fi
   # rm -f $i $out
 done
+echo "//-------------------------------------------------------------//"
 
 if [[ $compare -eq 1 ]]; then
   ratio=$((total_cnt * 100 / correct_cnt))
   echo "${boldon}${greenf}Correct ratio: $ratio%"
 fi
-echo "//-------------------------------------------------------------//"
