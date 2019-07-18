@@ -37,7 +37,7 @@ def is_plain_text(texts):
 def write(name, content):
   with open(name, 'w') as f:
     for line in content:
-      if line == "\\n":
+      if line == "//n":
         f.write("\n")
       else:
         f.write(line + "\n")

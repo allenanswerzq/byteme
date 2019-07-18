@@ -4,7 +4,10 @@ set -e
 
 root=${ALGO:=$HOME/Code/algos}
 
-if [[ "$1" == "cpp" ]]; then
+if [[ "$1" == "gen" || "$2" == "gen" ]]; then
+  cat "$root/gen.cc" > "gen.cc"
+  subl gen.cc
+elif [[ "$1" == "cpp" ]]; then
   shift
   for filepath in $*; do
     if test -d $filepath; then
@@ -13,7 +16,7 @@ if [[ "$1" == "cpp" ]]; then
     fi
     mkdir -p $filepath
     filename=$(basename "$filepath")
-    ctime=$(date)
+    ctime=$(date "+%Y-%m-%d %H:%M:%S")
     sed -e "s/\\\$NAME/$filename/g" \
         -e "s/\\\$DATE/$ctime/g" \
         "$root/template.cc" > $filepath/$filename.cc
@@ -23,9 +26,6 @@ if [[ "$1" == "cpp" ]]; then
     cd $filepath
     subl ./tests.in
     subl ./"$filepath"*
-    algo-make $filename
+    algo-make "test" $filename
   done
-elif [[ "$1" == "gen" ]]; then
-  cat "$root/gen.cc" > "gen.cc"
-  subl gen.cc
 fi

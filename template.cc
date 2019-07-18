@@ -1,9 +1,7 @@
 /*
- * Name        : $NAME
- * Creat       : $DATE
- * Accept      : $ACCEPTED
- * Author      : landcold7
- * Motivation  : Action speaks louder more than words
+ * creat   : $DATE
+ * accept  : $ACCEPTED
+ * author  : landcold7
  */
 #include <bits/stdc++.h>
 using namespace std;

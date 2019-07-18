@@ -11,7 +11,7 @@ function trap_ctrlc () {
 if [[ "$1" == "run" ]]; then
   cmd="make run"
 elif [[ "$1" == "comp" ]]; then
-  cmd="make comp"
+  cmd='make RELEASE=1 comp'
 elif [[ "$1" == "release" ]]; then
   rm -f $(basename $(PWD))
   cmd='make RELEASE=1'
@@ -19,20 +19,18 @@ else
   cmd="make test"
 fi
 
-filename=$1
+trap 'trap_ctrlc' 2
+filename=$2
 
 # Ref: https://stackoverflow.com/questions/12771909/bash-using-trap-ctrlc
 while [ 1 ]; do
   clear && tmux clear-history
-  trap 'trap_ctrlc' 2
-  $cmd
   if [[ ! -z "$filename" && "$filename" != "release" ]]; then
-    ctime=$(date)
-    # echo "timestamp: $ctime"
-    sed -i.bak "s|.*Accept.*| \* Accept      : $ctime|g" ./"$filename".cc
-    rm $filename.cc.bak
+    ctime=$(date "+%Y-%m-%d %H:%M:%S")
+    sed -i.bak "s|.*accept.*| \* accept  : $ctime|g" "$filename".cc
+    rm "$filename".cc.bak
   fi
-  trap 'trap_ctrlc' 2
+  $cmd
   echo -en Press Enter to continue
   read newline
 done

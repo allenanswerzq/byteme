@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-template < class T > struct rge { T b, e; };
-template < class T > rge<T> range(T i, T j) { return rge<T> {i, j}; }
-template < class T > char dud(...);
-template < class T > auto dud(T* x) -> decltype(cout << *x, 0);
+template <class T> struct rge { T b, e; };
+template <class T> rge<T> range(T i, T j) { return rge<T> {i, j}; }
+template <class T> char dud(...);
+template <class T> auto dud(T* x) -> decltype(cout << *x, 0);
 
 struct debug {
 	template < class T >

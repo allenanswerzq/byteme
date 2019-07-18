@@ -8,6 +8,7 @@ CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align -fvisibility=hidden
 
 RELEASE ?= 0
 EXEC_TIME ?= 1
+NO_DIFF ?= 0
 ifeq ($(RELEASE), 0)
 	DEBUGFLAGS += -fsanitize=address -fsanitize=undefined
 	# DEBUGFLAGS += -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
@@ -44,12 +45,12 @@ samples: clean
 
 test: samples $(TARGET)
 	@echo algo-run $(TARGET)
-	@unbuffer algo-run $(TARGET) test.res $(EXEC_TIME) 2>&1 | tee test_run.log
+	@unbuffer algo-run $(TARGET) test.res $(EXEC_TIME) $(NO_DIFF) 2>&1 | tee test_run.log
 
 # Compare my results with other person's correct real results.
 comp: samples cmp
-	@echo algo-run $(TARGET)
-	@unbuffer algo-run cmp comp.rel $(EXEC_TIME) 2>&1 | tee comp_run.log
+	@echo algo-run cmp
+	@unbuffer algo-run cmp comp.rel $(EXEC_TIME) $(NO_DIFF) 2>&1 | tee comp_run.log
 
 memo:
 	ps aux | grep "[.]/$(TARGET)$$" | awk '{$$6=int($$6/1024)"M";}{print;}'

@@ -1,50 +1,32 @@
-#!/bin/bash
-# Usage: algo-run elf res_name
+#!/usr/bin/env bash
+# Usage: algo-run elf res_name exec_time diff
 set -o pipefail
 
+esc=""
+redf="${esc}[31m"
+greenf="${esc}[32m"
+boldon="${esc}[1m"
+reset="${esc}[0m"
+
 function trap_ctrlc () {
-  echo [1m[31mLoop exists, see log file[0m
-  exit 123
+  echo "${redf}Loop exists, see log file${reset}"
+  exit 122
 }
 
-initializeANSI() {
-  esc=""
-
-  blackf="${esc}[30m";   redf="${esc}[31m";    greenf="${esc}[32m"
-  yellowf="${esc}[33m"   bluef="${esc}[34m";   purplef="${esc}[35m"
-  cyanf="${esc}[36m";    whitef="${esc}[37m"
-
-  blackb="${esc}[40m";   redb="${esc}[41m";    greenb="${esc}[42m"
-  yellowb="${esc}[43m"   blueb="${esc}[44m";   purpleb="${esc}[45m"
-  cyanb="${esc}[46m";    whiteb="${esc}[47m"
-
-  boldon="${esc}[1m";    boldoff="${esc}[22m"
-  italicson="${esc}[3m"; italicsoff="${esc}[23m"
-  ulon="${esc}[4m";      uloff="${esc}[24m"
-  invon="${esc}[7m";     invoff="${esc}[27m"
-
-  reset="${esc}[0m"
-}
-
-initializeANSI
-
-# Initialise trap to call trap_ctrlc function
-# when signal 2 (SIGINT) is received
 trap "trap_ctrlc" 2
 
-inp=*.inp
+inp="*.inp"
 elf=${1:-elf}
 exec_time=${3:-0}
+nodiff=${4:-0}
 
+# Clean old files
 compare=0
-if [ "$elf" == "cmp" ]; then
+if [[ "$elf" == "cmp" ]]; then
   compare=1
-fi
-
-if [ $compare -eq 0 ]; then
-  rm -f *.out
+  rm -f ./*.cmp
 else
-  rm -f *.cmp
+  rm -f ./*.out
 fi
 
 total_cnt=0
@@ -52,69 +34,70 @@ correct_cnt=0
 for i in $inp; do
   # Check input
   if ! [ -e "$i" ]; then
-    echo [1m[31mEmpty input[0m
-    exit 1
+    echo "${redf}Empty input${reset}"
+    exit 123
   fi
-  # Print input sample
+
+  # Print input samples
   echo "//-------------------------------------------------------------//"
-  if [ $compare -eq 0 ]; then
+  if [[ $compare -eq 0 ]]; then
     echo "Input: "
-    cat $i | tee
+    cat "$i"
     echo ""
   fi
+
   # Naming
-  if [ $compare -eq 1 ]; then
+  if [[ $compare -eq 1 ]]; then
     out="${i%.inp}".cmp
     rel="${i%.inp}".out
   else
     out="${i%.inp}".out
     rel="${i%.inp}".rel
   fi
+
   # Execute
   total_cnt=$((total_cnt + 1))
-  if [ $exec_time -eq 0 ]; then
-      cmd="./$elf < $i"
+  if [[ $exec_time -eq 0 ]]; then
+    cmd="./$elf < $i"
   else
-      cmd="time ./$elf < $i"
+    cmd="time ./$elf < $i"
   fi
-  # Ref: https://unix.stackexchange.com/questions/53289/does-segmentation-fault-message-come-under-stderr
-  if ! { bash -c "$cmd"; } > $out ; then
-    echo "${redf}Runtime error, Check source code, Please :\(\- ${reset}"
+
+  if ! { bash -c "$cmd"; } > "$out"; then
+    echo "${redf}Runtime error, Check source code, Please :(- ${reset}"
     exit 124
-  else
-    if [ $compare -eq 0 ]; then
-      cat $out | tee
-    fi
+  elif [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
+    echo -e "------------------------------------------------------------------"
+    cat "$out"
   fi
+
   # Diff checking
-  # echo $out $rel
-  if [ -e "$rel" ]; then
-    diff -y $out $rel >> /dev/null 2>&1
-    if [ $? -eq 0 ]; then
+  if [[ -e "$rel" && $nodiff -eq 0 ]]; then
+    if diff -y "$out" "$rel" >> /dev/null 2>&1; then
       correct_cnt=$((correct_cnt + 1))
-      echo -e "\t\t\t\t\t\t${boldon}${greenf}Passed[0m${reset}"
+      echo -e "\\t\\t\\t\\t\\t\\t${boldon}${greenf}Passed${reset}"
     else
-      echo -e "\t\t\t\t\t\t${boldon}${redf}Failed${reset}"
+      echo -e "\\t\\t\\t\\t\\t\\t${boldon}${redf}Failed${reset}"
+      echo -e "------------------------------------------------------------------"
       if [ $compare -eq 1 ]; then
+        # If we found any different in comparison mode, exit immediately.
         echo "Input: "
-        cat $i | tee
+        cat "$i"
         echo ""
-        # echo $rel $out
-        diff -y -W 100 $rel $out
-      else
-        diff -y -W 100 $out $rel
-      fi
-      if [ $compare -eq 1 ]; then
+        diff -y -W 100 "$rel" "$out"
         exit 124
+      elif [[ $nodiff -eq 0 ]]; then
+        diff -y -W 100 "$out" "$rel"
       fi
     fi
-  else
-    echo -e "\t\t\t\t\t\t${boldon}${redf}Custom${reset}"
+  elif [[ $nodiff -eq 0 ]]; then
+    echo -e "\\t\\t\\t\\t\\t\\t${boldon}${redf}Custom${reset}"
   fi
   # rm -f $i $out
 done
-if [ $compare -eq 1 ]; then
-  ratio=$((total_cnt / correct_cnt * 100))
+
+if [[ $compare -eq 1 ]]; then
+  ratio=$((total_cnt * 100 / correct_cnt))
   echo "${boldon}${greenf}Correct ratio: $ratio%"
 fi
 echo "//-------------------------------------------------------------//"
