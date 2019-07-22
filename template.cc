@@ -1,7 +1,7 @@
 /*
- * creat   : $DATE
- * accept  : $ACCEPTED
- * author  : landcold7
+ * created   : $DATE
+ * accepted  : $ACCEPTED
+ * author    : landcold7
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -9,7 +9,7 @@ using namespace std;
 #define x first
 #define y second
 #define sz(x) ((int)(x).size())
-#ifndef _has_trace
+#ifndef LOCAL
 #define trace(...)
 #endif
 typedef long long ll;

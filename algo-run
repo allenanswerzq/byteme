@@ -29,7 +29,7 @@ else
   rm -f ./*.out
 fi
 
-total_cnt=0
+correct_cnt=total_cnt
 correct_cnt=0
 for i in $inp; do
   # Check input
@@ -56,7 +56,6 @@ for i in $inp; do
   fi
 
   # Execute
-  total_cnt=$((total_cnt + 1))
   if [[ $exec_time -eq 0 ]]; then
     cmd="./$elf < $i"
   else
@@ -73,9 +72,10 @@ for i in $inp; do
 
   # Diff checking
   if [[ -e "$rel" && $nodiff -eq 0 ]]; then
+    total_cnt=$((total_cnt + 1))
     if diff -y "$out" "$rel" >> /dev/null 2>&1; then
       correct_cnt=$((correct_cnt + 1))
-      echo -e "\\t\\t\\t\\t\\t\\t${boldon}${greenf}Passed${reset}"
+      echo -e "#$total_cnt:\\t\\t\\t\\t\\t\\t${boldon}${greenf}Passed${reset}"
     else
       echo -e "\\t\\t\\t\\t\\t\\t${boldon}${redf}Failed${reset}"
       echo -e "------------------------------------------------------------------"
@@ -97,7 +97,5 @@ for i in $inp; do
 done
 echo "//-------------------------------------------------------------//"
 
-if [[ $compare -eq 1 ]]; then
-  ratio=$((total_cnt * 100 / correct_cnt))
-  echo "${boldon}${greenf}Correct ratio: $ratio%"
-fi
+ratio=$((correct_cnt * 100 / (total_cnt + 1 / 10000)))
+echo "${boldon}${greenf}Correct ratio: $ratio%${reset}"

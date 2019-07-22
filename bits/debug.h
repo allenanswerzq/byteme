@@ -7,18 +7,19 @@ template <class T> char dud(...);
 template <class T> auto dud(T* x) -> decltype(cout << *x, 0);
 
 struct debug {
-	template < class T >
-	typename enable_if< sizeof(dud<T>(0)) != 1, debug& >::type operator<< (T i) {
+	template <class T>
+	typename enable_if<sizeof(dud<T>(0)) != 1, debug&>::type operator<< (T i) {
 		cerr << i << flush;
 		return *this;
 	}
 
-	template < class T >
-	typename enable_if< sizeof(dud<T>(0)) == 1, debug& >::type operator<< (T i) {
+	template <class T>
+	typename enable_if<sizeof(dud<T>(0)) == 1, debug&>::type operator<< (T i) {
 		return *this << range(begin(i), end(i)) << "\n";
 	}
 
-	template < class T, class b > debug &operator<< (pair < b, T > d) {
+	template <class T, class b>
+	debug &operator<< (pair<b, T> d) {
 		return *this << "(" << d.first << ", " << d.second << ")";
 	}
 
@@ -36,26 +37,41 @@ struct debug {
 
 // template<class T> inline void amin(T &x, const T &y) { if (y < x) x = y; }
 // template<class T> inline void amax(T &x, const T &y) { if (x < y) x = y; }
-
-// template <class T> void output(T t) { cout << t << "\n"; }
-// template <class T, class U, class... Args>
-// void output(T t, U u, Args... args) { cout << t << " "; output(u, args...); }
-
 // mt19937 rng((int) std::chrono::steady_clock::now().time_since_epoch().count());
 
-#ifdef _has_trace
+#ifdef LOCAL
 	#define dbstream debug
-	#define trace(...) print(#__VA_ARGS__, __VA_ARGS__)
-	template <class T>
-	void print(const char* name, T&& arg) {
+	#define trace(...) __print(#__VA_ARGS__, __VA_ARGS__)
+
+	bool __flag;
+	bool __pre;
+	template <typename T>
+	void __print(const char* name, T arg) {
+		int var = sizeof(dud<T>(0));
+		__flag = (var == 1);
+		if (!__pre && __flag) {
+			debug() << "\n";
+		}
 		debug() << name << ": " << arg << "\n";
+		if (__pre && !__flag) {
+			debug() << "\n";
+		}
 	}
-	template <class T, class... Args>
-	void print(const char* names, T&& arg, Args&&... args) {
+
+	template <typename T, typename... Args>
+	void __print(const char* names, T arg, Args... args) {
 		const char* comma = strchr(names, ',');
-		int len = comma - names;
-		string name = string(names).substr(0, len);
-		debug() << name << ": " << arg << " | ";
-		print(comma + 2, args...);
+		string name = string(names).substr(0, comma - names);
+		int var = sizeof(dud<T>(0));
+		__flag = (var == 1);
+		if (!__pre && __flag) {
+			debug() << "\n";
+		}
+		debug() << name << ": " << arg;
+		if (!__flag) {
+			debug() << " | ";
+		}
+		__pre = __flag;
+		__print(comma + 2, args...);
 	}
 #endif

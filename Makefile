@@ -20,7 +20,7 @@ endif
 
 # For local debug purpose
 CXXFLAGS += -I$(ALGOROOT)
-DEBUGFLAGS += -D_has_trace
+DEBUGFLAGS += -DLOCAL
 
 TARGET := $(notdir $(CURDIR))
 
