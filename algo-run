@@ -97,5 +97,8 @@ for i in $inp; do
 done
 echo "//-------------------------------------------------------------//"
 
-ratio=$((correct_cnt * 100 / (total_cnt + 1 / 10000)))
-echo "${boldon}${greenf}Correct ratio: $ratio%${reset}"
+if [[ $correct_cnt -eq $total_cnt ]]; then
+  echo "${boldon}${greenf}ALL PASSED! (-:${reset}"
+else
+  echo "${boldon}${redf}SOME FAILED! )-: ${reset}"
+fi
