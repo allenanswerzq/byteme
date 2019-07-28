@@ -8,7 +8,6 @@ using namespace std;
 
 #define x first
 #define y second
-#define sz(x) ((int)(x).size())
 #ifndef LOCAL
 #define trace(...)
 #endif

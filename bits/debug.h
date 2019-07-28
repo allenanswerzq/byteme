@@ -38,6 +38,8 @@ struct debug {
 // template<class T> inline void amin(T &x, const T &y) { if (y < x) x = y; }
 // template<class T> inline void amax(T &x, const T &y) { if (x < y) x = y; }
 // mt19937 rng((int) std::chrono::steady_clock::now().time_since_epoch().count());
+// freopen("input.txt", "r", stdin);
+// freopen("output.txt", "w", stdout);
 
 #ifdef LOCAL
 	#define dbstream debug
@@ -67,10 +69,7 @@ struct debug {
 		if (!__pre && __flag) {
 			debug() << "\n";
 		}
-		debug() << name << ": " << arg;
-		if (!__flag) {
-			debug() << " | ";
-		}
+		debug() << name << ": " << arg << " | ";
 		__pre = __flag;
 		__print(comma + 2, args...);
 	}

@@ -62,16 +62,26 @@ for i in $inp; do
     cmd="time ./$elf < $i"
   fi
 
-  if ! { bash -c "$cmd"; } > "$out"; then
-    echo "${boldon}${redf}Runtime error, Check source code, Please :(- ${reset}"
-    exit 124
-  elif [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
-    echo -e "------------------------------------------------------------------"
-    cat "$out"
+  if [[ $exec_time -eq 0 ]]; then
+    if ! { bash -c "$cmd"; } > "$out"; then
+      echo "${boldon}${redf}Runtime error, Check source code, Please :(- ${reset}"
+      exit 124
+    elif [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
+      echo -e "------------------------------------------------------------------"
+      cat "$out"
+    fi
+  else
+    if ! { bash -c "$cmd"; } > "$out" 2>time_info.txt; then
+      echo "${boldon}${redf}Runtime error, Check source code, Please :(- ${reset}"
+      exit 124
+    elif [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
+      echo -e "------------------------------------------------------------------"
+      cat time_info.txt
+      rm time_info.txt
+    fi
   fi
-
   # Diff checking
-  if [[ -e "$rel" && $nodiff -eq 0 ]]; then
+  if [[ -e "$rel" && $nodiff -eq 0 && $exec_time -eq 0 ]]; then
     total_cnt=$((total_cnt + 1))
     if diff -y "$out" "$rel" >> /dev/null 2>&1; then
       correct_cnt=$((correct_cnt + 1))
