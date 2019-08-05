@@ -77,8 +77,8 @@ for i in $inp; do
     elif [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
       echo -e "------------------------------------------------------------------"
       cat time_info.txt
-      rm time_info.txt
     fi
+    rm -f time_info.txt
   fi
   # Diff checking
   if [[ -e "$rel" && $nodiff -eq 0 && $exec_time -eq 0 ]]; then

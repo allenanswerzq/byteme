@@ -20,12 +20,13 @@ elif [[ "$1" == "cpp" ]]; then
     sed -e "s/\\\$NAME/$filename/g" \
         -e "s/\\\$DATE/$ctime/g" \
         "$root/template.cc" > $filepath/$filename.cc
-    sed "s|\\\$ALGOLIB|$root|g" "$root/Makefile" > $filepath/Makefile
-    touch $filepath/tests.in
+    sed -e "s|\\\$TESTS|$filename|g" \
+        "$root/Makefile" > $filepath/Makefile
     echo "==> Problem $filepath created."
     cd $filepath
-    subl ./tests.in
-    subl ./"$filepath"*
+    touch ./$filename.in
+    subl ./$filename.in
+    subl ./$filename.cc
     algo-make "test" $filename
   done
 fi

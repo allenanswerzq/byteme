@@ -40,8 +40,8 @@ run: $(TARGET)
 
 # Making samples.
 samples: clean
-	@-mv -f /tmp/algo-samples ./tests.in >> /dev/null 2>&1 || true
-	algo-split tests.in
+	@-mv -f /tmp/algo-samples ./$TESTS.in >> /dev/null 2>&1 || true
+	algo-split $TESTS.in
 
 test: samples $(TARGET)
 	@echo algo-run $(TARGET)
