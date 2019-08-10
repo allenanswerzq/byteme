@@ -27,6 +27,9 @@ OUTPUT_SIGN = "utput"
 INPUT_SUFX = ".inp"
 OUTPUT_SUFX = ".rel"
 INPUT_FILE = "tests.in"
+customs = []
+inputs = []
+outputs = []
 
 
 def is_plain_text(texts):
@@ -52,24 +55,26 @@ def write_two(name, content, nl=''):
         f.write("\n")
 
 
-def write_out(inp, out=None):
-  write_two(INPUT_FILE, inp, nl='\n')
-  for k, v in enumerate(inp):
+def write_out():
+  cnt = len(customs)
+  for k, v in enumerate(customs):
     write(str(k) + INPUT_SUFX, v)
 
-  if out:
-    for k, v in enumerate(out):
-      write(str(k) + OUTPUT_SUFX, v)
+  for k, v in enumerate(inputs):
+    write(str(cnt + k) + INPUT_SUFX, v)
+
+  for k, v in enumerate(outputs):
+    write(str(cnt + k) + OUTPUT_SUFX, v)
+
+  customs.extend(inputs)
+  write_two(INPUT_FILE, customs, nl='\n')
 
 
 def parse_plain_text(texts):
-  inputs = []
-  outputs = []
   inputs_ok = 0
   outputs_ok = 0
   bag = []
   texts = texts.rstrip().split('\n')
-  # print(texts)
   for line in texts:
     if INPUT_SIGN in line or OUTPUT_SIGN in line:
       if inputs_ok:
@@ -90,13 +95,9 @@ def parse_plain_text(texts):
     else:
       if inputs_ok or outputs_ok:
         bag.append(line.rstrip())
-      else:
-        break
+
   if len(bag) > 0:
     outputs.append(copy.deepcopy(bag))
-  # print(inputs)
-  # print(outputs)
-  write_out(inputs, outputs)
 
 
 def parse_custom(texts):
@@ -104,30 +105,43 @@ def parse_custom(texts):
   # my test case into `tests.in` file, it will automatically save
   # all those test cases.
   # Note: for custom test cases, no real output value for comparison
-  inputs = []
   bag = []
   texts = texts.rstrip().split('\n')
-  # print(texts)
   for line in texts:
-    if line == '':
-      if len(bag) > 0:
-        inputs.append(copy.deepcopy(bag))
+    if INPUT_SUFX in line:
+      ok = 1;
+    elif line == '':
+      if len(bag) > 0 and ok == 0:
+        customs.append(copy.deepcopy(bag))
         bag.clear()
     else:
       bag.append(line.rstrip())
   if len(bag) > 0:
-    inputs.append(copy.deepcopy(bag))
-  write_out(inputs)
+    customs.append(copy.deepcopy(bag))
 
 
 def parse(fn):
   with open(fn, 'r') as f:
-    texts = f.read()
-    if is_plain_text(texts):
-      parse_plain_text(texts)
+    texts = f.read().rstrip().split('\n')
+    bag = ""
+    for line in texts:
+      if line == '':
+        if is_plain_text(bag):
+          parse_plain_text(bag)
+        else:
+          parse_custom(bag)
+        bag = ""
+      else:
+        bag += line
+        bag += '\n'
+    if is_plain_text(bag):
+      parse_plain_text(bag)
     else:
-      parse_custom(texts)
-
+      parse_custom(bag)
+  # print(customs);
+  # print(inputs);
+  # print(outputs);
+  write_out()
 
 if __name__ == "__main__":
   if len(sys.argv) < 2:

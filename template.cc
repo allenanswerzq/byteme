@@ -1,5 +1,4 @@
-/*
- * created   : $DATE
+/* created   : $DATE
  * accepted  : $ACCEPTED
  * author    : landcold7
  */

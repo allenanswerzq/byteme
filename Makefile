@@ -56,12 +56,12 @@ memo:
 	ps aux | grep "[.]/$(TARGET)$$" | awk '{$$6=int($$6/1024)"M";}{print;}'
 
 pygen: gen.py
-	python3 gen.py | tee tests.in
+	python3 gen.py | tee $TESTS.in
 
 # Ugly hacking to speed up the compilation time of jngen library...
 cppgen:
 	g++ gen.cc --std=c++11 -I$(ALGOROOT)/third_party/jngen/includes -o gen
-	./gen | tee tests.in
+	./gen | tee $TESTS.in
 
 .PHONY: all clean run test comp
 
