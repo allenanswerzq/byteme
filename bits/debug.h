@@ -22,6 +22,23 @@ struct debug {
     return *this;
 	}
 
+	template<class T>
+	debug& operator<< (vector<vector<T>>& v) {
+		if (v.empty()) {
+			return *this;
+		}
+		int n = v.size();
+		debug() << "\n[";
+		for (int i = 0; i < n; i++) {
+			debug() << v[i];
+			if (i < n - 1) {
+				debug() << ",\n";
+			}
+		}
+		debug() << "]";
+		return *this;
+	}
+
 	template <class T>
 	typename enable_if<sizeof(dud<T>(0)) != 1, debug&>::type operator<< (T i) {
 		cerr << i << flush;
@@ -30,7 +47,7 @@ struct debug {
 
 	template <class T>
 	typename enable_if<sizeof(dud<T>(0)) == 1, debug&>::type operator<< (T i) {
-		return *this << range(begin(i), end(i)) << "\n";
+		return *this << range(begin(i), end(i));
 	}
 
 	template <class T, class b>
@@ -59,9 +76,6 @@ struct debug {
 #ifdef LOCAL
 	#define dbstream debug
 	#define trace(...) __print(#__VA_ARGS__, __VA_ARGS__)
-
-	bool __flag;
-	bool __pre;
 	template <typename T>
 	void __print(const string& names, T arg) {
 		string name = names;
@@ -71,15 +85,7 @@ struct debug {
 			assert(t - s - 1 > 0);
 			name = name.substr(s + 1, t - s - 1);
 		}
-		int var = sizeof(dud<T>(0));
-		__flag = (var == 1);
-		if (!__pre && __flag) {
-			debug() << "\n";
-		}
 		debug() << name << ": " << arg << "\n";
-		if (__pre && !__flag) {
-			debug() << "\n";
-		}
 	}
 
 	template <typename T, typename... Args>
@@ -109,11 +115,6 @@ struct debug {
 			assert(t - s - 1 > 0);
 			name = name.substr(s + 1, t - s - 1);
 		}
-		int var = sizeof(dud<T>(0));
-		__flag = (var == 1);
-		if (!__pre && __flag) {
-			debug() << "\n";
-		}
 		if (is_same<T, const char*>::value) {
 		// Add distinguish string at the beginning.
 		// So that we can add comments for trace call
@@ -124,7 +125,6 @@ struct debug {
 		else {
 			debug() << name << ": " << arg << " | ";
 		}
-		__pre = __flag;
 		while (p + 1 < n && names[p + 1] == ' ') {
 		// Stripping white spaces.
 			p++;

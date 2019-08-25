@@ -25,6 +25,7 @@ filename=$2
 # Ref: https://stackoverflow.com/questions/12771909/bash-using-trap-ctrlc
 while [ 1 ]; do
   clear && tmux clear-history
+  trap 'trap_ctrlc' 2
   if [[ ! -z "$filename" && "$filename" != "release" ]]; then
     ctime=$(date "+%Y-%m-%d %H:%M:%S")
     sed -i.bak "s|.*accepted.*| \* accepted  : $ctime|g" "$filename".cc

@@ -38,12 +38,11 @@ def is_plain_text(texts):
 
 def write(name, content):
   with open(name, 'w') as f:
-    for line in content:
+    for k, line in enumerate(content):
       if line == "//n":
         f.write("\n")
       else:
-        f.write(line + "\n")
-    # f.write("\n")
+        f.write(line + "\n");
 
 
 def write_two(name, content, nl=''):

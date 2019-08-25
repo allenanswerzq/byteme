@@ -29,7 +29,7 @@ else
   rm -f ./*.out
 fi
 
-correct_cnt=total_cnt
+total_cnt=0
 correct_cnt=0
 for i in $inp; do
   # Check input
@@ -39,11 +39,11 @@ for i in $inp; do
   fi
 
   # Print input samples
-  echo "//-------------------------------------------------------------//"
+  echo "//-----------------------------------------------------{#${i%.inp}}-----//"
   if [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
-    echo "Input: "
+    echo "input: "
     cat "$i"
-    echo ""
+    echo -e "-----------------------------------------------------{debug}---"
   fi
 
   # Naming
@@ -67,7 +67,7 @@ for i in $inp; do
       echo "${boldon}${redf}Runtime error, Check source code, Please :(- ${reset}"
       exit 124
     elif [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
-      echo -e "------------------------------------------------------------------"
+      echo -e "----------------------------------------------------{output}---"
       cat "$out"
     fi
   else
@@ -75,7 +75,7 @@ for i in $inp; do
       echo "${boldon}${redf}Runtime error, Check source code, Please :(- ${reset}"
       exit 124
     elif [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
-      echo -e "------------------------------------------------------------------"
+      echo -e "---------------------------------------------------{time}------"
       cat time_info.txt
     fi
     rm -f time_info.txt
@@ -85,19 +85,28 @@ for i in $inp; do
     total_cnt=$((total_cnt + 1))
     if diff -y "$out" "$rel" >> /dev/null 2>&1; then
       correct_cnt=$((correct_cnt + 1))
-      echo -e "#$total_cnt:\\t\\t\\t\\t\\t\\t${boldon}${greenf}Passed${reset}"
+      echo -e "\\t\\t\\t\\t\\t\\t${boldon}${greenf}Passed${reset}"
     else
       echo -e "\\t\\t\\t\\t\\t\\t${boldon}${redf}Failed${reset}"
-      echo -e "------------------------------------------------------------------"
+      echo -e "------------------------------------------------------{diff}---"
       if [ $compare -eq 1 ]; then
         # If we found any different in comparison mode, exit immediately.
         echo "Input: "
         cat "$i"
         echo ""
-        diff -y -W 100 "$rel" "$out"
+        diff -y -W 90 "$rel" "$out"
+        inp=`cat "$i"`
+        out=`cat "$out"`
+        rm -f *.rel
+        rm -f *.inp
+        rm -f *.out
+        rm -f *.cmp
+        echo "$out" > 0.rel
+        echo "$inp" > 0.inp
+        echo "$inp" > `basename $PWD`.in
         exit 124
       elif [[ $nodiff -eq 0 ]]; then
-        diff -y -W 100 "$out" "$rel"
+        diff -y -W 90 "$out" "$rel"
       fi
     fi
   elif [[ $nodiff -eq 0 ]]; then
@@ -107,8 +116,10 @@ for i in $inp; do
 done
 echo "//-------------------------------------------------------------//"
 
-if [[ $correct_cnt -eq $total_cnt ]]; then
-  echo "${boldon}${greenf}ALL PASSED! (-:${reset}"
-else
-  echo "${boldon}${redf}SOME FAILED! )-: ${reset}"
+if [[ $compare -eq 1 ]]; then
+  if [[ $correct_cnt -eq $total_cnt ]]; then
+    echo "${boldon}${greenf}ALL PASSED! :-)${reset}"
+  else
+    echo "${boldon}${redf}SOME FAILED! )-: ${reset}"
+  fi
 fi

@@ -20,7 +20,9 @@ endif
 
 # For local debug purpose
 CXXFLAGS += -I$(ALGOROOT)
-DEBUGFLAGS += -DLOCAL
+ifeq ($(NO_DIFF), 0)
+	DEBUGFLAGS += -DLOCAL
+endif
 
 TARGET := $(notdir $(CURDIR))
 
@@ -45,12 +47,12 @@ samples: clean
 
 test: samples $(TARGET)
 	@echo algo-run $(TARGET)
-	@unbuffer algo-run $(TARGET) test.res $(EXEC_TIME) $(NO_DIFF) 2>&1 | tee test_run.log
+	@unbuffer algo-run $(TARGET) test.res $(EXEC_TIME) $(NO_DIFF) 2>&1
 
 # Compare my results with other person's correct real results.
 comp: samples cmp
 	@echo algo-run cmp
-	@unbuffer algo-run cmp comp.rel $(EXEC_TIME) $(NO_DIFF) 2>&1 | tee comp_run.log
+	@unbuffer algo-run cmp comp.rel $(EXEC_TIME) $(NO_DIFF) 2>&1
 
 memo:
 	ps aux | grep "[.]/$(TARGET)$$" | awk '{$$6=int($$6/1024)"M";}{print;}'
