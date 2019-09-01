@@ -29,13 +29,14 @@ TARGET := $(notdir $(CURDIR))
 all: test
 
 clean:
-	@echo "Current:" $(CURDIR)
+	@echo $(CURDIR)
 	@-rm -rf *.inp
 
 # Hacking to make it rebuilding when change debug flags.
 % : %.cc Makefile
 	@echo "cxx $<"
 	@$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) $< $(LDFLAGS)  -o $@
+
 
 run: $(TARGET)
 	./$(TARGET)
@@ -50,7 +51,9 @@ test: samples $(TARGET)
 	@unbuffer algo-run $(TARGET) test.res $(EXEC_TIME) $(NO_DIFF) 2>&1
 
 # Compare my results with other person's correct real results.
-comp: samples cmp
+comp: samples
+	@echo "cxx $CMP.mp"
+	@$(CXX) -x c++ $(CXXFLAGS) $(DEBUGFLAGS) $CMP.mp $(LDFLAGS) -o cmp
 	@echo algo-run cmp
 	@unbuffer algo-run cmp comp.rel $(EXEC_TIME) $(NO_DIFF) 2>&1
 
@@ -62,7 +65,8 @@ pygen: gen.py
 
 # Ugly hacking to speed up the compilation time of jngen library...
 cppgen:
-	g++ gen.cc --std=c++11 -I$(ALGOROOT)/third_party/jngen/includes -o gen
+	@echo "cxx $GEN.ge"
+	@g++ -x c++ $GEN.ge --std=c++11 -I$(ALGOROOT)/third_party/jngen/includes -o gen
 	./gen | tee $TESTS.in
 
 .PHONY: all clean run test comp

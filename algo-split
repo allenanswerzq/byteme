@@ -6,21 +6,21 @@ import signal
 from pathlib import Path
 
 # Script used to parse algorithm samples into files.
-  # Two kinds of paring supported:
-  # 1. orinial texts samples copied from oj websites. Most of them
-  #    have format as following:
-        # input
-        # 5
-        # CY??Y
-        # output
-        # Yes
-        # input
-        # 5
-        # C?C?Y
-        # output
-        # Yes
-  # 2. Custom test cases paring also supported,
-  #    i dont want to create a seperate test file every time.
+# Two kinds of paring supported:
+# 1. orinial texts samples copied from oj websites. Most of them
+# have format as following:
+# input
+# 5
+# CY??Y
+# output
+# Yes
+# input
+# 5
+# C?C?Y
+# output
+# Yes
+# 2. Custom test cases paring also supported,
+#  i dont want to create a seperate test file every time.
 
 INPUT_SIGN = "nput"
 OUTPUT_SIGN = "utput"
@@ -30,7 +30,6 @@ INPUT_FILE = "tests.in"
 customs = []
 inputs = []
 outputs = []
-
 
 def is_plain_text(texts):
   return INPUT_SIGN in texts and OUTPUT_SIGN in texts
@@ -100,8 +99,8 @@ def parse_plain_text(texts):
 
 
 def parse_custom(texts):
-  # Supporting add custom test cases, i only need to put
-  # my test case into `tests.in` file, it will automatically save
+  # Supports add custom test cases, i only need to put
+  # my test case into a `*.in` file, it will automatically save
   # all those test cases.
   # Note: for custom test cases, no real output value for comparison
   bag = []
@@ -137,9 +136,6 @@ def parse(fn):
       parse_plain_text(bag)
     else:
       parse_custom(bag)
-  # print(customs);
-  # print(inputs);
-  # print(outputs);
   write_out()
 
 if __name__ == "__main__":

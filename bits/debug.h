@@ -11,14 +11,14 @@ struct debug {
 	typename enable_if<std::is_pointer<T>::value, debug&>::type
 		operator<< (std::pair<T, int>& array) {
 	// Real place where print out an array.
-		cerr << "[";
+		debug() << "[";
 		for (int i = 0; i < array.second; i++) {
 			if (i > 0) {
-				cerr << ", ";
+				debug() << ", ";
 			}
-			cerr << array.first[i];
+			debug() << array.first[i];
 		}
-		cerr << "]\n";
+		debug() << "]";
     return *this;
 	}
 
