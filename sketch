@@ -21,6 +21,8 @@ elif [[ "$1" == "cpp" ]]; then
         -e "s/\\\$DATE/$ctime/g" \
         "$root/template.cc" > $filepath/$filename.cc
     sed -e "s|\\\$TESTS|$filename|g" \
+        -e "s|\\\$CMP|$filename|g" \
+        -e "s|\\\$GEN|$filename|g" \
         "$root/Makefile" > $filepath/Makefile
     echo "==> Problem $filepath created."
     cd $filepath

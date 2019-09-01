@@ -7,64 +7,64 @@ template <class T> char dud(...);
 template <class T> auto dud(T* x) -> decltype(cout << *x, 0);
 
 struct debug {
-	template<class T>
-	typename enable_if<std::is_pointer<T>::value, debug&>::type
-		operator<< (std::pair<T, int>& array) {
-	// Real place where print out an array.
-		debug() << "[";
-		for (int i = 0; i < array.second; i++) {
-			if (i > 0) {
-				debug() << ", ";
-			}
-			debug() << array.first[i];
-		}
-		debug() << "]";
+  template<class T>
+  typename enable_if<std::is_pointer<T>::value, debug&>::type
+    operator<< (std::pair<T, int>& array) {
+  // Real place where print out an array.
+    debug() << "[";
+    for (int i = 0; i < array.second; i++) {
+      if (i > 0) {
+        debug() << ", ";
+      }
+      debug() << array.first[i];
+    }
+    debug() << "]";
     return *this;
-	}
+  }
 
-	template<class T>
-	debug& operator<< (vector<vector<T>>& v) {
-		if (v.empty()) {
-			return *this;
-		}
-		int n = v.size();
-		debug() << "\n[";
-		for (int i = 0; i < n; i++) {
-			debug() << v[i];
-			if (i < n - 1) {
-				debug() << ",\n";
-			}
-		}
-		debug() << "]";
-		return *this;
-	}
+  template<class T>
+  debug& operator<< (vector<vector<T>>& v) {
+    if (v.empty()) {
+      return *this;
+    }
+    int n = v.size();
+    debug() << "\n[";
+    for (int i = 0; i < n; i++) {
+      debug() << v[i];
+      if (i < n - 1) {
+        debug() << ",\n";
+      }
+    }
+    debug() << "]";
+    return *this;
+  }
 
-	template <class T>
-	typename enable_if<sizeof(dud<T>(0)) != 1, debug&>::type operator<< (T i) {
-		cerr << i << flush;
-		return *this;
-	}
+  template <class T>
+  typename enable_if<sizeof(dud<T>(0)) != 1, debug&>::type operator<< (T i) {
+    cerr << i << flush;
+    return *this;
+  }
 
-	template <class T>
-	typename enable_if<sizeof(dud<T>(0)) == 1, debug&>::type operator<< (T i) {
-		return *this << range(begin(i), end(i));
-	}
+  template <class T>
+  typename enable_if<sizeof(dud<T>(0)) == 1, debug&>::type operator<< (T i) {
+    return *this << range(begin(i), end(i));
+  }
 
-	template <class T, class b>
-	debug &operator<< (pair<b, T> d) {
-		return *this << "(" << d.first << ", " << d.second << ")";
-	}
+  template <class T, class b>
+  debug &operator<< (pair<b, T> d) {
+    return *this << "(" << d.first << ", " << d.second << ")";
+  }
 
-	template <class T> debug &operator<< (rge<T> d) {
-		*this << "[";
-		for (auto it = d.b; it != d.e; ++it) {
-			if (it != d.b) {
-			  *this << ", ";
-			}
-			*this << *it;
-		}
-		return *this << "]";
-	}
+  template <class T> debug &operator<< (rge<T> d) {
+    *this << "[";
+    for (auto it = d.b; it != d.e; ++it) {
+      if (it != d.b) {
+        *this << ", ";
+      }
+      *this << *it;
+    }
+    return *this << "]";
+  }
 };
 
 // template<class T> inline void amin(T &x, const T &y) { if (y < x) x = y; }
@@ -74,63 +74,63 @@ struct debug {
 // freopen("output.txt", "w", stdout);
 
 #ifdef LOCAL
-	#define dbstream debug
-	#define trace(...) __print(#__VA_ARGS__, __VA_ARGS__)
-	template <typename T>
-	void __print(const string& names, T arg) {
-		string name = names;
-		if ((int) name.find("make_pair") != -1) {
-			int s = name.find('(');
-			int t = name.find(',');
-			assert(t - s - 1 > 0);
-			name = name.substr(s + 1, t - s - 1);
-		}
-		debug() << name << ": " << arg << "\n";
-	}
+  #define dbstream debug
+  #define trace(...) __print(#__VA_ARGS__, __VA_ARGS__)
+  template <typename T>
+  void __print(const string& names, T arg) {
+    string name = names;
+    if ((int) name.find("make_pair") != -1) {
+      int s = name.find('(');
+      int t = name.find(',');
+      assert(t - s - 1 > 0);
+      name = name.substr(s + 1, t - s - 1);
+    }
+    debug() << name << ": " << arg << "\n";
+  }
 
-	template <typename T, typename... Args>
-	void __print(const string& names, T arg, Args... args) {
-		int p = -1;
-		int n = names.size();
-		int x = (int) names.find('(');
-		int y = (int) names.find(',');
-		if (x != -1 && y != -1 && x < y) {
-		// Looking for `()` pair first
-		// handle calls like `trace(foo(a, b))`
-			p = names.find(')');
-			assert(0 <= p && p < n);
-			p = names.find(',', p + 1);
-		}
-		else {
-		// Now looking for comma sign to split varibles.
-			p = names.find(',');
-		}
-		assert(p != -1);
-		string name = names.substr(0, p);
-		if ((int) name.find("make_pair") != -1) {
-		// Hacking to print out an array.
-		// eg. trace(make_pair(arr, size))
-			int s = name.find('(');
-			int t = name.find(',');
-			assert(t - s - 1 > 0);
-			name = name.substr(s + 1, t - s - 1);
-		}
-		if (is_same<T, const char*>::value) {
-		// Add distinguish string at the beginning.
-		// So that we can add comments for trace call
-		// eg. trace("TEST", var1, var2);
-			int w = name.size();
-			debug() << name.substr(1, w - 2) << ": | ";
-		}
-		else {
-			debug() << name << ": " << arg << " | ";
-		}
-		while (p + 1 < n && names[p + 1] == ' ') {
-		// Stripping white spaces.
-			p++;
-		}
-		assert(p + 1 <= n);
-		string others = names.substr(p + 1);
-		__print(others, args...);
-	}
+  template <typename T, typename... Args>
+  void __print(const string& names, T arg, Args... args) {
+    int p = -1;
+    int n = names.size();
+    int x = (int) names.find('(');
+    int y = (int) names.find(',');
+    if (x != -1 && y != -1 && x < y) {
+    // Looking for `()` pair first
+    // handle calls like `trace(foo(a, b))`
+      p = names.find(')');
+      assert(0 <= p && p < n);
+      p = names.find(',', p + 1);
+    }
+    else {
+    // Now looking for comma sign to split varibles.
+      p = names.find(',');
+    }
+    assert(p != -1);
+    string name = names.substr(0, p);
+    if ((int) name.find("make_pair") != -1) {
+    // Hacking to print out an array.
+    // eg. trace(make_pair(arr, size))
+      int s = name.find('(');
+      int t = name.find(',');
+      assert(t - s - 1 > 0);
+      name = name.substr(s + 1, t - s - 1);
+    }
+    if (is_same<T, const char*>::value) {
+    // Add distinguish string at the beginning.
+    // So that we can add comments for trace call
+    // eg. trace("TEST", var1, var2);
+      int w = name.size();
+      debug() << name.substr(1, w - 2) << ": | ";
+    }
+    else {
+      debug() << name << ": " << arg << " | ";
+    }
+    while (p + 1 < n && names[p + 1] == ' ') {
+    // Stripping white spaces.
+      p++;
+    }
+    assert(p + 1 <= n);
+    string others = names.substr(p + 1);
+    __print(others, args...);
+  }
 #endif

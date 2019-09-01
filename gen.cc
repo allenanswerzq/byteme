@@ -19,8 +19,10 @@ void gen() {
 
 int main() {
   for (int t = 0; t < T; ++t) {
+    if (t > 0) {
+      cout << '\n';
+    }
     gen();
-    cout << endl;
   }
   return 0;
 }
