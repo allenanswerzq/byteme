@@ -1,0 +1,37 @@
+3 2
+ab
+ac
+cd
+1 2
+
+5 3
+test
+tezt
+test.
+.est
+tes.
+1 4 5
+
+4 4
+a
+b
+c
+dd
+1 2 3 4
+
+6 3
+.svn
+.git
+....
+...
+..
+.
+1 2 3
+
+5 3
+test
+tezt
+test.
+..es
+tes.
+1 4 5
