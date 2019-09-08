@@ -3,10 +3,11 @@ set -x
 set -e
 
 root=${ALGO:=$HOME/Code/algos}
+pwd=$(basename $PWD)
 
 if [[ "$1" == "gen" || "$2" == "gen" ]]; then
-  cat "$root/gen.cc" > "gen.cc"
-  subl gen.cc
+  cat "$root/gen.cc" > "$pwd.ge"
+  subl "$pwd.ge"
 elif [[ "$1" == "cpp" ]]; then
   shift
   for filepath in $*; do
@@ -28,6 +29,9 @@ elif [[ "$1" == "cpp" ]]; then
     cd $filepath
     touch ./$filename.in
     subl ./$filename.in
+    # Sleep for a while so that the sublime plugin can work
+    # to put the newly created file at the most right position.
+    sleep 0.1
     subl ./$filename.cc
     algo-make "test" $filename
   done

@@ -17,8 +17,8 @@ trap "trap_ctrlc" 2
 
 inp="*.inp"
 elf=${1:-elf}
-exec_time=${3:-0}
-nodiff=${4:-0}
+exec_time=${2:-0}
+nodiff=${3:-0}
 
 # Clean old files
 compare=0
@@ -116,7 +116,7 @@ for i in $inp; do
 done
 echo "//-------------------------------------------------------------//"
 
-if [[ $compare -eq 1 ]]; then
+if [[ $nodiff -eq 0 && $exec_time -eq 0 ]]; then
   if [[ $correct_cnt -eq $total_cnt ]]; then
     echo "${boldon}${greenf}ALL PASSED! :-)${reset}"
   else

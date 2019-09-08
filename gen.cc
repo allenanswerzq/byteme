@@ -18,6 +18,7 @@ void gen() {
 }
 
 int main() {
+  cout << '\n';
   for (int t = 0; t < T; ++t) {
     if (t > 0) {
       cout << '\n';
