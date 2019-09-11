@@ -1,29 +1,62 @@
 #!/usr/bin/env bash
-# Usage: algo-run elf res_name exec_time diff
+# Usage: algo-run elf flag_exectime flag_nodiff
 set -o pipefail
 
-esc=""
-redf="${esc}[31m"
-greenf="${esc}[32m"
-boldon="${esc}[1m"
-reset="${esc}[0m"
-
-function trap_ctrlc () {
-  echo "${boldon}${redf}Loop exists, see log file${reset}"
-  exit 122
+info() {
+  printf "\e[1;36m$*\e[m\n"
 }
 
+pass() {
+  printf "\e[1;32m$*\e[m\n"
+}
+
+warning() {
+  printf "\e[1;33m$*\e[m\n"
+}
+
+error() {
+  printf "\e[1;31m$*\e[m\n"
+}
+
+trap_ctrlc () {
+  error "Loop exists, see log file."
+  exit 1
+}
+
+print_header() {
+  echo "//-----------------------------------------------------{#$*}-----//"
+}
+
+print_banner() {
+  echo "-----------------------------------------------------{$*}---"
+}
+
+print_inp() {
+  tot=$(cat $1 | wc -c)
+  content="$(cat $1)"
+  if [[ tot -ge 200 ]]; then
+    content="$(echo "$content" | head -c 200)......(too long ignored)......"
+  fi
+  echo "$content"
+}
+
+# When press ctrl+c, it will call `trap_ctrlc`.
 trap "trap_ctrlc" 2
 
-inp="*.inp"
+target=$(basename $PWD)
+# All inputs
+inputs=$(ls *.inp | sort -g)
+# File will be executed
 elf=${1:-elf}
-exec_time=${2:-0}
-nodiff=${3:-0}
+# Flag determines whether to show running time info after executed
+flag_exectime=${2:-0}
+# Flag determines whether to apply diff operation
+flag_nodiff=${3:-0}
 
-# Clean old files
-compare=0
+# A flag indicates whether this runs others code.
+flag_compare=0
 if [[ "$elf" == "cmp" ]]; then
-  compare=1
+  flag_compare=1
   rm -f ./*.cmp
 else
   rm -f ./*.out
@@ -31,23 +64,18 @@ fi
 
 total_cnt=0
 correct_cnt=0
-for i in $inp; do
-  # Check input
-  if ! [ -e "$i" ]; then
-    echo "${boldon}${redf}Empty input${reset}"
-    exit 123
-  fi
-
+for i in $inputs; do
   # Print input samples
-  echo "//-----------------------------------------------------{#${i%.inp}}-----//"
-  if [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
+  print_header "${i%.inp}"
+  if [[ $flag_compare -eq 0 && $flag_nodiff -eq 0 ]]; then
+    # If this is my code and I want to see diff status
     echo "input: "
-    cat "$i"
-    echo -e "-----------------------------------------------------{debug}---"
+    print_inp "$i"
+    print_banner "debug"
   fi
 
   # Naming
-  if [[ $compare -eq 1 ]]; then
+  if [[ $flag_compare -eq 1 ]]; then
     out="${i%.inp}".cmp
     rel="${i%.inp}".out
   else
@@ -56,43 +84,44 @@ for i in $inp; do
   fi
 
   # Execute
-  if [[ $exec_time -eq 0 ]]; then
+  if [[ $flag_exectime -eq 0 ]]; then
     cmd="./$elf < $i"
   else
     cmd="time ./$elf < $i"
   fi
 
-  if [[ $exec_time -eq 0 ]]; then
+  if [[ $flag_exectime -eq 0 ]]; then
     if ! { bash -c "$cmd"; } > "$out"; then
-      echo "${boldon}${redf}Runtime error, Check source code, Please :(- ${reset}"
-      exit 124
-    elif [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
-      echo -e "----------------------------------------------------{output}---"
+      error "Runtime error, Check source code, Please :(-"
+      exit 1
+    elif [[ $flag_compare -eq 0 && $flag_nodiff -eq 0 ]]; then
+      print_banner "output"
       cat "$out"
     fi
   else
     if ! { bash -c "$cmd"; } > "$out" 2>time_info.txt; then
-      echo "${boldon}${redf}Runtime error, Check source code, Please :(- ${reset}"
-      exit 124
-    elif [[ $compare -eq 0 && $nodiff -eq 0 ]]; then
-      echo -e "---------------------------------------------------{time}------"
+      error "Runtime error, Check source code, Please :(-"
+      exit 1
+    elif [[ $flag_compare -eq 0 && $flag_nodiff -eq 0 ]]; then
+      print_banner "time"
       cat time_info.txt
     fi
     rm -f time_info.txt
   fi
+
   # Diff checking
-  if [[ -e "$rel" && $nodiff -eq 0 && $exec_time -eq 0 ]]; then
+  if [[ -e "$rel" && $flag_nodiff -eq 0 && $flag_exectime -eq 0 ]]; then
     total_cnt=$((total_cnt + 1))
     if diff -y "$out" "$rel" >> /dev/null 2>&1; then
       correct_cnt=$((correct_cnt + 1))
-      echo -e "\\t\\t\\t\\t\\t\\t${boldon}${greenf}Passed${reset}"
+      pass "\\t\\t\\t\\t\\t\\tPassed"
     else
-      echo -e "\\t\\t\\t\\t\\t\\t${boldon}${redf}Failed${reset}"
-      echo -e "------------------------------------------------------{diff}---"
-      if [ $compare -eq 1 ]; then
-        # If we found any different in comparison mode, exit immediately.
+      error "\\t\\t\\t\\t\\t\\tFailed"
+      print_banner "diff"
+      if [[ $flag_compare -eq 1 ]]; then
+        # If we found any difference in comparison mode, exit immediately.
         echo "Input: "
-        cat "$i"
+        print_inp "$i"
         echo ""
         diff -y -W 90 "$rel" "$out"
         inp=`cat "$i"`
@@ -104,22 +133,21 @@ for i in $inp; do
         echo "$out" > 0.rel
         echo "$inp" > 0.inp
         echo "$inp" > `basename $PWD`.in
-        exit 124
-      elif [[ $nodiff -eq 0 ]]; then
+        exit 1
+      elif [[ $flag_nodiff -eq 0 ]]; then
         diff -y -W 90 "$out" "$rel"
       fi
     fi
-  elif [[ $nodiff -eq 0 ]]; then
-    echo -e "\\t\\t\\t\\t\\t\\t${boldon}${redf}Custom${reset}"
+  elif [[ $flag_nodiff -eq 0 ]]; then
+    error "\\t\\t\\t\\t\\t\\tCustom"
   fi
-  # rm -f $i $out
 done
-echo "//-------------------------------------------------------------//"
+print_header ""
 
-if [[ $nodiff -eq 0 && $exec_time -eq 0 ]]; then
+if [[ $flag_exectime -eq 0 && $flag_nodiff -eq 0 ]]; then
   if [[ $correct_cnt -eq $total_cnt ]]; then
-    echo "${boldon}${greenf}ALL PASSED! :-)${reset}"
+    pass "ALL CASES PASSED! :-)"
   else
-    echo "${boldon}${redf}SOME FAILED! )-: ${reset}"
+    error "SOME CASES FAILED! )-:"
   fi
 fi

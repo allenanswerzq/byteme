@@ -67,10 +67,8 @@ pygen: gen.py
 cppgen:
 	@echo "cxx $GEN.ge"
 	@g++ -x c++ $GEN.ge --std=c++11 -I$(ALGOROOT)/third_party/jngen/includes -o gen
-	@rm -rf $TESTS.tmp
-	./gen | tee $TESTS.tmp
-	@cat $TESTS.tmp >> $TESTS.in
-	@rm -rf $TESTS.tmp
+	@rm -rf *.rel
+	./gen | tee $TESTS.in
 
 
 .PHONY: all clean run test comp

@@ -27,7 +27,7 @@ elif [[ "$1" == "cpp" ]]; then
         "$root/Makefile" > $filepath/Makefile
     echo "==> Problem $filepath created."
     cd $filepath
-    touch ./$filename.in
+    touch ./$filename.in && echo "dummy stuff" > ./$filename.in
     subl ./$filename.in
     # Sleep for a while so that the sublime plugin can work
     # to put the newly created file at the most right position.
