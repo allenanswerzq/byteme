@@ -7,16 +7,34 @@ template <class T> char dud(...);
 template <class T> auto dud(T* x) -> decltype(cout << *x, 0);
 
 struct debug {
-  template<class T>
+  template<class T, class N>
   typename enable_if<std::is_pointer<T>::value, debug&>::type
-    operator<< (std::pair<T, int>& array) {
+    operator<< (std::tuple<T, N>& array) {
   // Real place where print out an array.
+    auto mat = std::get<0>(array);
+    int n = std::get<1>(array);
     debug() << "[";
-    for (int i = 0; i < array.second; i++) {
+    for (int i = 0; i < n; i++) {
       if (i > 0) {
         debug() << ", ";
       }
-      debug() << array.first[i];
+      debug() << mat[i];
+    }
+    debug() << "]";
+    return *this;
+  }
+
+  template<class T, class H, class W>
+  typename enable_if<std::is_pointer<T>::value, debug&>::type
+    operator<< (std::tuple<T, H, W>& array) {
+  // Real place where print out a two dimension array.
+    auto mat = std::get<0>(array);
+    int h = std::get<1>(array);
+    int w = std::get<2>(array);
+    debug() << "[";
+    for (int i = 0; i < h; i++) {
+      auto mati = make_tuple(mat[i], w);
+      debug() << mati << '\n';
     }
     debug() << "]";
     return *this;
@@ -74,12 +92,11 @@ struct debug {
 // freopen("output.txt", "w", stdout);
 
 #ifdef LOCAL
-  #define dbstream debug
   #define trace(...) __print(#__VA_ARGS__, __VA_ARGS__)
   template <typename T>
   void __print(const string& names, T arg) {
     string name = names;
-    if ((int) name.find("make_pair") != -1) {
+    if ((int) name.find("make_tuple") != -1) {
       int s = name.find('(');
       int t = name.find(',');
       assert(t - s - 1 > 0);
@@ -107,9 +124,10 @@ struct debug {
     }
     assert(p != -1);
     string name = names.substr(0, p);
-    if ((int) name.find("make_pair") != -1) {
+    if ((int) name.find("make_tuple") != -1) {
     // Hacking to print out an array.
-    // eg. trace(make_pair(arr, size))
+    // eg. trace(make_tuple(arr, w))
+    // eg. trace(make_tuple(arr, h, w))
       int s = name.find('(');
       int t = name.find(',');
       assert(t - s - 1 > 0);

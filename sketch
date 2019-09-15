@@ -5,11 +5,10 @@ set -e
 root=${ALGO:=$HOME/Code/algos}
 pwd=$(basename $PWD)
 
-if [[ "$1" == "gen" || "$2" == "gen" ]]; then
+if [[ "$1" == "gen" ]]; then
   cat "$root/gen.cc" > "$pwd.ge"
   subl "$pwd.ge"
-elif [[ "$1" == "cpp" ]]; then
-  shift
+else
   for filepath in $*; do
     if test -d $filepath; then
       echo "==> Problem $filepath already exist."

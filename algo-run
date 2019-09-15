@@ -33,11 +33,11 @@ print_banner() {
 
 print_inp() {
   tot=$(cat $1 | wc -c)
-  content="$(cat $1)"
+  raw="$(cat $1)"
   if [[ tot -ge 200 ]]; then
-    content="$(echo "$content" | head -c 200)......(too long ignored)......"
+    raw="$(echo "$raw" | head -c 200)......(too long ignored)......"
   fi
-  echo "$content"
+  echo "$raw"
 }
 
 # When press ctrl+c, it will call `trap_ctrlc`.
