@@ -24,7 +24,7 @@ trap_ctrlc () {
 }
 
 print_header() {
-  echo "//-----------------------------------------------------{#$*}-----//"
+  echo "//-------------------------------------------------{#$*}-----//"
 }
 
 print_banner() {
@@ -69,7 +69,6 @@ for i in $inputs; do
   print_header "${i%.inp}"
   if [[ $flag_compare -eq 0 && $flag_nodiff -eq 0 ]]; then
     # If this is my code and I want to see diff status
-    echo "input: "
     print_inp "$i"
     print_banner "debug"
   fi
@@ -85,14 +84,14 @@ for i in $inputs; do
 
   # Execute
   if [[ $flag_exectime -eq 0 ]]; then
-    cmd="./$elf < $i"
+    cmd="gtimeout -s 2 5 ./$elf < $i"
   else
-    cmd="time ./$elf < $i"
+    cmd="gtimeout -s 2 5 time ./$elf < $i"
   fi
 
   if [[ $flag_exectime -eq 0 ]]; then
     if ! { bash -c "$cmd"; } > "$out"; then
-      error "Runtime error, Check source code, Please :(-"
+      error "Running error, timeout or memory issue occured :(-"
       exit 1
     elif [[ $flag_compare -eq 0 && $flag_nodiff -eq 0 ]]; then
       print_banner "output"
@@ -100,7 +99,7 @@ for i in $inputs; do
     fi
   else
     if ! { bash -c "$cmd"; } > "$out" 2>time_info.txt; then
-      error "Runtime error, Check source code, Please :(-"
+      error "Running error, timeout or memory issue occured :(-"
       exit 1
     elif [[ $flag_compare -eq 0 && $flag_nodiff -eq 0 ]]; then
       print_banner "time"
@@ -114,7 +113,9 @@ for i in $inputs; do
     total_cnt=$((total_cnt + 1))
     if diff -y "$out" "$rel" >> /dev/null 2>&1; then
       correct_cnt=$((correct_cnt + 1))
-      pass "\\t\\t\\t\\t\\t\\tPassed"
+      if [[ $flag_compare -eq 0 ]]; then
+        pass "\\t\\t\\t\\t\\t\\tPassed"
+      fi
     else
       error "\\t\\t\\t\\t\\t\\tFailed"
       print_banner "diff"

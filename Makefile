@@ -1,6 +1,6 @@
 SHELL = /bin/bash -o pipefail
 ALGOROOT = ${ALGO}
-CXX = g++-8
+CXX = g++-9
 
 CXXFLAGS = -Wall -Wextra -pedantic -std=c++17 -O2 -Wshadow -Wformat=2
 CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align -fvisibility=hidden
@@ -43,19 +43,22 @@ run: $(TARGET)
 
 # Making samples.
 samples: clean
-	@-mv -f /tmp/algo-samples ./$TESTS.in >> /dev/null 2>&1 || true
-	algo-split $TESTS.in
+	@-mv -f /tmp/algo-samples ./$TESTS.in >>/dev/null 2>&1 || true
+	@-test -f /tmp/algo-wrong && echo -e "\n" >> ./$TESTS.in || true
+	@-cat /tmp/algo-wrong 2>/dev/null | tee -a ./$TESTS.in >/dev/null 2>&1 || true
+	@-rm -f /tmp/algo-wrong
+	byte-split $TESTS.in
 
 test: samples $(TARGET)
-	@echo algo-run $(TARGET)
-	@unbuffer algo-run $(TARGET) $(MKFLAG_SHOWTIME) $(MKFLAG_NODIFF)
+	@echo byte-run $(TARGET)
+	@unbuffer byte-run $(TARGET) $(MKFLAG_SHOWTIME) $(MKFLAG_NODIFF)
 
 # Compare my results with other person's correct real results.
 comp: samples
 	@echo "cxx $CMP.mp"
 	@$(CXX) -x c++ $(CXXFLAGS) $(DEBUGFLAGS) $CMP.mp $(LDFLAGS) -o cmp
-	@echo algo-run cmp
-	@unbuffer algo-run cmp $(MKFLAG_SHOWTIME) $(MKFLAG_NODIFF)
+	@echo byte-run cmp
+	@unbuffer byte-run cmp $(MKFLAG_SHOWTIME) $(MKFLAG_NODIFF)
 
 memo:
 	ps aux | grep "[.]/$(TARGET)$$" | awk '{$$6=int($$6/1024)"M";}{print;}'
@@ -67,7 +70,7 @@ pygen: gen.py
 cppgen:
 	@echo "cxx $GEN.ge"
 	@g++ -x c++ $GEN.ge --std=c++11 -I$(ALGOROOT)/third_party/jngen/includes -o gen
-	@rm -rf *.rel
+	@rm -rf *.rel *.pdf *.gv
 	./gen | tee $TESTS.in
 
 

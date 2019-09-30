@@ -2,7 +2,7 @@
 set -x
 set -e
 
-root=${ALGO:=$HOME/Code/algos}
+root=${ALGO:=$HOME/Code/byteme}
 pwd=$(basename $PWD)
 
 if [[ "$1" == "gen" ]]; then
@@ -32,6 +32,6 @@ else
     # to put the newly created file at the most right position.
     sleep 0.1
     subl ./$filename.cc
-    algo-make "test" $filename
+    byte-make "test" $filename
   done
 fi

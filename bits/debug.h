@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+#define EXIT "\033[0m"
+#define CYAN "\033[0;36m"
+
 template <class T> struct rge { T b, e; };
 template <class T> rge<T> range(T i, T j) { return rge<T> {i, j}; }
 template <class T> char dud(...);
@@ -10,7 +13,7 @@ struct debug {
   template<class T, class N>
   typename enable_if<std::is_pointer<T>::value, debug&>::type
     operator<< (std::tuple<T, N>& array) {
-  // Real place where print out an array.
+  // Real place where printing out an array.
     auto mat = std::get<0>(array);
     int n = std::get<1>(array);
     debug() << "[";
@@ -27,7 +30,7 @@ struct debug {
   template<class T, class H, class W>
   typename enable_if<std::is_pointer<T>::value, debug&>::type
     operator<< (std::tuple<T, H, W>& array) {
-  // Real place where print out a two dimension array.
+  // Real place where printing out a two dimension array.
     auto mat = std::get<0>(array);
     int h = std::get<1>(array);
     int w = std::get<2>(array);
@@ -59,7 +62,12 @@ struct debug {
 
   template <class T>
   typename enable_if<sizeof(dud<T>(0)) != 1, debug&>::type operator<< (T i) {
-    cerr << i << flush;
+    if (is_floating_point<T>::value) {
+      cerr << setprecision(20) << fixed << i << flush;
+    }
+    else {
+      cerr << i << flush;
+    }
     return *this;
   }
 
@@ -85,14 +93,7 @@ struct debug {
   }
 };
 
-// template<class T> inline void amin(T &x, const T &y) { if (y < x) x = y; }
-// template<class T> inline void amax(T &x, const T &y) { if (x < y) x = y; }
-// mt19937 rng((int) std::chrono::steady_clock::now().time_since_epoch().count());
-// freopen("input.txt", "r", stdin);
-// freopen("output.txt", "w", stdout);
-
 #ifdef LOCAL
-  #define trace(...) __print(#__VA_ARGS__, __VA_ARGS__)
   template <typename T>
   void __print(const string& names, T arg) {
     string name = names;
@@ -151,4 +152,21 @@ struct debug {
     string others = names.substr(p + 1);
     __print(others, args...);
   }
+
+  #define trace(...) __trace(__LINE__, __func__, #__VA_ARGS__, __VA_ARGS__)
+
+  template <typename T, typename... Args>
+  void __trace(int ln, const string& fn, const string& var_names, T arg, Args... args) {
+    debug() << CYAN << "{" << fn << ":" << ln << "} " << EXIT;
+    __print(var_names, arg, args...);
+  }
 #endif
+
+
+// template<class T> inline void amin(T &x, const T &y) { if (y < x) x = y; }
+// template<class T> inline void amax(T &x, const T &y) { if (x < y) x = y; }
+
+// mt19937 rng((int) std::chrono::steady_clock::now().time_since_epoch().count());
+
+// freopen("input.txt", "r", stdin);
+// freopen("output.txt", "w", stdout);

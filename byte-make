@@ -28,9 +28,9 @@ while [ 1 ]; do
   trap 'trap_ctrlc' 2
   if [[ ! -z "$filename" && "$filename" != "release" ]]; then
     ctime=$(date "+%Y-%m-%d %H:%M:%S")
-    sed -i.bak "s|.*accepted.*| \* accepted  : $ctime|g" "$filename".cc
-    rm "$filename".cc.bak
+    perl -pi -e "s|.*accepted.*| \* accepted  : $ctime|g" "$filename".cc
   fi
+  sleep 0.1
   $cmd
   echo -en Press Enter to continue
   read newline
