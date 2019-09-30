@@ -35,15 +35,12 @@ typedef vector<string> vs;
 typedef pair<int, int> pii;
 typedef vector<pii> vpii;
 
-vi e = {0, 1, 2, 0, 2, 1, 0};
 int fun(vi& a, int x) {
+  vi e = {0, 1, 2, 0, 2, 1, 0};
   vi b = a;
   int ret = 0;
-  while (1) {
-    if (b[e[x]] == 0) {
-      break;
-    }
-    ++ret;
+  while (b[e[x]]) {
+    ret++;
     b[e[x]]--;
     x = (x + 1) % 7;
   }
@@ -55,13 +52,7 @@ void solve() {
   for (int i = 0; i < 3; ++i) {
     cin >> a[i];
   }
-  int ret = 0;
-  while (a[0] > 3 && a[1] > 2 && a[2] > 2) {
-    a[0] -= 3;
-    a[1] -= 2;
-    a[2] -= 2;
-    ret += 7;
-  }
+  int ret = min({a[0] / 3, a[1] / 2, a[2] / 2});
   int tmp = 0;
   for (int i = 0; i < 7; ++i) {
     amax(tmp, fun(a, i));

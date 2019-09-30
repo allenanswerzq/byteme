@@ -56,7 +56,9 @@ void solve() {
   for (int i = 0; i < n; ++i) {
     cin >> a[i];
   }
-  int lo = 1, hi = n;
+  // [0....n-1]
+  // int lo = -1, hi = n;
+  int lo = 0, hi = n + 1;
   while (hi - lo > 1) {
     int mid = lo + (hi - lo) / 2;
     if (check(a, mid, h)) {
@@ -65,7 +67,7 @@ void solve() {
       hi = mid;
     }
   }
-  output(check(a, hi, h) ? hi : lo);
+  output(lo);
 }
 
 int main() {

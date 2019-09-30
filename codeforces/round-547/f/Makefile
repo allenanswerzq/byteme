@@ -18,7 +18,7 @@ endif
 CXXFLAGS += -I/Users/jche/Code/algos
 DEBUGFLAGS += -D__has_trace
 
-ifeq ($(shell ls /usr/local/opt/llvm/bin/clang > /dev/null && echo $$?), 0)
+ifeq ($(shell ls /usr/local/opt/llvm/bin/clang > /dev/null 2>&1 && echo $$?), 0)
 	# We are using a homebrew clang, need new flags
 	CXX = /usr/local/opt/llvm/bin/clang++
 	LDFLAGS += -L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib

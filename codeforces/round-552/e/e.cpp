@@ -56,7 +56,6 @@ void solve() {
     auto it = st.find(mx.y);
     vi del;
     for (int i = 0; i <= k; ++i) {
-      ret[*it] = turn;
       del.pb(*it);
       if (it == st.begin()) {
         break;
@@ -65,19 +64,19 @@ void solve() {
     }
     it = st.find(mx.y);
     for (int i = 0; i < k; ++i) {
-      ++it;
+      it++;
       if (it == st.end()) {
         break;
       }
-      ret[*it] = turn;
       del.pb(*it);
     }
-    turn ^= 1;
     for (auto ix : del) {
       // mp.erase({a[ix], ix});
+      ret[ix] = turn;
       mp.erase(a[ix]);
       st.erase(ix);
     }
+    turn ^= 1;
   }
   for (int i = 0; i < n; ++i) {
     ret[i]++;
