@@ -31,3 +31,6 @@
 [submodule "thtsalgo"]
 	path = thtsalgo
 	url = https://github.com/thtsalgo/thts-contests.git
+[submodule "third_party/tcframe"]
+	path = third_party/tcframe
+	url = https://github.com/ia-toki/tcframe.git
