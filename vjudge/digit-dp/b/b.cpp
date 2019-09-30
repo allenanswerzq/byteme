@@ -62,7 +62,8 @@ inline int nxt_state(int& state, int digit) {
 
 ll dfs(int p, int state, bool zero, bool small) {
     // trace(bits, p, state, zero, small);
-    if (p == -1) {return count(state) == k;
+    if (p == -1) {
+        return count(state) == k;
     }
 
     if (!small && dp[p][state][k] != -1) {
