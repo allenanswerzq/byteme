@@ -1,0 +1,46 @@
+#include "array.h"
+#include "rnds.h"
+using namespace std;
+
+template<class T> void puts(T t) { cout << t << "\n"; }
+template<class T, class U, class... G>
+void puts(T t, U u, G... g) { cout << t << " "; puts(u, g...); }
+
+template<class T> void trace(T t) { cerr << t << "\n"; }
+template<class T, class U, class... G>
+void trace(T t, U u, G... g) { cerr << t << " "; puts(u, g...); }
+
+// The number of test cases.
+const int T = 1;
+
+void gen() {
+  // Write your own test generating code here.
+  // 2 ≤ N ≤ 100.
+  // 1 ≤ G ≤ 100.
+  // 0 ≤ M ≤ 100.
+
+  // Test set 2 (Hidden)
+  // 2 ≤ N ≤ 105.
+  // 1 ≤ G ≤ 105.
+  // 0 ≤ M ≤ 109.
+  int n = rnd.next(2, 10);
+  int g = rnd.next(1, 10);
+  int m = rnd.next(0, 10);
+  puts(n, g, m);
+  for (int i = 0; i < g; i++) {
+    int p = rnd.next(1, n);
+    char c = (rnd.next(0, 1) % 2 ? 'C' : 'A');
+    puts(p, c);
+  }
+}
+
+int main() {
+  puts(T);
+  for (int t = 0; t < T; ++t) {
+    if (t > 0) {
+      cout << '\n';
+    }
+    gen();
+  }
+  return 0;
+}

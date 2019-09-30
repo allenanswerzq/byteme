@@ -1,11 +1,9 @@
-/*
- * created   : 2019-07-28 14:45:50
+/* created   : 2019-07-28 14:45:50
  * accepted  : 2019-07-28 15:13:00
  * author    : landcold7
  */
 #include <bits/stdc++.h>
 using namespace std;
-
 #define x first
 #define y second
 #ifndef LOCAL
@@ -14,13 +12,10 @@ using namespace std;
 typedef long long ll;
 
 void solve(int tc) {
-  int n, g, m;
-  cin >> n >> g >> m;
+  int n, g, m; cin >> n >> g >> m;
   vector<vector<pair<int, int>>> a(n);
-  for (int i = 0; i < g; ++i) {
-    int x;
-    char y;
-    cin >> x >> y;
+  for (int i = 0; i < g; i++) {
+    int x; char y; cin >> x >> y;
     x--;
     a[x].emplace_back(i, 0);
     trace(x, y, m);
@@ -58,7 +53,7 @@ void solve(int tc) {
     }
   }
   cout << "Case #" << tc << ": ";
-  for (int i = 0; i < g; ++i) {
+  for (int i = 0; i < g; i++) {
     if (i > 0) {
       cout << " ";
     }
@@ -70,8 +65,7 @@ void solve(int tc) {
 int main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
-  int tc;
-  cin >> tc;
+  int tc; cin >> tc;
   for (int i = 1; i <= tc; i++) {
     solve(i);
   }
