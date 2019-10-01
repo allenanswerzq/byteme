@@ -1,15 +1,18 @@
 [submodule "third_party/codebook"]
 	path = third_party/codebook
 	url = https://github.com/landcold7/codebook.git
+	ignore=dirty
 [submodule "third_party/jngen"]
 	path = third_party/jngen
 	url = https://github.com/landcold7/jngen.git
 [submodule "third_party/testlib"]
 	path = third_party/testlib
 	url = https://github.com/MikeMirzayanov/testlib.git
+	ignore=dirty
 [submodule "third_party/kactl"]
 	path = third_party/kactl
 	url = https://github.com/landcold7/kactl.git
+	ignore=dirty
 [submodule "third_party/bytedump"]
 	path = third_party/bytedump
 	url = https://github.com/landcold7/bytedump.git
@@ -19,18 +22,15 @@
 [submodule "third_party/cyaron"]
 	path = third_party/cyaron
 	url = https://github.com/landcold7/cyaron.git
+	ignore=dirty
 [submodule "third_party/algorithm"]
 	path = third_party/algorithm
 	url = git@github.com:landcold7/algorithm.git
+	ignore=dirty
 [submodule "third_party/Programming-contest"]
 	path = third_party/Programming-contest
 	url = https://github.com/pin3da/Programming-contest.git
-[submodule "thts-contests"]
-	path = thts-contests
-	url = https://github.com/thtsalgo/thts-contests.git
-[submodule "thtsalgo"]
-	path = thtsalgo
-	url = https://github.com/thtsalgo/thts-contests.git
+	ignore=dirty
 [submodule "third_party/tcframe"]
 	path = third_party/tcframe
 	url = https://github.com/ia-toki/tcframe.git
