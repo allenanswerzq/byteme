@@ -31,3 +31,6 @@
 [submodule "third_party/tcframe"]
 	path = third_party/tcframe
 	url = https://github.com/ia-toki/tcframe.git
+[submodule "bytetools"]
+	path = bytetools
+	url = https://github.com/landcold7/bytetools.git
