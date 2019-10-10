@@ -93,75 +93,81 @@ struct debug {
   }
 };
 
-#ifdef LOCAL
-  template <typename T>
-  void __print(const string& names, T arg) {
-    string name = names;
-    if ((int) name.find("make_tuple") != -1) {
-      int s = name.find('(');
-      int t = name.find(',');
-      assert(t - s - 1 > 0);
-      name = name.substr(s + 1, t - s - 1);
-    }
-    debug() << name << ": " << arg << "\n";
+template <typename T>
+void __print(const string& names, T arg) {
+  string name = names;
+  if ((int) name.find("make_tuple") != -1) {
+    int s = name.find('(');
+    int t = name.find(',');
+    assert(t - s - 1 > 0);
+    name = name.substr(s + 1, t - s - 1);
   }
+  debug() << name << ": " << arg << "\n";
+}
 
-  template <typename T, typename... Args>
-  void __print(const string& names, T arg, Args... args) {
-    int p = -1;
-    int n = names.size();
-    int x = (int) names.find('(');
-    int y = (int) names.find(',');
-    if (x != -1 && y != -1 && x < y) {
-    // Looking for `()` pair first
-    // handle calls like `trace(foo(a, b))`
-      p = names.find(')');
-      assert(0 <= p && p < n);
-      p = names.find(',', p + 1);
-    }
-    else {
-    // Now looking for comma sign to split varibles.
-      p = names.find(',');
-    }
-    assert(p != -1);
-    string name = names.substr(0, p);
-    if ((int) name.find("make_tuple") != -1) {
-    // Hacking to print out an array.
-    // eg. trace(make_tuple(arr, w))
-    // eg. trace(make_tuple(arr, h, w))
-      int s = name.find('(');
-      int t = name.find(',');
-      assert(t - s - 1 > 0);
-      name = name.substr(s + 1, t - s - 1);
-    }
-    if (is_same<T, const char*>::value) {
-    // Add distinguish string at the beginning.
-    // So that we can add comments for trace call
-    // eg. trace("TEST", var1, var2);
-      int w = name.size();
-      debug() << name.substr(1, w - 2) << ": | ";
-    }
-    else {
-      debug() << name << ": " << arg << " | ";
-    }
-    while (p + 1 < n && names[p + 1] == ' ') {
-    // Stripping white spaces.
-      p++;
-    }
-    assert(p + 1 <= n);
-    string others = names.substr(p + 1);
-    __print(others, args...);
+template <typename T, typename... Args>
+void __print(const string& names, T arg, Args... args) {
+  int p = -1;
+  int n = names.size();
+  int x = (int) names.find('(');
+  int y = (int) names.find(',');
+  if (x != -1 && y != -1 && x < y) {
+  // Looking for `()` pair first
+  // handle calls like `trace(foo(a, b))`
+    p = names.find(')');
+    assert(0 <= p && p < n);
+    p = names.find(',', p + 1);
   }
-
-  #define trace(...) __trace(__LINE__, __func__, #__VA_ARGS__, __VA_ARGS__)
-
-  template <typename T, typename... Args>
-  void __trace(int ln, const string& fn, const string& var_names, T arg, Args... args) {
-    debug() << CYAN << "{" << fn << ":" << ln << "} " << EXIT;
-    __print(var_names, arg, args...);
+  else {
+  // Now looking for comma sign to split varibles.
+    p = names.find(',');
   }
-#endif
+  assert(p != -1);
+  string name = names.substr(0, p);
+  if ((int) name.find("make_tuple") != -1) {
+  // Hacking to print out an array.
+  // eg. trace(make_tuple(arr, w))
+  // eg. trace(make_tuple(arr, h, w))
+    int s = name.find('(');
+    int t = name.find(',');
+    assert(t - s - 1 > 0);
+    name = name.substr(s + 1, t - s - 1);
+  }
+  if (is_same<T, const char*>::value) {
+  // Add distinguish string at the beginning.
+  // So that we can add comments for trace call
+  // eg. trace("TEST", var1, var2);
+    int w = name.size();
+    debug() << name.substr(1, w - 2) << ": | ";
+  }
+  else {
+    debug() << name << ": " << arg << " | ";
+  }
+  while (p + 1 < n && names[p + 1] == ' ') {
+  // Stripping white spaces.
+    p++;
+  }
+  assert(p + 1 <= n);
+  string others = names.substr(p + 1);
+  __print(others, args...);
+}
 
+#define trace(...) __trace(__LINE__, __func__, #__VA_ARGS__, __VA_ARGS__)
+
+template <typename T, typename... Args>
+void __trace(int ln, const string& fn, const string& var_names, T arg, Args... args) {
+  debug() << CYAN << "{" << fn << ":" << ln << "} " << EXIT;
+  __print(var_names, arg, args...);
+}
+
+#define dbg(...) __dbg(__LINE__, __func__, #__VA_ARGS__, (__VA_ARGS__))
+
+template <typename T>
+T&& __dbg(int ln, const string& fn, const string& expr, T&& val) {
+  debug() << CYAN << "{" << fn << ":" << ln << "} " << EXIT
+          << expr << " = " << val << '\n';
+  return std::forward<T>(val);
+}
 
 // template<class T> inline void amin(T &x, const T &y) { if (y < x) x = y; }
 // template<class T> inline void amax(T &x, const T &y) { if (x < y) x = y; }
