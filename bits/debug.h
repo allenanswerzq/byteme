@@ -9,11 +9,33 @@ template <class T> rge<T> range(T i, T j) { return rge<T> {i, j}; }
 template <class T> char dud(...);
 template <class T> auto dud(T* x) -> decltype(cout << *x, 0);
 
+template<typename T> struct is_vector : public std::false_type {};
+
+template<typename T, typename A>
+struct is_vector<std::vector<T, A>> : public std::true_type {};
+
 struct debug {
   template<class T, class N>
   typename enable_if<std::is_pointer<T>::value, debug&>::type
     operator<< (std::tuple<T, N>& array) {
   // Real place where printing out an array.
+    auto mat = std::get<0>(array);
+    int n = std::get<1>(array);
+    debug() << "[";
+    for (int i = 0; i < n; i++) {
+      if (i > 0) {
+        debug() << ", ";
+      }
+      debug() << mat[i];
+    }
+    debug() << "]";
+    return *this;
+  }
+
+  template<class T, class N>
+  typename enable_if<is_vector<T>::value, debug&>::type
+    operator<< (std::tuple<T, N>& array) {
+  // Real place where printing out a vector with custom size N.
     auto mat = std::get<0>(array);
     int n = std::get<1>(array);
     debug() << "[";
@@ -96,7 +118,7 @@ struct debug {
 template <typename T>
 void __print(const string& names, T arg) {
   string name = names;
-  if ((int) name.find("make_tuple") != -1) {
+  if ((int) name.find("make_tuple") != -1 || (int) name.find("mt") != -1) {
     int s = name.find('(');
     int t = name.find(',');
     assert(t - s - 1 > 0);
@@ -124,7 +146,7 @@ void __print(const string& names, T arg, Args... args) {
   }
   assert(p != -1);
   string name = names.substr(0, p);
-  if ((int) name.find("make_tuple") != -1) {
+  if ((int) name.find("make_tuple") != -1 || (int) name.find("mt") != -1) {
   // Hacking to print out an array.
   // eg. trace(make_tuple(arr, w))
   // eg. trace(make_tuple(arr, h, w))
