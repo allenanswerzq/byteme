@@ -12,10 +12,6 @@ using namespace std;
 #endif
 typedef long long ll;
 
-// 3 < 5
-// 4 < 8
-max(3 * 4, 5 * 8)
-
 vector<int> a;
 vector<int> b;
 int n;
