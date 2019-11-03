@@ -1,5 +1,5 @@
 /* created   : 2019-10-30 00:36:13
- * accepted  : 2019-10-30 00:57:39
+ * accepted  : 2019-10-30 10:17:04
  * author    : landcold7
  */
 #include <bits/stdc++.h>
@@ -17,6 +17,23 @@ vector<int> g[N];
 int n;
 int m;
 
+vector<double> expect(const pair<int, int>& ignore) {
+  vector<double> dp(n);
+  for (int u = n - 2; u >= 0; u--) {
+    double cur = 0;
+    int cnt = 0;
+    for (auto v : g[u]) {
+      if (u == ignore.x && v == ignore.y) {
+        continue;
+      }
+      cnt++;
+      cur += dp[v];
+    }
+    dp[u] = cur / cnt + 1;
+  }
+  return dp;
+}
+
 void solve() {
   cin >> n >> m;
   for (int i = 0; i < m; i++) {
@@ -24,17 +41,13 @@ void solve() {
     u--, v--;
     g[u].push_back(v);
   }
-  vector<double> dp(n);
-  for (int u = n - 2; u >= 0; u--) {
-    double cur = 0;
-    for (auto v : g[u]) {
-      cur += dp[v];
-    }
-    dp[u] = cur / g[u].size() + 1;
-  }
+  vector<double> dp = expect({-1, -1});
   trace(dp);
   double ans = dp[0];
   for (int u = 0; u < n - 1; u++) {
+    if (g[u].size() <= 1) {
+      continue;
+    }
     double mx = 0;
     int ix = -1;
     for (auto v : g[u]) {
@@ -43,24 +56,7 @@ void solve() {
         ix = v;
       }
     }
-    if (g[u].size() <= 1) {
-      continue;
-    }
-    trace(u, mx, ix);
-    assert(ix != -1);
-    vector<double> np(n);
-    for (int j = n - 2; j >= 0; j--) {
-      double cur = 0;
-      int cnt = 0;
-      for (auto v : g[j]) {
-        if (j == u && v == ix) {
-          continue;
-        }
-        cur += np[v];
-        cnt++;
-      }
-      np[j] = cur / cnt + 1;
-    }
+    vector<double> np = expect({u, ix});
     ans = min(ans, np[0]);
   }
   cout << ans << '\n';
