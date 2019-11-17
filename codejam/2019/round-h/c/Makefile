@@ -34,7 +34,7 @@ all: test
 
 %_mp : %.mp Makefile
 	@echo "cxx $<"
-	$(CXX) -x c++ $(CXXFLAGS) $(DBGFLAGS) $< $(LDFLAGS) -o $@
+	@$(CXX) -x c++ $(CXXFLAGS) $(DBGFLAGS) $< $(LDFLAGS) -o $@
 
 %_ge : %.ge Makefile
 	@echo "cxx $<"
