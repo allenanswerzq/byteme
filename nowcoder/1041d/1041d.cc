@@ -51,7 +51,7 @@ void solve() {
       }
     }
   }
-  trace(mt(f[n], l + 1, l + 1), ttt);
+  trace(mt(f[n], l + 1, l + 1));
   int ans = INF;
   for (int x = 1; x <= l; x++) {
     for (int y = 1; y <= l; y++) {
