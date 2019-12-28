@@ -1,4 +1,8 @@
+#include <vector>
+#include <string>
 #include <iostream>
+// #include <graphviz/gvc.h>
+// #include <graphviz/cgraph.h>
 using namespace std;
 
 #define EXIT "\033[0m"
@@ -10,9 +14,38 @@ template <class T> char dud(...);
 template <class T> auto dud(T* x) -> decltype(cout << *x, 0);
 
 template<typename T> struct is_vector : public std::false_type {};
-
 template<typename T, typename A>
 struct is_vector<std::vector<T, A>> : public std::true_type {};
+
+template <class T>
+static void __display_mat(vector<vector<T>>& v) {
+  int n = v.size();
+  int m = v[0].size();
+  int width = 0;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      string str = to_string(j) + "/" + to_string(v[i][j]);
+      width = max(width, (int) str.size());
+    }
+  }
+  fprintf(stderr, "\n");
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      string head = to_string(j);
+      string tail = to_string(v[i][j]);
+      string str = head + "/";
+      for (int x = head.size() + tail.size() + 1; x < width; x++) {
+        str += "_";
+      }
+      str += tail;
+      fprintf(stderr, "%*s", width, str.c_str());
+      if (j != m - 1) {
+        fprintf(stderr, ", ");
+      }
+    }
+    fprintf(stderr, "\n");
+  }
+}
 
 struct debug {
   template<class T, class N>
@@ -43,7 +76,7 @@ struct debug {
       if (i > 0) {
         debug() << ", ";
       }
-      debug() << mat[i];
+      debug() << i << "/" << mat[i];
     }
     debug() << "]";
     return *this;
@@ -57,9 +90,31 @@ struct debug {
     int h = std::get<1>(array);
     int w = std::get<2>(array);
     debug() << "[";
+    vector<vector<int>> v(h, vector<int>(w));
     for (int i = 0; i < h; i++) {
-      auto mati = make_tuple(mat[i], w);
-      debug() << mati << '\n';
+      for (int j = 0; j < w; j++) {
+        v[i][j] = mat[i][j];
+      }
+    }
+    __display_mat<int>(v);
+    debug() << "]";
+    return *this;
+  }
+
+  debug& operator<< (vector<string>& v) {
+    if (v.empty()) {
+      return *this;
+    }
+    int n = v.size();
+    int m = v[0].size();
+    debug() << "[\n";
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < m; j++) {
+        debug() << v[i][j];
+        if (j == m - 1) {
+          debug() << ",\n";
+        }
+      }
     }
     debug() << "]";
     return *this;
@@ -124,7 +179,12 @@ void __print(const string& names, T arg) {
     assert(t - s - 1 > 0);
     name = name.substr(s + 1, t - s - 1);
   }
-  debug() << name << ": " << arg << "\n";
+  if (is_same<T, const char*>::value) {
+    debug() << arg << "\n";
+  }
+  else {
+    debug() << name << ": " << arg << "\n";
+  }
 }
 
 template <typename T, typename... Args>
@@ -174,12 +234,13 @@ void __print(const string& names, T arg, Args... args) {
   __print(others, args...);
 }
 
+#ifdef LOCAL
 #define trace(...) __trace(__LINE__, __func__, #__VA_ARGS__, __VA_ARGS__)
 
 template <typename T, typename... Args>
-void __trace(int ln, const string& fn, const string& var_names, T arg, Args... args) {
+void __trace(int ln, const string& fn, const string& var, T arg, Args... args) {
   debug() << CYAN << "{" << fn << ":" << ln << "} " << EXIT;
-  __print(var_names, arg, args...);
+  __print(var, arg, args...);
 }
 
 #define dbg(...) __dbg(__LINE__, __func__, #__VA_ARGS__, (__VA_ARGS__))
@@ -190,6 +251,7 @@ T&& __dbg(int ln, const string& fn, const string& expr, T&& val) {
           << expr << " = " << val << '\n';
   return std::forward<T>(val);
 }
+#endif
 
 // template<class T> inline void amin(T &x, const T &y) { if (y < x) x = y; }
 // template<class T> inline void amax(T &x, const T &y) { if (x < y) x = y; }
@@ -198,3 +260,57 @@ T&& __dbg(int ln, const string& fn, const string& expr, T&& val) {
 
 // freopen("input.txt", "r", stdin);
 // freopen("output.txt", "w", stdout);
+
+
+// class Graphviz {
+// public:
+//   explicit Graphviz(std::string name, bool undirected = true, bool zero = true)
+//     : name_(name), undirected_(undirected), zero_(zero) {}
+
+//   // Create a adjcent list representation of a graph
+//   void CreateGraph(const vector<int>* g, int n) {
+//     gvc_ = gvContext();
+//     gv_ = agopen(to_ptr("g"), undirected_ ? Agundirected : Agdirected, 0);
+//     for (int i = 0; i < n; ++i) {
+//       int id = zero_ ? i : i + 1;
+//       Agnode_t *n = agnode(gv_, (char*)std::to_string(id).c_str(), 1);
+//       gvc_nodes_.push_back(n);
+//     }
+//     for (int u = 0; u < n; u++) {
+//       for (int v : g[u]) {
+//         Agedge_t *e = agedge(gv_, gvc_nodes_[u], gvc_nodes_[v], 0, 1);
+//         gvc_edges_.push_back(e);
+//         // if (has_weight) {
+//         //   int w = wegit[i];
+//         //   agsafeset(e, to_ptr("label"), to_ptr(to_string(w)), to_ptr(""));
+//         // }
+//       }
+//     }
+//   }
+
+//   void DrawGraph() {
+//     gvLayout(gvc_, gv_, "sfdp");
+//     name_ += ".pdf";
+//     gvRenderFilename (gvc_, gv_, "pdf", name_.c_str());
+//     gvFreeLayout(gvc_, gv_);
+//     agclose(gv_);
+//     gvFreeContext(gvc_);
+//   }
+
+// private:
+//   GVC_t *gvc_;
+//   Agraph_t *gv_;
+//   std::vector<Agnode_t*> gvc_nodes_;
+//   std::vector<Agedge_t*> gvc_edges_;
+//   std::string name_;
+//   bool undirected_;
+//   bool zero_;
+// };
+
+// void draw_graph(string name, vector<int>* g, int n,
+//                 bool undirected = false,
+//                 bool zero = true) {
+//   Graphviz gv(name, undirected, zero);
+//   gv.CreateGraph(g, n);
+//   gv.DrawGraph();
+// }

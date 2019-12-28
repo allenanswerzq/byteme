@@ -12,6 +12,7 @@ using namespace std;
 #endif
 typedef long long ll;
 
+// 0-1 knapsack
 void solve() {
   int n, m; cin >> n >> m;
   vector<int> a(n + 1);
