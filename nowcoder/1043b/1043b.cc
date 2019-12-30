@@ -52,7 +52,6 @@ void solve() {
         else {
           amax(fmx[l][r], fmx[l][k] * fmx[k + 1][r]);
           amax(fmx[l][r], fmi[l][k] * fmi[k + 1][r]);
-
           amin(fmi[l][r], fmx[l][k] * fmx[k + 1][r]);
           amin(fmi[l][r], fmi[l][k] * fmi[k + 1][r]);
           amin(fmi[l][r], fmx[l][k] * fmi[k + 1][r]);
