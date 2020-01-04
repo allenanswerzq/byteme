@@ -28,8 +28,10 @@ void solve() {
   int n; cin >> n;
   f[0] = 1;
   // f[i][j] = max(f[i][j - v] + w, f[i - 1][j])
+  // stage
   for (int i = 1; i <= n; i++) {
     // i------- j -----i - 1
+    // state
     for (int j = i; j <= n; j++) {
       add(f[j], f[j - i]);
     }

@@ -46,7 +46,6 @@ void solve() {
     for (int j = 0; j <= m; j++) {
       for (int k = 0; k <= 800; k++) {
         // 1) do not choose the ith item
-        amax(f[j][k], f[j - 1][k]);
         d[i][j][k] = d[i - 1][j][k];
       }
     }
