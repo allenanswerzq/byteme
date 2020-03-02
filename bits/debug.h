@@ -1,8 +1,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-// #include <graphviz/gvc.h>
-// #include <graphviz/cgraph.h>
 using namespace std;
 
 #define EXIT "\033[0m"
@@ -171,25 +169,27 @@ struct debug {
 };
 
 template <typename T>
-void __print(const string& names, T arg) {
-  string name = names;
+void __print(const string& names, T&& arg) {
+  string name(names);
   if ((int) name.find("make_tuple") != -1 || (int) name.find("mt") != -1) {
     int s = name.find('(');
     int t = name.find(',');
     assert(t - s - 1 > 0);
     name = name.substr(s + 1, t - s - 1);
   }
-  if (is_same<T, const char*>::value) {
-    debug() << arg << "\n";
-  }
-  else {
-    debug() << name << ": " << arg << "\n";
-  }
+  // TODO(): figure out why this messed up debug stream?
+  // if (is_same<T, const char*>::value) {
+  //   debug() << arg << "\n";
+  // }
+  // else {
+  debug() << name << ": " << arg << "\n";
+  // }
 }
 
 template <typename T, typename... Args>
-void __print(const string& names, T arg, Args... args) {
+void __print(const string& namexx, T&& arg, Args&&... args) {
   int p = -1;
+  string names(namexx);
   int n = names.size();
   int x = (int) names.find('(');
   int y = (int) names.find(',');
@@ -224,6 +224,7 @@ void __print(const string& names, T arg, Args... args) {
   }
   else {
     debug() << name << ": " << arg << " | ";
+    // __print(name.c_str(), arg);
   }
   while (p + 1 < n && names[p + 1] == ' ') {
   // Stripping white spaces.
@@ -238,7 +239,7 @@ void __print(const string& names, T arg, Args... args) {
 #define trace(...) __trace(__LINE__, __func__, #__VA_ARGS__, __VA_ARGS__)
 
 template <typename T, typename... Args>
-void __trace(int ln, const string& fn, const string& var, T arg, Args... args) {
+void __trace(int ln, const string& fn, const string& var, T&& arg, Args&&... args) {
   debug() << CYAN << "{" << fn << ":" << ln << "} " << EXIT;
   __print(var, arg, args...);
 }
@@ -251,66 +252,6 @@ T&& __dbg(int ln, const string& fn, const string& expr, T&& val) {
           << expr << " = " << val << '\n';
   return std::forward<T>(val);
 }
+#define debugstream debug
 #endif
 
-// template<class T> inline void amin(T &x, const T &y) { if (y < x) x = y; }
-// template<class T> inline void amax(T &x, const T &y) { if (x < y) x = y; }
-
-// mt19937 rng((int) std::chrono::steady_clock::now().time_since_epoch().count());
-
-// freopen("input.txt", "r", stdin);
-// freopen("output.txt", "w", stdout);
-
-
-// class Graphviz {
-// public:
-//   explicit Graphviz(std::string name, bool undirected = true, bool zero = true)
-//     : name_(name), undirected_(undirected), zero_(zero) {}
-
-//   // Create a adjcent list representation of a graph
-//   void CreateGraph(const vector<int>* g, int n) {
-//     gvc_ = gvContext();
-//     gv_ = agopen(to_ptr("g"), undirected_ ? Agundirected : Agdirected, 0);
-//     for (int i = 0; i < n; ++i) {
-//       int id = zero_ ? i : i + 1;
-//       Agnode_t *n = agnode(gv_, (char*)std::to_string(id).c_str(), 1);
-//       gvc_nodes_.push_back(n);
-//     }
-//     for (int u = 0; u < n; u++) {
-//       for (int v : g[u]) {
-//         Agedge_t *e = agedge(gv_, gvc_nodes_[u], gvc_nodes_[v], 0, 1);
-//         gvc_edges_.push_back(e);
-//         // if (has_weight) {
-//         //   int w = wegit[i];
-//         //   agsafeset(e, to_ptr("label"), to_ptr(to_string(w)), to_ptr(""));
-//         // }
-//       }
-//     }
-//   }
-
-//   void DrawGraph() {
-//     gvLayout(gvc_, gv_, "sfdp");
-//     name_ += ".pdf";
-//     gvRenderFilename (gvc_, gv_, "pdf", name_.c_str());
-//     gvFreeLayout(gvc_, gv_);
-//     agclose(gv_);
-//     gvFreeContext(gvc_);
-//   }
-
-// private:
-//   GVC_t *gvc_;
-//   Agraph_t *gv_;
-//   std::vector<Agnode_t*> gvc_nodes_;
-//   std::vector<Agedge_t*> gvc_edges_;
-//   std::string name_;
-//   bool undirected_;
-//   bool zero_;
-// };
-
-// void draw_graph(string name, vector<int>* g, int n,
-//                 bool undirected = false,
-//                 bool zero = true) {
-//   Graphviz gv(name, undirected, zero);
-//   gv.CreateGraph(g, n);
-//   gv.DrawGraph();
-// }
