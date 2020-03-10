@@ -1,0 +1,30 @@
+#include "array.h"
+#include "rnds.h"
+#include "graph.h"
+using namespace std;
+typedef long long ll;
+
+template<class T> void puts(T t) { cout << t << "\n"; }
+template<class T, class U, class... G>
+void puts(T t, U u, G... g) { cout << t << " "; puts(u, g...); }
+
+template<class T> void trace(T t) { cerr << t << "\n"; }
+template<class T, class U, class... G>
+void trace(T t, U u, G... g) { cerr << t << " "; puts(u, g...); }
+
+const int N = 1e9;
+
+void gen() {
+  // Write your own test generating code here.
+  int n = rnd.next(3, 100);
+  puts(n);
+  for (int i = 0; i < n; i++) {
+    int x = rnd.next(1, 10);
+    cout << x << (i == n - 1 ? '\n' : ' ');
+  }
+}
+
+int main() {
+  gen();
+  return 0;
+}
