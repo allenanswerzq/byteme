@@ -1,11 +1,11 @@
 /* created   : 2020-03-14 23:02:19
- * accepted  : 2020-03-14 23:10:03
+ * accepted  : 2020-03-15 08:59:41
  * author    : landcold7
  */
 #include <bits/stdc++.h>
 using namespace std;
-#define x first
-#define y second
+#define fi first
+#define se second
 #define mt make_tuple
 #define all(x) (x).begin(), (x).end()
 #ifndef LOCAL
@@ -19,16 +19,33 @@ int a[N][N];
 
 void solve() {
   int n, k; cin >> n >> k;
-  for (int j = 0; j < n; j++) {
-    for (int i = j + 1; i < n; i++) {
-      a[i][j] = 1;
-      k--;
-      if (k == 0) {
-        cout << -1 << '\n';
-        return;
+  for (int i = 0; i < n; i++) {
+    for (int j = i; j < n; j++) {
+      if (k <= 0) break;
+      if (i == j) {
+        a[i][j] = 1;
+        k--;
+        continue;
       }
-      a[j][i] = 1;
-      k--;
+      if (k >= 2 && !a[i][j] && !a[j][i]) {
+        a[i][j] = 1;
+        a[j][i] = 1;
+        k -= 2;
+      }
+    }
+  }
+  if (k > 0) {
+    cout << -1 << '\n';
+    return;
+  }
+  for (int i = 0; i < n; i++) {
+    for (int j = i; j < n; j++) {
+      assert(a[i][j] == a[j][i]);
+    }
+  }
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      cout << a[i][j] << (j == n - 1 ? '\n' : ' ');
     }
   }
 }
