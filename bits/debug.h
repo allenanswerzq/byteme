@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 #include <string>
 #include <iostream>
@@ -99,6 +100,26 @@ struct debug {
     return *this;
   }
 
+  template<class T, class C, class Comp>
+  debug& operator<< (priority_queue<T, C, Comp>& v) {
+    if (v.empty()) {
+      return *this;
+    }
+    priority_queue<T, C, Comp> tmp = v;
+    int n = tmp.size();
+    debug() << "[";
+    int k = 0;
+    while (!tmp.empty()) {
+      debug() << tmp.top();
+      tmp.pop();
+      if (k++ != n - 1) {
+        debug() << ' ';
+      }
+    }
+    debug() << "]";
+    return *this;
+  }
+
   debug& operator<< (vector<string>& v) {
     if (v.empty()) {
       return *this;
@@ -169,7 +190,7 @@ struct debug {
 };
 
 template <typename T>
-void __print(const string& names, T&& arg) {
+void __print(const string& names, T arg) {
   string name(names);
   if ((int) name.find("make_tuple") != -1 || (int) name.find("mt") != -1) {
     int s = name.find('(');
@@ -187,7 +208,7 @@ void __print(const string& names, T&& arg) {
 }
 
 template <typename T, typename... Args>
-void __print(const string& namexx, T&& arg, Args&&... args) {
+void __print(const string& namexx, T arg, Args... args) {
   int p = -1;
   string names(namexx);
   int n = names.size();
@@ -235,7 +256,7 @@ void __print(const string& namexx, T&& arg, Args&&... args) {
   __print(others, args...);
 }
 
-#ifdef LOCAL
+// #ifdef LOCAL
 #define trace(...) __trace(__LINE__, __func__, #__VA_ARGS__, __VA_ARGS__)
 
 template <typename T, typename... Args>
@@ -253,5 +274,5 @@ T&& __dbg(int ln, const string& fn, const string& expr, T&& val) {
   return std::forward<T>(val);
 }
 #define debugstream debug
-#endif
+// #endif
 
