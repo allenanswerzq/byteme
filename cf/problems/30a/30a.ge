@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+#include "array.h"
+#include "rnds.h"
+#include "graph.h"
+using namespace std;
+#define x first
+#define y second
+typedef long long ll;
+
+template<class T> void puts(T t) { cout << t << "\n"; }
+template<class T, class U, class... G>
+void puts(T t, U u, G... g) { cout << t << " "; puts(u, g...); }
+
+#define assertm(exp, msg) assert(((void)msg, exp))
+
+//NOTE: Be aware jngen has its own ostream, need to fix this issue.
+
+int xy = 0;
+
+void WriteFile(const string &name, const string& data) {
+  ofstream ofs(name);
+  if (!ofs.is_open()) {
+    assertm(0, "File can not open");
+    exit(1);
+  }
+  ofs << data << '\n';
+  ofs.close();
+}
+
+void gen() {
+  // Write your own test generating code here.
+  while (1) {
+    int a = rnd.next(-40, 40);
+    int x = rnd.next(-40, 40);
+    int n = rnd.next(1, 10);
+    ll b = a * pow(x, n);
+    if (abs(b) <= 1000) {
+      if (b == 0) {
+        x = 0;
+      }
+      else if (a == 0 && b == 0) {
+        x = 0;
+      }
+      else {
+        continue;
+      }
+      puts(a, b, n);
+      WriteFile(to_string(xy) + ".gb", to_string(x));
+      return;
+    }
+  }
+}
+
+int main(int argc, char** argv) {
+  assert(argc == 2);
+  xy = atoi(argv[1]);
+  gen();
+  return 0;
+}
