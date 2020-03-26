@@ -1,0 +1,121 @@
+#include <bits/stdc++.h>
+#include "array.h"
+#include "rnds.h"
+#include "graph.h"
+using namespace std;
+#define x first
+#define y second
+typedef long long ll;
+
+template<class T> void puts(T t) { cout << t << "\n"; }
+template<class T, class U, class... G>
+void puts(T t, U u, G... g) { cout << t << " "; puts(u, g...); }
+
+#define assertm(exp, msg) assert(((void)msg, exp))
+
+//NOTE: Be aware jngen has its own ostream, need to fix this issue.
+
+int xy = -1;
+
+void WriteFile(const string& data) {
+  if (xy == -1) return;
+  ofstream ofs(to_string(xy) + ".gb");
+  if (!ofs.is_open()) {
+    assertm(0, "File cant open!");
+    exit(1);
+  }
+  ofs << data << '\n';
+  ofs.close();
+}
+
+
+void gen() {
+  // Write your own test generating code here.
+  int n = rnd.next(1, 10);
+  string s = rnd.next("[01]{" + to_string(2 * n) + "}");
+  string t = rnd.next("[01]{" + to_string(2 * n) + "}");
+  puts(n);
+  puts(s);
+  puts(t);
+  int k = n;
+  vector<bool> us(k);
+  string ss, st;
+  trace(s, t);
+  while (1) {
+    int a = -1;
+    for (int i = 0; i < 2 * n; i++) {
+      if (!us[i] && s[i] == '1' && t[i] == '1') {
+        us[i] = true;
+        a = i;
+        break;
+      }
+    }
+    if (a == -1) {
+      for (int i = 0; i < 2 * n; i++) {
+        if (!us[i] && s[i] == '1') {
+          a = i;
+          us[i] = true;
+          break;
+        }
+      }
+    }
+    if (a == -1) {
+      for (int i = 0; i < 2 * n; i++) {
+        if (!us[i] && s[i] == '0') {
+          a = i;
+          us[i] = true;
+          break;
+        }
+      }
+    }
+    ss += s[a];
+    int b = -1;
+    for (int i = 0; i < 2 * n; i++) {
+      if (!us[i] && t[i] == '1' && s[i] == '1') {
+        us[i] = true;
+        b = i;
+        break;
+      }
+    }
+    if (b == -1) {
+      for (int i = 0; i < 2 * n; i++) {
+        if (!us[i] && t[i] == '1') {
+          us[i] = true;
+          b = i;
+          break;
+        }
+      }
+    }
+    if (b == -1) {
+      for (int i = 0; i < 2 * n; i++) {
+        if (!us[i] && t[i] == '0') {
+          us[i] = true;
+          b = i;
+          break;
+        }
+      }
+    }
+    st += t[b];
+    trace(a, s[a], b, t[b]);
+    if (a == -1 && b == -1) break;
+  }
+  trace(ss, st);
+  if (ss > st) {
+    WriteFile("First");
+  }
+  else if (ss == st) {
+    WriteFile("Draw");
+  }
+  else {
+    WriteFile("Second");
+  }
+}
+
+int main(int argc, char** argv) {
+  if (argc == 2) {
+    // Let's say we might want to write out a file for comparison.
+    xy = atoi(argv[1]);
+  }
+  gen();
+  return 0;
+}
