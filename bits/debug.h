@@ -159,14 +159,14 @@ struct debug {
 
   template <class T, class b> debug &operator<<(vector<pair<b, T>> v) {
     int n = v.size();
-    cout << "[";
+    *this << "[";
     for (int i = 0; i < n; i++) {
       if (i > 0) {
         *this << ", ";
       }
       *this << "(" << v[i].first << ", " << v[i].second << ")";
     }
-    cout << "]";
+    *this << "]";
     return *this;
   }
 
@@ -297,10 +297,16 @@ void puts(T t, U u, G... g) { cout << t << " "; puts(u, g...); }
 
 #else
 
+template <typename T>
+T&& identity(T&& t) {
+  return std::forward<T>(t);
+}
+
 #define trace(...)
-#define dbg(...)
+#define dbg(...) identity(__VA_ARGS__)
 
 #endif
+
 
 // https://gcc.gnu.org/onlinedocs/gcc/Diagnostic-Pragmas.html
 // #pragma GCC diagnostic ignored "-Wsign-conversion"
