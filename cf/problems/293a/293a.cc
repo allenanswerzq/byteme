@@ -11,7 +11,6 @@ using namespace std;
 #ifndef LOCAL
 #define trace(...)
 #define xuyixuyi()
-#define debugstream ostream
 #endif
 typedef long long ll;
 
@@ -36,7 +35,6 @@ void solve() {
       k11--;
     }
     else if (k10 > 0) {
-      if (who & 1) one++;
       k10--;
     }
     else if (k01 > 0) {

@@ -14,7 +14,6 @@ using namespace std;
 #define debugstream ostream
 #endif
 typedef long long ll;
-typedef pair<int, int> pii;
 
 void solve() {
   int a, b, n; cin >> a >> b >> n;

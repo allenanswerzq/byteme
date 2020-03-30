@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+#include "array.h"
+#include "rnds.h"
+#include "graph.h"
+using namespace std;
+#define x first
+#define y second
+#define mt make_tuple
+#define all(x) (x).begin(), (x).end()
+typedef long long ll;
+
+int xy = -1;
+
+void WriteFile(const string& data) {
+  if (xy == -1) return;
+  ofstream ofs(to_string(xy) + ".gb");
+  if (!ofs.is_open()) {
+    assertm(0, "File cant open!");
+    exit(1);
+  }
+  ofs << data << '\n';
+  ofs.close();
+}
+
+void generate() {
+  // Write your own test generating code here.
+  int n = rnd.next(1, 6);
+  int k = rnd.next(1, n);
+  auto a = Array::randomUnique(n, 1, 10).sort(greater<int>());
+  auto b = Array::randomUnique(n, 1, 10).sort(greater<int>());
+  puts(n, k);
+  puts(a);
+  puts(b);
+  int mi = 100;
+  auto t = Array::id(n, 0);
+  do {
+    vector<pair<int, int>> c(n);
+    for (int i = 0; i < n; i++) {
+      c[i].x = b[t[i]] + a[i];
+      c[i].y = i;
+    }
+    sort(all(c));
+    reverse(all(c));
+    trace(k, c);
+    for (int i = 0; i < n; i++) {
+      if (c[i].y == k - 1) {
+        mi = min(mi, i + 1);
+        break;
+      }
+    }
+  } while (next_permutation(all(t)));
+  WriteFile(to_string(mi));
+}
+
+int main(int argc, char** argv) {
+  if (argc == 2) {
+    // Let's say we might want to write out a file for comparison.
+    xy = atoi(argv[1]);
+  }
+  generate();
+  return 0;
+}
