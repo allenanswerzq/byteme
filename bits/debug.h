@@ -1,4 +1,6 @@
-#pragma once
+#ifndef BYTEME_DEBUG_H_
+#define BYTEME_DEBUG_H_
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -77,7 +79,8 @@ struct debug {
       if (i > 0) {
         debug() << ", ";
       }
-      debug() << i << "/" << mat[i];
+      // debug() << i << "/" << mat[i];
+      debug() << mat[i];
     }
     debug() << "]";
     return *this;
@@ -294,6 +297,7 @@ template<class T, class U, class... G>
 void puts(T t, U u, G... g) { cout << t << " "; puts(u, g...); }
 
 #define assertm(exp, msg) assert(((void)msg, exp))
+#define mt make_tuple
 
 #else
 
@@ -307,7 +311,47 @@ T&& identity(T&& t) {
 
 #endif
 
-
 // https://gcc.gnu.org/onlinedocs/gcc/Diagnostic-Pragmas.html
 // #pragma GCC diagnostic ignored "-Wsign-conversion"
 #pragma GCC diagnostic ignored "-Wsign-compare"
+#pragma GCC diagnostic ignored "-Wcast-qual"
+
+#include <graphviz/cgraph.h>
+#include <graphviz/gvc.h>
+
+class Graphviz {
+public:
+  explicit Graphviz(const string &name) : name_(name) { create_context(); }
+
+  void add_edge(const string &u, const string &v, const string& label="") {
+    Agnode_t *n = agnode(gv_, (char*) u.c_str(), 1);
+    Agnode_t *m = agnode(gv_, (char*) v.c_str(), 1);
+    Agedge_t *e = agedge(gv_, n, m, 0, 1);
+    agsafeset(e, const_cast<char *>("label"), (char *) label.c_str(),
+              const_cast<char *>(""));
+  }
+
+  void draw_graph() {
+    // Set layout engine.
+    gvLayout(gvc_, gv_, "dot");
+    name_ += ".pdf";
+    gvRenderFilename(gvc_, gv_, "pdf", name_.c_str());
+
+    gvFreeLayout(gvc_, gv_);
+    agclose(gv_);
+    gvFreeContext(gvc_);
+  }
+
+private:
+  // Set up a graphviz context.
+  void create_context() {
+    gvc_ = gvContext();
+    gv_ = agopen(const_cast<char *>("g"), Agdirected, 0);
+  }
+
+  GVC_t *gvc_;
+  Agraph_t *gv_;
+  std::string name_;
+};
+
+#endif // BYTEME_DEBUG_H_
