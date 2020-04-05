@@ -268,9 +268,6 @@ void solve() {
       seg.modify(l, r, v);
     }
   }
-  Graphviz gv("g");
-  seg.walk_tree(gv, 1, 0, n);
-  gv.draw_graph();
 }
 
 int main() {
