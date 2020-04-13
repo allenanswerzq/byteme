@@ -17,8 +17,12 @@ void solve() {
     cin >> a[i];
     one += a[i] == 1;
   }
+  if (one > 0) {
+    cout << n - one << '\n';
+    return;
+  }
   const int INF = 1e9 + 7;
-  int ans = (one > 0 ? n - one : INF);
+  int ans = INF;
   trace(ans, one);
   for (int i = 0; i < n; i++) {
     int g = a[i];
