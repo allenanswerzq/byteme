@@ -29,7 +29,7 @@ void solve() {
       for (auto it : app[x]) {
         notifs.erase(it);
       }
-      app[x].clear()
+      app[x].clear();
     }
     else {
       int t; cin >> t;
