@@ -1,5 +1,5 @@
 /* created   : 2020-04-23 22:55:49
- * accepted  : 2020-04-23 23:35:41
+ * accepted  : 2020-04-24 10:42:15
  * author    : landcold7
  */
 #include <bits/stdc++.h>
@@ -26,10 +26,11 @@ void solve() {
       }
       if (ok) {
         s.erase(s.begin() + i);
-        i--;
+        i = -1;
       }
     }
   }
+  trace(s);
   cout << n - (int) s.size() << '\n';
 }
 
