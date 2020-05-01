@@ -1,3 +1,12 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
 .vscode
 .*
 a.out
@@ -20,6 +29,7 @@ gen-*.cpp
 *.bak
 *.log
 *.res
+*.cl
 cmp.cpp
 cmp
 test/*
