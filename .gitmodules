@@ -34,3 +34,6 @@
 [submodule "bytetools"]
 	path = bytetools
 	url = https://github.com/landcold7/bytetools.git
+[submodule "libyteme"]
+	path = libyteme
+	url = git@github.com:landcold7/libyteme.git
