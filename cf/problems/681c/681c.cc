@@ -1,5 +1,5 @@
 /* created   : 2020-05-06 23:20:07
- * accepted  : 2020-05-06 23:49:23
+ * accepted  : 2020-05-07 23:01:32
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,6 +36,7 @@ void solve() {
       if (st.empty()) {
         st.insert(2);
         ans.push_back({0, 2});
+        st.erase(st.begin());
         ans.push_back({2, -1});
       }
       else {
