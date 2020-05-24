@@ -7,6 +7,9 @@
 # Unignore all dirs
 !*/
 
+# Unignore makefile
+!Makefile
+
 .vscode
 .*
 a.out
@@ -34,3 +37,4 @@ cmp.cpp
 cmp
 test/*
 codeforces/Solutions/*
+**/*.dSYM/*
