@@ -13,4 +13,3 @@ for i in range(n):
     mul *= a[i][0]
 print(ans)
 
-
