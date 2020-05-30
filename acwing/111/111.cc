@@ -61,8 +61,7 @@ void solve() {
         for (int k = lo; k <= min(hi + len, n); k++) {
           b[k] = c[k];
         }
-        hi += len;
-        if (hi >= n) break;
+        if ((hi += len) >= n) break;
         len *= 2;
       }
       else {

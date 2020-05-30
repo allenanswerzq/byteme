@@ -9,7 +9,7 @@ for i in range(n):
 a.sort(key=comp)
 ans = 0
 for i in range(n):
-    ans = max(ans, mul // a[i][1])
+    ans = max(ans, mul)
     mul *= a[i][0]
 print(ans)
 
