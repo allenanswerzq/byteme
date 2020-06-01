@@ -12,4 +12,3 @@ for i in range(n):
     ans = max(ans, mul)
     mul *= a[i][0]
 print(ans)
-
