@@ -9,7 +9,6 @@ using namespace std;
 #define ll long long
 
 int n;
-
 void solve() {
   unordered_map<int, int> g;
   for (int i = 0; i < n; i++) {
