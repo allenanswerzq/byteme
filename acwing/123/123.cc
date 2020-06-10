@@ -26,14 +26,10 @@ struct Discreter {
   }
 
   // Given a original value, returns the discreted value.
-  int get(int x) {
-    return t[x];
-  }
+  int get(int x) { return t[x]; }
 
   // Given a discreted value, return the original value.
-  int old(int x) {
-    return e[x - 1];
-  }
+  int old(int x) { return e[x - 1]; }
 };
 
 const int N = 1010;

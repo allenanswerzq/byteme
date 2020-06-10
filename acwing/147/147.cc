@@ -9,9 +9,7 @@ using namespace std;
 #define ll long long
 #define pii pair<int, int>
 
-int n;
-
-void solve() {
+void solve(int n) {
   vector<pair<int, int>> a(n);
   for (int i = 0; i < n; i++) {
     cin >> a[i].y >> a[i].x;
@@ -39,7 +37,7 @@ int main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
   while (cin >> n) {
-    solve();
+    solve(n);
   }
   return 0;
 }
