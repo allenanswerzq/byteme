@@ -1,5 +1,5 @@
 /* created   : 2020-05-25 17:41:31
- * accepted  : 2020-05-25 23:54:19
+ * accepted  : 2020-06-14 12:02:51
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -29,14 +29,14 @@ void merge(int lo, int md, int hi) {
 }
 
 ll go(int lo, int md, int hi) {
-  trace("go", lo, md, hi);
+  // trace("go", lo, md, hi);
   for (int i = md + 1; i <= hi; i++) {
     b[i] = a[i];
   }
-  trace(mt(b, hi + 1), lo, md, hi);
+  // trace(mt(b, hi + 1), lo, md, hi);
   sort(b + md + 1, b + hi + 1);
   merge(lo, md, hi);
-  trace(mt(c, hi + 1), lo, md, hi);
+  // trace(mt(c, hi + 1), lo, md, hi);
   ll ans = 0;
   for (int i = 0; i < min(m, (hi - lo + 1) / 2); i++) {
     ans += square(c[hi - i] - c[lo + i]);
