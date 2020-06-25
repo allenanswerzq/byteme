@@ -1,5 +1,5 @@
 /* created   : 2020-06-21 11:35:23
- * accepted  : 2020-06-21 15:29:35
+ * accepted  : 2020-06-25 21:10:31
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -35,6 +35,7 @@ bool dfs(int cnt) {
       }
     }
   }
+  // No candiate values to choose.
   if (mi == 0) return false;
   assert(x != -1 && y != -1);
   for (int i = get(x, y); i > 0; i -= lowbit(i)) {
