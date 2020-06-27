@@ -8,7 +8,7 @@ CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align -fvisibility=hidden # -Wconve
 # By default sets to debug mode.
 DEBUG ?= 1
 ifeq ($(DEBUG), 1)
-	CXXFLAGS += -O0
+	CXXFLAGS += -O2
 	DBGFLAGS += -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -g
 	DBGFLAGS += -DLOCAL
 	# DBGFLAGS += -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
