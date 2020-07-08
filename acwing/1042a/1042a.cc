@@ -27,6 +27,7 @@ void solve() {
     // state
     for (int j = m; j >= 0; j--) {
       if (j >= a[i]) {
+        // action
         f[j] = f[j] + f[j - a[i]];
       }
     }
