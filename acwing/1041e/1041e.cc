@@ -12,9 +12,7 @@ using namespace std;
 #endif
 typedef long long ll;
 
-void amax(int& a, int b) {
-  a = max(a, b);
-}
+void amax(int& a, int b) { a = max(a, b); }
 
 const int N = 52;
 int n;
