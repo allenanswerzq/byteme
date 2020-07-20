@@ -66,7 +66,7 @@ void solve() {
   }
   for (int i = 1; i <= n; i++) {
     cout << path[i] << (i == n ? '\n' : ' ');
-}
+  }
 }
 
 int main() {
