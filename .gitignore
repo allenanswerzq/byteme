@@ -42,3 +42,6 @@ codeforces/Solutions/*
 *.gb
 *.gg
 *.gi
+*.inp
+*.out
+*.rel
