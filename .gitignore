@@ -38,3 +38,7 @@ cmp
 test/*
 codeforces/Solutions/*
 **/*.dSYM/*
+*.ga
+*.gb
+*.gg
+*.gi
