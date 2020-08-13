@@ -1,5 +1,5 @@
 /* created   : 2020-08-11 20:01:46
- * accepted  : 2020-08-12 22:35:36
+ * accepted  : 2020-08-13 08:06:02
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -8,39 +8,44 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ll long long
 
-// Zero-indexed segment tree
-class Segtree {
-public:
-  struct Node {
-    int lmax = 0;
-    int rmax = 0;
-    int sum = 0;
-    int ans = 0;
+const int INF = 1e9;
 
-    // NOTE: each Node denotes an interval [l, r).
-    void apply(int l, int r, int v) {
-      lmax = rmax = sum = ans = v;
-    }
-  };
+struct Node {
+  int lmax = -INF;
+  int rmax = -INF;
+  int sum = 0;
+  int ans = -INF;
 
-  Node combine(const Node& a, const Node& b) {
+  // NOTE: each Node denotes an interval [l, r).
+  void apply(int l, int r, int v) {
+    lmax = rmax = sum = ans = v;
+  }
+
+  static Node combine(const Node& a, const Node& b) {
     Node res;
     res.sum = a.sum + b.sum;
+    // (_______ ____)____
     res.lmax = max(a.lmax, a.sum + b.lmax);
+    // ___(____ ________)
     res.rmax = max(b.rmax, b.sum + a.rmax);
+    // ___(___ ____)_____
     res.ans = max({a.ans, b.ans, a.rmax + b.lmax});
     return res;
   }
 
-  void push_down(int x, int l, int r) {
+  static void push_down(vector<Node>& tree, int x, int l, int r) {
   }
 
-  void pull_up(int x) {
+  static void pull_up(vector<Node>& tree, int x) {
     tree[x] = combine(tree[x << 1], tree[x << 1 | 1]);
   }
+};
 
+// Zero-indexed segment tree
+template <typename T>
+struct Segtree {
   int n;
-  vector<Node> tree;
+  vector<T> tree;
 
   void build(int x, int l, int r) {
     if (l + 1 == r) {
@@ -49,7 +54,7 @@ public:
     int y = l + (r - l) / 2;
     build(x << 1, l, y);
     build(x << 1 | 1, y, r);
-    pull_up(x);
+    T::pull_up(tree, x);
   }
 
   template <typename M>
@@ -62,22 +67,22 @@ public:
     int y = l + (r - l) / 2;
     build(x << 1, l, y, v);
     build(x << 1 | 1, y, r, v);
-    pull_up(x);
+    T::pull_up(tree, x);
   }
 
-  Node query(int x, int l, int r, int lx, int rx) {
+  T query(int x, int l, int r, int lx, int rx) {
     if (rx <= l || r <= lx) {
-      return Node{};
+      return T{};
     }
     if (lx <= l && r <= rx) {
       return tree[x];
     }
-    push_down(x, l, r);
+    T::push_down(tree, x, l, r);
     int y = l + (r - l) / 2;
-    Node left = query(x << 1, l, y, lx, rx);
-    Node right = query(x << 1 | 1, y, r, lx, rx);
-    Node res = combine(left, right);
-    pull_up(x);
+    T left = query(x << 1, l, y, lx, rx);
+    T right = query(x << 1 | 1, y, r, lx, rx);
+    T res = T::combine(left, right);
+    T::pull_up(tree, x);
     return res;
   }
 
@@ -99,7 +104,7 @@ public:
       return;
     }
     int y = l + (r - l) / 2;
-    push_down(x, l, r);
+    T::push_down(tree, x, l, r);
     if (lx < y) {
       // Partial cover left child.
       //        [lx______rx)
@@ -109,10 +114,10 @@ public:
     if (rx > y) {
       // Partial cover right child.
       //     [lx_______________rx)
-      //          [l________y________r)
+      //          (x)[l________y________r)
       modify(x << 1 | 1, y, r, lx, rx, v);
     }
-    pull_up(x);
+    T::pull_up(tree, x);
   }
 
   int big(int x) {
@@ -129,15 +134,13 @@ public:
   }
 
   template <typename M>
-  Segtree(const vector<M>& v) {
-    n = big((int) v.size());
+  Segtree(vector<M>& v) : n(big(v.size())) {
     tree.resize(2 * n);
-    vector<M> t = v;
-    t.resize(n);
-    build(1, 0, n, t);
+    v.resize(n);
+    build(1, 0, n, v);
   }
 
-  Node query(int lx, int rx) {
+  T query(int lx, int rx) {
     assert(0 <= lx && lx < rx && rx <= n);
     return query(1, 0, n, lx, rx);
   }
@@ -151,20 +154,19 @@ public:
 
 void solve() {
   int n, m; cin >> n >> m;
-  vector<int> a(n);
-  for (int i = 0; i < n; i++) {
+  vector<int> a(n + 1);
+  for (int i = 1; i <= n; i++) {
     cin >> a[i];
   }
-  Segtree seg(a);
+  Segtree<Node> seg(a);
+  trace(a);
   for (int i = 0; i < m; i++) {
     int k, x, y; cin >> k >> x >> y;
     if (k == 1) {
-      x--, y--;
       if (x > y) swap(x, y);
-      cout << seg.query(x, y + 1).ans << "\n";
+        cout << seg.query(x, y + 1).ans << "\n";
     }
     else {
-      x--;
       seg.modify(x, x + 1, y);
     }
   }
