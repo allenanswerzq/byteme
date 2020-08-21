@@ -8,6 +8,8 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ll long long
 
+// TODO: generic segment tree implementation.
+
 // Zero-indexed segment tree
 template <typename T>
 struct Segtree {
@@ -53,7 +55,7 @@ struct Segtree {
     return res;
   }
 
-  // NOTE: [lx, rx) denotes the interval need to be modified.
+  // NOTE: [lx, rx) denotes the interval needs to be modified.
   template <typename U, typename... Args>
   void modify(int x, int l, int r, int lx, int rx, const U& v, Args&&... args) {
     if (rx <= l || r <= lx) {
@@ -95,17 +97,22 @@ struct Segtree {
     return t;
   }
 
-  Segtree(int n_) : n(big(n_)) {
+  template <typename... Args>
+  void init(int n, Args&&... args) {
+    n = big(n);
     tree.resize(2 * n);
-    build(1, 0, n);
+    build(1, 0, n, std::forward<Args>(args)...);
   }
 
-  template <typename U>
-  Segtree(vector<U>& v) : n(big(v.size())) {
+  template <typename U, typename... Args>
+  void init(vector<U>& v, Args&&... args) {
+    n = big((int) v.size());
     tree.resize(2 * n);
     v.resize(n);
-    build(1, 0, n, v);
+    build(1, 0, n, v, std::forward<Args>(args)...);
   }
+
+  Segtree() {}
 
   T query(int lx, int rx) {
     assert(0 <= lx && lx < rx && rx <= n);
@@ -148,6 +155,7 @@ struct Discreter {
 struct SegNode {
   int cnt = 0;
   double len = 0;
+  const Discreter& dis;
 
   // NOTE: each SegNode denotes an interval [l, r).
   void apply(int l, int r, int v, const Discreter& dis) {
@@ -188,7 +196,8 @@ void solve(int n, int tc) {
   sort(all(pos));
   Discreter dis(v);
   int mx = dis.get_max();
-  Segtree<SegNode> seg(dis.get_max());
+  Segtree<SegNode> seg;
+  seg.init();
   double x = 0;
   double ans = 0;
   for (const auto& p : pos) {
