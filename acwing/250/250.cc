@@ -8,6 +8,8 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ll long long
 
+// @Solution: Sweep line + Segment tree(Lazy)
+
 template <typename T>
 struct Segtree {
   int n;

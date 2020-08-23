@@ -28,7 +28,7 @@ struct HashString {
   }
 
   ull get(int l, int r) {
-    return dbg(hash[r] - hash[l - 1] * mul[r - l + 1]);
+    return hash[r] - hash[l - 1] * mul[r - l + 1];
   }
 
   void append(const string& s) {
