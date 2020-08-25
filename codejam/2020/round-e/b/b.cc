@@ -1,6 +1,5 @@
-/* created   : 2020-08-23 11:45:06
- * accepted  : 2020-08-23 12:00:49
- * author    : landcold7
+/* created   : 2020-08-24 11:17:44
+ * accepted  : 2020-08-24 18:49:24
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -9,56 +8,46 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ll long long
 
-int n, a, b, c;
-bool ok = false;
-
-bool dfs(int u, vector<int>& path) {
-  if (u == n) {
-    int mx = path[0];
-    int ca = 0;
-    set<int> st;
-    for (int i = 0; i < n; i++) {
-      if (path[i] >= mx) {
-        ca++;
-        st.insert(i);
-      }
-      mx = max(mx, path[i]);
-    }
-    mx = path[n - 1];
-    int cb = 0;
-    int cc = 0;
-    for (int i = n - 1; i >= 0; i--) {
-      if (path[i] >= mx) {
-        cb++;
-        if (st.count(i)) {
-          cc++;
-        }
-      }
-      mx = max(mx, path[i]);
-    }
-    bool flag = (ca == a && cb == b && cc == c);
-    ok = flag;
-    return flag;
-  }
-  for (int i = 1; i <= n; i++) {
-    path.push_back(i);
-    if (dfs(u + 1, path)) return true;
-    path.pop_back();
-  }
-  return false;
-}
-
 void solve() {
-  cin >> n >> a >> b >> c;
-  vector<int> path;
-  dfs(0, path);
-  if (!ok) {
+  int N, A, B, C; cin >> N >> A >> B >> C;
+  if (A + B - C > N || (A + B - C == 1 && N >= 2)) {
     cout << "IMPOSSIBLE\n";
   }
+  else if (N == 1) {
+    cout << "1\n";
+  }
+  else if (N == 2) {
+    if (C == 2) {
+      cout << "1 1" << "\n";
+    }
+    else if (A == 2) {
+      cout << "1 2" << "\n";
+    }
+    else if (B == 2) {
+      cout << "2 1" << "\n";
+    }
+    else {
+      assert(false);
+    }
+  }
   else {
-    for (int i = 0; i < (int) path.size(); i++) {
-      if (i > 0) cout << " ";
-      cout << path[i];
+    vector<int> ans;
+    for (int i = 0; i < A - C; i++) {
+      ans.push_back(2);
+    }
+    for (int i = 0; i < C; i++) {
+      ans.push_back(3);
+    }
+    for (int i = 0; i < B - C; i++) {
+      ans.push_back(2);
+    }
+    int extra = N - (A + B - C);
+    if (extra) {
+      ans.insert(ans.begin() + 1, extra, 1);
+    }
+    for (int i = 0; i < (int) ans.size(); i++) {
+      if (i > 0) cout << ' ';
+      cout << ans[i];
     }
     cout << "\n";
   }

@@ -45,3 +45,5 @@ codeforces/Solutions/*
 *.inp
 *.out
 *.rel
+*.ge
+*.mp

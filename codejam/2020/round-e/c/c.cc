@@ -1,6 +1,5 @@
-/* created   : 2020-08-23 12:05:27
- * accepted  : 2020-08-23 12:17:39
- * author    : landcold7
+/* created   : 2020-08-24 16:43:22
+ * accepted  : 2020-08-25 23:36:24
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -11,47 +10,52 @@ using namespace std;
 
 void solve() {
   int n; cin >> n;
-  vector<pair<int, int>> a(n);
-  for (auto& it : a) {
-    cin >> it.x >> it.y;
+  vector<int> E(n);
+  vector<int> R(n);
+  ll sum = 0;
+  for (int i = 0; i < n; i++) {
+    cin >> E[i] >> R[i];
+    sum += E[i];
   }
-  trace(n, a);
-  int cnt = 1e9;
-  int ans = 0;
-  bool ok = false;
-  for (int i = 0; i < (1 << n); i++) {
-    vector<pair<int, int>> t;
-    for (int j = 0; j < n; j++) {
-      if (i & (1 << j)) {
-        t.push_back(a[j]);
+  ll max_time = sum;
+  ll cur_time = sum;
+  int best_remove = 0;
+  int cnt = 0;
+  priority_queue<pair<ll, int>> qu;
+  for (int i = 0; i < n; i++) {
+    if (E[i] + R[i] > sum) {
+      cnt++;
+      sum -= E[i];
+      cur_time -= E[i];
+      while (qu.size() && qu.top().first > sum) {
+        int enjoy = E[qu.top().second]; qu.pop();
+        sum -= enjoy;
+        cur_time -= enjoy;
+        cnt++;
       }
+      trace(sum, i, E[i], R[i], cnt, cur_time, max_time);
     }
-    trace(i, t);
-    int m = t.size();
-    for (int j = 0; j < m; j++) {
-      t.push_back(t[j]);
+    else {
+      qu.push({E[i] + R[i], i});
+      cur_time += E[i];
     }
-    vector<ll> ps(2 * m);
-    for (int j = 0; j < 2 * m; j++) {
-      ps[i + 1] = ps[i] + t[j].x;
-    }
-    bool ok = true;
-    for (int j = 0; j < m; j++) {
-      int nx = j + m;
-      if (t[nx].y < ps[nx + 1] - ps[j]) {
-        ok = false;
-        break;
-      }
-    }
-    if (ok) {
+    trace(i, cur_time, max_time, cnt);
+    if (cur_time > max_time) {
+      max_time = cur_time;
+      best_remove = cnt;
     }
   }
-  cout << cnt << " " << ans << "\n";
+  trace(qu);
+  if (qu.size()) {
+    cout << cnt << " " << "INDEFINITELY\n";
+  }
+  else {
+    cout << best_remove << " " << max_time << "\n";
+  }
 }
 
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
+  ios_base::sync_with_stdio(0), cin.tie(0);
   int tc; cin >> tc;
   for (int i = 1; i <= tc; i++) {
     cout << "Case #" << i << ": ";

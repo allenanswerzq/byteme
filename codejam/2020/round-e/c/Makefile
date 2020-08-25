@@ -30,7 +30,7 @@ CNT ?= 4
 ELF := $(notdir $(CURDIR))
 CMP := $(ELF)_mp
 GEN := $(ELF)_ge
-INP := $(ELF).in
+INP := $(ELF).ii
 
 all: curdir test
 
@@ -73,7 +73,7 @@ deepclean: clean
 	@-rm -rf *.gg *.ga *.gb *_err_* *.gi
 
 samples: clean
-	@rm -rf *.inp
+	@rm -rf *.in
 	@echo byte-sample $(INP)
 	@byte-sample $(INP)
 
@@ -82,7 +82,7 @@ test: samples $(ELF)
 	@echo byte-run $(ELF)
 	@byte-run $(ELF) $(DEBUG) $(RLOG)
 
-comp: $(GEN) $(CMP)
+comp: deepclean $(ELF) $(GEN) $(CMP)
 	@echo byte-test
 	@byte-test $(CNT) $(LOG)
 
