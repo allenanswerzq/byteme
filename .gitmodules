@@ -40,3 +40,6 @@
 [submodule "third_party/tedukuri"]
 	path = third_party/tedukuri
 	url = https://github.com/lydrainbowcat/tedukuri.git
+[submodule "third_party/cp-book"]
+	path = third_party/cp-book
+	url = https://github.com/ecnerwala/cp-book.git

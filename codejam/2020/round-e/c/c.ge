@@ -22,14 +22,14 @@ void WriteFile(const string& data) {
 
 // Write your own test generating code here.
 void Generate() {
-  int t = rnd.next(1, 4);
+  int t = rnd.next(1, 2);
   puts(t);
   for (int k = 0; k < t; k++) {
-    int n = rnd.next(1, 12);
+    int n = rnd.next(1, 10);
     puts(n);
     for (int i = 0; i < n; i++) {
-      int e = rnd.next(1, 12);
-      int r = rnd.next(1, 12);
+      int e = rnd.next(1, 1);
+      int r = rnd.next(1, 1);
       puts(e, r);
     }
   }
