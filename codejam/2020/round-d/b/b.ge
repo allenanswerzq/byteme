@@ -22,6 +22,7 @@ void WriteFile(const string& data) {
 
 // Write your own test generating code here.
 void Generate() {
+
 }
 
 int main(int argc, char** argv) {

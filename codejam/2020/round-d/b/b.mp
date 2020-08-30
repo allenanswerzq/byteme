@@ -1,4 +1,4 @@
-/* created   : 2020-07-12 14:29:25
+/* created   : 2020-08-30 08:39:26
  * accepted  : $ACCEPTED
  */
 #include <bits/stdc++.h>
@@ -12,8 +12,7 @@ void solve() {
 }
 
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
+  ios_base::sync_with_stdio(0), cin.tie(0);
   solve();
   return 0;
 }

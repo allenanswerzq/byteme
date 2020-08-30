@@ -1,6 +1,5 @@
-/* created   : 2020-07-12 13:15:43
- * accepted  : 2020-07-12 15:17:04
- * author    : landcold7
+/* created   : 2020-08-30 08:07:52
+ * accepted  : 2020-08-30 09:19:43
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -9,41 +8,37 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ll long long
 
+void amin(int& a, int b) { a = min(a, b); }
+
+int compare(int a, int b) {
+  if (a == b) return 0;
+  return a < b ? -1 : 1;
+}
+
+// @Solution: dynamic programming
+
 void solve() {
   int n; cin >> n;
   vector<int> a(n);
-  for (auto& x : a) {
-    cin >> x;
-  }
-  vector<int> d;
-  d.push_back(a[0]);
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+  };
+  vector<int> f(4);
   for (int i = 1; i < n; i++) {
-    if (a[i] != d.back()) {
-      d.push_back(a[i]);
-    }
-  }
-  trace(d);
-  int ans = 1e9 + 7;
-  for (int k = 0; k < 3; k++) {
-    int cnt = 0;
-    int s = k;
-    for (int i = 0; i + 1 < d.size(); i++) {
-      s += (d[i + 1] > d[i] ? 1 : -1);
-      if (s > 3) {
-        cnt++, s = 0;
-      }
-      else if (s < 0) {
-        cnt++, s = 2;
+    vector<int> nf(4, n + 1);
+    for (int x = 0; x < 4; x++) {
+      for (int y = 0; y < 4; y++) {
+        amin(nf[y], f[x] + (compare(x, y) != compare(a[i - 1], a[i])));
       }
     }
-    ans = min(ans, cnt);
+    f = nf;
   }
+  int ans = *min_element(all(f));
   cout << ans << "\n";
 }
 
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
+  ios_base::sync_with_stdio(0), cin.tie(0);
   int tc; cin >> tc;
   for (int i = 1; i <= tc; i++) {
     cout << "Case #" << i << ": ";
