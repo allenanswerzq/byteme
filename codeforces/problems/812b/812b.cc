@@ -1,5 +1,5 @@
 /* created   : 2020-09-04 07:45:50
- * accepted  : 2020-09-04 22:29:49
+ * accepted  : 2020-09-06 09:07:22
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -10,40 +10,67 @@ void amin(int& a, int b) { a = min(a, b); }
 
 const int NX = 20;
 int f[NX][2];
-char a[NX][120];
+vector<string> A;
+int N, M;
+
+int rec(int x, int y) {
+  int& ans = f[x][y];
+  if (ans >= 0) return ans;
+  bool ok = true;
+  for (int i = x + 1; i < N; i++) {
+    if (A[i] != string(M, '0')) {
+      ok = false;
+      break;
+    }
+  }
+  if (ok) {
+    // If after accessing row x, we are done.
+    if (y == 0) {
+      // we are at the left upstairs.
+      int i = M - 1;
+      while (i >= 0 && A[x][i] == '0') i--;
+      ans = max(i, 0);
+    }
+    else {
+      int i = 0;
+      while (i < M && A[x][i] == '0') i++;
+      ans = max(M - 1 - i, 0);
+    }
+    return ans;
+  }
+  ans = 1e9;
+  // 1). go to the other side upstairs, and go up to the next floor
+  amin(ans, rec(x + 1, y ^ 1) + M);
+  if (y == 0) {
+  // 2). current at left side, also go up to next level from this side.
+    int i = M - 1;
+    while (i > 0 && A[x][i] == '0') i--;
+    amin(ans, 2 * i + 1 + rec(x + 1, y));
+  }
+  else {
+  // 3). current at right side, also go up to next level from this side.
+    int i = 0;
+    while (i < M - 1 && A[x][i] == '0') i++;
+    amin(ans, 2 * (M - 1 - i) + 1 + rec(x + 1, y));
+  }
+  return ans;
+}
 
 void solve() {
-  int N, M; cin >> N >> M;
-  for (int i = N; i >= 1; i--) {
-    scanf("%s\n", a[i]);
+  cin >> N >> M;
+  M += 2;
+  A.resize(N);
+  for (auto& s : A) {
+    cin >> s;
   }
-  memset(f, 0x7f, sizeof(f));
-  f[1][0] = 0;
-  f[1][1] = M + 1;
-  for (int i = 2; i <= N; i++) {
-    int lo = M + 1;
-    int hi = 0;
-    for (int j = 1; j <= M; j++) {
-      trace(i, a[i - 1]);
-      if (a[i - 1][j] == '1') {
-        // trace(i - 1, j, a[i - 1][j]);
-        hi = j;
-      }
-    }
-    for (int j = M; j >= 1; j--) {
-      if (a[i - 1][j] == '1') {
-        lo = j;
-      }
-    }
-    amin(f[i][0], f[i - 1][0] + 2 * hi + 1);
-    amin(f[i][0], f[i - 1][1] + M + 2);
-    amin(f[i][1], f[i - 1][1] + 2 * (M + 1 - lo) + 1);
-    amin(f[i][1], f[i - 1][0] + M + 2);
-  }
+  reverse(all(A));
+  memset(f, 0xff, sizeof(f));
+  trace(f[0][0]);
+  cout << rec(0, 0) << "\n";
 }
 
 int main() {
-  // ios_base::sync_with_stdio(0), cin.tie(0);
+  ios_base::sync_with_stdio(0), cin.tie(0);
   solve();
   return 0;
 }
