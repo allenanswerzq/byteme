@@ -1,5 +1,5 @@
 /* created   : 2020-08-23 20:58:09
- * accepted  : 2020-08-26 10:11:33
+ * accepted  : 2020-09-09 08:08:21
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -8,32 +8,53 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ll long long
 
+class Solution {
+ public:
+  int search(vector<int> A, int target) {
+    int n = A.size();
+    int lo = 0;
+    int hi = n - 1;
+    while (lo + 1 < hi) {
+      int md = lo + (hi - lo) / 2;
+      trace(lo, hi, md);
+      if (A[md] > A[lo]) {
+        // if (target == A[md]) {
+        //   return md;
+        // }
+        if (A[lo] <= target && target <= A[md]) {
+          hi = md;
+        } else {
+          lo = md;
+        }
+      } else {
+        // if (target == A[md]) {
+        //   return md;
+        // }
+        if (A[md] < target && target <= A[hi]) {
+          lo = md;
+        } else {
+          hi = md;
+        }
+      }
+    }
+    trace(lo, hi, A[lo], A[hi]);
+    if (lo >= 0 && A[lo] == target) return lo;
+    if (hi < n && A[hi] == target) return hi;
+    return -1;
+  }
+};
+
+#define expect(a, b) assert(a == b)
+
 void solve() {
-  // vector<int64_t> bit(N);
-  // for (int i = 0; i < N; i++) {
-  //   for (int a = i; a < N; a |= a+1) {
-  //     bit[a] += E[i];
-  //   }
-  // }
-  int N = 10;
-  vector<int> bit(N);
-  for (int i = 0; i < N; i++) {
-    for (int a = i; a < N; a |= a+1) {
-      trace(i, a, bitset<8>(a));
-      bit[i] += i;
-    }
-  }
-  // for (int a = cur; a > 0; a &= a-1) {
-  //   cnd += bit[a-1];
-  // }
-  for (int i = 0; i < N; i++) {
-    int t = 0;
-    for (int a = i; a > 0; a &= a - 1) {
-      trace(i, a - 1, bitset<8>(a));
-      t += bit[a - 1];
-    }
-    trace(i, t);
-  }
+  Solution s;
+  expect(s.search({4, 5, 6, 7, 0, 1, 2}, 0), 4);
+  expect(s.search({4, 5, 6, 7, 0, 1, 2}, 5), 1);
+  expect(s.search({4, 5, 6, 7, 0, 1, 2}, 2), 6);
+  expect(dbg(s.search({4, 5, 6, 7, 0, 1, 2}, 4)), 0);
+  expect(s.search({4, 5, 6, 7, 0, 1, 2}, 3), -1);
+  expect(s.search({1}, 0), -1);
+  // expect(s.search({}, 0), -1);
 }
 
 int main() {
