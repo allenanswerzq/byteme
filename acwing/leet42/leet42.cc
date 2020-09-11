@@ -1,5 +1,5 @@
 /* created   : 2020-09-10 22:52:25
- * accepted  : 2020-09-10 23:11:34
+ * accepted  : 2020-09-11 07:58:57
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -9,43 +9,36 @@ using namespace std;
 class Solution {
 public:
   int trap(vector<int>& A) {
-    int ans = get(A);
-    reverse(all(A));
-    return max(ans, get(A));
-  }
-
-  int get(vector<int>& A) {
     int n = A.size();
-    const int INF = 1e9;
-    A.push_back(INF);
-    vector<int> big(n);
     vector<int> stk;
-    for (int i = 0; i < A.size(); i++) {
-      while (stk.size() && A[i] >= A[stk.back()]) {
-        int t = stk.back();
-        big[t] = i;
-        stk.pop_back();
+    int ans = 0;
+    for (int i = 0; i < n; i++) {
+      while (stk.size() && A[i] > A[stk.back()]) {
+        int cur = stk.back(); stk.pop_back();
+        if (stk.empty()) break;
+        int left = stk.back();
+        // left >= cur < A[i]
+        ans += max(min(A[i], A[left]) - A[cur], 0) * (i - left - 1);
       }
       stk.push_back(i);
     }
-    int lo = 0;
-    int ans = 0;
-    while (lo < n) {
-      int p = big[lo];
-      // trace(lo, p, ans);
-      if (p == n) {
-        lo++;
-        continue;
-      }
-      assert(p > lo);
-      ans += (p - lo - 1) * A[lo];
-      for (int k = lo + 1; k < p; k++) {
-        ans -= A[k];
-      }
-      lo = p;
-      // trace(ans);
+    return ans;
+  }
+
+  int traptwo(vector<int>& A) {
+    int n = A.size();
+    vector<int> left(n);
+    vector<int> right(n);
+    for (int i = 1; i < n; i++) {
+      left[i] = max(left[i - 1], A[i - 1]);
     }
-    // trace(A, big, ans);
+    for (int i = n - 2; i >= 0; i--) {
+      right[i] = max(right[i + 1], A[i + 1]);
+    }
+    int ans = 0;
+    for (int i = 1; i < n - 1; i++) {
+      ans += max(min(left[i], right[i]) - A[i], 0);
+    }
     return ans;
   }
 };
