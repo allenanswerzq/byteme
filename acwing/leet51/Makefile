@@ -74,7 +74,7 @@ clean:
 	@-rm -rf $(ELF) *_mp *_ge
 
 deepclean: clean
-	@-rm -rf *.gg *.ga *.gb *_err_* *.gi
+	@-rm -rf *.gg *.ga *.gb *_err_* *.gi std_err
 
 samples: clean
 	@rm -rf *.in
