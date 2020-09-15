@@ -1,5 +1,5 @@
 /* created   : 2020-09-14 22:49:46
- * accepted  : 2020-09-14 22:54:31
+ * accepted  : 2020-09-15 19:51:23
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -8,86 +8,66 @@ using namespace std;
 
 class Solution {
  public:
-  struct Config {
-    bool allow_prefix;
-    bool allow_neg;
-    bool allow_pos;
-    bool allow_suffix;
-  };
-
-  // ___-2345___
-  bool searchNumber(const string& A, int i, Config cfg, int* ret) {
-    int n = A.size();
-    *ret = n;
-    if (i == n) {
-      return false
+  bool isNumber(string A) {
+    while (A.size() && A.back() == ' ') {
+      A.pop_back();
     }
-    if (cfg.allow_prefix) {
-      while (i < n && A[i] == ' ') i++;
-    }
-    if (cfg.allow_pos && cfg.allow_neg) {
-      if (i < n && A[i] != '-' && A[i] != '+') {
-        return false;
-      }
-      i++;
-    }
-    else if (cfg.allow_neg) {
-      if (i < n && A[i] != '-') {
-        return false;
-      }
-      i++;
-    }
-    if (i == n || !isdigit(A[i])) {
-      return false;
-    }
-    while (i < n && isdigit(A[i])) {
-      i++;
-    }
-    if (cfg.allow_suffix) {
-      while (i < n && A[i] == ' ') {
-        i++;
-      }
-      *ret = i;
-      return true;
-    }
-    else {
-      *ret = i;
-      return i == n || (A[i] == ' ');
-    }
-  }
-
-  bool dfs(const string& A, int i) {
+    int i = 0;
     int n = A.size();
     while (i < n && A[i] == ' ') i++;
-    if (i == n) {
-      return false;
-    }
-    else if (A[i] == '-' || A[i] == '+') {
+    if (i == n) return false;
+    if (A[i] == '-' || A[i] == '+') {
       i++;
-      return isdigit(A[i]) && dfs(A, i + 1);
     }
-    else if (isdigit(A[i])) {
-      return dfs(A, i + 1);
+    if (i == n) return false;
+    int k = 0;
+    while (i < n && isdigit(A[i])) {
+      i++, k++;
     }
-    else if (A[i] == '.') {
-      Config cfg;
-      cfg.allow_suffix = true;
-      int k = 0;
-      if (!searchNumber(A, i + 1, cfg, &k)) {
+    if (i == n) return true;
+    if (A[i] == '.') {
+      i++;
+      int g = 0;
+      while (i < n && isdigit(A[i])) {
+        i++, g++;
+      }
+      if (i == n) {
+        if (k == 0 && g == 0) return false;
+        return true;
+      }
+      else if (i < n && (A[i] == 'e' || A[i] == 'E')) {
+        i++;
+        if ((k == 0 && g == 0) || i == n) return false;
+        if (A[i] == '-' || A[i]  == '+') {
+          i++;
+        }
+        // 123.e(+/-)1234
+        int c = 0;
+        while (i < n && isdigit(A[i])) {
+          i++, c++;
+        }
+        return c > 0 && i == n;
+      }
+      else {
         return false;
       }
-      return k == n;
     }
     else if (A[i] == 'e') {
-
+      i++;
+      if (k == 0 || i == n) return false;
+      if (A[i] == '-' || A[i]  == '+') {
+        i++;
+      }
+      // 123.e(+/-)1234
+      int c = 0;
+      while (i < n && isdigit(A[i])) {
+        i++, c++;
+      }
+      return c > 0 && i == n;
     }
     else {
       return false;
     }
-  }
-
-  bool isNumber(string A) {
-    return dfs(A, 0);
   }
 };
 
@@ -101,6 +81,18 @@ bool test(string a) {
 }
 
 void solve() {
+  EXPECT_FALSE(test("6+1"));
+  EXPECT_TRUE(test("-1."));
+  EXPECT_FALSE(test(".e1"));
+  EXPECT_FALSE(test("."));
+  EXPECT_FALSE(test(".  "));
+  EXPECT_TRUE(test("0.e23"));
+  EXPECT_TRUE(test("0.e-23"));
+  EXPECT_TRUE(test("0.e+23"));
+  EXPECT_TRUE(test("0."));
+  EXPECT_TRUE(test("0.   "));
+  EXPECT_TRUE(test("   .0   "));
+  EXPECT_FALSE(test("  "));
   EXPECT_TRUE(test("0"));
   EXPECT_TRUE(test(" 0.1 "));
   EXPECT_FALSE(test("abc"));
