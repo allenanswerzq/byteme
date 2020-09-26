@@ -1,111 +1,95 @@
 /* created   : 2020-09-25 18:42:26
- * accepted  : 2020-09-25 19:20:17
+ * accepted  : 2020-09-26 11:23:55
  */
 #include <bits/stdc++.h>
 using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ll long long
 
-template <int N>
-struct HashString {
-  using ull = unsigned long long;
-  const int base = 131;
-  vector<ull> hash;
-  vector<ull> hsah; // reverse hash
-  vector<ull> mul;
-  int n = 0;
-
-  void init() {
-    hash.resize(N);
-    hsah.resize(N);
-    mul.resize(N);
-    mul[0] = 1;
-    for (int i = 1; i < N; i++) {
-      mul[i] = mul[i - 1] * base;
-    }
-  }
-
-  HashString() { init(); }
-
-  HashString(const string& s) {
-    init();
-    append(s);
-  }
-
-  // Given zero based index, returns the hash value.
-  ull get(int l, int r) {
-    assert(0 <= l && l <= r && r < n);
-    return hash[r + 1] - hash[l] * mul[r - l + 1];
-  }
-
-  int reverse_index(int x) {
-    assert(0 <= x && x < n);
-    return n - x - 1;
-  }
-
-  ull get_rev(int l, int r) {
-    assert(0 <= l && l <= r);
-    int nl = reverse_index(r);
-    int nr = reverse_index(l);
-    return hsah[nr + 1] - hsah[nl] * mul[r - l + 1];
-  }
-
-  void append(const string& s) {
-    int l = s.size();
-    for (int i = 0; i < l; i++) {
-      hash[n + 1 + i] = hash[n + i] * base + s[i] - 'a';
-      hsah[n + 1 + i] = hsah[n + i] * base + s[l - i - 1] - 'a';
-    }
-    n += l;
-  }
-};
-
 class Solution {
  public:
-  bool check(const string& s) {
-    int lo = 0;
-    int hi = s.size() - 1;
-    while (lo < hi) {
-      if (s[lo++] != s[hi--]) return false;
+  vector<vector<int>> F;
+  vector<vector<int>> M;
+  int dfs(const string& S, int lo, int hi) {
+    if (lo >= hi || F[lo][hi]) return 0;
+    if (M[lo][hi] != -1) return M[lo][hi];
+    int ans = 1e9;
+    for (int i = lo; i < hi; i++) {
+      if (F[lo][i]) {
+        ans = min(ans, 1 + dfs(S, i + 1, hi));
+      }
     }
-    return true;
+    return M[lo][hi] = ans;
   }
 
   int minCutDfs(string S) {
-    if (check(S)) return 0;
     int n = S.size();
-    int ans = 1e9;
-    for (int len = 1; len <= n - 1; len++) {
-      ans = min(ans, minCutDfs(S.substr(0, len)) + 1 + minCutDfs(S.substr(len)));
+    F.resize(n, vector<int>(n));
+    M.resize(n, vector<int>(n, -1));
+    for (int len = 1; len <= n; len++) {
+      for (int i = 0; i + len <= n; i++) {
+        int j = i + len - 1;
+        if (len == 1) {
+          F[i][j] = 1;
+        }
+        else if (len == 2) {
+          F[i][j] = (S[i] == S[j]);
+        }
+        else if (S[i] == S[j] && F[i + 1][j - 1]) {
+          F[i][j] = 1;
+        }
+        else {
+          F[i][j] = 0;
+        }
+      }
     }
-    return ans;
+    return dfs(S, 0, n - 1);
   }
 
   int minCutDP(string S) {
     int n = S.size();
-    // trace(n);
-    HashString<(int) 1e4> hs(S);
-    const int INF = 1e9;
-    vector<vector<int>> f(n, vector<int>(n, INF));
+    F.resize(n, vector<int>(n));
+    // i.j
+    // F[i][j] = F[i + 1][j - 1] & (S[i] == S[j]) if (i + 1 <= j - 1)
     for (int len = 1; len <= n; len++) {
       for (int i = 0; i + len <= n; i++) {
         int j = i + len - 1;
-        if (hs.get(i, j) == hs.get_rev(i, j)) {
-          f[i][j] = 0;
+        if (len == 1) {
+          F[i][j] = 1;
+        }
+        else if (len == 2) {
+          F[i][j] = (S[i] == S[j]);
+        }
+        else if (S[i] == S[j] && F[i + 1][j - 1]) {
+          F[i][j] = 1;
         }
         else {
-          for (int k = i; k < j; k++) {
-            f[i][j] = min(f[i][j], f[i][k] + 1 + f[k + 1][j]);
-          }
+          F[i][j] = 0;
         }
-        // trace(i, j, f[i][j]);
       }
     }
-    // trace(f);
-    return f[0][n - 1];
+    const int INF = 1e9;
+    vector<int> c(n, INF);
+    c[0] = 0;
+    for (int i = 1; i < n; i++) {
+      if (F[0][i]) {
+        c[i] = 0;
+      }
+      else {
+        // 0...... i
+        // 0...j|j+1..i
+        for (int j = 0; j < i; j++) {
+          if (F[j + 1][i]) {
+            c[i] = min(c[i], 1 + c[j]);
+          }
+        }
+      }
+    }
+    return c[n - 1];
   }
 
   int minCut(string S) {
+    // return minCutDP(S);
     return minCutDfs(S);
   }
 };
@@ -120,8 +104,10 @@ int test(const string& S) {
 }
 
 void solve() {
+  EXPECT(test("leet"), 2);
+  EXPECT(test("aaabaa"), 1);
   EXPECT(test("aab"), 1);
-  EXPECT(test("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"), 0);
+  EXPECT(test("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"), 1);
 }
 
 int main() {
