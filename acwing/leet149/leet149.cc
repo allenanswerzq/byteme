@@ -24,7 +24,7 @@ class Solution {
   int maxPoints(vector<vector<int>>& A) {
     if (A.size() == 0) return 0;
     if (A.size() == 1) return 1;
-    unordered_map<vector<int>, set<vector<int>>> cxx;
+    unordered_map<vector<int>, set<vector<int>>> line;
     unordered_map<vector<int>, int> cnt;
     for (auto& a : A) {
       cnt[{a[0], a[1]}]++;
@@ -33,12 +33,12 @@ class Solution {
     for (int i = 0; i < n; i++) {
       for (int j = i + 1; j < n; j++) {
         if (A[i][0] == A[j][0]) {
-          cxx[{A[i][0], 0, 0, 0}].insert({A[i][0], A[i][1]});
-          cxx[{A[i][0], 0, 0, 0}].insert({A[j][0], A[j][1]});
+          line[{A[i][0], 0, 0, 0}].insert({A[i][0], A[i][1]});
+          line[{A[i][0], 0, 0, 0}].insert({A[j][0], A[j][1]});
         }
         else if (A[i][1] == A[j][1]) {
-          cxx[{0, A[i][1], 0, 0}].insert({A[i][0], A[i][1]});
-          cxx[{0, A[i][1], 0, 0}].insert({A[j][0], A[j][1]});
+          line[{0, A[i][1], 0, 0}].insert({A[i][0], A[i][1]});
+          line[{0, A[i][1], 0, 0}].insert({A[j][0], A[j][1]});
         }
         else if (A[i][0] == A[j][0] && A[i][1] == A[j][1]) {
           // assert(false);
@@ -51,13 +51,13 @@ class Solution {
           int f = __gcd(t, dx);
           // dx * y = dy x + b * dx
           // b = (dx * y - dy * x) / dx
-          cxx[{dx / g, dy / g, t / f, dx / f}].insert({A[i][0], A[i][1]});
-          cxx[{dx / g, dy / g, t / f, dx / f}].insert({A[j][0], A[j][1]});
+          line[{dx / g, dy / g, t / f, dx / f}].insert({A[i][0], A[i][1]});
+          line[{dx / g, dy / g, t / f, dx / f}].insert({A[j][0], A[j][1]});
         }
       }
     }
     int ans = 0;
-    for (auto& it : cxx) {
+    for (auto& it : line) {
       int sum = 0;
       for (auto& t : it.second) {
         sum += cnt[t];
