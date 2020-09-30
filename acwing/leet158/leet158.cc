@@ -52,6 +52,7 @@ using namespace std;
 int read4(char *buf) {
   string s = "filetestbuffer";
   static int i = 0;
+  if (i >= (int) s.size()) return 0;
   string t = s.substr(i, min((int) s.size() - i, 4));
   i += 4;
   int n = t.size();
@@ -72,9 +73,12 @@ class Solution {
       return 0;
     }
     int size = 0;
-    if (keep_before) {
-      int d = min(4 - idx, n);
-      memcpy(dst, buff + idx, d);
+    if (saved_cnt > 0) {
+      int d = min(saved_cnt, n);
+      assert(head >= 0);
+      memcpy(dst, buff + head, d);
+      head += d;
+      saved_cnt -= d;
       if (d == n) {
         return d;
       }
@@ -82,9 +86,8 @@ class Solution {
         return d;
       }
       else {
-        keep_before = false;
-        idx = 0;
-        n -= d;
+        head = -1;
+        saved_cnt = 0;
         size += d;
       }
     }
@@ -101,10 +104,9 @@ class Solution {
       trace(need, size);
       if (need < t) {
         int rest = t - need;
-        keep_before = true;
-        memcpy(buff + idx, tmp + need, rest);
-        idx += rest;
-        assert(idx < 4);
+        memcpy(buff, tmp + need, rest);
+        saved_cnt = rest;
+        head = 0;
       }
     }
     return size;
@@ -112,8 +114,8 @@ class Solution {
  private:
   char buff[4];
   bool eof = false;
-  bool keep_before = false;
-  int idx = 0;
+  int head = -1;
+  int saved_cnt = 0;
 };
 
 #define EXPECT_TRUE(a) assert(a)
@@ -126,6 +128,7 @@ void solve() {
   EXPECT(sol.read(dst, 6), 6);
   EXPECT(sol.read(dst, 5), 5);
   EXPECT(sol.read(dst, 4), 3);
+  free(dst);
 }
 
 int main() {
