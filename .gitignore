@@ -31,7 +31,6 @@ comp.rel
 gen-*.cpp
 *.bak
 *.log
-*.res
 *.cl
 cmp.cpp
 cmp
