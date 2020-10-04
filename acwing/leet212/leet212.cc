@@ -94,6 +94,7 @@ class Solution {
         if (trie.startsWith(string(1, c))) {
           string path;
           dfs(i, j, path);
+          dfs
           assert(path.empty());
         }
       }
