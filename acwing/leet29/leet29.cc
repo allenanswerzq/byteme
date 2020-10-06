@@ -24,6 +24,7 @@ class Solution {
       int t = B;
       int n = 0;
       while (t >= HALF_MIN && t + t >= A) {
+        // B 2B 4B 8B
         t = t + t;
         n++;
       }

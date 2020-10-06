@@ -26,21 +26,21 @@ class Solution {
   }
 
   vector<int> maxSlidingWindow(vector<int>& A, int K) {
-    deque<pair<int, int>> qu;
+    deque<int> qu;
     int n = A.size();
     vector<int> ans;
     for (int i = 0; i < n; i++) {
-      while (qu.size() && i - qu.front().first >= K) {
+      while (qu.size() && i - qu.front() >= K) {
         // (j....i]
         //   ---K--
         qu.pop_front();
       }
-      while (qu.size() && A[i] >= qu.back().second) {
+      while (qu.size() && A[i] >= A[qu.back()]) {
         qu.pop_back();
       }
-      qu.push_back({i, A[i]});
+      qu.push_back(i);
       if (i >= K - 1) {
-        ans.push_back(qu.front().second);
+        ans.push_back(A[qu.front()]);
       }
     }
     return ans;

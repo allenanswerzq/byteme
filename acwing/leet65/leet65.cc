@@ -6,6 +6,7 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ll long long
 
+// TODO(): rewrite
 class Solution {
  public:
   bool isNumber(string A) {

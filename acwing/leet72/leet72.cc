@@ -8,29 +8,17 @@ using namespace std;
 
 class Solution {
  public:
-  void amin(int& a, int b) { a = min(a, b); }
-
   int minDistance(string A, string B) {
-    int n = A.size();
-    int m = B.size();
-    const int INF = 1e9;
-    vector<vector<int>> f(n + 2, vector<int>(m + 2, INF));
-    f[0][0] = 0;
-    for (int i = 1; i <= n; i++) {
-      f[i][0] = i;
-    }
-    for (int i = 1; i <= m; i++) {
-      f[0][i] = i;
-    }
-    // f[i][j] = min{f[i - 1][j - 1] + x, f[i - 1][j] + 1, f[i][j - 1] + 1};
-    for (int i = 1; i <= n; i++) {
-      for (int j = 1; j <= m; j++) {
-        amin(f[i][j], f[i - 1][j - 1] + (A[i - 1] != B[j - 1]));
-        amin(f[i][j], f[i - 1][j] + 1); // delete
-        amin(f[i][j], f[i][j - 1] + 1); // insert
+    vector<int> f(B.size() + 1);
+    iota(f.begin(), f.end(), 0);
+    for (int i = 0; i < A.size(); i++) {
+      vector<int> ff(B.size(), 1e9);
+      for (int j = 0; j < B.size(); j++) {
+        ff[j + 1] = min({f[j] + (A[i] != B[j]), f[j + 1] + 1, ff[j] + 1});
       }
+      swap(ff, f);
     }
-    return f[n][m];
+    return f[B.size()];
   }
 };
 

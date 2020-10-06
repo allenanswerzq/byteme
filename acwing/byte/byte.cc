@@ -1,5 +1,5 @@
 /* created   : 2020-08-23 20:58:09
- * accepted  : 2020-09-22 22:41:12
+ * accepted  : 2020-10-06 17:55:07
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -78,6 +78,8 @@ int func_josephus(int N, int S, int p) {
 #define EXPECT(a, b) assert(a == b)
 
 void solve() {
+  string S = "1.23e56";
+  trace(S.substr(0, S.find('e')));
   int N = 100;
   vector<int> A(N);
   iota(all(A), 0);
