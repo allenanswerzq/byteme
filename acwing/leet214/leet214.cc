@@ -1,5 +1,5 @@
 /* created   : 2020-10-03 09:40:09
- * accepted  : 2020-10-03 10:43:21
+ * accepted  : 2020-10-10 23:12:21
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -62,7 +62,7 @@ struct HashString {
 
 class Solution {
 public:
-  string shortestPalindromeBinarySearch(string S) {
+  string shortestPalindrome(string S) {
     string T;
     for (int i = 0; i < S.size(); i++) {
       if (i > 0) T += '#';
@@ -84,6 +84,7 @@ public:
           hi = md;
         }
       }
+      trace(T, i, lo, hi);
       f[i] = lo;
     }
     // ___p___xx

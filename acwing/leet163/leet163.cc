@@ -1,5 +1,5 @@
 /* created   : 2020-10-01 09:15:12
- * accepted  : 2020-10-01 18:08:37
+ * accepted  : 2020-10-10 23:21:06
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -59,12 +59,39 @@ public:
   }
 };
 
+class Solution2 {
+  string f(ll l, ll u) {
+    return l == u ? to_string(l) : to_string(l) + "->" + to_string(u);
+  }
+
+ public:
+  vector<string> findMissingRanges(vector<int> &a, int l, int u) {
+    vector<string> r;
+    if (a.size() && l < a[0]) {
+      r.push_back(f(l, a[0] - 1));
+    }
+    for (int i = 1; i < a.size(); i++) {
+      if ((ll) a[i - 1] + 1 < a[i]) {
+        r.push_back(f((ll) a[i - 1] + 1, (ll) a[i] - 1));
+      }
+    }
+    if (a.empty()) {
+      r.push_back(f(l, u));
+    }
+    else if (*a.rbegin() < u) {
+      r.push_back(f(*a.rbegin() + 1, u));
+    }
+    return r;
+  }
+};
+
+
 #define EXPECT_TRUE(a) assert(a)
 #define EXPECT_FALSE(a) assert(!a)
 #define EXPECT(a, b) assert(a == b)
 
 vector<string> test(vector<int> A, int S, int T) {
-  Solution sol;
+  Solution2 sol;
   return sol.findMissingRanges(A, S, T);
 }
 

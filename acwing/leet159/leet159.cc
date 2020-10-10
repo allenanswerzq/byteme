@@ -59,27 +59,22 @@ class Solution {
 
   int lengthOfLongestSubstringKDistinct(string &S, int K) {
     if (K == 0) return 0;
-    int ans = 0;
     vector<int> cnt(256);
-    int dcnt = 0;
-    auto check = [&](char c) {
-      if (cnt[c]) return true;
-      if (dcnt + 1 <= K) return true;
-      return false;
-    };
+    int c = 0;
+    int ans = 0;
     for (int hi = 0, lo = 0; lo < S.size(); lo++) {
       if (lo > hi) hi = lo;
-      while (hi < S.size() && check(S[hi])) {
+      while (hi < S.size() && cnt[c] && c + 1 <= K) {
         cnt[S[hi]]++;
         if (cnt[S[hi]] == 1) {
-          dcnt++;
+          c++;
         }
         hi++;
       }
-      // trace(lo, hi, dcnt);
+      // trace(lo, hi, c);
       ans = max(ans, hi - lo);
       if (cnt[S[lo]] == 1) {
-        dcnt--;
+        c--;
       }
       cnt[S[lo]]--;
     }

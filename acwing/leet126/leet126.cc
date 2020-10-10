@@ -7,18 +7,6 @@ using namespace std;
 #define ll long long
 #define ull unsigned long long
 
-struct HashString {
-  static const int base = 131;
-
-  static ull get(const string& s) {
-    ull ans = 1;
-    for (char c : s) {
-      ans = ans * base + c - 'a';
-    }
-    return ans;
-  }
-};
-
 class Solution {
  public:
   vector<vector<string>> findLadders(string B, string E, vector<string>& W) {
