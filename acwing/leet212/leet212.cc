@@ -1,5 +1,5 @@
 /* created   : 2020-10-02 22:21:22
- * accepted  : 2020-10-02 22:21:22
+ * accepted  : 2020-10-18 23:26:21
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -15,91 +15,57 @@ class Trie {
   Trie() {
     int N = 100000;
     node.resize(N);
-    leaf.resize(N);
+    leaf.resize(N, -1);
   }
 
-  void insert(string word) {
+  void insert(int idx, const string& word) {
     int u = 0;
     for (char c : word) {
       int t = c - 'a';
+      assert(t < 26);
       if (!node[u][t]) {
         node[u][t] = p++;
       }
       u = node[u][t];
     }
-    leaf[u] = true;
-  }
-
-  bool search(string word) {
-    int u = 0;
-    for (char c : word) {
-      int t = c - 'a';
-      if (!node[u][t]) return false;
-      u = node[u][t];
-    }
-    return leaf[u];
-  }
-
-  bool startsWith(string prefix) {
-    int u = 0;
-    for (char c : prefix) {
-      int t = c - 'a';
-      if (!node[u][t]) return false;
-      u = node[u][t];
-    }
-    return true;
+    leaf[u] = idx;
   }
 };
 
 class Solution {
  public:
-  vector<string> findWords(vector<vector<char>>& A, vector<string>& W) {
-    int n = A.size();
+  vector<string> findWords(vector<vector<char>>& A, vector<string>& W) {int n = A.size();
     int m = A[0].size();
     Trie trie;
-    int mx = 0;
-    for (string& w : W) {
-      trie.insert(w);
-      mx = max(mx, (int)w.size());
+    for (int i = 0; i < W.size(); i++) {
+      trie.insert(i, W[i]);
     }
-    unordered_set<string> ans;
-    vector<vector<bool>> use(n, vector<bool>(m));
-    std::function<void(int, int, string&)> dfs = [&](int x, int y,
-                                                     string& path) {
-      use[x][y] = true;
-      path.push_back(A[x][y]);
-      if (trie.search(path)) {
-        ans.insert(path);
+    vector<string> ans;
+    std::function<void(int, int, int)> dfs = [&](int x, int y, int u) {
+      if (A[x][y] == '.') return;
+      char c = A[x][y];
+      u = trie.node[u][c - 'a'];
+      if (trie.leaf[u] >= 0) {
+        ans.push_back(W[trie.leaf[u]]);
+        trie.leaf[u] = -1;
       }
-      if (trie.startsWith(path) && path.size() < mx) {
-        vector<int> dx = {0, 0, -1, 1};
-        vector<int> dy = {-1, 1, 0, 0};
-        for (int k = 0; k < 4; k++) {
-          int nx = x + dx[k];
-          int ny = y + dy[k];
-          if (!(0 <= nx && nx < n)) continue;
-          if (!(0 <= ny && ny < m)) continue;
-          if (use[nx][ny]) continue;
-          dfs(nx, ny, path);
-        }
-      }
-      path.pop_back();
-      use[x][y] = false;
+      if (!u) return;
+      A[x][y] = '.';
+      if (x) dfs(x - 1, y, u);
+      if (y) dfs(x, y - 1, u);
+      if (x + 1 < n) dfs(x + 1, y, u);
+      if (y + 1 < m) dfs(x, y + 1, u);
+      A[x][y] = c;
     };
-    // a b
-    // a a
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < m; j++) {
         char c = A[i][j];
-        if (trie.startsWith(string(1, c))) {
-          string path;
-          dfs(i, j, path);
-          dfs
-          assert(path.empty());
+        if (trie.node[0][c - 'a']) {
+          dfs(i, j, 0);
         }
       }
     }
-    return vector<string>(ans.begin(), ans.end());
+    return ans;
   }
 };
 
@@ -107,7 +73,25 @@ class Solution {
 #define EXPECT_FALSE(a) assert(!a)
 #define EXPECT(a, b) assert(a == b)
 
-void solve() {}
+void test(vector<vector<char>> A, vector<string> W) {
+  Solution sol;
+  trace(A);
+  auto ans = sol.findWords(A, W);
+  trace(ans);
+}
+
+void solve() {
+  test(vector<vector<char>>({{'a'}}), vector<string>({"a"}));
+
+  test(vector<vector<char>>({{'a', 'b'}, {'a', 'b'}}),
+        vector<string>({"a", "b"}));
+
+  test(vector<vector<char>>({{'o', 'a', 'a', 'n'},
+                             {'e', 't', 'a', 'e'},
+                             {'i', 'h', 'k', 'r'},
+                             {'i', 'f', 'l', 'v'}}),
+       vector<string>({"oath", "pea", "eat", "rain"}));
+}
 
 int main() {
   ios_base::sync_with_stdio(0), cin.tie(0);

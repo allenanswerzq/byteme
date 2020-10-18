@@ -8,16 +8,11 @@ CXXFLAGS += -Wfloat-equal -Wcast-qual -Wcast-align -fvisibility=hidden # -Wconve
 # By default sets to debug mode.
 DEBUG ?= 1
 RLOG ?= 1
-GDB ?= 1
-ifeq ($(GDB), 1)
+ifeq ($(DEBUG), 1)
 	CXXFLAGS += -O0 -g
-	DBGFLAGS += -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -g -fmax-errors=2
-	DBGFLAGS += -DLOCAL
-else ifeq ($(DEBUG), 1)
-	CXXFLAGS += -O2
 	DBGFLAGS += -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -fmax-errors=2
 	DBGFLAGS += -DLOCAL
-	# DBGFLAGS += -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
+	DBGFLAGS += -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
 	# Since this flag will cause a AddressSantizer error on my debug
 	# function `trace`, so here I just simply comment out this one.
 	# -fstack-protector
@@ -56,11 +51,11 @@ curdir:
 ifeq ($(DEBUG), 1)
 % : %.cc
 	@echo "cxx $<"
-	@$(CXX) $(CXXFLAGS) $(DBGFLAGS) $< $(LDFLAGS) -o $@ $(CXXLIBS) $(CXXINCS)
+	$(CXX) $(CXXFLAGS) $(DBGFLAGS) $< $(LDFLAGS) -o $@ $(CXXLIBS) $(CXXINCS)
 else
 % : %.cl
 	@echo "cxx $<"
-	@$(CXX) -x c++ $(CXXFLAGS) $(DBGFLAGS) $< $(LDFLAGS) -o $@ $(CXXLIBS) $(CXXINCS)
+	$(CXX) -x c++ $(CXXFLAGS) $(DBGFLAGS) $< $(LDFLAGS) -o $@ $(CXXLIBS) $(CXXINCS)
 endif
 
 %.cl : %.cc
