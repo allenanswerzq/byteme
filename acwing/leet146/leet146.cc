@@ -1,5 +1,5 @@
 /* created   : 2020-09-27 22:20:02
- * accepted  : 2020-09-27 22:36:05
+ * accepted  : 2020-10-22 22:20:25
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -15,46 +15,32 @@ class LRUCache {
   }
 
   int get(int key) {
-    // trace("get", key, node);
     if (mp.count(key)) {
-      auto it = mp[key];
-      int ans = it->second;
-      moveToFront(key, it);
-      return ans;
+      touch(key);
+      return node.begin()->second;
     }
     return -1;
   }
 
-  void moveToFront(int key, const iterator& it) {
-    if (it == node.begin()) {
-      mp[key] = node.begin();
-    }
-    else {
-      int val = it->second;
-      node.erase(it);
-      node.insert(node.begin(), {key, val});
-      mp[key] = node.begin();
-    }
-    // trace("moveToFront", key, node);
+  void touch(int key) {
+    pair<int, int> x = *mp[key];
+    node.erase(mp[key]);
+    node.push_front(x);
+    mp[key] = node.begin();
   }
 
   void put(int key, int value) {
     if (mp.count(key)) {
-      auto it = mp[key];
-      *it = {key, value};
-      moveToFront(key, it);
-    }
-    else if (node.size() < capacity) {
-      node.push_back({key, value});
-      auto it = node.end();
-      moveToFront(key, --it);
+      touch(key);
+      node.begin()->second = value;
     }
     else {
-      assert(node.size());
-      mp.erase(node.back().first);
-      node.pop_back();
-      node.push_back({key, value});
-      moveToFront(key, std::prev(node.end()));
+      if (node.size() == capacity) {
+        mp.erase(node.rbegin()->first);
+        node.pop_back();
+      }
+      node.push_front(make_pair(key, value));
+      mp[key] = node.begin();
     }
   }
 
