@@ -28,24 +28,9 @@ public:
   }
 
   vector<string> wordBreak(string S, vector<string>& W) {
-    vector<vector<string>> ans = dfs(S, W);
-    vector<string> ret;
-    for (auto& t : ans) {
-      reverse(t.begin(), t.end());
-      string tmp;
-      for (int i = 0; i < t.size(); i++) {
-        if (i > 0) tmp += " ";
-        tmp += t[i];
-      }
-      ret.push_back(tmp);
-    }
     return ret;
   }
 };
-
-#define EXPECT_TRUE(a) assert(a)
-#define EXPECT_FALSE(a) assert(!a)
-#define EXPECT(a, b) assert(a == b)
 
 void test(string S, vector<string> W) {
   Solution sol;

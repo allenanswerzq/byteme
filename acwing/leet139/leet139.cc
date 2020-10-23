@@ -8,34 +8,12 @@ using namespace std;
 
 class Solution {
  public:
-  unordered_set<string> WD;
-  unordered_map<string, bool> M;
-
-  bool dfs(const string& S) {
-    if (S.empty()) return true;
-    if (M.count(S)) return M[S];
-    int n = S.size();
-    for (int len = 1; len <= n; len++) {
-      if (WD.count(S.substr(0, len))) {
-        if (dfs(S.substr(len))) return M[S] = true;
-      }
-    }
-    return M[S] = false;
-  }
-
-  bool wordBreakDfs(string S, vector<string>& W) {
-    for (string& w : W) {
-      WD.insert(w);
-    }
-    return dfs(S);
-  }
-
   bool wordBreak(string S, vector<string>& W) {
-    // return wordBreakDfs(S, W);
     return wordBreakDP(S, W);
   }
 
   bool wordBreakDP(string S, vector<string>& W) {
+    unordered_set<string> WD;
     for (string& w : W) {
       WD.insert(w);
     }
@@ -50,14 +28,9 @@ class Solution {
         }
       }
     }
-    // trace(f);
     return f[0];
   }
 };
-
-#define EXPECT_TRUE(a) assert(a)
-#define EXPECT_FALSE(a) assert(!a)
-#define EXPECT(a, b) assert(a == b)
 
 bool test(string S, vector<string> W) {
   Solution sol;
