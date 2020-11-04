@@ -1,5 +1,5 @@
 /* created   : 2020-11-02 22:25:21
- * accepted  : 2020-11-03 21:24:07
+ * accepted  : 2020-11-04 08:17:18
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -9,41 +9,34 @@ using namespace std;
 vector<int> dx = {-1, 1, 0, 0};
 vector<int> dy = {0, 0, -1, 1};
 vector<char> ch = {'U', 'D', 'L', 'R'};
-vector<string> A;
 int ans = 0;
+int vis[7][7];
+string S;
 
-void dfs(string& S, string path, int x, int y) {
-  trace(S, path, x, y, ans);
-  if (path.size() > S.size()) {
+void dfs(int u, int x, int y) {
+  if (u > S.size()) {
     return;
   }
   if (x == 6 && y == 0) {
-    if (path.size() == S.size()) ans++;
+    if (u == S.size()) ans++;
     return;
   }
-  A[x][y] = '@';
-  for (int i = 0; i < 4; i++) {
-    int nx = x + dx[i];
-    int ny = y + dy[i];
-    int n = path.size();
-    if (!(0 <= nx && nx < 7)) continue;
-    if (!(0 <= ny && ny < 7)) continue;
-    if (A[nx][ny] != '.') continue;
-    if (S[n] == '?' || S[n] == ch[i]) {
-      path.push_back(ch[i]);
-      dfs(S, path, nx, ny);
-      path.pop_back();
-    }
+  vis[x][y] = 1;
+  for (int k = 0; k < 4; k++) {
+    int xx = x + dx[k];
+    int yy = y + dy[k];
+    if (!(0 <= xx && xx < 7)) continue;
+    if (!(0 <= yy && yy < 7)) continue;
+    if (vis[xx][yy]) continue;
+    if (!(S[u] == '?' || S[u] == ops[k])) continue;
+    dfs(u + 1, xx, yy);
   }
-  A[x][y] = '.';
+  vis[x][y] = 0;
 }
 
 void solve() {
-  string S; cin >> S;
-  A.resize(7, string(7, '.'));
-  string path;
-  dfs(S, path, 0, 0);
-  assert(path.empty());
+  cin >> S;
+  dfs(0, 0, 0);
   cout << ans << "\n";
 }
 
