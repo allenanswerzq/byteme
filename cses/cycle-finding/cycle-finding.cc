@@ -54,24 +54,19 @@ void solve() {
         // When processing node 12, it may lead to a reduce for node 2, thus in
         // the `next` iteration, when processing node 2, there will be a
         // reduce for node 6, but edge (2 --> 6) is not a cycle edge.
-        vector<int> visit(N);
-        while (!visit[u]) {
-          visit[u] = 1;
+        for (int i = 0; i < N; i++) {
           u = pre[u];
-          assert(u != -1);
         }
         // Now, the u definitely is a node on the cycle.
-        trace(u);
-        cout << "YES\n";
         vector<int> ans;
-        ans.push_back(u);
-        int j = pre[u];
-        while (j != u) {
+        for (int j = u;; j = pre[u]) {
           ans.push_back(j);
-          j = pre[j];
+          if (j == u && ans.size() > 1) {
+            break;
+          }
         }
-        ans.push_back(u);
         reverse(all(ans));
+        cout << "YES\n";
         for (int i = 0; i < ans.size(); i++) {
           cout << ans[i] + 1 << (i == ans.size() - 1 ? '\n' : ' ');
         }

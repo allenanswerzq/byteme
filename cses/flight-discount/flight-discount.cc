@@ -1,5 +1,5 @@
 /* created   : 2020-11-18 10:42:56
- * accepted  : 2020-11-18 11:10:31
+ * accepted  : 2020-11-19 10:41:45
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -15,6 +15,7 @@ void compute(vector<vector<array<ll, 2>>>& g, vector<ll>& dist, int s) {
     qu.pop();
     ll u = top[1], c = -top[0];
     if (c > dist[u]) continue;
+    assert(c == dist[u]);
     for (auto& t : g[u]) {
       ll v = t[0], w = t[1];
       if (dist[u] + w < dist[v]) {
