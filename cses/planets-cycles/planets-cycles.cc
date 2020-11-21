@@ -1,5 +1,5 @@
-/* created   : 2020-11-20 11:35:37
- * accepted  : 2020-11-20 22:04:46
+/* created   : 2020-11-21 10:33:42
+ * accepted  : 2020-11-21 10:46:42
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -7,14 +7,15 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-  int N, Q; cin >> N >> Q;
+  int N; cin >> N;
   vector<int> pre(N);
   vector<vector<int>> g(N);
   Graphviz gv("g");
   for (int i = 0; i < N; i++) {
     int x; cin >> x;
+    trace(i + 1, x);
+    gv.AddEdge(i + 1, x);
     pre[i] = --x;
-    gv.AddEdge(x, i);
     g[x].push_back(i);
   }
   gv.DrawGraph();
@@ -27,9 +28,6 @@ void solve() {
   vector<int> pos(N);
   vector<int> vis(N);
   vector<int> cycle;
-  auto is_ancester = [&](int u, int v) {
-    return (enter[u] <= enter[v] && leave[v] <= leave[u]);
-  };
   int time = 0;
   std::function<void(int)> dfs = [&](int u) {
     time++;
@@ -76,27 +74,14 @@ void solve() {
       trace(i, c, leave);
     }
   }
-  trace(depth, csize, pos);
-  for (int i = 0; i < Q; i++) {
-    int a, b; cin >> a >> b;
-    a--, b--;
-    trace(a, b);
-    int ans = -1;
-    if (index[a] == index[b]) {
-      if (root[b] == b) {
-      // b is a cycle node
-        ans = depth[a];
-        a = root[a];
-        ans += (pos[b] - pos[a] + csize[a]) % csize[a];
-      }
-      else {
-        if (root[a] == root[b] && is_ancester(b, a)) {
-          ans = depth[a] - depth[b];
-        }
-      }
+  for (int i = 0; i < N; i++) {
+    if (i > 0) {
+      cout << " ";
     }
-    cout << ans << "\n";
+    trace(i, index[i], depth[i], csize[i]);
+    cout << depth[i] + csize[i];
   }
+  cout << "\n";
 }
 
 int main() {
