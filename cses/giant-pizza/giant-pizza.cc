@@ -1,5 +1,5 @@
-/* created   : 2020-11-21 12:52:38
- * accepted  : 2020-11-22 12:32:42
+/* created   : 2020-11-22 16:42:00
+ * accepted  : 2020-11-22 19:08:52
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,6 +14,8 @@ public:
   }
 
   void AddEdge(int u, int v) {
+    trace(u, v);
+    gv_.gvAddEdge(u, v);
     g_[u].push_back(Edge{v});
     z_[v].push_back(Edge{u});
   }
@@ -38,20 +40,21 @@ public:
 
   // Returns: scc_id for every node
   std::vector<int> DoScc() {
+    gv_.gvDrawGraph();
     vector<int> vis(n_);
     vector<int> order;
     for (int i = 0; i < n_; i++) {
       if (!vis[i]) {
-        dfs(g_, vis, i, &order, nullptr);
+        dfs(g_, vis, i, &order, /*scc=*/nullptr);
       }
     }
-    reverse(order.begin(), order.end());
     vis.assign(n_, 0);
     vector<int> scc(n_);
     scc_index_ = 0;
-    for (int u : order) {
+    for (int i = order.size() - 1; i >= 0; i--) {
+      int u = order[i];
       if (!vis[u]) {
-        dfs(z_, vis, u, nullptr, &scc);
+        dfs(z_, vis, u, /*order=*/nullptr, &scc);
         scc_index_++;
       }
     }
@@ -68,7 +71,6 @@ public:
            vector<int>* order, vector<int>* scc = nullptr) {
     vis[u] = 1;
     if (scc) {
-      trace(u, scc_index_);
       assert(scc->size() == g.size());
       scc->operator[](u) = scc_index_;
     }
@@ -86,26 +88,73 @@ public:
 
   int n_;
   int scc_index_;
+  Graphviz gv_;
   vector<vector<Edge>> g_;
   vector<vector<Edge>> z_;
 };
 
+class SATSolver {
+ public:
+  explicit SATSolver(int n) : n_(n + 1), g_(2 * n_) {}
+
+  // (u | v) && ()
+  void AddEdge(int u, int v) {
+    // -u ==> v  if u is false, then v must be true
+    // -v ==> u
+    g_.AddEdge(f(-u), f(v));
+    g_.AddEdge(f(-v), f(u));
+  }
+
+  // Returns the boolean value for each variable.
+  vector<int> Solve() {
+    vector<int> scc = g_.DoScc();
+    trace(scc);
+    for (int i = 1; i < n_; i++) {
+      if (scc[f(i)] == scc[f(-i)]) {
+        return vector<int>();
+      }
+    }
+    vector<int> ans(n_);
+    for (int i = 1; i < n_; i++) {
+      ans[i] = scc[f(i)] > scc[f(-i)];
+    }
+    return ans;
+  }
+
+ private:
+  int f(int u) {
+    assert(u != 0);
+    if (u < 0) {
+      return 2 * (-u) + 1;
+    }
+    else {
+      return 2 * u;
+    }
+  }
+  int n_;
+  SccGraph g_;
+};
+
 void solve() {
   int N, M; cin >> N >> M;
-  SccGraph g(N);
-  for (int i = 0; i < M; i++) {
-    int u, v; cin >> u >> v;
-    u--, v--;
+  SATSolver g(M);
+  for (int i = 0; i < N; i++) {
+    char a, b; int u, v;
+    cin >> a >> u >> b >> v;
+    u *= (a == '+' ? 1 : -1);
+    v *= (b == '+' ? 1 : -1);
+    trace(u, v);
     g.AddEdge(u, v);
   }
-  vector<vector<int>> scc = g.SccGroup();
-  if (g.SccCount() == 1) {
-    cout << "YES\n";
+  vector<int> ans = g.Solve();
+  if (ans.size()) {
+    trace(ans);
+    for (int i = 1; i <= M; i++) {
+      cout << (ans[i] ? '+' : '-') << (i == M ? '\n' : ' ');
+    }
   }
   else {
-    cout << "NO\n";
-    assert(scc.size() >= 2);
-    cout << scc[1][0] + 1 << " " << scc[0][0] + 1 << "\n";
+    cout << "IMPOSSIBLE\n";
   }
 }
 

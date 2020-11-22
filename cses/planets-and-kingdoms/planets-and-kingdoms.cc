@@ -1,5 +1,5 @@
-/* created   : 2020-11-21 12:52:38
- * accepted  : 2020-11-22 12:32:42
+/* created   : 2020-11-22 16:29:47
+ * accepted  : 2020-11-22 16:35:29
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -42,7 +42,7 @@ public:
     vector<int> order;
     for (int i = 0; i < n_; i++) {
       if (!vis[i]) {
-        dfs(g_, vis, i, &order, nullptr);
+        dfs(g_, vis, i, &order, /*scc=*/nullptr);
       }
     }
     reverse(order.begin(), order.end());
@@ -51,7 +51,7 @@ public:
     scc_index_ = 0;
     for (int u : order) {
       if (!vis[u]) {
-        dfs(z_, vis, u, nullptr, &scc);
+        dfs(z_, vis, u, /*order=*/nullptr, &scc);
         scc_index_++;
       }
     }
@@ -98,14 +98,10 @@ void solve() {
     u--, v--;
     g.AddEdge(u, v);
   }
-  vector<vector<int>> scc = g.SccGroup();
-  if (g.SccCount() == 1) {
-    cout << "YES\n";
-  }
-  else {
-    cout << "NO\n";
-    assert(scc.size() >= 2);
-    cout << scc[1][0] + 1 << " " << scc[0][0] + 1 << "\n";
+  vector<int> scc = g.DoScc();
+  cout << g.SccCount() << "\n";
+  for (int i = 0; i < scc.size(); i++) {
+    cout << scc[i] + 1 << (i == scc.size() - 1 ? '\n' : ' ');
   }
 }
 
