@@ -1,5 +1,5 @@
 /* created   : 2020-11-29 21:57:31
- * accepted  : 2020-11-29 21:57:31
+ * accepted  : 2020-12-01 22:22:22
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -26,6 +26,19 @@ struct LazySegtree {
     }
   }
 
+  void debug() {
+    for (int i = 1; i <= log + 1; i++) {
+      int p = (1 << (i - 1));
+      int l = (1 << (i - 1));
+      vector<S> tmp;
+      for (int j = 0; j < l; j++) {
+        tmp.push_back(d[p + j]);
+      }
+      trace(tmp);
+      (void)tmp;
+    }
+
+  }
   int ceil_pow2(int x) {
     int t = 1, c = 0;
     while (t < x) {
@@ -134,52 +147,69 @@ struct LazySegtree {
 };
 
 struct S {
-  ll inc;
   ll sum;
   ll size;
+};
+
+ostream& operator<<(ostream& os, const S& s) {
+  return os << "(" << s.sum << " " << s.size << ")";
+}
+
+S op(S a, S b) { return S{a.sum + b.sum, a.size + b.size}; }
+S e() { return S{0, 0}; }
+
+struct F {
+  ll inc;
   ll set;
   bool set_vaild;
 };
 
-S op(S a, S b) {
-  S c;
-  ll sa = (a.set_vaild ? a.size * a.set : a.sum + a.size * a.inc);
-  ll sb = (b.set_vaild ? b.size * b.set : b.sum + b.size * b.inc);
-  c.sum = sa + sb;
-  c.inc = 0;
-  c.size = a.size + b.size;
-  c.set = 0;
-  c.set_vaild = false;
-  return c;
+S mapping(F f, S s) {
+  if (f.set_vaild) {
+    s.sum = s.size * f.set;
+  }
+  s.sum += f.inc * s.size;
+  return s;
 }
 
-S e() { return 0; }
-ll mapping(ll s, ll f) { return s + f; }
-ll composition(ll f1, ll f2) { return f1 + f2; }
-ll id() { return 0; }
+F id() { return {0, 0, 0}; }
+F composition(F parent, F child) {
+  if (parent.set_vaild) {
+    child.set_vaild = true;
+    child.set = parent.set;
+    child.inc = parent.inc;
+  }
+  else {
+    child.inc += parent.inc;
+  }
+  return child;
+}
 
 void solve() {
   int N, Q; cin >> N >> Q;
-  LazySegtree<ll, op, e, ll, mapping, composition, id> seg(N);
+  LazySegtree<S, op, e, F, mapping, composition, id> seg(N);
   for (int i = 0; i < N; i++) {
     int x; cin >> x;
-    seg.set(i, x);
+    seg.set(i, S{x, 1});
   }
+  seg.debug();
   for (int i = 0; i < Q; i++) {
     int op; cin >> op;
     if (op == 1) {
       int a, b, x; cin >> a >> b >> x;
       a--, b--;
-      seg.apply(a, b, x);
+      seg.apply(a, b + 1, F{x, 0, 0});
     }
     else if (op == 2) {
       int a, b, x; cin >> a >> b >> x;
       a--, b--;
-      seg.apply(a, b, );
+      seg.apply(a, b + 1, F{0, x, 1});
     }
     else {
       int a, b; cin >> a >> b;
       a--, b--;
+      trace(a, b);
+      cout << seg.prod(a, b + 1).sum << "\n";
     }
   }
 }
