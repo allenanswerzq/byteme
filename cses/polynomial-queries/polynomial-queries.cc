@@ -1,5 +1,5 @@
 /* created   : 2020-12-03 22:42:23
- * accepted  : 2020-12-03 22:59:25
+ * accepted  : 2020-12-04 23:18:43
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -146,19 +146,25 @@ struct LazySegtree {
   std::vector<F> lz;
 };
 
+//   s + sum(x + 1) (0 <= x && x < r - l)
+// = s + (0 + 1 + ... + r - l - 1) + (r - l + 1)
+// = s + (r - l) (r - l - 1) / 2 + (r - l + 1)
 struct S {
   ll sum;
-  int size;
+  int x, y;
 };
 
-S e() { return S{0, 0}; }
+S e() {
+  int INF = 1e5 + 7;
+  return S{0, INF, 0};
+}
 
 S op(S a, S b) {
-  return S{a.sum + b.sum, a.size + b.size};
+  return S{a.sum + b.sum, min(a.x, b.x), max(a.y, b.y)};
 }
 
 ostream& operator<<(ostream& os, const S& s) {
-  return os << "(" << s.sum << " " << s.size << ")";
+  return os << "(" << s.sum << " " << s.x << " " << s.y << ")";
 }
 
 struct F {
@@ -166,19 +172,26 @@ struct F {
   int y;
 };
 
-F id() { return F{-1}; }
+F id() { return F{-1, -1}; }
 
 S mapping(F f, S s) {
-  if (~f.x) {
-    int y = s.size();
-    s.sum += ;
+  if (f.x != -1) {
+    // f.x
+    // ----------------------
+    //   [1       ]
+    int n = s.y - s.x + 1;
+    assert(s.x >= f.x);
+    assert(s.y <= f.y);
+    int a1 = s.x - f.x + 1;
+    s.sum += n * (a1 + a1 + n - 1) / 2;
   }
   return s;
 }
 
 F composition(F parent, F child) {
-  if (parent.flag) {
-    child.flag = true;
+  if (parent.x != -1) {
+    child.x = parent.x;
+    child.y = parent.y;
   }
   return child;
 }
@@ -188,15 +201,14 @@ void solve() {
   LazySegtree<S, op, e, F, mapping, composition, id> seg(N);
   for (int i = 0; i < N; i++) {
     int x; cin >> x;
-    seg.set(i, S{x, 1});
+    seg.set(i, S{x, i, i});
   }
   seg.debug();
   for (int i = 0; i < Q; i++) {
     int op, a, b; cin >> op >> a >> b;
     a--, b--;
     if (op == 1) {
-      seg.apply(a, b + 1, F{true});
-      seg.debug();
+      seg.apply(a, b + 1, F{a, b});
     }
     else {
       cout << seg.prod(a, b + 1).sum << "\n";
