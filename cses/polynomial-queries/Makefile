@@ -13,7 +13,7 @@ CXXFLAGS += -Wfloat-equal
 CXXFLAGS += -Wcast-qual
 CXXFLAGS += -Wcast-align
 CXXFLAGS += -fvisibility=hidden
-# CXXFLAGS += -Wconversion
+CXXFLAGS += -Wconversion
 
 # By default sets to debug mode.
 DEBUG ?= 1
