@@ -12,11 +12,9 @@ void solve() {
   vector<vector<double>> f(N + 1, vector<double>(M));
   f[0][0] = 1;
   for (int i = 0; i < N; i++) {
-    for (int j = 0; j < M; j++) {
+    for (int j = i; j <= 6 * i; j++) {
       for (int k = 1; k <= 6; k++) {
-        if (j + k < M) {
-          f[i + 1][j + k] += f[i][j] * 1.0 / 6;
-        }
+        f[i + 1][j + k] += f[i][j] * 1.0 / 6;
       }
     }
   }
