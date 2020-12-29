@@ -62,23 +62,25 @@ void solve() {
   int K; cin >> K;
   const int Z = 1e6 + 7;
   Trie<Z> trie;
-  set<int> st;
   while (K--) {
     string t; cin >> t;
     trie.add(t);
-    st.insert(t.size());
   }
   int n = S.size();
   vector<int> f(n + 1);
-  f[n] = 1;
-  for (int i = n - 1; i >= 0; i--) {
-    for (int t : st) {
-      if (i + t <= n && trie.find(S.substr(i, t))) {
-        add(f[i], f[i + t]);
+  f[0] = 1;
+  for (int i = 0; i < n; i++) {
+    int u = 0;
+    for (int j = i; j < n; j++) {
+      u = trie.node[u][S[j] - 'a'];
+      if (!u) break;
+      // [i...j]
+      if (trie.leaf[u]) {
+        add(f[j + 1], f[i]);
       }
     }
   }
-  cout << f[0] << "\n";
+  cout << f[n] << "\n";
 }
 
 int main() {
