@@ -6,74 +6,69 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 using ll = long long;
 
-template <int N>
-struct HashString {
+struct H {
   using ull = unsigned long long;
-  const int base = 131;
-  vector<ull> hash;
-  vector<ull> hsah;  // reverse hash
-  vector<ull> mul;
-  int n = 0;
+  ull x = 0;
 
-  void init() {
-    hash.resize(N);
-    hsah.resize(N);
-    mul.resize(N);
-    mul[0] = 1;
-    for (int i = 1; i < N; i++) {
-      mul[i] = mul[i - 1] * base;
+  H() {}
+
+  H(ull x_) : x(x_) {}
+
+  H operator+(H o) {
+    ull r = x;
+    asm("addq %%rdx, %0\n adcq $0,%0" : "+a"(r) : "d"(o.x));
+    return r;
+  }
+
+  H operator*(H o) {
+    ull r = x;
+    asm("mul %1\n"
+        "addq %%rdx, %0\n adcq $0,%0"
+        : "+a"(r)
+        : "r"(o.x)
+        : "rdx");
+    return r;
+  }
+
+  H operator-(H o) { return *this + ~o.x; }
+  ull get() const { return x + !~x; }
+  bool operator==(H o) const { return get() == o.get(); }
+  bool operator<(H o) const { return get() < o.get(); }
+};
+
+struct HashString {
+  const H C = (ll)1e11 + 3;  // (order ~ 3e9; random also ok)
+  vector<H> ha, pw;
+  HashString(string& str) {
+    int n = str.size();
+    ha.resize(n + 1);
+    pw.resize(n + 1);
+    pw[0] = 1;
+    for (int i = 0; i < n; i++) {
+      ha[i + 1] = ha[i] * C + str[i];
+      pw[i + 1] = pw[i] * C;
     }
   }
 
-  HashString() { init(); }
-
-  HashString(const string& s) {
-    init();
-    append(s);
-  }
-
-  // Given zero based index, returns the hash value.
-  ull get(int l, int r) {
-    assert(0 <= l && l <= r && r < n);
-    return hash[r + 1] - hash[l] * mul[r - l + 1];
-  }
-
-  int reverse_index(int x) {
-    assert(0 <= x && x < n);
-    return n - x - 1;
-  }
-
-  ull get_rev(int l, int r) {
-    assert(0 <= l && l <= r);
-    int nl = reverse_index(r);
-    int nr = reverse_index(l);
-    return hsah[nr + 1] - hsah[nl] * mul[r - l + 1];
-  }
-
-  void append(const string& s) {
-    int l = s.size();
-    for (int i = 0; i < l; i++) {
-      hash[n + 1 + i] = hash[n + i] * base + s[i] - 'a';
-      hsah[n + 1 + i] = hsah[n + i] * base + s[l - i - 1] - 'a';
-    }
-    n += l;
+  // Compute the hash for interval [a, b)
+  H get(int a, int b) {
+    return ha[b] - ha[a] * pw[b - a];
   }
 };
 
 void solve() {
   string S; cin >> S;
-  HashString<(int)1e6 + 7> hs(S);
+  HashString hs(S);
   int n = S.size();
   vector<int> ans;
   for (int len = 1; len <= n; len++) {
-    auto h = hs.get(0, len - 1);
+    auto h = hs.get(0, len).x;
     bool ok = true;
     for (int j = len; j < n && ok; j += len) {
       if (j + len - 1 < n) {
-        ok &= (h == hs.get(j, j + len - 1));
-      }
-      else {
-        ok &= (hs.get(0, n - j - 1) == hs.get(j, n - 1));
+        ok &= (h == hs.get(j, j + len).x);
+      } else {
+        ok &= (hs.get(0, n - j).x == hs.get(j, n).x);
       }
     }
     if (ok) {
