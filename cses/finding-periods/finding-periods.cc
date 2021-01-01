@@ -16,14 +16,21 @@ struct H {
 
   H operator+(H o) {
     ull r = x;
-    asm("addq %%rdx, %0\n adcq $0,%0" : "+a"(r) : "d"(o.x));
+    asm("addq %%rdx, %0\n"
+        "adcq $0,%0\n"
+        : "+a"(r)    // %0, output operand
+        : "d"(o.x)); // %1, input operand
     return r;
   }
 
   H operator*(H o) {
+    // eax = r
+    // mul o.x eax -> eax
+    // add rdx eax ->
     ull r = x;
     asm("mul %1\n"
-        "addq %%rdx, %0\n adcq $0,%0"
+        "addq %%rdx, %0\n"
+        "adcq $0,%0\n"
         : "+a"(r)
         : "r"(o.x)
         : "rdx");
@@ -38,7 +45,9 @@ struct H {
 
 struct HashString {
   const H C = (ll)1e11 + 3;  // (order ~ 3e9; random also ok)
+
   vector<H> ha, pw;
+
   HashString(string& str) {
     int n = str.size();
     ha.resize(n + 1);
@@ -51,7 +60,7 @@ struct HashString {
   }
 
   // Compute the hash for interval [a, b)
-  H get(int a, int b) {
+  H hash(int a, int b) {
     return ha[b] - ha[a] * pw[b - a];
   }
 };
@@ -62,13 +71,13 @@ void solve() {
   int n = S.size();
   vector<int> ans;
   for (int len = 1; len <= n; len++) {
-    auto h = hs.get(0, len).x;
+    auto h = hs.hash(0, len);
     bool ok = true;
     for (int j = len; j < n && ok; j += len) {
       if (j + len - 1 < n) {
-        ok &= (h == hs.get(j, j + len).x);
+        ok &= (h == hs.hash(j, j + len));
       } else {
-        ok &= (hs.get(0, n - j).x == hs.get(j, n).x);
+        ok &= (hs.hash(0, n - j) == hs.hash(j, n));
       }
     }
     if (ok) {
