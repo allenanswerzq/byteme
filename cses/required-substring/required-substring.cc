@@ -36,7 +36,6 @@ void add(int& a, int b) {
 
 int mul(int a, int b) { return (int)((ll)a * b % mod); }
 
-
 void solve() {
   int N; cin >> N;
   string S; cin >> S;
