@@ -13,19 +13,16 @@ void solve() {
   set<char> st;
   for (int i = 0; i < n; i++) {
     st.insert(S[i]);
-    while (i + 1 < n && S[i] == S[i + 1]) {
-      i++;
-    }
     if (st.size() == 4) {
       ans.push_back(S[i]);
       st.clear();
     }
   }
-  if (st.size() == 0) {
-    ans.push_back(S[n - 1]);
+  if (st.empty()) {
+    ans.push_back('A');
   }
   else {
-    for (char c : {'A', 'C', 'G', 'T'}) {
+    for (char c : {'A', 'G', 'C', 'T'}) {
       if (!st.count(c)) {
         ans.push_back(c);
         break;
