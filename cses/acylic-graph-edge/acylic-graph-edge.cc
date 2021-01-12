@@ -53,7 +53,7 @@ void bfs(int s) {
   }
 }
 
-void solve() {
+void solve_bfs() {
   cin >> N >> M;
   g.resize(N);
   vector<pair<int, int>> edge;
