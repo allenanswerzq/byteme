@@ -7,7 +7,7 @@ using namespace std;
 using ll = long long;
 
 vector<vector<int>> g;
-vector<pair<int, int>> ans;
+set<pair<int, int>> ans;
 vector<int> vis;
 
 void dfs(int u, int p = -1) {
@@ -15,12 +15,16 @@ void dfs(int u, int p = -1) {
   vis[u] = 1;
   for (int v : g[u]) {
     if (!vis[v]) {
-      ans.push_back({u, v});
+      ans.insert({u, v});
       dfs(v, u);
     }
     else if (v != p) {
       trace(u, v, vis[v]);
-      // ans.push_back({v, u});
+      if (ans.count({u, v}) || ans.count({v, u})) {
+      }
+      else {
+        ans.insert({v, u});
+      }
     }
   }
 }
@@ -37,9 +41,9 @@ void solve() {
   vis.resize(N);
   dfs(0);
   trace(ans);
-  assert(ans.size() == M);
-  for (int i = 0; i < M; i++) {
-    cout << ans[i].first + 1 << ' ' << ans[i].second + 1 << '\n';
+  assert((int) ans.size() == M);
+  for (auto it : ans) {
+    cout << it.first + 1 << ' ' << it.second + 1 << '\n';
   }
 }
 
