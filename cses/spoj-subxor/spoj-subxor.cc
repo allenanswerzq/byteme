@@ -69,7 +69,6 @@ struct Trie {
           // assert(false);
           return ans;
         }
-      }
     }
     return ans;
   }
