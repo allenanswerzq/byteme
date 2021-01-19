@@ -8,31 +8,36 @@ using ll = long long;
 
 void solve() {
   int N; cin >> N;
-  map<pair<int, int>, int> st;
-  for (int i = 0; i < N; i++) {
+  priority_queue<pair<int, int>> qu;
+  for (int i = 1; i <= N; i++) {
     int x; cin >> x;
     if (x > 0) {
-      st.insert({{-x, i}, 1});
+      qu.push({x, i});
     }
   }
-  trace(st);
-  while (st.size()) {
-    auto ft = *st.begin();
-    int u = ft.first.first, c = ft.first.second;
-    if (u > st.size()) {
+  trace(qu);
+  vector<pair<int, int>> ans;
+  while (qu.size()) {
+    auto to = qu.top(); qu.pop();
+    if (to.first > qu.size()) {
       cout << "IMPOSSIBLE\n";
       return;
     }
-    st.erase(st.begin());
-    for (auto& it = st.begin(); it != st.end() && u--; ) {
-      cout << c << " " << it->second << "\n";
-      if (--(it->first) == 0) {
-        it = st.erase(st.begin());
-      }
-      else {
-        it++;
+    vector<pair<int, int>> tmp;
+    for (int i = 0; i < to.first; i++) {
+      tmp.push_back(qu.top());
+      qu.pop();
+    }
+    for (auto t : tmp) {
+      ans.push_back({to.second, t.second});
+      if (t.first > 1) {
+        qu.push({t.first - 1, t.second});
       }
     }
+  }
+  cout << ans.size() << "\n";
+  for (auto& it : ans) {
+    cout << it.first << " " << it.second << "\n";
   }
 }
 
