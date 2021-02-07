@@ -14,6 +14,16 @@ void solve() {
   }
   sort(all(A));
   trace(A);
+  ll ans = 1;
+  for (int i = 0; i < N; i++) {
+    if (ans < A[i]) {
+      break;
+    }
+    else {
+      ans += A[i];
+    }
+  }
+  cout << ans << "\n";
 }
 
 int main() {
