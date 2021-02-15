@@ -1,5 +1,4 @@
-/* created   : 2021-01-18 22:11:09
- * accepted  : $ACCEPTED
+/* created   : 2021-01-18 22:11:09 * accepted  : $ACCEPTED
  */
 #include <bits/stdc++.h>
 using namespace std;
