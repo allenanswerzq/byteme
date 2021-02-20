@@ -7,21 +7,31 @@ using namespace std;
 using ll = long long;
 
 const int mod = 1e9 + 7;
+const int Z = 1e6 + 7;
+ll f[Z][2];
 
 void solve() {
   int N; cin >> N;
-  vector<vector<ll>> f(N + 2, vector<ll>(2));
-  f[N + 1][0] = f[N + 1][1] = 1;
-  for (int i = N; i >= 2; i--) {
-    ll op1 = f[i + 1][0];
-    ll op2 = (f[i + 1][0] + f[i + 1][1]) % mod;
-    ll op3 = 2 * f[i + 1][0] % mod;
-    ll op4 = f[i + 1][1];
+  // TLE: vector<vector<ll>> f(N + 2, vector<ll>(2));
+  memset(f, 0, sizeof(f));
+  f[1][0] = f[1][1] = 1;
+  for (int i = 2; i <= N; i++) {
+    f[i][0] += f[i - 1][0];                  // both extend
+    f[i][0] += 2 * f[i - 1][0];              // extend either side
+    f[i][0] += (f[i - 1][0] + f[i - 1][1]);  // both not extend
 
-    f[i][0] = (op1 + op2 + op3) % mod;
-    f[i][1] = (op1 + op4) % mod;
+    f[i][1] += f[i - 1][0];
+    f[i][1] += 2 * f[i - 1][1];
+    // 2 x 2
+    // -------
+    // |     |
+    // |     |
+    // -------
+
+    f[i][0] %= mod;
+    f[i][1] %= mod;
   }
-  cout << (f[2][0] + f[2][1]) % mod << "\n";
+  cout << (f[N][0] + f[N][1]) % mod << "\n";
 }
 
 int main() {
