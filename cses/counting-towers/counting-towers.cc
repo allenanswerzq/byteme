@@ -14,6 +14,8 @@ void solve() {
   int N; cin >> N;
   // TLE: vector<vector<ll>> f(N + 2, vector<ll>(2));
   memset(f, 0, sizeof(f));
+  // f[i][0]: [_]|[_]
+  // f[i][1]: [_____]
   f[1][0] = f[1][1] = 1;
   for (int i = 2; i <= N; i++) {
     f[i][0] += f[i - 1][0];                  // both extend
