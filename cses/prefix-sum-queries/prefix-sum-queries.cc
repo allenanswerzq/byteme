@@ -6,8 +6,6 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 using ll = long long;
 
-const ll INF = 1e18;
-
 struct Segtree {
   struct node {
     ll pre_sum = 0;
@@ -29,24 +27,12 @@ struct Segtree {
 
   node unite(const node& a, const node& b) const {
     node res;
-    if (a.pre_len == a.tot_len) {
-      assert(a.pre_sum == a.tot_sum);
-      res.pre_sum = max({a.pre_sum, a.tot_sum + b.pre_sum});
-      if (res.pre_sum == a.pre_sum) {
-        res.pre_len = a.pre_len;
-      }
-      else {
-        res.pre_len = a.tot_len + b.pre_len;
-      }
+    res.pre_sum = max({a.pre_sum, a.tot_sum + b.pre_sum});
+    if (res.pre_sum == a.pre_sum) {
+      res.pre_len = a.pre_len;
     }
     else {
-      res.pre_sum = max({a.pre_sum, a.tot_sum + b.pre_sum});
-      if (res.pre_sum == a.pre_sum) {
-        res.pre_len = a.pre_len;
-      }
-      else {
-        res.pre_len = a.tot_len + b.pre_len;
-      }
+      res.pre_len = a.tot_len + b.pre_len;
     }
     res.tot_len = a.tot_len + b.tot_len;
     res.tot_sum = a.tot_sum + b.tot_sum;
