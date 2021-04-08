@@ -124,10 +124,8 @@ struct PersistentSegTree {
     // }
     if (lx <= l && r <= rx) {
       assert(cur);
-      cerr << string(level, ' ')
-           << l << "->" << r << " ("
-           << cur->debug_string()
-           << ")\n";
+      cerr << string(level, ' ') << l << "->" << r
+           << " (" << cur->debug_string() << ")\n";
     }
     if (l + 1 < r) {
       int y = l + (r - l) / 2;

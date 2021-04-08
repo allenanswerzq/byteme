@@ -34,8 +34,7 @@ void solve() {
   for (int j = 1; j <= 20; j++) {
     for (int i = 0; i < N; i++) {
       int p = nxt[i][j - 1];
-      if (p < N) {
-        nxt[i][j] = nxt[p][j - 1];
+      if (p < N) {nxt[i][j] = nxt[p][j - 1];
         val[i][j] = val[i][j - 1] + val[p][j - 1];
       }
     }
