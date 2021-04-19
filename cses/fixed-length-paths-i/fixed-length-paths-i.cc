@@ -7,8 +7,6 @@ using namespace std;
 using ll = long long;
 using ar = array<int, 2>;
 
-const int kMaxDepth = 1000;
-
 vector<vector<int>> g;
 vector<int> sz;
 vector<int> cnt;
@@ -16,6 +14,7 @@ vector<int> visit;
 int N;
 int K;
 ll ans;
+int max_depth;
 
 int get_subtree(int u, int p = -1) {
   sz[u] = 1;
@@ -29,7 +28,7 @@ int get_subtree(int u, int p = -1) {
 
 int get_centroid(int n, int u, int p=-1) {
   for (int v : g[u]) {
-    if (sz[v] > n / 2 && v != p && !visit[v]) {
+    if (sz[v] >= n / 2 && v != p && !visit[v]) {
       return get_centroid(n, v, u);
     }
   }
@@ -38,6 +37,7 @@ int get_centroid(int n, int u, int p=-1) {
 
 void dfs(int u, int p, bool fill, int depth = 1) {
   if (depth > K) return;
+  max_depth = max(max_depth, depth);
   if (fill) {
     cnt[depth]++;
   }
@@ -53,18 +53,18 @@ void dfs(int u, int p, bool fill, int depth = 1) {
 
 void centroid_decomposition(int u) {
   int c = get_centroid(get_subtree(u), u);
-  trace(c);
+  // trace(c);
   visit[c] = true;
+  cnt[0] = 1;
+  max_depth = 0;
   for (int v : g[c]) {
     if (!visit[v]) {
       dfs(v, c, false);
-      trace(c, v, ans, cnt);
       dfs(v, c, true);
-      trace(c, v, ans, cnt);
     }
   }
-  cnt.assign(kMaxDepth, 0);
-  for (int v : g[u]) {
+  fill(cnt.begin(), cnt.begin() + max_depth + 1, 0);
+  for (int v : g[c]) {
     if (!visit[v]) {
       centroid_decomposition(v);
     }
@@ -76,7 +76,7 @@ void solve() {
   g.resize(N);
   sz.resize(N);
   visit.resize(N);
-  cnt.resize(kMaxDepth);
+  cnt.resize(N);
   for (int i = 0; i < N - 1; i++) {
     int u, v; cin >> u >> v;
     u--, v--;
@@ -90,5 +90,4 @@ void solve() {
 int main() {
   ios_base::sync_with_stdio(0), cin.tie(0);
   solve();
-  return 0;
 }
