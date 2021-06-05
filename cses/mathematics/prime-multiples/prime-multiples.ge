@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+#include "array.h"
+#include "tree.h"
+using namespace std;
+using ll = long long;
+#define all(x) (x).begin(), (x).end()
+
+void generate() {
+  vector<int> primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71};
+  int N = rnd.next(1, 100000);
+  int K = rnd.next(1, 20);
+  cout << N << " " << K << "\n";
+  for (int i = 0; i < K; i++) {
+    cout << primes[i] << (i == K - 1 ? "\n" : " ");
+  }
+}
+
+int main() {
+  generate();
+  return 0;
+}
