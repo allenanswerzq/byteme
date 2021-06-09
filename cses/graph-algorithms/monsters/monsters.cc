@@ -66,6 +66,8 @@ void solve() {
       if (S[xx][yy] != '.') continue;
       if (dist[xx][yy] != INF) continue;
       if (dist[x][y] + 1 < distm[xx][yy]) {
+        // If i can go to some grid before the fastest monster, then
+        // its safe to move to that grid.
         dist[xx][yy] = dist[x][y] + 1;
         me.push_back({xx, yy});
       }
