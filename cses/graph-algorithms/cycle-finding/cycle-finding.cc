@@ -16,6 +16,7 @@ void solve() {
     a--, b--;
     g[a].push_back({b, c});
   }
+  trace(g);
   // gv.DrawGraph();
   const ll INF = 1e18;
   vector<ll> dist(N, INF);
@@ -32,13 +33,16 @@ void solve() {
         }
       }
     }
+    trace(i, dist);
   }
+  trace(pre);
+  // https://cp-algorithms.com/graph/bellman_ford.html
   for (int u = 0; u < N; u++) {
     for (auto& t : g[u]) {
       int v = t[0], c = t[1];
       if (dist[u] + c < dist[v]) {
         // NOTE: we process the node in the order from 0 to N - 1, after the
-        // fisrt N - 1 iteration, the previous pointer `pre` must point to the
+        // fisrt N - 1 iterations, the previous pointer `pre` must point to the
         // node inside cycle for every cycle node.
         //
         // NOTE: the edge (u-->v) may not a cycle edge, thus we need to find a
@@ -48,7 +52,7 @@ void solve() {
         // e.g.
         //        4
         //     /     \
-        // -->  cycle 12--> 2 --> 6
+        // -->  cycle 12 --> 2 --> 6
         //     \ ... /
         //
         // When processing node 12, it may lead to a reduce for node 2, thus in
@@ -57,10 +61,12 @@ void solve() {
         for (int i = 0; i < N; i++) {
           u = pre[u];
         }
+        trace(u, pre);
         // Now, the u definitely is a node on the cycle.
         vector<int> ans;
-        for (int j = u;; j = pre[u]) {
+        for (int j = u;; j = pre[j]) {
           ans.push_back(j);
+          trace(j, ans);
           if (j == u && ans.size() > 1) {
             break;
           }
