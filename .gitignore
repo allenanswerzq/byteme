@@ -37,6 +37,7 @@ cmp
 test/*
 codeforces/Solutions/*
 **/*.dSYM/*
+*-std-err
 *.ga
 *.gb
 *.gg
@@ -44,7 +45,5 @@ codeforces/Solutions/*
 *.inp
 *.out
 *.rel
-*.ge
-*.mp
 *.in
 *.res
