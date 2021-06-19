@@ -27,6 +27,9 @@ void solve() {
       else if (vis[v] == 0) {
         dfs(v);
       }
+      else {
+        // Already been processsed.
+      }
     }
     ans.push_back(u);
     vis[u] = 2;

@@ -24,7 +24,7 @@ void solve() {
       if (vis[v] == 1) {
         pre[v] = u;  // Connect the cycle up
         vector<int> ans;
-        for (int j = v;; j = pre[j]) {
+        for (int j = v; ;j = pre[j]) {
           ans.push_back(j);
           if (j == v && ans.size() > 1) {
             break;
@@ -36,9 +36,13 @@ void solve() {
           cout << ans[i] + 1 << (i == ans.size() - 1 ? '\n' : ' ');
         }
         exit(0);
-      } else if (vis[v] == 0) {
+      }
+      else if (vis[v] == 0) {
         pre[v] = u;
         dfs(v);
+      }
+      else {
+        // No cycle exists after finished visit node v before
       }
     }
     vis[u] = 2;

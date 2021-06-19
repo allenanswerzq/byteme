@@ -1,38 +1,45 @@
 /* created   : 2020-11-19 16:42:43
- * accepted  : 2020-11-19 17:26:31
+ * accepted  : 2021-06-19 07:26:57
  */
 #include <bits/stdc++.h>
 using namespace std;
 #define all(x) (x).begin(), (x).end()
 using ll = long long;
 
+const int INF = 1e9;
+int N, M;
+vector<vector<int>> g;
+vector<int> dist;
+vector<int> nxt;
+vector<int> visit;
+
+void dfs(int u) {
+  visit[u] = true;
+  for (int v : g[u]) {
+    if (!visit[v]) {
+      dfs(v);
+    }
+    if (dist[v] != -INF && dist[u] < dist[v] + 1) {
+      dist[u] = dist[v] + 1;
+      nxt[u] = v;
+    }
+  }
+}
+
 void solve() {
-  int N, M; cin >> N >> M;
-  vector<vector<int>> g(N);
+  cin >> N >> M;
+  g.resize(N);
   for (int i = 0; i < M; i++) {
     int u, v; cin >> u >> v;
     u--, v--;
     g[u].push_back(v);
   }
-  vector<int> nxt(N);
-  const int INF = 1e9;
-  vector<int> f(N, -INF);
-  f[N - 1] = 1;
-  nxt[N - 1] = -1;
-  std::function<void(int)> dfs = [&](int u) {
-    for (int v : g[u]) {
-      if (f[v] == -INF) {
-        dfs(v);
-      }
-      if (f[v] != -INF && f[u] < f[v] + 1) {
-        f[u] = f[v] + 1;
-        nxt[u] = v;
-      }
-    }
-  };
+  nxt.resize(N, -1);
+  dist.resize(N, -INF);
+  visit.resize(N);
+  dist[N - 1] = 0;
   dfs(0);
-  trace(f[0]);
-  if (f[0] == -INF) {
+  if (dist[0] == -INF) {
     cout << "IMPOSSIBLE\n";
     return;
   }
@@ -40,7 +47,7 @@ void solve() {
   for (int u = 0; u != -1; u = nxt[u]) {
     ans.push_back(u);
   }
-  cout << f[0] << "\n";
+  cout << dist[0] + 1 << "\n";
   for (int i = 0; i < ans.size(); i++) {
     if (i > 0) {
       cout << " ";
