@@ -1,98 +1,118 @@
 /* created   : 2020-11-20 11:35:37
- * accepted  : 2020-11-20 22:04:46
+ * accepted  : 2021-06-26 09:38:25
  */
 #include <bits/stdc++.h>
 using namespace std;
 #define all(x) (x).begin(), (x).end()
 using ll = long long;
 
+int N;
+int Q;
+vector<vector<int>> g;
+vector<bool> visit;
+vector<int> pre;
+vector<int> root;
+vector<int> cidx;
+vector<int> csize;
+vector<int> depth;
+vector<int> enter;
+vector<int> leave;
+int counter;
+
+void dfs(int u) {
+  visit[u] = true;
+  counter++;
+  enter[u] = counter;
+  for (int v : g[u]) {
+    if (!visit[v]) {
+      csize[v] = csize[u];
+      depth[v] = depth[u] + 1;
+      root[v] = root[u];
+      cidx[v] = cidx[u];
+      dfs(v);
+    }
+  }
+  leave[u] = counter;
+}
+
+bool is_ancestor(int a, int b) {
+  return enter[a] <= enter[b] && leave[b] <= leave[a];
+}
+
 void solve() {
-  int N, Q; cin >> N >> Q;
-  vector<int> pre(N);
-  vector<vector<int>> g(N);
-  Graphviz gv("g");
+  cin >> N >> Q;
+  g.resize(N);
+  pre.resize(N, -1);
+  visit.resize(N);
+  cidx.resize(N);
+  csize.resize(N);
+  root.resize(N);
+  depth.resize(N);
+  enter.resize(N);
+  leave.resize(N);
+  Graphviz gv(GraphDrawType::Directed);
   for (int i = 0; i < N; i++) {
     int x; cin >> x;
-    pre[i] = --x;
-    gv.AddEdge(x, i);
+    x--;
+    // reverse the edge direction (i --> x) to (x --> i)
+    pre[i] = x;
     g[x].push_back(i);
+    gv.gvAddEdge(x, i);
   }
-  gv.DrawGraph();
-  vector<int> root(N, -1);
-  vector<int> depth(N);
-  vector<int> index(N);
-  vector<int> csize(N);
-  vector<int> enter(N);
-  vector<int> leave(N);
-  vector<int> pos(N);
-  vector<int> vis(N);
-  vector<int> cycle;
-  auto is_ancester = [&](int u, int v) {
-    return (enter[u] <= enter[v] && leave[v] <= leave[u]);
-  };
-  int time = 0;
-  std::function<void(int)> dfs = [&](int u) {
-    time++;
-    enter[u] = time;
-    trace("enter", u, time);
-    for (int v : g[u]) {
-      trace(u, v, root[v], root[u], g[u]);
-      if (root[v] == -1) {
-        root[v] = root[u];
-        depth[v] = depth[u] + 1;
-        index[v] = index[u];
-        csize[v] = csize[u];
-        dfs(v);
-      }
-    }
-    trace("leave", u, time);
-    leave[u] = time;
-  };
+  gv.gvDrawGraph();
+  vector<int> seen(N);
+  vector<int> cpos(N);
   for (int i = 0; i < N; i++) {
-    if (root[i] != -1) continue;
+    if (visit[i]) continue;
+    // NOTE: each connected graph must have a cycle in it.
     int u = i;
-    while (!vis[u]) {
-      vis[u] = 1;
-      u = pre[u];
+    for (; !seen[u]; u = pre[u]) {
+      seen[u] = true;
     }
-    cycle.clear();
+    // Now, `u` is a node on the cycle
+    vector<int> cycle;
     for (int j = u; ;j = pre[j]) {
-      if (j == u && cycle.size() >= 1) {
-        break;
-      }
-      index[j] = i;
-      root[j] = j;
-      pos[j] = cycle.size();
+      if (j == u && cycle.size() > 1) break;
       cycle.push_back(j);
+      visit[j] = true;
     }
-    trace(i, cycle);
-    trace(i, index);
-    trace(i, pos);
-    for (int c : cycle) {
-      time = 0;
-      csize[c] = cycle.size();
+    // Cycle here is at the reversed direction, so changed it back
+    reverse(all(cycle));
+    trace(u, cycle, root);
+    for (int t = 0; t < (int) cycle.size(); t++) {
+      int c = cycle[t];
+      cidx[c] = u;
+      csize[c] = (int) cycle.size();
+      cpos[c] = t;
+      root[c] = c;
+      counter = 0;
       dfs(c);
-      trace(i, c, enter);
-      trace(i, c, leave);
     }
   }
-  trace(depth, csize, pos);
+  trace(cidx);
+  trace(root);
+  trace(depth);
+  trace(csize);
+  trace(cpos);
   for (int i = 0; i < Q; i++) {
     int a, b; cin >> a >> b;
     a--, b--;
-    trace(a, b);
+    // NOTE: we reversed edeg at the beginning, so here we need
+    // to start from b then go to a
+    // b --> a
+    trace(b, a);
     int ans = -1;
-    if (index[a] == index[b]) {
+    if (cidx[a] == cidx[b]) {
+      // Both belong to the same connected graph
       if (root[b] == b) {
-      // b is a cycle node
+        // b is a cycle node, then it's definitely can reach to a
+        // b --> root[a] --> a
         ans = depth[a];
         a = root[a];
-        ans += (pos[b] - pos[a] + csize[a]) % csize[a];
+        ans += (cpos[a] - cpos[b] + csize[a]) % csize[a];
       }
-      else {
-        if (root[a] == root[b] && is_ancester(b, a)) {
-          ans = depth[a] - depth[b];
-        }
+      else if (root[a] == root[b] && is_ancestor(b, a)) {
+        ans = depth[a] - depth[b];
       }
     }
     cout << ans << "\n";
