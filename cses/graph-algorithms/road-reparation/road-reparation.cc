@@ -1,5 +1,5 @@
 /* created   : 2020-11-21 10:56:52
- * accepted  : 2020-11-21 11:34:23
+ * accepted  : 2021-06-26 16:39:59
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -58,7 +58,7 @@ void solve_kruskal() {
   };
   dfs(0);
   for (int i = 0; i < N; i++) {
-    if (!vis[i] && i > 0) {
+    if (!vis[i]) {
       cout << "IMPOSSIBLE\n";
       return;
     }
@@ -68,7 +68,7 @@ void solve_kruskal() {
   ll ans = 0;
   int cnt = 0;
   for (int i = 0; i < M && cnt < N; i++) {
-    int c = edge[i][0], u = edge[i][1], v = edge[i][2];
+    ll c = edge[i][0], u = edge[i][1], v = edge[i][2];
     if (!dsu.same(u, v)) {
       cnt++;
       dsu.unite(u, v);
@@ -100,12 +100,11 @@ void solve() {
   };
   dfs(0);
   for (int i = 0; i < N; i++) {
-    if (!vis[i] && i > 0) {
+    if (!vis[i]) {
       cout << "IMPOSSIBLE\n";
       return;
     }
   }
-  Dsu dsu(N);
   ll ans = 0;
   int cnt = 0;
   priority_queue<array<ll, 2>, vector<array<ll, 2>>> qu;
@@ -113,21 +112,23 @@ void solve() {
     qu.push({-t[1], t[0]});
   }
   int u = 0;
+  vector<int> seen(N);
+  seen[u] = 1;
   while (qu.size() && cnt < N) {
     auto top = qu.top();
     qu.pop();
     ll c = -top[0], v = top[1];
-    assert(0 <= v && v < N);
-    if (!dsu.same(u, v)) {
-      dsu.unite(u, v);
-      trace(u, v);
-      cnt++;
-      ans += c;
-      for (auto t : g[v]) {
+    // Skip cycle
+    if (seen[v]) continue;
+    seen[v] = 1;
+    cnt++;
+    ans += c;
+    for (auto t : g[v]) {
+      if (!seen[t[0]]) {
         qu.push({-t[1], t[0]});
       }
-      u = v;
     }
+    u = v;
   }
   cout << ans << "\n";
 }
