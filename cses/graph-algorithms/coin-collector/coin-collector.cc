@@ -1,122 +1,112 @@
 /* created   : 2020-11-22 20:55:46
- * accepted  : 2020-11-22 22:05:41
+ * accepted  : 2021-06-27 10:21:53
  */
 #include <bits/stdc++.h>
 using namespace std;
 #define all(x) (x).begin(), (x).end()
 using ll = long long;
 
-class SccGraph {
- public:
-  explicit SccGraph(int n) : n_(n), scc_index_(0) {
-    g_.resize(n_);
-    z_.resize(n_);
+struct TarjanScc {
+  vector<vector<int>> g;
+  vector<int> scc;
+  // Pre order sequence
+  vector<int> pre;
+  // Low link value
+  vector<int> low;
+  vector<int> stk;
+  int scc_cnt;
+  int order;
+  int n;
+  int m;
+
+  TarjanScc(int n_) : n(n_) {
+    g.resize(n);
+    scc.resize(n);
+    low.resize(n);
+    pre.resize(n, -1);
+    scc_cnt = 0;
+    order = 0;
   }
 
-  void AddEdge(int u, int v) {
-    gv_.gvAddEdge(u, v);
-    g_[u].push_back(Edge{v});
-    z_[v].push_back(Edge{u});
+  void add_edge(int u, int v) {
+    g[u].push_back(v);
+    m++;
   }
 
-  int SccCount() const { return scc_index_; }
-
-  vector<vector<int>> ComponentGroup() {
-    vector<int> scc = DoScc();
-    int scc_count = SccCount();
-    assert((int)scc.size() == n_);
-    assert(scc_count >= 1);
-    vector<vector<int>> ans(scc_count);
-    for (int i = 0; i < n_; i++) {
-      ans[scc[i]].push_back(i);
+  void dfs(int u) {
+    pre[u] = order++;
+    low[u] = pre[u];
+    stk.push_back(u);
+    for (int v : g[u]) {
+      if (pre[v] == -1) {
+        // Forward edge
+        dfs(v);
+        low[u] = min(low[u], low[v]);
+      }
+      else {
+        // Back edge or cross edge
+        low[u] = min(low[u], pre[v]);
+      }
     }
-    for (int i = 0; i < scc_count; i++) {
-      assert(ans[i].size() > 0);
+    if (low[u] == pre[u]) {
+      // Root node of a scc
+      scc[u] = scc_cnt;
+      while (true) {
+        int v = stk.back();
+        stk.pop_back();
+        scc[v] = scc_cnt;
+        // NOTE: ignore the cross edge
+        // r -> u, r -> v, v -> u
+        //        r
+        //     /     \
+        //    u <---- v
+        //
+        // When processing node v, the edge v -> u will be a cross edge,
+        // even though it reaches u, but it does not effect the low link
+        // value that v can escape.
+        //
+        pre[v] = m;
+        if (v == u) break;
+      }
+      scc_cnt++;
+    }
+  }
+
+  void do_dfs() {
+    for (int i = 0; i < n; i++) {
+      if (pre[i] == -1) {
+        dfs(i);
+      }
+    }
+    assert(stk.empty());
+  }
+
+  vector<vector<int>> scc_group() {
+    vector<vector<int>> ans(scc_cnt);
+    for (int i = 0; i < n; i++) {
+      assert(0 <= scc[i] && scc[i] < scc_cnt);
+      ans[scc[i]].push_back(i);
     }
     return ans;
   }
 
-  // Returns: scc_id for every node
-  std::vector<int> DoScc() {
-    if (scc_.size()) {
-      return scc_;
-    }
-    gv_.gvDrawGraph();
-    vector<int> vis(n_);
-    vector<int> order;
-    for (int i = 0; i < n_; i++) {
-      if (!vis[i]) {
-        dfs(g_, vis, i, &order, /*scc=*/nullptr);
-      }
-    }
-    vis.assign(n_, 0);
-    scc_.resize(n_);
-    scc_index_ = 0;
-    for (int i = order.size() - 1; i >= 0; i--) {
-      int u = order[i];
-      if (!vis[u]) {
-        dfs(z_, vis, u, /*order=*/nullptr, &scc_);
-        scc_index_++;
-      }
-    }
-    return scc_;
-  }
-
-  vector<vector<int>> ComponentGraph() {
-    vector<int> scc = DoScc();
-    int cnt = SccCount();
-    vector<set<int>> tmp(cnt);
-    for (int u = 0; u < n_; u++) {
-      for (Edge& e : g_[u]) {
-        int v = e.to;
-        if (scc[u] != scc[v]) {
-          tmp[scc[u]].insert(scc[v]);
+  vector<vector<int>> meta_graph() {
+    vector<set<int>> mg(scc_cnt);
+    vector<vector<int>> ans(scc_cnt);
+    for (int u = 0; u < n; u++) {
+      for (int v : g[u]) {
+        int su = scc[u];
+        int sv = scc[v];
+        if (su != sv) {
+          if (!mg[su].count(sv)) {
+            mg[su].insert(sv);
+            ans[su].push_back(sv);
+          }
         }
       }
     }
-    vector<vector<int>> ans(cnt);
-    Graphviz cg("cg");
-    for (int i = 0; i < cnt; i++) {
-      for (int u : tmp[i]) {
-        cg.gvAddEdge(i, u);
-        ans[i].push_back(u);
-      }
-    }
-    cg.gvDrawGraph();
     return ans;
   }
-
- private:
-  // Represents an edge
-  struct Edge {
-    int to;
-  };
-
-  void dfs(vector<vector<Edge>>& g, vector<int>& vis, int u,
-           vector<int>* order, vector<int>* scc = nullptr) {
-    vis[u] = 1;
-    if (scc) {
-      assert(scc->size() == g.size());
-      scc->operator[](u) = scc_index_;
-    }
-    for (auto& e : g[u]) {
-      int v = e.to;
-      if (vis[v] == 0) {
-        dfs(g, vis, v, order, scc);
-      }
-    }
-    if (order) {
-      order->push_back(u);
-    }
-    vis[u] = 2;
-  }
-
-  int n_;
-  int scc_index_;
-  Graphviz gv_;
-  vector<vector<Edge>> g_;
-  vector<vector<Edge>> z_;
-  vector<int> scc_;
 };
 
 void solve() {
@@ -125,15 +115,16 @@ void solve() {
   for (int i = 0; i < N; i++) {
     cin >> coin[i];
   }
-  SccGraph g(N);
+  TarjanScc g(N);
   for (int i = 0; i < M; i++) {
     int u, v; cin >> u >> v;
     u--, v--;
-    g.AddEdge(u, v);
+    g.add_edge(u, v);
   }
-  vector<vector<int>> group = g.ComponentGroup();
-  int cnt = g.SccCount();
-  vector<vector<int>> cg = g.ComponentGraph();
+  g.do_dfs();
+  vector<vector<int>> group = g.scc_group();
+  int cnt = g.scc_cnt;
+  vector<vector<int>> cg = g.meta_graph();
   vector<ll> coins(cnt);
   for (int i = 0; i < cnt; i++) {
     ll s = 0;
@@ -142,7 +133,6 @@ void solve() {
     }
     coins[i] = s;
   }
-  trace(g.DoScc(), coins, cg, group);
   vector<int> vis(cnt);
   vector<ll> f(all(coins));
   std::function<void(int)> dfs = [&](int u) {
@@ -152,7 +142,6 @@ void solve() {
       if (vis[v] == 0) {
         dfs(v);
       }
-      trace(u, v, f[u], f[v], f[v] + coins[u]);
       f[u] = max(f[u], f[v] + coins[u]);
     }
     vis[u] = 2;
