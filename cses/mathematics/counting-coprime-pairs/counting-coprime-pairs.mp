@@ -1,33 +1,69 @@
-/* created   : 2021-06-05 16:24:08
- * accepted  : $ACCEPTED
- */
-#include <bits/stdc++.h>
-using namespace std;
-#define all(x) (x).begin(), (x).end()
-using ll = long long;
-using ar = array<ll, 2>;
+#include <cstring>
+#include <fstream>
+#include <iostream>
+#include <map>
+#include <memory.h>
+#include <string>
+#include <vector>
 
-void solve() {
-  int N; cin >> N;
-  vector<int> A(N);
-  for (auto& a : A) {
-    cin >> a;
+using namespace std;
+
+long long ans = 0;
+int cnt[1000005];
+int n, x;
+int a[100005];
+
+int gcd(int a, int b) {
+  while (a > 0 && b > 0) {
+    if (a > b)
+      a %= b;
+    else
+      b %= a;
   }
-  trace(A);
-  int ans = 0;
-  for (int i = 0; i < N; i++) {
-    for (int j = i + 1; j < N; j++) {
-      trace(i, j, A[i], A[j]);
-      if (__gcd(A[i], A[j]) == 1) {
-        ans++;
-      }
-    }
-  }
-  cout << ans << "\n";
+  return (a + b);
 }
 
+int p[1000005];
+
+// cnt[i] - number of elements that are equal to i
+
 int main() {
-  ios_base::sync_with_stdio(0), cin.tie(0);
-  solve();
-  return 0;
+  scanf("%d", &n);
+  for (int i = 0; i < n; ++i) {
+    scanf("%d", &x);
+    cnt[x]++;
+  }
+  for (int i = 2; i <= 1000000; ++i) {
+    int j = i;
+    long long all = 0;
+    // use method of inclusions
+    while (j <= 1000000) {
+      all += cnt[j];
+      p[j] = i;
+      j += i;
+    }
+    int x = i;
+    bool ok = true;
+    int ret = 0;
+    for (int d = 2; d * d <= x; ++d)
+      if (x % d == 0) {
+        x /= d;
+        ret++;
+        if (x % d == 0) {
+          ok = false;
+          break;
+        }
+      }
+    if (!ok)
+      continue;
+    if (x > 1)
+      ret++;
+    long long dd = 1LL * all * (all - 1) * (all - 2) / 6;
+    if (ret % 2 == 1)
+      ans += dd;
+    else
+      ans -= dd;
+  }
+  long long res = 1LL * n * (n - 1) * (n - 2) / 6 - ans;
+  cout << res << endl;
 }
