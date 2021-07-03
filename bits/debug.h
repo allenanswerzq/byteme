@@ -80,9 +80,7 @@ struct debug {
     for (int i = 0; i < n; i++) {
       ans[i] = mat[i];
     }
-    debug() << "[";
     debug() << ans;
-    debug() << "]";
     return *this;
   }
 
@@ -92,9 +90,11 @@ struct debug {
     // Real place where printing out a vector with custom size N.
     auto mat = std::get<0>(array);
     int n = std::get<1>(array);
-    debug() << "[";
-    debug() << mat;
-    debug() << "]";
+    vector<int> ans(n);
+    for (int i = 0; i < n; i++) {
+      ans[i] = mat[i];
+    }
+    debug() << ans;
     return *this;
   }
 
@@ -137,12 +137,6 @@ struct debug {
     debug() << "]";
     return *this;
   }
-
-  // template <class S, S (*op)(S, S), S (*e)()>
-  // debug &operator<<(Segtree<S, op, e> &seg) {
-  //   seg.debug();
-  //   return *this;
-  // }
 
   template <class T>
   typename enable_if<std::is_arithmetic<T>::value, debug &>::type &operator<<(vector<vector<T>> &v) {
@@ -251,6 +245,7 @@ void __print(const string &names, T arg) {
   //   debug() << arg << "\n";
   // }
   // else {
+  // debug() << typeid(T).name() << "\n";;
   debug() << name << ": " << arg << "\n";
   // }
 }
@@ -289,9 +284,9 @@ void __print(const string &namexx, T arg, Args... args) {
     // eg. trace("TEST", var1, var2);
     int w = name.size();
     debug() << name.substr(1, w - 2) << ": | ";
-  } else {
+  }
+  else {
     debug() << name << ": " << arg << " | ";
-    // __print(name.c_str(), arg);
   }
   while (p + 1 < n && names[p + 1] == ' ') {
     // Stripping white spaces.
