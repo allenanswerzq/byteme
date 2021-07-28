@@ -1,5 +1,5 @@
 /* created   : 2021-07-28 07:09:06
- * accepted  : 2021-07-28 08:48:35
+ * accepted  : 2021-07-28 22:53:34
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -33,30 +33,29 @@ class Bit {
   vector<T> t_;
 };
 
+template <bool ONE = false>
 struct Discreter {
-  vector<int> e;
-  unordered_map<int, int> t;
-  int mx = 0;
-  bool one = true;
+  unordered_map<int, int> raw_dis_;
+  vector<int> sorted_;
 
-  Discreter(const vector<int>& v) {
-    e = v;
-    sort(all(e));
-    e.erase(unique(all(e)), e.end());
-    for (int x : v) {
-      int p = lower_bound(all(e), x) - e.begin() + one;
-      mx = max(mx, p);
-      t[x] = p;
+  Discreter(vector<int> &val) {
+    sorted_ = val;
+    sort(all(sorted_));
+    sorted_.erase(unique(all(sorted_)), sorted_.end());
+    for (int &x : val) {
+      int p = lower_bound(all(sorted_), x) - sorted_.begin() + ONE;
+      raw_dis_[x] = p;
     }
   }
 
-  int size() { return mx; }
+  // The maxinum value after discreting
+  int max() { return sorted_.size(); }
 
   // Given a raw value, returns the discreted value.
-  int get_dis(int x) { return t[x]; }
+  int get(int r) { return raw_dis_[r]; }
 
-  // Given a discreted value, return the raw value.
-  int get_raw(int x) { return e[x - one]; }
+  // Given a discreted value, returns the raw value.
+  int raw(int d) { return sorted_[d - ONE]; }
 };
 
 void solve() {
@@ -65,17 +64,17 @@ void solve() {
   for (int & a : A) {
     cin >> a;
   }
-  Discreter dis(A);
+  Discreter<> dis(A);
   const int Z = 1e5;
   Bit<ll> bit(Z);
   // f[i] = max(f[j]) + A[i] (for all j < i, A[j] < A[i]);
   vector<ll> f(N);
   ll ans = 0;
   for (int i = 0; i < N; i++) {
-    ll v = bit.query(dis.get_dis(A[i]) - 1);
+    ll v = bit.query(dis.get(A[i]) - 1);
     f[i] = v + A[i];
     ans = max(ans, f[i]);
-    bit.add(dis.get_dis(A[i]), f[i]);
+    bit.add(dis.get(A[i]), f[i]);
   }
   cout << ans << "\n";
 }
