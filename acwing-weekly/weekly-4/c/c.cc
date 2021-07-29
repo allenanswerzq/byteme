@@ -1,5 +1,5 @@
 /* created   : 2021-07-29 07:37:20
- * accepted  : 2021-07-29 08:35:50
+ * accepted  : 2021-07-29 22:12:39
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -12,7 +12,6 @@ void solve() {
   vector<vector<int>> g(N);
   vector<ar> cand;
   vector<int> deg(N);
-  set<int> st;
   for (int i = 0; i < M; i++) {
     int t, x, y; cin >> t >> x >> y;
     x--, y--;
@@ -22,12 +21,10 @@ void solve() {
     else {
       g[x].push_back(y);
       deg[y]++;
-      st.insert(x);
-      st.insert(y);
     }
   }
   deque<int> qu;
-  for (int i : st) {
+  for (int i = 0; i < N; i++) {
     if (deg[i] == 0) {
       qu.push_back(i);
     }
@@ -36,6 +33,7 @@ void solve() {
   int cnt = 0;
   while (qu.size()) {
     int u = qu.front(); qu.pop_front();
+    assert(!order.count(u));
     order[u] = cnt++;
     for (int v : g[u]) {
       if (--deg[v] == 0) {
@@ -43,7 +41,7 @@ void solve() {
       }
     }
   }
-  if (order.size() != st.size()) {
+  if (order.size() != N) {
     cout << "NO\n";
     return;
   }
