@@ -1,5 +1,5 @@
 /* created   : 2021-07-30 08:29:49
- * accepted  : 2021-07-30 22:49:17
+ * accepted  : 2021-07-31 09:01:50
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -8,25 +8,19 @@ using ll = long long;
 using ar = array<int, 2>;
 
 void solve() {
-  // x * k ^ i = y
   int N, K; cin >> N >> K;
-  const ll INF = 1e17 + 7;
+  vector<int> cnt(100);
   for (int i = 0; i < N; i++) {
-    ll y; cin >> y;
-    assert(y < INF);
-    if (y == 0) continue;
-    ll p = 1;
-    for (int j = 0; j <= i; j++) {
-      assert(p < INF);
-      if (p > y / K) {
-        cout << "NO\n";
-        return;
-      }
-      p *= K;
-      assert(p < INF);
+    ll x; cin >> x;
+    // 123
+    // 10^2 + 2*10^1 + 3*10
+    for (int j = 0; x > 0; j++) {
+      cnt[j] += x % K;
+      x /= K;
     }
-    assert(p > 0);
-    if (y % p != 0) {
+  }
+  for (int c : cnt) {
+    if (c > 1) {
       cout << "NO\n";
       return;
     }
