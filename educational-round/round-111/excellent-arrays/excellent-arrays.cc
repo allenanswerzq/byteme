@@ -1,5 +1,5 @@
 /* created   : 2021-08-25 07:49:15
- * accepted  : 2021-08-26 22:04:12
+ * accepted  : 2021-08-27 07:45:50
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -17,11 +17,11 @@ struct CombinaLarge {
     fact_inv.resize(n + 1);
     fact[0] = 1;
     for (int i = 1; i <= n; ++i) {
-      fact[i] = i * fact[i - 1] % MOD;
+      fact[i] = fact[i - 1] * i % MOD;
     }
     fact_inv[n] = power(fact[n], MOD - 2);
     for (int i = n - 1; i >= 0; --i) {
-      fact_inv[i] = fact_inv[i + 1] * i % MOD;
+      fact_inv[i] = fact_inv[i + 1] * (i + 1) % MOD;
     }
   }
 
@@ -43,24 +43,25 @@ struct CombinaLarge {
   // Choose k from total n items with permutation
   int npk(int n, int k) {
     // nPk = nCk * k!
-    int ret = nck(n, k);
-    ret *= fact[k];
-    return (int)ret;
+    ll ret = nck(n, k);
+    ret = ret * fact[k] % MOD;
+    return ret % MOD;
   }
 
   int operator()(int n, int k) {
     if (k < 0 || n < k) {
       return 0;
     }
-    return int(fact[n] * fact_inv[k] * fact_inv[n - k]);
+    return fact[n] * fact_inv[k] % MOD * fact_inv[n - k] % MOD;
   }
 };
 
 void solve() {
-  const int mod = 1e9 + 7;
   int N, L, R; cin >> N >> L >> R;
   ll k = min(R - N, -(L - 1));
-  CombinaLarge<mod> comb((int)2e5 + 7);
+  const int mod = 1e9+7;
+  CombinaLarge<mod> comb(N + 7);
+
   int ans = 0;
   ans += k * comb.nck(N, N / 2) % mod;
   if (N & 1) {
@@ -78,7 +79,6 @@ void solve() {
       break;
     }
     int both = N - (N - pos) - (N - neg);
-    if (both < 0) break;
     pos -= both;
     neg -= both;
     if (N & 1) {
