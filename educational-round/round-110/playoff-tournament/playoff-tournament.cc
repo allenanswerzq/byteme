@@ -1,5 +1,5 @@
 /* created   : 2021-08-29 07:57:06
- * accepted  : 2021-08-29 10:37:42
+ * accepted  : 2021-08-29 20:01:30
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -36,37 +36,23 @@ void solve() {
   for (int i = 0; i < Q; i++) {
     int p; char ch; cin >> p >> ch;
     p--;
+    S[p] = ch;
     int u = M - p;
-    int ans = 0;
-    if (ch == '?') {
-      ans = f[2 * u] + f[2 * u + 1];
-    }
-    else if (ch == '0') {
-      ans = f[2 * u + 1];
-    }
-    else {
-      ans = f[2 * u];
-    }
-    trace("start", p, u, ans);
-    for (; u != 1; u /= 2) {
-      int parent = u / 2;
-      int cur = 0;
-      trace(i, parent, u, ans, M - parent);
-      if (S[M - parent] == '?') {
-        // If u is a left child
-        cur = ans + ((u & 1) ? f[2 * parent] : f[2 * parent + 1]);
+    trace(i, p, ch, u);
+    while (u > 0) {
+      if (S[M - u] == '?') {
+        f[u] = f[2 * u + 1] + f[2 * u];
       }
-      else if (S[M - parent] == '0') {
+      else if (S[M - u] == '0') {
         // >
-        cur = (u & 1) ? ans : f[2 * parent + 1];
+        f[u] = f[2 * u + 1];
       }
       else {
-        cur = (u & 1) ? f[2 * parent] : ans;
+        f[u] = f[2 * u];
       }
-      ans = cur;
-      trace(i, u, ans);
+      u = u / 2;
     }
-    cout << ans << "\n";
+    cout << f[1] << "\n";
   }
 }
 
