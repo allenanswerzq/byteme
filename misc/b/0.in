@@ -1,0 +1,5 @@
+4
+softmax 10 1 2
+relu 5
+conv1 1 3
+soft 2

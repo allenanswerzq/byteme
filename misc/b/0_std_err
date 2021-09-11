@@ -1,0 +1,4 @@
+[0;36m{solve: 19} [0mi:    0 | ss: softmax 10 1 2
+[0;36m{solve: 19} [0mi:    1 | ss: relu 5
+[0;36m{solve: 19} [0mi:    2 | ss: conv1 1 3
+[0;36m{solve: 19} [0mi:    3 | ss: soft 2
