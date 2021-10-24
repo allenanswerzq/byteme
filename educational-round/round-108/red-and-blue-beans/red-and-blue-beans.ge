@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+#include "array.h"
+#include "tree.h"
+using namespace std;
+using ll = long long;
+#define all(x) (x).begin(), (x).end()
+
+void generate() {
+  int R = rnd.next(1, 100);
+  int B = rnd.next(1, 100);
+  int D = rnd.next(1, 100);
+  puts(1, R, B, D);
+}
+
+int main() {
+  generate();
+  return 0;
+}
