@@ -7,7 +7,7 @@ using namespace std;
 using ll = long long;
 using ar = array<int, 2>;
 
-template <int MOD>
+template <int MOD = (int)1e9+7>
 struct CombinaLarge {
   vector<ll> fact;
   vector<ll> fact_inv;
