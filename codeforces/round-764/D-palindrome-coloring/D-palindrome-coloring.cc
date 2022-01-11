@@ -1,5 +1,5 @@
 /* created   : 2022-01-10 23:41:23
- * accepted  : 2022-01-11 00:31:48
+ * accepted  : 2022-01-11 23:53:49
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,7 +14,7 @@ void solve() {
   for (int i = 0; i < N; i++) {
     mp[S[i]]++;
   }
-  trace(K, mp);
+  trace(N, K, mp);
   vector<int> A;
   for (auto it : mp) {
     A.push_back(it.second);
@@ -33,16 +33,8 @@ void solve() {
   for (int i = 0; i < A.size(); i++) {
     s += A[i];
   }
-  if (K > A.size()) {
-    if (K >= s / 2) {
-      cout << 2 << "\n";
-    }
-    else {
-      cout << 2 + !B.empty() << "\n";
-    }
-    return;
-  }
-  cout << 1 << "\n";
+  int avg = s / 2 / K;
+  cout << avg * 2 + (B.size() + s - avg * 2 * K >= K) << "\n";
 }
 
 int main() {
