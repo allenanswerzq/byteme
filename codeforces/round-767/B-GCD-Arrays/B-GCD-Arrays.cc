@@ -8,11 +8,9 @@ using ll = long long;
 using ar = array<int, 2>;
 
 void solve() {
-  // [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
-  // [3, 4, 5, 6]
-  // [15, 4, 6]
-  // [2,3,4]
-  // [3,4,5]
+  // greedy: there should be not any odd number in the final
+  // array, if there is, gcd for all other even number at least is 2, then
+  // count with this odd one, the gcd of the whole array will be 1.
   int L, R, K; cin >> L >> R >> K;
   if (L == R && L > 1) {
     cout << "YES\n";
