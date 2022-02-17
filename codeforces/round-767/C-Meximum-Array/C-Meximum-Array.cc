@@ -1,5 +1,5 @@
 /* created   : 2022-02-16 00:02:41
- * accepted  : 2022-02-16 23:22:04
+ * accepted  : 2022-02-18 08:46:07
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -15,44 +15,48 @@ void solve() {
     cin >> A[i];
     mp[A[i]].insert(i);
   }
-  trace(A);
-  int nxt = 0;
-  int i = 0;
-  set<int> st;
-  vector<int> ans;
-  while (i < N) {
-    trace(i, nxt, mp);
-    if (mp.count(nxt) && mp[nxt].size() > 0) {
-      assert(mp[nxt].size());
-      int j = *mp[nxt].begin();
-      // [i...j]
-      // [x...nxt]
-      st.clear();
-      for (int k = i; k <= j; k++) {
-        st.insert(A[k]);
-        mp[A[k]].erase(k);
-      }
-      trace(i, j, st);
-      assert(st.size());
-      int len = j - i + 1;
-      int tmp = nxt;
-      for (int t = tmp; t < tmp + len; t++) {
-        if (st.count(t)) {
-          nxt++;
-        }
-      }
-      assert(st.size());
-      if (nxt != *st.rbegin() + 1) {
-        ans.push_back(nxt);
-        nxt = 0;
-      }
-      i = j + 1;
+  auto compute_next_position = [&](int i, int nxt) {
+    if (!mp.count(nxt)) {
+      return -1;
     }
-    else {
+    auto & st = mp[nxt]; // NOTE: should use a reference here
+    auto it = st.lower_bound(i);
+    if (it == st.end()) {
+      return -1;
+    }
+    return *it;
+  };
+  trace(A);
+  vector<int> ans;
+  vector<int> f(N + 1);
+  int i = 0;
+  int nxt = 0;
+  int val = 0;
+  while (i < N) {
+    int j = compute_next_position(i, nxt);
+    if (j == -1) {
       ans.push_back(nxt);
       nxt = 0;
       i++;
+      continue;
     }
+    val++;
+    while (j != -1) {
+      // [i...j]
+      int mx = 0;
+      for (int k = i; k <= j; k++) {
+        f[A[k]] = val;
+        mx = max(A[k], mx);
+        while (f[nxt] == val) {
+          nxt++;
+        }
+      }
+      trace(i, j, nxt, val);
+      i = j + 1;
+      j = compute_next_position(i, nxt);
+    }
+    ans.push_back(nxt);
+    nxt = 0;
   }
   int m = ans.size();
   cout << m << "\n";
