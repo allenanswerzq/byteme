@@ -1,5 +1,5 @@
 /* created   : 2022-02-16 00:02:41
- * accepted  : 2022-02-18 08:46:07
+ * accepted  : 2022-02-18 08:55:22
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -43,10 +43,8 @@ void solve() {
     val++;
     while (j != -1) {
       // [i...j]
-      int mx = 0;
       for (int k = i; k <= j; k++) {
         f[A[k]] = val;
-        mx = max(A[k], mx);
         while (f[nxt] == val) {
           nxt++;
         }
