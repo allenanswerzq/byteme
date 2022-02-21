@@ -1,5 +1,5 @@
 /* created   : 2022-02-20 18:55:57
- * accepted  : 2022-02-21 23:00:41
+ * accepted  : 2022-02-22 05:00:16
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -8,31 +8,29 @@ using ll = long long;
 using ar = array<int, 2>;
 
 void solve() {
-  //
-  // 1 2 2 | 2
-  //
-  // 5 5 5 1 | 5 5 1 | 5 5 5 1
-  // [x, y]
-  //
   int N, K; cin >> N >> K;
   vector<int> A(N);
+  vector<int> B(N);
   for (int i = 0; i < N; i++) {
     cin >> A[i];
+    B[i] = A[i];
   }
+  sort(all(B));
   auto check = [&](int x, int y) {
-    int cnt = 0;
-    // -1 -1 1 1 1
-    // -1 -2 -1 0 1 2 3 4
-    for (int j = 0; j < N; j++) {
-      if (x <= A[j] && A[j] <= y) {
-        cnt++;
-      }
-      else {
-        cnt--;
-      }
-    }
-    // trace(x, y, cnt);
-    return cnt > 0;
+    // int cnt = 0;
+    // for (int j = 0; j < N; j++) {
+    //   if (x <= A[j] && A[j] <= y) {
+    //     cnt++;
+    //   }
+    //   else {
+    //     cnt--;
+    //   }
+    // }
+    // greedy: the number of elements inside the range [x, y] - outside
+    // of range must >= K, so that we can split the array into K subarrays.
+    int in = upper_bound(all(B), y) - lower_bound(all(B), x);
+    int out = N - in;
+    return in - out >= K;
   };
   trace(A, K);
   int mi = 1e9;
@@ -57,9 +55,22 @@ void solve() {
     }
   }
   cout << ans[0] << " " << ans[1] << "\n";
-  // for (int i = 1; i <= K - 1; i++) {
-  //   cout << i << " " << i << "\n";
-  // }
+  int cnt = 0;
+  int pos = 0;
+  for (int i = 0; i < N; i++) {
+    if (ans[0] <= A[i] && A[i] <= ans[1]) {
+      cnt++;
+    }
+    else {
+      cnt--;
+    }
+    if (cnt > 0 && K--) {
+      cout << pos + 1 << " " << (K == 0 ? N : i + 1) << "\n";
+      cnt = 0;
+      pos = i + 1;
+      if (K == 0) break;
+    }
+  }
 }
 
 int main() {
