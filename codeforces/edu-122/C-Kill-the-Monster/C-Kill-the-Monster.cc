@@ -1,5 +1,5 @@
 /* created   : 2022-03-06 23:40:41
- * accepted  : 2022-03-07 00:14:42
+ * accepted  : 2022-03-08 23:55:29
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,37 +16,13 @@ void solve() {
   // int tm = ceil(Hm / (Dc + x * W))
   // int tc = ceil((Hc + A * y) / Dm)
   // x + y = K
-  ll lo = -1;
-  ll hi = K + 1;
-  while (lo + 1 <= hi) {
-    ll md = (lo + hi) / 2;
-    ll tm = ceil(Hm, Dc + md * W);
-    ll tc = ceil(Hc + (K - md) * A, Dm);
-    // characte attacks first, so equal also works
+  for (int i = 0; i <= K; i++) {
+    ll tm = ceil(Hm, Dc + i * W);
+    ll tc = ceil(Hc + (K - i) * A, Dm);
+    // character attacks first, so equal also works
     if (tc >= tm) {
-      trace(md, tm, tc);
       cout << "YES\n";
       return;
-    }
-    else {
-      lo = md;
-      if (lo == K) break;
-    }
-  }
-  lo = -1;
-  hi = K + 1;
-  while (lo + 1 <= hi) {
-    ll md = (lo + hi) / 2;
-    ll tm = ceil(Hm, Dc + (K - md) * W);
-    ll tc = ceil(Hc + md * A, Dm);
-    if (tc >= tm) {
-      trace(md, tm, tc);
-      cout << "YES\n";
-      return;
-    }
-    else {
-      lo = md;
-      if (lo == K) break;
     }
   }
   cout << "NO\n";
