@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+#include "array.h"
+#include "tree.h"
+using namespace std;
+using ll = long long;
+#define all(x) (x).begin(), (x).end()
+
+void generate() {
+  puts(1);
+  int N = rnd.next(1, 10);
+  int K = rnd.next(1, 6);
+  puts(N, K);
+  auto B = Array::random(N, 1, 20);
+  auto C = Array::random(N, 1, 20);
+  puts(B);
+  puts(C);
+}
+
+int main() {
+  generate();
+  return 0;
+}
