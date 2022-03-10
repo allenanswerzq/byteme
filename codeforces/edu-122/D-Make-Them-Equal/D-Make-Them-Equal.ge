@@ -7,11 +7,11 @@ using ll = long long;
 
 void generate() {
   puts(1);
-  int N = rnd.next(1, 10);
-  int K = rnd.next(1, 6);
+  int N = 1000;
+  int K = 1e6;
   puts(N, K);
-  auto B = Array::random(N, 1, 20);
-  auto C = Array::random(N, 1, 20);
+  auto B = Array::random(N, N, N);
+  auto C = Array::random(N, K, K);
   puts(B);
   puts(C);
 }
