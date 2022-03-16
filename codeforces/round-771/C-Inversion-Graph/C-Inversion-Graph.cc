@@ -1,5 +1,5 @@
 /* created   : 2022-03-15 21:40:26
- * accepted  : 2022-03-16 10:03:35
+ * accepted  : 2022-03-16 10:19:02
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -13,25 +13,20 @@ void solve() {
   for (int i = 0; i < N; i++) {
     cin >> A[i];
   }
-  set<int> st;
+  int mx = 0;
   int ans = 0;
   for (int i = 0; i < N; i++) {
-    int x = A[i];
-    auto it = st.lower_bound(x);
-    if (it == st.end()) {
+    if (A[i] > mx) {
       // if no values greater than x
       // -----x
-      if (st.size() && *st.rbegin() == i) {
+      if (mx == i) {
         ans++;
-        st.clear();
-      }
-      else {
-        // continues;
+        mx = 0;
       }
     }
-    st.insert(x);
+    mx = max(mx, A[i]);
   }
-  cout << ans + !st.empty() << "\n";
+  cout << ans << "\n";
 }
 
 int main() {
