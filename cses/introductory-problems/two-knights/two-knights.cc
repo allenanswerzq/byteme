@@ -16,7 +16,7 @@ void solve() {
   for (int k = 1; k <= n; k++) {
     // x +- 1, y +- 2
     // x +- 2, y +- 1
-    ll ans = k * k * 1ll * (k * k - 1) / 2;
+    ll ans = k * k * 1ll * (k * k - 1) / 2; // C(k*k, 2)
     ll cur = 0;
     for (int i = 0; i < 4; i++) {
       for (int j = 0; j < 4; j++) {

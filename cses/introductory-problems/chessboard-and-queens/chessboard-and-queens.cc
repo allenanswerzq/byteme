@@ -16,12 +16,17 @@ void dfs(vector<string>& A, int u, int col, int up, int down) {
   for (int i = 0; i < 8; i++) {
     if (A[u][i] == '*') continue;
     if ((col >> i) & 1) continue;
+    // (x, y) to (x+1, y-1) -> (x + y) always same
     if ((up >> (u + i)) & 1) continue;
+    // (x, y) to (x+1, y+1) -> (x + 8 - y) always same
     if ((down >> (u - i + 8)) & 1) continue;
+
     col += 1 << i;
     up += 1 << (u + i);
     down += 1 << (u - i + 8);
+
     dfs(A, u - 1, col, up, down);
+
     col -= 1 << i;
     up -= 1 << (u + i);
     down -= 1 << (u - i + 8);

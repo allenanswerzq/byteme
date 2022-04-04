@@ -8,13 +8,11 @@ using namespace std;
 
 void solve() {
   int N; cin >> N;
-  vector<int> A(N);
-  for (auto& a : A) {
-    cin >> a;
-    if (a > N || a < 1) {
-      a = -1;
-    }
+  vector<int> A(N, -1);
+  for (int i = 0; i < N - 1; i++) {
+    cin >> A[i];
   }
+  trace(A);
   for (int i = 0; i < N; i++) {
     while (A[i] != -1 && A[i] != i + 1) {
       swap(A[i], A[A[i] - 1]);

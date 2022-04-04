@@ -9,14 +9,12 @@ using namespace std;
 void solve() {
   string S; cin >> S;
   int ans = 0;
-  char c = '@';
-  for (int i = 0, j = 0; i < S.size(); i++) {
-    if (i == j) c = '@';
-    while (j < S.size() && (c == '@' || S[j] == c)) {
-      if (c == '@') c = S[j];
-      j++;
-    }
+  int n = S.size();
+  for (int i = 0; i < n; i++) {
+    int j = i;
+    while (j < n && S[i] == S[j]) j++;
     ans = max(ans, j - i);
+    i = j - 1;
   }
   cout << ans << "\n";
 }

@@ -19,6 +19,20 @@ void solve() {
   cout << ans << "\n";
 }
 
+void solve() {
+  int N; cin >> N;
+  vector<int> A(N);
+  for (auto& a : A) cin >> a;
+  ll ans = 0;
+  for (int i = 1; i < N; i++) {
+    if (A[i] < A[i - 1]) {
+      ans += A[i - 1] - A[i];
+      A[i] = A[i - 1];
+    }
+  }
+  cout << ans << "\n";
+}
+
 int main() {
   ios_base::sync_with_stdio(0), cin.tie(0);
   solve();
