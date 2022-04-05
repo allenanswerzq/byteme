@@ -17,8 +17,11 @@ void solve() {
   ll ans = 0;
   int cnt = 0;
   // NOTE: The time complexity of multiset's count is log(n) + c
-  for (int lo = 0, hi = 0; lo < N && hi < N; lo++) {
+  for (int lo = 0, hi = 0; lo < N; lo++) {
+    // `lo` is fixed every iteration
     while (hi < N && (cnt < K || st.find(A[hi]) != st.end())) {
+      // [lo ..hi-1] hi
+      // [lo..hi],[lo+1,hi]...[hi-1,hi],[hi,hi]
       ans += hi - lo + 1;
       if (st.find(A[hi]) == st.end()) cnt++;
       st.insert(A[hi++]);

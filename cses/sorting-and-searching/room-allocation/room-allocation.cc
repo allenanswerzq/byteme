@@ -24,6 +24,7 @@ void solve() {
     auto it = room.upper_bound(make_pair(b, -1));
     // room: ...(b, 3)
     if (it == room.begin()) {
+      // new customer arrives, but all rooms are occupied right now.
       room.insert(make_pair(e, cnt));
       assign[idx] = cnt++;
     }

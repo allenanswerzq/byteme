@@ -23,31 +23,32 @@ void solve() {
     A[i].second = i;
   }
   sort(all(A));
-  trace(A);
+  // trace(A);
+
   vector<int> cc(N);
-  set<array<int, 2>> st;
+  set<int> st;
   for (int i = 0; i < N; i++) {
     auto& a = A[i].first;
-    auto it = st.lower_bound({-a[1], -1});
+    auto it = st.lower_bound(-a[1]);
     if (it != st.end()) {
       // This range is contained by other ranges.
       cc[A[i].second] = 1;
     }
-    st.insert({-a[1], i});
+    st.insert(-a[1]);
   }
-  // 1 2 3 4 5
-  // -5 -4 -3 -2 -1
+
   vector<int> dd(N);
-  set<array<int, 2>> sd;
+  set<int> sd;
   for (int i = N - 1; i >= 0; i--) {
     auto& a = A[i].first;
-    auto it = sd.lower_bound({a[1], -1});
+    auto it = sd.lower_bound(a[1]);
     if (it != sd.end()) {
       // This range contains other ranges.
       dd[A[i].second] = 1;
     }
-    sd.insert({a[1], i});
+    sd.insert(a[1]);
   }
+
   for (int i = 0; i < N; i++) {
     cout << dd[i] << (i == N - 1 ? '\n' : ' ');
   }

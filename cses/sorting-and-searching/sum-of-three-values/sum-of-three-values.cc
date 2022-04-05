@@ -15,10 +15,10 @@ void solve() {
   }
   sort(all(A));
   for (int i = 0; i < N; i++) {
-    while (i + 1 < N && A[i] == A[i + 1]) i++;
+    while (i + 1 < N && A[i][0] == A[i + 1][1]) i++;
     int lo = i + 1;
     int hi = N - 1;
-    trace(A, i, lo, hi);
+    // trace(A, i, lo, hi);
     while (lo + 1 <= hi) {
       int s = A[i][0] + A[lo][0] + A[hi][0];
       if (s == X) {

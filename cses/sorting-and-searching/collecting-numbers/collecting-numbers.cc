@@ -4,28 +4,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define all(x) (x).begin(), (x).end()
+#define ar array<int, 2>
 using ll = long long;
 
 void solve() {
   int N; cin >> N;
-  priority_queue<pair<int, int>> qu;
+  map<int, int> mp;
   for (int i = 0; i < N; i++) {
     int x; cin >> x;
-    qu.push({-x, i});
+    mp[x] = i;
   }
-  trace(qu);
-  pair<int, int> cur = {1, -1};
   int ans = 1;
-  while (qu.size()) {
-    auto t = qu.top();
-    assert(-t.first == cur.first);
-    if (t.second > cur.second) {
-      qu.pop();
-      cur = {-t.first + 1, t.second};
-    }
-    else {
+  for (int i = 2; i <= N; i++) {
+    if (mp[i - 1] > mp[i]) {
       ans++;
-      cur.second = -1;
     }
   }
   cout << ans << "\n";

@@ -14,12 +14,13 @@ void solve() {
   }
   sort(all(A));
   trace(A);
-  ll ans = 1;
+  ll ans = 1; // next value to check
   for (int i = 0; i < N; i++) {
     if (ans < A[i]) {
       break;
     }
     else {
+      // can: [1 ... ans - 1] ==> ai+1 ... ai + ans - 1
       ans += A[i];
     }
   }

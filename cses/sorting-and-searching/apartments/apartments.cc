@@ -8,16 +8,18 @@ using namespace std;
 
 void solve() {
   int N, M, K; cin >> N >> M >> K;
-  vector<int> A(N);
-  for (auto& a : A) cin >> a;
   multiset<int> st;
-  for (int i = 0; i < M; i++) {
+  for (int i = 0; i < N; i++) {
     int x; cin >> x;
     st.insert(x);
   }
+  vector<int> A(M);
+  for (auto& a : A) {
+    cin >> a;
+  }
   sort(all(A));
   int ans = 0;
-  for (int i = 0; i < N; i++) {
+  for (int i = 0; i < M; i++) {
     auto it = st.lower_bound(A[i] - K);
     auto pt = st.upper_bound(A[i] + K);
     if (it != pt) {

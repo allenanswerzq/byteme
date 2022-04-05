@@ -14,7 +14,7 @@ void solve() {
   }
   vector<int> stk;
   for (int i = 0; i < N; i++) {
-    while (stk.size() && A[stk.back()] >= A[i]) {
+    while (stk.size() && A[i] <= A[stk.back()]) {
       stk.pop_back();
     }
     if (i > 0) {

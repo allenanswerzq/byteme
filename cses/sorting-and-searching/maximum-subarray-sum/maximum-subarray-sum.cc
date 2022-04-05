@@ -8,13 +8,14 @@ using namespace std;
 
 void solve() {
   int N; cin >> N;
-  ll cur = 0;
   ll ans = -1e9;
+  ll pre = 0;
+  // f[i] = max(x, f[i-1] + a[i])
   for (int i = 0; i < N; i++) {
-    int x; cin >> x;
-    cur += x;
+    ll x; cin >> x;
+    ll cur = max(x, pre + x);
     ans = max(ans, cur);
-    cur = max(cur, 0ll);
+    pre = cur;
   }
   cout << ans << "\n";
 }

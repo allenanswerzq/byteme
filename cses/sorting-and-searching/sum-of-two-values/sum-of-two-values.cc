@@ -5,29 +5,18 @@
 using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ll long long
+#define ar array<int, 2>
 
 void solve() {
   int N, X; cin >> N >> X;
-  vector<pair<int, int>> A(N);
+  map<int, int> mp;
   for (int i = 0; i < N; i++) {
-    int x; cin >> x;
-    A[i].first = x;
-    A[i].second = i;
-  }
-  sort(all(A));
-  int lo = 0, hi = N - 1;
-  while (lo < hi) {
-    ll sum = A[lo].first + A[hi].first;
-    if (sum == X) {
-      cout << A[hi].second + 1 << " " << A[lo].second + 1 << "\n";
+    int t; cin >> t;
+    if (mp.count(X - t)) {
+      cout << mp[X - t] + 1 << " " << i + 1 << "\n";
       return;
     }
-    else if (sum > X) {
-      hi--;
-    }
-    else {
-      lo++;
-    }
+    mp[t] = i;
   }
   cout << "IMPOSSIBLE\n";
 }
