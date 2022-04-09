@@ -42,6 +42,7 @@ void solve() {
         dfs(v);
       }
       else {
+        // NOTE: only happens on directed graph
         // No cycle exists after finished visit node v before
       }
     }

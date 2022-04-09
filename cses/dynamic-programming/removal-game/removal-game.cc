@@ -13,6 +13,7 @@ void solve() {
   // f[l][h] = s1 - s2
   // [l............h]
   // f[l][h] = max(-(f[l+1][h] - x[l]), x[h] - f[l][h-1]);
+  // f[l][h] = max(x[l] + s2 - s1, x[h] + s2 - s1)
   int N; cin >> N;
   vector<ll> A(N);
   ll s = 0;

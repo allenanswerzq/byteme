@@ -48,17 +48,15 @@ void solve() {
   mi[0] = 0;
   std::function<void(int, ll)> dfs = [&](int u, ll c) {
     vis[u] = 1;
-    for (auto t : z[u]) {
-      int v = t[0], w = t[1];
-      if (dist[v] + w == c) {
+    for (auto & [v, w] : z[u]) {
       // NOTE: ensure node v is a node on the shortest path
-        if (vis[v] == 0) {
-          dfs(v, dist[v]);
-        }
-        cnt[u] = (cnt[u] + cnt[v]) % mod;
-        mi[u] = min(mi[u], mi[v] + 1);
-        mx[u] = max(mx[u], mx[v] + 1);
+      if (dist[v] + w != c) continue;
+      if (vis[v] == 0) {
+        dfs(v, dist[v]);
       }
+      cnt[u] = (cnt[u] + cnt[v]) % mod;
+      mi[u] = min(mi[u], mi[v] + 1);
+      mx[u] = max(mx[u], mx[v] + 1);
     }
     vis[u] = 2;
   };

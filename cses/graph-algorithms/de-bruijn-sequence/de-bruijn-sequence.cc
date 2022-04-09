@@ -12,7 +12,7 @@ void solve() {
   vector<array<int, 2>> e(1 << N);
   for (int i = 0; i < 1 << N; i++) {
     int u = i / 2;
-    int v = i & ((1 << N - 1) - 1);
+    int v = i & ((1 << (N - 1)) - 1);
     trace(bitset<8>(i), bitset<8>(u), bitset<8>(v));
     e[i] = {u, v};
     g[u].push_back(i);

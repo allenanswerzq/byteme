@@ -22,14 +22,15 @@ void solve() {
     for (int v : g[u]) {
       if (v == p) continue;
       if (vis[v]) {
+        // NOTE: for undirected graph, dfs will trans all nodes
+        // that a node can reach
         pre[v] = u;
         vector<int> ans;
-        for (int j = u;;j = pre[j]) {
+        for (int j = u; ;j = pre[j]) {
           ans.push_back(j);
-          if (j == u && ans.size() > 1) {
-            break;
-          }
+          if (pre[j] == u) break;
         }
+        ans.push_back(u);
         cout << ans.size() << "\n";
         reverse(all(ans));
         for (int i = 0; i < ans.size(); i++) {

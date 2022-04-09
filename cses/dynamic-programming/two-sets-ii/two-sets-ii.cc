@@ -15,7 +15,7 @@ void add(int& a, int b) {
   }
 }
 
-int inv(int a) {
+int inv(int a, int mod) {
   a %= mod;
   assert(a);
   return a == 1 ? 1 : int(mod - ll(inv(mod, a)) * ll(mod) / a);
@@ -37,18 +37,15 @@ void solve() {
   vector<int> f(s + 1);
   f[0] = 1;
   for (int i = 1; i <= N; i++) {
-    vector<int> p(s + 1);
-    for (int j = 0; j <= s; j++) {
-      p[j] = f[j];
+    for (int j = s; j >= 0; j--) {
       if (j >= i) {
-        add(p[j], f[j - i]);
+        add(f[j], f[j - i]);
       }
     }
-    swap(f, p);
   }
   trace(s, f);
   // f[s] / 2
-  cout << mul(f[s], inv(2)) << "\n";
+  cout << mul(f[s], inv(2, mod)) << "\n";
 }
 
 int main() {

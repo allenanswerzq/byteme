@@ -1,5 +1,5 @@
 /* created   : 2020-11-20 11:35:37
- * accepted  : 2021-06-26 09:38:25
+ * accepted  : 2022-04-09 10:19:48
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -66,9 +66,11 @@ void solve() {
     if (visit[i]) continue;
     // NOTE: each connected graph must have a cycle in it.
     int u = i;
+    trace(u, seen, pre);
     for (; !seen[u]; u = pre[u]) {
       seen[u] = true;
     }
+    trace(u);
     // Now, `u` is a node on the cycle
     vector<int> cycle;
     for (int j = u; ;j = pre[j]) {

@@ -40,7 +40,7 @@ void solve() {
     for (int k = 0; k < 4; k++) {
       size_t xx = x + dx[k];
       size_t yy = y + dy[k];
-      if (xx < N && yy < M && S[xx][yy] != '#'&& dist[xx][yy] == INF) {
+      if (xx < N && yy < M && S[xx][yy] != '#' && dist[xx][yy] == INF) {
         trace(x, y, xx, yy);
         dist[xx][yy] = dist[x][y] + 1;
         qu.push_back({xx, yy});

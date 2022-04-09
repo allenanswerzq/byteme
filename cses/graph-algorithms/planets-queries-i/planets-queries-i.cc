@@ -13,7 +13,7 @@ void solve() {
     cin >> a;
     a--;
   }
-  const int step = 32;
+  const int step = 30;
   vector<vector<int>> f(N, vector<int>(step));
   for (int j = 0; j < step; j++) {
     for (int i = 0; i < N; i++) {

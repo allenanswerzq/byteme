@@ -9,24 +9,21 @@ using namespace std;
 void solve() {
   int N; cin >> N;
   vector<int> A(N);
-  for (int& a : A) {
-    cin >> a;
+  for (int& x : A) {
+    cin >> x;
   }
-  sort(all(A));
-  trace(A);
-  const int INF = 1e5;
-  // f[i][x] = f[i - 1][x] | f[i - 1][x - ai]
-  vector<bool> f(INF);
+  // 2 2 4 5
+  //
+  // f[i][x] = f[i-1][x] | f[i-1][x-c]
+  const int INF = 1e5 + 7;
+  vector<int> f(INF);
   f[0] = 1;
-  for (int a : A) {
-    vector<bool> p = f;
-    for (int i = 1; i < INF; i++) {
-      p[i] = f[i];
-      if (i - a >= 0) {
-        p[i] = p[i] | f[i - a];
+  for (int i = 0; i < N; i++) {
+    for (int x = INF - 1; x >= 0; x--) {
+      if (x >= A[i]) {
+        f[x] = f[x] | f[x - A[i]];
       }
     }
-    swap(f, p);
   }
   vector<int> ans;
   for (int i = 1; i < INF; i++) {

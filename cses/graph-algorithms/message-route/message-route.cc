@@ -36,25 +36,24 @@ void solve() {
   }
   if (!ok) {
     cout << "IMPOSSIBLE\n";
+    return;
   }
-  else {
-    vector<int> ans;
-    int u = N - 1;
-    while (pre[u] != -1) {
-      ans.push_back(u);
-      u = pre[u];
-    }
-    ans.push_back(0);
-    reverse(all(ans));
-    cout << ans.size() << "\n";
-    for (int i = 0; i < ans.size(); i++) {
-      if (i > 0) {
-        cout << " ";
-      }
-      cout << ans[i] + 1;
-    }
-    cout << "\n";
+  vector<int> ans;
+  int u = N - 1;
+  while (1) {
+    ans.push_back(u);
+    if (pre[u] == -1) break;
+    u = pre[u];
   }
+  reverse(all(ans));
+  cout << ans.size() << "\n";
+  for (int i = 0; i < ans.size(); i++) {
+    if (i > 0) {
+      cout << " ";
+    }
+    cout << ans[i] + 1;
+  }
+  cout << "\n";
 }
 
 int main() {

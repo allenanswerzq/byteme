@@ -8,10 +8,18 @@ using ll = long long;
 
 int solve(int n, int k) {
   if (n == 1) return 1;
+  // n=7: 1 2 3 4 5 6 7
+  // n=3: 3 5 7
+  // n=1: 7
+
+  // n=8: 1 2 3 4 5 6 7 8
+  // n=4: 1 3 5 7
+  // n=2: 1 5
+  // n=1: 1
 
   if (k <= (n + 1) / 2) {
     // 1 2 3 4 5 6 7
-    return (n & 1) ? (2 * k % n) : (2 * k);
+    return 2 * k % n;
   }
   else {
     int c = solve(n >> 1, k - (n + 1) / 2);

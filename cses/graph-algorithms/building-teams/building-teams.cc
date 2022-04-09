@@ -20,14 +20,15 @@ void solve() {
     assert(color[u] == -1);
     color[u] = c;
     for (int v : g[u]) {
-      if (v != p) {
-        if (color[v] == c) {
-          cout << "IMPOSSIBLE\n";
-          exit(0);
-        }
-        if (color[v] == -1) {
-          dfs(v, u, c ^ 1);
-        }
+      if (v == p) continue;
+      if (color[v] == c) {
+        cout << "IMPOSSIBLE\n";
+        exit(0);
+      }
+      else if (color[v] == -1) {
+        dfs(v, u, c ^ 1);
+      }
+      else {
       }
     }
   };
