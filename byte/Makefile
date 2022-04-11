@@ -98,7 +98,7 @@ ifneq (,$(wildcard $(ELF).mp))
 # if there exists a compare file
 %_mp : %.mp
 	@echo "[debug -O2] cxx $(ELF).mp"
-	@$(CXX) -x c++ $(CXXFLAGS) $(DBGFLAGS) $(ELF).mp $(LDFLAGS) -o $@
+	@$(CXX) -x c++ $(CXXFLAGS) $(DBGFLAGS) $(ELF).mp $(LDFLAGS) -o $@ $(CXXINCS)
 else
 # https://www.gnu.org/software/make/manual/html_node/Empty-Recipes.html
 %_mp : ;
