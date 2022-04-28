@@ -61,10 +61,7 @@ struct BinaryNode : public Node {
   string toString() {
 #define get_string(t, c) case t: return #c;
     switch (op.type_) {
-    default: {
-      assert(false);
-      return "x";
-    }
+      default: { assert(false); return "x"; }
       BINARY_TOKENS(get_string)
     };
 #undef get_string

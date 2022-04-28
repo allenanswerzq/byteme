@@ -32,13 +32,42 @@ class Solution {
   }
 };
 
-#define EXPECT_TRUE(a) assert(a)
-#define EXPECT_FALSE(a) assert(!a)
-#define EXPECT(a, b) assert(a == b)
+class Solution {
+public:
+  int dfs(vector<int>& A, vector<int>& B, int ai, int aj, int bi, int bj, int pos) {
+    // cout << ai << " " << aj << " " << bi << " " << bj << " " << pos << endl;
+    if (ai > aj) return B[bi + pos - 1];
+    if (bi > bj) return A[ai + pos - 1];
+    int am = (ai + aj) / 2;
+    int p = upper_bound(B.begin() + bi, B.begin() + bj + 1, A[am]) - B.begin();
+    // cout << p << endl;
+    int cnt = p - bi + am - ai + 1;
+    if (cnt == pos) {
+      return A[am];
+    }
+    else if (pos < cnt) {
+      return dfs(A, B, ai, am - 1, bi, p - 1, pos);
+    }
+    else {
+      return dfs(A, B, am + 1, aj, p, bj, pos - cnt);
+    }
+  }
 
-void solve() {}
+  int findKth(vector<int>& A, vector<int> & B, int pos) {
+    return dfs(A, B, 0, A.size() - 1, 0, B.size() - 1, pos);
+  }
 
-int main() {
-  solve();
-  return 0;
-}
+  double findMedianSortedArrays(vector<int>& A, vector<int>& B) {
+    int n = A.size();
+    int m = B.size();
+    if ((n + m) & 1) {
+      return findKth(A, B, (n + m + 1) / 2);
+    }
+    else {
+      int s = findKth(A, B, (n + m) / 2);
+         s += findKth(A, B, (m + n) / 2 + 1);;
+      return s / 2.0;
+    }
+  }
+};
+
