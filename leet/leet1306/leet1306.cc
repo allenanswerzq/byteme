@@ -18,12 +18,12 @@ public:
       int t = qu.front(); qu.pop_front();
       if (A[t] == 0) return true;
       int lo = t - A[t];
-      if (lo >= 0 && lo != t && !seen[lo]) {
+      if (lo >= 0 && !seen[lo]) {
         seen[lo] = true;
         qu.push_back(lo);
       }
       int hi = t + A[t];
-      if (hi < A.size() && hi != t && hi != lo && !seen[hi]) {
+      if (hi < A.size() && !seen[hi]) {
         seen[hi] = true;
         qu.push_back(hi);
       }
@@ -50,10 +50,11 @@ public:
     for (int i = 0; i < n; i++) {
       int x = i - A[i];
       int y = i + A[i];
-      if (x >= 0 && x != i) {
+      if (A[i] == 0) continue;
+      if (x >= 0) {
         g[i].push_back(x);
       }
-      if (y < n && y != i && x != y) {
+      if (y < n) {
         g[i].push_back(y);
       }
     }

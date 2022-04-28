@@ -6,123 +6,300 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ll long long
 
-class Solution {
-public:
-  int get_precedence(char c) {
-    if (c == '^') return 3;
-    else if (c == '*' || c == '/') return 2;
-    else if (c == '+' || c == '-') return 1;
-    else return -1;
-  }
+#define BINARY_TOKENS(f) \
+  f(TOKEN_LEFT_P, /)    \
+  f(TOKEN_RIGHT_P, /)   \
+  f(TOKEN_PLUS, +)      \
+  f(TOKEN_MINUS, -)     \
+  f(TOKEN_STAR, *)      \
+  f(TOKEN_SLASH, /)
 
-  int impl(const string& S) {
-    vector<int> stk;
-    stringstream ss(S);
-    string t;
-    while (ss >> t) {
-      if (isdigit(t[0])) {
-        stk.push_back(stoi(t));
-      }
-      else {
-        assert(t.size() == 1);
-        char op = t[0];
-        assert(stk.size() >= 2);
-        int b = stk.back(); stk.pop_back();
-        int a = stk.back(); stk.pop_back();
-        if (op == '+') {
-          stk.push_back(a + b);
-        }
-        else if (op == '-') {
-          stk.push_back(a - b);
-        }
-        else if (op == '/') {
-          stk.push_back(a / b);
-        }
-        else if (op == '*') {
-          stk.push_back(a * b);
-        }
-        else if (op == '^') {
-          stk.push_back(a ^ b);
-        }
-        else {
-          assert(false);
-        }
-      }
-    }
-    assert(stk.size() == 1);
-    return stk.back();
-  }
+#define ALL_TOKENS(f)     \
+  BINARY_TOKENS(f)        \
+  f(TOKEN_NUM, "NUM")
 
-  // infix:    "a+b*(c^d-e)^(f+g*h)-i"
-  // postfix:  "abcd^e-fgh*+^*+i-"
-  int calculate(string S) {
-    vector<char> stk;
-    string postfix;
-    int n = S.size();
-    for (int i = 0; i < n; i++) {
-      // trace(i, S[i]);
-      if (S[i] == ' ') {
-      }
-      else if (isdigit(S[i])) {
-        int j = i;
-        while (j < n && isdigit(S[j])) j++;
-        postfix.append(S.substr(i, j - i));
-        postfix.append(" ");
-        i = j - 1;
-        // trace(stk, postfix);
-      }
-      else if (S[i] == '(') {
-        stk.push_back(S[i]);
-      }
-      else if (S[i] == ')') {
-        // trace(stk, postfix);
-        while (stk.size() && stk.back() != '(') {
-          postfix.append(string(1, stk.back()));
-          postfix.append(" ");
-          stk.pop_back();
-        }
-        // trace(stk);
-        assert(stk.size() && stk.back() == '(');
-        stk.pop_back();
-      }
-      else {
-        int order = get_precedence(S[i]);
-        // NOTE: pop up all operators that have a higher precedence.
-        while (stk.size() && get_precedence(stk.back()) >= order) {
-          postfix.append(string(1, stk.back()));
-          postfix.append(" ");
-          stk.pop_back();
-        }
-        stk.push_back(S[i]);
-        // trace("aaa", stk, postfix);
-      }
+enum TokenType {
+#define def_token(x, ...) x,
+  ALL_TOKENS(def_token)
+#undef def_token
+};
+
+struct Token {
+  string literal_;
+  TokenType type_;
+};
+
+struct Node;
+struct Vistor;
+struct BinaryNode;
+struct UnaryNode;
+struct LiteralNode;
+struct GroupNode;
+
+struct Node {
+  virtual void accept(Vistor *vistor) = 0;
+  virtual string toString() = 0;
+};
+
+struct Vistor {
+  void visit(Node *node) { node->accept(this); }
+  virtual void visitBinaryNode(BinaryNode *node) = 0;
+  virtual void visitUnaryNode(UnaryNode *node) = 0;
+  virtual void visitLiteralNode(LiteralNode *node) = 0;
+  virtual void visitGroupNode(GroupNode *node) = 0;
+};
+
+struct BinaryNode : public Node {
+  Token op;
+  struct Node *left = nullptr;
+  struct Node *right = nullptr;
+
+  BinaryNode(Token o, Node *l, Node *r) : op(o), left(l), right(r) {}
+
+  void accept(Vistor *vistor) override { vistor->visitBinaryNode(this); }
+
+  string toString() {
+#define get_string(t, c) case t: return #c;
+    switch (op.type_) {
+    default: {
+      assert(false);
+      return "x";
     }
-    while (stk.size()) {
-      postfix.append(string(1, stk.back()));
-      postfix.append(" ");
-      stk.pop_back();
-    }
-    trace(postfix);
-    return impl(postfix);
+      BINARY_TOKENS(get_string)
+    };
+#undef get_string
   }
 };
 
-#define EXPECT_TRUE(a) assert(a)
-#define EXPECT_FALSE(a) assert(!a)
-#define EXPECT(a, b) assert(a == b)
+struct UnaryNode : public Node {
+  Token op;
+  struct Node *node = nullptr;
 
-int test(string S) {
-  Solution sol;
-  return sol.calculate(S);
+  UnaryNode(Token o, Node *n) : op(o), node(n) {}
+
+  string toString() { return "-"; }
+
+  void accept(Vistor *vistor) override { vistor->visitUnaryNode(this); }
+};
+
+struct LiteralNode : public Node {
+  string literal;
+
+  LiteralNode(const string &l) : literal(l) {}
+  string toString() { return literal; }
+
+  void accept(Vistor *vistor) override { vistor->visitLiteralNode(this); }
+};
+
+struct GroupNode : public Node {
+  struct Node *expr = nullptr;
+
+  GroupNode(Node *e) : expr(e) {}
+
+  string toString() { return "Group"; }
+
+  void accept(Vistor *vistor) override { vistor->visitGroupNode(this); }
+};
+
+
+struct ASTPrinter : public Vistor {
+
+  void visitBinaryNode(BinaryNode *node) override {
+    cout << "(";
+    node->left->accept(this);
+    cout << node->toString();
+    node->right->accept(this);
+    cout << ")";
+  }
+
+  void visitUnaryNode(UnaryNode *node) override {
+    cout << node->toString();
+    node->node->accept(this);
+  }
+
+  void visitLiteralNode(LiteralNode *node) override {
+    cout << node->toString();
+  }
+
+  void visitGroupNode(GroupNode *node) override {
+    cout << "(group ";
+    node->expr->accept(this);
+    cout << ")";
+  }
+};
+
+struct Calculator : public Vistor {
+  unordered_map<Node*, int> mp;
+
+  void visitBinaryNode(BinaryNode *node) override {
+    if (!node) return;
+    node->left->accept(this);
+    node->right->accept(this);
+#define binary_op(t, op) case t: { mp[node] = mp[node->left] op mp[node->right]; break; }
+    switch (node->op.type_) {
+      default : { assert(false); }
+      BINARY_TOKENS(binary_op)
+    }
+#undef binary_op
+  }
+
+  void visitUnaryNode(UnaryNode *node) override {
+    if (!node) return;
+    node->node->accept(this);
+    mp[node] = -mp[node->node];
+  }
+
+  void visitLiteralNode(LiteralNode *node) override {
+    if (!node) return;
+    mp[node] = stoi(node->literal);
+  }
+
+  void visitGroupNode(GroupNode *node) override {
+    if (!node) return;
+    node->expr->accept(this);
+    mp[node] = mp[node->expr];
+  }
+};
+
+vector<Token> tokenrize(string S) {
+  int n = S.size();
+  vector<Token> ans;
+  for (int i = 0; i < n; i++) {
+    while (i < n && S[i] == ' ') i++;
+    if (S[i] == '(') {
+      ans.push_back(Token{"(", TOKEN_LEFT_P});
+    }
+    else if (S[i] == ')') {
+      ans.push_back(Token{")", TOKEN_RIGHT_P});
+    }
+    else if (S[i] == '+') {
+      ans.push_back(Token{string(1, S[i]), TOKEN_PLUS});
+    }
+    else if (S[i] == '-') {
+      ans.push_back(Token{string(1, S[i]), TOKEN_MINUS});
+    }
+    else if (S[i] == '*') {
+      ans.push_back(Token{string(1, S[i]), TOKEN_STAR});
+    }
+    else if (S[i] == '/') {
+      ans.push_back(Token{string(1, S[i]), TOKEN_STAR});
+    }
+    else {
+      int j = i;
+      while (i < n && '0' <= S[i] && S[i] <= '9') {
+        i++;
+      }
+      ans.push_back(Token{S.substr(j, i - j), TOKEN_NUM});
+      i--;
+    }
+  }
+  return ans;
 }
 
-void solve() {
-  EXPECT(dbg(test("1 + 2")), 3);
-  test("3+4*(2^8-5)^(7+4*3)-2");
-}
+// BNF
+// expression     → term ;
+// term           → factor ( ( "-" | "+" ) factor )* ;
+// factor         → unary ( ( "/" | "*" ) unary )* ;
+// unary          → ( "!" | "-" ) unary
+//                | primary ;
+// primary        → NUMBER | STRING | "true" | "false" | "nil"
+//                | "(" expression ")" ;
+// recusive desent parser
+struct Parser {
+  int cur_ = 0;
+  vector<Token> token_;
 
-int main() {
-  ios_base::sync_with_stdio(0), cin.tie(0);
-  solve();
-  return 0;
-}
+  Parser(const vector<Token> &token) : token_(token) {}
+
+  void advance() {
+    assert(cur_ < token_.size());
+    cur_ += 1;
+  }
+
+  Token previous() {
+    assert(cur_ > 0);
+    return token_[cur_ - 1];
+  }
+
+  Token peek() {
+    assert(cur_ < token_.size());
+    return token_[cur_];
+  }
+
+  void consume(TokenType type, const string &msg) {
+    assert(peek().type_ == type);
+    advance();
+  }
+
+  bool match(const vector<TokenType> &tokens) {
+    for (auto t : tokens) {
+      if (cur_ < token_.size() && peek().type_ == t) {
+        advance();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // expr --> term
+  Node *parse_expr() { return parse_term(); }
+
+  // term --> factor ( ( "-" | "+" ) factor )* ;
+  Node *parse_term() {
+    Node *left = parse_factor();
+    while (match({TOKEN_MINUS, TOKEN_PLUS})) {
+      Token op = previous();
+      Node *right = parse_factor();
+      left = new BinaryNode(op, left, right);
+    }
+    return left;
+  }
+
+  // factor --> unary ( ( "/" | "*" ) unary )* ;
+  Node *parse_factor() {
+    Node *left = parse_unary();
+    while (match({TOKEN_SLASH, TOKEN_STAR})) {
+      Token op = previous();
+      Node *right = parse_unary();
+      left = new BinaryNode(op, left, right);
+    }
+    return left;
+  }
+
+  // unary --> ( "!" | "-" ) unary | primary ;
+  Node *parse_unary() {
+    if (match({TOKEN_MINUS})) {
+      Token op = previous();
+      Node *root = parse_unary();
+      return new UnaryNode(op, root);
+    }
+    return parse_primary();
+  }
+
+  // primary --> NUMBER | STRING | "true" | "false" | "nil"
+  //             | "(" expression ")" ;
+  Node *parse_primary() {
+    if (match({TOKEN_NUM})) {
+      return new LiteralNode(previous().literal_);
+    } else if (match({TOKEN_LEFT_P})) {
+      auto root = parse_expr();
+      consume(TOKEN_RIGHT_P, "Expect ) after matching");
+      return new GroupNode(root);
+    }
+    assert(false);
+  }
+};
+
+class Solution {
+public:
+  int calculate(string S) {
+    Parser p(tokenrize(S));
+    Node *root = p.parse_expr();
+    assert(root);
+    ASTPrinter printer;
+    root->accept(&printer);
+    Calculator cal;
+    root->accept(&cal);
+    return cal.mp[root];
+  }
+};
