@@ -39,10 +39,37 @@ class Solution {
   }
 };
 
-void solve() {}
-
-int main() {
-  ios_base::sync_with_stdio(0), cin.tie(0);
-  solve();
-  return 0;
-}
+class Solution {
+public:
+  int divide(int A, int B) {
+    if (B == 1) return A;
+    if (B == -1) return (A == INT_MIN ? INT_MAX : -A);
+    if (B == INT_MIN) return (A == INT_MIN ? 1 : 0);
+    int sign = (A > 0) ^ (B > 0) ? -1 : 1;
+    int ans = 0;
+    if (B < 0) B = -B;
+    if (A < 0) {
+      A += B;
+      ans += (A < 0 ? sign : 0);
+      A = -A;
+    }
+    // -10 / -11
+    // -10 / 2
+    // A - (b+2b+4b+8b..+) = A - (2^n - 1)b > 0
+    int t = B;
+    int cnt = sign;
+    while (A >= t) {
+      ans += cnt;
+      A -= t;
+      // A >= t + t
+      if (A - t < t) break;
+      t += t;
+      cnt += cnt;
+    }
+    while (A >= B) {
+      ans += sign;
+      A -= B;
+    }
+    return ans;
+  }
+};
