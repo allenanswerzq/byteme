@@ -45,6 +45,30 @@ public:
     }
     return ans;
   }
+
+  vector<vector<int>> subsetsWithDup(vector<int>& A) {
+    sort(A.begin(), A.end());
+    int n = A.size();
+    vector<vector<int>> ans;
+    // 1, 2, 2, 2
+    for (int i = 0; i < (1 << n); i++) {
+      vector<int> cur;
+      bool ok = true;
+      for (int j = 0; j < n; j++) {
+        if (i >> j & 1) {
+          if (j && A[j-1] == A[j] && !(i >> (j - 1) & 1)) {
+            ok = false;
+            break;
+          }
+          else {
+            cur.push_back(A[j]);
+          }
+        }
+      }
+      if (ok) ans.push_back(cur);
+    }
+    return ans;
+  }
 };
 
 #define EXPECT_TRUE(a) assert(a)

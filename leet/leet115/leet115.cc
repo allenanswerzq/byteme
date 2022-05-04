@@ -62,6 +62,24 @@ public:
     }
     return f[n][m];
   }
+
+  int numDistinct(string S, string T) {
+    // .....i use first i chars to match fisrt j in T
+    // ...j
+    // f[i][j] = f[i-1][j] + f[i-1][j-1] (s[i] == s[j])
+    int n = S.size(), m = T.size();
+    vector<ll> f(m + 1);
+    f[0] = 1;
+    for (int i = 1; i <= n; i++) {
+      for (int j = m; j >= 1; j--) { // NOTE: go backward
+        if (S[i - 1] == T[j - 1]) {
+          f[j] += f[j - 1];
+        }
+      }
+    }
+    // trace(f);
+    return f[m];
+  }
 };
 
 #define EXPECT_TRUE(a) assert(a)
