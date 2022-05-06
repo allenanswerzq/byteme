@@ -7,33 +7,36 @@ using namespace std;
 #define ll long long
 
 class Solution {
- public:
+public:
+  using ll = long long;
   int canCompleteCircuit(vector<int>& G, vector<int>& C) {
+    //
+    //  +1 +2 3 4 5 1 2 3 4 5
+    //  -3 -4 5 1 2 3 4 5 1 2
+    //
+    //  -2 -2 -2 +3 +3 -2 -2 -2 +3 +3
+    //
+    G.insert(G.end(), G.begin(), G.end());
+    C.insert(C.end(), C.begin(), C.end());
     int n = G.size();
     for (int i = 0; i < n; i++) {
-      G.push_back(G[i]);
-      C.push_back(C[i]);
+      G[i] -= C[i];
     }
-    vector<int> f(2 * n + 1);
-    for (int i = 0; i < 2 * n; i++) {
-      f[i + 1] = f[i] + G[i] - C[i];
-    }
-    // trace(G);
-    // trace(C);
-    // trace(f);
-    auto get = [&](int x, int y) { return f[y + 1] - f[x]; };
-    for (int i = 0; i < n; i++) {
-      bool ok = true;
-      for (int j = 0; j < n; j++) {
-        // 4 -3 2 -3 3 -4
-        // 4  1 3 0  3 -1
-        // trace(i, i + j, get(i, i + j));
-        if (get(i, i + j) < 0) {
-          ok = false;
-          break;
-        }
+    n /= 2;
+    ll s = 0;
+    int k = 0;
+    for (int lo = 0, hi = 0; lo < n; ) {
+      while (hi < 2 * n && k < n && s + G[hi] >= 0) {
+        s += G[hi++];
+        k++;
       }
-      if (ok) return i;
+      // [lo, hi)
+      // -1 -1 1 -1 -1 1
+      if (k == n) {
+        return hi - n;
+      }
+      k--;
+      s -= G[lo++];
     }
     return -1;
   }

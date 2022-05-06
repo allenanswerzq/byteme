@@ -6,74 +6,76 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define ull unsigned long long
 
-struct HashString {
-  static const int base = 131;
-
-  static ull get(const string& s) {
-    ull ans = 1;
-    for (char c : s) {
-      ans = ans * base + c - 'a';
-    }
-    return ans;
-  }
-};
-
 class Solution {
- public:
-  int ladderLength(const string& B, const string& E, vector<string>& W) {
-    W.push_back(B);
+public:
+  int ladderLength(string B, string E, vector<string>& W) {
     int n = W.size();
-    auto check = [](const string& a, const string& b) {
-      int cnt = 0;
-      for (int k = 0; k < a.size(); k++) {
-        cnt += (a[k] != b[k]);
-        if (cnt > 1) return false;
-      }
-      return cnt == 1;
-    };
+    int start = -1;
+    int end = -1;
+    for (int i = 0; i < n; i++) {
+      if (W[i] == B) start = i;
+      if (W[i] == E) end = i;
+    }
+    if (end == -1) return 0;
+    if (start == -1) {
+      W.push_back(B);
+      start = n++;
+    }
+    unordered_map<string, int> mp;
+    for (int i = 0; i < n; i++) {
+      mp[W[i]] = i;
+    }
     vector<vector<int>> g(n);
-    int dst = -1;
-    for (int i = 0; i < n; i++) {
-      if (W[i] == E) {
-        dst = i;
-      }
-      for (int j = i + 1; j < n; j++) {
-        if (check(W[i], W[j])) {
-          g[i].push_back(j);
-          g[j].push_back(i);
-        }
-      }
-    }
-    if (dst == -1) {
-      return 0;
-    }
-    vector<ull> word(n);
-    for (int i = 0; i < n; i++) {
-      word[i] = HashString::get(W[i]);
-    }
-    ull val = HashString::get(E);
-    int src = n - 1;
-    deque<int> qu;
-    vector<bool> use(n);
-    qu.push_back(src);
-    use[src] = true;
-    int level = 0;
-    while (qu.size()) {
-      int m = qu.size();
-      level++;
-      for (int i = 0; i < m; i++) {
-        int u = qu.front();
-        qu.pop_front();
-        if (word[u] == val) return level;
-        for (int v : g[u]) {
-          if (!use[v]) {
-            use[v] = true;
-            qu.push_back(v);
+    for (auto & w : W) {
+      int u = mp[w];
+      for (int j = 0; j < w.size(); j++) {
+        char b = w[j];
+        for (char c = 'a'; c <= 'z'; c++) {
+          w[j] = c;
+          if (mp.count(w)) {
+            int v = mp[w];
+            if (u == v) continue;
+            g[u].push_back(v);
           }
         }
+        w[j] = b;
       }
     }
-    return 0;
+    // cout << start << " " << end << endl;
+    // auto check = [&](int i, int j) {
+    //   if (W[i].size() != W[j].size()) return false;
+    //   int c = 0;
+    //   for (int k = 0; k < W[i].size(); k++) {
+    //     c += W[i][k] != W[j][k];
+    //   }
+    //   return c == 1;
+    // };
+    // vector<vector<int>> g(n + 1);
+    // for (int i = 0; i < n; i++) {
+    //   for (int j = i + 1; j < n; j++) {
+    //     if (check(i, j)) {
+    //       g[i].push_back(j);
+    //       g[j].push_back(i);
+    //     }
+    //   }
+    // }
+    const int INF = 1e9 + 7;
+    vector<int> dist(n, INF);
+    vector<int> vis(n);
+    dist[start] = 1;
+    vis[start] = 1;
+    vector<int> qu;
+    qu.push_back(start);
+    for (int i = 0; i < qu.size(); i++) {
+      int u = qu[i];
+      for (int v : g[u]) {
+        if (vis[v]) continue;
+        dist[v] = min(dist[v], dist[u] + 1);
+        qu.push_back(v);
+        vis[v] = 1;
+      }
+    }
+    return dist[end] == INF ? 0 : dist[end];
   }
 };
 

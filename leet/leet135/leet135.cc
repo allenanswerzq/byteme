@@ -8,35 +8,30 @@ using namespace std;
 
 class Solution {
 public:
+  void trace(vector<int> & A) {
+    for (int i = 0; i < A.size(); i++) {
+      cout << A[i] << (i == A.size() - 1 ? "\n" : " ");
+    }
+  }
+  using ll = long long;
   int candy(vector<int>& A) {
-    //    1 2 2
-    //    0 1 0
-    //    0 0 0
-
-    //   1 0 2
-    //   0 0 1
-    //   1 0 0
-
-    // 1 2 3 4 5 5 3 1
-    // 0 1 1 1 1 0 0 0
-    // 0 0 0 0 0 1 1 0
     int n = A.size();
-    vector<int> f(n);
-    for (int i = 1; i < n; i++) {
-      if (A[i] > A[i - 1]) {
-        f[i] = f[i - 1] + 1;
-      }
+    ll ans = 0;
+    vector<int> B(n), F(n);
+    for (int i = 0; i < n; i++) {
+      F[i] = (i > 0 && A[i] > A[i-1] ? F[i-1] + 1 : 1);
     }
-    // trace(f);
-    vector<int> g(n);
-    for (int i = n - 2; i >= 0; i--) {
-      if (A[i] > A[i + 1]) {
-        g[i] = g[i + 1] + 1;
-        f[i] = max(f[i], g[i]);
-      }
+    for (int i = n - 1; i >= 0; i--) {
+      B[i] = (i + 1 < n && A[i] > A[i+1] ? B[i+1] + 1 : 1);
     }
-    // trace(g, f);
-    return accumulate(all(f), 0) + n;
+    // trace(F);
+    // trace(B);
+    for (int i = 0; i < n; i++) {
+      A[i] = max(F[i], B[i]);
+      ans += A[i];
+    }
+    // trace(A);
+    return ans;
   }
 };
 
