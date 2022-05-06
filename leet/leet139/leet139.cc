@@ -7,14 +7,12 @@ using namespace std;
 #define ll long long
 
 class Solution {
- public:
-  bool wordBreak(string S, vector<string>& W) {
-    return wordBreakDP(S, W);
-  }
+public:
+  bool wordBreak(string S, vector<string> &W) { return wordBreakDP(S, W); }
 
-  bool wordBreakDP(string S, vector<string>& W) {
+  bool wordBreakDP(string S, vector<string> &W) {
     unordered_set<string> WD;
-    for (string& w : W) {
+    for (string &w : W) {
       WD.insert(w);
     }
     int n = S.size();
@@ -29,6 +27,57 @@ class Solution {
       }
     }
     return f[0];
+  }
+};
+
+class Solution {
+public:
+  struct Trie {
+    vector<array<int, 26>> node;
+    vector<int> leaf;
+    int p = 1;
+    const int N = 1e4;
+
+    Trie() {
+      node.resize(N);
+      leaf.resize(N);
+    }
+
+    void add(const string &ss) {
+      int u = 0;
+      for (auto ch : ss) {
+        int c = ch - 'a';
+        if (!node[u][c]) {
+          node[u][c] = p++;
+        }
+        u = node[u][c];
+      }
+      leaf[u]++;
+    }
+  };
+
+  bool wordBreak(string S, vector<string> &W) {
+    // f[i] = f[j] & (s[j...i] in W)
+    Trie tr;
+    for (auto &w : W) {
+      tr.add(w);
+    }
+    int n = S.size();
+    vector<int> f(n + 1);
+    f[0] = 1;
+    for (int i = 0; i < n; i++) {
+      int u = 0;
+      int c = S[i] - 'a';
+      int j = i;
+      while (j < n && tr.node[u][c]) {
+        u = tr.node[u][c];
+        if (tr.leaf[u]) {
+          f[j + 1] |= f[i];
+        }
+        c = S[++j] - 'a';
+      }
+    }
+    return f[n];
   }
 };
 

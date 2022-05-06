@@ -16,7 +16,6 @@ public:
   using ll = long long;
   int candy(vector<int>& A) {
     int n = A.size();
-    ll ans = 0;
     vector<int> B(n), F(n);
     for (int i = 0; i < n; i++) {
       F[i] = (i > 0 && A[i] > A[i-1] ? F[i-1] + 1 : 1);
@@ -26,6 +25,7 @@ public:
     }
     // trace(F);
     // trace(B);
+    ll ans = 0;
     for (int i = 0; i < n; i++) {
       A[i] = max(F[i], B[i]);
       ans += A[i];
