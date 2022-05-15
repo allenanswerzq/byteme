@@ -300,3 +300,84 @@ public:
     return cal.mp[root];
   }
 };
+
+// infix to postfix
+class Solution {
+public:
+  int evalRPN(vector<string>& tokens) {
+    vector<int> stk;
+    for (auto & t : tokens) {
+      if (t == "+") {
+        int a = stk.back(); stk.pop_back();
+        int b = stk.back(); stk.pop_back();
+        stk.push_back(a + b);
+      }
+      else if (t == "-") {
+        int a = stk.back(); stk.pop_back();
+        int b = stk.back(); stk.pop_back();
+        stk.push_back(b - a);
+      }
+      else if (t == "*") {
+        int a = stk.back(); stk.pop_back();
+        int b = stk.back(); stk.pop_back();
+        stk.push_back(a * b);
+      }
+      else if (t == "/") {
+        int a = stk.back(); stk.pop_back();
+        int b = stk.back(); stk.pop_back();
+        stk.push_back(b / a);
+      }
+      else {
+        stk.push_back(atoi(t.c_str()));
+      }
+    }
+    return stk[0];
+  }
+
+  int preced(char op) {
+    if (op == '*' || op == '/') return 4;
+    else if (op == '+' || op == '-') return 3;
+    else return 0;
+  }
+
+  int calculate(string S) {
+    vector<string> t;
+    vector<char> stk;
+    int n = S.size();
+    for (int i = 0; i < n; i++) {
+      while (i < n && S[i] == ' ') i++;
+      if ('0' <= S[i] && S[i] <= '9') {
+        string b;
+        while (i < n && '0' <= S[i] && S[i] <= '9') b += S[i++];
+        t.push_back(b);
+        i--;
+      }
+      else if (S[i] == '(') {
+        stk.push_back('(');
+      }
+      else if (S[i] == ')') {
+        while (stk.size()) {
+          auto b = stk.back();
+          stk.pop_back();
+          if (b == '(') break;
+          t.push_back(string(1, b));
+        }
+      }
+      else {
+        while (stk.size() && preced(stk.back()) >= preced(S[i])) {
+          t.push_back(string(1, stk.back()));
+          stk.pop_back();
+        }
+        stk.push_back(S[i]);
+      }
+    }
+    while (stk.size()) {
+      t.push_back(string(1, stk.back()));
+      stk.pop_back();
+    }
+    for (auto c : t) {
+      cout << c;
+    }
+    return evalRPN(t);
+  }
+};
