@@ -59,18 +59,18 @@ int test(const string& s, const string& p) {
 }
 
 void solve() {
-  (test("aa", "a"), 0);
-  (test("aa", "a*"), 1);
-  (test("", ".*"), 1);
-  (test("", ".*************"), 1);
-  (test("ab", ""), 0);
-  (test("ab", ".*"), 1);
-  (test("aab", "c*a*b"), 1);
-  (test("mississippi", "mis*is*p*."), 0);
-  (test("a", "ab*"), 1);
-  (test("a", "ab*a"), 0);
-  (test("a", ".*.."), 0);
-  (test("", "c*c*"), 1);
+  EXPECT(test("aa", "a"), 0);
+  EXPECT(test("aa", "a*"), 1);
+  EXPECT(test("", ".*"), 1);
+  EXPECT(test("", ".*************"), 1);
+  EXPECT(test("ab", ""), 0);
+  EXPECT(test("ab", ".*"), 1);
+  EXPECT(test("aab", "c*a*b"), 1);
+  EXPECT(test("mississippi", "mis*is*p*."), 0);
+  EXPECT(test("a", "ab*"), 1);
+  EXPECT(test("a", "ab*a"), 0);
+  EXPECT(test("a", ".*.."), 0);
+  EXPECT(test("", "c*c*"), 1);
 }
 
 int main() {

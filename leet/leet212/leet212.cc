@@ -34,7 +34,8 @@ class Trie {
 
 class Solution {
  public:
-  vector<string> findWords(vector<vector<char>>& A, vector<string>& W) {int n = A.size();
+  vector<string> findWords(vector<vector<char>>& A, vector<string>& W) {
+    int n = A.size();
     int m = A[0].size();
     Trie trie;
     for (int i = 0; i < W.size(); i++) {

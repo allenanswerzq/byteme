@@ -7,35 +7,37 @@ using namespace std;
 #define ll long long
 
 class Solution {
- public:
-  bool search(vector<int>& A, int target) {
-    if (A.empty()) return false;
+public:
+  bool search(vector<int>& A, int val) {
     int n = A.size();
     int lo = 0;
     int hi = n - 1;
+    while (lo + 1 < hi && A[hi] == A[lo]) hi--;
+    if (lo > hi) return false;
     while (lo + 1 < hi) {
-      int md = lo + (hi - lo) / 2;
-      if (A[lo] == A[md] && A[md] == A[hi]) {
-        lo++, hi--;
+      int md = (lo + hi) / 2;
+      if (A[md] == val) {
+        return true;
       }
-      else if (A[md] >= A[lo]) {
-        if (A[lo] <= target && target <= A[md]) {
+      else if (A[lo] <= A[md]) {
+        if (A[lo] <= val && val < A[md]) {
           hi = md;
-        } else {
+        }
+        else {
           lo = md;
         }
       }
       else {
-        if (A[md] <= target && target <= A[hi]) {
+        assert(A[md] <= A[hi]);
+        if (A[md] < val && val <= A[hi]) {
           lo = md;
-        } else {
+        }
+        else {
           hi = md;
         }
       }
     }
-    // trace(lo, hi, A[lo], A[hi]);
-    if (lo >= 0 && A[lo] == target) return true;
-    if (hi < n && A[hi] == target) return true;
+    if (A[lo] == val || A[hi] == val) return true;
     return false;
   }
 };

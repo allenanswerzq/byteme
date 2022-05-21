@@ -14,12 +14,12 @@ public:
     int p = 1;
     const int N = 1e4;
 
-    Trie() {
+    Trie () {
       node.resize(N);
       leaf.resize(N);
     }
 
-    void add(const string &ss) {
+    void add(const string& ss) {
       int u = 0;
       for (auto ch : ss) {
         int c = ch - 'a';
@@ -32,22 +32,20 @@ public:
     }
   };
 
-  void trace(vector<vector<int>> &v) {
-    for (auto &t : v) {
+  void trace(vector<vector<int>>& v) {
+    for (auto & t : v) {
       int m = t.size();
       cout << "[";
       for (int i = 0; i < m; i++) {
-        if (i > 0)
-          cout << " ";
-        cout << t[i];
+        cout << t[i] << " ";
       }
       cout << "]\n";
     }
   }
 
-  vector<string> wordBreak(string S, vector<string> &W) {
+  vector<string> wordBreak(string S, vector<string>& W) {
     Trie tr;
-    for (auto &w : W) {
+    for (auto & w : W) {
       tr.add(w);
     }
     int n = S.size();
@@ -67,47 +65,28 @@ public:
         c = S[++j] - 'a';
       }
     }
-    // trace(g);
     vector<vector<int>> ans;
-    std::function<void(int, vector<int> &)> dfs = [&](int u, vector<int> &path) {
-      path.push_back(u);
+    std::function<void(int,vector<int>&)> dfs =[&](int u, vector<int>&path) {
       if (u == n) {
         ans.push_back(path);
-        path.pop_back();
         return;
       }
       for (int v : g[u]) {
+        path.push_back(v);
         dfs(v, path);
+        path.pop_back();
       }
-      path.pop_back();
     };
     vector<int> path;
     dfs(0, path);
-    // trace(ans);
     vector<string> res;
-    for (auto &v : ans) {
+    for (auto & v : ans) {
       string cur = S;
-      for (int i = 1; i + 1 < v.size(); i++) {
-        cur.insert(v[i] + i - 1, 1, ' ');
+      for (int i = 0; i + 1 < v.size(); i++) {
+        cur.insert(v[i] + i, 1, ' ');
       }
       res.push_back(cur);
     }
     return res;
   }
 };
-
-void solve() {
-  test("catsanddog", {"cat", "cats", "and", "sand", "dog"});
-  test("pineapplepenapple", {"apple", "pen", "applepen", "pine", "pineapple"});
-  test("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-       "aaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-       "aaaaaaaaa",
-       {"a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa",
-        "aaaaaaaaa", "aaaaaaaaaa"});
-}
-
-int main() {
-  ios_base::sync_with_stdio(0), cin.tie(0);
-  solve();
-  return 0;
-}
