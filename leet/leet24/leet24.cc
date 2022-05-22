@@ -10,19 +10,19 @@ using ar = array<int, 2>;
 class Solution {
 public:
   ListNode* swapPairs(ListNode* head) {
-    if (!head || !head->next) return head;
+   if (!head) return head;
     auto p = &head;
     auto q = &head->next;
     while (*p && *q) {
-      // cout << (*p)->val << " " << (*q)->val << endl;
+      //     t
+      // --> x --> y --> z
+      //  p     q
       auto t = *p;
       *p = (*q)->next;
       (*q)->next = t;
       swap(*p, *q);
-      if (t) p = &t->next;
-      else break;
+      p = &t->next;
       if (*p) q = &(*p)->next;
-      else break;
     }
     return head;
   }
