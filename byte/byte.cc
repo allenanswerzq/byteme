@@ -1,79 +1,104 @@
-/* created   : 2020-08-23 20:58:09
- * accepted  : 2022-04-11 09:20:25
- */
 #include <bits/stdc++.h>
+#include <sys/mman.h>
+#include <malloc.h>
 using namespace std;
-#define all(x) (x).begin(), (x).end()
-#define ll long long
 
-struct TreeNode {
-  int val = 0;
-  TreeNode *left = nullptr;
-  TreeNode *right = nullptr;
+const long PG_SIZE = 4096;
 
-  TreeNode() {}
-  TreeNode(int x) : val(x) {}
-  TreeNode(int x, TreeNode *left, TreeNode *right)
-    : val(x), left(left), right(right) {}
+int add(int a, int b) {
+  return a + b;
+}
 
-  static int NIL;
+int fake_add(int a, int b) {
+  cout << "Faking " << a << " " << b << endl;
+  return a + b + 100;
+}
 
-  // [1,2,3,4,5,null,6,7,8,9,null]
-  static TreeNode* create(const vector<int> & v) {
-    if (v.empty()) return nullptr;
-    vector<TreeNode*> qu;
-    auto root = new TreeNode(v[0]);
-    qu.push_back(root);
-    int k = 1;
-    for (int i = 0; i < qu.size(); i++) {
-      if (!qu[i]) continue;
-      trace(i, qu[i], k);
-      if (k < v.size()) {
-        auto l = (v[k] == TreeNode::NIL ? nullptr : new TreeNode(v[k]));
-        qu[i]->left = l;
-        qu.push_back(l);
-        k++;
-      }
-      if (k < v.size()) {
-        auto r = (v[k] == TreeNode::NIL ? nullptr : new TreeNode(v[k]));
-        qu[i]->right = r;
-        qu.push_back(r);
-        k++;
-      }
-    }
-    return root;
-  }
-
-  void traverse(TreeNode* root, vector<int> & ans) {
-    ans.push_back(root ? root->val : NIL);
-    if (root->left) traverse(root->left, ans);
-    if (root->right) traverse(root->right, ans);
-  }
-
-  vector<int> serialize() {
-    vector<int> ans;
-    traverse(this, ans);
-    return ans;
-  }
-};
-
-int TreeNode::NIL = 1e9;
-
-void test(const vector<int>& v) {
-  TreeNode* n = TreeNode::create(v);
-  if (n) {
-    trace(n->serialize());
+void make_address_writable(void * func) {
+  long long start = ((((long long)func) >> 12) << 12);
+  void * aligned_start = (void*) start;
+  cout << func << " " << aligned_start << endl;
+  if (mprotect(aligned_start, PG_SIZE, PROT_READ | PROT_WRITE | PROT_EXEC) != 0) {
+    cout << "mprotect failed" << " " << errno << endl;
+    return;
   }
 }
 
-void solve() {
-  // test({});
-  test({1, TreeNode::NIL, 2, TreeNode::NIL, 3});
+void copy_insts_to_address(void* dst, vector<uint8_t> src) {
+  memcpy(dst, src.data(), src.size());
 }
 
+#define CAST_FUNCTION(func) reinterpret_cast<void*>(func)
+
+void tracehex(vector<uint8_t> v) {
+  std::ostringstream ss;
+  ss << std::hex << std::setfill( '0' );
+  std::for_each( v.cbegin(), v.cend(), [&]( int c ) {
+    ss << std::setw( 2 ) << "\\x" << c; }
+  );
+  cout << ss.str() << endl;
+}
+
+// https://defuse.ca/online-x86-assembler.htm#disassembly
+// https://vividmachines.com/shellcode/shellcode.html
+//
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  solve();
+  make_address_writable(CAST_FUNCTION(add));
+  void* jit = memalign(PG_SIZE, PG_SIZE);
+  make_address_writable(CAST_FUNCTION(jit));
+
+  // Overwrite add to jump to jit memory
+  vector<uint8_t> jump = {
+    // intel assembly
+    // mov rax, func
+    // jmp rax
+    0x48, 0xb8, 0, 0, 0, 0, 0, 0, 0, 0, 0xff, 0xe0
+  };
+  vector<uint8_t> old;
+  for (int i = 0; i < jump.size(); i++) {
+    auto tt = reinterpret_cast<uint8_t*>(add);
+    old.push_back(tt[i]);
+  }
+
+  auto ptr = reinterpret_cast<intptr_t>(jit);
+  for (int i = 0; i < 8; i++) {
+    jump[i + 2] = (ptr & 0xff); ptr >>= 8;
+  }
+  tracehex(jump);
+  copy_insts_to_address(CAST_FUNCTION(add), jump);
+
+  // Return any value
+  vector<uint8_t> code = {
+    // mov rax, 08;
+    // ret;
+    0x48, 0xC7, 0xC0, 0x08, 0x00, 0x00, 0x00, 0xC3
+  };
+  copy_insts_to_address(CAST_FUNCTION(jit), code);
+
+  //
+  int result = add(1, 2);
+  assert(result == 8);
+
+  // call Fake function
+  code = {
+    // mov rax, func;
+    // call rax;
+    // ret
+    0x48, 0xb8, 0, 0, 0, 0, 0, 0, 0, 0, 0xff, 0xd0, 0xC3
+  };
+  ptr = reinterpret_cast<intptr_t>(fake_add);
+  for (int i = 0; i < 8; i++) {
+    code[i + 2] = (ptr & 0xff); ptr >>= 8;
+  }
+  tracehex(code);
+  copy_insts_to_address(CAST_FUNCTION(jit), code);
+  result = add(1, 2);
+  assert(result == 103);
+
+  copy_insts_to_address(CAST_FUNCTION(add), old);
+  result = add(1, 2);
+  assert(result == 3);
+
+  free(jit);
   return 0;
 }
